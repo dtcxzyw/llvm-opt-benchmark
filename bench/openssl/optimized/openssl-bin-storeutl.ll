@@ -387,11 +387,12 @@ if.end113:                                        ; preds = %while.end
   br i1 %tobool116.not, label %opthelp, label %if.end118
 
 if.end118:                                        ; preds = %if.end113
-  switch i32 %criterion.0, label %if.end148 [
-    i32 4, label %sw.bb142
+  switch i32 %criterion.0, label %default.unreachable616 [
+    i32 0, label %if.end148
     i32 1, label %sw.bb121
     i32 2, label %sw.bb126
     i32 3, label %sw.bb137
+    i32 4, label %sw.bb142
   ]
 
 sw.bb121:                                         ; preds = %if.end118
@@ -445,6 +446,9 @@ if.then145:                                       ; preds = %sw.bb142
   %25 = load ptr, ptr @bio_err, align 8
   call void @ERR_print_errors(ptr noundef %25) #4
   br label %end
+
+default.unreachable616:                           ; preds = %if.end118
+  unreachable
 
 if.end148:                                        ; preds = %if.end118, %sw.bb121, %if.end132, %sw.bb137, %sw.bb142
   %search.0 = phi ptr [ %call143, %sw.bb142 ], [ %call138, %sw.bb137 ], [ %call133, %if.end132 ], [ %call122, %sw.bb121 ], [ null, %if.end118 ]

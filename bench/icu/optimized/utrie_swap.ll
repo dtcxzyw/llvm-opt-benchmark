@@ -194,7 +194,6 @@ if.end11:                                         ; preds = %if.end6
   %8 = load i16, ptr %shiftedDataLength, align 4
   %call20 = tail call noundef zeroext i16 %7(i16 noundef zeroext %8)
   %9 = and i16 %call14, 15
-  %conv24 = zext i16 %call20 to i32
   %cmp26 = icmp ne i32 %call12, 1416784178
   %cmp30 = icmp ugt i16 %9, 1
   %or.cond4 = or i1 %cmp26, %cmp30
@@ -210,27 +209,17 @@ if.then37:                                        ; preds = %if.end11
 
 if.end38:                                         ; preds = %if.end11
   %conv33 = zext i16 %call17 to i32
+  %conv24 = zext i16 %call20 to i32
   %mul = shl nuw nsw i32 %conv33, 1
   %narrow = add nuw nsw i32 %mul, 16
-  switch i16 %9, label %sw.default [
-    i16 0, label %sw.epilog
-    i16 1, label %sw.bb45
-  ]
-
-sw.bb45:                                          ; preds = %if.end38
-  br label %sw.epilog
-
-sw.default:                                       ; preds = %if.end38
-  store i32 3, ptr %pErrorCode, align 4
-  br label %return
-
-sw.epilog:                                        ; preds = %if.end38, %sw.bb45
-  %.sink = phi i32 [ 4, %sw.bb45 ], [ 3, %if.end38 ]
-  %mul46 = shl nuw nsw i32 %conv24, %.sink
-  %size.0 = add nuw nsw i32 %narrow, %mul46
+  %switch = icmp eq i16 %9, 0
+  %mul46 = shl nuw nsw i32 %conv24, 4
+  %mul43 = shl nuw nsw i32 %conv24, 3
+  %mul46.pn = select i1 %switch, i32 %mul43, i32 %mul46
+  %size.0 = add nuw nsw i32 %narrow, %mul46.pn
   br i1 %cmp3, label %if.then49, label %return
 
-if.then49:                                        ; preds = %sw.epilog
+if.then49:                                        ; preds = %if.end38
   %cmp50 = icmp ugt i32 %size.0, %length
   br i1 %cmp50, label %if.then51, label %if.end52
 
@@ -246,39 +235,28 @@ if.end52:                                         ; preds = %if.then49
   %11 = load ptr, ptr %swapArray16, align 8
   %options57 = getelementptr inbounds %struct.UTrie2Header, ptr %outData, i64 0, i32 1
   %call58 = tail call noundef i32 %11(ptr noundef nonnull %ds, ptr noundef nonnull %options, i32 noundef 12, ptr noundef nonnull %options57, ptr noundef nonnull %pErrorCode)
-  switch i16 %9, label %sw.default87 [
-    i16 0, label %sw.bb59
-    i16 1, label %sw.bb67
-  ]
-
-sw.bb59:                                          ; preds = %if.end52
   %12 = load ptr, ptr %swapArray16, align 8
   %add.ptr = getelementptr inbounds %struct.UTrie2Header, ptr %inData, i64 1
-  %13 = shl nuw nsw i32 %conv24, 3
-  %mul64 = add nuw nsw i32 %13, %mul
+  br i1 %switch, label %sw.bb59, label %sw.bb67
+
+sw.bb59:                                          ; preds = %if.end52
+  %mul64 = add nuw nsw i32 %mul43, %mul
   %add.ptr65 = getelementptr inbounds %struct.UTrie2Header, ptr %outData, i64 1
   %call66 = tail call noundef i32 %12(ptr noundef nonnull %ds, ptr noundef nonnull %add.ptr, i32 noundef %mul64, ptr noundef nonnull %add.ptr65, ptr noundef nonnull %pErrorCode)
   br label %return
 
 sw.bb67:                                          ; preds = %if.end52
-  %14 = load ptr, ptr %swapArray16, align 8
-  %add.ptr69 = getelementptr inbounds %struct.UTrie2Header, ptr %inData, i64 1
   %add.ptr73 = getelementptr inbounds %struct.UTrie2Header, ptr %outData, i64 1
-  %call74 = tail call noundef i32 %14(ptr noundef nonnull %ds, ptr noundef nonnull %add.ptr69, i32 noundef %mul, ptr noundef nonnull %add.ptr73, ptr noundef nonnull %pErrorCode)
-  %15 = load ptr, ptr %swapArray32, align 8
+  %call74 = tail call noundef i32 %12(ptr noundef nonnull %ds, ptr noundef nonnull %add.ptr, i32 noundef %mul, ptr noundef nonnull %add.ptr73, ptr noundef nonnull %pErrorCode)
+  %13 = load ptr, ptr %swapArray32, align 8
   %idx.ext = zext i16 %call17 to i64
-  %add.ptr79 = getelementptr inbounds i16, ptr %add.ptr69, i64 %idx.ext
-  %mul80 = shl nuw nsw i32 %conv24, 4
+  %add.ptr79 = getelementptr inbounds i16, ptr %add.ptr, i64 %idx.ext
   %add.ptr85 = getelementptr inbounds i16, ptr %add.ptr73, i64 %idx.ext
-  %call86 = tail call noundef i32 %15(ptr noundef nonnull %ds, ptr noundef nonnull %add.ptr79, i32 noundef %mul80, ptr noundef nonnull %add.ptr85, ptr noundef nonnull %pErrorCode)
+  %call86 = tail call noundef i32 %13(ptr noundef nonnull %ds, ptr noundef nonnull %add.ptr79, i32 noundef %mul46, ptr noundef nonnull %add.ptr85, ptr noundef nonnull %pErrorCode)
   br label %return
 
-sw.default87:                                     ; preds = %if.end52
-  store i32 3, ptr %pErrorCode, align 4
-  br label %return
-
-return:                                           ; preds = %sw.epilog, %sw.bb67, %sw.bb59, %entry, %sw.default87, %if.then51, %sw.default, %if.then37, %if.then10, %if.then5
-  %retval.0 = phi i32 [ 0, %if.then5 ], [ 0, %if.then10 ], [ 0, %if.then37 ], [ 0, %sw.default ], [ 0, %if.then51 ], [ 0, %sw.default87 ], [ 0, %entry ], [ %size.0, %sw.bb59 ], [ %size.0, %sw.bb67 ], [ %size.0, %sw.epilog ]
+return:                                           ; preds = %if.end38, %sw.bb67, %sw.bb59, %entry, %if.then51, %if.then37, %if.then10, %if.then5
+  %retval.0 = phi i32 [ 0, %if.then5 ], [ 0, %if.then10 ], [ 0, %if.then37 ], [ 0, %if.then51 ], [ 0, %entry ], [ %size.0, %sw.bb59 ], [ %size.0, %sw.bb67 ], [ %size.0, %if.end38 ]
   ret i32 %retval.0
 }
 
@@ -367,7 +345,7 @@ if.then50:                                        ; preds = %lor.lhs.false44, %l
 if.end51:                                         ; preds = %lor.lhs.false44
   %mul = shl nuw nsw i32 %conv46, 1
   %narrow = add nuw nsw i32 %mul, 16
-  switch i32 %and26, label %sw.default [
+  switch i32 %and26, label %default.unreachable [
     i32 0, label %sw.bb
     i32 1, label %sw.bb58
     i32 2, label %sw.epilog
@@ -381,9 +359,8 @@ sw.bb58:                                          ; preds = %if.end51
   %mul59 = shl nuw nsw i32 %or, 2
   br label %sw.epilog
 
-sw.default:                                       ; preds = %if.end51
-  store i32 3, ptr %pErrorCode, align 4
-  br label %return
+default.unreachable:                              ; preds = %if.end67, %if.end51
+  unreachable
 
 sw.epilog:                                        ; preds = %if.end51, %sw.bb58, %sw.bb
   %or.pn = phi i32 [ %mul59, %sw.bb58 ], [ %mul56, %sw.bb ], [ %or, %if.end51 ]
@@ -413,7 +390,7 @@ if.end67:                                         ; preds = %if.then64
   %idx.ext = zext i16 %call17 to i64
   %add.ptr83 = getelementptr inbounds i16, ptr %add.ptr, i64 %idx.ext
   %add.ptr88 = getelementptr inbounds i16, ptr %add.ptr74, i64 %idx.ext
-  switch i32 %and26, label %sw.default102 [
+  switch i32 %and26, label %default.unreachable [
     i32 0, label %sw.bb89
     i32 1, label %sw.bb93
     i32 2, label %sw.bb97
@@ -440,12 +417,8 @@ do.body:                                          ; preds = %sw.bb97
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 2 %add.ptr88, ptr nonnull align 2 %add.ptr83, i64 %conv100, i1 false)
   br label %return
 
-sw.default102:                                    ; preds = %if.end67
-  store i32 3, ptr %pErrorCode, align 4
-  br label %return
-
-return:                                           ; preds = %sw.epilog, %sw.bb97, %do.body, %sw.bb93, %sw.bb89, %entry, %sw.default102, %if.then66, %sw.default, %if.then50, %if.then10, %if.then5
-  %retval.0 = phi i32 [ 0, %if.then5 ], [ 0, %if.then10 ], [ 0, %if.then50 ], [ 0, %sw.default ], [ 0, %if.then66 ], [ 0, %sw.default102 ], [ 0, %entry ], [ %size.0, %sw.bb89 ], [ %size.0, %sw.bb93 ], [ %size.0, %do.body ], [ %size.0, %sw.bb97 ], [ %size.0, %sw.epilog ]
+return:                                           ; preds = %sw.epilog, %sw.bb97, %do.body, %sw.bb93, %sw.bb89, %entry, %if.then66, %if.then50, %if.then10, %if.then5
+  %retval.0 = phi i32 [ 0, %if.then5 ], [ 0, %if.then10 ], [ 0, %if.then50 ], [ 0, %if.then66 ], [ 0, %entry ], [ %size.0, %sw.bb89 ], [ %size.0, %sw.bb93 ], [ %size.0, %do.body ], [ %size.0, %sw.bb97 ], [ %size.0, %sw.epilog ]
   ret i32 %retval.0
 }
 

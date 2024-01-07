@@ -107,9 +107,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.13 = private unnamed_addr constant [7 x i8] c"device\00", align 1
 @.str.14 = private unnamed_addr constant [101 x i8] c"/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/qemu/qemu/include/hw/qdev-core.h\00", align 1
 @__func__.DEVICE = private unnamed_addr constant [7 x i8] c"DEVICE\00", align 1
-@.str.15 = private unnamed_addr constant [23 x i8] c"!\22unknown return code\22\00", align 1
 @.str.16 = private unnamed_addr constant [26 x i8] c"../qemu/hw/usb/hcd-uhci.c\00", align 1
-@__PRETTY_FUNCTION__.uhci_process_frame = private unnamed_addr constant [37 x i8] c"void uhci_process_frame(UHCIState *)\00", align 1
 @_TRACE_USB_UHCI_FRAME_STOP_BANDWIDTH_DSTATE = external local_unnamed_addr global i16, align 2
 @.str.17 = private unnamed_addr constant [45 x i8] c"%d@%zu.%06zu:usb_uhci_frame_stop_bandwidth \0A\00", align 1
 @.str.18 = private unnamed_addr constant [32 x i8] c"usb_uhci_frame_stop_bandwidth \0A\00", align 1
@@ -2149,7 +2147,7 @@ if.then40:                                        ; preds = %trace_usb_uhci_td_l
   br label %if.end48
 
 if.end48:                                         ; preds = %if.then40, %trace_usb_uhci_td_load.exit
-  switch i32 %call36, label %sw.default [
+  switch i32 %call36, label %default.unreachable162 [
     i32 10, label %out
     i32 12, label %sw.bb49
     i32 14, label %sw.bb49
@@ -2312,8 +2310,7 @@ if.then86:                                        ; preds = %if.then75
   store i32 %94, ptr %link, align 4
   br label %for.inc
 
-sw.default:                                       ; preds = %if.end48
-  call void @__assert_fail(ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.16, i32 noundef 1063, ptr noundef nonnull @__PRETTY_FUNCTION__.uhci_process_frame) #12
+default.unreachable162:                           ; preds = %if.end48
   unreachable
 
 for.inc:                                          ; preds = %if.then75, %if.then86, %trace_usb_uhci_td_complete.exit, %if.then27, %if.else29, %trace_usb_uhci_td_async.exit, %trace_usb_uhci_td_nextqh.exit
@@ -2337,7 +2334,7 @@ out:                                              ; preds = %if.end48, %for.inc,
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @uhci_handle_td(ptr noundef %s, ptr noundef %q, i32 noundef %qh_addr, ptr nocapture noundef %td, i32 noundef %td_addr, ptr nocapture noundef %int_mask) unnamed_addr #0 {
+define internal fastcc noundef i32 @uhci_handle_td(ptr noundef %s, ptr noundef %q, i32 noundef %qh_addr, ptr nocapture noundef %td, i32 noundef %td_addr, ptr nocapture noundef %int_mask) unnamed_addr #0 {
 entry:
   %_now.i.i24.i = alloca %struct.timeval, align 8
   %_now.i.i.i162 = alloca %struct.timeval, align 8
@@ -3123,7 +3120,7 @@ while.end:                                        ; preds = %trace_usb_uhci_td_q
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @uhci_handle_td_error(ptr nocapture noundef %s, ptr nocapture noundef %td, i32 noundef %td_addr, i32 noundef %status, ptr nocapture noundef %int_mask) unnamed_addr #0 {
+define internal fastcc noundef i32 @uhci_handle_td_error(ptr nocapture noundef %s, ptr nocapture noundef %td, i32 noundef %td_addr, i32 noundef %status, ptr nocapture noundef %int_mask) unnamed_addr #0 {
 entry:
   %_now.i.i27 = alloca %struct.timeval, align 8
   %_now.i.i13 = alloca %struct.timeval, align 8
@@ -3365,7 +3362,7 @@ return:                                           ; preds = %uhci_update_irq.exi
 declare ptr @usb_ep_get(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc ptr @uhci_queue_new(ptr noundef %s, i32 noundef %qh_addr, ptr nocapture noundef readonly %td, ptr noundef %ep) unnamed_addr #0 {
+define internal fastcc noundef ptr @uhci_queue_new(ptr noundef %s, i32 noundef %qh_addr, ptr nocapture noundef readonly %td, ptr noundef %ep) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %call = tail call noalias dereferenceable_or_null(64) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 64) #11
@@ -4233,7 +4230,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @uhci_post_load(ptr nocapture noundef writeonly %opaque, i32 noundef %version_id) #0 {
+define internal noundef i32 @uhci_post_load(ptr nocapture noundef writeonly %opaque, i32 noundef %version_id) #0 {
 entry:
   %cmp = icmp slt i32 %version_id, 2
   br i1 %cmp, label %if.then, label %if.end

@@ -765,7 +765,7 @@ if.then54:                                        ; preds = %if.end50
   br label %return
 
 if.end55:                                         ; preds = %if.end50
-  switch i32 %mformat_code, label %sw.default [
+  switch i32 %mformat_code, label %default.unreachable [
     i32 14, label %sw.bb
     i32 15, label %sw.bb
     i32 16, label %sw.bb78
@@ -994,9 +994,8 @@ if.end185:                                        ; preds = %for.body174
   %cmp172 = icmp slt i64 %inc187, %div140
   br i1 %cmp172, label %for.body174, label %sw.epilog, !llvm.loop !10
 
-sw.default:                                       ; preds = %if.end55
-  %call190 = tail call i32 @PyErr_BadArgument() #11
-  br label %return
+default.unreachable:                              ; preds = %if.end55
+  unreachable
 
 sw.epilog:                                        ; preds = %if.end185, %if.end106, %if.end75, %for.cond171.preheader, %for.cond94.preheader, %for.cond65.preheader, %sw.bb121, %sw.bb110
   %converted_items.0 = phi ptr [ %call128, %sw.bb121 ], [ %call116, %sw.bb110 ], [ %call60, %for.cond65.preheader ], [ %call89, %for.cond94.preheader ], [ %call166, %for.cond171.preheader ], [ %call60, %if.end75 ], [ %call89, %if.end106 ], [ %call166, %if.end185 ]
@@ -1018,8 +1017,8 @@ if.then1.i:                                       ; preds = %if.end.i
   call void @_Py_Dealloc(ptr noundef nonnull %converted_items.0) #11
   br label %return
 
-return:                                           ; preds = %return.sink.split.i, %if.end.i.i, %_Py_NewRef.exit.i, %if.end.i16.i, %if.then5.i, %if.then47, %if.end.i, %if.then1.i, %sw.epilog, %if.end.i196, %if.then1.i199, %if.then184, %for.end165, %sw.bb121, %sw.bb110, %if.end.i205, %if.then1.i208, %if.then105, %sw.bb78, %if.end.i214, %if.then1.i217, %if.then74, %sw.bb, %sw.default, %if.then54, %if.then35, %if.then30, %if.then24, %if.then6, %if.then
-  %retval.0 = phi ptr [ null, %if.then24 ], [ null, %if.then30 ], [ null, %if.then54 ], [ null, %sw.default ], [ null, %if.then35 ], [ null, %if.then6 ], [ null, %if.then ], [ null, %sw.bb ], [ null, %if.then74 ], [ null, %if.then1.i217 ], [ null, %if.end.i214 ], [ null, %sw.bb78 ], [ null, %if.then105 ], [ null, %if.then1.i208 ], [ null, %if.end.i205 ], [ null, %sw.bb110 ], [ null, %sw.bb121 ], [ null, %for.end165 ], [ null, %if.then184 ], [ null, %if.then1.i199 ], [ null, %if.end.i196 ], [ %call192, %sw.epilog ], [ %call192, %if.then1.i ], [ %call192, %if.end.i ], [ null, %if.then47 ], [ null, %if.then5.i ], [ null, %if.end.i16.i ], [ %call8.i, %_Py_NewRef.exit.i ], [ %call8.i, %if.end.i.i ], [ %retval.0.ph.i, %return.sink.split.i ]
+return:                                           ; preds = %return.sink.split.i, %if.end.i.i, %_Py_NewRef.exit.i, %if.end.i16.i, %if.then5.i, %if.then47, %if.end.i, %if.then1.i, %sw.epilog, %if.end.i196, %if.then1.i199, %if.then184, %for.end165, %sw.bb121, %sw.bb110, %if.end.i205, %if.then1.i208, %if.then105, %sw.bb78, %if.end.i214, %if.then1.i217, %if.then74, %sw.bb, %if.then54, %if.then35, %if.then30, %if.then24, %if.then6, %if.then
+  %retval.0 = phi ptr [ null, %if.then24 ], [ null, %if.then30 ], [ null, %if.then54 ], [ null, %if.then35 ], [ null, %if.then6 ], [ null, %if.then ], [ null, %sw.bb ], [ null, %if.then74 ], [ null, %if.then1.i217 ], [ null, %if.end.i214 ], [ null, %sw.bb78 ], [ null, %if.then105 ], [ null, %if.then1.i208 ], [ null, %if.end.i205 ], [ null, %sw.bb110 ], [ null, %sw.bb121 ], [ null, %for.end165 ], [ null, %if.then184 ], [ null, %if.then1.i199 ], [ null, %if.end.i196 ], [ %call192, %sw.epilog ], [ %call192, %if.then1.i ], [ %call192, %if.end.i ], [ null, %if.then47 ], [ null, %if.then5.i ], [ null, %if.end.i16.i ], [ %call8.i, %_Py_NewRef.exit.i ], [ %call8.i, %if.end.i.i ], [ %retval.0.ph.i, %return.sink.split.i ]
   ret ptr %retval.0
 }
 

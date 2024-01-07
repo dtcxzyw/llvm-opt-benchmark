@@ -64,7 +64,6 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.20 = private unnamed_addr constant [4 x i8] c"dss\00", align 1
 @.str.21 = private unnamed_addr constant [3 x i8] c"ds\00", align 1
 @.str.22 = private unnamed_addr constant [6 x i8] c"sssdd\00", align 1
-@.str.23 = private unnamed_addr constant [16 x i8] c"Invalid type %d\00", align 1
 @.str.24 = private unnamed_addr constant [3 x i8] c"dd\00", align 1
 @.str.25 = private unnamed_addr constant [16 x i8] c"retval == 4 * 2\00", align 1
 @__PRETTY_FUNCTION__.v9fs_request = private unnamed_addr constant [48 x i8] c"int v9fs_request(V9fsProxy *, int, void *, ...)\00", align 1
@@ -83,7 +82,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.36 = private unnamed_addr constant [3 x i8] c"%s\00", align 1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @proxy_parse_opts(ptr noundef %opts, ptr nocapture noundef %fs, ptr noundef %errp) #0 {
+define internal noundef i32 @proxy_parse_opts(ptr noundef %opts, ptr nocapture noundef %fs, ptr noundef %errp) #0 {
 entry:
   %call = tail call ptr @qemu_opt_get(ptr noundef %opts, ptr noundef nonnull @.str) #19
   %call1 = tail call ptr @qemu_opt_get(ptr noundef %opts, ptr noundef nonnull @.str.1) #19
@@ -133,7 +132,7 @@ return:                                           ; preds = %if.then9, %if.else,
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @proxy_init(ptr nocapture noundef %ctx, ptr noundef %errp) #0 {
+define internal noundef i32 @proxy_init(ptr nocapture noundef %ctx, ptr noundef %errp) #0 {
 entry:
   %helper.i = alloca %struct.sockaddr_un, align 2
   %call = tail call noalias dereferenceable_or_null(88) ptr @g_malloc_n(i64 noundef 1, i64 noundef 88) #20
@@ -518,7 +517,7 @@ entry:
 }
 
 ; Function Attrs: nofree nounwind sspstrong uwtable
-define internal i32 @proxy_closedir(ptr nocapture readnone %ctx, ptr nocapture noundef readonly %fs) #1 {
+define internal noundef i32 @proxy_closedir(ptr nocapture readnone %ctx, ptr nocapture noundef readonly %fs) #1 {
 entry:
   %0 = load ptr, ptr %fs, align 8
   %call = tail call i32 @closedir(ptr noundef %0)
@@ -526,7 +525,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @proxy_opendir(ptr nocapture noundef readonly %ctx, ptr noundef %fs_path, ptr nocapture noundef writeonly %fs) #0 {
+define internal noundef i32 @proxy_opendir(ptr nocapture noundef readonly %ctx, ptr noundef %fs_path, ptr nocapture noundef writeonly %fs) #0 {
 entry:
   store ptr null, ptr %fs, align 8
   %private = getelementptr inbounds %struct.FsContext, ptr %ctx, i64 0, i32 6
@@ -715,7 +714,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @proxy_fstat(ptr nocapture readnone %fs_ctx, i32 noundef %fid_type, ptr nocapture noundef readonly %fs, ptr nocapture noundef %stbuf) #0 {
+define internal noundef i32 @proxy_fstat(ptr nocapture readnone %fs_ctx, i32 noundef %fid_type, ptr nocapture noundef readonly %fs, ptr nocapture noundef %stbuf) #0 {
 entry:
   %cmp = icmp eq i32 %fid_type, 2
   br i1 %cmp, label %if.then, label %if.else
@@ -767,7 +766,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @proxy_truncate(ptr nocapture noundef readonly %ctx, ptr noundef %fs_path, i64 noundef %size) #0 {
+define internal noundef i32 @proxy_truncate(ptr nocapture noundef readonly %ctx, ptr noundef %fs_path, i64 noundef %size) #0 {
 entry:
   %private = getelementptr inbounds %struct.FsContext, ptr %ctx, i64 0, i32 6
   %0 = load ptr, ptr %private, align 8
@@ -944,7 +943,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @proxy_name_to_path(ptr nocapture readnone %ctx, ptr noundef readonly %dir_path, ptr noundef %name, ptr noundef %target) #0 {
+define internal noundef i32 @proxy_name_to_path(ptr nocapture readnone %ctx, ptr noundef readonly %dir_path, ptr noundef %name, ptr noundef %target) #0 {
 entry:
   %tobool.not = icmp eq ptr %dir_path, null
   br i1 %tobool.not, label %if.else, label %if.then
@@ -1120,7 +1119,7 @@ if.end:                                           ; preds = %entry
   %out_iovec = getelementptr inbounds %struct.V9fsProxy, ptr %proxy, i64 0, i32 3
   %in_iovec = getelementptr inbounds %struct.V9fsProxy, ptr %proxy, i64 0, i32 2
   call void @llvm.va_start(ptr nonnull %ap)
-  switch i32 %type, label %sw.epilog.thread [
+  switch i32 %type, label %default.unreachable [
     i32 2, label %sw.bb
     i32 3, label %sw.bb21
     i32 4, label %sw.bb90
@@ -2460,22 +2459,19 @@ vaarg.end819:                                     ; preds = %vaarg.in_mem815, %v
   store i32 %conv822, ptr %retval1, align 4
   br label %sw.epilog
 
-sw.epilog.thread:                                 ; preds = %if.end
-  call void (ptr, ...) @error_report(ptr noundef nonnull @.str.23, i32 noundef %type) #19
-  store i32 -22, ptr %retval1, align 4
-  call void @llvm.va_end(ptr nonnull %ap)
-  br label %err_out
+default.unreachable:                              ; preds = %if.end854, %if.end
+  unreachable
 
 sw.epilog:                                        ; preds = %vaarg.end819, %vaarg.end798, %vaarg.end765, %vaarg.end696, %vaarg.end663, %vaarg.end618, %vaarg.end597, %vaarg.end554, %vaarg.end482, %vaarg.end449, %vaarg.end404, %vaarg.end371, %vaarg.end350, %vaarg.end317, %vaarg.end296, %vaarg.end263, %vaarg.end206, %vaarg.end149, %vaarg.end80, %vaarg.end13
-  %conv822.sink247 = phi i32 [ %conv822, %vaarg.end819 ], [ %conv801, %vaarg.end798 ], [ %conv768, %vaarg.end765 ], [ %conv699, %vaarg.end696 ], [ %conv666, %vaarg.end663 ], [ %conv621, %vaarg.end618 ], [ %conv600, %vaarg.end597 ], [ %conv567, %vaarg.end554 ], [ %conv485, %vaarg.end482 ], [ %conv452, %vaarg.end449 ], [ %conv407, %vaarg.end404 ], [ %conv374, %vaarg.end371 ], [ %conv353, %vaarg.end350 ], [ %conv320, %vaarg.end317 ], [ %conv299, %vaarg.end296 ], [ %conv266, %vaarg.end263 ], [ %conv209, %vaarg.end206 ], [ %conv152, %vaarg.end149 ], [ %conv83, %vaarg.end80 ], [ %conv, %vaarg.end13 ]
+  %conv822.sink243 = phi i32 [ %conv822, %vaarg.end819 ], [ %conv801, %vaarg.end798 ], [ %conv768, %vaarg.end765 ], [ %conv699, %vaarg.end696 ], [ %conv666, %vaarg.end663 ], [ %conv621, %vaarg.end618 ], [ %conv600, %vaarg.end597 ], [ %conv567, %vaarg.end554 ], [ %conv485, %vaarg.end482 ], [ %conv452, %vaarg.end449 ], [ %conv407, %vaarg.end404 ], [ %conv374, %vaarg.end371 ], [ %conv353, %vaarg.end350 ], [ %conv320, %vaarg.end317 ], [ %conv299, %vaarg.end296 ], [ %conv266, %vaarg.end263 ], [ %conv209, %vaarg.end206 ], [ %conv152, %vaarg.end149 ], [ %conv83, %vaarg.end80 ], [ %conv, %vaarg.end13 ]
   %size.0 = phi i32 [ 0, %vaarg.end819 ], [ 0, %vaarg.end798 ], [ %376, %vaarg.end765 ], [ %336, %vaarg.end696 ], [ %323, %vaarg.end663 ], [ 0, %vaarg.end618 ], [ 0, %vaarg.end597 ], [ 0, %vaarg.end554 ], [ 0, %vaarg.end482 ], [ 0, %vaarg.end449 ], [ 0, %vaarg.end404 ], [ 0, %vaarg.end371 ], [ %196, %vaarg.end350 ], [ 0, %vaarg.end317 ], [ 0, %vaarg.end296 ], [ 0, %vaarg.end263 ], [ 0, %vaarg.end206 ], [ 0, %vaarg.end149 ], [ 0, %vaarg.end80 ], [ 0, %vaarg.end13 ]
-  %spec.select122 = call i32 @llvm.smax.i32(i32 %conv822.sink247, i32 0)
+  %spec.select122 = call i32 @llvm.smax.i32(i32 %conv822.sink243, i32 0)
   call void @llvm.va_end(ptr nonnull %ap)
-  %cmp830 = icmp slt i32 %conv822.sink247, 0
+  %cmp830 = icmp slt i32 %conv822.sink243, 0
   br i1 %cmp830, label %err_out, label %if.end833
 
 if.end833:                                        ; preds = %sw.epilog
-  %cmp823.not = icmp eq i32 %conv822.sink247, 0
+  %cmp823.not = icmp eq i32 %conv822.sink243, 0
   %spec.select123 = select i1 %cmp823.not, i32 0, i32 %type
   %call836 = call i64 (ptr, i32, i64, i32, ptr, ...) @v9fs_iov_marshal(ptr noundef nonnull %out_iovec, i32 noundef 1, i64 noundef 0, i32 noundef 0, ptr noundef nonnull @.str.24, i32 noundef %spec.select123, i32 noundef %spec.select122) #19
   %399 = and i64 %call836, 4294967295
@@ -2498,7 +2494,7 @@ if.end841:                                        ; preds = %if.end833
   br i1 %cmp851.not, label %if.end854, label %close_error
 
 if.end854:                                        ; preds = %if.end841
-  switch i32 %type, label %err_out [
+  switch i32 %type, label %default.unreachable [
     i32 2, label %sw.bb855
     i32 3, label %sw.bb855
     i32 4, label %sw.bb862
@@ -2551,7 +2547,7 @@ if.else881:                                       ; preds = %sw.bb874
   %cmp883 = icmp slt i32 %call882, 0
   br i1 %cmp883, label %close_error, label %err_out
 
-err_out:                                          ; preds = %sw.epilog.thread, %if.end854, %sw.bb855, %sw.bb862, %sw.bb868, %if.else881, %if.then875, %sw.epilog, %if.then
+err_out:                                          ; preds = %sw.bb855, %sw.bb862, %sw.bb868, %if.else881, %if.then875, %sw.epilog, %if.then
   call void @qemu_mutex_unlock_impl(ptr noundef nonnull %mutex, ptr noundef nonnull @.str.2, i32 noundef 626) #19
   %403 = load i32, ptr %retval1, align 4
   br label %return
@@ -2575,8 +2571,6 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 declare void @llvm.va_start(ptr) #12
 
 declare i64 @v9fs_iov_marshal(ptr noundef, i32 noundef, i64 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
-
-declare void @error_report(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
 declare void @llvm.va_end(ptr) #12
@@ -3159,7 +3153,7 @@ declare i64 @v9fs_iov_unmarshal(ptr noundef, i32 noundef, i64 noundef, i32 nound
 ; Function Attrs: nofree
 declare noundef i64 @read(i32 noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #14
 
-; Function Attrs: mustprogress nofree nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
 define internal fastcc void @prstat_to_stat(ptr nocapture noundef writeonly %stbuf, ptr nocapture noundef readonly %prstat) unnamed_addr #15 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %stbuf, i8 0, i64 144, i1 false)
@@ -3302,7 +3296,7 @@ attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(arg
 attributes #12 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #13 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #14 = { nofree "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { mustprogress nofree nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #16 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #17 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #18 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

@@ -173,7 +173,6 @@ do.body:                                          ; preds = %if.end79
   %tempTrie.sroa.14.0.trie.0.12.sroa_idx = getelementptr inbounds i8, ptr %call80, i64 40
   store i32 %or49, ptr %tempTrie.sroa.14.0.trie.0.12.sroa_idx, align 8
   %tempTrie.sroa.15.0.trie.0.12.sroa_idx = getelementptr inbounds i8, ptr %call80, i64 44
-  store i32 0, ptr %tempTrie.sroa.15.0.trie.0.12.sroa_idx, align 4
   %add.ptr = getelementptr inbounds %struct.UCPTrieHeader, ptr %data, i64 1
   store ptr %add.ptr, ptr %call80, align 8
   %idx.ext = zext i16 %8 to i64
@@ -181,41 +180,34 @@ do.body:                                          ; preds = %if.end79
   %cmp88.not = icmp ult i32 %or49, %or
   %sub = add nsw i32 %or, -2
   %spec.select80 = select i1 %cmp88.not, i32 %or49, i32 %sub
-  switch i32 %and20, label %sw.default [
+  %data92 = getelementptr inbounds %struct.UCPTrie, ptr %call80, i64 0, i32 1
+  store ptr %add.ptr85, ptr %data92, align 8
+  %idxprom = sext i32 %spec.select80 to i64
+  switch i32 %and20, label %default.unreachable [
     i32 0, label %sw.bb
     i32 1, label %sw.bb95
     i32 2, label %sw.bb101
   ]
 
 sw.bb:                                            ; preds = %do.body
-  %data92 = getelementptr inbounds %struct.UCPTrie, ptr %call80, i64 0, i32 1
-  store ptr %add.ptr85, ptr %data92, align 8
-  %idxprom = sext i32 %spec.select80 to i64
   %arrayidx = getelementptr inbounds i16, ptr %add.ptr85, i64 %idxprom
   %16 = load i16, ptr %arrayidx, align 2
   %conv94 = zext i16 %16 to i32
   br label %sw.epilog
 
 sw.bb95:                                          ; preds = %do.body
-  %data96 = getelementptr inbounds %struct.UCPTrie, ptr %call80, i64 0, i32 1
-  store ptr %add.ptr85, ptr %data96, align 8
-  %idxprom98 = sext i32 %spec.select80 to i64
-  %arrayidx99 = getelementptr inbounds i32, ptr %add.ptr85, i64 %idxprom98
+  %arrayidx99 = getelementptr inbounds i32, ptr %add.ptr85, i64 %idxprom
   %17 = load i32, ptr %arrayidx99, align 4
   br label %sw.epilog
 
 sw.bb101:                                         ; preds = %do.body
-  %data102 = getelementptr inbounds %struct.UCPTrie, ptr %call80, i64 0, i32 1
-  store ptr %add.ptr85, ptr %data102, align 8
-  %idxprom104 = sext i32 %spec.select80 to i64
-  %arrayidx105 = getelementptr inbounds i8, ptr %add.ptr85, i64 %idxprom104
+  %arrayidx105 = getelementptr inbounds i8, ptr %add.ptr85, i64 %idxprom
   %18 = load i8, ptr %arrayidx105, align 1
   %conv106 = zext i8 %18 to i32
   br label %sw.epilog
 
-sw.default:                                       ; preds = %do.body
-  store i32 3, ptr %pErrorCode, align 4
-  br label %return
+default.unreachable:                              ; preds = %do.body
+  unreachable
 
 sw.epilog:                                        ; preds = %sw.bb101, %sw.bb95, %sw.bb
   %conv106.sink = phi i32 [ %conv106, %sw.bb101 ], [ %17, %sw.bb95 ], [ %conv94, %sw.bb ]
@@ -227,8 +219,8 @@ if.then109:                                       ; preds = %sw.epilog
   store i32 %actualLength.0, ptr %pActualLength, align 4
   br label %return
 
-return:                                           ; preds = %sw.epilog, %if.then109, %entry, %sw.default, %if.then82, %if.then78, %if.then38, %if.then27, %if.then16, %if.then13, %if.then10
-  %retval.0 = phi ptr [ null, %if.then10 ], [ null, %if.then13 ], [ null, %if.then16 ], [ null, %if.then27 ], [ null, %if.then38 ], [ null, %if.then78 ], [ null, %if.then82 ], [ null, %sw.default ], [ null, %entry ], [ %call80, %if.then109 ], [ %call80, %sw.epilog ]
+return:                                           ; preds = %sw.epilog, %if.then109, %entry, %if.then82, %if.then78, %if.then38, %if.then27, %if.then16, %if.then13, %if.then10
+  %retval.0 = phi ptr [ null, %if.then10 ], [ null, %if.then13 ], [ null, %if.then16 ], [ null, %if.then27 ], [ null, %if.then38 ], [ null, %if.then78 ], [ null, %if.then82 ], [ null, %entry ], [ %call80, %if.then109 ], [ %call80, %sw.epilog ]
   ret ptr %retval.0
 }
 
@@ -1443,7 +1435,7 @@ if.end17:                                         ; preds = %land.lhs.true, %lor
   %4 = load i32, ptr %indexLength, align 8
   %mul = shl nsw i32 %4, 1
   %add = add nsw i32 %mul, 16
-  switch i8 %2, label %sw.epilog [
+  switch i8 %2, label %default.unreachable [
     i8 0, label %sw.bb
     i8 1, label %sw.bb20
     i8 2, label %sw.bb24
@@ -1470,8 +1462,11 @@ sw.bb24:                                          ; preds = %if.end17
   %add26 = add nsw i32 %9, %add
   br label %sw.epilog
 
-sw.epilog:                                        ; preds = %if.end17, %sw.bb24, %sw.bb20, %sw.bb
-  %length.0 = phi i32 [ %add, %if.end17 ], [ %add26, %sw.bb24 ], [ %add23, %sw.bb20 ], [ %add19, %sw.bb ]
+default.unreachable:                              ; preds = %if.end29, %if.end17
+  unreachable
+
+sw.epilog:                                        ; preds = %sw.bb24, %sw.bb20, %sw.bb
+  %length.0 = phi i32 [ %add26, %sw.bb24 ], [ %add23, %sw.bb20 ], [ %add19, %sw.bb ]
   %cmp27 = icmp sgt i32 %length.0, %capacity
   br i1 %cmp27, label %if.then28, label %if.end29
 
@@ -1530,7 +1525,7 @@ if.end29:                                         ; preds = %sw.epilog
   %mul55 = shl nsw i32 %20, 1
   %idx.ext = sext i32 %mul55 to i64
   %add.ptr56 = getelementptr inbounds i8, ptr %add.ptr, i64 %idx.ext
-  switch i8 %2, label %return [
+  switch i8 %2, label %default.unreachable [
     i8 0, label %do.body58
     i8 1, label %do.body65
     i8 2, label %do.body72
@@ -1562,8 +1557,8 @@ do.body72:                                        ; preds = %if.end29
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr56, ptr align 1 %25, i64 %conv75, i1 false)
   br label %return
 
-return:                                           ; preds = %do.body58, %do.body65, %do.body72, %if.end29, %entry, %if.then28, %if.then16
-  %retval.0 = phi i32 [ 0, %if.then16 ], [ %length.0, %if.then28 ], [ 0, %entry ], [ %length.0, %if.end29 ], [ %length.0, %do.body72 ], [ %length.0, %do.body65 ], [ %length.0, %do.body58 ]
+return:                                           ; preds = %do.body58, %do.body65, %do.body72, %entry, %if.then28, %if.then16
+  %retval.0 = phi i32 [ 0, %if.then16 ], [ %length.0, %if.then28 ], [ 0, %entry ], [ %length.0, %do.body72 ], [ %length.0, %do.body65 ], [ %length.0, %do.body58 ]
   ret i32 %retval.0
 }
 

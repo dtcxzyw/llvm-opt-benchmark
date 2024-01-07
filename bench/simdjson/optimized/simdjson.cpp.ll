@@ -1223,7 +1223,7 @@ return:                                           ; preds = %lor.rhs, %for.end, 
   ret i64 %retval.0
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind memory(argmem: readwrite) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define dso_local void @_ZN8simdjson8internal18decimal_left_shiftERNS0_7decimalEj(ptr nocapture noundef nonnull align 4 dereferenceable(780) %h, i32 noundef %shift) local_unnamed_addr #4 {
 entry:
   %0 = load i32, ptr %h, align 4
@@ -1404,7 +1404,7 @@ return:                                           ; preds = %while.body.i, %land
   ret void
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind memory(argmem: readwrite) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define dso_local void @_ZN8simdjson8internal19decimal_right_shiftERNS0_7decimalEj(ptr nocapture noundef nonnull align 4 dereferenceable(780) %h, i32 noundef %shift) local_unnamed_addr #4 {
 entry:
   %sh_prom = zext i32 %shift to i64
@@ -1583,7 +1583,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %first.addr.i)
   call void @llvm.lifetime.start.p0(i64 780, ptr nonnull %d.i)
   store ptr %spec.select, ptr %first.addr.i, align 8
-  call void @_ZN8simdjson8internal13parse_decimalERPKc(ptr nonnull sret(%"struct.simdjson::internal::decimal") align 4 %d.i, ptr noundef nonnull align 8 dereferenceable(8) %first.addr.i) #52
+  call void @_ZN8simdjson8internal13parse_decimalERPKc(ptr nonnull sret(%"struct.simdjson::internal::decimal") align 4 %d.i, ptr noundef nonnull align 8 dereferenceable(8) %first.addr.i) #51
   %call.i6 = invoke { i64, i32 } @_ZN8simdjson8internal13compute_floatINS0_13binary_formatIdEEEENS0_17adjusted_mantissaERNS0_7decimalE(ptr noundef nonnull align 4 dereferenceable(780) %d.i)
           to label %invoke.cont unwind label %terminate.lpad
 
@@ -1604,7 +1604,7 @@ terminate.lpad:                                   ; preds = %entry
   %4 = landingpad { ptr, i32 }
           catch ptr null
   %5 = extractvalue { ptr, i32 } %4, 0
-  call void @__clang_call_terminate(ptr %5) #53
+  call void @__clang_call_terminate(ptr %5) #52
   unreachable
 }
 
@@ -1612,8 +1612,8 @@ declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #6 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #52
-  tail call void @_ZSt9terminatev() #53
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #51
+  tail call void @_ZSt9terminatev() #52
   unreachable
 }
 
@@ -1636,7 +1636,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %first.addr.i)
   call void @llvm.lifetime.start.p0(i64 780, ptr nonnull %d.i)
   store ptr %spec.select, ptr %first.addr.i, align 8
-  call void @_ZN8simdjson8internal13parse_decimalERPKcS2_(ptr nonnull sret(%"struct.simdjson::internal::decimal") align 4 %d.i, ptr noundef nonnull align 8 dereferenceable(8) %first.addr.i, ptr noundef %end) #52
+  call void @_ZN8simdjson8internal13parse_decimalERPKcS2_(ptr nonnull sret(%"struct.simdjson::internal::decimal") align 4 %d.i, ptr noundef nonnull align 8 dereferenceable(8) %first.addr.i, ptr noundef %end) #51
   %call.i6 = invoke { i64, i32 } @_ZN8simdjson8internal13compute_floatINS0_13binary_formatIdEEEENS0_17adjusted_mantissaERNS0_7decimalE(ptr noundef nonnull align 4 dereferenceable(780) %d.i)
           to label %invoke.cont unwind label %terminate.lpad
 
@@ -1657,7 +1657,7 @@ terminate.lpad:                                   ; preds = %entry
   %4 = landingpad { ptr, i32 }
           catch ptr null
   %5 = extractvalue { ptr, i32 } %4, 0
-  call void @__clang_call_terminate(ptr %5) #53
+  call void @__clang_call_terminate(ptr %5) #52
   unreachable
 }
 
@@ -1676,7 +1676,7 @@ entry:
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef i32 %0(ptr noundef nonnull align 8 dereferenceable(76) %this)
-  %1 = tail call { i32, i32, i32, i32 } asm sideeffect "cpuid\0A\09", "={ax},={bx},={cx},={dx},0,2,~{dirflag},~{fpsr},~{flags}"(i32 1, i32 0) #52, !srcloc !28
+  %1 = tail call { i32, i32, i32, i32 } asm sideeffect "cpuid\0A\09", "={ax},={bx},={cx},={dx},0,2,~{dirflag},~{fpsr},~{flags}"(i32 1, i32 0) #51, !srcloc !28
   %asmresult2.i.i = extractvalue { i32, i32, i32, i32 } %1, 2
   %and.i = and i32 %asmresult2.i.i, 1048576
   %tobool.not.i = icmp eq i32 %and.i, 0
@@ -1691,7 +1691,7 @@ if.then.i:                                        ; preds = %entry
   br i1 %cmp.not.i, label %if.end8.i, label %_ZN8simdjson8internalL30detect_supported_architecturesEv.exit
 
 if.end8.i:                                        ; preds = %if.then.i
-  %2 = tail call { i32, i32 } asm sideeffect "xgetbv\0A\09", "={ax},={dx},{cx},~{dirflag},~{fpsr},~{flags}"(i32 0) #52, !srcloc !29
+  %2 = tail call { i32, i32 } asm sideeffect "xgetbv\0A\09", "={ax},={dx},{cx},~{dirflag},~{fpsr},~{flags}"(i32 0) #51, !srcloc !29
   %asmresult.i22.i = extractvalue { i32, i32 } %2, 0
   %conv.i.i = zext i32 %asmresult.i22.i to i64
   %and9.i = and i64 %conv.i.i, 4
@@ -1699,7 +1699,7 @@ if.end8.i:                                        ; preds = %if.then.i
   br i1 %cmp10.i, label %_ZN8simdjson8internalL30detect_supported_architecturesEv.exit, label %if.end12.i
 
 if.end12.i:                                       ; preds = %if.end8.i
-  %3 = tail call { i32, i32, i32, i32 } asm sideeffect "cpuid\0A\09", "={ax},={bx},={cx},={dx},0,2,~{dirflag},~{fpsr},~{flags}"(i32 7, i32 0) #52, !srcloc !28
+  %3 = tail call { i32, i32, i32, i32 } asm sideeffect "cpuid\0A\09", "={ax},={bx},={cx},={dx},0,2,~{dirflag},~{fpsr},~{flags}"(i32 7, i32 0) #51, !srcloc !28
   %asmresult1.i25.i = extractvalue { i32, i32, i32, i32 } %3, 1
   %and13.i = lshr i32 %asmresult1.i25.i, 3
   %4 = and i32 %and13.i, 4
@@ -1748,7 +1748,7 @@ entry:
   br i1 %guard.uninitialized, label %init.check, label %init.end, !prof !30
 
 init.check:                                       ; preds = %entry
-  %1 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN8simdjson8internal25get_unsupported_singletonEvE21unsupported_singleton) #52
+  %1 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN8simdjson8internal25get_unsupported_singletonEvE21unsupported_singleton) #51
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %init.end, label %init
 
@@ -1758,8 +1758,8 @@ init:                                             ; preds = %init.check
 
 invoke.cont:                                      ; preds = %init
   store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN8simdjson8internal26unsupported_implementationE, i64 0, inrange i32 0, i64 2), ptr @_ZZN8simdjson8internal25get_unsupported_singletonEvE21unsupported_singleton, align 8
-  %2 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN8simdjson8internal26unsupported_implementationD2Ev, ptr nonnull @_ZZN8simdjson8internal25get_unsupported_singletonEvE21unsupported_singleton, ptr nonnull @__dso_handle) #52
-  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN8simdjson8internal25get_unsupported_singletonEvE21unsupported_singleton) #52
+  %2 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN8simdjson8internal26unsupported_implementationD2Ev, ptr nonnull @_ZZN8simdjson8internal25get_unsupported_singletonEvE21unsupported_singleton, ptr nonnull @__dso_handle) #51
+  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN8simdjson8internal25get_unsupported_singletonEvE21unsupported_singleton) #51
   br label %init.end
 
 init.end:                                         ; preds = %invoke.cont, %init.check, %entry
@@ -1768,7 +1768,7 @@ init.end:                                         ; preds = %invoke.cont, %init.
 lpad:                                             ; preds = %init
   %3 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN8simdjson8internal25get_unsupported_singletonEvE21unsupported_singleton) #52
+  tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN8simdjson8internal25get_unsupported_singletonEvE21unsupported_singleton) #51
   resume { ptr, i32 } %3
 }
 
@@ -1780,9 +1780,9 @@ define linkonce_odr dso_local void @_ZN8simdjson8internal26unsupported_implement
 entry:
   store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN8simdjson14implementationE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
   %_description.i = getelementptr inbounds %"class.simdjson::implementation", ptr %this, i64 0, i32 2
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_description.i) #52
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_description.i) #51
   %_name.i = getelementptr inbounds %"class.simdjson::implementation", ptr %this, i64 0, i32 1
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_name.i) #52
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_name.i) #51
   ret void
 }
 
@@ -1807,7 +1807,7 @@ terminate.lpad:                                   ; preds = %entry
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #53
+  tail call void @__clang_call_terminate(ptr %2) #52
   unreachable
 }
 
@@ -1819,7 +1819,7 @@ entry:
   br i1 %guard.uninitialized, label %init.check, label %init.end, !prof !30
 
 init.check:                                       ; preds = %entry
-  %1 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN8simdjson8internalL37get_available_implementation_pointersEvE33available_implementation_pointers) #52
+  %1 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN8simdjson8internalL37get_available_implementation_pointersEvE33available_implementation_pointers) #51
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %init.end, label %init
 
@@ -1846,7 +1846,7 @@ invoke.cont5:                                     ; preds = %invoke.cont3
   store ptr @_ZZN8simdjson8internalL22get_fallback_singletonEvE18fallback_singleton, ptr getelementptr inbounds ([4 x ptr], ptr @_ZGRZN8simdjson8internalL37get_available_implementation_pointersEvE33available_implementation_pointers_, i64 0, i64 3), align 8
   store ptr @_ZGRZN8simdjson8internalL37get_available_implementation_pointersEvE33available_implementation_pointers_, ptr @_ZZN8simdjson8internalL37get_available_implementation_pointersEvE33available_implementation_pointers.0, align 8
   store i1 true, ptr @_ZZN8simdjson8internalL37get_available_implementation_pointersEvE33available_implementation_pointers.1, align 8
-  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN8simdjson8internalL37get_available_implementation_pointersEvE33available_implementation_pointers) #52
+  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN8simdjson8internalL37get_available_implementation_pointersEvE33available_implementation_pointers) #51
   br label %init.end
 
 init.end:                                         ; preds = %invoke.cont5, %init.check, %entry
@@ -1855,7 +1855,7 @@ init.end:                                         ; preds = %invoke.cont5, %init
 lpad:                                             ; preds = %invoke.cont3, %invoke.cont1, %invoke.cont, %init
   %2 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN8simdjson8internalL37get_available_implementation_pointersEvE33available_implementation_pointers) #52
+  tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN8simdjson8internalL37get_available_implementation_pointersEvE33available_implementation_pointers) #51
   resume { ptr, i32 } %2
 }
 
@@ -1873,7 +1873,7 @@ terminate.lpad:                                   ; preds = %entry
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #53
+  tail call void @__clang_call_terminate(ptr %2) #52
   unreachable
 }
 
@@ -1894,14 +1894,14 @@ terminate.lpad:                                   ; preds = %entry
   %2 = landingpad { ptr, i32 }
           catch ptr null
   %3 = extractvalue { ptr, i32 } %2, 0
-  tail call void @__clang_call_terminate(ptr %3) #53
+  tail call void @__clang_call_terminate(ptr %3) #52
   unreachable
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef ptr @_ZNK8simdjson8internal29available_implementation_list21detect_best_supportedEv(ptr nocapture nonnull readnone align 1 %this) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %0 = tail call { i32, i32, i32, i32 } asm sideeffect "cpuid\0A\09", "={ax},={bx},={cx},={dx},0,2,~{dirflag},~{fpsr},~{flags}"(i32 1, i32 0) #52, !srcloc !28
+  %0 = tail call { i32, i32, i32, i32 } asm sideeffect "cpuid\0A\09", "={ax},={bx},={cx},={dx},0,2,~{dirflag},~{fpsr},~{flags}"(i32 1, i32 0) #51, !srcloc !28
   %asmresult2.i.i = extractvalue { i32, i32, i32, i32 } %0, 2
   %and.i = and i32 %asmresult2.i.i, 1048576
   %tobool.not.i = icmp eq i32 %and.i, 0
@@ -1916,7 +1916,7 @@ if.then.i:                                        ; preds = %entry
   br i1 %cmp.not.i, label %if.end8.i, label %invoke.cont
 
 if.end8.i:                                        ; preds = %if.then.i
-  %1 = tail call { i32, i32 } asm sideeffect "xgetbv\0A\09", "={ax},={dx},{cx},~{dirflag},~{fpsr},~{flags}"(i32 0) #52, !srcloc !29
+  %1 = tail call { i32, i32 } asm sideeffect "xgetbv\0A\09", "={ax},={dx},{cx},~{dirflag},~{fpsr},~{flags}"(i32 0) #51, !srcloc !29
   %asmresult.i22.i = extractvalue { i32, i32 } %1, 0
   %conv.i.i = zext i32 %asmresult.i22.i to i64
   %and9.i = and i64 %conv.i.i, 4
@@ -1924,7 +1924,7 @@ if.end8.i:                                        ; preds = %if.then.i
   br i1 %cmp10.i, label %invoke.cont, label %if.end12.i
 
 if.end12.i:                                       ; preds = %if.end8.i
-  %2 = tail call { i32, i32, i32, i32 } asm sideeffect "cpuid\0A\09", "={ax},={bx},={cx},={dx},0,2,~{dirflag},~{fpsr},~{flags}"(i32 7, i32 0) #52, !srcloc !28
+  %2 = tail call { i32, i32, i32, i32 } asm sideeffect "cpuid\0A\09", "={ax},={bx},={cx},={dx},0,2,~{dirflag},~{fpsr},~{flags}"(i32 7, i32 0) #51, !srcloc !28
   %asmresult1.i25.i = extractvalue { i32, i32, i32, i32 } %2, 1
   %and13.i = lshr i32 %asmresult1.i25.i, 3
   %3 = and i32 %and13.i, 4
@@ -1995,7 +1995,7 @@ for.end:                                          ; preds = %for.cond, %invoke.c
   br i1 %guard.uninitialized.i, label %init.check.i, label %return, !prof !30
 
 init.check.i:                                     ; preds = %for.end
-  %22 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN8simdjson8internal25get_unsupported_singletonEvE21unsupported_singleton) #52
+  %22 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN8simdjson8internal25get_unsupported_singletonEvE21unsupported_singleton) #51
   %tobool.not.i6 = icmp eq i32 %22, 0
   br i1 %tobool.not.i6, label %return, label %init.i
 
@@ -2005,14 +2005,14 @@ init.i:                                           ; preds = %init.check.i
 
 invoke.cont.i:                                    ; preds = %init.i
   store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN8simdjson8internal26unsupported_implementationE, i64 0, inrange i32 0, i64 2), ptr @_ZZN8simdjson8internal25get_unsupported_singletonEvE21unsupported_singleton, align 8
-  %23 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN8simdjson8internal26unsupported_implementationD2Ev, ptr nonnull @_ZZN8simdjson8internal25get_unsupported_singletonEvE21unsupported_singleton, ptr nonnull @__dso_handle) #52
-  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN8simdjson8internal25get_unsupported_singletonEvE21unsupported_singleton) #52
+  %23 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN8simdjson8internal26unsupported_implementationD2Ev, ptr nonnull @_ZZN8simdjson8internal25get_unsupported_singletonEvE21unsupported_singleton, ptr nonnull @__dso_handle) #51
+  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN8simdjson8internal25get_unsupported_singletonEvE21unsupported_singleton) #51
   br label %return
 
 lpad.i:                                           ; preds = %init.i
   %24 = landingpad { ptr, i32 }
           catch ptr null
-  tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN8simdjson8internal25get_unsupported_singletonEvE21unsupported_singleton) #52
+  tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN8simdjson8internal25get_unsupported_singletonEvE21unsupported_singleton) #51
   br label %terminate.lpad.body
 
 return:                                           ; preds = %invoke.cont6, %invoke.cont.i, %init.check.i, %for.end
@@ -2032,7 +2032,7 @@ terminate.lpad.loopexit.split-lp:                 ; preds = %invoke.cont
 terminate.lpad.body:                              ; preds = %terminate.lpad.loopexit, %terminate.lpad.loopexit.split-lp, %lpad.i
   %eh.lpad-body = phi { ptr, i32 } [ %24, %lpad.i ], [ %lpad.loopexit, %terminate.lpad.loopexit ], [ %lpad.loopexit.split-lp, %terminate.lpad.loopexit.split-lp ]
   %25 = extractvalue { ptr, i32 } %eh.lpad-body, 0
-  tail call void @__clang_call_terminate(ptr %25) #53
+  tail call void @__clang_call_terminate(ptr %25) #52
   unreachable
 }
 
@@ -2040,7 +2040,7 @@ terminate.lpad.body:                              ; preds = %terminate.lpad.loop
 define dso_local noundef ptr @_ZNK8simdjson8internal49detect_best_supported_implementation_on_first_use8set_bestEv(ptr nocapture nonnull readnone align 8 %this) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::basic_string_view", align 8
-  %call = tail call ptr @getenv(ptr noundef nonnull @.str.31) #52
+  %call = tail call ptr @getenv(ptr noundef nonnull @.str.31) #51
   %tobool.not = icmp eq ptr %call, null
   %0 = load atomic i8, ptr @_ZGVZN8simdjson29get_available_implementationsEvE25available_implementations acquire, align 8
   %guard.uninitialized.i23 = icmp eq i8 %0, 0
@@ -2050,20 +2050,20 @@ if.then:                                          ; preds = %entry
   br i1 %guard.uninitialized.i23, label %init.check.i, label %invoke.cont, !prof !30
 
 init.check.i:                                     ; preds = %if.then
-  %1 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN8simdjson29get_available_implementationsEvE25available_implementations) #52
+  %1 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN8simdjson29get_available_implementationsEvE25available_implementations) #51
   %tobool.not.i = icmp eq i32 %1, 0
   br i1 %tobool.not.i, label %invoke.cont, label %init.i
 
 init.i:                                           ; preds = %init.check.i
-  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN8simdjson29get_available_implementationsEvE25available_implementations) #52
+  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN8simdjson29get_available_implementationsEvE25available_implementations) #51
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %init.i, %init.check.i, %if.then
-  %call.i.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %call) #52
+  %call.i.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %call) #51
   store i64 %call.i.i, ptr %ref.tmp, align 8
   %_M_str.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp, i64 0, i32 1
   store ptr %call, ptr %_M_str.i, align 8
-  %call3 = call noundef ptr @_ZNK8simdjson8internal29available_implementation_listixERKSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN8simdjson29get_available_implementationsEvE25available_implementations, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp) #52
+  %call3 = call noundef ptr @_ZNK8simdjson8internal29available_implementation_listixERKSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN8simdjson29get_available_implementationsEvE25available_implementations, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp) #51
   %tobool4.not = icmp eq ptr %call3, null
   br i1 %tobool4.not, label %if.else, label %if.then5
 
@@ -2073,14 +2073,14 @@ if.then5:                                         ; preds = %invoke.cont
   br i1 %guard.uninitialized.i3, label %init.check.i4, label %init.end.i, !prof !30
 
 init.check.i4:                                    ; preds = %if.then5
-  %3 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN8simdjson25get_active_implementationEvE59detect_best_supported_implementation_on_first_use_singleton) #52
+  %3 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN8simdjson25get_active_implementationEvE59detect_best_supported_implementation_on_first_use_singleton) #51
   %tobool.not.i5 = icmp eq i32 %3, 0
   br i1 %tobool.not.i5, label %init.end.i, label %init.i6
 
 init.i6:                                          ; preds = %init.check.i4
-  call void @_ZN8simdjson8internal49detect_best_supported_implementation_on_first_useC2Ev(ptr noundef nonnull align 8 dereferenceable(80) @_ZZN8simdjson25get_active_implementationEvE59detect_best_supported_implementation_on_first_use_singleton) #52
-  %4 = call i32 @__cxa_atexit(ptr nonnull @_ZN8simdjson8internal49detect_best_supported_implementation_on_first_useD2Ev, ptr nonnull @_ZZN8simdjson25get_active_implementationEvE59detect_best_supported_implementation_on_first_use_singleton, ptr nonnull @__dso_handle) #52
-  call void @__cxa_guard_release(ptr nonnull @_ZGVZN8simdjson25get_active_implementationEvE59detect_best_supported_implementation_on_first_use_singleton) #52
+  call void @_ZN8simdjson8internal49detect_best_supported_implementation_on_first_useC2Ev(ptr noundef nonnull align 8 dereferenceable(80) @_ZZN8simdjson25get_active_implementationEvE59detect_best_supported_implementation_on_first_use_singleton) #51
+  %4 = call i32 @__cxa_atexit(ptr nonnull @_ZN8simdjson8internal49detect_best_supported_implementation_on_first_useD2Ev, ptr nonnull @_ZZN8simdjson25get_active_implementationEvE59detect_best_supported_implementation_on_first_use_singleton, ptr nonnull @__dso_handle) #51
+  call void @__cxa_guard_release(ptr nonnull @_ZGVZN8simdjson25get_active_implementationEvE59detect_best_supported_implementation_on_first_use_singleton) #51
   br label %init.end.i
 
 init.end.i:                                       ; preds = %init.i6, %init.check.i4, %if.then5
@@ -2089,13 +2089,13 @@ init.end.i:                                       ; preds = %init.i6, %init.chec
   br i1 %guard.uninitialized1.i, label %init.check2.i, label %invoke.cont6, !prof !30
 
 init.check2.i:                                    ; preds = %init.end.i
-  %6 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN8simdjson25get_active_implementationEvE21active_implementation) #52
+  %6 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN8simdjson25get_active_implementationEvE21active_implementation) #51
   %tobool3.not.i = icmp eq i32 %6, 0
   br i1 %tobool3.not.i, label %invoke.cont6, label %init4.i
 
 init4.i:                                          ; preds = %init.check2.i
   store ptr @_ZZN8simdjson25get_active_implementationEvE59detect_best_supported_implementation_on_first_use_singleton, ptr @_ZZN8simdjson25get_active_implementationEvE21active_implementation, align 8
-  call void @__cxa_guard_release(ptr nonnull @_ZGVZN8simdjson25get_active_implementationEvE21active_implementation) #52
+  call void @__cxa_guard_release(ptr nonnull @_ZGVZN8simdjson25get_active_implementationEvE21active_implementation) #51
   br label %invoke.cont6
 
 invoke.cont6:                                     ; preds = %init4.i, %init.check2.i, %init.end.i
@@ -2108,7 +2108,7 @@ if.else:                                          ; preds = %invoke.cont
   br i1 %guard.uninitialized.i7, label %init.check.i9, label %invoke.cont12, !prof !30
 
 init.check.i9:                                    ; preds = %if.else
-  %9 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN8simdjson8internal25get_unsupported_singletonEvE21unsupported_singleton) #52
+  %9 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN8simdjson8internal25get_unsupported_singletonEvE21unsupported_singleton) #51
   %tobool.not.i10 = icmp eq i32 %9, 0
   br i1 %tobool.not.i10, label %invoke.cont12, label %init.i11
 
@@ -2118,16 +2118,16 @@ init.i11:                                         ; preds = %init.check.i9
 
 invoke.cont.i:                                    ; preds = %init.i11
   store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN8simdjson8internal26unsupported_implementationE, i64 0, inrange i32 0, i64 2), ptr @_ZZN8simdjson8internal25get_unsupported_singletonEvE21unsupported_singleton, align 8
-  %10 = call i32 @__cxa_atexit(ptr nonnull @_ZN8simdjson8internal26unsupported_implementationD2Ev, ptr nonnull @_ZZN8simdjson8internal25get_unsupported_singletonEvE21unsupported_singleton, ptr nonnull @__dso_handle) #52
-  call void @__cxa_guard_release(ptr nonnull @_ZGVZN8simdjson8internal25get_unsupported_singletonEvE21unsupported_singleton) #52
+  %10 = call i32 @__cxa_atexit(ptr nonnull @_ZN8simdjson8internal26unsupported_implementationD2Ev, ptr nonnull @_ZZN8simdjson8internal25get_unsupported_singletonEvE21unsupported_singleton, ptr nonnull @__dso_handle) #51
+  call void @__cxa_guard_release(ptr nonnull @_ZGVZN8simdjson8internal25get_unsupported_singletonEvE21unsupported_singleton) #51
   br label %invoke.cont12
 
 lpad.i:                                           ; preds = %init.i11
   %11 = landingpad { ptr, i32 }
           catch ptr null
-  call void @__cxa_guard_abort(ptr nonnull @_ZGVZN8simdjson8internal25get_unsupported_singletonEvE21unsupported_singleton) #52
+  call void @__cxa_guard_abort(ptr nonnull @_ZGVZN8simdjson8internal25get_unsupported_singletonEvE21unsupported_singleton) #51
   %12 = extractvalue { ptr, i32 } %11, 0
-  call void @__clang_call_terminate(ptr %12) #53
+  call void @__clang_call_terminate(ptr %12) #52
   unreachable
 
 invoke.cont12:                                    ; preds = %invoke.cont.i, %init.check.i9, %if.else
@@ -2136,14 +2136,14 @@ invoke.cont12:                                    ; preds = %invoke.cont.i, %ini
   br i1 %guard.uninitialized.i12, label %init.check.i18, label %init.end.i13, !prof !30
 
 init.check.i18:                                   ; preds = %invoke.cont12
-  %14 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN8simdjson25get_active_implementationEvE59detect_best_supported_implementation_on_first_use_singleton) #52
+  %14 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN8simdjson25get_active_implementationEvE59detect_best_supported_implementation_on_first_use_singleton) #51
   %tobool.not.i19 = icmp eq i32 %14, 0
   br i1 %tobool.not.i19, label %init.end.i13, label %init.i20
 
 init.i20:                                         ; preds = %init.check.i18
-  call void @_ZN8simdjson8internal49detect_best_supported_implementation_on_first_useC2Ev(ptr noundef nonnull align 8 dereferenceable(80) @_ZZN8simdjson25get_active_implementationEvE59detect_best_supported_implementation_on_first_use_singleton) #52
-  %15 = call i32 @__cxa_atexit(ptr nonnull @_ZN8simdjson8internal49detect_best_supported_implementation_on_first_useD2Ev, ptr nonnull @_ZZN8simdjson25get_active_implementationEvE59detect_best_supported_implementation_on_first_use_singleton, ptr nonnull @__dso_handle) #52
-  call void @__cxa_guard_release(ptr nonnull @_ZGVZN8simdjson25get_active_implementationEvE59detect_best_supported_implementation_on_first_use_singleton) #52
+  call void @_ZN8simdjson8internal49detect_best_supported_implementation_on_first_useC2Ev(ptr noundef nonnull align 8 dereferenceable(80) @_ZZN8simdjson25get_active_implementationEvE59detect_best_supported_implementation_on_first_use_singleton) #51
+  %15 = call i32 @__cxa_atexit(ptr nonnull @_ZN8simdjson8internal49detect_best_supported_implementation_on_first_useD2Ev, ptr nonnull @_ZZN8simdjson25get_active_implementationEvE59detect_best_supported_implementation_on_first_use_singleton, ptr nonnull @__dso_handle) #51
+  call void @__cxa_guard_release(ptr nonnull @_ZGVZN8simdjson25get_active_implementationEvE59detect_best_supported_implementation_on_first_use_singleton) #51
   br label %init.end.i13
 
 init.end.i13:                                     ; preds = %init.i20, %init.check.i18, %invoke.cont12
@@ -2152,42 +2152,42 @@ init.end.i13:                                     ; preds = %init.i20, %init.che
   br i1 %guard.uninitialized1.i14, label %init.check2.i15, label %return, !prof !30
 
 init.check2.i15:                                  ; preds = %init.end.i13
-  %17 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN8simdjson25get_active_implementationEvE21active_implementation) #52
+  %17 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN8simdjson25get_active_implementationEvE21active_implementation) #51
   %tobool3.not.i16 = icmp eq i32 %17, 0
   br i1 %tobool3.not.i16, label %return, label %init4.i17
 
 init4.i17:                                        ; preds = %init.check2.i15
   store ptr @_ZZN8simdjson25get_active_implementationEvE59detect_best_supported_implementation_on_first_use_singleton, ptr @_ZZN8simdjson25get_active_implementationEvE21active_implementation, align 8
-  call void @__cxa_guard_release(ptr nonnull @_ZGVZN8simdjson25get_active_implementationEvE21active_implementation) #52
+  call void @__cxa_guard_release(ptr nonnull @_ZGVZN8simdjson25get_active_implementationEvE21active_implementation) #51
   br label %return
 
 if.end:                                           ; preds = %entry
   br i1 %guard.uninitialized.i23, label %init.check.i25, label %invoke.cont20, !prof !30
 
 init.check.i25:                                   ; preds = %if.end
-  %18 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN8simdjson29get_available_implementationsEvE25available_implementations) #52
+  %18 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN8simdjson29get_available_implementationsEvE25available_implementations) #51
   %tobool.not.i26 = icmp eq i32 %18, 0
   br i1 %tobool.not.i26, label %invoke.cont20, label %init.i27
 
 init.i27:                                         ; preds = %init.check.i25
-  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN8simdjson29get_available_implementationsEvE25available_implementations) #52
+  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN8simdjson29get_available_implementationsEvE25available_implementations) #51
   br label %invoke.cont20
 
 invoke.cont20:                                    ; preds = %init.i27, %init.check.i25, %if.end
-  %call22 = tail call noundef ptr @_ZNK8simdjson8internal29available_implementation_list21detect_best_supportedEv(ptr nonnull align 1 poison) #52
+  %call22 = tail call noundef ptr @_ZNK8simdjson8internal29available_implementation_list21detect_best_supportedEv(ptr nonnull align 1 poison) #51
   %19 = load atomic i8, ptr @_ZGVZN8simdjson25get_active_implementationEvE59detect_best_supported_implementation_on_first_use_singleton acquire, align 8
   %guard.uninitialized.i29 = icmp eq i8 %19, 0
   br i1 %guard.uninitialized.i29, label %init.check.i35, label %init.end.i30, !prof !30
 
 init.check.i35:                                   ; preds = %invoke.cont20
-  %20 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN8simdjson25get_active_implementationEvE59detect_best_supported_implementation_on_first_use_singleton) #52
+  %20 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN8simdjson25get_active_implementationEvE59detect_best_supported_implementation_on_first_use_singleton) #51
   %tobool.not.i36 = icmp eq i32 %20, 0
   br i1 %tobool.not.i36, label %init.end.i30, label %init.i37
 
 init.i37:                                         ; preds = %init.check.i35
-  tail call void @_ZN8simdjson8internal49detect_best_supported_implementation_on_first_useC2Ev(ptr noundef nonnull align 8 dereferenceable(80) @_ZZN8simdjson25get_active_implementationEvE59detect_best_supported_implementation_on_first_use_singleton) #52
-  %21 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN8simdjson8internal49detect_best_supported_implementation_on_first_useD2Ev, ptr nonnull @_ZZN8simdjson25get_active_implementationEvE59detect_best_supported_implementation_on_first_use_singleton, ptr nonnull @__dso_handle) #52
-  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN8simdjson25get_active_implementationEvE59detect_best_supported_implementation_on_first_use_singleton) #52
+  tail call void @_ZN8simdjson8internal49detect_best_supported_implementation_on_first_useC2Ev(ptr noundef nonnull align 8 dereferenceable(80) @_ZZN8simdjson25get_active_implementationEvE59detect_best_supported_implementation_on_first_use_singleton) #51
+  %21 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN8simdjson8internal49detect_best_supported_implementation_on_first_useD2Ev, ptr nonnull @_ZZN8simdjson25get_active_implementationEvE59detect_best_supported_implementation_on_first_use_singleton, ptr nonnull @__dso_handle) #51
+  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN8simdjson25get_active_implementationEvE59detect_best_supported_implementation_on_first_use_singleton) #51
   br label %init.end.i30
 
 init.end.i30:                                     ; preds = %init.i37, %init.check.i35, %invoke.cont20
@@ -2196,13 +2196,13 @@ init.end.i30:                                     ; preds = %init.i37, %init.che
   br i1 %guard.uninitialized1.i31, label %init.check2.i32, label %invoke.cont23, !prof !30
 
 init.check2.i32:                                  ; preds = %init.end.i30
-  %23 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN8simdjson25get_active_implementationEvE21active_implementation) #52
+  %23 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN8simdjson25get_active_implementationEvE21active_implementation) #51
   %tobool3.not.i33 = icmp eq i32 %23, 0
   br i1 %tobool3.not.i33, label %invoke.cont23, label %init4.i34
 
 init4.i34:                                        ; preds = %init.check2.i32
   store ptr @_ZZN8simdjson25get_active_implementationEvE59detect_best_supported_implementation_on_first_use_singleton, ptr @_ZZN8simdjson25get_active_implementationEvE21active_implementation, align 8
-  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN8simdjson25get_active_implementationEvE21active_implementation) #52
+  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN8simdjson25get_active_implementationEvE21active_implementation) #51
   br label %invoke.cont23
 
 invoke.cont23:                                    ; preds = %init4.i34, %init.check2.i32, %init.end.i30
@@ -2228,12 +2228,12 @@ entry:
   br i1 %guard.uninitialized, label %init.check, label %init.end, !prof !30
 
 init.check:                                       ; preds = %entry
-  %1 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN8simdjson29get_available_implementationsEvE25available_implementations) #52
+  %1 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN8simdjson29get_available_implementationsEvE25available_implementations) #51
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %init.end, label %init
 
 init:                                             ; preds = %init.check
-  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN8simdjson29get_available_implementationsEvE25available_implementations) #52
+  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN8simdjson29get_available_implementationsEvE25available_implementations) #51
   br label %init.end
 
 init.end:                                         ; preds = %init, %init.check, %entry
@@ -2250,7 +2250,7 @@ terminate.lpad.i:                                 ; preds = %entry
   %0 = landingpad { ptr, i32 }
           catch ptr null
   %1 = extractvalue { ptr, i32 } %0, 0
-  tail call void @__clang_call_terminate(ptr %1) #53
+  tail call void @__clang_call_terminate(ptr %1) #52
   unreachable
 
 _ZNK8simdjson8internal29available_implementation_list5beginEv.exit: ; preds = %entry
@@ -2262,7 +2262,7 @@ terminate.lpad.i6:                                ; preds = %_ZNK8simdjson8inter
   %3 = landingpad { ptr, i32 }
           catch ptr null
   %4 = extractvalue { ptr, i32 } %3, 0
-  tail call void @__clang_call_terminate(ptr %4) #53
+  tail call void @__clang_call_terminate(ptr %4) #52
   unreachable
 
 _ZNK8simdjson8internal29available_implementation_list3endEv.exit: ; preds = %_ZNK8simdjson8internal29available_implementation_list5beginEv.exit
@@ -2286,7 +2286,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %for.body
-  %call4 = tail call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %call3) #52
+  %call4 = tail call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %call3) #51
   %9 = extractvalue { i64, ptr } %call4, 0
   %10 = extractvalue { i64, ptr } %call4, 1
   %agg.tmp5.sroa.0.0.copyload = load i64, ptr %name, align 8
@@ -2316,7 +2316,7 @@ terminate.lpad:                                   ; preds = %for.body
   %11 = landingpad { ptr, i32 }
           catch ptr null
   %12 = extractvalue { ptr, i32 } %11, 0
-  tail call void @__clang_call_terminate(ptr %12) #53
+  tail call void @__clang_call_terminate(ptr %12) #52
   unreachable
 }
 
@@ -2328,14 +2328,14 @@ entry:
   br i1 %guard.uninitialized, label %init.check, label %init.end, !prof !30
 
 init.check:                                       ; preds = %entry
-  %1 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN8simdjson25get_active_implementationEvE59detect_best_supported_implementation_on_first_use_singleton) #52
+  %1 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN8simdjson25get_active_implementationEvE59detect_best_supported_implementation_on_first_use_singleton) #51
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %init.end, label %init
 
 init:                                             ; preds = %init.check
-  tail call void @_ZN8simdjson8internal49detect_best_supported_implementation_on_first_useC2Ev(ptr noundef nonnull align 8 dereferenceable(80) @_ZZN8simdjson25get_active_implementationEvE59detect_best_supported_implementation_on_first_use_singleton) #52
-  %2 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN8simdjson8internal49detect_best_supported_implementation_on_first_useD2Ev, ptr nonnull @_ZZN8simdjson25get_active_implementationEvE59detect_best_supported_implementation_on_first_use_singleton, ptr nonnull @__dso_handle) #52
-  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN8simdjson25get_active_implementationEvE59detect_best_supported_implementation_on_first_use_singleton) #52
+  tail call void @_ZN8simdjson8internal49detect_best_supported_implementation_on_first_useC2Ev(ptr noundef nonnull align 8 dereferenceable(80) @_ZZN8simdjson25get_active_implementationEvE59detect_best_supported_implementation_on_first_use_singleton) #51
+  %2 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN8simdjson8internal49detect_best_supported_implementation_on_first_useD2Ev, ptr nonnull @_ZZN8simdjson25get_active_implementationEvE59detect_best_supported_implementation_on_first_use_singleton, ptr nonnull @__dso_handle) #51
+  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN8simdjson25get_active_implementationEvE59detect_best_supported_implementation_on_first_use_singleton) #51
   br label %init.end
 
 init.end:                                         ; preds = %init, %init.check, %entry
@@ -2344,13 +2344,13 @@ init.end:                                         ; preds = %init, %init.check, 
   br i1 %guard.uninitialized1, label %init.check2, label %init.end5, !prof !30
 
 init.check2:                                      ; preds = %init.end
-  %4 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN8simdjson25get_active_implementationEvE21active_implementation) #52
+  %4 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN8simdjson25get_active_implementationEvE21active_implementation) #51
   %tobool3.not = icmp eq i32 %4, 0
   br i1 %tobool3.not, label %init.end5, label %init4
 
 init4:                                            ; preds = %init.check2
   store ptr @_ZZN8simdjson25get_active_implementationEvE59detect_best_supported_implementation_on_first_use_singleton, ptr @_ZZN8simdjson25get_active_implementationEvE21active_implementation, align 8
-  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN8simdjson25get_active_implementationEvE21active_implementation) #52
+  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN8simdjson25get_active_implementationEvE21active_implementation) #51
   br label %init.end5
 
 init.end5:                                        ; preds = %init4, %init.check2, %init.end
@@ -2371,7 +2371,7 @@ terminate.lpad:                                   ; preds = %entry
   %0 = landingpad { ptr, i32 }
           catch ptr null
   %1 = extractvalue { ptr, i32 } %0, 0
-  tail call void @__clang_call_terminate(ptr %1) #53
+  tail call void @__clang_call_terminate(ptr %1) #52
   unreachable
 }
 
@@ -2380,9 +2380,9 @@ define linkonce_odr dso_local void @_ZN8simdjson8internal49detect_best_supported
 entry:
   store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN8simdjson14implementationE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
   %_description.i = getelementptr inbounds %"class.simdjson::implementation", ptr %this, i64 0, i32 2
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_description.i) #52
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_description.i) #51
   %_name.i = getelementptr inbounds %"class.simdjson::implementation", ptr %this, i64 0, i32 1
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_name.i) #52
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_name.i) #51
   ret void
 }
 
@@ -2394,14 +2394,14 @@ entry:
   br i1 %guard.uninitialized.i, label %init.check.i, label %init.end.i, !prof !30
 
 init.check.i:                                     ; preds = %entry
-  %1 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN8simdjson25get_active_implementationEvE59detect_best_supported_implementation_on_first_use_singleton) #52
+  %1 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN8simdjson25get_active_implementationEvE59detect_best_supported_implementation_on_first_use_singleton) #51
   %tobool.not.i = icmp eq i32 %1, 0
   br i1 %tobool.not.i, label %init.end.i, label %init.i
 
 init.i:                                           ; preds = %init.check.i
-  tail call void @_ZN8simdjson8internal49detect_best_supported_implementation_on_first_useC2Ev(ptr noundef nonnull align 8 dereferenceable(80) @_ZZN8simdjson25get_active_implementationEvE59detect_best_supported_implementation_on_first_use_singleton) #52
-  %2 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN8simdjson8internal49detect_best_supported_implementation_on_first_useD2Ev, ptr nonnull @_ZZN8simdjson25get_active_implementationEvE59detect_best_supported_implementation_on_first_use_singleton, ptr nonnull @__dso_handle) #52
-  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN8simdjson25get_active_implementationEvE59detect_best_supported_implementation_on_first_use_singleton) #52
+  tail call void @_ZN8simdjson8internal49detect_best_supported_implementation_on_first_useC2Ev(ptr noundef nonnull align 8 dereferenceable(80) @_ZZN8simdjson25get_active_implementationEvE59detect_best_supported_implementation_on_first_use_singleton) #51
+  %2 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN8simdjson8internal49detect_best_supported_implementation_on_first_useD2Ev, ptr nonnull @_ZZN8simdjson25get_active_implementationEvE59detect_best_supported_implementation_on_first_use_singleton, ptr nonnull @__dso_handle) #51
+  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN8simdjson25get_active_implementationEvE59detect_best_supported_implementation_on_first_use_singleton) #51
   br label %init.end.i
 
 init.end.i:                                       ; preds = %init.i, %init.check.i, %entry
@@ -2410,13 +2410,13 @@ init.end.i:                                       ; preds = %init.i, %init.check
   br i1 %guard.uninitialized1.i, label %init.check2.i, label %invoke.cont, !prof !30
 
 init.check2.i:                                    ; preds = %init.end.i
-  %4 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN8simdjson25get_active_implementationEvE21active_implementation) #52
+  %4 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN8simdjson25get_active_implementationEvE21active_implementation) #51
   %tobool3.not.i = icmp eq i32 %4, 0
   br i1 %tobool3.not.i, label %invoke.cont, label %init4.i
 
 init4.i:                                          ; preds = %init.check2.i
   store ptr @_ZZN8simdjson25get_active_implementationEvE59detect_best_supported_implementation_on_first_use_singleton, ptr @_ZZN8simdjson25get_active_implementationEvE21active_implementation, align 8
-  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN8simdjson25get_active_implementationEvE21active_implementation) #52
+  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN8simdjson25get_active_implementationEvE21active_implementation) #51
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %init4.i, %init.check2.i, %init.end.i
@@ -2425,7 +2425,7 @@ invoke.cont:                                      ; preds = %init4.i, %init.chec
   %vtable = load ptr, ptr %atomic-temp.i.0.i.i, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 4
   %6 = load ptr, ptr %vfn, align 8
-  %call3 = tail call noundef i32 %6(ptr noundef nonnull align 8 dereferenceable(76) %atomic-temp.i.0.i.i, ptr noundef %buf, i64 noundef %len, ptr noundef %dst, ptr noundef nonnull align 8 dereferenceable(8) %dst_len) #52
+  %call3 = tail call noundef i32 %6(ptr noundef nonnull align 8 dereferenceable(76) %atomic-temp.i.0.i.i, ptr noundef %buf, i64 noundef %len, ptr noundef %dst, ptr noundef nonnull align 8 dereferenceable(8) %dst_len) #51
   ret i32 %call3
 }
 
@@ -2437,14 +2437,14 @@ entry:
   br i1 %guard.uninitialized.i, label %init.check.i, label %init.end.i, !prof !30
 
 init.check.i:                                     ; preds = %entry
-  %1 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN8simdjson25get_active_implementationEvE59detect_best_supported_implementation_on_first_use_singleton) #52
+  %1 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN8simdjson25get_active_implementationEvE59detect_best_supported_implementation_on_first_use_singleton) #51
   %tobool.not.i = icmp eq i32 %1, 0
   br i1 %tobool.not.i, label %init.end.i, label %init.i
 
 init.i:                                           ; preds = %init.check.i
-  tail call void @_ZN8simdjson8internal49detect_best_supported_implementation_on_first_useC2Ev(ptr noundef nonnull align 8 dereferenceable(80) @_ZZN8simdjson25get_active_implementationEvE59detect_best_supported_implementation_on_first_use_singleton) #52
-  %2 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN8simdjson8internal49detect_best_supported_implementation_on_first_useD2Ev, ptr nonnull @_ZZN8simdjson25get_active_implementationEvE59detect_best_supported_implementation_on_first_use_singleton, ptr nonnull @__dso_handle) #52
-  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN8simdjson25get_active_implementationEvE59detect_best_supported_implementation_on_first_use_singleton) #52
+  tail call void @_ZN8simdjson8internal49detect_best_supported_implementation_on_first_useC2Ev(ptr noundef nonnull align 8 dereferenceable(80) @_ZZN8simdjson25get_active_implementationEvE59detect_best_supported_implementation_on_first_use_singleton) #51
+  %2 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN8simdjson8internal49detect_best_supported_implementation_on_first_useD2Ev, ptr nonnull @_ZZN8simdjson25get_active_implementationEvE59detect_best_supported_implementation_on_first_use_singleton, ptr nonnull @__dso_handle) #51
+  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN8simdjson25get_active_implementationEvE59detect_best_supported_implementation_on_first_use_singleton) #51
   br label %init.end.i
 
 init.end.i:                                       ; preds = %init.i, %init.check.i, %entry
@@ -2453,13 +2453,13 @@ init.end.i:                                       ; preds = %init.i, %init.check
   br i1 %guard.uninitialized1.i, label %init.check2.i, label %invoke.cont, !prof !30
 
 init.check2.i:                                    ; preds = %init.end.i
-  %4 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN8simdjson25get_active_implementationEvE21active_implementation) #52
+  %4 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN8simdjson25get_active_implementationEvE21active_implementation) #51
   %tobool3.not.i = icmp eq i32 %4, 0
   br i1 %tobool3.not.i, label %invoke.cont, label %init4.i
 
 init4.i:                                          ; preds = %init.check2.i
   store ptr @_ZZN8simdjson25get_active_implementationEvE59detect_best_supported_implementation_on_first_use_singleton, ptr @_ZZN8simdjson25get_active_implementationEvE21active_implementation, align 8
-  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN8simdjson25get_active_implementationEvE21active_implementation) #52
+  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN8simdjson25get_active_implementationEvE21active_implementation) #51
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %init4.i, %init.check2.i, %init.end.i
@@ -2468,7 +2468,7 @@ invoke.cont:                                      ; preds = %init4.i, %init.chec
   %vtable = load ptr, ptr %atomic-temp.i.0.i.i, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 5
   %6 = load ptr, ptr %vfn, align 8
-  %call3 = tail call noundef zeroext i1 %6(ptr noundef nonnull align 8 dereferenceable(76) %atomic-temp.i.0.i.i, ptr noundef %buf, i64 noundef %len) #52
+  %call3 = tail call noundef zeroext i1 %6(ptr noundef nonnull align 8 dereferenceable(76) %atomic-temp.i.0.i.i, ptr noundef %buf, i64 noundef %len) #51
   ret i1 %call3
 }
 
@@ -2481,7 +2481,7 @@ entry:
   br i1 %guard.uninitialized, label %init.check, label %init.end, !prof !30
 
 init.check:                                       ; preds = %entry
-  %1 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN8simdjson22builtin_implementationEvE12builtin_impl) #52
+  %1 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN8simdjson22builtin_implementationEvE12builtin_impl) #51
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %init.end, label %init
 
@@ -2490,9 +2490,9 @@ init:                                             ; preds = %init.check
   store i64 8, ptr %ref.tmp, align 8
   %_M_str.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp, i64 0, i32 1
   store ptr @.str.32, ptr %_M_str.i, align 8
-  %call1 = call noundef ptr @_ZNK8simdjson8internal29available_implementation_listixERKSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN8simdjson29get_available_implementationsEvE25available_implementations, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp) #52
+  %call1 = call noundef ptr @_ZNK8simdjson8internal29available_implementation_listixERKSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN8simdjson29get_available_implementationsEvE25available_implementations, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp) #51
   store ptr %call1, ptr @_ZZN8simdjson22builtin_implementationEvE12builtin_impl, align 8
-  call void @__cxa_guard_release(ptr nonnull @_ZGVZN8simdjson22builtin_implementationEvE12builtin_impl) #52
+  call void @__cxa_guard_release(ptr nonnull @_ZGVZN8simdjson22builtin_implementationEvE12builtin_impl) #51
   br label %init.end
 
 init.end:                                         ; preds = %init, %init.check, %entry
@@ -2503,7 +2503,7 @@ init.end:                                         ; preds = %init, %init.check, 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef i32 @_ZNK8simdjson8fallback14implementation32create_dom_parser_implementationEmmRSt10unique_ptrINS_8internal25dom_parser_implementationESt14default_deleteIS4_EE(ptr nocapture nonnull readnone align 8 %this, i64 noundef %capacity, i64 noundef %max_depth, ptr nocapture noundef nonnull align 8 dereferenceable(8) %dst) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %call = tail call noalias noundef dereferenceable_or_null(88) ptr @_ZnwmRKSt9nothrow_t(i64 noundef 88, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #54
+  %call = tail call noalias noundef dereferenceable_or_null(88) ptr @_ZnwmRKSt9nothrow_t(i64 noundef 88, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #53
   %new.isnull = icmp eq ptr %call, null
   br i1 %new.isnull, label %new.cont, label %new.notnull
 
@@ -2531,7 +2531,7 @@ _ZNKSt14default_deleteIN8simdjson8internal25dom_parser_implementationEEclEPS2_.e
   %vtable.i.i.i = load ptr, ptr %0, align 8
   %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 9
   %1 = load ptr, ptr %vfn.i.i.i, align 8
-  tail call void %1(ptr noundef nonnull align 8 dereferenceable(48) %0) #52
+  tail call void %1(ptr noundef nonnull align 8 dereferenceable(48) %0) #51
   %.pr = load ptr, ptr %dst, align 8
   br label %_ZNSt10unique_ptrIN8simdjson8internal25dom_parser_implementationESt14default_deleteIS2_EE5resetEPS2_.exit
 
@@ -2544,7 +2544,7 @@ if.end:                                           ; preds = %_ZNSt10unique_ptrIN
   %vtable = load ptr, ptr %2, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 6
   %3 = load ptr, ptr %vfn, align 8
-  %call4 = tail call noundef i32 %3(ptr noundef nonnull align 8 dereferenceable(48) %2, i64 noundef %capacity) #52
+  %call4 = tail call noundef i32 %3(ptr noundef nonnull align 8 dereferenceable(48) %2, i64 noundef %capacity) #51
   %tobool.not = icmp eq i32 %call4, 0
   br i1 %tobool.not, label %if.end6, label %return
 
@@ -2553,7 +2553,7 @@ if.end6:                                          ; preds = %if.end
   %vtable9 = load ptr, ptr %4, align 8
   %vfn10 = getelementptr inbounds ptr, ptr %vtable9, i64 7
   %5 = load ptr, ptr %vfn10, align 8
-  %call11 = tail call noundef i32 %5(ptr noundef nonnull align 8 dereferenceable(48) %4, i64 noundef %max_depth) #52
+  %call11 = tail call noundef i32 %5(ptr noundef nonnull align 8 dereferenceable(48) %4, i64 noundef %max_depth) #51
   br label %return
 
 return:                                           ; preds = %if.end6, %if.end, %_ZNSt10unique_ptrIN8simdjson8internal25dom_parser_implementationESt14default_deleteIS2_EE5resetEPS2_.exit
@@ -2944,7 +2944,7 @@ invoke.cont2:                                     ; preds = %if.else109.i, %if.e
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local noundef i32 @_ZNK8simdjson8fallback14implementation6minifyEPKhmPhRm(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef %len, ptr nocapture noundef writeonly %dst, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %dst_len) unnamed_addr #15 align 2 {
+define dso_local noundef i32 @_ZNK8simdjson8fallback14implementation6minifyEPKhmPhRm(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef %len, ptr nocapture noundef writeonly %dst, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %dst_len) unnamed_addr #4 align 2 {
 entry:
   %cmp12.not = icmp eq i64 %len, 0
   br i1 %cmp12.not, label %while.end, label %while.body
@@ -3024,7 +3024,7 @@ if.end7:                                          ; preds = %while.body.if.end7_
   br i1 %cmp8, label %if.then9, label %if.else
 
 if.then9:                                         ; preds = %if.end7
-  %inc = add nuw i64 %pos.062, 1
+  %inc = add i64 %pos.062, 1
   br label %while.cond.backedge
 
 while.cond.backedge:                              ; preds = %if.end110, %if.end58, %if.end17, %if.then9, %if.then
@@ -3219,7 +3219,7 @@ sw.bb29.i.i:                                      ; preds = %sw.bb10.i.i
   br i1 %cmp32.i.i, label %document_end.sink.split.i.i, label %array_begin.i.i
 
 sw.default.i.i:                                   ; preds = %if.end.i.i
-  %call42.i.i = call fastcc noundef i32 @_ZN8simdjson8fallback12_GLOBAL__N_16stage212tape_builder20visit_root_primitiveERNS2_13json_iteratorEPKh(ptr noundef nonnull align 8 dereferenceable(16) %builder.i, ptr nonnull %incdec.ptr.i.i.i, ptr nonnull %this, ptr noundef nonnull %arrayidx.i.i.i) #52
+  %call42.i.i = call fastcc noundef i32 @_ZN8simdjson8fallback12_GLOBAL__N_16stage212tape_builder20visit_root_primitiveERNS2_13json_iteratorEPKh(ptr noundef nonnull align 8 dereferenceable(16) %builder.i, ptr nonnull %incdec.ptr.i.i.i, ptr nonnull %this, ptr noundef nonnull %arrayidx.i.i.i) #51
   %tobool43.not.i.i = icmp eq i32 %call42.i.i, 0
   br i1 %tobool43.not.i.i, label %sw.default.i.document_end.i_crit_edge.i, label %_ZN8simdjson8fallback12_GLOBAL__N_16stage212tape_builder14parse_documentILb0EEENS_10error_codeERNS0_25dom_parser_implementationERNS_3dom8documentE.exit
 
@@ -3340,7 +3340,7 @@ sw.bb100.i.i:                                     ; preds = %if.end84.i.i
   br i1 %cmp103.i.i, label %sw.epilog118.sink.split.i.i, label %array_begin.i.i
 
 sw.default112.i.i:                                ; preds = %if.end84.i.i
-  %call114.i.i = call fastcc noundef i32 @_ZN8simdjson8fallback12_GLOBAL__N_16stage212tape_builder15visit_primitiveERNS2_13json_iteratorEPKh(ptr noundef nonnull align 8 dereferenceable(16) %builder.i, ptr nonnull %this, ptr noundef nonnull %arrayidx.i162.i.i) #52
+  %call114.i.i = call fastcc noundef i32 @_ZN8simdjson8fallback12_GLOBAL__N_16stage212tape_builder15visit_primitiveERNS2_13json_iteratorEPKh(ptr noundef nonnull align 8 dereferenceable(16) %builder.i, ptr nonnull %this, ptr noundef nonnull %arrayidx.i162.i.i) #51
   %tobool115.not.i.i = icmp eq i32 %call114.i.i, 0
   br i1 %tobool115.not.i.i, label %object_continue.i.i, label %_ZN8simdjson8fallback12_GLOBAL__N_16stage212tape_builder14parse_documentILb0EEENS_10error_codeERNS0_25dom_parser_implementationERNS_3dom8documentE.exit
 
@@ -3533,7 +3533,7 @@ sw.bb202.i.i:                                     ; preds = %array_value.i.i
   br i1 %cmp205.i.i, label %sw.epilog220.sink.split.i.i, label %array_begin.i.i
 
 sw.default214.i.i:                                ; preds = %array_value.i.i
-  %call216.i.i = call fastcc noundef i32 @_ZN8simdjson8fallback12_GLOBAL__N_16stage212tape_builder15visit_primitiveERNS2_13json_iteratorEPKh(ptr noundef nonnull align 8 dereferenceable(16) %builder.i, ptr nonnull %this, ptr noundef nonnull %arrayidx.i267.i.i) #52
+  %call216.i.i = call fastcc noundef i32 @_ZN8simdjson8fallback12_GLOBAL__N_16stage212tape_builder15visit_primitiveERNS2_13json_iteratorEPKh(ptr noundef nonnull align 8 dereferenceable(16) %builder.i, ptr nonnull %this, ptr noundef nonnull %arrayidx.i267.i.i) #51
   %tobool217.not.i.i = icmp eq i32 %call216.i.i, 0
   br i1 %tobool217.not.i.i, label %array_continue.i.i, label %_ZN8simdjson8fallback12_GLOBAL__N_16stage212tape_builder14parse_documentILb0EEENS_10error_codeERNS0_25dom_parser_implementationERNS_3dom8documentE.exit
 
@@ -3708,7 +3708,7 @@ sw.bb16.i.i:                                      ; preds = %if.end.i.i
   br i1 %cmp19.i.i, label %document_end.sink.split.i.i, label %array_begin.i.i
 
 sw.default.i.i:                                   ; preds = %if.end.i.i
-  %call29.i.i = call fastcc noundef i32 @_ZN8simdjson8fallback12_GLOBAL__N_16stage212tape_builder20visit_root_primitiveERNS2_13json_iteratorEPKh(ptr noundef nonnull align 8 dereferenceable(16) %builder.i, ptr nonnull %incdec.ptr.i.i.i, ptr nonnull %this, ptr noundef nonnull %arrayidx.i.i4.i) #52
+  %call29.i.i = call fastcc noundef i32 @_ZN8simdjson8fallback12_GLOBAL__N_16stage212tape_builder20visit_root_primitiveERNS2_13json_iteratorEPKh(ptr noundef nonnull align 8 dereferenceable(16) %builder.i, ptr nonnull %incdec.ptr.i.i.i, ptr nonnull %this, ptr noundef nonnull %arrayidx.i.i4.i) #51
   %tobool30.not.i.i = icmp eq i32 %call29.i.i, 0
   br i1 %tobool30.not.i.i, label %sw.default.i.document_end.i_crit_edge.i, label %_ZN8simdjson8fallback12_GLOBAL__N_16stage212tape_builder14parse_documentILb1EEENS_10error_codeERNS0_25dom_parser_implementationERNS_3dom8documentE.exit
 
@@ -3829,7 +3829,7 @@ sw.bb85.i.i:                                      ; preds = %if.end69.i.i
   br i1 %cmp88.i.i, label %sw.epilog103.sink.split.i.i, label %array_begin.i.i
 
 sw.default97.i.i:                                 ; preds = %if.end69.i.i
-  %call99.i.i = call fastcc noundef i32 @_ZN8simdjson8fallback12_GLOBAL__N_16stage212tape_builder15visit_primitiveERNS2_13json_iteratorEPKh(ptr noundef nonnull align 8 dereferenceable(16) %builder.i, ptr nonnull %this, ptr noundef nonnull %arrayidx.i146.i.i) #52
+  %call99.i.i = call fastcc noundef i32 @_ZN8simdjson8fallback12_GLOBAL__N_16stage212tape_builder15visit_primitiveERNS2_13json_iteratorEPKh(ptr noundef nonnull align 8 dereferenceable(16) %builder.i, ptr nonnull %this, ptr noundef nonnull %arrayidx.i146.i.i) #51
   %tobool100.not.i.i = icmp eq i32 %call99.i.i, 0
   br i1 %tobool100.not.i.i, label %object_continue.i.i, label %_ZN8simdjson8fallback12_GLOBAL__N_16stage212tape_builder14parse_documentILb1EEENS_10error_codeERNS0_25dom_parser_implementationERNS_3dom8documentE.exit
 
@@ -4022,7 +4022,7 @@ sw.bb185.i.i:                                     ; preds = %array_value.i.i
   br i1 %cmp188.i.i, label %sw.epilog203.sink.split.i.i, label %array_begin.i.i
 
 sw.default197.i.i:                                ; preds = %array_value.i.i
-  %call199.i.i = call fastcc noundef i32 @_ZN8simdjson8fallback12_GLOBAL__N_16stage212tape_builder15visit_primitiveERNS2_13json_iteratorEPKh(ptr noundef nonnull align 8 dereferenceable(16) %builder.i, ptr nonnull %this, ptr noundef nonnull %arrayidx.i251.i.i) #52
+  %call199.i.i = call fastcc noundef i32 @_ZN8simdjson8fallback12_GLOBAL__N_16stage212tape_builder15visit_primitiveERNS2_13json_iteratorEPKh(ptr noundef nonnull align 8 dereferenceable(16) %builder.i, ptr nonnull %this, ptr noundef nonnull %arrayidx.i251.i.i) #51
   %tobool200.not.i.i = icmp eq i32 %call199.i.i, 0
   br i1 %tobool200.not.i.i, label %array_continue.i.i, label %_ZN8simdjson8fallback12_GLOBAL__N_16stage212tape_builder14parse_documentILb1EEENS_10error_codeERNS0_25dom_parser_implementationERNS_3dom8documentE.exit
 
@@ -4567,12 +4567,12 @@ invoke.cont:                                      ; preds = %if.else.i, %if.else
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef i32 @_ZN8simdjson8fallback25dom_parser_implementation5parseEPKhmRNS_3dom8documentE(ptr nocapture noundef nonnull align 8 dereferenceable(88) %this, ptr noundef %_buf, i64 noundef %_len, ptr noundef nonnull align 8 dereferenceable(24) %_doc) unnamed_addr #5 align 2 {
 entry:
-  %call = tail call noundef i32 @_ZN8simdjson8fallback25dom_parser_implementation6stage1EPKhmNS_11stage1_modeE(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef %_buf, i64 noundef %_len, i32 noundef 0) #52
+  %call = tail call noundef i32 @_ZN8simdjson8fallback25dom_parser_implementation6stage1EPKhmNS_11stage1_modeE(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef %_buf, i64 noundef %_len, i32 noundef 0) #51
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %call2 = tail call noundef i32 @_ZN8simdjson8fallback25dom_parser_implementation6stage2ERNS_3dom8documentE(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull align 8 dereferenceable(24) %_doc) #52
+  %call2 = tail call noundef i32 @_ZN8simdjson8fallback25dom_parser_implementation6stage2ERNS_3dom8documentE(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull align 8 dereferenceable(24) %_doc) #51
   br label %return
 
 return:                                           ; preds = %entry, %if.end
@@ -4581,9 +4581,9 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i32 @_ZNK8simdjson7haswell14implementation32create_dom_parser_implementationEmmRSt10unique_ptrINS_8internal25dom_parser_implementationESt14default_deleteIS4_EE(ptr nocapture nonnull readnone align 8 %this, i64 noundef %capacity, i64 noundef %max_depth, ptr nocapture noundef nonnull align 8 dereferenceable(8) %dst) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef i32 @_ZNK8simdjson7haswell14implementation32create_dom_parser_implementationEmmRSt10unique_ptrINS_8internal25dom_parser_implementationESt14default_deleteIS4_EE(ptr nocapture nonnull readnone align 8 %this, i64 noundef %capacity, i64 noundef %max_depth, ptr nocapture noundef nonnull align 8 dereferenceable(8) %dst) unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %call = tail call noalias noundef dereferenceable_or_null(88) ptr @_ZnwmRKSt9nothrow_t(i64 noundef 88, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #54
+  %call = tail call noalias noundef dereferenceable_or_null(88) ptr @_ZnwmRKSt9nothrow_t(i64 noundef 88, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #53
   %new.isnull = icmp eq ptr %call, null
   br i1 %new.isnull, label %new.cont, label %new.notnull
 
@@ -4611,7 +4611,7 @@ _ZNKSt14default_deleteIN8simdjson8internal25dom_parser_implementationEEclEPS2_.e
   %vtable.i.i.i = load ptr, ptr %0, align 8
   %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 9
   %1 = load ptr, ptr %vfn.i.i.i, align 8
-  tail call void %1(ptr noundef nonnull align 8 dereferenceable(48) %0) #52
+  tail call void %1(ptr noundef nonnull align 8 dereferenceable(48) %0) #51
   %.pr = load ptr, ptr %dst, align 8
   br label %_ZNSt10unique_ptrIN8simdjson8internal25dom_parser_implementationESt14default_deleteIS2_EE5resetEPS2_.exit
 
@@ -4624,7 +4624,7 @@ if.end:                                           ; preds = %_ZNSt10unique_ptrIN
   %vtable = load ptr, ptr %2, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 6
   %3 = load ptr, ptr %vfn, align 8
-  %call4 = tail call noundef i32 %3(ptr noundef nonnull align 8 dereferenceable(48) %2, i64 noundef %capacity) #52
+  %call4 = tail call noundef i32 %3(ptr noundef nonnull align 8 dereferenceable(48) %2, i64 noundef %capacity) #51
   %tobool.not = icmp eq i32 %call4, 0
   br i1 %tobool.not, label %if.end6, label %return
 
@@ -4633,7 +4633,7 @@ if.end6:                                          ; preds = %if.end
   %vtable9 = load ptr, ptr %4, align 8
   %vfn10 = getelementptr inbounds ptr, ptr %vtable9, i64 7
   %5 = load ptr, ptr %vfn10, align 8
-  %call11 = tail call noundef i32 %5(ptr noundef nonnull align 8 dereferenceable(48) %4, i64 noundef %max_depth) #52
+  %call11 = tail call noundef i32 %5(ptr noundef nonnull align 8 dereferenceable(48) %4, i64 noundef %max_depth) #51
   br label %return
 
 return:                                           ; preds = %if.end6, %if.end, %_ZNSt10unique_ptrIN8simdjson8internal25dom_parser_implementationESt14default_deleteIS2_EE5resetEPS2_.exit
@@ -4641,8 +4641,8 @@ return:                                           ; preds = %if.end6, %if.end, %
   ret i32 %retval.0
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @_ZNK8simdjson7haswell14implementation6minifyEPKhmPhRm(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %dst, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %dst_len) unnamed_addr #17 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+define dso_local noundef i32 @_ZNK8simdjson7haswell14implementation6minifyEPKhmPhRm(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %dst, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %dst_len) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %reader.i = alloca %"struct.simdjson::haswell::(anonymous namespace)::stage1::buf_block_reader.102", align 8
   %minifier.i = alloca %"class.simdjson::haswell::(anonymous namespace)::stage1::json_minifier", align 8
@@ -4670,7 +4670,7 @@ while.body.i:                                     ; preds = %entry, %while.body.
   %reader.val719.i = phi i64 [ %reader.val7.i, %while.body.i ], [ 0, %entry ]
   %reader.val8.i = load ptr, ptr %reader.i, align 8
   %arrayidx.i.i = getelementptr inbounds i8, ptr %reader.val8.i, i64 %reader.val719.i
-  call fastcc void @_ZN8simdjson7haswell12_GLOBAL__N_16stage113json_minifier4stepILm128EEEvPKhRNS2_16buf_block_readerIXT_EEE(ptr noundef nonnull align 8 dereferenceable(32) %minifier.i, ptr noundef %arrayidx.i.i, ptr noundef nonnull align 8 dereferenceable(32) %reader.i) #52
+  call fastcc void @_ZN8simdjson7haswell12_GLOBAL__N_16stage113json_minifier4stepILm128EEEvPKhRNS2_16buf_block_readerIXT_EEE(ptr noundef nonnull align 8 dereferenceable(32) %minifier.i, ptr noundef %arrayidx.i.i, ptr noundef nonnull align 8 dereferenceable(32) %reader.i) #51
   %reader.val.i = load i64, ptr %lenminusstep.i.i, align 8
   %reader.val7.i = load i64, ptr %idx.i.i, align 8
   %cmp.i.i = icmp ult i64 %reader.val7.i, %reader.val.i
@@ -4699,7 +4699,7 @@ _ZNK8simdjson7haswell12_GLOBAL__N_16stage116buf_block_readerILm128EE13get_remain
   call void @llvm.memset.p0.i64(ptr align 1 %5, i8 32, i64 %4, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %block.i, ptr align 1 %add.ptr.i.i, i64 %sub.i.i, i1 false)
   store ptr %out_block.i, ptr %dst.i.i, align 8
-  call fastcc void @_ZN8simdjson7haswell12_GLOBAL__N_16stage113json_minifier4stepILm128EEEvPKhRNS2_16buf_block_readerIXT_EEE(ptr noundef nonnull align 8 dereferenceable(32) %minifier.i, ptr noundef nonnull %block.i, ptr noundef nonnull align 8 dereferenceable(32) %reader.i) #52
+  call fastcc void @_ZN8simdjson7haswell12_GLOBAL__N_16stage113json_minifier4stepILm128EEEvPKhRNS2_16buf_block_readerIXT_EEE(ptr noundef nonnull align 8 dereferenceable(32) %minifier.i, ptr noundef nonnull %block.i, ptr noundef nonnull align 8 dereferenceable(32) %reader.i) #51
   %6 = load ptr, ptr %dst.i.i, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %6 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %out_block.i to i64
@@ -4727,8 +4727,8 @@ _ZN8simdjson7haswell12_GLOBAL__N_16stage113json_minifier6minifyILm128EEENS_10err
   ret i32 %..i.i.i
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @_ZN8simdjson7haswell25dom_parser_implementation6stage1EPKhmNS_11stage1_modeE(ptr nocapture noundef nonnull align 8 dereferenceable(88) %this, ptr noundef %_buf, i64 noundef %_len, i32 noundef %streaming) unnamed_addr #18 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+define dso_local noundef i32 @_ZN8simdjson7haswell25dom_parser_implementation6stage1EPKhmNS_11stage1_modeE(ptr nocapture noundef nonnull align 8 dereferenceable(88) %this, ptr noundef %_buf, i64 noundef %_len, i32 noundef %streaming) unnamed_addr #17 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %reader.i = alloca %"struct.simdjson::haswell::(anonymous namespace)::stage1::buf_block_reader.102", align 8
   %indexer.i = alloca %"class.simdjson::haswell::(anonymous namespace)::stage1::json_structural_indexer", align 32
@@ -4758,56 +4758,54 @@ if.then6.i:                                       ; preds = %if.end4.i
   br i1 %cmp.i14.i, label %if.then.i.i, label %if.end21.i.i
 
 if.then.i.i:                                      ; preds = %if.then6.i
-  switch i64 %_len, label %if.end21.i.i [
-    i64 2, label %sw.bb.i.i
-    i64 1, label %sw.bb12.i.i
-  ]
+  %switch.i.i = icmp eq i64 %_len, 2
+  br i1 %switch.i.i, label %sw.bb.i.i, label %return.sink.split.i.thread43.i
 
 sw.bb.i.i:                                        ; preds = %if.then.i.i
   %arrayidx.i.i = getelementptr i8, ptr %_buf, i64 1
   %1 = load i8, ptr %arrayidx.i.i, align 1
   %cmp2.i.i = icmp ugt i8 %1, -65
-  br i1 %cmp2.i.i, label %if.end11.i, label %if.end.i.i
+  br i1 %cmp2.i.i, label %if.end11.i, label %return.sink.split.i.thread.i
 
-if.end.i.i:                                       ; preds = %sw.bb.i.i
-  %2 = load i8, ptr %_buf, align 1
-  %cmp8.i.i = icmp ugt i8 %2, -33
-  br i1 %cmp8.i.i, label %_ZN8simdjson7haswell12_GLOBAL__N_16stage123json_structural_indexer5indexILm128EEENS_10error_codeEPKhmRNS0_25dom_parser_implementationENS_11stage1_modeE.exit, label %if.end11.i
-
-sw.bb12.i.i:                                      ; preds = %if.then.i.i
-  %3 = load i8, ptr %_buf, align 1
-  %cmp16.i.i = icmp ult i8 %3, -64
-  %sub13.len.i.i = zext i1 %cmp16.i.i to i64
-  br label %_ZN8simdjson7haswell12_GLOBAL__N_16stage117trim_partial_utf8EPKhm.exit.i
-
-if.end21.i.i:                                     ; preds = %if.then.i.i, %if.then6.i
+if.end21.i.i:                                     ; preds = %if.then6.i
   %sub22.i.i = add i64 %_len, -1
   %arrayidx23.i.i = getelementptr inbounds i8, ptr %_buf, i64 %sub22.i.i
-  %4 = load i8, ptr %arrayidx23.i.i, align 1
-  %cmp25.i.i = icmp ugt i8 %4, -65
+  %2 = load i8, ptr %arrayidx23.i.i, align 1
+  %cmp25.i.i = icmp ugt i8 %2, -65
   br i1 %cmp25.i.i, label %if.end11.i, label %if.end28.i.i
 
 if.end28.i.i:                                     ; preds = %if.end21.i.i
   %sub29.i.i = add i64 %_len, -2
   %arrayidx30.i.i = getelementptr inbounds i8, ptr %_buf, i64 %sub29.i.i
-  %5 = load i8, ptr %arrayidx30.i.i, align 1
-  %cmp32.i.i = icmp ugt i8 %5, -33
-  br i1 %cmp32.i.i, label %if.end11.i, label %if.end35.i.i
+  %3 = load i8, ptr %arrayidx30.i.i, align 1
+  %cmp32.i.i = icmp ugt i8 %3, -33
+  br i1 %cmp32.i.i, label %if.end11.i, label %return.sink.split.i.i
 
-if.end35.i.i:                                     ; preds = %if.end28.i.i
+return.sink.split.i.i:                            ; preds = %if.end28.i.i
   %sub36.i.i = add i64 %_len, -3
   %arrayidx37.i.i = getelementptr inbounds i8, ptr %_buf, i64 %sub36.i.i
-  %6 = load i8, ptr %arrayidx37.i.i, align 1
-  %cmp39.i.i = icmp ugt i8 %6, -17
+  %4 = load i8, ptr %arrayidx37.i.i, align 1
+  %cmp39.i.i = icmp ugt i8 %4, -17
   br i1 %cmp39.i.i, label %_ZN8simdjson7haswell12_GLOBAL__N_16stage117trim_partial_utf8EPKhm.exit.i, label %if.end11.i
 
-_ZN8simdjson7haswell12_GLOBAL__N_16stage117trim_partial_utf8EPKhm.exit.i: ; preds = %if.end35.i.i, %sw.bb12.i.i
-  %retval.0.i.i = phi i64 [ %sub13.len.i.i, %sw.bb12.i.i ], [ %sub36.i.i, %if.end35.i.i ]
-  %cmp8.i = icmp eq i64 %retval.0.i.i, 0
+return.sink.split.i.thread43.i:                   ; preds = %if.then.i.i
+  %5 = getelementptr i8, ptr %_buf, i64 %_len
+  %arrayidx14.i.i = getelementptr i8, ptr %5, i64 -1
+  %6 = load i8, ptr %arrayidx14.i.i, align 1
+  %cmp39.i47.i = icmp ugt i8 %6, -65
+  br i1 %cmp39.i47.i, label %_ZN8simdjson7haswell12_GLOBAL__N_16stage123json_structural_indexer5indexILm128EEENS_10error_codeEPKhmRNS0_25dom_parser_implementationENS_11stage1_modeE.exit, label %if.end11.i
+
+return.sink.split.i.thread.i:                     ; preds = %sw.bb.i.i
+  %7 = load i8, ptr %_buf, align 1
+  %cmp39.i31.i = icmp ugt i8 %7, -33
+  br i1 %cmp39.i31.i, label %_ZN8simdjson7haswell12_GLOBAL__N_16stage123json_structural_indexer5indexILm128EEENS_10error_codeEPKhmRNS0_25dom_parser_implementationENS_11stage1_modeE.exit, label %if.end11.i
+
+_ZN8simdjson7haswell12_GLOBAL__N_16stage117trim_partial_utf8EPKhm.exit.i: ; preds = %return.sink.split.i.i
+  %cmp8.i = icmp eq i64 %sub36.i.i, 0
   br i1 %cmp8.i, label %_ZN8simdjson7haswell12_GLOBAL__N_16stage123json_structural_indexer5indexILm128EEENS_10error_codeEPKhmRNS0_25dom_parser_implementationENS_11stage1_modeE.exit, label %if.end11.i
 
-if.end11.i:                                       ; preds = %_ZN8simdjson7haswell12_GLOBAL__N_16stage117trim_partial_utf8EPKhm.exit.i, %if.end35.i.i, %if.end28.i.i, %if.end21.i.i, %if.end.i.i, %sw.bb.i.i, %if.end4.i
-  %len.addr.0.i = phi i64 [ %retval.0.i.i, %_ZN8simdjson7haswell12_GLOBAL__N_16stage117trim_partial_utf8EPKhm.exit.i ], [ %_len, %if.end4.i ], [ %_len, %if.end35.i.i ], [ %sub29.i.i, %if.end28.i.i ], [ %sub22.i.i, %if.end21.i.i ], [ 2, %if.end.i.i ], [ 1, %sw.bb.i.i ]
+if.end11.i:                                       ; preds = %_ZN8simdjson7haswell12_GLOBAL__N_16stage117trim_partial_utf8EPKhm.exit.i, %return.sink.split.i.thread.i, %return.sink.split.i.thread43.i, %return.sink.split.i.i, %if.end28.i.i, %if.end21.i.i, %sw.bb.i.i, %if.end4.i
+  %len.addr.0.i = phi i64 [ %sub36.i.i, %_ZN8simdjson7haswell12_GLOBAL__N_16stage117trim_partial_utf8EPKhm.exit.i ], [ %_len, %if.end4.i ], [ %_len, %return.sink.split.i.i ], [ %sub29.i.i, %if.end28.i.i ], [ %sub22.i.i, %if.end21.i.i ], [ 1, %sw.bb.i.i ], [ 2, %return.sink.split.i.thread.i ], [ 1, %return.sink.split.i.thread43.i ]
   store ptr %_buf, ptr %reader.i, align 8
   %len.i.i = getelementptr inbounds %"struct.simdjson::haswell::(anonymous namespace)::stage1::buf_block_reader.102", ptr %reader.i, i64 0, i32 1
   store i64 %len.addr.0.i, ptr %len.i.i, align 8
@@ -4817,22 +4815,22 @@ if.end11.i:                                       ; preds = %_ZN8simdjson7haswel
   %idx.i.i = getelementptr inbounds %"struct.simdjson::haswell::(anonymous namespace)::stage1::buf_block_reader.102", ptr %reader.i, i64 0, i32 3
   store i64 0, ptr %idx.i.i, align 8
   %structural_indexes.i = getelementptr inbounds %"class.simdjson::internal::dom_parser_implementation", ptr %this, i64 0, i32 2
-  %7 = load ptr, ptr %structural_indexes.i, align 8
+  %8 = load ptr, ptr %structural_indexes.i, align 8
   %checker.i.i = getelementptr inbounds %"class.simdjson::haswell::(anonymous namespace)::stage1::json_structural_indexer", ptr %indexer.i, i64 0, i32 2
   %indexer.i.i = getelementptr inbounds %"class.simdjson::haswell::(anonymous namespace)::stage1::json_structural_indexer", ptr %indexer.i, i64 0, i32 3
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 32 dereferenceable(24) %indexer.i, i8 0, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 32 dereferenceable(96) %checker.i.i, i8 0, i64 96, i1 false)
-  store ptr %7, ptr %indexer.i.i, align 32
+  store ptr %8, ptr %indexer.i.i, align 32
   %prev_structurals.i.i = getelementptr inbounds %"class.simdjson::haswell::(anonymous namespace)::stage1::json_structural_indexer", ptr %indexer.i, i64 0, i32 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %prev_structurals.i.i, i8 0, i64 16, i1 false)
-  %cmp.i1537.not.i = icmp ult i64 %len.addr.0.i, 129
-  br i1 %cmp.i1537.not.i, label %_ZNK8simdjson7haswell12_GLOBAL__N_16stage116buf_block_readerILm128EE13get_remainderEPh.exit.i, label %while.body.i
+  %cmp.i1540.not.i = icmp ult i64 %len.addr.0.i, 129
+  br i1 %cmp.i1540.not.i, label %_ZNK8simdjson7haswell12_GLOBAL__N_16stage116buf_block_readerILm128EE13get_remainderEPh.exit.i, label %while.body.i
 
 while.body.i:                                     ; preds = %if.end11.i, %while.body.i
-  %reader.val1038.i = phi i64 [ %reader.val10.i, %while.body.i ], [ 0, %if.end11.i ]
+  %reader.val1041.i = phi i64 [ %reader.val10.i, %while.body.i ], [ 0, %if.end11.i ]
   %reader.val11.i = load ptr, ptr %reader.i, align 8
-  %arrayidx.i16.i = getelementptr inbounds i8, ptr %reader.val11.i, i64 %reader.val1038.i
-  call fastcc void @_ZN8simdjson7haswell12_GLOBAL__N_16stage123json_structural_indexer4stepILm128EEEvPKhRNS2_16buf_block_readerIXT_EEE(ptr noundef nonnull align 32 dereferenceable(152) %indexer.i, ptr noundef %arrayidx.i16.i, ptr noundef nonnull align 8 dereferenceable(32) %reader.i) #52
+  %arrayidx.i16.i = getelementptr inbounds i8, ptr %reader.val11.i, i64 %reader.val1041.i
+  call fastcc void @_ZN8simdjson7haswell12_GLOBAL__N_16stage123json_structural_indexer4stepILm128EEEvPKhRNS2_16buf_block_readerIXT_EEE(ptr noundef nonnull align 32 dereferenceable(152) %indexer.i, ptr noundef %arrayidx.i16.i, ptr noundef nonnull align 8 dereferenceable(32) %reader.i) #51
   %reader.val.i = load i64, ptr %lenminusstep.i.i, align 8
   %reader.val10.i = load i64, ptr %idx.i.i, align 8
   %cmp.i15.i = icmp ult i64 %reader.val10.i, %reader.val.i
@@ -4848,40 +4846,40 @@ while.end.i._ZNK8simdjson7haswell12_GLOBAL__N_16stage116buf_block_readerILm128EE
   br label %_ZNK8simdjson7haswell12_GLOBAL__N_16stage116buf_block_readerILm128EE13get_remainderEPh.exit.i
 
 _ZNK8simdjson7haswell12_GLOBAL__N_16stage116buf_block_readerILm128EE13get_remainderEPh.exit.i: ; preds = %while.end.i._ZNK8simdjson7haswell12_GLOBAL__N_16stage116buf_block_readerILm128EE13get_remainderEPh.exit.i_crit_edge, %if.end11.i
-  %8 = phi ptr [ %.pre, %while.end.i._ZNK8simdjson7haswell12_GLOBAL__N_16stage116buf_block_readerILm128EE13get_remainderEPh.exit.i_crit_edge ], [ %_buf, %if.end11.i ]
-  %reader.val10.lcssa42.i = phi i64 [ %reader.val10.i, %while.end.i._ZNK8simdjson7haswell12_GLOBAL__N_16stage116buf_block_readerILm128EE13get_remainderEPh.exit.i_crit_edge ], [ 0, %if.end11.i ]
-  %9 = phi i64 [ %.pre.i, %while.end.i._ZNK8simdjson7haswell12_GLOBAL__N_16stage116buf_block_readerILm128EE13get_remainderEPh.exit.i_crit_edge ], [ %len.addr.0.i, %if.end11.i ]
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %8, i64 %reader.val10.lcssa42.i
-  %sub.i.i = sub i64 %9, %reader.val10.lcssa42.i
-  %10 = icmp ugt i64 %sub.i.i, 127
-  %11 = sub i64 128, %sub.i.i
-  %12 = select i1 %10, i64 0, i64 %11
-  %13 = getelementptr i8, ptr %block.i, i64 %sub.i.i
-  call void @llvm.memset.p0.i64(ptr align 1 %13, i8 32, i64 %12, i1 false)
+  %9 = phi ptr [ %.pre, %while.end.i._ZNK8simdjson7haswell12_GLOBAL__N_16stage116buf_block_readerILm128EE13get_remainderEPh.exit.i_crit_edge ], [ %_buf, %if.end11.i ]
+  %reader.val10.lcssa53.i = phi i64 [ %reader.val10.i, %while.end.i._ZNK8simdjson7haswell12_GLOBAL__N_16stage116buf_block_readerILm128EE13get_remainderEPh.exit.i_crit_edge ], [ 0, %if.end11.i ]
+  %10 = phi i64 [ %.pre.i, %while.end.i._ZNK8simdjson7haswell12_GLOBAL__N_16stage116buf_block_readerILm128EE13get_remainderEPh.exit.i_crit_edge ], [ %len.addr.0.i, %if.end11.i ]
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %9, i64 %reader.val10.lcssa53.i
+  %sub.i.i = sub i64 %10, %reader.val10.lcssa53.i
+  %11 = icmp ugt i64 %sub.i.i, 127
+  %12 = sub i64 128, %sub.i.i
+  %13 = select i1 %11, i64 0, i64 %12
+  %14 = getelementptr i8, ptr %block.i, i64 %sub.i.i
+  call void @llvm.memset.p0.i64(ptr align 1 %14, i8 32, i64 %13, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %block.i, ptr align 1 %add.ptr.i.i, i64 %sub.i.i, i1 false)
-  call fastcc void @_ZN8simdjson7haswell12_GLOBAL__N_16stage123json_structural_indexer4stepILm128EEEvPKhRNS2_16buf_block_readerIXT_EEE(ptr noundef nonnull align 32 dereferenceable(152) %indexer.i, ptr noundef nonnull %block.i, ptr noundef nonnull align 8 dereferenceable(32) %reader.i) #52
+  call fastcc void @_ZN8simdjson7haswell12_GLOBAL__N_16stage123json_structural_indexer4stepILm128EEEvPKhRNS2_16buf_block_readerIXT_EEE(ptr noundef nonnull align 32 dereferenceable(152) %indexer.i, ptr noundef nonnull %block.i, ptr noundef nonnull align 8 dereferenceable(32) %reader.i) #51
   %reader.val13.i = load i64, ptr %idx.i.i, align 8
-  %14 = trunc i64 %reader.val13.i to i32
-  %conv.i.i = add i32 %14, -64
-  %15 = load i64, ptr %prev_structurals.i.i, align 8
-  call fastcc void @_ZN8simdjson7haswell12_GLOBAL__N_16stage111bit_indexer5writeEjm(ptr noundef nonnull align 8 dereferenceable(8) %indexer.i.i, i32 noundef %conv.i.i, i64 noundef %15)
-  %16 = getelementptr inbounds i8, ptr %indexer.i, i64 16
-  %this.val.i.i = load i64, ptr %16, align 16
+  %15 = trunc i64 %reader.val13.i to i32
+  %conv.i.i = add i32 %15, -64
+  %16 = load i64, ptr %prev_structurals.i.i, align 8
+  call fastcc void @_ZN8simdjson7haswell12_GLOBAL__N_16stage111bit_indexer5writeEjm(ptr noundef nonnull align 8 dereferenceable(8) %indexer.i.i, i32 noundef %conv.i.i, i64 noundef %16)
+  %17 = getelementptr inbounds i8, ptr %indexer.i, i64 16
+  %this.val.i.i = load i64, ptr %17, align 16
   %tobool.i.not.i.not.i.i = icmp eq i64 %this.val.i.i, 0
   %brmerge.i.i = select i1 %cmp.i.i, i1 true, i1 %tobool.i.not.i.not.i.i
-  br i1 %brmerge.i.i, label %if.end.i25.i, label %_ZN8simdjson7haswell12_GLOBAL__N_16stage123json_structural_indexer5indexILm128EEENS_10error_codeEPKhmRNS0_25dom_parser_implementationENS_11stage1_modeE.exit
+  br i1 %brmerge.i.i, label %if.end.i24.i, label %_ZN8simdjson7haswell12_GLOBAL__N_16stage123json_structural_indexer5indexILm128EEENS_10error_codeEPKhmRNS0_25dom_parser_implementationENS_11stage1_modeE.exit
 
-if.end.i25.i:                                     ; preds = %_ZNK8simdjson7haswell12_GLOBAL__N_16stage116buf_block_readerILm128EE13get_remainderEPh.exit.i
+if.end.i24.i:                                     ; preds = %_ZNK8simdjson7haswell12_GLOBAL__N_16stage116buf_block_readerILm128EE13get_remainderEPh.exit.i
   %unescaped_chars_error.i.i = getelementptr inbounds %"class.simdjson::haswell::(anonymous namespace)::stage1::json_structural_indexer", ptr %indexer.i, i64 0, i32 5
-  %17 = load i64, ptr %unescaped_chars_error.i.i, align 16
-  %tobool9.not.i.i = icmp eq i64 %17, 0
+  %18 = load i64, ptr %unescaped_chars_error.i.i, align 16
+  %tobool9.not.i.i = icmp eq i64 %18, 0
   br i1 %tobool9.not.i.i, label %if.end11.i.i, label %_ZN8simdjson7haswell12_GLOBAL__N_16stage123json_structural_indexer5indexILm128EEENS_10error_codeEPKhmRNS0_25dom_parser_implementationENS_11stage1_modeE.exit
 
-if.end11.i.i:                                     ; preds = %if.end.i25.i
-  %18 = load ptr, ptr %indexer.i.i, align 32
-  %19 = load ptr, ptr %structural_indexes.i, align 8
-  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %18 to i64
-  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %19 to i64
+if.end11.i.i:                                     ; preds = %if.end.i24.i
+  %19 = load ptr, ptr %indexer.i.i, align 32
+  %20 = load ptr, ptr %structural_indexes.i, align 8
+  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %19 to i64
+  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %20 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = lshr exact i64 %sub.ptr.sub.i.i, 2
   %conv14.i.i = trunc i64 %sub.ptr.div.i.i to i32
@@ -4889,33 +4887,33 @@ if.end11.i.i:                                     ; preds = %if.end.i25.i
   store i32 %conv14.i.i, ptr %n_structural_indexes.i.i, align 8
   %conv15.i.i = trunc i64 %len.addr.0.i to i32
   %conv18.i.i = and i64 %sub.ptr.div.i.i, 4294967295
-  %arrayidx.i.i.i = getelementptr inbounds i32, ptr %19, i64 %conv18.i.i
+  %arrayidx.i.i.i = getelementptr inbounds i32, ptr %20, i64 %conv18.i.i
   store i32 %conv15.i.i, ptr %arrayidx.i.i.i, align 4
-  %20 = load i32, ptr %n_structural_indexes.i.i, align 8
-  %add.i.i = add i32 %20, 1
+  %21 = load i32, ptr %n_structural_indexes.i.i, align 8
+  %add.i.i = add i32 %21, 1
   %conv23.i.i = zext i32 %add.i.i to i64
-  %21 = load ptr, ptr %structural_indexes.i, align 8
-  %arrayidx.i40.i.i = getelementptr inbounds i32, ptr %21, i64 %conv23.i.i
+  %22 = load ptr, ptr %structural_indexes.i, align 8
+  %arrayidx.i40.i.i = getelementptr inbounds i32, ptr %22, i64 %conv23.i.i
   store i32 %conv15.i.i, ptr %arrayidx.i40.i.i, align 4
-  %22 = load i32, ptr %n_structural_indexes.i.i, align 8
-  %add27.i.i = add i32 %22, 2
+  %23 = load i32, ptr %n_structural_indexes.i.i, align 8
+  %add27.i.i = add i32 %23, 2
   %conv28.i.i = zext i32 %add27.i.i to i64
-  %23 = load ptr, ptr %structural_indexes.i, align 8
-  %arrayidx.i41.i.i = getelementptr inbounds i32, ptr %23, i64 %conv28.i.i
+  %24 = load ptr, ptr %structural_indexes.i, align 8
+  %arrayidx.i41.i.i = getelementptr inbounds i32, ptr %24, i64 %conv28.i.i
   store i32 0, ptr %arrayidx.i41.i.i, align 4
   %next_structural_index.i.i = getelementptr inbounds %"class.simdjson::internal::dom_parser_implementation", ptr %this, i64 0, i32 3
   store i32 0, ptr %next_structural_index.i.i, align 8
-  %24 = load i32, ptr %n_structural_indexes.i.i, align 8
-  %cmp31.i.i = icmp eq i32 %24, 0
+  %25 = load i32, ptr %n_structural_indexes.i.i, align 8
+  %cmp31.i.i = icmp eq i32 %25, 0
   br i1 %cmp31.i.i, label %_ZN8simdjson7haswell12_GLOBAL__N_16stage123json_structural_indexer5indexILm128EEENS_10error_codeEPKhmRNS0_25dom_parser_implementationENS_11stage1_modeE.exit, label %if.end36.i.i
 
 if.end36.i.i:                                     ; preds = %if.end11.i.i
-  %sub39.i.i = add i32 %24, -1
+  %sub39.i.i = add i32 %25, -1
   %conv40.i.i = zext i32 %sub39.i.i to i64
-  %25 = load ptr, ptr %structural_indexes.i, align 8
-  %arrayidx.i42.i.i = getelementptr inbounds i32, ptr %25, i64 %conv40.i.i
-  %26 = load i32, ptr %arrayidx.i42.i.i, align 4
-  %conv42.i.i = zext i32 %26 to i64
+  %26 = load ptr, ptr %structural_indexes.i, align 8
+  %arrayidx.i42.i.i = getelementptr inbounds i32, ptr %26, i64 %conv40.i.i
+  %27 = load i32, ptr %arrayidx.i42.i.i, align 4
+  %conv42.i.i = zext i32 %27 to i64
   %cmp43.i.i = icmp ult i64 %len.addr.0.i, %conv42.i.i
   br i1 %cmp43.i.i, label %_ZN8simdjson7haswell12_GLOBAL__N_16stage123json_structural_indexer5indexILm128EEENS_10error_codeEPKhmRNS0_25dom_parser_implementationENS_11stage1_modeE.exit, label %if.end48.i.i
 
@@ -4939,8 +4937,8 @@ if.end61.i.i:                                     ; preds = %if.then52.i.i, %if.
   br i1 %cmp63.not.i.i, label %if.then66.i.i, label %if.end72.i.i
 
 if.then66.i.i:                                    ; preds = %if.end61.i.i
-  %27 = load i32, ptr %25, align 4
-  %cmp69.i.i = icmp eq i32 %27, 0
+  %28 = load i32, ptr %26, align 4
+  %cmp69.i.i = icmp eq i32 %28, 0
   br i1 %cmp69.i.i, label %_ZN8simdjson7haswell12_GLOBAL__N_16stage123json_structural_indexer5indexILm128EEENS_10error_codeEPKhmRNS0_25dom_parser_implementationENS_11stage1_modeE.exit, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %if.then66.i.i
@@ -4962,19 +4960,19 @@ if.end81.i.i:                                     ; preds = %if.then78.i.i, %if.
   %call82.i.i = tail call fastcc noundef i32 @_ZN8simdjson7haswell12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE(ptr noundef nonnull align 8 dereferenceable(88) %this)
   store i32 %call82.i.i, ptr %n_structural_indexes.i.i, align 8
   %conv86.i.i = zext i32 %call82.i.i to i64
-  %arrayidx.i43.i.i = getelementptr inbounds i32, ptr %25, i64 %conv86.i.i
-  %28 = load i32, ptr %arrayidx.i43.i.i, align 4
+  %arrayidx.i43.i.i = getelementptr inbounds i32, ptr %26, i64 %conv86.i.i
+  %29 = load i32, ptr %arrayidx.i43.i.i, align 4
   %add90.i.i = add i32 %call82.i.i, 1
   %conv91.i.i = zext i32 %add90.i.i to i64
-  %arrayidx.i44.i.i = getelementptr inbounds i32, ptr %25, i64 %conv91.i.i
-  store i32 %28, ptr %arrayidx.i44.i.i, align 4
-  %29 = load i32, ptr %n_structural_indexes.i.i, align 8
-  %conv96.i.i = zext i32 %29 to i64
-  %30 = load ptr, ptr %structural_indexes.i, align 8
-  %arrayidx.i45.i.i = getelementptr inbounds i32, ptr %30, i64 %conv96.i.i
+  %arrayidx.i44.i.i = getelementptr inbounds i32, ptr %26, i64 %conv91.i.i
+  store i32 %29, ptr %arrayidx.i44.i.i, align 4
+  %30 = load i32, ptr %n_structural_indexes.i.i, align 8
+  %conv96.i.i = zext i32 %30 to i64
+  %31 = load ptr, ptr %structural_indexes.i, align 8
+  %arrayidx.i45.i.i = getelementptr inbounds i32, ptr %31, i64 %conv96.i.i
   store i32 %conv15.i.i, ptr %arrayidx.i45.i.i, align 4
-  %31 = load i32, ptr %n_structural_indexes.i.i, align 8
-  %cmp99.i.i = icmp eq i32 %31, 0
+  %32 = load i32, ptr %n_structural_indexes.i.i, align 8
+  %cmp99.i.i = icmp eq i32 %32, 0
   br i1 %cmp99.i.i, label %_ZN8simdjson7haswell12_GLOBAL__N_16stage123json_structural_indexer5indexILm128EEENS_10error_codeEPKhmRNS0_25dom_parser_implementationENS_11stage1_modeE.exit, label %if.end106.i.i
 
 if.end106.i.i:                                    ; preds = %if.end81.i.i, %if.end72.i.i, %if.end48.i.i
@@ -4982,21 +4980,21 @@ if.end106.i.i:                                    ; preds = %if.end81.i.i, %if.e
   %agg.tmp.sroa.0.0.copyload.i.i.i = load <4 x i64>, ptr %prev_incomplete.i.i.i, align 32
   %this.val.i.i.i.i = load <4 x i64>, ptr %checker.i.i, align 32
   %or.i.i.i.i.i.i = or <4 x i64> %this.val.i.i.i.i, %agg.tmp.sroa.0.0.copyload.i.i.i
-  %32 = tail call noundef i32 @llvm.x86.avx.ptestz.256(<4 x i64> %or.i.i.i.i.i.i, <4 x i64> %or.i.i.i.i.i.i)
-  %tobool.i.not.i.i.i.i = icmp eq i32 %32, 0
+  %33 = tail call noundef i32 @llvm.x86.avx.ptestz.256(<4 x i64> %or.i.i.i.i.i.i, <4 x i64> %or.i.i.i.i.i.i)
+  %tobool.i.not.i.i.i.i = icmp eq i32 %33, 0
   %cond.i.i.i = select i1 %tobool.i.not.i.i.i.i, i32 10, i32 0
   br label %_ZN8simdjson7haswell12_GLOBAL__N_16stage123json_structural_indexer5indexILm128EEENS_10error_codeEPKhmRNS0_25dom_parser_implementationENS_11stage1_modeE.exit
 
-_ZN8simdjson7haswell12_GLOBAL__N_16stage123json_structural_indexer5indexILm128EEENS_10error_codeEPKhmRNS0_25dom_parser_implementationENS_11stage1_modeE.exit: ; preds = %entry, %if.end.i, %if.end.i.i, %_ZN8simdjson7haswell12_GLOBAL__N_16stage117trim_partial_utf8EPKhm.exit.i, %while.end.i, %_ZNK8simdjson7haswell12_GLOBAL__N_16stage116buf_block_readerILm128EE13get_remainderEPh.exit.i, %if.end.i25.i, %if.end11.i.i, %if.end36.i.i, %if.then52.i.i, %if.then66.i.i, %if.else.i.i, %if.end81.i.i, %if.end106.i.i
-  %retval.0.i = phi i32 [ 1, %entry ], [ 12, %if.end.i ], [ 10, %_ZN8simdjson7haswell12_GLOBAL__N_16stage117trim_partial_utf8EPKhm.exit.i ], [ 12, %if.else.i.i ], [ %cond.i.i.i, %if.end106.i.i ], [ 13, %if.end.i25.i ], [ 12, %if.end11.i.i ], [ 23, %if.end36.i.i ], [ 1, %if.then52.i.i ], [ 1, %if.then66.i.i ], [ 12, %if.end81.i.i ], [ 14, %_ZNK8simdjson7haswell12_GLOBAL__N_16stage116buf_block_readerILm128EE13get_remainderEPh.exit.i ], [ 10, %if.end.i.i ], [ 23, %while.end.i ]
+_ZN8simdjson7haswell12_GLOBAL__N_16stage123json_structural_indexer5indexILm128EEENS_10error_codeEPKhmRNS0_25dom_parser_implementationENS_11stage1_modeE.exit: ; preds = %entry, %if.end.i, %return.sink.split.i.thread43.i, %return.sink.split.i.thread.i, %_ZN8simdjson7haswell12_GLOBAL__N_16stage117trim_partial_utf8EPKhm.exit.i, %while.end.i, %_ZNK8simdjson7haswell12_GLOBAL__N_16stage116buf_block_readerILm128EE13get_remainderEPh.exit.i, %if.end.i24.i, %if.end11.i.i, %if.end36.i.i, %if.then52.i.i, %if.then66.i.i, %if.else.i.i, %if.end81.i.i, %if.end106.i.i
+  %retval.0.i = phi i32 [ 1, %entry ], [ 12, %if.end.i ], [ 10, %_ZN8simdjson7haswell12_GLOBAL__N_16stage117trim_partial_utf8EPKhm.exit.i ], [ 12, %if.else.i.i ], [ %cond.i.i.i, %if.end106.i.i ], [ 13, %if.end.i24.i ], [ 12, %if.end11.i.i ], [ 23, %if.end36.i.i ], [ 1, %if.then52.i.i ], [ 1, %if.then66.i.i ], [ 12, %if.end81.i.i ], [ 14, %_ZNK8simdjson7haswell12_GLOBAL__N_16stage116buf_block_readerILm128EE13get_remainderEPh.exit.i ], [ 10, %return.sink.split.i.thread.i ], [ 23, %while.end.i ], [ 10, %return.sink.split.i.thread43.i ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %reader.i)
   call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %indexer.i)
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %block.i)
   ret i32 %retval.0.i
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local noundef zeroext i1 @_ZNK8simdjson7haswell14implementation13validate_utf8EPKcm(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef %len) unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define dso_local noundef zeroext i1 @_ZNK8simdjson7haswell14implementation13validate_utf8EPKcm(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef %len) unnamed_addr #18 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %block.i.i = alloca [64 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %block.i.i)
@@ -5202,7 +5200,7 @@ invoke.cont:                                      ; preds = %if.else.i17.i.i, %_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i32 @_ZN8simdjson7haswell25dom_parser_implementation6stage2ERNS_3dom8documentE(ptr nocapture noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull align 8 dereferenceable(24) %_doc) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef i32 @_ZN8simdjson7haswell25dom_parser_implementation6stage2ERNS_3dom8documentE(ptr nocapture noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull align 8 dereferenceable(24) %_doc) unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %builder.i = alloca %"struct.simdjson::haswell::(anonymous namespace)::stage2::tape_builder", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %builder.i)
@@ -5284,7 +5282,7 @@ sw.bb29.i.i:                                      ; preds = %sw.bb10.i.i
   br i1 %cmp32.i.i, label %document_end.sink.split.i.i, label %array_begin.i.i
 
 sw.default.i.i:                                   ; preds = %if.end.i.i
-  %call42.i.i = call fastcc noundef i32 @_ZN8simdjson7haswell12_GLOBAL__N_16stage212tape_builder20visit_root_primitiveERNS2_13json_iteratorEPKh(ptr noundef nonnull align 8 dereferenceable(16) %builder.i, ptr nonnull %incdec.ptr.i.i.i, ptr nonnull %this, ptr noundef nonnull %arrayidx.i.i.i) #52
+  %call42.i.i = call fastcc noundef i32 @_ZN8simdjson7haswell12_GLOBAL__N_16stage212tape_builder20visit_root_primitiveERNS2_13json_iteratorEPKh(ptr noundef nonnull align 8 dereferenceable(16) %builder.i, ptr nonnull %incdec.ptr.i.i.i, ptr nonnull %this, ptr noundef nonnull %arrayidx.i.i.i) #51
   %tobool43.not.i.i = icmp eq i32 %call42.i.i, 0
   br i1 %tobool43.not.i.i, label %sw.default.i.document_end.i_crit_edge.i, label %_ZN8simdjson7haswell12_GLOBAL__N_16stage212tape_builder14parse_documentILb0EEENS_10error_codeERNS0_25dom_parser_implementationERNS_3dom8documentE.exit
 
@@ -5405,7 +5403,7 @@ sw.bb99.i.i:                                      ; preds = %if.end83.i.i
   br i1 %cmp102.i.i, label %sw.epilog117.sink.split.i.i, label %array_begin.i.i
 
 sw.default111.i.i:                                ; preds = %if.end83.i.i
-  %call113.i.i = call fastcc noundef i32 @_ZN8simdjson7haswell12_GLOBAL__N_16stage212tape_builder15visit_primitiveERNS2_13json_iteratorEPKh(ptr noundef nonnull align 8 dereferenceable(16) %builder.i, ptr nonnull %this, ptr noundef nonnull %arrayidx.i162.i.i) #52
+  %call113.i.i = call fastcc noundef i32 @_ZN8simdjson7haswell12_GLOBAL__N_16stage212tape_builder15visit_primitiveERNS2_13json_iteratorEPKh(ptr noundef nonnull align 8 dereferenceable(16) %builder.i, ptr nonnull %this, ptr noundef nonnull %arrayidx.i162.i.i) #51
   %tobool114.not.i.i = icmp eq i32 %call113.i.i, 0
   br i1 %tobool114.not.i.i, label %object_continue.i.i, label %_ZN8simdjson7haswell12_GLOBAL__N_16stage212tape_builder14parse_documentILb0EEENS_10error_codeERNS0_25dom_parser_implementationERNS_3dom8documentE.exit
 
@@ -5595,7 +5593,7 @@ sw.bb199.i.i:                                     ; preds = %array_value.i.i
   br i1 %cmp202.i.i, label %sw.epilog217.sink.split.i.i, label %array_begin.i.i
 
 sw.default211.i.i:                                ; preds = %array_value.i.i
-  %call213.i.i = call fastcc noundef i32 @_ZN8simdjson7haswell12_GLOBAL__N_16stage212tape_builder15visit_primitiveERNS2_13json_iteratorEPKh(ptr noundef nonnull align 8 dereferenceable(16) %builder.i, ptr nonnull %this, ptr noundef nonnull %arrayidx.i267.i.i) #52
+  %call213.i.i = call fastcc noundef i32 @_ZN8simdjson7haswell12_GLOBAL__N_16stage212tape_builder15visit_primitiveERNS2_13json_iteratorEPKh(ptr noundef nonnull align 8 dereferenceable(16) %builder.i, ptr nonnull %this, ptr noundef nonnull %arrayidx.i267.i.i) #51
   %tobool214.not.i.i = icmp eq i32 %call213.i.i, 0
   br i1 %tobool214.not.i.i, label %array_continue.i.i, label %_ZN8simdjson7haswell12_GLOBAL__N_16stage212tape_builder14parse_documentILb0EEENS_10error_codeERNS0_25dom_parser_implementationERNS_3dom8documentE.exit
 
@@ -5704,7 +5702,7 @@ _ZN8simdjson7haswell12_GLOBAL__N_16stage212tape_builder14parse_documentILb0EEENS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i32 @_ZN8simdjson7haswell25dom_parser_implementation11stage2_nextERNS_3dom8documentE(ptr nocapture noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull align 8 dereferenceable(24) %_doc) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef i32 @_ZN8simdjson7haswell25dom_parser_implementation11stage2_nextERNS_3dom8documentE(ptr nocapture noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull align 8 dereferenceable(24) %_doc) unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %builder.i = alloca %"struct.simdjson::haswell::(anonymous namespace)::stage2::tape_builder", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %builder.i)
@@ -5764,7 +5762,7 @@ sw.bb16.i.i:                                      ; preds = %if.end.i.i
   br i1 %cmp19.i.i, label %document_end.sink.split.i.i, label %array_begin.i.i
 
 sw.default.i.i:                                   ; preds = %if.end.i.i
-  %call29.i.i = call fastcc noundef i32 @_ZN8simdjson7haswell12_GLOBAL__N_16stage212tape_builder20visit_root_primitiveERNS2_13json_iteratorEPKh(ptr noundef nonnull align 8 dereferenceable(16) %builder.i, ptr nonnull %incdec.ptr.i.i.i, ptr nonnull %this, ptr noundef nonnull %arrayidx.i.i4.i) #52
+  %call29.i.i = call fastcc noundef i32 @_ZN8simdjson7haswell12_GLOBAL__N_16stage212tape_builder20visit_root_primitiveERNS2_13json_iteratorEPKh(ptr noundef nonnull align 8 dereferenceable(16) %builder.i, ptr nonnull %incdec.ptr.i.i.i, ptr nonnull %this, ptr noundef nonnull %arrayidx.i.i4.i) #51
   %tobool30.not.i.i = icmp eq i32 %call29.i.i, 0
   br i1 %tobool30.not.i.i, label %sw.default.i.document_end.i_crit_edge.i, label %_ZN8simdjson7haswell12_GLOBAL__N_16stage212tape_builder14parse_documentILb1EEENS_10error_codeERNS0_25dom_parser_implementationERNS_3dom8documentE.exit
 
@@ -5885,7 +5883,7 @@ sw.bb85.i.i:                                      ; preds = %if.end69.i.i
   br i1 %cmp88.i.i, label %sw.epilog103.sink.split.i.i, label %array_begin.i.i
 
 sw.default97.i.i:                                 ; preds = %if.end69.i.i
-  %call99.i.i = call fastcc noundef i32 @_ZN8simdjson7haswell12_GLOBAL__N_16stage212tape_builder15visit_primitiveERNS2_13json_iteratorEPKh(ptr noundef nonnull align 8 dereferenceable(16) %builder.i, ptr nonnull %this, ptr noundef nonnull %arrayidx.i146.i.i) #52
+  %call99.i.i = call fastcc noundef i32 @_ZN8simdjson7haswell12_GLOBAL__N_16stage212tape_builder15visit_primitiveERNS2_13json_iteratorEPKh(ptr noundef nonnull align 8 dereferenceable(16) %builder.i, ptr nonnull %this, ptr noundef nonnull %arrayidx.i146.i.i) #51
   %tobool100.not.i.i = icmp eq i32 %call99.i.i, 0
   br i1 %tobool100.not.i.i, label %object_continue.i.i, label %_ZN8simdjson7haswell12_GLOBAL__N_16stage212tape_builder14parse_documentILb1EEENS_10error_codeERNS0_25dom_parser_implementationERNS_3dom8documentE.exit
 
@@ -6075,7 +6073,7 @@ sw.bb185.i.i:                                     ; preds = %array_value.i.i
   br i1 %cmp188.i.i, label %sw.epilog203.sink.split.i.i, label %array_begin.i.i
 
 sw.default197.i.i:                                ; preds = %array_value.i.i
-  %call199.i.i = call fastcc noundef i32 @_ZN8simdjson7haswell12_GLOBAL__N_16stage212tape_builder15visit_primitiveERNS2_13json_iteratorEPKh(ptr noundef nonnull align 8 dereferenceable(16) %builder.i, ptr nonnull %this, ptr noundef nonnull %arrayidx.i251.i.i) #52
+  %call199.i.i = call fastcc noundef i32 @_ZN8simdjson7haswell12_GLOBAL__N_16stage212tape_builder15visit_primitiveERNS2_13json_iteratorEPKh(ptr noundef nonnull align 8 dereferenceable(16) %builder.i, ptr nonnull %this, ptr noundef nonnull %arrayidx.i251.i.i) #51
   %tobool200.not.i.i = icmp eq i32 %call199.i.i, 0
   br i1 %tobool200.not.i.i, label %array_continue.i.i, label %_ZN8simdjson7haswell12_GLOBAL__N_16stage212tape_builder14parse_documentILb1EEENS_10error_codeERNS0_25dom_parser_implementationERNS_3dom8documentE.exit
 
@@ -6179,15 +6177,15 @@ _ZN8simdjson7haswell12_GLOBAL__N_16stage212tape_builder14parse_documentILb1EEENS
   ret i32 %retval.0.i.i
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef ptr @_ZNK8simdjson7haswell25dom_parser_implementation12parse_stringEPKhPhb(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %src, ptr noundef %dst, i1 noundef zeroext %replacement_char) unnamed_addr #17 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+define dso_local noundef ptr @_ZNK8simdjson7haswell25dom_parser_implementation12parse_stringEPKhPhb(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %src, ptr noundef %dst, i1 noundef zeroext %replacement_char) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call fastcc noundef ptr @_ZN8simdjson7haswell12_GLOBAL__N_113stringparsing12parse_stringEPKhPhb(ptr noundef %src, ptr noundef %dst, i1 noundef zeroext %replacement_char)
   ret ptr %call
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef ptr @_ZN8simdjson7haswell12_GLOBAL__N_113stringparsing12parse_stringEPKhPhb(ptr nocapture noundef readonly %src, ptr noundef writeonly %dst, i1 noundef zeroext %allow_replacement) unnamed_addr #18 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+define internal fastcc noundef ptr @_ZN8simdjson7haswell12_GLOBAL__N_113stringparsing12parse_stringEPKhPhb(ptr nocapture noundef readonly %src, ptr noundef writeonly %dst, i1 noundef zeroext %allow_replacement) unnamed_addr #17 {
 entry:
   %.val52 = load <4 x i64>, ptr %src, align 1
   store <4 x i64> %.val52, ptr %dst, align 1
@@ -6444,8 +6442,8 @@ return:                                           ; preds = %if.else23.i.i, %if.
   ret ptr %retval.0
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef ptr @_ZNK8simdjson7haswell25dom_parser_implementation19parse_wobbly_stringEPKhPh(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %src, ptr noundef writeonly %dst) unnamed_addr #18 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+define dso_local noundef ptr @_ZNK8simdjson7haswell25dom_parser_implementation19parse_wobbly_stringEPKhPh(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %src, ptr noundef writeonly %dst) unnamed_addr #17 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %.val47.i = load <4 x i64>, ptr %src, align 1
   store <4 x i64> %.val47.i, ptr %dst, align 1
@@ -6690,14 +6688,14 @@ invoke.cont:                                      ; preds = %if.else.i, %if.else
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i32 @_ZN8simdjson7haswell25dom_parser_implementation5parseEPKhmRNS_3dom8documentE(ptr nocapture noundef nonnull align 8 dereferenceable(88) %this, ptr noundef %_buf, i64 noundef %_len, ptr noundef nonnull align 8 dereferenceable(24) %_doc) unnamed_addr #16 align 2 {
+define dso_local noundef i32 @_ZN8simdjson7haswell25dom_parser_implementation5parseEPKhmRNS_3dom8documentE(ptr nocapture noundef nonnull align 8 dereferenceable(88) %this, ptr noundef %_buf, i64 noundef %_len, ptr noundef nonnull align 8 dereferenceable(24) %_doc) unnamed_addr #15 align 2 {
 entry:
-  %call = tail call noundef i32 @_ZN8simdjson7haswell25dom_parser_implementation6stage1EPKhmNS_11stage1_modeE(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef %_buf, i64 noundef %_len, i32 noundef 0) #52, !range !44
+  %call = tail call noundef i32 @_ZN8simdjson7haswell25dom_parser_implementation6stage1EPKhmNS_11stage1_modeE(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef %_buf, i64 noundef %_len, i32 noundef 0) #51, !range !44
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %call2 = tail call noundef i32 @_ZN8simdjson7haswell25dom_parser_implementation6stage2ERNS_3dom8documentE(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull align 8 dereferenceable(24) %_doc) #52
+  %call2 = tail call noundef i32 @_ZN8simdjson7haswell25dom_parser_implementation6stage2ERNS_3dom8documentE(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull align 8 dereferenceable(24) %_doc) #51
   br label %return
 
 return:                                           ; preds = %entry, %if.end
@@ -6706,9 +6704,9 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i32 @_ZNK8simdjson7icelake14implementation32create_dom_parser_implementationEmmRSt10unique_ptrINS_8internal25dom_parser_implementationESt14default_deleteIS4_EE(ptr nocapture nonnull readnone align 8 %this, i64 noundef %capacity, i64 noundef %max_depth, ptr nocapture noundef nonnull align 8 dereferenceable(8) %dst) unnamed_addr #20 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef i32 @_ZNK8simdjson7icelake14implementation32create_dom_parser_implementationEmmRSt10unique_ptrINS_8internal25dom_parser_implementationESt14default_deleteIS4_EE(ptr nocapture nonnull readnone align 8 %this, i64 noundef %capacity, i64 noundef %max_depth, ptr nocapture noundef nonnull align 8 dereferenceable(8) %dst) unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %call = tail call noalias noundef dereferenceable_or_null(88) ptr @_ZnwmRKSt9nothrow_t(i64 noundef 88, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #54
+  %call = tail call noalias noundef dereferenceable_or_null(88) ptr @_ZnwmRKSt9nothrow_t(i64 noundef 88, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #53
   %new.isnull = icmp eq ptr %call, null
   br i1 %new.isnull, label %new.cont, label %new.notnull
 
@@ -6736,7 +6734,7 @@ _ZNKSt14default_deleteIN8simdjson8internal25dom_parser_implementationEEclEPS2_.e
   %vtable.i.i.i = load ptr, ptr %0, align 8
   %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 9
   %1 = load ptr, ptr %vfn.i.i.i, align 8
-  tail call void %1(ptr noundef nonnull align 8 dereferenceable(48) %0) #52
+  tail call void %1(ptr noundef nonnull align 8 dereferenceable(48) %0) #51
   %.pr = load ptr, ptr %dst, align 8
   br label %_ZNSt10unique_ptrIN8simdjson8internal25dom_parser_implementationESt14default_deleteIS2_EE5resetEPS2_.exit
 
@@ -6749,7 +6747,7 @@ if.end:                                           ; preds = %_ZNSt10unique_ptrIN
   %vtable = load ptr, ptr %2, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 6
   %3 = load ptr, ptr %vfn, align 8
-  %call4 = tail call noundef i32 %3(ptr noundef nonnull align 8 dereferenceable(48) %2, i64 noundef %capacity) #52
+  %call4 = tail call noundef i32 %3(ptr noundef nonnull align 8 dereferenceable(48) %2, i64 noundef %capacity) #51
   %tobool.not = icmp eq i32 %call4, 0
   br i1 %tobool.not, label %if.end6, label %return
 
@@ -6758,7 +6756,7 @@ if.end6:                                          ; preds = %if.end
   %vtable9 = load ptr, ptr %4, align 8
   %vfn10 = getelementptr inbounds ptr, ptr %vtable9, i64 7
   %5 = load ptr, ptr %vfn10, align 8
-  %call11 = tail call noundef i32 %5(ptr noundef nonnull align 8 dereferenceable(48) %4, i64 noundef %max_depth) #52
+  %call11 = tail call noundef i32 %5(ptr noundef nonnull align 8 dereferenceable(48) %4, i64 noundef %max_depth) #51
   br label %return
 
 return:                                           ; preds = %if.end6, %if.end, %_ZNSt10unique_ptrIN8simdjson8internal25dom_parser_implementationESt14default_deleteIS2_EE5resetEPS2_.exit
@@ -6766,8 +6764,8 @@ return:                                           ; preds = %if.end6, %if.end, %
   ret i32 %retval.0
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @_ZNK8simdjson7icelake14implementation6minifyEPKhmPhRm(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef %len, ptr noundef %dst, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %dst_len) unnamed_addr #21 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+define dso_local noundef i32 @_ZNK8simdjson7icelake14implementation6minifyEPKhmPhRm(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef %len, ptr noundef %dst, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %dst_len) unnamed_addr #20 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %block.i = alloca [128 x i8], align 16
   %out_block.i = alloca [128 x i8], align 16
@@ -6986,8 +6984,8 @@ _ZN8simdjson7icelake12_GLOBAL__N_16stage113json_minifier6minifyILm128EEENS_10err
   ret i32 %..i.i.i
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @_ZN8simdjson7icelake25dom_parser_implementation6stage1EPKhmNS_11stage1_modeE(ptr nocapture noundef nonnull align 8 dereferenceable(88) %this, ptr noundef %_buf, i64 noundef %_len, i32 noundef %streaming) unnamed_addr #21 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+define dso_local noundef i32 @_ZN8simdjson7icelake25dom_parser_implementation6stage1EPKhmNS_11stage1_modeE(ptr nocapture noundef nonnull align 8 dereferenceable(88) %this, ptr noundef %_buf, i64 noundef %_len, i32 noundef %streaming) unnamed_addr #20 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %reader.i = alloca %"struct.simdjson::icelake::(anonymous namespace)::stage1::buf_block_reader.104", align 8
   %indexer.i = alloca %"class.simdjson::icelake::(anonymous namespace)::stage1::json_structural_indexer", align 64
@@ -7017,56 +7015,54 @@ if.then6.i:                                       ; preds = %if.end4.i
   br i1 %cmp.i14.i, label %if.then.i.i, label %if.end21.i.i
 
 if.then.i.i:                                      ; preds = %if.then6.i
-  switch i64 %_len, label %if.end21.i.i [
-    i64 2, label %sw.bb.i.i
-    i64 1, label %sw.bb12.i.i
-  ]
+  %switch.i.i = icmp eq i64 %_len, 2
+  br i1 %switch.i.i, label %sw.bb.i.i, label %return.sink.split.i.thread43.i
 
 sw.bb.i.i:                                        ; preds = %if.then.i.i
   %arrayidx.i.i = getelementptr i8, ptr %_buf, i64 1
   %1 = load i8, ptr %arrayidx.i.i, align 1
   %cmp2.i.i = icmp ugt i8 %1, -65
-  br i1 %cmp2.i.i, label %if.end11.i, label %if.end.i.i
+  br i1 %cmp2.i.i, label %if.end11.i, label %return.sink.split.i.thread.i
 
-if.end.i.i:                                       ; preds = %sw.bb.i.i
-  %2 = load i8, ptr %_buf, align 1
-  %cmp8.i.i = icmp ugt i8 %2, -33
-  br i1 %cmp8.i.i, label %_ZN8simdjson7icelake12_GLOBAL__N_16stage123json_structural_indexer5indexILm128EEENS_10error_codeEPKhmRNS0_25dom_parser_implementationENS_11stage1_modeE.exit, label %if.end11.i
-
-sw.bb12.i.i:                                      ; preds = %if.then.i.i
-  %3 = load i8, ptr %_buf, align 1
-  %cmp16.i.i = icmp ult i8 %3, -64
-  %sub13.len.i.i = zext i1 %cmp16.i.i to i64
-  br label %_ZN8simdjson7icelake12_GLOBAL__N_16stage117trim_partial_utf8EPKhm.exit.i
-
-if.end21.i.i:                                     ; preds = %if.then.i.i, %if.then6.i
+if.end21.i.i:                                     ; preds = %if.then6.i
   %sub22.i.i = add i64 %_len, -1
   %arrayidx23.i.i = getelementptr inbounds i8, ptr %_buf, i64 %sub22.i.i
-  %4 = load i8, ptr %arrayidx23.i.i, align 1
-  %cmp25.i.i = icmp ugt i8 %4, -65
+  %2 = load i8, ptr %arrayidx23.i.i, align 1
+  %cmp25.i.i = icmp ugt i8 %2, -65
   br i1 %cmp25.i.i, label %if.end11.i, label %if.end28.i.i
 
 if.end28.i.i:                                     ; preds = %if.end21.i.i
   %sub29.i.i = add i64 %_len, -2
   %arrayidx30.i.i = getelementptr inbounds i8, ptr %_buf, i64 %sub29.i.i
-  %5 = load i8, ptr %arrayidx30.i.i, align 1
-  %cmp32.i.i = icmp ugt i8 %5, -33
-  br i1 %cmp32.i.i, label %if.end11.i, label %if.end35.i.i
+  %3 = load i8, ptr %arrayidx30.i.i, align 1
+  %cmp32.i.i = icmp ugt i8 %3, -33
+  br i1 %cmp32.i.i, label %if.end11.i, label %return.sink.split.i.i
 
-if.end35.i.i:                                     ; preds = %if.end28.i.i
+return.sink.split.i.i:                            ; preds = %if.end28.i.i
   %sub36.i.i = add i64 %_len, -3
   %arrayidx37.i.i = getelementptr inbounds i8, ptr %_buf, i64 %sub36.i.i
-  %6 = load i8, ptr %arrayidx37.i.i, align 1
-  %cmp39.i.i = icmp ugt i8 %6, -17
+  %4 = load i8, ptr %arrayidx37.i.i, align 1
+  %cmp39.i.i = icmp ugt i8 %4, -17
   br i1 %cmp39.i.i, label %_ZN8simdjson7icelake12_GLOBAL__N_16stage117trim_partial_utf8EPKhm.exit.i, label %if.end11.i
 
-_ZN8simdjson7icelake12_GLOBAL__N_16stage117trim_partial_utf8EPKhm.exit.i: ; preds = %if.end35.i.i, %sw.bb12.i.i
-  %retval.0.i.i = phi i64 [ %sub13.len.i.i, %sw.bb12.i.i ], [ %sub36.i.i, %if.end35.i.i ]
-  %cmp8.i = icmp eq i64 %retval.0.i.i, 0
+return.sink.split.i.thread43.i:                   ; preds = %if.then.i.i
+  %5 = getelementptr i8, ptr %_buf, i64 %_len
+  %arrayidx14.i.i = getelementptr i8, ptr %5, i64 -1
+  %6 = load i8, ptr %arrayidx14.i.i, align 1
+  %cmp39.i47.i = icmp ugt i8 %6, -65
+  br i1 %cmp39.i47.i, label %_ZN8simdjson7icelake12_GLOBAL__N_16stage123json_structural_indexer5indexILm128EEENS_10error_codeEPKhmRNS0_25dom_parser_implementationENS_11stage1_modeE.exit, label %if.end11.i
+
+return.sink.split.i.thread.i:                     ; preds = %sw.bb.i.i
+  %7 = load i8, ptr %_buf, align 1
+  %cmp39.i31.i = icmp ugt i8 %7, -33
+  br i1 %cmp39.i31.i, label %_ZN8simdjson7icelake12_GLOBAL__N_16stage123json_structural_indexer5indexILm128EEENS_10error_codeEPKhmRNS0_25dom_parser_implementationENS_11stage1_modeE.exit, label %if.end11.i
+
+_ZN8simdjson7icelake12_GLOBAL__N_16stage117trim_partial_utf8EPKhm.exit.i: ; preds = %return.sink.split.i.i
+  %cmp8.i = icmp eq i64 %sub36.i.i, 0
   br i1 %cmp8.i, label %_ZN8simdjson7icelake12_GLOBAL__N_16stage123json_structural_indexer5indexILm128EEENS_10error_codeEPKhmRNS0_25dom_parser_implementationENS_11stage1_modeE.exit, label %if.end11.i
 
-if.end11.i:                                       ; preds = %_ZN8simdjson7icelake12_GLOBAL__N_16stage117trim_partial_utf8EPKhm.exit.i, %if.end35.i.i, %if.end28.i.i, %if.end21.i.i, %if.end.i.i, %sw.bb.i.i, %if.end4.i
-  %len.addr.0.i = phi i64 [ %retval.0.i.i, %_ZN8simdjson7icelake12_GLOBAL__N_16stage117trim_partial_utf8EPKhm.exit.i ], [ %_len, %if.end4.i ], [ %_len, %if.end35.i.i ], [ %sub29.i.i, %if.end28.i.i ], [ %sub22.i.i, %if.end21.i.i ], [ 2, %if.end.i.i ], [ 1, %sw.bb.i.i ]
+if.end11.i:                                       ; preds = %_ZN8simdjson7icelake12_GLOBAL__N_16stage117trim_partial_utf8EPKhm.exit.i, %return.sink.split.i.thread.i, %return.sink.split.i.thread43.i, %return.sink.split.i.i, %if.end28.i.i, %if.end21.i.i, %sw.bb.i.i, %if.end4.i
+  %len.addr.0.i = phi i64 [ %sub36.i.i, %_ZN8simdjson7icelake12_GLOBAL__N_16stage117trim_partial_utf8EPKhm.exit.i ], [ %_len, %if.end4.i ], [ %_len, %return.sink.split.i.i ], [ %sub29.i.i, %if.end28.i.i ], [ %sub22.i.i, %if.end21.i.i ], [ 1, %sw.bb.i.i ], [ 2, %return.sink.split.i.thread.i ], [ 1, %return.sink.split.i.thread43.i ]
   store ptr %_buf, ptr %reader.i, align 8
   %len.i.i = getelementptr inbounds %"struct.simdjson::icelake::(anonymous namespace)::stage1::buf_block_reader.104", ptr %reader.i, i64 0, i32 1
   store i64 %len.addr.0.i, ptr %len.i.i, align 8
@@ -7076,22 +7072,22 @@ if.end11.i:                                       ; preds = %_ZN8simdjson7icelak
   %idx.i.i = getelementptr inbounds %"struct.simdjson::icelake::(anonymous namespace)::stage1::buf_block_reader.104", ptr %reader.i, i64 0, i32 3
   store i64 0, ptr %idx.i.i, align 8
   %structural_indexes.i = getelementptr inbounds %"class.simdjson::internal::dom_parser_implementation", ptr %this, i64 0, i32 2
-  %7 = load ptr, ptr %structural_indexes.i, align 8
+  %8 = load ptr, ptr %structural_indexes.i, align 8
   %checker.i.i = getelementptr inbounds %"class.simdjson::icelake::(anonymous namespace)::stage1::json_structural_indexer", ptr %indexer.i, i64 0, i32 2
   %indexer.i.i = getelementptr inbounds %"class.simdjson::icelake::(anonymous namespace)::stage1::json_structural_indexer", ptr %indexer.i, i64 0, i32 3
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(24) %indexer.i, i8 0, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(192) %checker.i.i, i8 0, i64 192, i1 false)
-  store ptr %7, ptr %indexer.i.i, align 64
+  store ptr %8, ptr %indexer.i.i, align 64
   %prev_structurals.i.i = getelementptr inbounds %"class.simdjson::icelake::(anonymous namespace)::stage1::json_structural_indexer", ptr %indexer.i, i64 0, i32 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %prev_structurals.i.i, i8 0, i64 16, i1 false)
-  %cmp.i1537.not.i = icmp ult i64 %len.addr.0.i, 129
-  br i1 %cmp.i1537.not.i, label %_ZNK8simdjson7icelake12_GLOBAL__N_16stage116buf_block_readerILm128EE13get_remainderEPh.exit.i, label %while.body.i
+  %cmp.i1540.not.i = icmp ult i64 %len.addr.0.i, 129
+  br i1 %cmp.i1540.not.i, label %_ZNK8simdjson7icelake12_GLOBAL__N_16stage116buf_block_readerILm128EE13get_remainderEPh.exit.i, label %while.body.i
 
 while.body.i:                                     ; preds = %if.end11.i, %while.body.i
-  %reader.val1038.i = phi i64 [ %reader.val10.i, %while.body.i ], [ 0, %if.end11.i ]
+  %reader.val1041.i = phi i64 [ %reader.val10.i, %while.body.i ], [ 0, %if.end11.i ]
   %reader.val11.i = load ptr, ptr %reader.i, align 8
-  %arrayidx.i16.i = getelementptr inbounds i8, ptr %reader.val11.i, i64 %reader.val1038.i
-  call fastcc void @_ZN8simdjson7icelake12_GLOBAL__N_16stage123json_structural_indexer4stepILm128EEEvPKhRNS2_16buf_block_readerIXT_EEE(ptr noundef nonnull align 64 dereferenceable(280) %indexer.i, ptr noundef %arrayidx.i16.i, ptr noundef nonnull align 8 dereferenceable(32) %reader.i) #52
+  %arrayidx.i16.i = getelementptr inbounds i8, ptr %reader.val11.i, i64 %reader.val1041.i
+  call fastcc void @_ZN8simdjson7icelake12_GLOBAL__N_16stage123json_structural_indexer4stepILm128EEEvPKhRNS2_16buf_block_readerIXT_EEE(ptr noundef nonnull align 64 dereferenceable(280) %indexer.i, ptr noundef %arrayidx.i16.i, ptr noundef nonnull align 8 dereferenceable(32) %reader.i) #51
   %reader.val.i = load i64, ptr %lenminusstep.i.i, align 8
   %reader.val10.i = load i64, ptr %idx.i.i, align 8
   %cmp.i15.i = icmp ult i64 %reader.val10.i, %reader.val.i
@@ -7107,88 +7103,88 @@ while.end.i._ZNK8simdjson7icelake12_GLOBAL__N_16stage116buf_block_readerILm128EE
   br label %_ZNK8simdjson7icelake12_GLOBAL__N_16stage116buf_block_readerILm128EE13get_remainderEPh.exit.i
 
 _ZNK8simdjson7icelake12_GLOBAL__N_16stage116buf_block_readerILm128EE13get_remainderEPh.exit.i: ; preds = %while.end.i._ZNK8simdjson7icelake12_GLOBAL__N_16stage116buf_block_readerILm128EE13get_remainderEPh.exit.i_crit_edge, %if.end11.i
-  %8 = phi ptr [ %.pre, %while.end.i._ZNK8simdjson7icelake12_GLOBAL__N_16stage116buf_block_readerILm128EE13get_remainderEPh.exit.i_crit_edge ], [ %_buf, %if.end11.i ]
-  %reader.val10.lcssa42.i = phi i64 [ %reader.val10.i, %while.end.i._ZNK8simdjson7icelake12_GLOBAL__N_16stage116buf_block_readerILm128EE13get_remainderEPh.exit.i_crit_edge ], [ 0, %if.end11.i ]
-  %9 = phi i64 [ %.pre.i, %while.end.i._ZNK8simdjson7icelake12_GLOBAL__N_16stage116buf_block_readerILm128EE13get_remainderEPh.exit.i_crit_edge ], [ %len.addr.0.i, %if.end11.i ]
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %8, i64 %reader.val10.lcssa42.i
-  %sub.i.i = sub i64 %9, %reader.val10.lcssa42.i
-  %10 = icmp ugt i64 %sub.i.i, 127
-  %11 = sub i64 128, %sub.i.i
-  %12 = select i1 %10, i64 0, i64 %11
-  %13 = getelementptr i8, ptr %block.i, i64 %sub.i.i
-  call void @llvm.memset.p0.i64(ptr align 1 %13, i8 32, i64 %12, i1 false)
+  %9 = phi ptr [ %.pre, %while.end.i._ZNK8simdjson7icelake12_GLOBAL__N_16stage116buf_block_readerILm128EE13get_remainderEPh.exit.i_crit_edge ], [ %_buf, %if.end11.i ]
+  %reader.val10.lcssa53.i = phi i64 [ %reader.val10.i, %while.end.i._ZNK8simdjson7icelake12_GLOBAL__N_16stage116buf_block_readerILm128EE13get_remainderEPh.exit.i_crit_edge ], [ 0, %if.end11.i ]
+  %10 = phi i64 [ %.pre.i, %while.end.i._ZNK8simdjson7icelake12_GLOBAL__N_16stage116buf_block_readerILm128EE13get_remainderEPh.exit.i_crit_edge ], [ %len.addr.0.i, %if.end11.i ]
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %9, i64 %reader.val10.lcssa53.i
+  %sub.i.i = sub i64 %10, %reader.val10.lcssa53.i
+  %11 = icmp ugt i64 %sub.i.i, 127
+  %12 = sub i64 128, %sub.i.i
+  %13 = select i1 %11, i64 0, i64 %12
+  %14 = getelementptr i8, ptr %block.i, i64 %sub.i.i
+  call void @llvm.memset.p0.i64(ptr align 1 %14, i8 32, i64 %13, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %block.i, ptr align 1 %add.ptr.i.i, i64 %sub.i.i, i1 false)
-  call fastcc void @_ZN8simdjson7icelake12_GLOBAL__N_16stage123json_structural_indexer4stepILm128EEEvPKhRNS2_16buf_block_readerIXT_EEE(ptr noundef nonnull align 64 dereferenceable(280) %indexer.i, ptr noundef nonnull %block.i, ptr noundef nonnull align 8 dereferenceable(32) %reader.i) #52
-  %14 = load i64, ptr %prev_structurals.i.i, align 8
-  %cmp.i.i.i = icmp eq i64 %14, 0
+  call fastcc void @_ZN8simdjson7icelake12_GLOBAL__N_16stage123json_structural_indexer4stepILm128EEEvPKhRNS2_16buf_block_readerIXT_EEE(ptr noundef nonnull align 64 dereferenceable(280) %indexer.i, ptr noundef nonnull %block.i, ptr noundef nonnull align 8 dereferenceable(32) %reader.i) #51
+  %15 = load i64, ptr %prev_structurals.i.i, align 8
+  %cmp.i.i.i = icmp eq i64 %15, 0
   br i1 %cmp.i.i.i, label %_ZN8simdjson7icelake12_GLOBAL__N_16stage111bit_indexer5writeEjm.exit.i.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %_ZNK8simdjson7icelake12_GLOBAL__N_16stage116buf_block_readerILm128EE13get_remainderEPh.exit.i
   %reader.val13.i = load i64, ptr %idx.i.i, align 8
-  %15 = trunc i64 %reader.val13.i to i32
-  %conv.i.i = add i32 %15, -64
-  %16 = bitcast i64 %14 to <64 x i1>
-  %17 = tail call <64 x i8> @llvm.x86.avx512.mask.compress.v64i8(<64 x i8> <i8 0, i8 1, i8 2, i8 3, i8 4, i8 5, i8 6, i8 7, i8 8, i8 9, i8 10, i8 11, i8 12, i8 13, i8 14, i8 15, i8 16, i8 17, i8 18, i8 19, i8 20, i8 21, i8 22, i8 23, i8 24, i8 25, i8 26, i8 27, i8 28, i8 29, i8 30, i8 31, i8 32, i8 33, i8 34, i8 35, i8 36, i8 37, i8 38, i8 39, i8 40, i8 41, i8 42, i8 43, i8 44, i8 45, i8 46, i8 47, i8 48, i8 49, i8 50, i8 51, i8 52, i8 53, i8 54, i8 55, i8 56, i8 57, i8 58, i8 59, i8 60, i8 61, i8 62, i8 63>, <64 x i8> zeroinitializer, <64 x i1> %16)
+  %16 = trunc i64 %reader.val13.i to i32
+  %conv.i.i = add i32 %16, -64
+  %17 = bitcast i64 %15 to <64 x i1>
+  %18 = tail call <64 x i8> @llvm.x86.avx512.mask.compress.v64i8(<64 x i8> <i8 0, i8 1, i8 2, i8 3, i8 4, i8 5, i8 6, i8 7, i8 8, i8 9, i8 10, i8 11, i8 12, i8 13, i8 14, i8 15, i8 16, i8 17, i8 18, i8 19, i8 20, i8 21, i8 22, i8 23, i8 24, i8 25, i8 26, i8 27, i8 28, i8 29, i8 30, i8 31, i8 32, i8 33, i8 34, i8 35, i8 36, i8 37, i8 38, i8 39, i8 40, i8 41, i8 42, i8 43, i8 44, i8 45, i8 46, i8 47, i8 48, i8 49, i8 50, i8 51, i8 52, i8 53, i8 54, i8 55, i8 56, i8 57, i8 58, i8 59, i8 60, i8 61, i8 62, i8 63>, <64 x i8> zeroinitializer, <64 x i1> %17)
   %vecinit.i66.i.i.i = insertelement <16 x i32> poison, i32 %conv.i.i, i64 0
   %vecinit15.i81.i.i.i = shufflevector <16 x i32> %vecinit.i66.i.i.i, <16 x i32> poison, <16 x i32> zeroinitializer
-  %18 = tail call noundef i64 @llvm.ctpop.i64(i64 %14), !range !45
-  %19 = shufflevector <64 x i8> %17, <64 x i8> poison, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
-  %conv.i88.i.i.i = zext <16 x i8> %19 to <16 x i32>
-  %20 = load ptr, ptr %indexer.i.i, align 64
+  %19 = tail call noundef i64 @llvm.ctpop.i64(i64 %15), !range !45
+  %20 = shufflevector <64 x i8> %18, <64 x i8> poison, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
+  %conv.i88.i.i.i = zext <16 x i8> %20 to <16 x i32>
+  %21 = load ptr, ptr %indexer.i.i, align 64
   %add.i117.i.i.i = add <16 x i32> %vecinit15.i81.i.i.i, %conv.i88.i.i.i
-  store <16 x i32> %add.i117.i.i.i, ptr %20, align 1
-  %cmp12.i.i.i = icmp ugt i64 %18, 16
+  store <16 x i32> %add.i117.i.i.i, ptr %21, align 1
+  %cmp12.i.i.i = icmp ugt i64 %19, 16
   br i1 %cmp12.i.i.i, label %if.then13.i.i.i, label %if.end45.i.i.i
 
 if.then13.i.i.i:                                  ; preds = %if.end.i.i.i
-  %21 = shufflevector <64 x i8> %17, <64 x i8> poison, <16 x i32> <i32 16, i32 17, i32 18, i32 19, i32 20, i32 21, i32 22, i32 23, i32 24, i32 25, i32 26, i32 27, i32 28, i32 29, i32 30, i32 31>
-  %conv.i86.i.i.i = zext <16 x i8> %21 to <16 x i32>
-  %add.ptr.i.i.i = getelementptr inbounds i32, ptr %20, i64 16
+  %22 = shufflevector <64 x i8> %18, <64 x i8> poison, <16 x i32> <i32 16, i32 17, i32 18, i32 19, i32 20, i32 21, i32 22, i32 23, i32 24, i32 25, i32 26, i32 27, i32 28, i32 29, i32 30, i32 31>
+  %conv.i86.i.i.i = zext <16 x i8> %22 to <16 x i32>
+  %add.ptr.i.i.i = getelementptr inbounds i32, ptr %21, i64 16
   %add.i110.i.i.i = add <16 x i32> %vecinit15.i81.i.i.i, %conv.i86.i.i.i
   store <16 x i32> %add.i110.i.i.i, ptr %add.ptr.i.i.i, align 1
-  %cmp21.i.i.i = icmp ugt i64 %18, 32
+  %cmp21.i.i.i = icmp ugt i64 %19, 32
   br i1 %cmp21.i.i.i, label %if.then22.i.i.i, label %if.end45.i.i.i
 
 if.then22.i.i.i:                                  ; preds = %if.then13.i.i.i
-  %22 = shufflevector <64 x i8> %17, <64 x i8> poison, <16 x i32> <i32 32, i32 33, i32 34, i32 35, i32 36, i32 37, i32 38, i32 39, i32 40, i32 41, i32 42, i32 43, i32 44, i32 45, i32 46, i32 47>
-  %conv.i84.i.i.i = zext <16 x i8> %22 to <16 x i32>
-  %add.ptr27.i.i.i = getelementptr inbounds i32, ptr %20, i64 32
+  %23 = shufflevector <64 x i8> %18, <64 x i8> poison, <16 x i32> <i32 32, i32 33, i32 34, i32 35, i32 36, i32 37, i32 38, i32 39, i32 40, i32 41, i32 42, i32 43, i32 44, i32 45, i32 46, i32 47>
+  %conv.i84.i.i.i = zext <16 x i8> %23 to <16 x i32>
+  %add.ptr27.i.i.i = getelementptr inbounds i32, ptr %21, i64 32
   %add.i103.i.i.i = add <16 x i32> %vecinit15.i81.i.i.i, %conv.i84.i.i.i
   store <16 x i32> %add.i103.i.i.i, ptr %add.ptr27.i.i.i, align 1
-  %cmp32.i.i.i = icmp ugt i64 %18, 48
+  %cmp32.i.i.i = icmp ugt i64 %19, 48
   br i1 %cmp32.i.i.i, label %if.then33.i.i.i, label %if.end45.i.i.i
 
 if.then33.i.i.i:                                  ; preds = %if.then22.i.i.i
-  %23 = shufflevector <64 x i8> %17, <64 x i8> poison, <16 x i32> <i32 48, i32 49, i32 50, i32 51, i32 52, i32 53, i32 54, i32 55, i32 56, i32 57, i32 58, i32 59, i32 60, i32 61, i32 62, i32 63>
-  %conv.i.i.i.i = zext <16 x i8> %23 to <16 x i32>
-  %add.ptr38.i.i.i = getelementptr inbounds i32, ptr %20, i64 48
+  %24 = shufflevector <64 x i8> %18, <64 x i8> poison, <16 x i32> <i32 48, i32 49, i32 50, i32 51, i32 52, i32 53, i32 54, i32 55, i32 56, i32 57, i32 58, i32 59, i32 60, i32 61, i32 62, i32 63>
+  %conv.i.i.i.i = zext <16 x i8> %24 to <16 x i32>
+  %add.ptr38.i.i.i = getelementptr inbounds i32, ptr %21, i64 48
   %add.i.i.i.i = add <16 x i32> %vecinit15.i81.i.i.i, %conv.i.i.i.i
   store <16 x i32> %add.i.i.i.i, ptr %add.ptr38.i.i.i, align 1
   br label %if.end45.i.i.i
 
 if.end45.i.i.i:                                   ; preds = %if.then33.i.i.i, %if.then22.i.i.i, %if.then13.i.i.i, %if.end.i.i.i
-  %add.ptr47.i.i.i = getelementptr inbounds i32, ptr %20, i64 %18
+  %add.ptr47.i.i.i = getelementptr inbounds i32, ptr %21, i64 %19
   store ptr %add.ptr47.i.i.i, ptr %indexer.i.i, align 64
   br label %_ZN8simdjson7icelake12_GLOBAL__N_16stage111bit_indexer5writeEjm.exit.i.i
 
 _ZN8simdjson7icelake12_GLOBAL__N_16stage111bit_indexer5writeEjm.exit.i.i: ; preds = %if.end45.i.i.i, %_ZNK8simdjson7icelake12_GLOBAL__N_16stage116buf_block_readerILm128EE13get_remainderEPh.exit.i
-  %24 = getelementptr inbounds i8, ptr %indexer.i, i64 16
-  %this.val.i.i = load i64, ptr %24, align 16
+  %25 = getelementptr inbounds i8, ptr %indexer.i, i64 16
+  %this.val.i.i = load i64, ptr %25, align 16
   %tobool.i.not.i.not.i.i = icmp eq i64 %this.val.i.i, 0
   %brmerge.i.i = select i1 %cmp.i.i, i1 true, i1 %tobool.i.not.i.not.i.i
-  br i1 %brmerge.i.i, label %if.end.i25.i, label %_ZN8simdjson7icelake12_GLOBAL__N_16stage123json_structural_indexer5indexILm128EEENS_10error_codeEPKhmRNS0_25dom_parser_implementationENS_11stage1_modeE.exit
+  br i1 %brmerge.i.i, label %if.end.i24.i, label %_ZN8simdjson7icelake12_GLOBAL__N_16stage123json_structural_indexer5indexILm128EEENS_10error_codeEPKhmRNS0_25dom_parser_implementationENS_11stage1_modeE.exit
 
-if.end.i25.i:                                     ; preds = %_ZN8simdjson7icelake12_GLOBAL__N_16stage111bit_indexer5writeEjm.exit.i.i
+if.end.i24.i:                                     ; preds = %_ZN8simdjson7icelake12_GLOBAL__N_16stage111bit_indexer5writeEjm.exit.i.i
   %unescaped_chars_error.i.i = getelementptr inbounds %"class.simdjson::icelake::(anonymous namespace)::stage1::json_structural_indexer", ptr %indexer.i, i64 0, i32 5
-  %25 = load i64, ptr %unescaped_chars_error.i.i, align 16
-  %tobool9.not.i.i = icmp eq i64 %25, 0
+  %26 = load i64, ptr %unescaped_chars_error.i.i, align 16
+  %tobool9.not.i.i = icmp eq i64 %26, 0
   br i1 %tobool9.not.i.i, label %if.end11.i.i, label %_ZN8simdjson7icelake12_GLOBAL__N_16stage123json_structural_indexer5indexILm128EEENS_10error_codeEPKhmRNS0_25dom_parser_implementationENS_11stage1_modeE.exit
 
-if.end11.i.i:                                     ; preds = %if.end.i25.i
-  %26 = load ptr, ptr %indexer.i.i, align 64
-  %27 = load ptr, ptr %structural_indexes.i, align 8
-  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %26 to i64
-  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %27 to i64
+if.end11.i.i:                                     ; preds = %if.end.i24.i
+  %27 = load ptr, ptr %indexer.i.i, align 64
+  %28 = load ptr, ptr %structural_indexes.i, align 8
+  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %27 to i64
+  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %28 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = lshr exact i64 %sub.ptr.sub.i.i, 2
   %conv14.i.i = trunc i64 %sub.ptr.div.i.i to i32
@@ -7196,33 +7192,33 @@ if.end11.i.i:                                     ; preds = %if.end.i25.i
   store i32 %conv14.i.i, ptr %n_structural_indexes.i.i, align 8
   %conv15.i.i = trunc i64 %len.addr.0.i to i32
   %conv18.i.i = and i64 %sub.ptr.div.i.i, 4294967295
-  %arrayidx.i.i.i = getelementptr inbounds i32, ptr %27, i64 %conv18.i.i
+  %arrayidx.i.i.i = getelementptr inbounds i32, ptr %28, i64 %conv18.i.i
   store i32 %conv15.i.i, ptr %arrayidx.i.i.i, align 4
-  %28 = load i32, ptr %n_structural_indexes.i.i, align 8
-  %add.i.i = add i32 %28, 1
+  %29 = load i32, ptr %n_structural_indexes.i.i, align 8
+  %add.i.i = add i32 %29, 1
   %conv23.i.i = zext i32 %add.i.i to i64
-  %29 = load ptr, ptr %structural_indexes.i, align 8
-  %arrayidx.i41.i.i = getelementptr inbounds i32, ptr %29, i64 %conv23.i.i
+  %30 = load ptr, ptr %structural_indexes.i, align 8
+  %arrayidx.i41.i.i = getelementptr inbounds i32, ptr %30, i64 %conv23.i.i
   store i32 %conv15.i.i, ptr %arrayidx.i41.i.i, align 4
-  %30 = load i32, ptr %n_structural_indexes.i.i, align 8
-  %add27.i.i = add i32 %30, 2
+  %31 = load i32, ptr %n_structural_indexes.i.i, align 8
+  %add27.i.i = add i32 %31, 2
   %conv28.i.i = zext i32 %add27.i.i to i64
-  %31 = load ptr, ptr %structural_indexes.i, align 8
-  %arrayidx.i42.i.i = getelementptr inbounds i32, ptr %31, i64 %conv28.i.i
+  %32 = load ptr, ptr %structural_indexes.i, align 8
+  %arrayidx.i42.i.i = getelementptr inbounds i32, ptr %32, i64 %conv28.i.i
   store i32 0, ptr %arrayidx.i42.i.i, align 4
   %next_structural_index.i.i = getelementptr inbounds %"class.simdjson::internal::dom_parser_implementation", ptr %this, i64 0, i32 3
   store i32 0, ptr %next_structural_index.i.i, align 8
-  %32 = load i32, ptr %n_structural_indexes.i.i, align 8
-  %cmp31.i.i = icmp eq i32 %32, 0
+  %33 = load i32, ptr %n_structural_indexes.i.i, align 8
+  %cmp31.i.i = icmp eq i32 %33, 0
   br i1 %cmp31.i.i, label %_ZN8simdjson7icelake12_GLOBAL__N_16stage123json_structural_indexer5indexILm128EEENS_10error_codeEPKhmRNS0_25dom_parser_implementationENS_11stage1_modeE.exit, label %if.end36.i.i
 
 if.end36.i.i:                                     ; preds = %if.end11.i.i
-  %sub39.i.i = add i32 %32, -1
+  %sub39.i.i = add i32 %33, -1
   %conv40.i.i = zext i32 %sub39.i.i to i64
-  %33 = load ptr, ptr %structural_indexes.i, align 8
-  %arrayidx.i43.i.i = getelementptr inbounds i32, ptr %33, i64 %conv40.i.i
-  %34 = load i32, ptr %arrayidx.i43.i.i, align 4
-  %conv42.i.i = zext i32 %34 to i64
+  %34 = load ptr, ptr %structural_indexes.i, align 8
+  %arrayidx.i43.i.i = getelementptr inbounds i32, ptr %34, i64 %conv40.i.i
+  %35 = load i32, ptr %arrayidx.i43.i.i, align 4
+  %conv42.i.i = zext i32 %35 to i64
   %cmp43.i.i = icmp ult i64 %len.addr.0.i, %conv42.i.i
   br i1 %cmp43.i.i, label %_ZN8simdjson7icelake12_GLOBAL__N_16stage123json_structural_indexer5indexILm128EEENS_10error_codeEPKhmRNS0_25dom_parser_implementationENS_11stage1_modeE.exit, label %if.end48.i.i
 
@@ -7246,8 +7242,8 @@ if.end61.i.i:                                     ; preds = %if.then52.i.i, %if.
   br i1 %cmp63.not.i.i, label %if.then66.i.i, label %if.end72.i.i
 
 if.then66.i.i:                                    ; preds = %if.end61.i.i
-  %35 = load i32, ptr %33, align 4
-  %cmp69.i.i = icmp eq i32 %35, 0
+  %36 = load i32, ptr %34, align 4
+  %cmp69.i.i = icmp eq i32 %36, 0
   br i1 %cmp69.i.i, label %_ZN8simdjson7icelake12_GLOBAL__N_16stage123json_structural_indexer5indexILm128EEENS_10error_codeEPKhmRNS0_25dom_parser_implementationENS_11stage1_modeE.exit, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %if.then66.i.i
@@ -7269,19 +7265,19 @@ if.end81.i.i:                                     ; preds = %if.then78.i.i, %if.
   %call82.i.i = tail call fastcc noundef i32 @_ZN8simdjson7icelake12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE(ptr noundef nonnull align 8 dereferenceable(88) %this)
   store i32 %call82.i.i, ptr %n_structural_indexes.i.i, align 8
   %conv86.i.i = zext i32 %call82.i.i to i64
-  %arrayidx.i44.i.i = getelementptr inbounds i32, ptr %33, i64 %conv86.i.i
-  %36 = load i32, ptr %arrayidx.i44.i.i, align 4
+  %arrayidx.i44.i.i = getelementptr inbounds i32, ptr %34, i64 %conv86.i.i
+  %37 = load i32, ptr %arrayidx.i44.i.i, align 4
   %add90.i.i = add i32 %call82.i.i, 1
   %conv91.i.i = zext i32 %add90.i.i to i64
-  %arrayidx.i45.i.i = getelementptr inbounds i32, ptr %33, i64 %conv91.i.i
-  store i32 %36, ptr %arrayidx.i45.i.i, align 4
-  %37 = load i32, ptr %n_structural_indexes.i.i, align 8
-  %conv96.i.i = zext i32 %37 to i64
-  %38 = load ptr, ptr %structural_indexes.i, align 8
-  %arrayidx.i46.i.i = getelementptr inbounds i32, ptr %38, i64 %conv96.i.i
+  %arrayidx.i45.i.i = getelementptr inbounds i32, ptr %34, i64 %conv91.i.i
+  store i32 %37, ptr %arrayidx.i45.i.i, align 4
+  %38 = load i32, ptr %n_structural_indexes.i.i, align 8
+  %conv96.i.i = zext i32 %38 to i64
+  %39 = load ptr, ptr %structural_indexes.i, align 8
+  %arrayidx.i46.i.i = getelementptr inbounds i32, ptr %39, i64 %conv96.i.i
   store i32 %conv15.i.i, ptr %arrayidx.i46.i.i, align 4
-  %39 = load i32, ptr %n_structural_indexes.i.i, align 8
-  %cmp99.i.i = icmp eq i32 %39, 0
+  %40 = load i32, ptr %n_structural_indexes.i.i, align 8
+  %cmp99.i.i = icmp eq i32 %40, 0
   br i1 %cmp99.i.i, label %_ZN8simdjson7icelake12_GLOBAL__N_16stage123json_structural_indexer5indexILm128EEENS_10error_codeEPKhmRNS0_25dom_parser_implementationENS_11stage1_modeE.exit, label %if.end106.i.i
 
 if.end106.i.i:                                    ; preds = %if.end81.i.i, %if.end72.i.i, %if.end48.i.i
@@ -7290,22 +7286,22 @@ if.end106.i.i:                                    ; preds = %if.end81.i.i, %if.e
   %this.val.i.i.i.i = load <8 x i64>, ptr %checker.i.i, align 64
   %or.i.i.i.i.i.i = or <8 x i64> %this.val.i.i.i.i, %agg.tmp.sroa.0.0.copyload.i.i.i
   %checker.val50.cast.i.i = bitcast <8 x i64> %or.i.i.i.i.i.i to <64 x i8>
-  %40 = icmp ne <64 x i8> %checker.val50.cast.i.i, zeroinitializer
-  %41 = bitcast <64 x i1> %40 to i64
-  %tobool.not.i.i.not.i.i.i = icmp eq i64 %41, 0
+  %41 = icmp ne <64 x i8> %checker.val50.cast.i.i, zeroinitializer
+  %42 = bitcast <64 x i1> %41 to i64
+  %tobool.not.i.i.not.i.i.i = icmp eq i64 %42, 0
   %cond.i.i.i = select i1 %tobool.not.i.i.not.i.i.i, i32 0, i32 10
   br label %_ZN8simdjson7icelake12_GLOBAL__N_16stage123json_structural_indexer5indexILm128EEENS_10error_codeEPKhmRNS0_25dom_parser_implementationENS_11stage1_modeE.exit
 
-_ZN8simdjson7icelake12_GLOBAL__N_16stage123json_structural_indexer5indexILm128EEENS_10error_codeEPKhmRNS0_25dom_parser_implementationENS_11stage1_modeE.exit: ; preds = %entry, %if.end.i, %if.end.i.i, %_ZN8simdjson7icelake12_GLOBAL__N_16stage117trim_partial_utf8EPKhm.exit.i, %while.end.i, %_ZN8simdjson7icelake12_GLOBAL__N_16stage111bit_indexer5writeEjm.exit.i.i, %if.end.i25.i, %if.end11.i.i, %if.end36.i.i, %if.then52.i.i, %if.then66.i.i, %if.else.i.i, %if.end81.i.i, %if.end106.i.i
-  %retval.0.i = phi i32 [ 1, %entry ], [ 12, %if.end.i ], [ 10, %_ZN8simdjson7icelake12_GLOBAL__N_16stage117trim_partial_utf8EPKhm.exit.i ], [ 12, %if.else.i.i ], [ %cond.i.i.i, %if.end106.i.i ], [ 13, %if.end.i25.i ], [ 12, %if.end11.i.i ], [ 23, %if.end36.i.i ], [ 1, %if.then52.i.i ], [ 1, %if.then66.i.i ], [ 12, %if.end81.i.i ], [ 14, %_ZN8simdjson7icelake12_GLOBAL__N_16stage111bit_indexer5writeEjm.exit.i.i ], [ 10, %if.end.i.i ], [ 23, %while.end.i ]
+_ZN8simdjson7icelake12_GLOBAL__N_16stage123json_structural_indexer5indexILm128EEENS_10error_codeEPKhmRNS0_25dom_parser_implementationENS_11stage1_modeE.exit: ; preds = %entry, %if.end.i, %return.sink.split.i.thread43.i, %return.sink.split.i.thread.i, %_ZN8simdjson7icelake12_GLOBAL__N_16stage117trim_partial_utf8EPKhm.exit.i, %while.end.i, %_ZN8simdjson7icelake12_GLOBAL__N_16stage111bit_indexer5writeEjm.exit.i.i, %if.end.i24.i, %if.end11.i.i, %if.end36.i.i, %if.then52.i.i, %if.then66.i.i, %if.else.i.i, %if.end81.i.i, %if.end106.i.i
+  %retval.0.i = phi i32 [ 1, %entry ], [ 12, %if.end.i ], [ 10, %_ZN8simdjson7icelake12_GLOBAL__N_16stage117trim_partial_utf8EPKhm.exit.i ], [ 12, %if.else.i.i ], [ %cond.i.i.i, %if.end106.i.i ], [ 13, %if.end.i24.i ], [ 12, %if.end11.i.i ], [ 23, %if.end36.i.i ], [ 1, %if.then52.i.i ], [ 1, %if.then66.i.i ], [ 12, %if.end81.i.i ], [ 14, %_ZN8simdjson7icelake12_GLOBAL__N_16stage111bit_indexer5writeEjm.exit.i.i ], [ 10, %return.sink.split.i.thread.i ], [ 23, %while.end.i ], [ 10, %return.sink.split.i.thread43.i ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %reader.i)
   call void @llvm.lifetime.end.p0(i64 320, ptr nonnull %indexer.i)
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %block.i)
   ret i32 %retval.0.i
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local noundef zeroext i1 @_ZNK8simdjson7icelake14implementation13validate_utf8EPKcm(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef %len) unnamed_addr #22 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define dso_local noundef zeroext i1 @_ZNK8simdjson7icelake14implementation13validate_utf8EPKcm(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef %len) unnamed_addr #21 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %block.sroa.0.i.i = alloca <8 x i64>, align 64
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %block.sroa.0.i.i)
@@ -7440,7 +7436,7 @@ invoke.cont:                                      ; preds = %if.else.i10.i.i, %_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i32 @_ZN8simdjson7icelake25dom_parser_implementation6stage2ERNS_3dom8documentE(ptr nocapture noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull align 8 dereferenceable(24) %_doc) unnamed_addr #20 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef i32 @_ZN8simdjson7icelake25dom_parser_implementation6stage2ERNS_3dom8documentE(ptr nocapture noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull align 8 dereferenceable(24) %_doc) unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %builder.i = alloca %"struct.simdjson::icelake::(anonymous namespace)::stage2::tape_builder", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %builder.i)
@@ -7522,7 +7518,7 @@ sw.bb29.i.i:                                      ; preds = %sw.bb10.i.i
   br i1 %cmp32.i.i, label %document_end.sink.split.i.i, label %array_begin.i.i
 
 sw.default.i.i:                                   ; preds = %if.end.i.i
-  %call42.i.i = call fastcc noundef i32 @_ZN8simdjson7icelake12_GLOBAL__N_16stage212tape_builder20visit_root_primitiveERNS2_13json_iteratorEPKh(ptr noundef nonnull align 8 dereferenceable(16) %builder.i, ptr nonnull %incdec.ptr.i.i.i, ptr nonnull %this, ptr noundef nonnull %arrayidx.i.i.i) #52
+  %call42.i.i = call fastcc noundef i32 @_ZN8simdjson7icelake12_GLOBAL__N_16stage212tape_builder20visit_root_primitiveERNS2_13json_iteratorEPKh(ptr noundef nonnull align 8 dereferenceable(16) %builder.i, ptr nonnull %incdec.ptr.i.i.i, ptr nonnull %this, ptr noundef nonnull %arrayidx.i.i.i) #51
   %tobool43.not.i.i = icmp eq i32 %call42.i.i, 0
   br i1 %tobool43.not.i.i, label %sw.default.i.document_end.i_crit_edge.i, label %_ZN8simdjson7icelake12_GLOBAL__N_16stage212tape_builder14parse_documentILb0EEENS_10error_codeERNS0_25dom_parser_implementationERNS_3dom8documentE.exit
 
@@ -7643,7 +7639,7 @@ sw.bb99.i.i:                                      ; preds = %if.end83.i.i
   br i1 %cmp102.i.i, label %sw.epilog117.sink.split.i.i, label %array_begin.i.i
 
 sw.default111.i.i:                                ; preds = %if.end83.i.i
-  %call113.i.i = call fastcc noundef i32 @_ZN8simdjson7icelake12_GLOBAL__N_16stage212tape_builder15visit_primitiveERNS2_13json_iteratorEPKh(ptr noundef nonnull align 8 dereferenceable(16) %builder.i, ptr nonnull %this, ptr noundef nonnull %arrayidx.i162.i.i) #52
+  %call113.i.i = call fastcc noundef i32 @_ZN8simdjson7icelake12_GLOBAL__N_16stage212tape_builder15visit_primitiveERNS2_13json_iteratorEPKh(ptr noundef nonnull align 8 dereferenceable(16) %builder.i, ptr nonnull %this, ptr noundef nonnull %arrayidx.i162.i.i) #51
   %tobool114.not.i.i = icmp eq i32 %call113.i.i, 0
   br i1 %tobool114.not.i.i, label %object_continue.i.i, label %_ZN8simdjson7icelake12_GLOBAL__N_16stage212tape_builder14parse_documentILb0EEENS_10error_codeERNS0_25dom_parser_implementationERNS_3dom8documentE.exit
 
@@ -7833,7 +7829,7 @@ sw.bb199.i.i:                                     ; preds = %array_value.i.i
   br i1 %cmp202.i.i, label %sw.epilog217.sink.split.i.i, label %array_begin.i.i
 
 sw.default211.i.i:                                ; preds = %array_value.i.i
-  %call213.i.i = call fastcc noundef i32 @_ZN8simdjson7icelake12_GLOBAL__N_16stage212tape_builder15visit_primitiveERNS2_13json_iteratorEPKh(ptr noundef nonnull align 8 dereferenceable(16) %builder.i, ptr nonnull %this, ptr noundef nonnull %arrayidx.i267.i.i) #52
+  %call213.i.i = call fastcc noundef i32 @_ZN8simdjson7icelake12_GLOBAL__N_16stage212tape_builder15visit_primitiveERNS2_13json_iteratorEPKh(ptr noundef nonnull align 8 dereferenceable(16) %builder.i, ptr nonnull %this, ptr noundef nonnull %arrayidx.i267.i.i) #51
   %tobool214.not.i.i = icmp eq i32 %call213.i.i, 0
   br i1 %tobool214.not.i.i, label %array_continue.i.i, label %_ZN8simdjson7icelake12_GLOBAL__N_16stage212tape_builder14parse_documentILb0EEENS_10error_codeERNS0_25dom_parser_implementationERNS_3dom8documentE.exit
 
@@ -7942,7 +7938,7 @@ _ZN8simdjson7icelake12_GLOBAL__N_16stage212tape_builder14parse_documentILb0EEENS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i32 @_ZN8simdjson7icelake25dom_parser_implementation11stage2_nextERNS_3dom8documentE(ptr nocapture noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull align 8 dereferenceable(24) %_doc) unnamed_addr #20 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef i32 @_ZN8simdjson7icelake25dom_parser_implementation11stage2_nextERNS_3dom8documentE(ptr nocapture noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull align 8 dereferenceable(24) %_doc) unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %builder.i = alloca %"struct.simdjson::icelake::(anonymous namespace)::stage2::tape_builder", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %builder.i)
@@ -8002,7 +7998,7 @@ sw.bb16.i.i:                                      ; preds = %if.end.i.i
   br i1 %cmp19.i.i, label %document_end.sink.split.i.i, label %array_begin.i.i
 
 sw.default.i.i:                                   ; preds = %if.end.i.i
-  %call29.i.i = call fastcc noundef i32 @_ZN8simdjson7icelake12_GLOBAL__N_16stage212tape_builder20visit_root_primitiveERNS2_13json_iteratorEPKh(ptr noundef nonnull align 8 dereferenceable(16) %builder.i, ptr nonnull %incdec.ptr.i.i.i, ptr nonnull %this, ptr noundef nonnull %arrayidx.i.i4.i) #52
+  %call29.i.i = call fastcc noundef i32 @_ZN8simdjson7icelake12_GLOBAL__N_16stage212tape_builder20visit_root_primitiveERNS2_13json_iteratorEPKh(ptr noundef nonnull align 8 dereferenceable(16) %builder.i, ptr nonnull %incdec.ptr.i.i.i, ptr nonnull %this, ptr noundef nonnull %arrayidx.i.i4.i) #51
   %tobool30.not.i.i = icmp eq i32 %call29.i.i, 0
   br i1 %tobool30.not.i.i, label %sw.default.i.document_end.i_crit_edge.i, label %_ZN8simdjson7icelake12_GLOBAL__N_16stage212tape_builder14parse_documentILb1EEENS_10error_codeERNS0_25dom_parser_implementationERNS_3dom8documentE.exit
 
@@ -8123,7 +8119,7 @@ sw.bb85.i.i:                                      ; preds = %if.end69.i.i
   br i1 %cmp88.i.i, label %sw.epilog103.sink.split.i.i, label %array_begin.i.i
 
 sw.default97.i.i:                                 ; preds = %if.end69.i.i
-  %call99.i.i = call fastcc noundef i32 @_ZN8simdjson7icelake12_GLOBAL__N_16stage212tape_builder15visit_primitiveERNS2_13json_iteratorEPKh(ptr noundef nonnull align 8 dereferenceable(16) %builder.i, ptr nonnull %this, ptr noundef nonnull %arrayidx.i146.i.i) #52
+  %call99.i.i = call fastcc noundef i32 @_ZN8simdjson7icelake12_GLOBAL__N_16stage212tape_builder15visit_primitiveERNS2_13json_iteratorEPKh(ptr noundef nonnull align 8 dereferenceable(16) %builder.i, ptr nonnull %this, ptr noundef nonnull %arrayidx.i146.i.i) #51
   %tobool100.not.i.i = icmp eq i32 %call99.i.i, 0
   br i1 %tobool100.not.i.i, label %object_continue.i.i, label %_ZN8simdjson7icelake12_GLOBAL__N_16stage212tape_builder14parse_documentILb1EEENS_10error_codeERNS0_25dom_parser_implementationERNS_3dom8documentE.exit
 
@@ -8313,7 +8309,7 @@ sw.bb185.i.i:                                     ; preds = %array_value.i.i
   br i1 %cmp188.i.i, label %sw.epilog203.sink.split.i.i, label %array_begin.i.i
 
 sw.default197.i.i:                                ; preds = %array_value.i.i
-  %call199.i.i = call fastcc noundef i32 @_ZN8simdjson7icelake12_GLOBAL__N_16stage212tape_builder15visit_primitiveERNS2_13json_iteratorEPKh(ptr noundef nonnull align 8 dereferenceable(16) %builder.i, ptr nonnull %this, ptr noundef nonnull %arrayidx.i251.i.i) #52
+  %call199.i.i = call fastcc noundef i32 @_ZN8simdjson7icelake12_GLOBAL__N_16stage212tape_builder15visit_primitiveERNS2_13json_iteratorEPKh(ptr noundef nonnull align 8 dereferenceable(16) %builder.i, ptr nonnull %this, ptr noundef nonnull %arrayidx.i251.i.i) #51
   %tobool200.not.i.i = icmp eq i32 %call199.i.i, 0
   br i1 %tobool200.not.i.i, label %array_continue.i.i, label %_ZN8simdjson7icelake12_GLOBAL__N_16stage212tape_builder14parse_documentILb1EEENS_10error_codeERNS0_25dom_parser_implementationERNS_3dom8documentE.exit
 
@@ -8417,15 +8413,15 @@ _ZN8simdjson7icelake12_GLOBAL__N_16stage212tape_builder14parse_documentILb1EEENS
   ret i32 %retval.0.i.i
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef ptr @_ZNK8simdjson7icelake25dom_parser_implementation12parse_stringEPKhPhb(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %src, ptr noundef %dst, i1 noundef zeroext %replacement_char) unnamed_addr #23 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+define dso_local noundef ptr @_ZNK8simdjson7icelake25dom_parser_implementation12parse_stringEPKhPhb(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %src, ptr noundef %dst, i1 noundef zeroext %replacement_char) unnamed_addr #22 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call fastcc noundef ptr @_ZN8simdjson7icelake12_GLOBAL__N_113stringparsing12parse_stringEPKhPhb(ptr noundef %src, ptr noundef %dst, i1 noundef zeroext %replacement_char)
   ret ptr %call
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef ptr @_ZN8simdjson7icelake12_GLOBAL__N_113stringparsing12parse_stringEPKhPhb(ptr nocapture noundef readonly %src, ptr noundef writeonly %dst, i1 noundef zeroext %allow_replacement) unnamed_addr #21 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+define internal fastcc noundef ptr @_ZN8simdjson7icelake12_GLOBAL__N_113stringparsing12parse_stringEPKhPhb(ptr nocapture noundef readonly %src, ptr noundef writeonly %dst, i1 noundef zeroext %allow_replacement) unnamed_addr #20 {
 entry:
   %.val56 = load <8 x i64>, ptr %src, align 1
   store <8 x i64> %.val56, ptr %dst, align 1
@@ -8678,8 +8674,8 @@ return:                                           ; preds = %if.else23.i.i, %if.
   ret ptr %retval.0
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef ptr @_ZNK8simdjson7icelake25dom_parser_implementation19parse_wobbly_stringEPKhPh(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %src, ptr noundef writeonly %dst) unnamed_addr #21 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+define dso_local noundef ptr @_ZNK8simdjson7icelake25dom_parser_implementation19parse_wobbly_stringEPKhPh(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %src, ptr noundef writeonly %dst) unnamed_addr #20 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %.val51.i = load <8 x i64>, ptr %src, align 1
   store <8 x i64> %.val51.i, ptr %dst, align 1
@@ -8920,14 +8916,14 @@ invoke.cont:                                      ; preds = %if.else.i, %if.else
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i32 @_ZN8simdjson7icelake25dom_parser_implementation5parseEPKhmRNS_3dom8documentE(ptr nocapture noundef nonnull align 8 dereferenceable(88) %this, ptr noundef %_buf, i64 noundef %_len, ptr noundef nonnull align 8 dereferenceable(24) %_doc) unnamed_addr #20 align 2 {
+define dso_local noundef i32 @_ZN8simdjson7icelake25dom_parser_implementation5parseEPKhmRNS_3dom8documentE(ptr nocapture noundef nonnull align 8 dereferenceable(88) %this, ptr noundef %_buf, i64 noundef %_len, ptr noundef nonnull align 8 dereferenceable(24) %_doc) unnamed_addr #19 align 2 {
 entry:
-  %call = tail call noundef i32 @_ZN8simdjson7icelake25dom_parser_implementation6stage1EPKhmNS_11stage1_modeE(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef %_buf, i64 noundef %_len, i32 noundef 0) #52, !range !44
+  %call = tail call noundef i32 @_ZN8simdjson7icelake25dom_parser_implementation6stage1EPKhmNS_11stage1_modeE(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef %_buf, i64 noundef %_len, i32 noundef 0) #51, !range !44
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %call2 = tail call noundef i32 @_ZN8simdjson7icelake25dom_parser_implementation6stage2ERNS_3dom8documentE(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull align 8 dereferenceable(24) %_doc) #52
+  %call2 = tail call noundef i32 @_ZN8simdjson7icelake25dom_parser_implementation6stage2ERNS_3dom8documentE(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull align 8 dereferenceable(24) %_doc) #51
   br label %return
 
 return:                                           ; preds = %entry, %if.end
@@ -8936,9 +8932,9 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i32 @_ZNK8simdjson8westmere14implementation32create_dom_parser_implementationEmmRSt10unique_ptrINS_8internal25dom_parser_implementationESt14default_deleteIS4_EE(ptr nocapture nonnull readnone align 8 %this, i64 noundef %capacity, i64 noundef %max_depth, ptr nocapture noundef nonnull align 8 dereferenceable(8) %dst) unnamed_addr #24 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef i32 @_ZNK8simdjson8westmere14implementation32create_dom_parser_implementationEmmRSt10unique_ptrINS_8internal25dom_parser_implementationESt14default_deleteIS4_EE(ptr nocapture nonnull readnone align 8 %this, i64 noundef %capacity, i64 noundef %max_depth, ptr nocapture noundef nonnull align 8 dereferenceable(8) %dst) unnamed_addr #23 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %call = tail call noalias noundef dereferenceable_or_null(88) ptr @_ZnwmRKSt9nothrow_t(i64 noundef 88, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #54
+  %call = tail call noalias noundef dereferenceable_or_null(88) ptr @_ZnwmRKSt9nothrow_t(i64 noundef 88, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #53
   %new.isnull = icmp eq ptr %call, null
   br i1 %new.isnull, label %new.cont, label %new.notnull
 
@@ -8966,7 +8962,7 @@ _ZNKSt14default_deleteIN8simdjson8internal25dom_parser_implementationEEclEPS2_.e
   %vtable.i.i.i = load ptr, ptr %0, align 8
   %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 9
   %1 = load ptr, ptr %vfn.i.i.i, align 8
-  tail call void %1(ptr noundef nonnull align 8 dereferenceable(48) %0) #52
+  tail call void %1(ptr noundef nonnull align 8 dereferenceable(48) %0) #51
   %.pr = load ptr, ptr %dst, align 8
   br label %_ZNSt10unique_ptrIN8simdjson8internal25dom_parser_implementationESt14default_deleteIS2_EE5resetEPS2_.exit
 
@@ -8979,7 +8975,7 @@ if.end:                                           ; preds = %_ZNSt10unique_ptrIN
   %vtable = load ptr, ptr %2, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 6
   %3 = load ptr, ptr %vfn, align 8
-  %call4 = tail call noundef i32 %3(ptr noundef nonnull align 8 dereferenceable(48) %2, i64 noundef %capacity) #52
+  %call4 = tail call noundef i32 %3(ptr noundef nonnull align 8 dereferenceable(48) %2, i64 noundef %capacity) #51
   %tobool.not = icmp eq i32 %call4, 0
   br i1 %tobool.not, label %if.end6, label %return
 
@@ -8988,7 +8984,7 @@ if.end6:                                          ; preds = %if.end
   %vtable9 = load ptr, ptr %4, align 8
   %vfn10 = getelementptr inbounds ptr, ptr %vtable9, i64 7
   %5 = load ptr, ptr %vfn10, align 8
-  %call11 = tail call noundef i32 %5(ptr noundef nonnull align 8 dereferenceable(48) %4, i64 noundef %max_depth) #52
+  %call11 = tail call noundef i32 %5(ptr noundef nonnull align 8 dereferenceable(48) %4, i64 noundef %max_depth) #51
   br label %return
 
 return:                                           ; preds = %if.end6, %if.end, %_ZNSt10unique_ptrIN8simdjson8internal25dom_parser_implementationESt14default_deleteIS2_EE5resetEPS2_.exit
@@ -8996,8 +8992,8 @@ return:                                           ; preds = %if.end6, %if.end, %
   ret i32 %retval.0
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @_ZNK8simdjson8westmere14implementation6minifyEPKhmPhRm(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef %len, ptr noundef %dst, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %dst_len) unnamed_addr #25 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+define dso_local noundef i32 @_ZNK8simdjson8westmere14implementation6minifyEPKhmPhRm(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef %len, ptr noundef %dst, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %dst_len) unnamed_addr #24 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %block.i = alloca [64 x i8], align 16
   %out_block.i = alloca [64 x i8], align 16
@@ -9436,8 +9432,8 @@ _ZN8simdjson8westmere12_GLOBAL__N_16stage113json_minifier6minifyILm64EEENS_10err
   ret i32 %..i.i.i
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @_ZN8simdjson8westmere25dom_parser_implementation6stage1EPKhmNS_11stage1_modeE(ptr nocapture noundef nonnull align 8 dereferenceable(88) %this, ptr noundef %_buf, i64 noundef %_len, i32 noundef %streaming) unnamed_addr #25 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+define dso_local noundef i32 @_ZN8simdjson8westmere25dom_parser_implementation6stage1EPKhmNS_11stage1_modeE(ptr nocapture noundef nonnull align 8 dereferenceable(88) %this, ptr noundef %_buf, i64 noundef %_len, i32 noundef %streaming) unnamed_addr #24 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %reader.i = alloca %"struct.simdjson::westmere::(anonymous namespace)::stage1::buf_block_reader", align 8
   %indexer.i = alloca %"class.simdjson::westmere::(anonymous namespace)::stage1::json_structural_indexer", align 16
@@ -9467,56 +9463,54 @@ if.then6.i:                                       ; preds = %if.end4.i
   br i1 %cmp.i14.i, label %if.then.i.i, label %if.end21.i.i
 
 if.then.i.i:                                      ; preds = %if.then6.i
-  switch i64 %_len, label %if.end21.i.i [
-    i64 2, label %sw.bb.i.i
-    i64 1, label %sw.bb12.i.i
-  ]
+  %switch.i.i = icmp eq i64 %_len, 2
+  br i1 %switch.i.i, label %sw.bb.i.i, label %return.sink.split.i.thread43.i
 
 sw.bb.i.i:                                        ; preds = %if.then.i.i
   %arrayidx.i.i = getelementptr i8, ptr %_buf, i64 1
   %1 = load i8, ptr %arrayidx.i.i, align 1
   %cmp2.i.i = icmp ugt i8 %1, -65
-  br i1 %cmp2.i.i, label %if.end11.i, label %if.end.i.i
+  br i1 %cmp2.i.i, label %if.end11.i, label %return.sink.split.i.thread.i
 
-if.end.i.i:                                       ; preds = %sw.bb.i.i
-  %2 = load i8, ptr %_buf, align 1
-  %cmp8.i.i = icmp ugt i8 %2, -33
-  br i1 %cmp8.i.i, label %_ZN8simdjson8westmere12_GLOBAL__N_16stage123json_structural_indexer5indexILm64EEENS_10error_codeEPKhmRNS0_25dom_parser_implementationENS_11stage1_modeE.exit, label %if.end11.i
-
-sw.bb12.i.i:                                      ; preds = %if.then.i.i
-  %3 = load i8, ptr %_buf, align 1
-  %cmp16.i.i = icmp ult i8 %3, -64
-  %sub13.len.i.i = zext i1 %cmp16.i.i to i64
-  br label %_ZN8simdjson8westmere12_GLOBAL__N_16stage117trim_partial_utf8EPKhm.exit.i
-
-if.end21.i.i:                                     ; preds = %if.then.i.i, %if.then6.i
+if.end21.i.i:                                     ; preds = %if.then6.i
   %sub22.i.i = add i64 %_len, -1
   %arrayidx23.i.i = getelementptr inbounds i8, ptr %_buf, i64 %sub22.i.i
-  %4 = load i8, ptr %arrayidx23.i.i, align 1
-  %cmp25.i.i = icmp ugt i8 %4, -65
+  %2 = load i8, ptr %arrayidx23.i.i, align 1
+  %cmp25.i.i = icmp ugt i8 %2, -65
   br i1 %cmp25.i.i, label %if.end11.i, label %if.end28.i.i
 
 if.end28.i.i:                                     ; preds = %if.end21.i.i
   %sub29.i.i = add i64 %_len, -2
   %arrayidx30.i.i = getelementptr inbounds i8, ptr %_buf, i64 %sub29.i.i
-  %5 = load i8, ptr %arrayidx30.i.i, align 1
-  %cmp32.i.i = icmp ugt i8 %5, -33
-  br i1 %cmp32.i.i, label %if.end11.i, label %if.end35.i.i
+  %3 = load i8, ptr %arrayidx30.i.i, align 1
+  %cmp32.i.i = icmp ugt i8 %3, -33
+  br i1 %cmp32.i.i, label %if.end11.i, label %return.sink.split.i.i
 
-if.end35.i.i:                                     ; preds = %if.end28.i.i
+return.sink.split.i.i:                            ; preds = %if.end28.i.i
   %sub36.i.i = add i64 %_len, -3
   %arrayidx37.i.i = getelementptr inbounds i8, ptr %_buf, i64 %sub36.i.i
-  %6 = load i8, ptr %arrayidx37.i.i, align 1
-  %cmp39.i.i = icmp ugt i8 %6, -17
+  %4 = load i8, ptr %arrayidx37.i.i, align 1
+  %cmp39.i.i = icmp ugt i8 %4, -17
   br i1 %cmp39.i.i, label %_ZN8simdjson8westmere12_GLOBAL__N_16stage117trim_partial_utf8EPKhm.exit.i, label %if.end11.i
 
-_ZN8simdjson8westmere12_GLOBAL__N_16stage117trim_partial_utf8EPKhm.exit.i: ; preds = %if.end35.i.i, %sw.bb12.i.i
-  %retval.0.i.i = phi i64 [ %sub13.len.i.i, %sw.bb12.i.i ], [ %sub36.i.i, %if.end35.i.i ]
-  %cmp8.i = icmp eq i64 %retval.0.i.i, 0
+return.sink.split.i.thread43.i:                   ; preds = %if.then.i.i
+  %5 = getelementptr i8, ptr %_buf, i64 %_len
+  %arrayidx14.i.i = getelementptr i8, ptr %5, i64 -1
+  %6 = load i8, ptr %arrayidx14.i.i, align 1
+  %cmp39.i47.i = icmp ugt i8 %6, -65
+  br i1 %cmp39.i47.i, label %_ZN8simdjson8westmere12_GLOBAL__N_16stage123json_structural_indexer5indexILm64EEENS_10error_codeEPKhmRNS0_25dom_parser_implementationENS_11stage1_modeE.exit, label %if.end11.i
+
+return.sink.split.i.thread.i:                     ; preds = %sw.bb.i.i
+  %7 = load i8, ptr %_buf, align 1
+  %cmp39.i31.i = icmp ugt i8 %7, -33
+  br i1 %cmp39.i31.i, label %_ZN8simdjson8westmere12_GLOBAL__N_16stage123json_structural_indexer5indexILm64EEENS_10error_codeEPKhmRNS0_25dom_parser_implementationENS_11stage1_modeE.exit, label %if.end11.i
+
+_ZN8simdjson8westmere12_GLOBAL__N_16stage117trim_partial_utf8EPKhm.exit.i: ; preds = %return.sink.split.i.i
+  %cmp8.i = icmp eq i64 %sub36.i.i, 0
   br i1 %cmp8.i, label %_ZN8simdjson8westmere12_GLOBAL__N_16stage123json_structural_indexer5indexILm64EEENS_10error_codeEPKhmRNS0_25dom_parser_implementationENS_11stage1_modeE.exit, label %if.end11.i
 
-if.end11.i:                                       ; preds = %_ZN8simdjson8westmere12_GLOBAL__N_16stage117trim_partial_utf8EPKhm.exit.i, %if.end35.i.i, %if.end28.i.i, %if.end21.i.i, %if.end.i.i, %sw.bb.i.i, %if.end4.i
-  %len.addr.0.i = phi i64 [ %retval.0.i.i, %_ZN8simdjson8westmere12_GLOBAL__N_16stage117trim_partial_utf8EPKhm.exit.i ], [ %_len, %if.end4.i ], [ %_len, %if.end35.i.i ], [ %sub29.i.i, %if.end28.i.i ], [ %sub22.i.i, %if.end21.i.i ], [ 2, %if.end.i.i ], [ 1, %sw.bb.i.i ]
+if.end11.i:                                       ; preds = %_ZN8simdjson8westmere12_GLOBAL__N_16stage117trim_partial_utf8EPKhm.exit.i, %return.sink.split.i.thread.i, %return.sink.split.i.thread43.i, %return.sink.split.i.i, %if.end28.i.i, %if.end21.i.i, %sw.bb.i.i, %if.end4.i
+  %len.addr.0.i = phi i64 [ %sub36.i.i, %_ZN8simdjson8westmere12_GLOBAL__N_16stage117trim_partial_utf8EPKhm.exit.i ], [ %_len, %if.end4.i ], [ %_len, %return.sink.split.i.i ], [ %sub29.i.i, %if.end28.i.i ], [ %sub22.i.i, %if.end21.i.i ], [ 1, %sw.bb.i.i ], [ 2, %return.sink.split.i.thread.i ], [ 1, %return.sink.split.i.thread43.i ]
   store ptr %_buf, ptr %reader.i, align 8
   %len.i.i = getelementptr inbounds %"struct.simdjson::westmere::(anonymous namespace)::stage1::buf_block_reader", ptr %reader.i, i64 0, i32 1
   store i64 %len.addr.0.i, ptr %len.i.i, align 8
@@ -9526,22 +9520,22 @@ if.end11.i:                                       ; preds = %_ZN8simdjson8westme
   %idx.i.i = getelementptr inbounds %"struct.simdjson::westmere::(anonymous namespace)::stage1::buf_block_reader", ptr %reader.i, i64 0, i32 3
   store i64 0, ptr %idx.i.i, align 8
   %structural_indexes.i = getelementptr inbounds %"class.simdjson::internal::dom_parser_implementation", ptr %this, i64 0, i32 2
-  %7 = load ptr, ptr %structural_indexes.i, align 8
+  %8 = load ptr, ptr %structural_indexes.i, align 8
   %checker.i.i = getelementptr inbounds %"class.simdjson::westmere::(anonymous namespace)::stage1::json_structural_indexer", ptr %indexer.i, i64 0, i32 2
   %indexer.i.i = getelementptr inbounds %"class.simdjson::westmere::(anonymous namespace)::stage1::json_structural_indexer", ptr %indexer.i, i64 0, i32 3
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %indexer.i, i8 0, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %checker.i.i, i8 0, i64 48, i1 false)
-  store ptr %7, ptr %indexer.i.i, align 16
+  store ptr %8, ptr %indexer.i.i, align 16
   %prev_structurals.i.i = getelementptr inbounds %"class.simdjson::westmere::(anonymous namespace)::stage1::json_structural_indexer", ptr %indexer.i, i64 0, i32 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %prev_structurals.i.i, i8 0, i64 16, i1 false)
-  %cmp.i1537.not.i = icmp ult i64 %len.addr.0.i, 65
-  br i1 %cmp.i1537.not.i, label %_ZNK8simdjson8westmere12_GLOBAL__N_16stage116buf_block_readerILm64EE13get_remainderEPh.exit.i, label %while.body.i
+  %cmp.i1540.not.i = icmp ult i64 %len.addr.0.i, 65
+  br i1 %cmp.i1540.not.i, label %_ZNK8simdjson8westmere12_GLOBAL__N_16stage116buf_block_readerILm64EE13get_remainderEPh.exit.i, label %while.body.i
 
 while.body.i:                                     ; preds = %if.end11.i, %while.body.i
-  %reader.val1038.i = phi i64 [ %reader.val10.i, %while.body.i ], [ 0, %if.end11.i ]
+  %reader.val1041.i = phi i64 [ %reader.val10.i, %while.body.i ], [ 0, %if.end11.i ]
   %reader.val11.i = load ptr, ptr %reader.i, align 8
-  %arrayidx.i16.i = getelementptr inbounds i8, ptr %reader.val11.i, i64 %reader.val1038.i
-  call fastcc void @_ZN8simdjson8westmere12_GLOBAL__N_16stage123json_structural_indexer4stepILm64EEEvPKhRNS2_16buf_block_readerIXT_EEE(ptr noundef nonnull align 16 dereferenceable(104) %indexer.i, ptr noundef %arrayidx.i16.i, ptr noundef nonnull align 8 dereferenceable(32) %reader.i) #52
+  %arrayidx.i16.i = getelementptr inbounds i8, ptr %reader.val11.i, i64 %reader.val1041.i
+  call fastcc void @_ZN8simdjson8westmere12_GLOBAL__N_16stage123json_structural_indexer4stepILm64EEEvPKhRNS2_16buf_block_readerIXT_EEE(ptr noundef nonnull align 16 dereferenceable(104) %indexer.i, ptr noundef %arrayidx.i16.i, ptr noundef nonnull align 8 dereferenceable(32) %reader.i) #51
   %reader.val.i = load i64, ptr %lenminusstep.i.i, align 8
   %reader.val10.i = load i64, ptr %idx.i.i, align 8
   %cmp.i15.i = icmp ult i64 %reader.val10.i, %reader.val.i
@@ -9557,40 +9551,40 @@ while.end.i._ZNK8simdjson8westmere12_GLOBAL__N_16stage116buf_block_readerILm64EE
   br label %_ZNK8simdjson8westmere12_GLOBAL__N_16stage116buf_block_readerILm64EE13get_remainderEPh.exit.i
 
 _ZNK8simdjson8westmere12_GLOBAL__N_16stage116buf_block_readerILm64EE13get_remainderEPh.exit.i: ; preds = %while.end.i._ZNK8simdjson8westmere12_GLOBAL__N_16stage116buf_block_readerILm64EE13get_remainderEPh.exit.i_crit_edge, %if.end11.i
-  %8 = phi ptr [ %.pre, %while.end.i._ZNK8simdjson8westmere12_GLOBAL__N_16stage116buf_block_readerILm64EE13get_remainderEPh.exit.i_crit_edge ], [ %_buf, %if.end11.i ]
-  %reader.val10.lcssa42.i = phi i64 [ %reader.val10.i, %while.end.i._ZNK8simdjson8westmere12_GLOBAL__N_16stage116buf_block_readerILm64EE13get_remainderEPh.exit.i_crit_edge ], [ 0, %if.end11.i ]
-  %9 = phi i64 [ %.pre.i, %while.end.i._ZNK8simdjson8westmere12_GLOBAL__N_16stage116buf_block_readerILm64EE13get_remainderEPh.exit.i_crit_edge ], [ %len.addr.0.i, %if.end11.i ]
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %8, i64 %reader.val10.lcssa42.i
-  %sub.i.i = sub i64 %9, %reader.val10.lcssa42.i
-  %10 = icmp ugt i64 %sub.i.i, 63
-  %11 = sub i64 64, %sub.i.i
-  %12 = select i1 %10, i64 0, i64 %11
-  %13 = getelementptr i8, ptr %block.i, i64 %sub.i.i
-  call void @llvm.memset.p0.i64(ptr align 1 %13, i8 32, i64 %12, i1 false)
+  %9 = phi ptr [ %.pre, %while.end.i._ZNK8simdjson8westmere12_GLOBAL__N_16stage116buf_block_readerILm64EE13get_remainderEPh.exit.i_crit_edge ], [ %_buf, %if.end11.i ]
+  %reader.val10.lcssa53.i = phi i64 [ %reader.val10.i, %while.end.i._ZNK8simdjson8westmere12_GLOBAL__N_16stage116buf_block_readerILm64EE13get_remainderEPh.exit.i_crit_edge ], [ 0, %if.end11.i ]
+  %10 = phi i64 [ %.pre.i, %while.end.i._ZNK8simdjson8westmere12_GLOBAL__N_16stage116buf_block_readerILm64EE13get_remainderEPh.exit.i_crit_edge ], [ %len.addr.0.i, %if.end11.i ]
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %9, i64 %reader.val10.lcssa53.i
+  %sub.i.i = sub i64 %10, %reader.val10.lcssa53.i
+  %11 = icmp ugt i64 %sub.i.i, 63
+  %12 = sub i64 64, %sub.i.i
+  %13 = select i1 %11, i64 0, i64 %12
+  %14 = getelementptr i8, ptr %block.i, i64 %sub.i.i
+  call void @llvm.memset.p0.i64(ptr align 1 %14, i8 32, i64 %13, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %block.i, ptr align 1 %add.ptr.i.i, i64 %sub.i.i, i1 false)
-  call fastcc void @_ZN8simdjson8westmere12_GLOBAL__N_16stage123json_structural_indexer4stepILm64EEEvPKhRNS2_16buf_block_readerIXT_EEE(ptr noundef nonnull align 16 dereferenceable(104) %indexer.i, ptr noundef nonnull %block.i, ptr noundef nonnull align 8 dereferenceable(32) %reader.i) #52
+  call fastcc void @_ZN8simdjson8westmere12_GLOBAL__N_16stage123json_structural_indexer4stepILm64EEEvPKhRNS2_16buf_block_readerIXT_EEE(ptr noundef nonnull align 16 dereferenceable(104) %indexer.i, ptr noundef nonnull %block.i, ptr noundef nonnull align 8 dereferenceable(32) %reader.i) #51
   %reader.val13.i = load i64, ptr %idx.i.i, align 8
-  %14 = trunc i64 %reader.val13.i to i32
-  %conv.i.i = add i32 %14, -64
-  %15 = load i64, ptr %prev_structurals.i.i, align 8
-  call fastcc void @_ZN8simdjson8westmere12_GLOBAL__N_16stage111bit_indexer5writeEjm(ptr noundef nonnull align 8 dereferenceable(8) %indexer.i.i, i32 noundef %conv.i.i, i64 noundef %15)
-  %16 = getelementptr inbounds i8, ptr %indexer.i, i64 16
-  %this.val.i.i = load i64, ptr %16, align 16
+  %15 = trunc i64 %reader.val13.i to i32
+  %conv.i.i = add i32 %15, -64
+  %16 = load i64, ptr %prev_structurals.i.i, align 8
+  call fastcc void @_ZN8simdjson8westmere12_GLOBAL__N_16stage111bit_indexer5writeEjm(ptr noundef nonnull align 8 dereferenceable(8) %indexer.i.i, i32 noundef %conv.i.i, i64 noundef %16)
+  %17 = getelementptr inbounds i8, ptr %indexer.i, i64 16
+  %this.val.i.i = load i64, ptr %17, align 16
   %tobool.i.not.i.not.i.i = icmp eq i64 %this.val.i.i, 0
   %brmerge.i.i = select i1 %cmp.i.i, i1 true, i1 %tobool.i.not.i.not.i.i
-  br i1 %brmerge.i.i, label %if.end.i25.i, label %_ZN8simdjson8westmere12_GLOBAL__N_16stage123json_structural_indexer5indexILm64EEENS_10error_codeEPKhmRNS0_25dom_parser_implementationENS_11stage1_modeE.exit
+  br i1 %brmerge.i.i, label %if.end.i24.i, label %_ZN8simdjson8westmere12_GLOBAL__N_16stage123json_structural_indexer5indexILm64EEENS_10error_codeEPKhmRNS0_25dom_parser_implementationENS_11stage1_modeE.exit
 
-if.end.i25.i:                                     ; preds = %_ZNK8simdjson8westmere12_GLOBAL__N_16stage116buf_block_readerILm64EE13get_remainderEPh.exit.i
+if.end.i24.i:                                     ; preds = %_ZNK8simdjson8westmere12_GLOBAL__N_16stage116buf_block_readerILm64EE13get_remainderEPh.exit.i
   %unescaped_chars_error.i.i = getelementptr inbounds %"class.simdjson::westmere::(anonymous namespace)::stage1::json_structural_indexer", ptr %indexer.i, i64 0, i32 5
-  %17 = load i64, ptr %unescaped_chars_error.i.i, align 16
-  %tobool9.not.i.i = icmp eq i64 %17, 0
+  %18 = load i64, ptr %unescaped_chars_error.i.i, align 16
+  %tobool9.not.i.i = icmp eq i64 %18, 0
   br i1 %tobool9.not.i.i, label %if.end11.i.i, label %_ZN8simdjson8westmere12_GLOBAL__N_16stage123json_structural_indexer5indexILm64EEENS_10error_codeEPKhmRNS0_25dom_parser_implementationENS_11stage1_modeE.exit
 
-if.end11.i.i:                                     ; preds = %if.end.i25.i
-  %18 = load ptr, ptr %indexer.i.i, align 16
-  %19 = load ptr, ptr %structural_indexes.i, align 8
-  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %18 to i64
-  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %19 to i64
+if.end11.i.i:                                     ; preds = %if.end.i24.i
+  %19 = load ptr, ptr %indexer.i.i, align 16
+  %20 = load ptr, ptr %structural_indexes.i, align 8
+  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %19 to i64
+  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %20 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = lshr exact i64 %sub.ptr.sub.i.i, 2
   %conv14.i.i = trunc i64 %sub.ptr.div.i.i to i32
@@ -9598,33 +9592,33 @@ if.end11.i.i:                                     ; preds = %if.end.i25.i
   store i32 %conv14.i.i, ptr %n_structural_indexes.i.i, align 8
   %conv15.i.i = trunc i64 %len.addr.0.i to i32
   %conv18.i.i = and i64 %sub.ptr.div.i.i, 4294967295
-  %arrayidx.i.i.i = getelementptr inbounds i32, ptr %19, i64 %conv18.i.i
+  %arrayidx.i.i.i = getelementptr inbounds i32, ptr %20, i64 %conv18.i.i
   store i32 %conv15.i.i, ptr %arrayidx.i.i.i, align 4
-  %20 = load i32, ptr %n_structural_indexes.i.i, align 8
-  %add.i.i = add i32 %20, 1
+  %21 = load i32, ptr %n_structural_indexes.i.i, align 8
+  %add.i.i = add i32 %21, 1
   %conv23.i.i = zext i32 %add.i.i to i64
-  %21 = load ptr, ptr %structural_indexes.i, align 8
-  %arrayidx.i40.i.i = getelementptr inbounds i32, ptr %21, i64 %conv23.i.i
+  %22 = load ptr, ptr %structural_indexes.i, align 8
+  %arrayidx.i40.i.i = getelementptr inbounds i32, ptr %22, i64 %conv23.i.i
   store i32 %conv15.i.i, ptr %arrayidx.i40.i.i, align 4
-  %22 = load i32, ptr %n_structural_indexes.i.i, align 8
-  %add27.i.i = add i32 %22, 2
+  %23 = load i32, ptr %n_structural_indexes.i.i, align 8
+  %add27.i.i = add i32 %23, 2
   %conv28.i.i = zext i32 %add27.i.i to i64
-  %23 = load ptr, ptr %structural_indexes.i, align 8
-  %arrayidx.i41.i.i = getelementptr inbounds i32, ptr %23, i64 %conv28.i.i
+  %24 = load ptr, ptr %structural_indexes.i, align 8
+  %arrayidx.i41.i.i = getelementptr inbounds i32, ptr %24, i64 %conv28.i.i
   store i32 0, ptr %arrayidx.i41.i.i, align 4
   %next_structural_index.i.i = getelementptr inbounds %"class.simdjson::internal::dom_parser_implementation", ptr %this, i64 0, i32 3
   store i32 0, ptr %next_structural_index.i.i, align 8
-  %24 = load i32, ptr %n_structural_indexes.i.i, align 8
-  %cmp31.i.i = icmp eq i32 %24, 0
+  %25 = load i32, ptr %n_structural_indexes.i.i, align 8
+  %cmp31.i.i = icmp eq i32 %25, 0
   br i1 %cmp31.i.i, label %_ZN8simdjson8westmere12_GLOBAL__N_16stage123json_structural_indexer5indexILm64EEENS_10error_codeEPKhmRNS0_25dom_parser_implementationENS_11stage1_modeE.exit, label %if.end36.i.i
 
 if.end36.i.i:                                     ; preds = %if.end11.i.i
-  %sub39.i.i = add i32 %24, -1
+  %sub39.i.i = add i32 %25, -1
   %conv40.i.i = zext i32 %sub39.i.i to i64
-  %25 = load ptr, ptr %structural_indexes.i, align 8
-  %arrayidx.i42.i.i = getelementptr inbounds i32, ptr %25, i64 %conv40.i.i
-  %26 = load i32, ptr %arrayidx.i42.i.i, align 4
-  %conv42.i.i = zext i32 %26 to i64
+  %26 = load ptr, ptr %structural_indexes.i, align 8
+  %arrayidx.i42.i.i = getelementptr inbounds i32, ptr %26, i64 %conv40.i.i
+  %27 = load i32, ptr %arrayidx.i42.i.i, align 4
+  %conv42.i.i = zext i32 %27 to i64
   %cmp43.i.i = icmp ult i64 %len.addr.0.i, %conv42.i.i
   br i1 %cmp43.i.i, label %_ZN8simdjson8westmere12_GLOBAL__N_16stage123json_structural_indexer5indexILm64EEENS_10error_codeEPKhmRNS0_25dom_parser_implementationENS_11stage1_modeE.exit, label %if.end48.i.i
 
@@ -9648,8 +9642,8 @@ if.end61.i.i:                                     ; preds = %if.then52.i.i, %if.
   br i1 %cmp63.not.i.i, label %if.then66.i.i, label %if.end72.i.i
 
 if.then66.i.i:                                    ; preds = %if.end61.i.i
-  %27 = load i32, ptr %25, align 4
-  %cmp69.i.i = icmp eq i32 %27, 0
+  %28 = load i32, ptr %26, align 4
+  %cmp69.i.i = icmp eq i32 %28, 0
   br i1 %cmp69.i.i, label %_ZN8simdjson8westmere12_GLOBAL__N_16stage123json_structural_indexer5indexILm64EEENS_10error_codeEPKhmRNS0_25dom_parser_implementationENS_11stage1_modeE.exit, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %if.then66.i.i
@@ -9671,19 +9665,19 @@ if.end81.i.i:                                     ; preds = %if.then78.i.i, %if.
   %call82.i.i = tail call fastcc noundef i32 @_ZN8simdjson8westmere12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE(ptr noundef nonnull align 8 dereferenceable(88) %this)
   store i32 %call82.i.i, ptr %n_structural_indexes.i.i, align 8
   %conv86.i.i = zext i32 %call82.i.i to i64
-  %arrayidx.i43.i.i = getelementptr inbounds i32, ptr %25, i64 %conv86.i.i
-  %28 = load i32, ptr %arrayidx.i43.i.i, align 4
+  %arrayidx.i43.i.i = getelementptr inbounds i32, ptr %26, i64 %conv86.i.i
+  %29 = load i32, ptr %arrayidx.i43.i.i, align 4
   %add90.i.i = add i32 %call82.i.i, 1
   %conv91.i.i = zext i32 %add90.i.i to i64
-  %arrayidx.i44.i.i = getelementptr inbounds i32, ptr %25, i64 %conv91.i.i
-  store i32 %28, ptr %arrayidx.i44.i.i, align 4
-  %29 = load i32, ptr %n_structural_indexes.i.i, align 8
-  %conv96.i.i = zext i32 %29 to i64
-  %30 = load ptr, ptr %structural_indexes.i, align 8
-  %arrayidx.i45.i.i = getelementptr inbounds i32, ptr %30, i64 %conv96.i.i
+  %arrayidx.i44.i.i = getelementptr inbounds i32, ptr %26, i64 %conv91.i.i
+  store i32 %29, ptr %arrayidx.i44.i.i, align 4
+  %30 = load i32, ptr %n_structural_indexes.i.i, align 8
+  %conv96.i.i = zext i32 %30 to i64
+  %31 = load ptr, ptr %structural_indexes.i, align 8
+  %arrayidx.i45.i.i = getelementptr inbounds i32, ptr %31, i64 %conv96.i.i
   store i32 %conv15.i.i, ptr %arrayidx.i45.i.i, align 4
-  %31 = load i32, ptr %n_structural_indexes.i.i, align 8
-  %cmp99.i.i = icmp eq i32 %31, 0
+  %32 = load i32, ptr %n_structural_indexes.i.i, align 8
+  %cmp99.i.i = icmp eq i32 %32, 0
   br i1 %cmp99.i.i, label %_ZN8simdjson8westmere12_GLOBAL__N_16stage123json_structural_indexer5indexILm64EEENS_10error_codeEPKhmRNS0_25dom_parser_implementationENS_11stage1_modeE.exit, label %if.end106.i.i
 
 if.end106.i.i:                                    ; preds = %if.end81.i.i, %if.end72.i.i, %if.end48.i.i
@@ -9691,21 +9685,21 @@ if.end106.i.i:                                    ; preds = %if.end81.i.i, %if.e
   %agg.tmp.sroa.0.0.copyload.i.i.i = load <2 x i64>, ptr %prev_incomplete.i.i.i, align 16
   %this.val.i.i.i.i = load <2 x i64>, ptr %checker.i.i, align 16
   %or.i.i.i.i.i.i = or <2 x i64> %this.val.i.i.i.i, %agg.tmp.sroa.0.0.copyload.i.i.i
-  %32 = tail call noundef i32 @llvm.x86.sse41.ptestz(<2 x i64> %or.i.i.i.i.i.i, <2 x i64> %or.i.i.i.i.i.i)
-  %tobool.i.not.i.i.i.i = icmp eq i32 %32, 0
+  %33 = tail call noundef i32 @llvm.x86.sse41.ptestz(<2 x i64> %or.i.i.i.i.i.i, <2 x i64> %or.i.i.i.i.i.i)
+  %tobool.i.not.i.i.i.i = icmp eq i32 %33, 0
   %cond.i.i.i = select i1 %tobool.i.not.i.i.i.i, i32 10, i32 0
   br label %_ZN8simdjson8westmere12_GLOBAL__N_16stage123json_structural_indexer5indexILm64EEENS_10error_codeEPKhmRNS0_25dom_parser_implementationENS_11stage1_modeE.exit
 
-_ZN8simdjson8westmere12_GLOBAL__N_16stage123json_structural_indexer5indexILm64EEENS_10error_codeEPKhmRNS0_25dom_parser_implementationENS_11stage1_modeE.exit: ; preds = %entry, %if.end.i, %if.end.i.i, %_ZN8simdjson8westmere12_GLOBAL__N_16stage117trim_partial_utf8EPKhm.exit.i, %while.end.i, %_ZNK8simdjson8westmere12_GLOBAL__N_16stage116buf_block_readerILm64EE13get_remainderEPh.exit.i, %if.end.i25.i, %if.end11.i.i, %if.end36.i.i, %if.then52.i.i, %if.then66.i.i, %if.else.i.i, %if.end81.i.i, %if.end106.i.i
-  %retval.0.i = phi i32 [ 1, %entry ], [ 12, %if.end.i ], [ 10, %_ZN8simdjson8westmere12_GLOBAL__N_16stage117trim_partial_utf8EPKhm.exit.i ], [ 12, %if.else.i.i ], [ %cond.i.i.i, %if.end106.i.i ], [ 13, %if.end.i25.i ], [ 12, %if.end11.i.i ], [ 23, %if.end36.i.i ], [ 1, %if.then52.i.i ], [ 1, %if.then66.i.i ], [ 12, %if.end81.i.i ], [ 14, %_ZNK8simdjson8westmere12_GLOBAL__N_16stage116buf_block_readerILm64EE13get_remainderEPh.exit.i ], [ 10, %if.end.i.i ], [ 23, %while.end.i ]
+_ZN8simdjson8westmere12_GLOBAL__N_16stage123json_structural_indexer5indexILm64EEENS_10error_codeEPKhmRNS0_25dom_parser_implementationENS_11stage1_modeE.exit: ; preds = %entry, %if.end.i, %return.sink.split.i.thread43.i, %return.sink.split.i.thread.i, %_ZN8simdjson8westmere12_GLOBAL__N_16stage117trim_partial_utf8EPKhm.exit.i, %while.end.i, %_ZNK8simdjson8westmere12_GLOBAL__N_16stage116buf_block_readerILm64EE13get_remainderEPh.exit.i, %if.end.i24.i, %if.end11.i.i, %if.end36.i.i, %if.then52.i.i, %if.then66.i.i, %if.else.i.i, %if.end81.i.i, %if.end106.i.i
+  %retval.0.i = phi i32 [ 1, %entry ], [ 12, %if.end.i ], [ 10, %_ZN8simdjson8westmere12_GLOBAL__N_16stage117trim_partial_utf8EPKhm.exit.i ], [ 12, %if.else.i.i ], [ %cond.i.i.i, %if.end106.i.i ], [ 13, %if.end.i24.i ], [ 12, %if.end11.i.i ], [ 23, %if.end36.i.i ], [ 1, %if.then52.i.i ], [ 1, %if.then66.i.i ], [ 12, %if.end81.i.i ], [ 14, %_ZNK8simdjson8westmere12_GLOBAL__N_16stage116buf_block_readerILm64EE13get_remainderEPh.exit.i ], [ 10, %return.sink.split.i.thread.i ], [ 23, %while.end.i ], [ 10, %return.sink.split.i.thread43.i ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %reader.i)
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %indexer.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %block.i)
   ret i32 %retval.0.i
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local noundef zeroext i1 @_ZNK8simdjson8westmere14implementation13validate_utf8EPKcm(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef %len) unnamed_addr #26 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define dso_local noundef zeroext i1 @_ZNK8simdjson8westmere14implementation13validate_utf8EPKcm(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef %len) unnamed_addr #25 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %block.i.i = alloca [64 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %block.i.i)
@@ -10034,7 +10028,7 @@ invoke.cont:                                      ; preds = %if.else.i28.i.i, %_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i32 @_ZN8simdjson8westmere25dom_parser_implementation6stage2ERNS_3dom8documentE(ptr nocapture noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull align 8 dereferenceable(24) %_doc) unnamed_addr #24 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef i32 @_ZN8simdjson8westmere25dom_parser_implementation6stage2ERNS_3dom8documentE(ptr nocapture noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull align 8 dereferenceable(24) %_doc) unnamed_addr #23 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %builder.i = alloca %"struct.simdjson::westmere::(anonymous namespace)::stage2::tape_builder", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %builder.i)
@@ -10116,7 +10110,7 @@ sw.bb29.i.i:                                      ; preds = %sw.bb10.i.i
   br i1 %cmp32.i.i, label %document_end.sink.split.i.i, label %array_begin.i.i
 
 sw.default.i.i:                                   ; preds = %if.end.i.i
-  %call42.i.i = call fastcc noundef i32 @_ZN8simdjson8westmere12_GLOBAL__N_16stage212tape_builder20visit_root_primitiveERNS2_13json_iteratorEPKh(ptr noundef nonnull align 8 dereferenceable(16) %builder.i, ptr nonnull %incdec.ptr.i.i.i, ptr nonnull %this, ptr noundef nonnull %arrayidx.i.i.i) #52
+  %call42.i.i = call fastcc noundef i32 @_ZN8simdjson8westmere12_GLOBAL__N_16stage212tape_builder20visit_root_primitiveERNS2_13json_iteratorEPKh(ptr noundef nonnull align 8 dereferenceable(16) %builder.i, ptr nonnull %incdec.ptr.i.i.i, ptr nonnull %this, ptr noundef nonnull %arrayidx.i.i.i) #51
   %tobool43.not.i.i = icmp eq i32 %call42.i.i, 0
   br i1 %tobool43.not.i.i, label %sw.default.i.document_end.i_crit_edge.i, label %_ZN8simdjson8westmere12_GLOBAL__N_16stage212tape_builder14parse_documentILb0EEENS_10error_codeERNS0_25dom_parser_implementationERNS_3dom8documentE.exit
 
@@ -10237,7 +10231,7 @@ sw.bb99.i.i:                                      ; preds = %if.end83.i.i
   br i1 %cmp102.i.i, label %sw.epilog117.sink.split.i.i, label %array_begin.i.i
 
 sw.default111.i.i:                                ; preds = %if.end83.i.i
-  %call113.i.i = call fastcc noundef i32 @_ZN8simdjson8westmere12_GLOBAL__N_16stage212tape_builder15visit_primitiveERNS2_13json_iteratorEPKh(ptr noundef nonnull align 8 dereferenceable(16) %builder.i, ptr nonnull %this, ptr noundef nonnull %arrayidx.i162.i.i) #52
+  %call113.i.i = call fastcc noundef i32 @_ZN8simdjson8westmere12_GLOBAL__N_16stage212tape_builder15visit_primitiveERNS2_13json_iteratorEPKh(ptr noundef nonnull align 8 dereferenceable(16) %builder.i, ptr nonnull %this, ptr noundef nonnull %arrayidx.i162.i.i) #51
   %tobool114.not.i.i = icmp eq i32 %call113.i.i, 0
   br i1 %tobool114.not.i.i, label %object_continue.i.i, label %_ZN8simdjson8westmere12_GLOBAL__N_16stage212tape_builder14parse_documentILb0EEENS_10error_codeERNS0_25dom_parser_implementationERNS_3dom8documentE.exit
 
@@ -10427,7 +10421,7 @@ sw.bb199.i.i:                                     ; preds = %array_value.i.i
   br i1 %cmp202.i.i, label %sw.epilog217.sink.split.i.i, label %array_begin.i.i
 
 sw.default211.i.i:                                ; preds = %array_value.i.i
-  %call213.i.i = call fastcc noundef i32 @_ZN8simdjson8westmere12_GLOBAL__N_16stage212tape_builder15visit_primitiveERNS2_13json_iteratorEPKh(ptr noundef nonnull align 8 dereferenceable(16) %builder.i, ptr nonnull %this, ptr noundef nonnull %arrayidx.i267.i.i) #52
+  %call213.i.i = call fastcc noundef i32 @_ZN8simdjson8westmere12_GLOBAL__N_16stage212tape_builder15visit_primitiveERNS2_13json_iteratorEPKh(ptr noundef nonnull align 8 dereferenceable(16) %builder.i, ptr nonnull %this, ptr noundef nonnull %arrayidx.i267.i.i) #51
   %tobool214.not.i.i = icmp eq i32 %call213.i.i, 0
   br i1 %tobool214.not.i.i, label %array_continue.i.i, label %_ZN8simdjson8westmere12_GLOBAL__N_16stage212tape_builder14parse_documentILb0EEENS_10error_codeERNS0_25dom_parser_implementationERNS_3dom8documentE.exit
 
@@ -10536,7 +10530,7 @@ _ZN8simdjson8westmere12_GLOBAL__N_16stage212tape_builder14parse_documentILb0EEEN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i32 @_ZN8simdjson8westmere25dom_parser_implementation11stage2_nextERNS_3dom8documentE(ptr nocapture noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull align 8 dereferenceable(24) %_doc) unnamed_addr #24 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef i32 @_ZN8simdjson8westmere25dom_parser_implementation11stage2_nextERNS_3dom8documentE(ptr nocapture noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull align 8 dereferenceable(24) %_doc) unnamed_addr #23 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %builder.i = alloca %"struct.simdjson::westmere::(anonymous namespace)::stage2::tape_builder", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %builder.i)
@@ -10596,7 +10590,7 @@ sw.bb16.i.i:                                      ; preds = %if.end.i.i
   br i1 %cmp19.i.i, label %document_end.sink.split.i.i, label %array_begin.i.i
 
 sw.default.i.i:                                   ; preds = %if.end.i.i
-  %call29.i.i = call fastcc noundef i32 @_ZN8simdjson8westmere12_GLOBAL__N_16stage212tape_builder20visit_root_primitiveERNS2_13json_iteratorEPKh(ptr noundef nonnull align 8 dereferenceable(16) %builder.i, ptr nonnull %incdec.ptr.i.i.i, ptr nonnull %this, ptr noundef nonnull %arrayidx.i.i4.i) #52
+  %call29.i.i = call fastcc noundef i32 @_ZN8simdjson8westmere12_GLOBAL__N_16stage212tape_builder20visit_root_primitiveERNS2_13json_iteratorEPKh(ptr noundef nonnull align 8 dereferenceable(16) %builder.i, ptr nonnull %incdec.ptr.i.i.i, ptr nonnull %this, ptr noundef nonnull %arrayidx.i.i4.i) #51
   %tobool30.not.i.i = icmp eq i32 %call29.i.i, 0
   br i1 %tobool30.not.i.i, label %sw.default.i.document_end.i_crit_edge.i, label %_ZN8simdjson8westmere12_GLOBAL__N_16stage212tape_builder14parse_documentILb1EEENS_10error_codeERNS0_25dom_parser_implementationERNS_3dom8documentE.exit
 
@@ -10717,7 +10711,7 @@ sw.bb85.i.i:                                      ; preds = %if.end69.i.i
   br i1 %cmp88.i.i, label %sw.epilog103.sink.split.i.i, label %array_begin.i.i
 
 sw.default97.i.i:                                 ; preds = %if.end69.i.i
-  %call99.i.i = call fastcc noundef i32 @_ZN8simdjson8westmere12_GLOBAL__N_16stage212tape_builder15visit_primitiveERNS2_13json_iteratorEPKh(ptr noundef nonnull align 8 dereferenceable(16) %builder.i, ptr nonnull %this, ptr noundef nonnull %arrayidx.i146.i.i) #52
+  %call99.i.i = call fastcc noundef i32 @_ZN8simdjson8westmere12_GLOBAL__N_16stage212tape_builder15visit_primitiveERNS2_13json_iteratorEPKh(ptr noundef nonnull align 8 dereferenceable(16) %builder.i, ptr nonnull %this, ptr noundef nonnull %arrayidx.i146.i.i) #51
   %tobool100.not.i.i = icmp eq i32 %call99.i.i, 0
   br i1 %tobool100.not.i.i, label %object_continue.i.i, label %_ZN8simdjson8westmere12_GLOBAL__N_16stage212tape_builder14parse_documentILb1EEENS_10error_codeERNS0_25dom_parser_implementationERNS_3dom8documentE.exit
 
@@ -10907,7 +10901,7 @@ sw.bb185.i.i:                                     ; preds = %array_value.i.i
   br i1 %cmp188.i.i, label %sw.epilog203.sink.split.i.i, label %array_begin.i.i
 
 sw.default197.i.i:                                ; preds = %array_value.i.i
-  %call199.i.i = call fastcc noundef i32 @_ZN8simdjson8westmere12_GLOBAL__N_16stage212tape_builder15visit_primitiveERNS2_13json_iteratorEPKh(ptr noundef nonnull align 8 dereferenceable(16) %builder.i, ptr nonnull %this, ptr noundef nonnull %arrayidx.i251.i.i) #52
+  %call199.i.i = call fastcc noundef i32 @_ZN8simdjson8westmere12_GLOBAL__N_16stage212tape_builder15visit_primitiveERNS2_13json_iteratorEPKh(ptr noundef nonnull align 8 dereferenceable(16) %builder.i, ptr nonnull %this, ptr noundef nonnull %arrayidx.i251.i.i) #51
   %tobool200.not.i.i = icmp eq i32 %call199.i.i, 0
   br i1 %tobool200.not.i.i, label %array_continue.i.i, label %_ZN8simdjson8westmere12_GLOBAL__N_16stage212tape_builder14parse_documentILb1EEENS_10error_codeERNS0_25dom_parser_implementationERNS_3dom8documentE.exit
 
@@ -11011,15 +11005,15 @@ _ZN8simdjson8westmere12_GLOBAL__N_16stage212tape_builder14parse_documentILb1EEEN
   ret i32 %retval.0.i.i
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef ptr @_ZNK8simdjson8westmere25dom_parser_implementation12parse_stringEPKhPhb(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %src, ptr noundef %dst, i1 noundef zeroext %replacement_char) unnamed_addr #27 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+define dso_local noundef ptr @_ZNK8simdjson8westmere25dom_parser_implementation12parse_stringEPKhPhb(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %src, ptr noundef %dst, i1 noundef zeroext %replacement_char) unnamed_addr #26 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call fastcc noundef ptr @_ZN8simdjson8westmere12_GLOBAL__N_113stringparsing12parse_stringEPKhPhb(ptr noundef %src, ptr noundef %dst, i1 noundef zeroext %replacement_char)
   ret ptr %call
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef ptr @_ZN8simdjson8westmere12_GLOBAL__N_113stringparsing12parse_stringEPKhPhb(ptr nocapture noundef readonly %src, ptr noundef writeonly %dst, i1 noundef zeroext %allow_replacement) unnamed_addr #25 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+define internal fastcc noundef ptr @_ZN8simdjson8westmere12_GLOBAL__N_113stringparsing12parse_stringEPKhPhb(ptr nocapture noundef readonly %src, ptr noundef writeonly %dst, i1 noundef zeroext %allow_replacement) unnamed_addr #24 {
 entry:
   br label %while.body
 
@@ -11280,8 +11274,8 @@ return:                                           ; preds = %if.else23.i.i, %if.
   ret ptr %retval.0
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef ptr @_ZNK8simdjson8westmere25dom_parser_implementation19parse_wobbly_stringEPKhPh(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %src, ptr noundef writeonly %dst) unnamed_addr #25 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+define dso_local noundef ptr @_ZNK8simdjson8westmere25dom_parser_implementation19parse_wobbly_stringEPKhPh(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %src, ptr noundef writeonly %dst) unnamed_addr #24 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   br label %while.body.i
 
@@ -11530,14 +11524,14 @@ invoke.cont:                                      ; preds = %if.else.i, %if.else
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i32 @_ZN8simdjson8westmere25dom_parser_implementation5parseEPKhmRNS_3dom8documentE(ptr nocapture noundef nonnull align 8 dereferenceable(88) %this, ptr noundef %_buf, i64 noundef %_len, ptr noundef nonnull align 8 dereferenceable(24) %_doc) unnamed_addr #24 align 2 {
+define dso_local noundef i32 @_ZN8simdjson8westmere25dom_parser_implementation5parseEPKhmRNS_3dom8documentE(ptr nocapture noundef nonnull align 8 dereferenceable(88) %this, ptr noundef %_buf, i64 noundef %_len, ptr noundef nonnull align 8 dereferenceable(24) %_doc) unnamed_addr #23 align 2 {
 entry:
-  %call = tail call noundef i32 @_ZN8simdjson8westmere25dom_parser_implementation6stage1EPKhmNS_11stage1_modeE(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef %_buf, i64 noundef %_len, i32 noundef 0) #52, !range !44
+  %call = tail call noundef i32 @_ZN8simdjson8westmere25dom_parser_implementation6stage1EPKhmNS_11stage1_modeE(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef %_buf, i64 noundef %_len, i32 noundef 0) #51, !range !44
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %call2 = tail call noundef i32 @_ZN8simdjson8westmere25dom_parser_implementation6stage2ERNS_3dom8documentE(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull align 8 dereferenceable(24) %_doc) #52
+  %call2 = tail call noundef i32 @_ZN8simdjson8westmere25dom_parser_implementation6stage2ERNS_3dom8documentE(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull align 8 dereferenceable(24) %_doc) #51
   br label %return
 
 return:                                           ; preds = %entry, %if.end
@@ -11572,9 +11566,9 @@ define linkonce_odr dso_local void @_ZN8simdjson8fallback14implementationD2Ev(pt
 entry:
   store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN8simdjson14implementationE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
   %_description.i = getelementptr inbounds %"class.simdjson::implementation", ptr %this, i64 0, i32 2
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_description.i) #52
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_description.i) #51
   %_name.i = getelementptr inbounds %"class.simdjson::implementation", ptr %this, i64 0, i32 1
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_name.i) #52
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_name.i) #51
   ret void
 }
 
@@ -11583,10 +11577,10 @@ define linkonce_odr dso_local void @_ZN8simdjson8fallback14implementationD0Ev(pt
 entry:
   store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN8simdjson14implementationE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
   %_description.i.i = getelementptr inbounds %"class.simdjson::implementation", ptr %this, i64 0, i32 2
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_description.i.i) #52
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_description.i.i) #51
   %_name.i.i = getelementptr inbounds %"class.simdjson::implementation", ptr %this, i64 0, i32 1
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_name.i.i) #52
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #55
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_name.i.i) #51
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #54
   ret void
 }
 
@@ -11595,9 +11589,9 @@ define linkonce_odr dso_local void @_ZN8simdjson7haswell14implementationD2Ev(ptr
 entry:
   store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN8simdjson14implementationE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
   %_description.i = getelementptr inbounds %"class.simdjson::implementation", ptr %this, i64 0, i32 2
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_description.i) #52
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_description.i) #51
   %_name.i = getelementptr inbounds %"class.simdjson::implementation", ptr %this, i64 0, i32 1
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_name.i) #52
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_name.i) #51
   ret void
 }
 
@@ -11606,10 +11600,10 @@ define linkonce_odr dso_local void @_ZN8simdjson7haswell14implementationD0Ev(ptr
 entry:
   store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN8simdjson14implementationE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
   %_description.i.i = getelementptr inbounds %"class.simdjson::implementation", ptr %this, i64 0, i32 2
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_description.i.i) #52
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_description.i.i) #51
   %_name.i.i = getelementptr inbounds %"class.simdjson::implementation", ptr %this, i64 0, i32 1
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_name.i.i) #52
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #55
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_name.i.i) #51
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #54
   ret void
 }
 
@@ -11618,9 +11612,9 @@ define linkonce_odr dso_local void @_ZN8simdjson7icelake14implementationD2Ev(ptr
 entry:
   store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN8simdjson14implementationE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
   %_description.i = getelementptr inbounds %"class.simdjson::implementation", ptr %this, i64 0, i32 2
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_description.i) #52
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_description.i) #51
   %_name.i = getelementptr inbounds %"class.simdjson::implementation", ptr %this, i64 0, i32 1
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_name.i) #52
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_name.i) #51
   ret void
 }
 
@@ -11629,10 +11623,10 @@ define linkonce_odr dso_local void @_ZN8simdjson7icelake14implementationD0Ev(ptr
 entry:
   store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN8simdjson14implementationE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
   %_description.i.i = getelementptr inbounds %"class.simdjson::implementation", ptr %this, i64 0, i32 2
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_description.i.i) #52
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_description.i.i) #51
   %_name.i.i = getelementptr inbounds %"class.simdjson::implementation", ptr %this, i64 0, i32 1
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_name.i.i) #52
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #55
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_name.i.i) #51
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #54
   ret void
 }
 
@@ -11641,9 +11635,9 @@ define linkonce_odr dso_local void @_ZN8simdjson8westmere14implementationD2Ev(pt
 entry:
   store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN8simdjson14implementationE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
   %_description.i = getelementptr inbounds %"class.simdjson::implementation", ptr %this, i64 0, i32 2
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_description.i) #52
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_description.i) #51
   %_name.i = getelementptr inbounds %"class.simdjson::implementation", ptr %this, i64 0, i32 1
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_name.i) #52
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_name.i) #51
   ret void
 }
 
@@ -11652,10 +11646,10 @@ define linkonce_odr dso_local void @_ZN8simdjson8westmere14implementationD0Ev(pt
 entry:
   store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN8simdjson14implementationE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
   %_description.i.i = getelementptr inbounds %"class.simdjson::implementation", ptr %this, i64 0, i32 2
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_description.i.i) #52
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_description.i.i) #51
   %_name.i.i = getelementptr inbounds %"class.simdjson::implementation", ptr %this, i64 0, i32 1
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_name.i.i) #52
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #55
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_name.i.i) #51
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #54
   ret void
 }
 
@@ -11671,14 +11665,14 @@ if.end:                                           ; preds = %entry
   %and = add nuw nsw i64 %add, 252
   %add3 = and i64 %and, 34359738112
   %0 = or disjoint i64 %add3, 36
-  %call = tail call noalias noundef ptr @_ZnamRKSt9nothrow_t(i64 noundef %0, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #54
+  %call = tail call noalias noundef ptr @_ZnamRKSt9nothrow_t(i64 noundef %0, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #53
   %1 = load ptr, ptr %structural_indexes, align 8
   store ptr %call, ptr %structural_indexes, align 8
   %tobool.not.i.i = icmp eq ptr %1, null
   br i1 %tobool.not.i.i, label %_ZNSt10unique_ptrIA_jSt14default_deleteIS0_EE5resetIPjvEEvT_.exit, label %_ZNKSt14default_deleteIA_jEclIjEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i
 
 _ZNKSt14default_deleteIA_jEclIjEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i: ; preds = %if.end
-  tail call void @_ZdaPv(ptr noundef nonnull %1) #55
+  tail call void @_ZdaPv(ptr noundef nonnull %1) #54
   %.pr = load ptr, ptr %structural_indexes, align 8
   br label %_ZNSt10unique_ptrIA_jSt14default_deleteIS0_EE5resetIPjvEEvT_.exit
 
@@ -11712,26 +11706,26 @@ entry:
   %0 = icmp ugt i64 %max_depth, 2305843009213693951
   %1 = shl i64 %max_depth, 3
   %2 = select i1 %0, i64 -1, i64 %1
-  %call = tail call noalias noundef ptr @_ZnamRKSt9nothrow_t(i64 noundef %2, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #54
+  %call = tail call noalias noundef ptr @_ZnamRKSt9nothrow_t(i64 noundef %2, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #53
   %3 = load ptr, ptr %open_containers, align 8
   store ptr %call, ptr %open_containers, align 8
   %tobool.not.i.i = icmp eq ptr %3, null
   br i1 %tobool.not.i.i, label %_ZNSt10unique_ptrIA_N8simdjson8fallback14open_containerESt14default_deleteIS3_EE5resetIPS2_vEEvT_.exit, label %_ZNKSt14default_deleteIA_N8simdjson8fallback14open_containerEEclIS2_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS3_EE5valueEvE4typeEPS7_.exit.i.i
 
 _ZNKSt14default_deleteIA_N8simdjson8fallback14open_containerEEclIS2_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS3_EE5valueEvE4typeEPS7_.exit.i.i: ; preds = %entry
-  tail call void @_ZdaPv(ptr noundef nonnull %3) #55
+  tail call void @_ZdaPv(ptr noundef nonnull %3) #54
   br label %_ZNSt10unique_ptrIA_N8simdjson8fallback14open_containerESt14default_deleteIS3_EE5resetIPS2_vEEvT_.exit
 
 _ZNSt10unique_ptrIA_N8simdjson8fallback14open_containerESt14default_deleteIS3_EE5resetIPS2_vEEvT_.exit: ; preds = %entry, %_ZNKSt14default_deleteIA_N8simdjson8fallback14open_containerEEclIS2_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS3_EE5valueEvE4typeEPS7_.exit.i.i
   %is_array = getelementptr inbounds %"class.simdjson::fallback::dom_parser_implementation", ptr %this, i64 0, i32 2
-  %call2 = tail call noalias noundef ptr @_ZnamRKSt9nothrow_t(i64 noundef %max_depth, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #54
+  %call2 = tail call noalias noundef ptr @_ZnamRKSt9nothrow_t(i64 noundef %max_depth, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #53
   %4 = load ptr, ptr %is_array, align 8
   store ptr %call2, ptr %is_array, align 8
   %tobool.not.i.i3 = icmp eq ptr %4, null
   br i1 %tobool.not.i.i3, label %_ZNSt10unique_ptrIA_bSt14default_deleteIS0_EE5resetIPbvEEvT_.exit, label %_ZNKSt14default_deleteIA_bEclIbEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i
 
 _ZNKSt14default_deleteIA_bEclIbEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i: ; preds = %_ZNSt10unique_ptrIA_N8simdjson8fallback14open_containerESt14default_deleteIS3_EE5resetIPS2_vEEvT_.exit
-  tail call void @_ZdaPv(ptr noundef nonnull %4) #55
+  tail call void @_ZdaPv(ptr noundef nonnull %4) #54
   %.pr = load ptr, ptr %is_array, align 8
   br label %_ZNSt10unique_ptrIA_bSt14default_deleteIS0_EE5resetIPbvEEvT_.exit
 
@@ -11757,7 +11751,7 @@ entry:
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrIA_bSt14default_deleteIS0_EED2Ev.exit, label %_ZNKSt14default_deleteIA_bEclIbEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i
 
 _ZNKSt14default_deleteIA_bEclIbEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i: ; preds = %entry
-  tail call void @_ZdaPv(ptr noundef nonnull %0) #55
+  tail call void @_ZdaPv(ptr noundef nonnull %0) #54
   br label %_ZNSt10unique_ptrIA_bSt14default_deleteIS0_EED2Ev.exit
 
 _ZNSt10unique_ptrIA_bSt14default_deleteIS0_EED2Ev.exit: ; preds = %entry, %_ZNKSt14default_deleteIA_bEclIbEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i
@@ -11768,7 +11762,7 @@ _ZNSt10unique_ptrIA_bSt14default_deleteIS0_EED2Ev.exit: ; preds = %entry, %_ZNKS
   br i1 %cmp.not.i1, label %_ZNSt10unique_ptrIA_N8simdjson8fallback14open_containerESt14default_deleteIS3_EED2Ev.exit, label %_ZNKSt14default_deleteIA_N8simdjson8fallback14open_containerEEclIS2_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS3_EE5valueEvE4typeEPS7_.exit.i
 
 _ZNKSt14default_deleteIA_N8simdjson8fallback14open_containerEEclIS2_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS3_EE5valueEvE4typeEPS7_.exit.i: ; preds = %_ZNSt10unique_ptrIA_bSt14default_deleteIS0_EED2Ev.exit
-  tail call void @_ZdaPv(ptr noundef nonnull %1) #55
+  tail call void @_ZdaPv(ptr noundef nonnull %1) #54
   br label %_ZNSt10unique_ptrIA_N8simdjson8fallback14open_containerESt14default_deleteIS3_EED2Ev.exit
 
 _ZNSt10unique_ptrIA_N8simdjson8fallback14open_containerESt14default_deleteIS3_EED2Ev.exit: ; preds = %_ZNSt10unique_ptrIA_bSt14default_deleteIS0_EED2Ev.exit, %_ZNKSt14default_deleteIA_N8simdjson8fallback14open_containerEEclIS2_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS3_EE5valueEvE4typeEPS7_.exit.i
@@ -11780,7 +11774,7 @@ _ZNSt10unique_ptrIA_N8simdjson8fallback14open_containerESt14default_deleteIS3_EE
   br i1 %cmp.not.i.i, label %_ZN8simdjson8internal25dom_parser_implementationD2Ev.exit, label %_ZNKSt14default_deleteIA_jEclIjEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i
 
 _ZNKSt14default_deleteIA_jEclIjEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i: ; preds = %_ZNSt10unique_ptrIA_N8simdjson8fallback14open_containerESt14default_deleteIS3_EED2Ev.exit
-  tail call void @_ZdaPv(ptr noundef nonnull %2) #55
+  tail call void @_ZdaPv(ptr noundef nonnull %2) #54
   br label %_ZN8simdjson8internal25dom_parser_implementationD2Ev.exit
 
 _ZN8simdjson8internal25dom_parser_implementationD2Ev.exit: ; preds = %_ZNSt10unique_ptrIA_N8simdjson8fallback14open_containerESt14default_deleteIS3_EED2Ev.exit, %_ZNKSt14default_deleteIA_jEclIjEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i
@@ -11797,7 +11791,7 @@ entry:
   br i1 %cmp.not.i.i, label %_ZNSt10unique_ptrIA_bSt14default_deleteIS0_EED2Ev.exit.i, label %_ZNKSt14default_deleteIA_bEclIbEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i
 
 _ZNKSt14default_deleteIA_bEclIbEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i: ; preds = %entry
-  tail call void @_ZdaPv(ptr noundef nonnull %0) #55
+  tail call void @_ZdaPv(ptr noundef nonnull %0) #54
   br label %_ZNSt10unique_ptrIA_bSt14default_deleteIS0_EED2Ev.exit.i
 
 _ZNSt10unique_ptrIA_bSt14default_deleteIS0_EED2Ev.exit.i: ; preds = %_ZNKSt14default_deleteIA_bEclIbEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i, %entry
@@ -11808,7 +11802,7 @@ _ZNSt10unique_ptrIA_bSt14default_deleteIS0_EED2Ev.exit.i: ; preds = %_ZNKSt14def
   br i1 %cmp.not.i1.i, label %_ZNSt10unique_ptrIA_N8simdjson8fallback14open_containerESt14default_deleteIS3_EED2Ev.exit.i, label %_ZNKSt14default_deleteIA_N8simdjson8fallback14open_containerEEclIS2_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS3_EE5valueEvE4typeEPS7_.exit.i.i
 
 _ZNKSt14default_deleteIA_N8simdjson8fallback14open_containerEEclIS2_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS3_EE5valueEvE4typeEPS7_.exit.i.i: ; preds = %_ZNSt10unique_ptrIA_bSt14default_deleteIS0_EED2Ev.exit.i
-  tail call void @_ZdaPv(ptr noundef nonnull %1) #55
+  tail call void @_ZdaPv(ptr noundef nonnull %1) #54
   br label %_ZNSt10unique_ptrIA_N8simdjson8fallback14open_containerESt14default_deleteIS3_EED2Ev.exit.i
 
 _ZNSt10unique_ptrIA_N8simdjson8fallback14open_containerESt14default_deleteIS3_EED2Ev.exit.i: ; preds = %_ZNKSt14default_deleteIA_N8simdjson8fallback14open_containerEEclIS2_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS3_EE5valueEvE4typeEPS7_.exit.i.i, %_ZNSt10unique_ptrIA_bSt14default_deleteIS0_EED2Ev.exit.i
@@ -11820,16 +11814,16 @@ _ZNSt10unique_ptrIA_N8simdjson8fallback14open_containerESt14default_deleteIS3_EE
   br i1 %cmp.not.i.i.i, label %_ZN8simdjson8fallback25dom_parser_implementationD2Ev.exit, label %_ZNKSt14default_deleteIA_jEclIjEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i
 
 _ZNKSt14default_deleteIA_jEclIjEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i: ; preds = %_ZNSt10unique_ptrIA_N8simdjson8fallback14open_containerESt14default_deleteIS3_EED2Ev.exit.i
-  tail call void @_ZdaPv(ptr noundef nonnull %2) #55
+  tail call void @_ZdaPv(ptr noundef nonnull %2) #54
   br label %_ZN8simdjson8fallback25dom_parser_implementationD2Ev.exit
 
 _ZN8simdjson8fallback25dom_parser_implementationD2Ev.exit: ; preds = %_ZNSt10unique_ptrIA_N8simdjson8fallback14open_containerESt14default_deleteIS3_EED2Ev.exit.i, %_ZNKSt14default_deleteIA_jEclIjEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #55
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #54
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef i32 @_ZN8simdjson7haswell25dom_parser_implementation12set_capacityEm(ptr noundef nonnull align 8 dereferenceable(88) %this, i64 noundef %capacity) unnamed_addr #16 comdat align 2 {
+define linkonce_odr dso_local noundef i32 @_ZN8simdjson7haswell25dom_parser_implementation12set_capacityEm(ptr noundef nonnull align 8 dereferenceable(88) %this, i64 noundef %capacity) unnamed_addr #15 comdat align 2 {
 entry:
   %cmp = icmp ugt i64 %capacity, 4294967295
   br i1 %cmp, label %return, label %if.end
@@ -11840,14 +11834,14 @@ if.end:                                           ; preds = %entry
   %and = add nuw nsw i64 %add, 252
   %add3 = and i64 %and, 34359738112
   %0 = or disjoint i64 %add3, 36
-  %call = tail call noalias noundef ptr @_ZnamRKSt9nothrow_t(i64 noundef %0, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #54
+  %call = tail call noalias noundef ptr @_ZnamRKSt9nothrow_t(i64 noundef %0, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #53
   %1 = load ptr, ptr %structural_indexes, align 8
   store ptr %call, ptr %structural_indexes, align 8
   %tobool.not.i.i = icmp eq ptr %1, null
   br i1 %tobool.not.i.i, label %_ZNSt10unique_ptrIA_jSt14default_deleteIS0_EE5resetIPjvEEvT_.exit, label %_ZNKSt14default_deleteIA_jEclIjEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i
 
 _ZNKSt14default_deleteIA_jEclIjEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i: ; preds = %if.end
-  tail call void @_ZdaPv(ptr noundef nonnull %1) #55
+  tail call void @_ZdaPv(ptr noundef nonnull %1) #54
   %.pr = load ptr, ptr %structural_indexes, align 8
   br label %_ZNSt10unique_ptrIA_jSt14default_deleteIS0_EE5resetIPjvEEvT_.exit
 
@@ -11875,32 +11869,32 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef i32 @_ZN8simdjson7haswell25dom_parser_implementation13set_max_depthEm(ptr noundef nonnull align 8 dereferenceable(88) %this, i64 noundef %max_depth) unnamed_addr #16 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local noundef i32 @_ZN8simdjson7haswell25dom_parser_implementation13set_max_depthEm(ptr noundef nonnull align 8 dereferenceable(88) %this, i64 noundef %max_depth) unnamed_addr #15 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %open_containers = getelementptr inbounds %"class.simdjson::haswell::dom_parser_implementation", ptr %this, i64 0, i32 1
   %0 = icmp ugt i64 %max_depth, 2305843009213693951
   %1 = shl i64 %max_depth, 3
   %2 = select i1 %0, i64 -1, i64 %1
-  %call = tail call noalias noundef ptr @_ZnamRKSt9nothrow_t(i64 noundef %2, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #54
+  %call = tail call noalias noundef ptr @_ZnamRKSt9nothrow_t(i64 noundef %2, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #53
   %3 = load ptr, ptr %open_containers, align 8
   store ptr %call, ptr %open_containers, align 8
   %tobool.not.i.i = icmp eq ptr %3, null
   br i1 %tobool.not.i.i, label %_ZNSt10unique_ptrIA_N8simdjson7haswell14open_containerESt14default_deleteIS3_EE5resetIPS2_vEEvT_.exit, label %_ZNKSt14default_deleteIA_N8simdjson7haswell14open_containerEEclIS2_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS3_EE5valueEvE4typeEPS7_.exit.i.i
 
 _ZNKSt14default_deleteIA_N8simdjson7haswell14open_containerEEclIS2_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS3_EE5valueEvE4typeEPS7_.exit.i.i: ; preds = %entry
-  tail call void @_ZdaPv(ptr noundef nonnull %3) #55
+  tail call void @_ZdaPv(ptr noundef nonnull %3) #54
   br label %_ZNSt10unique_ptrIA_N8simdjson7haswell14open_containerESt14default_deleteIS3_EE5resetIPS2_vEEvT_.exit
 
 _ZNSt10unique_ptrIA_N8simdjson7haswell14open_containerESt14default_deleteIS3_EE5resetIPS2_vEEvT_.exit: ; preds = %entry, %_ZNKSt14default_deleteIA_N8simdjson7haswell14open_containerEEclIS2_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS3_EE5valueEvE4typeEPS7_.exit.i.i
   %is_array = getelementptr inbounds %"class.simdjson::haswell::dom_parser_implementation", ptr %this, i64 0, i32 2
-  %call2 = tail call noalias noundef ptr @_ZnamRKSt9nothrow_t(i64 noundef %max_depth, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #54
+  %call2 = tail call noalias noundef ptr @_ZnamRKSt9nothrow_t(i64 noundef %max_depth, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #53
   %4 = load ptr, ptr %is_array, align 8
   store ptr %call2, ptr %is_array, align 8
   %tobool.not.i.i3 = icmp eq ptr %4, null
   br i1 %tobool.not.i.i3, label %_ZNSt10unique_ptrIA_bSt14default_deleteIS0_EE5resetIPbvEEvT_.exit, label %_ZNKSt14default_deleteIA_bEclIbEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i
 
 _ZNKSt14default_deleteIA_bEclIbEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i: ; preds = %_ZNSt10unique_ptrIA_N8simdjson7haswell14open_containerESt14default_deleteIS3_EE5resetIPS2_vEEvT_.exit
-  tail call void @_ZdaPv(ptr noundef nonnull %4) #55
+  tail call void @_ZdaPv(ptr noundef nonnull %4) #54
   %.pr = load ptr, ptr %is_array, align 8
   br label %_ZNSt10unique_ptrIA_bSt14default_deleteIS0_EE5resetIPbvEEvT_.exit
 
@@ -11926,7 +11920,7 @@ entry:
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrIA_bSt14default_deleteIS0_EED2Ev.exit, label %_ZNKSt14default_deleteIA_bEclIbEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i
 
 _ZNKSt14default_deleteIA_bEclIbEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i: ; preds = %entry
-  tail call void @_ZdaPv(ptr noundef nonnull %0) #55
+  tail call void @_ZdaPv(ptr noundef nonnull %0) #54
   br label %_ZNSt10unique_ptrIA_bSt14default_deleteIS0_EED2Ev.exit
 
 _ZNSt10unique_ptrIA_bSt14default_deleteIS0_EED2Ev.exit: ; preds = %entry, %_ZNKSt14default_deleteIA_bEclIbEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i
@@ -11937,7 +11931,7 @@ _ZNSt10unique_ptrIA_bSt14default_deleteIS0_EED2Ev.exit: ; preds = %entry, %_ZNKS
   br i1 %cmp.not.i1, label %_ZNSt10unique_ptrIA_N8simdjson7haswell14open_containerESt14default_deleteIS3_EED2Ev.exit, label %_ZNKSt14default_deleteIA_N8simdjson7haswell14open_containerEEclIS2_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS3_EE5valueEvE4typeEPS7_.exit.i
 
 _ZNKSt14default_deleteIA_N8simdjson7haswell14open_containerEEclIS2_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS3_EE5valueEvE4typeEPS7_.exit.i: ; preds = %_ZNSt10unique_ptrIA_bSt14default_deleteIS0_EED2Ev.exit
-  tail call void @_ZdaPv(ptr noundef nonnull %1) #55
+  tail call void @_ZdaPv(ptr noundef nonnull %1) #54
   br label %_ZNSt10unique_ptrIA_N8simdjson7haswell14open_containerESt14default_deleteIS3_EED2Ev.exit
 
 _ZNSt10unique_ptrIA_N8simdjson7haswell14open_containerESt14default_deleteIS3_EED2Ev.exit: ; preds = %_ZNSt10unique_ptrIA_bSt14default_deleteIS0_EED2Ev.exit, %_ZNKSt14default_deleteIA_N8simdjson7haswell14open_containerEEclIS2_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS3_EE5valueEvE4typeEPS7_.exit.i
@@ -11949,7 +11943,7 @@ _ZNSt10unique_ptrIA_N8simdjson7haswell14open_containerESt14default_deleteIS3_EED
   br i1 %cmp.not.i.i, label %_ZN8simdjson8internal25dom_parser_implementationD2Ev.exit, label %_ZNKSt14default_deleteIA_jEclIjEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i
 
 _ZNKSt14default_deleteIA_jEclIjEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i: ; preds = %_ZNSt10unique_ptrIA_N8simdjson7haswell14open_containerESt14default_deleteIS3_EED2Ev.exit
-  tail call void @_ZdaPv(ptr noundef nonnull %2) #55
+  tail call void @_ZdaPv(ptr noundef nonnull %2) #54
   br label %_ZN8simdjson8internal25dom_parser_implementationD2Ev.exit
 
 _ZN8simdjson8internal25dom_parser_implementationD2Ev.exit: ; preds = %_ZNSt10unique_ptrIA_N8simdjson7haswell14open_containerESt14default_deleteIS3_EED2Ev.exit, %_ZNKSt14default_deleteIA_jEclIjEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i
@@ -11966,7 +11960,7 @@ entry:
   br i1 %cmp.not.i.i, label %_ZNSt10unique_ptrIA_bSt14default_deleteIS0_EED2Ev.exit.i, label %_ZNKSt14default_deleteIA_bEclIbEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i
 
 _ZNKSt14default_deleteIA_bEclIbEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i: ; preds = %entry
-  tail call void @_ZdaPv(ptr noundef nonnull %0) #55
+  tail call void @_ZdaPv(ptr noundef nonnull %0) #54
   br label %_ZNSt10unique_ptrIA_bSt14default_deleteIS0_EED2Ev.exit.i
 
 _ZNSt10unique_ptrIA_bSt14default_deleteIS0_EED2Ev.exit.i: ; preds = %_ZNKSt14default_deleteIA_bEclIbEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i, %entry
@@ -11977,7 +11971,7 @@ _ZNSt10unique_ptrIA_bSt14default_deleteIS0_EED2Ev.exit.i: ; preds = %_ZNKSt14def
   br i1 %cmp.not.i1.i, label %_ZNSt10unique_ptrIA_N8simdjson7haswell14open_containerESt14default_deleteIS3_EED2Ev.exit.i, label %_ZNKSt14default_deleteIA_N8simdjson7haswell14open_containerEEclIS2_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS3_EE5valueEvE4typeEPS7_.exit.i.i
 
 _ZNKSt14default_deleteIA_N8simdjson7haswell14open_containerEEclIS2_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS3_EE5valueEvE4typeEPS7_.exit.i.i: ; preds = %_ZNSt10unique_ptrIA_bSt14default_deleteIS0_EED2Ev.exit.i
-  tail call void @_ZdaPv(ptr noundef nonnull %1) #55
+  tail call void @_ZdaPv(ptr noundef nonnull %1) #54
   br label %_ZNSt10unique_ptrIA_N8simdjson7haswell14open_containerESt14default_deleteIS3_EED2Ev.exit.i
 
 _ZNSt10unique_ptrIA_N8simdjson7haswell14open_containerESt14default_deleteIS3_EED2Ev.exit.i: ; preds = %_ZNKSt14default_deleteIA_N8simdjson7haswell14open_containerEEclIS2_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS3_EE5valueEvE4typeEPS7_.exit.i.i, %_ZNSt10unique_ptrIA_bSt14default_deleteIS0_EED2Ev.exit.i
@@ -11989,16 +11983,16 @@ _ZNSt10unique_ptrIA_N8simdjson7haswell14open_containerESt14default_deleteIS3_EED
   br i1 %cmp.not.i.i.i, label %_ZN8simdjson7haswell25dom_parser_implementationD2Ev.exit, label %_ZNKSt14default_deleteIA_jEclIjEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i
 
 _ZNKSt14default_deleteIA_jEclIjEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i: ; preds = %_ZNSt10unique_ptrIA_N8simdjson7haswell14open_containerESt14default_deleteIS3_EED2Ev.exit.i
-  tail call void @_ZdaPv(ptr noundef nonnull %2) #55
+  tail call void @_ZdaPv(ptr noundef nonnull %2) #54
   br label %_ZN8simdjson7haswell25dom_parser_implementationD2Ev.exit
 
 _ZN8simdjson7haswell25dom_parser_implementationD2Ev.exit: ; preds = %_ZNSt10unique_ptrIA_N8simdjson7haswell14open_containerESt14default_deleteIS3_EED2Ev.exit.i, %_ZNKSt14default_deleteIA_jEclIjEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #55
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #54
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef i32 @_ZN8simdjson7icelake25dom_parser_implementation12set_capacityEm(ptr noundef nonnull align 8 dereferenceable(88) %this, i64 noundef %capacity) unnamed_addr #20 comdat align 2 {
+define linkonce_odr dso_local noundef i32 @_ZN8simdjson7icelake25dom_parser_implementation12set_capacityEm(ptr noundef nonnull align 8 dereferenceable(88) %this, i64 noundef %capacity) unnamed_addr #19 comdat align 2 {
 entry:
   %cmp = icmp ugt i64 %capacity, 4294967295
   br i1 %cmp, label %return, label %if.end
@@ -12009,14 +12003,14 @@ if.end:                                           ; preds = %entry
   %and = add nuw nsw i64 %add, 252
   %add3 = and i64 %and, 34359738112
   %0 = or disjoint i64 %add3, 36
-  %call = tail call noalias noundef ptr @_ZnamRKSt9nothrow_t(i64 noundef %0, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #54
+  %call = tail call noalias noundef ptr @_ZnamRKSt9nothrow_t(i64 noundef %0, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #53
   %1 = load ptr, ptr %structural_indexes, align 8
   store ptr %call, ptr %structural_indexes, align 8
   %tobool.not.i.i = icmp eq ptr %1, null
   br i1 %tobool.not.i.i, label %_ZNSt10unique_ptrIA_jSt14default_deleteIS0_EE5resetIPjvEEvT_.exit, label %_ZNKSt14default_deleteIA_jEclIjEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i
 
 _ZNKSt14default_deleteIA_jEclIjEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i: ; preds = %if.end
-  tail call void @_ZdaPv(ptr noundef nonnull %1) #55
+  tail call void @_ZdaPv(ptr noundef nonnull %1) #54
   %.pr = load ptr, ptr %structural_indexes, align 8
   br label %_ZNSt10unique_ptrIA_jSt14default_deleteIS0_EE5resetIPjvEEvT_.exit
 
@@ -12044,32 +12038,32 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef i32 @_ZN8simdjson7icelake25dom_parser_implementation13set_max_depthEm(ptr noundef nonnull align 8 dereferenceable(88) %this, i64 noundef %max_depth) unnamed_addr #20 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local noundef i32 @_ZN8simdjson7icelake25dom_parser_implementation13set_max_depthEm(ptr noundef nonnull align 8 dereferenceable(88) %this, i64 noundef %max_depth) unnamed_addr #19 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %open_containers = getelementptr inbounds %"class.simdjson::icelake::dom_parser_implementation", ptr %this, i64 0, i32 1
   %0 = icmp ugt i64 %max_depth, 2305843009213693951
   %1 = shl i64 %max_depth, 3
   %2 = select i1 %0, i64 -1, i64 %1
-  %call = tail call noalias noundef ptr @_ZnamRKSt9nothrow_t(i64 noundef %2, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #54
+  %call = tail call noalias noundef ptr @_ZnamRKSt9nothrow_t(i64 noundef %2, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #53
   %3 = load ptr, ptr %open_containers, align 8
   store ptr %call, ptr %open_containers, align 8
   %tobool.not.i.i = icmp eq ptr %3, null
   br i1 %tobool.not.i.i, label %_ZNSt10unique_ptrIA_N8simdjson7icelake14open_containerESt14default_deleteIS3_EE5resetIPS2_vEEvT_.exit, label %_ZNKSt14default_deleteIA_N8simdjson7icelake14open_containerEEclIS2_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS3_EE5valueEvE4typeEPS7_.exit.i.i
 
 _ZNKSt14default_deleteIA_N8simdjson7icelake14open_containerEEclIS2_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS3_EE5valueEvE4typeEPS7_.exit.i.i: ; preds = %entry
-  tail call void @_ZdaPv(ptr noundef nonnull %3) #55
+  tail call void @_ZdaPv(ptr noundef nonnull %3) #54
   br label %_ZNSt10unique_ptrIA_N8simdjson7icelake14open_containerESt14default_deleteIS3_EE5resetIPS2_vEEvT_.exit
 
 _ZNSt10unique_ptrIA_N8simdjson7icelake14open_containerESt14default_deleteIS3_EE5resetIPS2_vEEvT_.exit: ; preds = %entry, %_ZNKSt14default_deleteIA_N8simdjson7icelake14open_containerEEclIS2_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS3_EE5valueEvE4typeEPS7_.exit.i.i
   %is_array = getelementptr inbounds %"class.simdjson::icelake::dom_parser_implementation", ptr %this, i64 0, i32 2
-  %call2 = tail call noalias noundef ptr @_ZnamRKSt9nothrow_t(i64 noundef %max_depth, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #54
+  %call2 = tail call noalias noundef ptr @_ZnamRKSt9nothrow_t(i64 noundef %max_depth, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #53
   %4 = load ptr, ptr %is_array, align 8
   store ptr %call2, ptr %is_array, align 8
   %tobool.not.i.i3 = icmp eq ptr %4, null
   br i1 %tobool.not.i.i3, label %_ZNSt10unique_ptrIA_bSt14default_deleteIS0_EE5resetIPbvEEvT_.exit, label %_ZNKSt14default_deleteIA_bEclIbEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i
 
 _ZNKSt14default_deleteIA_bEclIbEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i: ; preds = %_ZNSt10unique_ptrIA_N8simdjson7icelake14open_containerESt14default_deleteIS3_EE5resetIPS2_vEEvT_.exit
-  tail call void @_ZdaPv(ptr noundef nonnull %4) #55
+  tail call void @_ZdaPv(ptr noundef nonnull %4) #54
   %.pr = load ptr, ptr %is_array, align 8
   br label %_ZNSt10unique_ptrIA_bSt14default_deleteIS0_EE5resetIPbvEEvT_.exit
 
@@ -12095,7 +12089,7 @@ entry:
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrIA_bSt14default_deleteIS0_EED2Ev.exit, label %_ZNKSt14default_deleteIA_bEclIbEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i
 
 _ZNKSt14default_deleteIA_bEclIbEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i: ; preds = %entry
-  tail call void @_ZdaPv(ptr noundef nonnull %0) #55
+  tail call void @_ZdaPv(ptr noundef nonnull %0) #54
   br label %_ZNSt10unique_ptrIA_bSt14default_deleteIS0_EED2Ev.exit
 
 _ZNSt10unique_ptrIA_bSt14default_deleteIS0_EED2Ev.exit: ; preds = %entry, %_ZNKSt14default_deleteIA_bEclIbEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i
@@ -12106,7 +12100,7 @@ _ZNSt10unique_ptrIA_bSt14default_deleteIS0_EED2Ev.exit: ; preds = %entry, %_ZNKS
   br i1 %cmp.not.i1, label %_ZNSt10unique_ptrIA_N8simdjson7icelake14open_containerESt14default_deleteIS3_EED2Ev.exit, label %_ZNKSt14default_deleteIA_N8simdjson7icelake14open_containerEEclIS2_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS3_EE5valueEvE4typeEPS7_.exit.i
 
 _ZNKSt14default_deleteIA_N8simdjson7icelake14open_containerEEclIS2_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS3_EE5valueEvE4typeEPS7_.exit.i: ; preds = %_ZNSt10unique_ptrIA_bSt14default_deleteIS0_EED2Ev.exit
-  tail call void @_ZdaPv(ptr noundef nonnull %1) #55
+  tail call void @_ZdaPv(ptr noundef nonnull %1) #54
   br label %_ZNSt10unique_ptrIA_N8simdjson7icelake14open_containerESt14default_deleteIS3_EED2Ev.exit
 
 _ZNSt10unique_ptrIA_N8simdjson7icelake14open_containerESt14default_deleteIS3_EED2Ev.exit: ; preds = %_ZNSt10unique_ptrIA_bSt14default_deleteIS0_EED2Ev.exit, %_ZNKSt14default_deleteIA_N8simdjson7icelake14open_containerEEclIS2_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS3_EE5valueEvE4typeEPS7_.exit.i
@@ -12118,7 +12112,7 @@ _ZNSt10unique_ptrIA_N8simdjson7icelake14open_containerESt14default_deleteIS3_EED
   br i1 %cmp.not.i.i, label %_ZN8simdjson8internal25dom_parser_implementationD2Ev.exit, label %_ZNKSt14default_deleteIA_jEclIjEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i
 
 _ZNKSt14default_deleteIA_jEclIjEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i: ; preds = %_ZNSt10unique_ptrIA_N8simdjson7icelake14open_containerESt14default_deleteIS3_EED2Ev.exit
-  tail call void @_ZdaPv(ptr noundef nonnull %2) #55
+  tail call void @_ZdaPv(ptr noundef nonnull %2) #54
   br label %_ZN8simdjson8internal25dom_parser_implementationD2Ev.exit
 
 _ZN8simdjson8internal25dom_parser_implementationD2Ev.exit: ; preds = %_ZNSt10unique_ptrIA_N8simdjson7icelake14open_containerESt14default_deleteIS3_EED2Ev.exit, %_ZNKSt14default_deleteIA_jEclIjEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i
@@ -12135,7 +12129,7 @@ entry:
   br i1 %cmp.not.i.i, label %_ZNSt10unique_ptrIA_bSt14default_deleteIS0_EED2Ev.exit.i, label %_ZNKSt14default_deleteIA_bEclIbEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i
 
 _ZNKSt14default_deleteIA_bEclIbEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i: ; preds = %entry
-  tail call void @_ZdaPv(ptr noundef nonnull %0) #55
+  tail call void @_ZdaPv(ptr noundef nonnull %0) #54
   br label %_ZNSt10unique_ptrIA_bSt14default_deleteIS0_EED2Ev.exit.i
 
 _ZNSt10unique_ptrIA_bSt14default_deleteIS0_EED2Ev.exit.i: ; preds = %_ZNKSt14default_deleteIA_bEclIbEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i, %entry
@@ -12146,7 +12140,7 @@ _ZNSt10unique_ptrIA_bSt14default_deleteIS0_EED2Ev.exit.i: ; preds = %_ZNKSt14def
   br i1 %cmp.not.i1.i, label %_ZNSt10unique_ptrIA_N8simdjson7icelake14open_containerESt14default_deleteIS3_EED2Ev.exit.i, label %_ZNKSt14default_deleteIA_N8simdjson7icelake14open_containerEEclIS2_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS3_EE5valueEvE4typeEPS7_.exit.i.i
 
 _ZNKSt14default_deleteIA_N8simdjson7icelake14open_containerEEclIS2_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS3_EE5valueEvE4typeEPS7_.exit.i.i: ; preds = %_ZNSt10unique_ptrIA_bSt14default_deleteIS0_EED2Ev.exit.i
-  tail call void @_ZdaPv(ptr noundef nonnull %1) #55
+  tail call void @_ZdaPv(ptr noundef nonnull %1) #54
   br label %_ZNSt10unique_ptrIA_N8simdjson7icelake14open_containerESt14default_deleteIS3_EED2Ev.exit.i
 
 _ZNSt10unique_ptrIA_N8simdjson7icelake14open_containerESt14default_deleteIS3_EED2Ev.exit.i: ; preds = %_ZNKSt14default_deleteIA_N8simdjson7icelake14open_containerEEclIS2_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS3_EE5valueEvE4typeEPS7_.exit.i.i, %_ZNSt10unique_ptrIA_bSt14default_deleteIS0_EED2Ev.exit.i
@@ -12158,16 +12152,16 @@ _ZNSt10unique_ptrIA_N8simdjson7icelake14open_containerESt14default_deleteIS3_EED
   br i1 %cmp.not.i.i.i, label %_ZN8simdjson7icelake25dom_parser_implementationD2Ev.exit, label %_ZNKSt14default_deleteIA_jEclIjEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i
 
 _ZNKSt14default_deleteIA_jEclIjEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i: ; preds = %_ZNSt10unique_ptrIA_N8simdjson7icelake14open_containerESt14default_deleteIS3_EED2Ev.exit.i
-  tail call void @_ZdaPv(ptr noundef nonnull %2) #55
+  tail call void @_ZdaPv(ptr noundef nonnull %2) #54
   br label %_ZN8simdjson7icelake25dom_parser_implementationD2Ev.exit
 
 _ZN8simdjson7icelake25dom_parser_implementationD2Ev.exit: ; preds = %_ZNSt10unique_ptrIA_N8simdjson7icelake14open_containerESt14default_deleteIS3_EED2Ev.exit.i, %_ZNKSt14default_deleteIA_jEclIjEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #55
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #54
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef i32 @_ZN8simdjson8westmere25dom_parser_implementation12set_capacityEm(ptr noundef nonnull align 8 dereferenceable(88) %this, i64 noundef %capacity) unnamed_addr #24 comdat align 2 {
+define linkonce_odr dso_local noundef i32 @_ZN8simdjson8westmere25dom_parser_implementation12set_capacityEm(ptr noundef nonnull align 8 dereferenceable(88) %this, i64 noundef %capacity) unnamed_addr #23 comdat align 2 {
 entry:
   %cmp = icmp ugt i64 %capacity, 4294967295
   br i1 %cmp, label %return, label %if.end
@@ -12178,14 +12172,14 @@ if.end:                                           ; preds = %entry
   %and = add nuw nsw i64 %add, 252
   %add3 = and i64 %and, 34359738112
   %0 = or disjoint i64 %add3, 36
-  %call = tail call noalias noundef ptr @_ZnamRKSt9nothrow_t(i64 noundef %0, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #54
+  %call = tail call noalias noundef ptr @_ZnamRKSt9nothrow_t(i64 noundef %0, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #53
   %1 = load ptr, ptr %structural_indexes, align 8
   store ptr %call, ptr %structural_indexes, align 8
   %tobool.not.i.i = icmp eq ptr %1, null
   br i1 %tobool.not.i.i, label %_ZNSt10unique_ptrIA_jSt14default_deleteIS0_EE5resetIPjvEEvT_.exit, label %_ZNKSt14default_deleteIA_jEclIjEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i
 
 _ZNKSt14default_deleteIA_jEclIjEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i: ; preds = %if.end
-  tail call void @_ZdaPv(ptr noundef nonnull %1) #55
+  tail call void @_ZdaPv(ptr noundef nonnull %1) #54
   %.pr = load ptr, ptr %structural_indexes, align 8
   br label %_ZNSt10unique_ptrIA_jSt14default_deleteIS0_EE5resetIPjvEEvT_.exit
 
@@ -12213,32 +12207,32 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef i32 @_ZN8simdjson8westmere25dom_parser_implementation13set_max_depthEm(ptr noundef nonnull align 8 dereferenceable(88) %this, i64 noundef %max_depth) unnamed_addr #24 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local noundef i32 @_ZN8simdjson8westmere25dom_parser_implementation13set_max_depthEm(ptr noundef nonnull align 8 dereferenceable(88) %this, i64 noundef %max_depth) unnamed_addr #23 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %open_containers = getelementptr inbounds %"class.simdjson::westmere::dom_parser_implementation", ptr %this, i64 0, i32 1
   %0 = icmp ugt i64 %max_depth, 2305843009213693951
   %1 = shl i64 %max_depth, 3
   %2 = select i1 %0, i64 -1, i64 %1
-  %call = tail call noalias noundef ptr @_ZnamRKSt9nothrow_t(i64 noundef %2, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #54
+  %call = tail call noalias noundef ptr @_ZnamRKSt9nothrow_t(i64 noundef %2, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #53
   %3 = load ptr, ptr %open_containers, align 8
   store ptr %call, ptr %open_containers, align 8
   %tobool.not.i.i = icmp eq ptr %3, null
   br i1 %tobool.not.i.i, label %_ZNSt10unique_ptrIA_N8simdjson8westmere14open_containerESt14default_deleteIS3_EE5resetIPS2_vEEvT_.exit, label %_ZNKSt14default_deleteIA_N8simdjson8westmere14open_containerEEclIS2_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS3_EE5valueEvE4typeEPS7_.exit.i.i
 
 _ZNKSt14default_deleteIA_N8simdjson8westmere14open_containerEEclIS2_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS3_EE5valueEvE4typeEPS7_.exit.i.i: ; preds = %entry
-  tail call void @_ZdaPv(ptr noundef nonnull %3) #55
+  tail call void @_ZdaPv(ptr noundef nonnull %3) #54
   br label %_ZNSt10unique_ptrIA_N8simdjson8westmere14open_containerESt14default_deleteIS3_EE5resetIPS2_vEEvT_.exit
 
 _ZNSt10unique_ptrIA_N8simdjson8westmere14open_containerESt14default_deleteIS3_EE5resetIPS2_vEEvT_.exit: ; preds = %entry, %_ZNKSt14default_deleteIA_N8simdjson8westmere14open_containerEEclIS2_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS3_EE5valueEvE4typeEPS7_.exit.i.i
   %is_array = getelementptr inbounds %"class.simdjson::westmere::dom_parser_implementation", ptr %this, i64 0, i32 2
-  %call2 = tail call noalias noundef ptr @_ZnamRKSt9nothrow_t(i64 noundef %max_depth, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #54
+  %call2 = tail call noalias noundef ptr @_ZnamRKSt9nothrow_t(i64 noundef %max_depth, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #53
   %4 = load ptr, ptr %is_array, align 8
   store ptr %call2, ptr %is_array, align 8
   %tobool.not.i.i3 = icmp eq ptr %4, null
   br i1 %tobool.not.i.i3, label %_ZNSt10unique_ptrIA_bSt14default_deleteIS0_EE5resetIPbvEEvT_.exit, label %_ZNKSt14default_deleteIA_bEclIbEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i
 
 _ZNKSt14default_deleteIA_bEclIbEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i: ; preds = %_ZNSt10unique_ptrIA_N8simdjson8westmere14open_containerESt14default_deleteIS3_EE5resetIPS2_vEEvT_.exit
-  tail call void @_ZdaPv(ptr noundef nonnull %4) #55
+  tail call void @_ZdaPv(ptr noundef nonnull %4) #54
   %.pr = load ptr, ptr %is_array, align 8
   br label %_ZNSt10unique_ptrIA_bSt14default_deleteIS0_EE5resetIPbvEEvT_.exit
 
@@ -12264,7 +12258,7 @@ entry:
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrIA_bSt14default_deleteIS0_EED2Ev.exit, label %_ZNKSt14default_deleteIA_bEclIbEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i
 
 _ZNKSt14default_deleteIA_bEclIbEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i: ; preds = %entry
-  tail call void @_ZdaPv(ptr noundef nonnull %0) #55
+  tail call void @_ZdaPv(ptr noundef nonnull %0) #54
   br label %_ZNSt10unique_ptrIA_bSt14default_deleteIS0_EED2Ev.exit
 
 _ZNSt10unique_ptrIA_bSt14default_deleteIS0_EED2Ev.exit: ; preds = %entry, %_ZNKSt14default_deleteIA_bEclIbEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i
@@ -12275,7 +12269,7 @@ _ZNSt10unique_ptrIA_bSt14default_deleteIS0_EED2Ev.exit: ; preds = %entry, %_ZNKS
   br i1 %cmp.not.i1, label %_ZNSt10unique_ptrIA_N8simdjson8westmere14open_containerESt14default_deleteIS3_EED2Ev.exit, label %_ZNKSt14default_deleteIA_N8simdjson8westmere14open_containerEEclIS2_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS3_EE5valueEvE4typeEPS7_.exit.i
 
 _ZNKSt14default_deleteIA_N8simdjson8westmere14open_containerEEclIS2_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS3_EE5valueEvE4typeEPS7_.exit.i: ; preds = %_ZNSt10unique_ptrIA_bSt14default_deleteIS0_EED2Ev.exit
-  tail call void @_ZdaPv(ptr noundef nonnull %1) #55
+  tail call void @_ZdaPv(ptr noundef nonnull %1) #54
   br label %_ZNSt10unique_ptrIA_N8simdjson8westmere14open_containerESt14default_deleteIS3_EED2Ev.exit
 
 _ZNSt10unique_ptrIA_N8simdjson8westmere14open_containerESt14default_deleteIS3_EED2Ev.exit: ; preds = %_ZNSt10unique_ptrIA_bSt14default_deleteIS0_EED2Ev.exit, %_ZNKSt14default_deleteIA_N8simdjson8westmere14open_containerEEclIS2_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS3_EE5valueEvE4typeEPS7_.exit.i
@@ -12287,7 +12281,7 @@ _ZNSt10unique_ptrIA_N8simdjson8westmere14open_containerESt14default_deleteIS3_EE
   br i1 %cmp.not.i.i, label %_ZN8simdjson8internal25dom_parser_implementationD2Ev.exit, label %_ZNKSt14default_deleteIA_jEclIjEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i
 
 _ZNKSt14default_deleteIA_jEclIjEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i: ; preds = %_ZNSt10unique_ptrIA_N8simdjson8westmere14open_containerESt14default_deleteIS3_EED2Ev.exit
-  tail call void @_ZdaPv(ptr noundef nonnull %2) #55
+  tail call void @_ZdaPv(ptr noundef nonnull %2) #54
   br label %_ZN8simdjson8internal25dom_parser_implementationD2Ev.exit
 
 _ZN8simdjson8internal25dom_parser_implementationD2Ev.exit: ; preds = %_ZNSt10unique_ptrIA_N8simdjson8westmere14open_containerESt14default_deleteIS3_EED2Ev.exit, %_ZNKSt14default_deleteIA_jEclIjEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i
@@ -12304,7 +12298,7 @@ entry:
   br i1 %cmp.not.i.i, label %_ZNSt10unique_ptrIA_bSt14default_deleteIS0_EED2Ev.exit.i, label %_ZNKSt14default_deleteIA_bEclIbEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i
 
 _ZNKSt14default_deleteIA_bEclIbEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i: ; preds = %entry
-  tail call void @_ZdaPv(ptr noundef nonnull %0) #55
+  tail call void @_ZdaPv(ptr noundef nonnull %0) #54
   br label %_ZNSt10unique_ptrIA_bSt14default_deleteIS0_EED2Ev.exit.i
 
 _ZNSt10unique_ptrIA_bSt14default_deleteIS0_EED2Ev.exit.i: ; preds = %_ZNKSt14default_deleteIA_bEclIbEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i, %entry
@@ -12315,7 +12309,7 @@ _ZNSt10unique_ptrIA_bSt14default_deleteIS0_EED2Ev.exit.i: ; preds = %_ZNKSt14def
   br i1 %cmp.not.i1.i, label %_ZNSt10unique_ptrIA_N8simdjson8westmere14open_containerESt14default_deleteIS3_EED2Ev.exit.i, label %_ZNKSt14default_deleteIA_N8simdjson8westmere14open_containerEEclIS2_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS3_EE5valueEvE4typeEPS7_.exit.i.i
 
 _ZNKSt14default_deleteIA_N8simdjson8westmere14open_containerEEclIS2_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS3_EE5valueEvE4typeEPS7_.exit.i.i: ; preds = %_ZNSt10unique_ptrIA_bSt14default_deleteIS0_EED2Ev.exit.i
-  tail call void @_ZdaPv(ptr noundef nonnull %1) #55
+  tail call void @_ZdaPv(ptr noundef nonnull %1) #54
   br label %_ZNSt10unique_ptrIA_N8simdjson8westmere14open_containerESt14default_deleteIS3_EED2Ev.exit.i
 
 _ZNSt10unique_ptrIA_N8simdjson8westmere14open_containerESt14default_deleteIS3_EED2Ev.exit.i: ; preds = %_ZNKSt14default_deleteIA_N8simdjson8westmere14open_containerEEclIS2_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS3_EE5valueEvE4typeEPS7_.exit.i.i, %_ZNSt10unique_ptrIA_bSt14default_deleteIS0_EED2Ev.exit.i
@@ -12327,16 +12321,16 @@ _ZNSt10unique_ptrIA_N8simdjson8westmere14open_containerESt14default_deleteIS3_EE
   br i1 %cmp.not.i.i.i, label %_ZN8simdjson8westmere25dom_parser_implementationD2Ev.exit, label %_ZNKSt14default_deleteIA_jEclIjEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i
 
 _ZNKSt14default_deleteIA_jEclIjEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i: ; preds = %_ZNSt10unique_ptrIA_N8simdjson8westmere14open_containerESt14default_deleteIS3_EED2Ev.exit.i
-  tail call void @_ZdaPv(ptr noundef nonnull %2) #55
+  tail call void @_ZdaPv(ptr noundef nonnull %2) #54
   br label %_ZN8simdjson8westmere25dom_parser_implementationD2Ev.exit
 
 _ZN8simdjson8westmere25dom_parser_implementationD2Ev.exit: ; preds = %_ZNSt10unique_ptrIA_N8simdjson8westmere14open_containerESt14default_deleteIS3_EED2Ev.exit.i, %_ZNKSt14default_deleteIA_jEclIjEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #55
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #54
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #28
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #27
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #7
@@ -12350,12 +12344,12 @@ entry:
   %ref.tmp2 = alloca %"class.std::allocator", align 1
   store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN8simdjson14implementationE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
   %_name = getelementptr inbounds %"class.simdjson::implementation", ptr %this, i64 0, i32 1
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #52
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #51
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i)
-  %call.i = call { i64, ptr } @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_S_to_string_viewESt17basic_string_viewIcS2_E(i64 %name.coerce0, ptr %name.coerce1) #52
+  %call.i = call { i64, ptr } @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_S_to_string_viewESt17basic_string_viewIcS2_E(i64 %name.coerce0, ptr %name.coerce1) #51
   %0 = extractvalue { i64, ptr } %call.i, 0
   %1 = extractvalue { i64, ptr } %call.i, 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrapperC1ESt17basic_string_viewIcS2_E(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i, i64 %0, ptr %1) #52
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrapperC1ESt17basic_string_viewIcS2_E(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i, i64 %0, ptr %1) #51
   %2 = load i64, ptr %agg.tmp.i, align 8
   %3 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp.i, i64 0, i32 1
   %4 = load ptr, ptr %3, align 8
@@ -12364,14 +12358,14 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i)
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #52
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #51
   %_description = getelementptr inbounds %"class.simdjson::implementation", ptr %this, i64 0, i32 2
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2) #52
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2) #51
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i2)
-  %call.i6 = call { i64, ptr } @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_S_to_string_viewESt17basic_string_viewIcS2_E(i64 %description.coerce0, ptr %description.coerce1) #52
+  %call.i6 = call { i64, ptr } @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_S_to_string_viewESt17basic_string_viewIcS2_E(i64 %description.coerce0, ptr %description.coerce1) #51
   %5 = extractvalue { i64, ptr } %call.i6, 0
   %6 = extractvalue { i64, ptr } %call.i6, 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrapperC1ESt17basic_string_viewIcS2_E(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i2, i64 %5, ptr %6) #52
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrapperC1ESt17basic_string_viewIcS2_E(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i2, i64 %5, ptr %6) #51
   %7 = load i64, ptr %agg.tmp.i2, align 8
   %8 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp.i2, i64 0, i32 1
   %9 = load ptr, ptr %8, align 8
@@ -12380,7 +12374,7 @@ invoke.cont:                                      ; preds = %entry
 
 invoke.cont4:                                     ; preds = %invoke.cont
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i2)
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2) #52
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2) #51
   %_required_instruction_sets = getelementptr inbounds %"class.simdjson::implementation", ptr %this, i64 0, i32 3
   store i32 %required_instruction_sets, ptr %_required_instruction_sets, align 8
   ret void
@@ -12388,14 +12382,14 @@ invoke.cont4:                                     ; preds = %invoke.cont
 lpad:                                             ; preds = %entry
   %10 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #52
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #51
   br label %eh.resume
 
 lpad3:                                            ; preds = %invoke.cont
   %11 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2) #52
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_name) #52
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2) #51
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_name) #51
   br label %eh.resume
 
 eh.resume:                                        ; preds = %lpad3, %lpad
@@ -12426,10 +12420,10 @@ define linkonce_odr dso_local void @_ZN8simdjson8internal26unsupported_implement
 entry:
   store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN8simdjson14implementationE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
   %_description.i.i = getelementptr inbounds %"class.simdjson::implementation", ptr %this, i64 0, i32 2
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_description.i.i) #52
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_description.i.i) #51
   %_name.i.i = getelementptr inbounds %"class.simdjson::implementation", ptr %this, i64 0, i32 1
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_name.i.i) #52
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #55
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_name.i.i) #51
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #54
   ret void
 }
 
@@ -12449,16 +12443,16 @@ define linkonce_odr dso_local void @_ZN8simdjson14implementationD2Ev(ptr noundef
 entry:
   store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN8simdjson14implementationE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
   %_description = getelementptr inbounds %"class.simdjson::implementation", ptr %this, i64 0, i32 2
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_description) #52
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_description) #51
   %_name = getelementptr inbounds %"class.simdjson::implementation", ptr %this, i64 0, i32 1
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_name) #52
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_name) #51
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN8simdjson14implementationD0Ev(ptr noundef nonnull align 8 dereferenceable(76) %this) unnamed_addr #5 comdat align 2 {
 entry:
-  tail call void @llvm.trap() #53
+  tail call void @llvm.trap() #52
   unreachable
 }
 
@@ -12471,10 +12465,10 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrappe
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ENS4_12__sv_wrapperERKS3_(ptr noundef nonnull align 8 dereferenceable(32), i64, ptr, ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #8
 
 ; Function Attrs: cold noreturn nounwind memory(inaccessiblemem: write)
-declare void @llvm.trap() #29
+declare void @llvm.trap() #28
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPv(ptr noundef) local_unnamed_addr #30
+declare void @_ZdlPv(ptr noundef) local_unnamed_addr #29
 
 ; Function Attrs: mustprogress uwtable
 define internal fastcc void @_ZN8simdjson8internalL21get_icelake_singletonEv() unnamed_addr #0 personality ptr @__gxx_personality_v0 {
@@ -12484,7 +12478,7 @@ entry:
   br i1 %guard.uninitialized, label %init.check, label %init.end, !prof !30
 
 init.check:                                       ; preds = %entry
-  %1 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN8simdjson8internalL21get_icelake_singletonEvE17icelake_singleton) #52
+  %1 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN8simdjson8internalL21get_icelake_singletonEvE17icelake_singleton) #51
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %init.end, label %init
 
@@ -12494,8 +12488,8 @@ init:                                             ; preds = %init.check
 
 invoke.cont:                                      ; preds = %init
   store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN8simdjson7icelake14implementationE, i64 0, inrange i32 0, i64 2), ptr @_ZZN8simdjson8internalL21get_icelake_singletonEvE17icelake_singleton, align 8
-  %2 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN8simdjson7icelake14implementationD2Ev, ptr nonnull @_ZZN8simdjson8internalL21get_icelake_singletonEvE17icelake_singleton, ptr nonnull @__dso_handle) #52
-  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN8simdjson8internalL21get_icelake_singletonEvE17icelake_singleton) #52
+  %2 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN8simdjson7icelake14implementationD2Ev, ptr nonnull @_ZZN8simdjson8internalL21get_icelake_singletonEvE17icelake_singleton, ptr nonnull @__dso_handle) #51
+  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN8simdjson8internalL21get_icelake_singletonEvE17icelake_singleton) #51
   br label %init.end
 
 init.end:                                         ; preds = %invoke.cont, %init.check, %entry
@@ -12504,7 +12498,7 @@ init.end:                                         ; preds = %invoke.cont, %init.
 lpad:                                             ; preds = %init
   %3 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN8simdjson8internalL21get_icelake_singletonEvE17icelake_singleton) #52
+  tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN8simdjson8internalL21get_icelake_singletonEvE17icelake_singleton) #51
   resume { ptr, i32 } %3
 }
 
@@ -12516,7 +12510,7 @@ entry:
   br i1 %guard.uninitialized, label %init.check, label %init.end, !prof !30
 
 init.check:                                       ; preds = %entry
-  %1 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN8simdjson8internalL21get_haswell_singletonEvE17haswell_singleton) #52
+  %1 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN8simdjson8internalL21get_haswell_singletonEvE17haswell_singleton) #51
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %init.end, label %init
 
@@ -12526,8 +12520,8 @@ init:                                             ; preds = %init.check
 
 invoke.cont:                                      ; preds = %init
   store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN8simdjson7haswell14implementationE, i64 0, inrange i32 0, i64 2), ptr @_ZZN8simdjson8internalL21get_haswell_singletonEvE17haswell_singleton, align 8
-  %2 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN8simdjson7haswell14implementationD2Ev, ptr nonnull @_ZZN8simdjson8internalL21get_haswell_singletonEvE17haswell_singleton, ptr nonnull @__dso_handle) #52
-  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN8simdjson8internalL21get_haswell_singletonEvE17haswell_singleton) #52
+  %2 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN8simdjson7haswell14implementationD2Ev, ptr nonnull @_ZZN8simdjson8internalL21get_haswell_singletonEvE17haswell_singleton, ptr nonnull @__dso_handle) #51
+  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN8simdjson8internalL21get_haswell_singletonEvE17haswell_singleton) #51
   br label %init.end
 
 init.end:                                         ; preds = %invoke.cont, %init.check, %entry
@@ -12536,7 +12530,7 @@ init.end:                                         ; preds = %invoke.cont, %init.
 lpad:                                             ; preds = %init
   %3 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN8simdjson8internalL21get_haswell_singletonEvE17haswell_singleton) #52
+  tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN8simdjson8internalL21get_haswell_singletonEvE17haswell_singleton) #51
   resume { ptr, i32 } %3
 }
 
@@ -12548,7 +12542,7 @@ entry:
   br i1 %guard.uninitialized, label %init.check, label %init.end, !prof !30
 
 init.check:                                       ; preds = %entry
-  %1 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN8simdjson8internalL22get_westmere_singletonEvE18westmere_singleton) #52
+  %1 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN8simdjson8internalL22get_westmere_singletonEvE18westmere_singleton) #51
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %init.end, label %init
 
@@ -12558,8 +12552,8 @@ init:                                             ; preds = %init.check
 
 invoke.cont:                                      ; preds = %init
   store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN8simdjson8westmere14implementationE, i64 0, inrange i32 0, i64 2), ptr @_ZZN8simdjson8internalL22get_westmere_singletonEvE18westmere_singleton, align 8
-  %2 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN8simdjson8westmere14implementationD2Ev, ptr nonnull @_ZZN8simdjson8internalL22get_westmere_singletonEvE18westmere_singleton, ptr nonnull @__dso_handle) #52
-  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN8simdjson8internalL22get_westmere_singletonEvE18westmere_singleton) #52
+  %2 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN8simdjson8westmere14implementationD2Ev, ptr nonnull @_ZZN8simdjson8internalL22get_westmere_singletonEvE18westmere_singleton, ptr nonnull @__dso_handle) #51
+  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN8simdjson8internalL22get_westmere_singletonEvE18westmere_singleton) #51
   br label %init.end
 
 init.end:                                         ; preds = %invoke.cont, %init.check, %entry
@@ -12568,7 +12562,7 @@ init.end:                                         ; preds = %invoke.cont, %init.
 lpad:                                             ; preds = %init
   %3 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN8simdjson8internalL22get_westmere_singletonEvE18westmere_singleton) #52
+  tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN8simdjson8internalL22get_westmere_singletonEvE18westmere_singleton) #51
   resume { ptr, i32 } %3
 }
 
@@ -12580,7 +12574,7 @@ entry:
   br i1 %guard.uninitialized, label %init.check, label %init.end, !prof !30
 
 init.check:                                       ; preds = %entry
-  %1 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN8simdjson8internalL22get_fallback_singletonEvE18fallback_singleton) #52
+  %1 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN8simdjson8internalL22get_fallback_singletonEvE18fallback_singleton) #51
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %init.end, label %init
 
@@ -12590,8 +12584,8 @@ init:                                             ; preds = %init.check
 
 invoke.cont:                                      ; preds = %init
   store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN8simdjson8fallback14implementationE, i64 0, inrange i32 0, i64 2), ptr @_ZZN8simdjson8internalL22get_fallback_singletonEvE18fallback_singleton, align 8
-  %2 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN8simdjson8fallback14implementationD2Ev, ptr nonnull @_ZZN8simdjson8internalL22get_fallback_singletonEvE18fallback_singleton, ptr nonnull @__dso_handle) #52
-  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN8simdjson8internalL22get_fallback_singletonEvE18fallback_singleton) #52
+  %2 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN8simdjson8fallback14implementationD2Ev, ptr nonnull @_ZZN8simdjson8internalL22get_fallback_singletonEvE18fallback_singleton, ptr nonnull @__dso_handle) #51
+  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN8simdjson8internalL22get_fallback_singletonEvE18fallback_singleton) #51
   br label %init.end
 
 init.end:                                         ; preds = %invoke.cont, %init.check, %entry
@@ -12600,7 +12594,7 @@ init.end:                                         ; preds = %invoke.cont, %init.
 lpad:                                             ; preds = %init
   %3 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN8simdjson8internalL22get_fallback_singletonEvE18fallback_singleton) #52
+  tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN8simdjson8internalL22get_fallback_singletonEvE18fallback_singleton) #51
   resume { ptr, i32 } %3
 }
 
@@ -12608,12 +12602,12 @@ lpad:                                             ; preds = %init
 declare { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #31
+declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #30
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZNK8simdjson8internal49detect_best_supported_implementation_on_first_use4nameB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %call = tail call noundef ptr @_ZNK8simdjson8internal49detect_best_supported_implementation_on_first_use8set_bestEv(ptr nonnull align 8 poison) #52
+  %call = tail call noundef ptr @_ZNK8simdjson8internal49detect_best_supported_implementation_on_first_use8set_bestEv(ptr nonnull align 8 poison) #51
   %vtable = load ptr, ptr %call, align 8
   %0 = load ptr, ptr %vtable, align 8
   %call2 = invoke noundef nonnull align 8 dereferenceable(32) ptr %0(ptr noundef nonnull align 8 dereferenceable(76) %call)
@@ -12626,14 +12620,14 @@ terminate.lpad:                                   ; preds = %entry
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #53
+  tail call void @__clang_call_terminate(ptr %2) #52
   unreachable
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZNK8simdjson8internal49detect_best_supported_implementation_on_first_use11descriptionB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %call = tail call noundef ptr @_ZNK8simdjson8internal49detect_best_supported_implementation_on_first_use8set_bestEv(ptr nonnull align 8 poison) #52
+  %call = tail call noundef ptr @_ZNK8simdjson8internal49detect_best_supported_implementation_on_first_use8set_bestEv(ptr nonnull align 8 poison) #51
   %vtable = load ptr, ptr %call, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
   %0 = load ptr, ptr %vfn, align 8
@@ -12647,14 +12641,14 @@ terminate.lpad:                                   ; preds = %entry
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #53
+  tail call void @__clang_call_terminate(ptr %2) #52
   unreachable
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef i32 @_ZNK8simdjson8internal49detect_best_supported_implementation_on_first_use25required_instruction_setsEv(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %call = tail call noundef ptr @_ZNK8simdjson8internal49detect_best_supported_implementation_on_first_use8set_bestEv(ptr nonnull align 8 poison) #52
+  %call = tail call noundef ptr @_ZNK8simdjson8internal49detect_best_supported_implementation_on_first_use8set_bestEv(ptr nonnull align 8 poison) #51
   %vtable = load ptr, ptr %call, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
   %0 = load ptr, ptr %vfn, align 8
@@ -12668,40 +12662,40 @@ terminate.lpad:                                   ; preds = %entry
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #53
+  tail call void @__clang_call_terminate(ptr %2) #52
   unreachable
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef i32 @_ZNK8simdjson8internal49detect_best_supported_implementation_on_first_use32create_dom_parser_implementationEmmRSt10unique_ptrINS0_25dom_parser_implementationESt14default_deleteIS3_EE(ptr noundef nonnull align 8 dereferenceable(80) %this, i64 noundef %capacity, i64 noundef %max_length, ptr noundef nonnull align 8 dereferenceable(8) %dst) unnamed_addr #5 comdat align 2 {
 entry:
-  %call = tail call noundef ptr @_ZNK8simdjson8internal49detect_best_supported_implementation_on_first_use8set_bestEv(ptr nonnull align 8 poison) #52
+  %call = tail call noundef ptr @_ZNK8simdjson8internal49detect_best_supported_implementation_on_first_use8set_bestEv(ptr nonnull align 8 poison) #51
   %vtable = load ptr, ptr %call, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 3
   %0 = load ptr, ptr %vfn, align 8
-  %call2 = tail call noundef i32 %0(ptr noundef nonnull align 8 dereferenceable(76) %call, i64 noundef %capacity, i64 noundef %max_length, ptr noundef nonnull align 8 dereferenceable(8) %dst) #52
+  %call2 = tail call noundef i32 %0(ptr noundef nonnull align 8 dereferenceable(76) %call, i64 noundef %capacity, i64 noundef %max_length, ptr noundef nonnull align 8 dereferenceable(8) %dst) #51
   ret i32 %call2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef i32 @_ZNK8simdjson8internal49detect_best_supported_implementation_on_first_use6minifyEPKhmPhRm(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %buf, i64 noundef %len, ptr noundef %dst, ptr noundef nonnull align 8 dereferenceable(8) %dst_len) unnamed_addr #5 comdat align 2 {
 entry:
-  %call = tail call noundef ptr @_ZNK8simdjson8internal49detect_best_supported_implementation_on_first_use8set_bestEv(ptr nonnull align 8 poison) #52
+  %call = tail call noundef ptr @_ZNK8simdjson8internal49detect_best_supported_implementation_on_first_use8set_bestEv(ptr nonnull align 8 poison) #51
   %vtable = load ptr, ptr %call, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 4
   %0 = load ptr, ptr %vfn, align 8
-  %call2 = tail call noundef i32 %0(ptr noundef nonnull align 8 dereferenceable(76) %call, ptr noundef %buf, i64 noundef %len, ptr noundef %dst, ptr noundef nonnull align 8 dereferenceable(8) %dst_len) #52
+  %call2 = tail call noundef i32 %0(ptr noundef nonnull align 8 dereferenceable(76) %call, ptr noundef %buf, i64 noundef %len, ptr noundef %dst, ptr noundef nonnull align 8 dereferenceable(8) %dst_len) #51
   ret i32 %call2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef zeroext i1 @_ZNK8simdjson8internal49detect_best_supported_implementation_on_first_use13validate_utf8EPKcm(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %buf, i64 noundef %len) unnamed_addr #5 comdat align 2 {
 entry:
-  %call = tail call noundef ptr @_ZNK8simdjson8internal49detect_best_supported_implementation_on_first_use8set_bestEv(ptr nonnull align 8 poison) #52
+  %call = tail call noundef ptr @_ZNK8simdjson8internal49detect_best_supported_implementation_on_first_use8set_bestEv(ptr nonnull align 8 poison) #51
   %vtable = load ptr, ptr %call, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 5
   %0 = load ptr, ptr %vfn, align 8
-  %call2 = tail call noundef zeroext i1 %0(ptr noundef nonnull align 8 dereferenceable(76) %call, ptr noundef %buf, i64 noundef %len) #52
+  %call2 = tail call noundef zeroext i1 %0(ptr noundef nonnull align 8 dereferenceable(76) %call, ptr noundef %buf, i64 noundef %len) #51
   ret i1 %call2
 }
 
@@ -12710,10 +12704,10 @@ define linkonce_odr dso_local void @_ZN8simdjson8internal49detect_best_supported
 entry:
   store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN8simdjson14implementationE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
   %_description.i.i = getelementptr inbounds %"class.simdjson::implementation", ptr %this, i64 0, i32 2
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_description.i.i) #52
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_description.i.i) #51
   %_name.i.i = getelementptr inbounds %"class.simdjson::implementation", ptr %this, i64 0, i32 1
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_name.i.i) #52
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #55
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_name.i.i) #51
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #54
   ret void
 }
 
@@ -12727,7 +12721,7 @@ entry:
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrIA_jSt14default_deleteIS0_EED2Ev.exit, label %_ZNKSt14default_deleteIA_jEclIjEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i
 
 _ZNKSt14default_deleteIA_jEclIjEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i: ; preds = %entry
-  tail call void @_ZdaPv(ptr noundef nonnull %0) #55
+  tail call void @_ZdaPv(ptr noundef nonnull %0) #54
   br label %_ZNSt10unique_ptrIA_jSt14default_deleteIS0_EED2Ev.exit
 
 _ZNSt10unique_ptrIA_jSt14default_deleteIS0_EED2Ev.exit: ; preds = %entry, %_ZNKSt14default_deleteIA_jEclIjEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i
@@ -12738,15 +12732,15 @@ _ZNSt10unique_ptrIA_jSt14default_deleteIS0_EED2Ev.exit: ; preds = %entry, %_ZNKS
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN8simdjson8internal25dom_parser_implementationD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #5 comdat align 2 {
 entry:
-  tail call void @llvm.trap() #53
+  tail call void @llvm.trap() #52
   unreachable
 }
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdaPv(ptr noundef) local_unnamed_addr #30
+declare void @_ZdaPv(ptr noundef) local_unnamed_addr #29
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc noundef i32 @_ZN8simdjson8fallback12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %parser) unnamed_addr #32 {
+define internal fastcc noundef i32 @_ZN8simdjson8fallback12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %parser) unnamed_addr #31 {
 entry:
   %n_structural_indexes = getelementptr inbounds %"class.simdjson::internal::dom_parser_implementation", ptr %parser, i64 0, i32 1
   %0 = load i32, ptr %n_structural_indexes, align 8
@@ -12889,34 +12883,34 @@ return:                                           ; preds = %sw.epilog39, %sw.ep
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare <32 x i8> @llvm.x86.avx2.pshuf.b(<32 x i8>, <32 x i8>) #33
+declare <32 x i8> @llvm.x86.avx2.pshuf.b(<32 x i8>, <32 x i8>) #32
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <32 x i8> @llvm.usub.sat.v32i8(<32 x i8>, <32 x i8>) #34
+declare <32 x i8> @llvm.usub.sat.v32i8(<32 x i8>, <32 x i8>) #33
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare i32 @llvm.x86.avx.ptestz.256(<4 x i64>, <4 x i64>) #33
+declare i32 @llvm.x86.avx.ptestz.256(<4 x i64>, <4 x i64>) #32
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.cttz.i64(i64, i1 immarg) #34
+declare i64 @llvm.cttz.i64(i64, i1 immarg) #33
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare <8 x i64> @llvm.x86.avx512.vpermi2var.q.512(<8 x i64>, <8 x i64>, <8 x i64>) #33
+declare <8 x i64> @llvm.x86.avx512.vpermi2var.q.512(<8 x i64>, <8 x i64>, <8 x i64>) #32
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare <64 x i8> @llvm.x86.avx512.pshuf.b.512(<64 x i8>, <64 x i8>) #33
+declare <64 x i8> @llvm.x86.avx512.pshuf.b.512(<64 x i8>, <64 x i8>) #32
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <64 x i8> @llvm.usub.sat.v64i8(<64 x i8>, <64 x i8>) #34
+declare <64 x i8> @llvm.usub.sat.v64i8(<64 x i8>, <64 x i8>) #33
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8>, <16 x i8>) #33
+declare <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8>, <16 x i8>) #32
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <16 x i8> @llvm.usub.sat.v16i8(<16 x i8>, <16 x i8>) #34
+declare <16 x i8> @llvm.usub.sat.v16i8(<16 x i8>, <16 x i8>) #33
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare i32 @llvm.x86.sse41.ptestz(<2 x i64>, <2 x i64>) #33
+declare i32 @llvm.x86.sse41.ptestz(<2 x i64>, <2 x i64>) #32
 
 ; Function Attrs: nobuiltin nounwind allocsize(0)
 declare noalias noundef ptr @_ZnamRKSt9nothrow_t(i64 noundef, ptr noundef nonnull align 1 dereferenceable(1)) local_unnamed_addr #13
@@ -13644,7 +13638,7 @@ sw.bb8.i:                                         ; preds = %entry, %entry, %ent
   %conv.i.i53.i = zext i32 %iter.val.val.i.i to i64
   %reass.sub.i.i = sub i64 %iter.val4.val.i.i, %conv.i.i53.i
   %add.i.i = add i64 %reass.sub.i.i, 64
-  %call2.i.i = tail call noalias noundef ptr @_ZnamRKSt9nothrow_t(i64 noundef %add.i.i, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #54
+  %call2.i.i = tail call noalias noundef ptr @_ZnamRKSt9nothrow_t(i64 noundef %add.i.i, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #53
   %cmp.i.i = icmp eq ptr %call2.i.i, null
   br i1 %cmp.i.i, label %_ZN8simdjson8fallback12_GLOBAL__N_16stage213json_iterator20visit_root_primitiveINS2_12tape_builderEEENS_10error_codeERT_PKh.exit, label %_ZNKSt14default_deleteIA_hEclIhEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i
 
@@ -13652,8 +13646,8 @@ _ZNKSt14default_deleteIA_hEclIhEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5v
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call2.i.i, ptr nonnull align 1 %value, i64 %reass.sub.i.i, i1 false)
   %add.ptr.i.i = getelementptr inbounds i8, ptr %call2.i.i, i64 %reass.sub.i.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %add.ptr.i.i, i8 32, i64 64, i1 false)
-  %call9.i.i = tail call fastcc noundef i32 @_ZN8simdjson8fallback12_GLOBAL__N_16stage212tape_builder12visit_numberERNS2_13json_iteratorEPKh(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %call2.i.i) #52
-  tail call void @_ZdaPv(ptr noundef nonnull %call2.i.i) #55
+  %call9.i.i = tail call fastcc noundef i32 @_ZN8simdjson8fallback12_GLOBAL__N_16stage212tape_builder12visit_numberERNS2_13json_iteratorEPKh(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %call2.i.i) #51
+  tail call void @_ZdaPv(ptr noundef nonnull %call2.i.i) #54
   br label %_ZN8simdjson8fallback12_GLOBAL__N_16stage213json_iterator20visit_root_primitiveINS2_12tape_builderEEENS_10error_codeERT_PKh.exit
 
 _ZN8simdjson8fallback12_GLOBAL__N_16stage213json_iterator20visit_root_primitiveINS2_12tape_builderEEENS_10error_codeERT_PKh.exit: ; preds = %entry, %sw.bb.i, %if.end.i.i.i, %if.then.i.i.i, %if.else.i.i.i, %invoke.cont.i.i, %if.end.i.i, %if.then.i.i28.i, %if.else.i.i20.i, %invoke.cont.i23.i, %if.end.i26.i, %if.then.i.i46.i, %if.else.i.i38.i, %invoke.cont.i41.i, %if.end.i44.i, %sw.bb8.i, %_ZNKSt14default_deleteIA_hEclIhEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i
@@ -13709,7 +13703,7 @@ if.else.i:                                        ; preds = %entry
   br i1 %cmp3.i, label %if.then6.i, label %if.end8.i
 
 if.then6.i:                                       ; preds = %if.else.i
-  %call7.i = tail call fastcc noundef i32 @_ZN8simdjson8fallback12_GLOBAL__N_16stage212tape_builder12visit_numberERNS2_13json_iteratorEPKh(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %value) #52
+  %call7.i = tail call fastcc noundef i32 @_ZN8simdjson8fallback12_GLOBAL__N_16stage212tape_builder12visit_numberERNS2_13json_iteratorEPKh(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %value) #51
   br label %_ZN8simdjson8fallback12_GLOBAL__N_16stage213json_iterator15visit_primitiveINS2_12tape_builderEEENS_10error_codeERT_PKh.exit
 
 if.end8.i:                                        ; preds = %if.else.i
@@ -14021,7 +14015,7 @@ if.then.i57.i:                                    ; preds = %_ZN8simdjson8fallba
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %first.addr.i.i.i.i.i.i)
   call void @llvm.lifetime.start.p0(i64 780, ptr nonnull %d.i.i.i.i.i.i)
   store ptr %add.ptr.i, ptr %first.addr.i.i.i.i.i.i, align 8
-  call void @_ZN8simdjson8internal13parse_decimalERPKc(ptr nonnull sret(%"struct.simdjson::internal::decimal") align 4 %d.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %first.addr.i.i.i.i.i.i) #52
+  call void @_ZN8simdjson8internal13parse_decimalERPKc(ptr nonnull sret(%"struct.simdjson::internal::decimal") align 4 %d.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %first.addr.i.i.i.i.i.i) #51
   %call.i6.i.i.i.i.i = invoke { i64, i32 } @_ZN8simdjson8internal13compute_floatINS0_13binary_formatIdEEEENS0_17adjusted_mantissaERNS0_7decimalE(ptr noundef nonnull align 4 dereferenceable(780) %d.i.i.i.i.i.i)
           to label %_ZN8simdjson8fallback13numberparsing12_GLOBAL__N_120parse_float_fallbackEPKhPd.exit.i.i.i unwind label %terminate.lpad.i.i.i.i.i
 
@@ -14029,7 +14023,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i57.i
   %14 = landingpad { ptr, i32 }
           catch ptr null
   %15 = extractvalue { ptr, i32 } %14, 0
-  call void @__clang_call_terminate(ptr %15) #53
+  call void @__clang_call_terminate(ptr %15) #52
   unreachable
 
 _ZN8simdjson8fallback13numberparsing12_GLOBAL__N_120parse_float_fallbackEPKhPd.exit.i.i.i: ; preds = %if.then.i57.i
@@ -14223,7 +14217,7 @@ if.then16.i.i:                                    ; preds = %if.end67.i.i.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %first.addr.i.i.i.i.i)
   call void @llvm.lifetime.start.p0(i64 780, ptr nonnull %d.i.i.i.i.i)
   store ptr %add.ptr.i, ptr %first.addr.i.i.i.i.i, align 8
-  call void @_ZN8simdjson8internal13parse_decimalERPKc(ptr nonnull sret(%"struct.simdjson::internal::decimal") align 4 %d.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %first.addr.i.i.i.i.i) #52
+  call void @_ZN8simdjson8internal13parse_decimalERPKc(ptr nonnull sret(%"struct.simdjson::internal::decimal") align 4 %d.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %first.addr.i.i.i.i.i) #51
   %call.i6.i.i.i.i = invoke { i64, i32 } @_ZN8simdjson8internal13compute_floatINS0_13binary_formatIdEEEENS0_17adjusted_mantissaERNS0_7decimalE(ptr noundef nonnull align 4 dereferenceable(780) %d.i.i.i.i.i)
           to label %_ZN8simdjson8fallback13numberparsing12_GLOBAL__N_120parse_float_fallbackEPKhPd.exit.i.i unwind label %terminate.lpad.i.i.i.i
 
@@ -14231,7 +14225,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %if.then16.i.i
   %35 = landingpad { ptr, i32 }
           catch ptr null
   %36 = extractvalue { ptr, i32 } %35, 0
-  call void @__clang_call_terminate(ptr %36) #53
+  call void @__clang_call_terminate(ptr %36) #52
   unreachable
 
 _ZN8simdjson8fallback13numberparsing12_GLOBAL__N_120parse_float_fallbackEPKhPd.exit.i.i: ; preds = %if.then16.i.i
@@ -14360,10 +14354,10 @@ invoke.cont:                                      ; preds = %if.end.i28.i.thread
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.ctlz.i64(i64, i1 immarg) #34
+declare i64 @llvm.ctlz.i64(i64, i1 immarg) #33
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN8simdjson7haswell12_GLOBAL__N_16stage113json_minifier4stepILm128EEEvPKhRNS2_16buf_block_readerIXT_EEE(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this, ptr nocapture noundef readonly %block_buf, ptr nocapture noundef nonnull align 8 dereferenceable(32) %reader) unnamed_addr #35 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+define internal fastcc void @_ZN8simdjson7haswell12_GLOBAL__N_16stage113json_minifier4stepILm128EEEvPKhRNS2_16buf_block_readerIXT_EEE(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this, ptr nocapture noundef readonly %block_buf, ptr nocapture noundef nonnull align 8 dereferenceable(32) %reader) unnamed_addr #34 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont2:
   %ptr.val.i165 = load <32 x i8>, ptr %block_buf, align 1
   %add.ptr.i = getelementptr inbounds i8, ptr %block_buf, i64 32
@@ -14727,13 +14721,13 @@ invoke.cont7:                                     ; preds = %if.end.i.i18, %invo
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare <2 x i64> @llvm.x86.pclmulqdq(<2 x i64>, <2 x i64>, i8 immarg) #33
+declare <2 x i64> @llvm.x86.pclmulqdq(<2 x i64>, <2 x i64>, i8 immarg) #32
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.ctpop.i64(i64) #34
+declare i64 @llvm.ctpop.i64(i64) #33
 
-; Function Attrs: mustprogress nofree nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN8simdjson7haswell12_GLOBAL__N_16stage123json_structural_indexer4stepILm128EEEvPKhRNS2_16buf_block_readerIXT_EEE(ptr nocapture noundef nonnull align 32 dereferenceable(152) %this, ptr nocapture noundef readonly %block, ptr nocapture noundef nonnull align 8 dereferenceable(32) %reader) unnamed_addr #36 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+define internal fastcc void @_ZN8simdjson7haswell12_GLOBAL__N_16stage123json_structural_indexer4stepILm128EEEvPKhRNS2_16buf_block_readerIXT_EEE(ptr nocapture noundef nonnull align 32 dereferenceable(152) %this, ptr nocapture noundef readonly %block, ptr nocapture noundef nonnull align 8 dereferenceable(32) %reader) unnamed_addr #35 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont2:
   %ptr.val.i = load <4 x i64>, ptr %block, align 1
   %add.ptr.i = getelementptr inbounds i8, ptr %block, i64 32
@@ -15117,8 +15111,8 @@ invoke.cont10:                                    ; preds = %if.else.i.i83, %if.
   ret void
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN8simdjson7haswell12_GLOBAL__N_16stage111bit_indexer5writeEjm(ptr nocapture noundef nonnull align 8 dereferenceable(8) %this, i32 noundef %idx, i64 noundef %bits) unnamed_addr #37 align 2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+define internal fastcc void @_ZN8simdjson7haswell12_GLOBAL__N_16stage111bit_indexer5writeEjm(ptr nocapture noundef nonnull align 8 dereferenceable(8) %this, i32 noundef %idx, i64 noundef %bits) unnamed_addr #36 align 2 {
 entry:
   %cmp = icmp eq i64 %bits, 0
   br i1 %cmp, label %return, label %if.end
@@ -15369,7 +15363,7 @@ return:                                           ; preds = %entry, %if.end8
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc noundef i32 @_ZN8simdjson7haswell12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %parser) unnamed_addr #38 {
+define internal fastcc noundef i32 @_ZN8simdjson7haswell12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %parser) unnamed_addr #37 {
 entry:
   %n_structural_indexes = getelementptr inbounds %"class.simdjson::internal::dom_parser_implementation", ptr %parser, i64 0, i32 1
   %0 = load i32, ptr %n_structural_indexes, align 8
@@ -15512,7 +15506,7 @@ return:                                           ; preds = %sw.epilog39, %sw.ep
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef i32 @_ZN8simdjson7haswell12_GLOBAL__N_16stage212tape_builder20visit_root_primitiveERNS2_13json_iteratorEPKh(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this, ptr nocapture readonly %iter.8.val, ptr nocapture readonly %iter.16.val, ptr nocapture noundef readonly %value) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef i32 @_ZN8simdjson7haswell12_GLOBAL__N_16stage212tape_builder20visit_root_primitiveERNS2_13json_iteratorEPKh(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this, ptr nocapture readonly %iter.8.val, ptr nocapture readonly %iter.16.val, ptr nocapture noundef readonly %value) unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i8, ptr %value, align 1
   switch i8 %0, label %_ZN8simdjson7haswell12_GLOBAL__N_16stage213json_iterator20visit_root_primitiveINS2_12tape_builderEEENS_10error_codeERT_PKh.exit [
@@ -15700,7 +15694,7 @@ sw.bb8.i:                                         ; preds = %entry, %entry, %ent
   %conv.i.i53.i = zext i32 %iter.val.val.i.i to i64
   %reass.sub.i.i = sub i64 %iter.val4.val.i.i, %conv.i.i53.i
   %add.i.i = add i64 %reass.sub.i.i, 64
-  %call2.i.i = tail call noalias noundef ptr @_ZnamRKSt9nothrow_t(i64 noundef %add.i.i, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #54
+  %call2.i.i = tail call noalias noundef ptr @_ZnamRKSt9nothrow_t(i64 noundef %add.i.i, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #53
   %cmp.i.i = icmp eq ptr %call2.i.i, null
   br i1 %cmp.i.i, label %_ZN8simdjson7haswell12_GLOBAL__N_16stage213json_iterator20visit_root_primitiveINS2_12tape_builderEEENS_10error_codeERT_PKh.exit, label %_ZNKSt14default_deleteIA_hEclIhEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i
 
@@ -15708,8 +15702,8 @@ _ZNKSt14default_deleteIA_hEclIhEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5v
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call2.i.i, ptr nonnull align 1 %value, i64 %reass.sub.i.i, i1 false)
   %add.ptr.i.i = getelementptr inbounds i8, ptr %call2.i.i, i64 %reass.sub.i.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %add.ptr.i.i, i8 32, i64 64, i1 false)
-  %call9.i.i = tail call fastcc noundef i32 @_ZN8simdjson7haswell12_GLOBAL__N_16stage212tape_builder12visit_numberERNS2_13json_iteratorEPKh(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %call2.i.i) #52
-  tail call void @_ZdaPv(ptr noundef nonnull %call2.i.i) #55
+  %call9.i.i = tail call fastcc noundef i32 @_ZN8simdjson7haswell12_GLOBAL__N_16stage212tape_builder12visit_numberERNS2_13json_iteratorEPKh(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %call2.i.i) #51
+  tail call void @_ZdaPv(ptr noundef nonnull %call2.i.i) #54
   br label %_ZN8simdjson7haswell12_GLOBAL__N_16stage213json_iterator20visit_root_primitiveINS2_12tape_builderEEENS_10error_codeERT_PKh.exit
 
 _ZN8simdjson7haswell12_GLOBAL__N_16stage213json_iterator20visit_root_primitiveINS2_12tape_builderEEENS_10error_codeERT_PKh.exit: ; preds = %entry, %sw.bb.i, %if.end.i.i.i, %if.then.i.i.i, %if.else.i.i.i, %invoke.cont.i.i, %if.end.i.i, %if.then.i.i28.i, %if.else.i.i20.i, %invoke.cont.i23.i, %if.end.i26.i, %if.then.i.i46.i, %if.else.i.i38.i, %invoke.cont.i41.i, %if.end.i44.i, %sw.bb8.i, %_ZNKSt14default_deleteIA_hEclIhEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i
@@ -15718,7 +15712,7 @@ _ZN8simdjson7haswell12_GLOBAL__N_16stage213json_iterator20visit_root_primitiveIN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef i32 @_ZN8simdjson7haswell12_GLOBAL__N_16stage212tape_builder15visit_primitiveERNS2_13json_iteratorEPKh(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this, ptr nocapture readonly %iter.16.val, ptr noundef %value) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef i32 @_ZN8simdjson7haswell12_GLOBAL__N_16stage212tape_builder15visit_primitiveERNS2_13json_iteratorEPKh(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this, ptr nocapture readonly %iter.16.val, ptr noundef %value) unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i8, ptr %value, align 1
   %cmp.i = icmp eq i8 %0, 34
@@ -15765,7 +15759,7 @@ if.else.i:                                        ; preds = %entry
   br i1 %cmp3.i, label %if.then6.i, label %if.end8.i
 
 if.then6.i:                                       ; preds = %if.else.i
-  %call7.i = tail call fastcc noundef i32 @_ZN8simdjson7haswell12_GLOBAL__N_16stage212tape_builder12visit_numberERNS2_13json_iteratorEPKh(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %value) #52
+  %call7.i = tail call fastcc noundef i32 @_ZN8simdjson7haswell12_GLOBAL__N_16stage212tape_builder12visit_numberERNS2_13json_iteratorEPKh(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %value) #51
   br label %_ZN8simdjson7haswell12_GLOBAL__N_16stage213json_iterator15visit_primitiveINS2_12tape_builderEEENS_10error_codeERT_PKh.exit
 
 if.end8.i:                                        ; preds = %if.else.i
@@ -15846,7 +15840,7 @@ _ZN8simdjson7haswell12_GLOBAL__N_16stage213json_iterator15visit_primitiveINS2_12
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef i32 @_ZN8simdjson7haswell12_GLOBAL__N_16stage212tape_builder12visit_numberERNS2_13json_iteratorEPKh(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %value) unnamed_addr #39 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef i32 @_ZN8simdjson7haswell12_GLOBAL__N_16stage212tape_builder12visit_numberERNS2_13json_iteratorEPKh(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %value) unnamed_addr #38 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i8, ptr %value, align 1
   %cmp.i = icmp eq i8 %0, 45
@@ -16072,7 +16066,7 @@ _ZN8simdjson7haswell13numberparsing12_GLOBAL__N_118significant_digitsEPKhm.exit.
 
 if.then.i56.i:                                    ; preds = %_ZN8simdjson7haswell13numberparsing12_GLOBAL__N_118significant_digitsEPKhm.exit.i.i
   %agg.tmp.sroa.0.0.copyload.i.i = load ptr, ptr %this, align 8
-  %call.i.i.i.i = tail call noundef double @_ZN8simdjson8internal10from_charsEPKc(ptr noundef nonnull %value) #52
+  %call.i.i.i.i = tail call noundef double @_ZN8simdjson8internal10from_charsEPKc(ptr noundef nonnull %value) #51
   %cmp.i.i.i.i = fcmp ule double %call.i.i.i.i, 0x7FEFFFFFFFFFFFFF
   %cmp3.i.i.i.i = fcmp uge double %call.i.i.i.i, 0xFFEFFFFFFFFFFFFF
   %lnot.i.i.i.i = and i1 %cmp.i.i.i.i, %cmp3.i.i.i.i
@@ -16248,7 +16242,7 @@ if.end101.i.i.i:                                  ; preds = %if.end67.i.i.i
   br label %if.end20.i.i
 
 if.then16.i.i:                                    ; preds = %if.end67.i.i.i
-  %call.i.i.i = tail call noundef double @_ZN8simdjson8internal10from_charsEPKc(ptr noundef nonnull %value) #52
+  %call.i.i.i = tail call noundef double @_ZN8simdjson8internal10from_charsEPKc(ptr noundef nonnull %value) #51
   %cmp.i.i51.i = fcmp ule double %call.i.i.i, 0x7FEFFFFFFFFFFFFF
   %cmp3.i15.i.i = fcmp uge double %call.i.i.i, 0xFFEFFFFFFFFFFFFF
   %lnot.i.i.i = and i1 %cmp.i.i51.i, %cmp3.i15.i.i
@@ -16364,19 +16358,19 @@ invoke.cont:                                      ; preds = %if.end.i28.i.thread
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare <8 x i16> @llvm.x86.ssse3.pmadd.ub.sw.128(<16 x i8>, <16 x i8>) #33
+declare <8 x i16> @llvm.x86.ssse3.pmadd.ub.sw.128(<16 x i8>, <16 x i8>) #32
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare <4 x i32> @llvm.x86.sse2.pmadd.wd(<8 x i16>, <8 x i16>) #33
+declare <4 x i32> @llvm.x86.sse2.pmadd.wd(<8 x i16>, <8 x i16>) #32
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare <8 x i16> @llvm.x86.sse41.packusdw(<4 x i32>, <4 x i32>) #33
+declare <8 x i16> @llvm.x86.sse41.packusdw(<4 x i32>, <4 x i32>) #32
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: write)
-declare void @llvm.masked.compressstore.v64i8(<64 x i8>, ptr nocapture, <64 x i1>) #40
+declare void @llvm.masked.compressstore.v64i8(<64 x i8>, ptr nocapture, <64 x i1>) #39
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN8simdjson7icelake12_GLOBAL__N_16stage123json_structural_indexer4stepILm128EEEvPKhRNS2_16buf_block_readerIXT_EEE(ptr nocapture noundef nonnull align 64 dereferenceable(280) %this, ptr nocapture noundef readonly %block, ptr nocapture noundef nonnull align 8 dereferenceable(32) %reader) unnamed_addr #41 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+define internal fastcc void @_ZN8simdjson7icelake12_GLOBAL__N_16stage123json_structural_indexer4stepILm128EEEvPKhRNS2_16buf_block_readerIXT_EEE(ptr nocapture noundef nonnull align 64 dereferenceable(280) %this, ptr nocapture noundef readonly %block, ptr nocapture noundef nonnull align 8 dereferenceable(32) %reader) unnamed_addr #40 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont2:
   %block.val = load <8 x i64>, ptr %block, align 1
   %add.ptr = getelementptr inbounds i8, ptr %block, i64 64
@@ -16736,10 +16730,10 @@ invoke.cont10:                                    ; preds = %if.end45.i.i81, %_Z
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare <64 x i8> @llvm.x86.avx512.mask.compress.v64i8(<64 x i8>, <64 x i8>, <64 x i1>) #33
+declare <64 x i8> @llvm.x86.avx512.mask.compress.v64i8(<64 x i8>, <64 x i8>, <64 x i1>) #32
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc noundef i32 @_ZN8simdjson7icelake12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %parser) unnamed_addr #42 {
+define internal fastcc noundef i32 @_ZN8simdjson7icelake12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %parser) unnamed_addr #41 {
 entry:
   %n_structural_indexes = getelementptr inbounds %"class.simdjson::internal::dom_parser_implementation", ptr %parser, i64 0, i32 1
   %0 = load i32, ptr %n_structural_indexes, align 8
@@ -16882,7 +16876,7 @@ return:                                           ; preds = %sw.epilog39, %sw.ep
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef i32 @_ZN8simdjson7icelake12_GLOBAL__N_16stage212tape_builder20visit_root_primitiveERNS2_13json_iteratorEPKh(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this, ptr nocapture readonly %iter.8.val, ptr nocapture readonly %iter.16.val, ptr nocapture noundef readonly %value) unnamed_addr #20 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef i32 @_ZN8simdjson7icelake12_GLOBAL__N_16stage212tape_builder20visit_root_primitiveERNS2_13json_iteratorEPKh(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this, ptr nocapture readonly %iter.8.val, ptr nocapture readonly %iter.16.val, ptr nocapture noundef readonly %value) unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i8, ptr %value, align 1
   switch i8 %0, label %_ZN8simdjson7icelake12_GLOBAL__N_16stage213json_iterator20visit_root_primitiveINS2_12tape_builderEEENS_10error_codeERT_PKh.exit [
@@ -17070,7 +17064,7 @@ sw.bb8.i:                                         ; preds = %entry, %entry, %ent
   %conv.i.i53.i = zext i32 %iter.val.val.i.i to i64
   %reass.sub.i.i = sub i64 %iter.val4.val.i.i, %conv.i.i53.i
   %add.i.i = add i64 %reass.sub.i.i, 64
-  %call2.i.i = tail call noalias noundef ptr @_ZnamRKSt9nothrow_t(i64 noundef %add.i.i, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #54
+  %call2.i.i = tail call noalias noundef ptr @_ZnamRKSt9nothrow_t(i64 noundef %add.i.i, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #53
   %cmp.i.i = icmp eq ptr %call2.i.i, null
   br i1 %cmp.i.i, label %_ZN8simdjson7icelake12_GLOBAL__N_16stage213json_iterator20visit_root_primitiveINS2_12tape_builderEEENS_10error_codeERT_PKh.exit, label %_ZNKSt14default_deleteIA_hEclIhEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i
 
@@ -17078,8 +17072,8 @@ _ZNKSt14default_deleteIA_hEclIhEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5v
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call2.i.i, ptr nonnull align 1 %value, i64 %reass.sub.i.i, i1 false)
   %add.ptr.i.i = getelementptr inbounds i8, ptr %call2.i.i, i64 %reass.sub.i.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %add.ptr.i.i, i8 32, i64 64, i1 false)
-  %call9.i.i = tail call fastcc noundef i32 @_ZN8simdjson7icelake12_GLOBAL__N_16stage212tape_builder12visit_numberERNS2_13json_iteratorEPKh(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %call2.i.i) #52
-  tail call void @_ZdaPv(ptr noundef nonnull %call2.i.i) #55
+  %call9.i.i = tail call fastcc noundef i32 @_ZN8simdjson7icelake12_GLOBAL__N_16stage212tape_builder12visit_numberERNS2_13json_iteratorEPKh(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %call2.i.i) #51
+  tail call void @_ZdaPv(ptr noundef nonnull %call2.i.i) #54
   br label %_ZN8simdjson7icelake12_GLOBAL__N_16stage213json_iterator20visit_root_primitiveINS2_12tape_builderEEENS_10error_codeERT_PKh.exit
 
 _ZN8simdjson7icelake12_GLOBAL__N_16stage213json_iterator20visit_root_primitiveINS2_12tape_builderEEENS_10error_codeERT_PKh.exit: ; preds = %entry, %sw.bb.i, %if.end.i.i.i, %if.then.i.i.i, %if.else.i.i.i, %invoke.cont.i.i, %if.end.i.i, %if.then.i.i28.i, %if.else.i.i20.i, %invoke.cont.i23.i, %if.end.i26.i, %if.then.i.i46.i, %if.else.i.i38.i, %invoke.cont.i41.i, %if.end.i44.i, %sw.bb8.i, %_ZNKSt14default_deleteIA_hEclIhEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i
@@ -17088,7 +17082,7 @@ _ZN8simdjson7icelake12_GLOBAL__N_16stage213json_iterator20visit_root_primitiveIN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef i32 @_ZN8simdjson7icelake12_GLOBAL__N_16stage212tape_builder15visit_primitiveERNS2_13json_iteratorEPKh(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this, ptr nocapture readonly %iter.16.val, ptr noundef %value) unnamed_addr #20 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef i32 @_ZN8simdjson7icelake12_GLOBAL__N_16stage212tape_builder15visit_primitiveERNS2_13json_iteratorEPKh(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this, ptr nocapture readonly %iter.16.val, ptr noundef %value) unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i8, ptr %value, align 1
   %cmp.i = icmp eq i8 %0, 34
@@ -17135,7 +17129,7 @@ if.else.i:                                        ; preds = %entry
   br i1 %cmp3.i, label %if.then6.i, label %if.end8.i
 
 if.then6.i:                                       ; preds = %if.else.i
-  %call7.i = tail call fastcc noundef i32 @_ZN8simdjson7icelake12_GLOBAL__N_16stage212tape_builder12visit_numberERNS2_13json_iteratorEPKh(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %value) #52
+  %call7.i = tail call fastcc noundef i32 @_ZN8simdjson7icelake12_GLOBAL__N_16stage212tape_builder12visit_numberERNS2_13json_iteratorEPKh(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %value) #51
   br label %_ZN8simdjson7icelake12_GLOBAL__N_16stage213json_iterator15visit_primitiveINS2_12tape_builderEEENS_10error_codeERT_PKh.exit
 
 if.end8.i:                                        ; preds = %if.else.i
@@ -17216,7 +17210,7 @@ _ZN8simdjson7icelake12_GLOBAL__N_16stage213json_iterator15visit_primitiveINS2_12
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef i32 @_ZN8simdjson7icelake12_GLOBAL__N_16stage212tape_builder12visit_numberERNS2_13json_iteratorEPKh(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %value) unnamed_addr #43 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef i32 @_ZN8simdjson7icelake12_GLOBAL__N_16stage212tape_builder12visit_numberERNS2_13json_iteratorEPKh(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %value) unnamed_addr #42 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i8, ptr %value, align 1
   %cmp.i = icmp eq i8 %0, 45
@@ -17442,7 +17436,7 @@ _ZN8simdjson7icelake13numberparsing12_GLOBAL__N_118significant_digitsEPKhm.exit.
 
 if.then.i56.i:                                    ; preds = %_ZN8simdjson7icelake13numberparsing12_GLOBAL__N_118significant_digitsEPKhm.exit.i.i
   %agg.tmp.sroa.0.0.copyload.i.i = load ptr, ptr %this, align 8
-  %call.i.i.i.i = tail call noundef double @_ZN8simdjson8internal10from_charsEPKc(ptr noundef nonnull %value) #52
+  %call.i.i.i.i = tail call noundef double @_ZN8simdjson8internal10from_charsEPKc(ptr noundef nonnull %value) #51
   %cmp.i.i.i.i = fcmp ule double %call.i.i.i.i, 0x7FEFFFFFFFFFFFFF
   %cmp3.i.i.i.i = fcmp uge double %call.i.i.i.i, 0xFFEFFFFFFFFFFFFF
   %lnot.i.i.i.i = and i1 %cmp.i.i.i.i, %cmp3.i.i.i.i
@@ -17618,7 +17612,7 @@ if.end101.i.i.i:                                  ; preds = %if.end67.i.i.i
   br label %if.end20.i.i
 
 if.then16.i.i:                                    ; preds = %if.end67.i.i.i
-  %call.i.i.i = tail call noundef double @_ZN8simdjson8internal10from_charsEPKc(ptr noundef nonnull %value) #52
+  %call.i.i.i = tail call noundef double @_ZN8simdjson8internal10from_charsEPKc(ptr noundef nonnull %value) #51
   %cmp.i.i51.i = fcmp ule double %call.i.i.i, 0x7FEFFFFFFFFFFFFF
   %cmp3.i15.i.i = fcmp uge double %call.i.i.i, 0xFFEFFFFFFFFFFFFF
   %lnot.i.i.i = and i1 %cmp.i.i51.i, %cmp3.i15.i.i
@@ -17733,8 +17727,8 @@ invoke.cont:                                      ; preds = %if.end.i28.i.thread
   ret i32 %retval.0.i
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN8simdjson8westmere12_GLOBAL__N_16stage123json_structural_indexer4stepILm64EEEvPKhRNS2_16buf_block_readerIXT_EEE(ptr nocapture noundef nonnull align 16 dereferenceable(104) %this, ptr nocapture noundef readonly %block, ptr nocapture noundef nonnull align 8 dereferenceable(32) %reader) unnamed_addr #44 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+define internal fastcc void @_ZN8simdjson8westmere12_GLOBAL__N_16stage123json_structural_indexer4stepILm64EEEvPKhRNS2_16buf_block_readerIXT_EEE(ptr nocapture noundef nonnull align 16 dereferenceable(104) %this, ptr nocapture noundef readonly %block, ptr nocapture noundef nonnull align 8 dereferenceable(32) %reader) unnamed_addr #43 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %ptr.val.i36 = load <16 x i8>, ptr %block, align 1
   %add.ptr.i = getelementptr inbounds i8, ptr %block, i64 16
@@ -18051,8 +18045,8 @@ invoke.cont4:                                     ; preds = %if.else.i.i, %if.th
   ret void
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN8simdjson8westmere12_GLOBAL__N_16stage111bit_indexer5writeEjm(ptr nocapture noundef nonnull align 8 dereferenceable(8) %this, i32 noundef %idx, i64 noundef %bits) unnamed_addr #45 align 2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+define internal fastcc void @_ZN8simdjson8westmere12_GLOBAL__N_16stage111bit_indexer5writeEjm(ptr nocapture noundef nonnull align 8 dereferenceable(8) %this, i32 noundef %idx, i64 noundef %bits) unnamed_addr #44 align 2 {
 entry:
   %cmp = icmp eq i64 %bits, 0
   br i1 %cmp, label %return, label %if.end
@@ -18303,7 +18297,7 @@ return:                                           ; preds = %entry, %if.end8
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc noundef i32 @_ZN8simdjson8westmere12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %parser) unnamed_addr #46 {
+define internal fastcc noundef i32 @_ZN8simdjson8westmere12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %parser) unnamed_addr #45 {
 entry:
   %n_structural_indexes = getelementptr inbounds %"class.simdjson::internal::dom_parser_implementation", ptr %parser, i64 0, i32 1
   %0 = load i32, ptr %n_structural_indexes, align 8
@@ -18446,7 +18440,7 @@ return:                                           ; preds = %sw.epilog39, %sw.ep
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef i32 @_ZN8simdjson8westmere12_GLOBAL__N_16stage212tape_builder20visit_root_primitiveERNS2_13json_iteratorEPKh(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this, ptr nocapture readonly %iter.8.val, ptr nocapture readonly %iter.16.val, ptr nocapture noundef readonly %value) unnamed_addr #24 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef i32 @_ZN8simdjson8westmere12_GLOBAL__N_16stage212tape_builder20visit_root_primitiveERNS2_13json_iteratorEPKh(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this, ptr nocapture readonly %iter.8.val, ptr nocapture readonly %iter.16.val, ptr nocapture noundef readonly %value) unnamed_addr #23 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i8, ptr %value, align 1
   switch i8 %0, label %_ZN8simdjson8westmere12_GLOBAL__N_16stage213json_iterator20visit_root_primitiveINS2_12tape_builderEEENS_10error_codeERT_PKh.exit [
@@ -18634,7 +18628,7 @@ sw.bb8.i:                                         ; preds = %entry, %entry, %ent
   %conv.i.i53.i = zext i32 %iter.val.val.i.i to i64
   %reass.sub.i.i = sub i64 %iter.val4.val.i.i, %conv.i.i53.i
   %add.i.i = add i64 %reass.sub.i.i, 64
-  %call2.i.i = tail call noalias noundef ptr @_ZnamRKSt9nothrow_t(i64 noundef %add.i.i, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #54
+  %call2.i.i = tail call noalias noundef ptr @_ZnamRKSt9nothrow_t(i64 noundef %add.i.i, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #53
   %cmp.i.i = icmp eq ptr %call2.i.i, null
   br i1 %cmp.i.i, label %_ZN8simdjson8westmere12_GLOBAL__N_16stage213json_iterator20visit_root_primitiveINS2_12tape_builderEEENS_10error_codeERT_PKh.exit, label %_ZNKSt14default_deleteIA_hEclIhEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i
 
@@ -18642,8 +18636,8 @@ _ZNKSt14default_deleteIA_hEclIhEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5v
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call2.i.i, ptr nonnull align 1 %value, i64 %reass.sub.i.i, i1 false)
   %add.ptr.i.i = getelementptr inbounds i8, ptr %call2.i.i, i64 %reass.sub.i.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %add.ptr.i.i, i8 32, i64 64, i1 false)
-  %call9.i.i = tail call fastcc noundef i32 @_ZN8simdjson8westmere12_GLOBAL__N_16stage212tape_builder12visit_numberERNS2_13json_iteratorEPKh(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %call2.i.i) #52
-  tail call void @_ZdaPv(ptr noundef nonnull %call2.i.i) #55
+  %call9.i.i = tail call fastcc noundef i32 @_ZN8simdjson8westmere12_GLOBAL__N_16stage212tape_builder12visit_numberERNS2_13json_iteratorEPKh(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %call2.i.i) #51
+  tail call void @_ZdaPv(ptr noundef nonnull %call2.i.i) #54
   br label %_ZN8simdjson8westmere12_GLOBAL__N_16stage213json_iterator20visit_root_primitiveINS2_12tape_builderEEENS_10error_codeERT_PKh.exit
 
 _ZN8simdjson8westmere12_GLOBAL__N_16stage213json_iterator20visit_root_primitiveINS2_12tape_builderEEENS_10error_codeERT_PKh.exit: ; preds = %entry, %sw.bb.i, %if.end.i.i.i, %if.then.i.i.i, %if.else.i.i.i, %invoke.cont.i.i, %if.end.i.i, %if.then.i.i28.i, %if.else.i.i20.i, %invoke.cont.i23.i, %if.end.i26.i, %if.then.i.i46.i, %if.else.i.i38.i, %invoke.cont.i41.i, %if.end.i44.i, %sw.bb8.i, %_ZNKSt14default_deleteIA_hEclIhEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i
@@ -18652,7 +18646,7 @@ _ZN8simdjson8westmere12_GLOBAL__N_16stage213json_iterator20visit_root_primitiveI
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef i32 @_ZN8simdjson8westmere12_GLOBAL__N_16stage212tape_builder15visit_primitiveERNS2_13json_iteratorEPKh(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this, ptr nocapture readonly %iter.16.val, ptr noundef %value) unnamed_addr #24 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef i32 @_ZN8simdjson8westmere12_GLOBAL__N_16stage212tape_builder15visit_primitiveERNS2_13json_iteratorEPKh(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this, ptr nocapture readonly %iter.16.val, ptr noundef %value) unnamed_addr #23 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i8, ptr %value, align 1
   %cmp.i = icmp eq i8 %0, 34
@@ -18699,7 +18693,7 @@ if.else.i:                                        ; preds = %entry
   br i1 %cmp3.i, label %if.then6.i, label %if.end8.i
 
 if.then6.i:                                       ; preds = %if.else.i
-  %call7.i = tail call fastcc noundef i32 @_ZN8simdjson8westmere12_GLOBAL__N_16stage212tape_builder12visit_numberERNS2_13json_iteratorEPKh(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %value) #52
+  %call7.i = tail call fastcc noundef i32 @_ZN8simdjson8westmere12_GLOBAL__N_16stage212tape_builder12visit_numberERNS2_13json_iteratorEPKh(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %value) #51
   br label %_ZN8simdjson8westmere12_GLOBAL__N_16stage213json_iterator15visit_primitiveINS2_12tape_builderEEENS_10error_codeERT_PKh.exit
 
 if.end8.i:                                        ; preds = %if.else.i
@@ -18780,7 +18774,7 @@ _ZN8simdjson8westmere12_GLOBAL__N_16stage213json_iterator15visit_primitiveINS2_1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef i32 @_ZN8simdjson8westmere12_GLOBAL__N_16stage212tape_builder12visit_numberERNS2_13json_iteratorEPKh(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %value) unnamed_addr #47 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef i32 @_ZN8simdjson8westmere12_GLOBAL__N_16stage212tape_builder12visit_numberERNS2_13json_iteratorEPKh(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %value) unnamed_addr #46 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i8, ptr %value, align 1
   %cmp.i = icmp eq i8 %0, 45
@@ -19006,7 +19000,7 @@ _ZN8simdjson8westmere13numberparsing12_GLOBAL__N_118significant_digitsEPKhm.exit
 
 if.then.i56.i:                                    ; preds = %_ZN8simdjson8westmere13numberparsing12_GLOBAL__N_118significant_digitsEPKhm.exit.i.i
   %agg.tmp.sroa.0.0.copyload.i.i = load ptr, ptr %this, align 8
-  %call.i.i.i.i = tail call noundef double @_ZN8simdjson8internal10from_charsEPKc(ptr noundef nonnull %value) #52
+  %call.i.i.i.i = tail call noundef double @_ZN8simdjson8internal10from_charsEPKc(ptr noundef nonnull %value) #51
   %cmp.i.i.i.i = fcmp ule double %call.i.i.i.i, 0x7FEFFFFFFFFFFFFF
   %cmp3.i.i.i.i = fcmp uge double %call.i.i.i.i, 0xFFEFFFFFFFFFFFFF
   %lnot.i.i.i.i = and i1 %cmp.i.i.i.i, %cmp3.i.i.i.i
@@ -19182,7 +19176,7 @@ if.end101.i.i.i:                                  ; preds = %if.end67.i.i.i
   br label %if.end20.i.i
 
 if.then16.i.i:                                    ; preds = %if.end67.i.i.i
-  %call.i.i.i = tail call noundef double @_ZN8simdjson8internal10from_charsEPKc(ptr noundef nonnull %value) #52
+  %call.i.i.i = tail call noundef double @_ZN8simdjson8internal10from_charsEPKc(ptr noundef nonnull %value) #51
   %cmp.i.i51.i = fcmp ule double %call.i.i.i, 0x7FEFFFFFFFFFFFFF
   %cmp3.i15.i.i = fcmp uge double %call.i.i.i, 0xFFEFFFFFFFFFFFFF
   %lnot.i.i.i = and i1 %cmp.i.i51.i, %cmp3.i15.i.i
@@ -19298,51 +19292,51 @@ invoke.cont:                                      ; preds = %if.end.i28.i.thread
 }
 
 ; Function Attrs: uwtable
-define internal void @_GLOBAL__sub_I_simdjson.cpp() #48 section ".text.startup" {
+define internal void @_GLOBAL__sub_I_simdjson.cpp() #47 section ".text.startup" {
 entry:
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
-  %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #52
+  %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #51
   ret void
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #49
+declare i32 @llvm.umin.i32(i32, i32) #48
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.abs.i32(i32, i1 immarg) #49
+declare i32 @llvm.abs.i32(i32, i1 immarg) #48
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #50
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #49
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #50
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #49
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #49
+declare i32 @llvm.umax.i32(i32, i32) #48
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.usub.sat.i64(i64, i64) #49
+declare i64 @llvm.usub.sat.i64(i64, i64) #48
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #49
+declare i64 @llvm.umin.i64(i64, i64) #48
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.ctpop.i32(i32) #49
+declare i32 @llvm.ctpop.i32(i32) #48
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.cttz.i32(i32, i1 immarg) #49
+declare i32 @llvm.cttz.i32(i32, i1 immarg) #48
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.fshl.i64(i64, i64, i64) #49
+declare i64 @llvm.fshl.i64(i64, i64, i64) #48
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #51
+declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #50
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
@@ -19353,47 +19347,46 @@ attributes #11 = { nofree nounwind memory(read) "frame-pointer"="all" "no-trappi
 attributes #12 = { mustprogress nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { nobuiltin nounwind allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #14 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi,+cmov,+crc32,+cx8,+fxsr,+lzcnt,+mmx,+pclmul,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #17 = { mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi,+cmov,+crc32,+cx8,+fxsr,+lzcnt,+mmx,+pclmul,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #18 = { mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="256" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi,+cmov,+crc32,+cx8,+fxsr,+lzcnt,+mmx,+pclmul,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #19 = { mustprogress nofree nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="256" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi,+cmov,+crc32,+cx8,+fxsr,+lzcnt,+mmx,+pclmul,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #20 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512vbmi,+avx512vbmi2,+avx512vl,+bmi,+cmov,+crc32,+cx8,+evex512,+f16c,+fma,+fxsr,+lzcnt,+mmx,+pclmul,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #21 = { mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="512" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512vbmi,+avx512vbmi2,+avx512vl,+bmi,+cmov,+crc32,+cx8,+evex512,+f16c,+fma,+fxsr,+lzcnt,+mmx,+pclmul,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #22 = { mustprogress nofree nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="512" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512vbmi,+avx512vbmi2,+avx512vl,+bmi,+cmov,+crc32,+cx8,+evex512,+f16c,+fma,+fxsr,+lzcnt,+mmx,+pclmul,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #23 = { mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512vbmi,+avx512vbmi2,+avx512vl,+bmi,+cmov,+crc32,+cx8,+evex512,+f16c,+fma,+fxsr,+lzcnt,+mmx,+pclmul,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #24 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+pclmul,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
-attributes #25 = { mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+pclmul,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
-attributes #26 = { mustprogress nofree nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+pclmul,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
-attributes #27 = { mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+pclmul,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
-attributes #28 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #29 = { cold noreturn nounwind memory(inaccessiblemem: write) }
-attributes #30 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #31 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #32 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #33 = { mustprogress nocallback nofree nosync nounwind willreturn memory(none) }
-attributes #34 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #35 = { mustprogress nofree nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="256" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi,+cmov,+crc32,+cx8,+fxsr,+lzcnt,+mmx,+pclmul,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #36 = { mustprogress nofree nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="256" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi,+cmov,+crc32,+cx8,+fxsr,+lzcnt,+mmx,+pclmul,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #37 = { mustprogress nofree nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi,+cmov,+crc32,+cx8,+fxsr,+lzcnt,+mmx,+pclmul,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #38 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi,+cmov,+crc32,+cx8,+fxsr,+lzcnt,+mmx,+pclmul,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #39 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi,+cmov,+crc32,+cx8,+fxsr,+lzcnt,+mmx,+pclmul,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #40 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: write) }
-attributes #41 = { mustprogress nofree nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="512" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512vbmi,+avx512vbmi2,+avx512vl,+bmi,+cmov,+crc32,+cx8,+evex512,+f16c,+fma,+fxsr,+lzcnt,+mmx,+pclmul,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #42 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512vbmi,+avx512vbmi2,+avx512vl,+bmi,+cmov,+crc32,+cx8,+evex512,+f16c,+fma,+fxsr,+lzcnt,+mmx,+pclmul,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #43 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512vbmi,+avx512vbmi2,+avx512vl,+bmi,+cmov,+crc32,+cx8,+evex512,+f16c,+fma,+fxsr,+lzcnt,+mmx,+pclmul,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #44 = { mustprogress nofree nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+pclmul,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
-attributes #45 = { mustprogress nofree nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+pclmul,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
-attributes #46 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+pclmul,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
-attributes #47 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+pclmul,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
-attributes #48 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #49 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #50 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #51 = { nofree nounwind willreturn memory(argmem: read) }
-attributes #52 = { nounwind }
-attributes #53 = { noreturn nounwind }
-attributes #54 = { builtin nounwind allocsize(0) }
-attributes #55 = { builtin nounwind }
+attributes #15 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi,+cmov,+crc32,+cx8,+fxsr,+lzcnt,+mmx,+pclmul,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #16 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi,+cmov,+crc32,+cx8,+fxsr,+lzcnt,+mmx,+pclmul,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #17 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="256" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi,+cmov,+crc32,+cx8,+fxsr,+lzcnt,+mmx,+pclmul,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #18 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="256" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi,+cmov,+crc32,+cx8,+fxsr,+lzcnt,+mmx,+pclmul,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #19 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512vbmi,+avx512vbmi2,+avx512vl,+bmi,+cmov,+crc32,+cx8,+evex512,+f16c,+fma,+fxsr,+lzcnt,+mmx,+pclmul,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #20 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="512" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512vbmi,+avx512vbmi2,+avx512vl,+bmi,+cmov,+crc32,+cx8,+evex512,+f16c,+fma,+fxsr,+lzcnt,+mmx,+pclmul,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #21 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="512" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512vbmi,+avx512vbmi2,+avx512vl,+bmi,+cmov,+crc32,+cx8,+evex512,+f16c,+fma,+fxsr,+lzcnt,+mmx,+pclmul,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #22 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512vbmi,+avx512vbmi2,+avx512vl,+bmi,+cmov,+crc32,+cx8,+evex512,+f16c,+fma,+fxsr,+lzcnt,+mmx,+pclmul,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #23 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+pclmul,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
+attributes #24 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+pclmul,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
+attributes #25 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+pclmul,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
+attributes #26 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+pclmul,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
+attributes #27 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #28 = { cold noreturn nounwind memory(inaccessiblemem: write) }
+attributes #29 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #30 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #31 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #32 = { mustprogress nocallback nofree nosync nounwind willreturn memory(none) }
+attributes #33 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #34 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="256" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi,+cmov,+crc32,+cx8,+fxsr,+lzcnt,+mmx,+pclmul,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #35 = { mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="256" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi,+cmov,+crc32,+cx8,+fxsr,+lzcnt,+mmx,+pclmul,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #36 = { mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi,+cmov,+crc32,+cx8,+fxsr,+lzcnt,+mmx,+pclmul,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #37 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi,+cmov,+crc32,+cx8,+fxsr,+lzcnt,+mmx,+pclmul,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #38 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi,+cmov,+crc32,+cx8,+fxsr,+lzcnt,+mmx,+pclmul,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #39 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: write) }
+attributes #40 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="512" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512vbmi,+avx512vbmi2,+avx512vl,+bmi,+cmov,+crc32,+cx8,+evex512,+f16c,+fma,+fxsr,+lzcnt,+mmx,+pclmul,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #41 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512vbmi,+avx512vbmi2,+avx512vl,+bmi,+cmov,+crc32,+cx8,+evex512,+f16c,+fma,+fxsr,+lzcnt,+mmx,+pclmul,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #42 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512vbmi,+avx512vbmi2,+avx512vl,+bmi,+cmov,+crc32,+cx8,+evex512,+f16c,+fma,+fxsr,+lzcnt,+mmx,+pclmul,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #43 = { mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+pclmul,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
+attributes #44 = { mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+pclmul,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
+attributes #45 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+pclmul,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
+attributes #46 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+pclmul,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
+attributes #47 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #48 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #49 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #50 = { nofree nounwind willreturn memory(argmem: read) }
+attributes #51 = { nounwind }
+attributes #52 = { noreturn nounwind }
+attributes #53 = { builtin nounwind allocsize(0) }
+attributes #54 = { builtin nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

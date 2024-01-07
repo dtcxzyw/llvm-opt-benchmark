@@ -4140,7 +4140,7 @@ while.body.i:                                     ; preds = %while.body.i, %whil
   br i1 %cmp1.not.i, label %_ZN6Assimp7OpenGEXL23countDataArrayListItemsEPN10ODDLParser13DataArrayListE.exit, label %while.body.i, !llvm.loop !36
 
 _ZN6Assimp7OpenGEXL23countDataArrayListItemsEPN10ODDLParser13DataArrayListE.exit: ; preds = %while.body.i
-  switch i32 %retval.0.i.ph, label %cleanup [
+  switch i32 %retval.0.i.ph, label %default.unreachable [
     i32 1, label %if.then20
     i32 2, label %if.then27
     i32 3, label %if.then37
@@ -4434,7 +4434,10 @@ _ZN6Assimp7OpenGEXL11fillVector3EP10aiVector3tIfEPN10ODDLParser5ValueE.exit.i79:
   %exitcond.not.i85 = icmp eq i64 %inc.i84, %spec.select.i
   br i1 %exitcond.not.i85, label %cleanup, label %for.body.i70, !llvm.loop !37
 
-cleanup:                                          ; preds = %_ZN6Assimp7OpenGEXL11fillVector3EP10aiVector3tIfEPN10ODDLParser5ValueE.exit.i79, %_ZN6Assimp7OpenGEXL11fillVector3EP10aiVector3tIfEPN10ODDLParser5ValueE.exit.i55, %call17.i.i.noexc, %_ZN6Assimp7OpenGEXL11fillVector3EP10aiVector3tIfEPN10ODDLParser5ValueE.exit.i, %arrayctor.cont57.thread, %invoke.cont39, %arrayctor.cont.thread, %invoke.cont21, %if.else8.i, %_ZN6Assimp7OpenGEXL23countDataArrayListItemsEPN10ODDLParser13DataArrayListE.exit, %invoke.cont12
+default.unreachable:                              ; preds = %_ZN6Assimp7OpenGEXL23countDataArrayListItemsEPN10ODDLParser13DataArrayListE.exit
+  unreachable
+
+cleanup:                                          ; preds = %_ZN6Assimp7OpenGEXL11fillVector3EP10aiVector3tIfEPN10ODDLParser5ValueE.exit.i79, %_ZN6Assimp7OpenGEXL11fillVector3EP10aiVector3tIfEPN10ODDLParser5ValueE.exit.i55, %call17.i.i.noexc, %_ZN6Assimp7OpenGEXL11fillVector3EP10aiVector3tIfEPN10ODDLParser5ValueE.exit.i, %arrayctor.cont57.thread, %invoke.cont39, %arrayctor.cont.thread, %invoke.cont21, %if.else8.i, %invoke.cont12
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %propKey) #25
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %propName) #25
   br label %if.end69

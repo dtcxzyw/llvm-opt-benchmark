@@ -1849,16 +1849,15 @@ sw.default.i:                                     ; preds = %_ZN5folly8OptionalI
   invoke void @_ZNSt16invalid_argumentC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception.i89, ptr noundef nonnull @.str.20)
           to label %invoke.cont.i90.invoke unwind label %lpad.i
 
-invoke.cont.i90.invoke:                           ; preds = %sw.default, %sw.default.i
-  %23 = phi ptr [ %exception, %sw.default ], [ %exception.i89, %sw.default.i ]
-  invoke void @__cxa_throw(ptr nonnull %23, ptr nonnull @_ZTISt16invalid_argument, ptr nonnull @_ZNSt16invalid_argumentD1Ev) #23
+invoke.cont.i90.invoke:                           ; preds = %sw.default.i
+  invoke void @__cxa_throw(ptr nonnull %exception.i89, ptr nonnull @_ZTISt16invalid_argument, ptr nonnull @_ZNSt16invalid_argumentD1Ev) #23
           to label %invoke.cont.i90.cont unwind label %lpad38
 
 invoke.cont.i90.cont:                             ; preds = %invoke.cont.i90.invoke
   unreachable
 
 lpad.i:                                           ; preds = %sw.default.i
-  %24 = landingpad { ptr, i32 }
+  %23 = landingpad { ptr, i32 }
           cleanup
   tail call void @__cxa_free_exception(ptr %exception.i89) #21
   br label %ehcleanup
@@ -1873,20 +1872,20 @@ invoke.cont41:                                    ; preds = %switch.lookup
           to label %invoke.cont43 unwind label %lpad38
 
 invoke.cont43:                                    ; preds = %invoke.cont41
-  switch i32 %flush, label %sw.default [
+  switch i32 %flush, label %default.unreachable [
     i32 0, label %if.then.i103
     i32 1, label %sw.bb45
     i32 2, label %sw.bb56
   ]
 
 lpad38:                                           ; preds = %if.then.i.i.i93, %invoke.cont41, %switch.lookup, %invoke.cont.i90.invoke
-  %25 = landingpad { ptr, i32 }
+  %24 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 sw.bb45:                                          ; preds = %invoke.cont43
-  %26 = load i8, ptr %hasValue.i.i.i72, align 8, !tbaa !53, !range !54, !noundef !55
-  %tobool.not.i.i.i92 = icmp eq i8 %26, 0
+  %25 = load i8, ptr %hasValue.i.i.i72, align 8, !tbaa !53, !range !54, !noundef !55
+  %tobool.not.i.i.i92 = icmp eq i8 %25, 0
   br i1 %tobool.not.i.i.i92, label %if.then.i.i.i93, label %invoke.cont47
 
 if.then.i.i.i93:                                  ; preds = %sw.bb45
@@ -1897,8 +1896,8 @@ if.then.i.i.i93:                                  ; preds = %sw.bb45
   unreachable
 
 invoke.cont47:                                    ; preds = %sw.bb45
-  %27 = load i32, ptr %avail_in, align 8, !tbaa !107
-  %cmp50 = icmp eq i32 %27, 0
+  %26 = load i32, ptr %avail_in, align 8, !tbaa !107
+  %cmp50 = icmp eq i32 %26, 0
   %.pre5 = load i32, ptr %avail_out, align 8, !tbaa !110
   br i1 %cmp50, label %invoke.cont52, label %"_ZN5folly6detail14ScopeGuardImplIZNS_2io4zlib12_GLOBAL__N_115ZlibStreamCodec16doCompressStreamERNS_5RangeIPKhEERNS6_IPhEENS2_11StreamCodec7FlushOpEE3$_0Lb1EED2Ev.exit"
 
@@ -1910,16 +1909,8 @@ sw.bb56:                                          ; preds = %invoke.cont43
   %cmp57 = icmp eq i32 %call42, 1
   br label %if.then.i103
 
-sw.default:                                       ; preds = %invoke.cont43
-  %exception = tail call ptr @__cxa_allocate_exception(i64 16) #21
-  invoke void @_ZNSt16invalid_argumentC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception, ptr noundef nonnull @.str.20)
-          to label %invoke.cont.i90.invoke unwind label %lpad58
-
-lpad58:                                           ; preds = %sw.default
-  %28 = landingpad { ptr, i32 }
-          cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #21
-  br label %ehcleanup
+default.unreachable:                              ; preds = %invoke.cont43
+  unreachable
 
 if.then.i103:                                     ; preds = %sw.bb56, %invoke.cont52, %invoke.cont43
   %retval.0.ph = phi i1 [ %cmp55, %invoke.cont52 ], [ false, %invoke.cont43 ], [ %cmp57, %sw.bb56 ]
@@ -1940,39 +1931,39 @@ if.then.i.i.i.i.i.i:                              ; preds = %if.then.i103
   unreachable
 
 terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i.i.i.i
-  %29 = landingpad { ptr, i32 }
+  %27 = landingpad { ptr, i32 }
           catch ptr null
-  %30 = extractvalue { ptr, i32 } %29, 0
-  tail call void @__clang_call_terminate(ptr %30) #25
+  %28 = extractvalue { ptr, i32 } %27, 0
+  tail call void @__clang_call_terminate(ptr %28) #25
   unreachable
 
 "_ZN5folly6detail14ScopeGuardImplIZNS_2io4zlib12_GLOBAL__N_115ZlibStreamCodec16doCompressStreamERNS_5RangeIPKhEERNS6_IPhEENS2_11StreamCodec7FlushOpEE3$_0Lb1EED2Ev.exit": ; preds = %"if.then.i103._ZN5folly6detail14ScopeGuardImplIZNS_2io4zlib12_GLOBAL__N_115ZlibStreamCodec16doCompressStreamERNS_5RangeIPKhEERNS6_IPhEENS2_11StreamCodec7FlushOpEE3$_0Lb1EED2Ev.exit_crit_edge", %invoke.cont47
-  %31 = phi i32 [ %.pre4, %"if.then.i103._ZN5folly6detail14ScopeGuardImplIZNS_2io4zlib12_GLOBAL__N_115ZlibStreamCodec16doCompressStreamERNS_5RangeIPKhEERNS6_IPhEENS2_11StreamCodec7FlushOpEE3$_0Lb1EED2Ev.exit_crit_edge" ], [ %.pre5, %invoke.cont47 ]
-  %32 = phi i32 [ %.pre, %"if.then.i103._ZN5folly6detail14ScopeGuardImplIZNS_2io4zlib12_GLOBAL__N_115ZlibStreamCodec16doCompressStreamERNS_5RangeIPKhEERNS6_IPhEENS2_11StreamCodec7FlushOpEE3$_0Lb1EED2Ev.exit_crit_edge" ], [ %27, %invoke.cont47 ]
+  %29 = phi i32 [ %.pre4, %"if.then.i103._ZN5folly6detail14ScopeGuardImplIZNS_2io4zlib12_GLOBAL__N_115ZlibStreamCodec16doCompressStreamERNS_5RangeIPKhEERNS6_IPhEENS2_11StreamCodec7FlushOpEE3$_0Lb1EED2Ev.exit_crit_edge" ], [ %.pre5, %invoke.cont47 ]
+  %30 = phi i32 [ %.pre, %"if.then.i103._ZN5folly6detail14ScopeGuardImplIZNS_2io4zlib12_GLOBAL__N_115ZlibStreamCodec16doCompressStreamERNS_5RangeIPKhEERNS6_IPhEENS2_11StreamCodec7FlushOpEE3$_0Lb1EED2Ev.exit_crit_edge" ], [ %26, %invoke.cont47 ]
   %retval.0107 = phi i1 [ %retval.0.ph, %"if.then.i103._ZN5folly6detail14ScopeGuardImplIZNS_2io4zlib12_GLOBAL__N_115ZlibStreamCodec16doCompressStreamERNS_5RangeIPKhEERNS6_IPhEENS2_11StreamCodec7FlushOpEE3$_0Lb1EED2Ev.exit_crit_edge" ], [ false, %invoke.cont47 ]
-  %33 = load ptr, ptr %e_.i, align 8, !tbaa !106
-  %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %33 to i64
-  %34 = load ptr, ptr %input, align 8, !tbaa !103
-  %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %34 to i64
-  %conv.i.i.i = zext i32 %32 to i64
-  %35 = add i64 %sub.ptr.rhs.cast.i.i.i.i, %conv.i.i.i
-  %sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %35
-  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %34, i64 %sub.i.i.i
+  %31 = load ptr, ptr %e_.i, align 8, !tbaa !106
+  %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %31 to i64
+  %32 = load ptr, ptr %input, align 8, !tbaa !103
+  %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %32 to i64
+  %conv.i.i.i = zext i32 %30 to i64
+  %33 = add i64 %sub.ptr.rhs.cast.i.i.i.i, %conv.i.i.i
+  %sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %33
+  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %32, i64 %sub.i.i.i
   store ptr %add.ptr.i.i.i.i, ptr %input, align 8, !tbaa !103
-  %36 = load ptr, ptr %e_.i81, align 8, !tbaa !109
-  %37 = load ptr, ptr %output, align 8, !tbaa !101
-  %sub.ptr.lhs.cast.i12.i.i.i = ptrtoint ptr %36 to i64
-  %sub.ptr.rhs.cast.i13.i.i.i = ptrtoint ptr %37 to i64
-  %conv8.i.i.i = zext i32 %31 to i64
-  %38 = add i64 %sub.ptr.rhs.cast.i13.i.i.i, %conv8.i.i.i
-  %sub9.i.i.i = sub i64 %sub.ptr.lhs.cast.i12.i.i.i, %38
-  %add.ptr.i20.i.i.i = getelementptr inbounds i8, ptr %37, i64 %sub9.i.i.i
+  %34 = load ptr, ptr %e_.i81, align 8, !tbaa !109
+  %35 = load ptr, ptr %output, align 8, !tbaa !101
+  %sub.ptr.lhs.cast.i12.i.i.i = ptrtoint ptr %34 to i64
+  %sub.ptr.rhs.cast.i13.i.i.i = ptrtoint ptr %35 to i64
+  %conv8.i.i.i = zext i32 %29 to i64
+  %36 = add i64 %sub.ptr.rhs.cast.i13.i.i.i, %conv8.i.i.i
+  %sub9.i.i.i = sub i64 %sub.ptr.lhs.cast.i12.i.i.i, %36
+  %add.ptr.i20.i.i.i = getelementptr inbounds i8, ptr %35, i64 %sub9.i.i.i
   store ptr %add.ptr.i20.i.i.i, ptr %output, align 8, !tbaa !101
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %SCOPE_EXIT_STATE0) #21
   br label %return
 
-ehcleanup:                                        ; preds = %lpad58, %lpad38, %lpad.i
-  %.pn = phi { ptr, i32 } [ %28, %lpad58 ], [ %25, %lpad38 ], [ %24, %lpad.i ]
+ehcleanup:                                        ; preds = %lpad38, %lpad.i
+  %.pn = phi { ptr, i32 } [ %24, %lpad38 ], [ %23, %lpad.i ]
   call fastcc void @"_ZN5folly6detail14ScopeGuardImplIZNS_2io4zlib12_GLOBAL__N_115ZlibStreamCodec16doCompressStreamERNS_5RangeIPKhEERNS6_IPhEENS2_11StreamCodec7FlushOpEE3$_0Lb1EED2Ev"(ptr noundef nonnull align 8 dereferenceable(32) %SCOPE_EXIT_STATE0) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %SCOPE_EXIT_STATE0) #21
   br label %common.resume

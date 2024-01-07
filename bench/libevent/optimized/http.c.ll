@@ -8541,7 +8541,7 @@ if.end67.us:                                      ; preds = %while.body22.us, %l
   br i1 %tobool21.not.us, label %return, label %while.body22.us, !llvm.loop !44
 
 if.then:                                          ; preds = %entry
-  switch i32 %part, label %return [
+  switch i32 %part, label %default.unreachable [
     i32 0, label %while.cond
     i32 1, label %while.cond8
     i32 2, label %sw.bb19
@@ -8576,6 +8576,9 @@ sw.bb19:                                          ; preds = %if.then
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %cp) #18
   %add.ptr = getelementptr inbounds i8, ptr %cp, i64 %call
   br label %return
+
+default.unreachable:                              ; preds = %if.then
+  unreachable
 
 while.body22:                                     ; preds = %while.body22.lr.ph, %if.end67
   %11 = phi i8 [ %19, %if.end67 ], [ %0, %while.body22.lr.ph ]
@@ -8629,8 +8632,8 @@ if.end67:                                         ; preds = %if.else55, %land.lh
   %tobool21.not = icmp eq i8 %19, 0
   br i1 %tobool21.not, label %return, label %while.body22, !llvm.loop !44
 
-return:                                           ; preds = %while.cond8, %while.cond8, %while.cond, %while.cond, %while.cond, %if.else55, %if.end67, %land.lhs.true49.us, %land.lhs.true45.us, %switch.early.test.us, %if.end67.us, %while.cond20.preheader, %if.then, %sw.bb19
-  %retval.0 = phi ptr [ %cp, %if.then ], [ %add.ptr, %sw.bb19 ], [ %cp, %while.cond20.preheader ], [ %cp.addr.334.us, %land.lhs.true49.us ], [ %cp.addr.334.us, %land.lhs.true45.us ], [ %cp.addr.334.us, %switch.early.test.us ], [ %incdec.ptr41.us, %if.end67.us ], [ %cp.addr.334, %if.else55 ], [ %add.ptr54, %if.end67 ], [ %cp.addr.0, %while.cond ], [ %cp.addr.0, %while.cond ], [ %cp.addr.0, %while.cond ], [ %cp.addr.1, %while.cond8 ], [ %cp.addr.1, %while.cond8 ]
+return:                                           ; preds = %while.cond8, %while.cond8, %while.cond, %while.cond, %while.cond, %if.else55, %if.end67, %land.lhs.true49.us, %land.lhs.true45.us, %switch.early.test.us, %if.end67.us, %while.cond20.preheader, %sw.bb19
+  %retval.0 = phi ptr [ %add.ptr, %sw.bb19 ], [ %cp, %while.cond20.preheader ], [ %cp.addr.334.us, %land.lhs.true49.us ], [ %cp.addr.334.us, %land.lhs.true45.us ], [ %cp.addr.334.us, %switch.early.test.us ], [ %incdec.ptr41.us, %if.end67.us ], [ %cp.addr.334, %if.else55 ], [ %add.ptr54, %if.end67 ], [ %cp.addr.0, %while.cond ], [ %cp.addr.0, %while.cond ], [ %cp.addr.0, %while.cond ], [ %cp.addr.1, %while.cond8 ], [ %cp.addr.1, %while.cond8 ]
   ret ptr %retval.0
 }
 

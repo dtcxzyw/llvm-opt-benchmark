@@ -3709,7 +3709,7 @@ if.end:                                           ; preds = %entry
   br i1 %tobool1.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  switch i32 %op, label %return [
+  switch i32 %op, label %default.unreachable [
     i32 0, label %sw.bb
     i32 2, label %sw.bb24
     i32 1, label %sw.bb33
@@ -3766,14 +3766,17 @@ sw.bb33:                                          ; preds = %if.end3
   %tobool37.not = icmp eq ptr %12, null
   br i1 %tobool37.not, label %return, label %return.sink.split
 
+default.unreachable:                              ; preds = %if.end3
+  unreachable
+
 return.sink.split:                                ; preds = %sw.bb33, %sw.bb24
   %.sink = phi ptr [ %10, %sw.bb24 ], [ %12, %sw.bb33 ]
   %retval.0.ph = phi i32 [ %ret.0, %sw.bb24 ], [ 0, %sw.bb33 ]
   call void @warn_report_err(ptr noundef nonnull %.sink) #17
   br label %return
 
-return:                                           ; preds = %return.sink.split, %sw.bb, %if.end3, %sw.bb24, %sw.bb33, %if.then17, %if.end, %entry
-  %retval.0 = phi i32 [ 0, %entry ], [ 0, %if.end ], [ 0, %if.then17 ], [ 0, %if.end3 ], [ 0, %sw.bb33 ], [ %ret.0, %sw.bb24 ], [ 0, %sw.bb ], [ %retval.0.ph, %return.sink.split ]
+return:                                           ; preds = %return.sink.split, %sw.bb, %sw.bb24, %sw.bb33, %if.then17, %if.end, %entry
+  %retval.0 = phi i32 [ 0, %entry ], [ 0, %if.end ], [ 0, %if.then17 ], [ 0, %sw.bb33 ], [ %ret.0, %sw.bb24 ], [ 0, %sw.bb ], [ %retval.0.ph, %return.sink.split ]
   ret i32 %retval.0
 }
 

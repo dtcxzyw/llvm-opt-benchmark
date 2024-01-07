@@ -39,7 +39,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define i32 @u_formatMessage_75(ptr noundef %locale, ptr noundef %pattern, i32 noundef %patternLength, ptr noundef %result, i32 noundef %resultLength, ptr noundef %status, ...) local_unnamed_addr #1 {
+define noundef i32 @u_formatMessage_75(ptr noundef %locale, ptr noundef %pattern, i32 noundef %patternLength, ptr noundef %result, i32 noundef %resultLength, ptr noundef %status, ...) local_unnamed_addr #1 {
 entry:
   %ap = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start(ptr nonnull %ap)
@@ -64,7 +64,7 @@ u_vformatMessage_75.exit:                         ; preds = %entry, %delete.notn
 declare void @llvm.va_start(ptr) #2
 
 ; Function Attrs: mustprogress uwtable
-define i32 @u_vformatMessage_75(ptr noundef %locale, ptr noundef %pattern, i32 noundef %patternLength, ptr noundef %result, i32 noundef %resultLength, ptr nocapture noundef %ap, ptr noundef %status) local_unnamed_addr #1 {
+define noundef i32 @u_vformatMessage_75(ptr noundef %locale, ptr noundef %pattern, i32 noundef %patternLength, ptr noundef %result, i32 noundef %resultLength, ptr nocapture noundef %ap, ptr noundef %status) local_unnamed_addr #1 {
 entry:
   %call = tail call ptr @umsg_open_75(ptr noundef %pattern, i32 noundef %patternLength, ptr noundef %locale, ptr noundef null, ptr noundef %status)
   %call1 = tail call i32 @umsg_vformat_75(ptr noundef %call, ptr noundef %result, i32 noundef %resultLength, ptr noundef %ap, ptr noundef %status)
@@ -86,7 +86,7 @@ umsg_close_75.exit:                               ; preds = %entry, %delete.notn
 declare void @llvm.va_end(ptr) #2
 
 ; Function Attrs: mustprogress uwtable
-define ptr @umsg_open_75(ptr noundef %pattern, i32 noundef %patternLength, ptr noundef %locale, ptr noundef %parseError, ptr noundef %status) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define noundef ptr @umsg_open_75(ptr noundef %pattern, i32 noundef %patternLength, ptr noundef %locale, ptr noundef %parseError, ptr noundef %status) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %tErr = alloca %struct.UParseError, align 4
   %patString = alloca %"class.icu_75::UnicodeString", align 8
@@ -197,7 +197,7 @@ eh.resume:                                        ; preds = %cleanup.action22, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define i32 @umsg_vformat_75(ptr noundef %fmt, ptr noundef %result, i32 noundef %resultLength, ptr nocapture noundef %ap, ptr noundef %status) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define noundef i32 @umsg_vformat_75(ptr noundef %fmt, ptr noundef %result, i32 noundef %resultLength, ptr nocapture noundef %ap, ptr noundef %status) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.icu_75::UnicodeString", align 8
   %resultStr = alloca %"class.icu_75::UnicodeString", align 8
@@ -600,7 +600,7 @@ delete.end:                                       ; preds = %entry, %delete.notn
 }
 
 ; Function Attrs: mustprogress uwtable
-define i32 @u_formatMessageWithError_75(ptr noundef %locale, ptr noundef %pattern, i32 noundef %patternLength, ptr noundef %result, i32 noundef %resultLength, ptr noundef %parseError, ptr noundef %status, ...) local_unnamed_addr #1 {
+define noundef i32 @u_formatMessageWithError_75(ptr noundef %locale, ptr noundef %pattern, i32 noundef %patternLength, ptr noundef %result, i32 noundef %resultLength, ptr noundef %parseError, ptr noundef %status, ...) local_unnamed_addr #1 {
 entry:
   %ap = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start(ptr nonnull %ap)
@@ -622,7 +622,7 @@ u_vformatMessageWithError_75.exit:                ; preds = %entry, %delete.notn
 }
 
 ; Function Attrs: mustprogress uwtable
-define i32 @u_vformatMessageWithError_75(ptr noundef %locale, ptr noundef %pattern, i32 noundef %patternLength, ptr noundef %result, i32 noundef %resultLength, ptr noundef %parseError, ptr nocapture noundef %ap, ptr noundef %status) local_unnamed_addr #1 {
+define noundef i32 @u_vformatMessageWithError_75(ptr noundef %locale, ptr noundef %pattern, i32 noundef %patternLength, ptr noundef %result, i32 noundef %resultLength, ptr noundef %parseError, ptr nocapture noundef %ap, ptr noundef %status) local_unnamed_addr #1 {
 entry:
   %call = tail call ptr @umsg_open_75(ptr noundef %pattern, i32 noundef %patternLength, ptr noundef %locale, ptr noundef %parseError, ptr noundef %status)
   %call1 = tail call i32 @umsg_vformat_75(ptr noundef %call, ptr noundef %result, i32 noundef %resultLength, ptr noundef %ap, ptr noundef %status)
@@ -1100,7 +1100,7 @@ declare void @_ZN6icu_757UMemorydlEPv(ptr noundef) local_unnamed_addr #5
 declare void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64)) unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define ptr @umsg_clone_75(ptr noundef %fmt, ptr noundef %status) local_unnamed_addr #1 {
+define noundef ptr @umsg_clone_75(ptr noundef %fmt, ptr noundef %status) local_unnamed_addr #1 {
 entry:
   %cmp = icmp eq ptr %status, null
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -1237,7 +1237,7 @@ lpad:                                             ; preds = %if.end8
 declare void @_ZN6icu_7513UnicodeStringC1EPKDsi(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef, i32 noundef) unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define i32 @umsg_toPattern_75(ptr noundef %fmt, ptr noundef %result, i32 noundef %resultLength, ptr noundef %status) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define noundef i32 @umsg_toPattern_75(ptr noundef %fmt, ptr noundef %result, i32 noundef %resultLength, ptr noundef %status) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %res = alloca %"class.icu_75::UnicodeString", align 8
   %agg.tmp = alloca %"class.icu_75::Char16Ptr", align 8
@@ -1322,7 +1322,7 @@ declare noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStri
 declare noundef i32 @_ZNK6icu_7513UnicodeString7extractENS_9Char16PtrEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef, i32 noundef, ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define i32 @umsg_format_75(ptr noundef %fmt, ptr noundef %result, i32 noundef %resultLength, ptr noundef %status, ...) local_unnamed_addr #1 {
+define noundef i32 @umsg_format_75(ptr noundef %fmt, ptr noundef %result, i32 noundef %resultLength, ptr noundef %status, ...) local_unnamed_addr #1 {
 entry:
   %ap = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start(ptr nonnull %ap)
@@ -1414,8 +1414,8 @@ if.then10:                                        ; preds = %if.end8
 
 if.end12:                                         ; preds = %if.then10, %if.end8
   %patternLength.addr.0 = phi i32 [ %call11, %if.then10 ], [ %patternLength, %if.end8 ]
-  %cmp1339 = icmp sgt i32 %patternLength.addr.0, 0
-  br i1 %cmp1339, label %for.body.preheader, label %if.end64
+  %cmp1341 = icmp sgt i32 %patternLength.addr.0, 0
+  br i1 %cmp1341, label %for.body.preheader, label %if.end64
 
 for.body.preheader:                               ; preds = %if.end12
   %wide.trip.count = zext nneg i32 %patternLength.addr.0 to i64
@@ -1423,12 +1423,12 @@ for.body.preheader:                               ; preds = %if.end12
 
 for.body:                                         ; preds = %for.body.preheader, %for.inc
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.inc ]
-  %len.042 = phi i32 [ 0, %for.body.preheader ], [ %len.3, %for.inc ]
-  %braceCount.041 = phi i32 [ 0, %for.body.preheader ], [ %braceCount.1, %for.inc ]
-  %state.040 = phi i32 [ 0, %for.body.preheader ], [ %state.1, %for.inc ]
+  %len.044 = phi i32 [ 0, %for.body.preheader ], [ %len.3, %for.inc ]
+  %braceCount.043 = phi i32 [ 0, %for.body.preheader ], [ %braceCount.1, %for.inc ]
+  %state.042 = phi i32 [ 0, %for.body.preheader ], [ %state.1, %for.inc ]
   %arrayidx = getelementptr inbounds i16, ptr %pattern, i64 %indvars.iv
   %1 = load i16, ptr %arrayidx, align 2
-  switch i32 %state.040, label %sw.epilog42 [
+  switch i32 %state.042, label %default.unreachable48 [
     i32 0, label %sw.bb
     i32 1, label %sw.bb16
     i32 2, label %sw.bb28
@@ -1445,7 +1445,7 @@ sw.bb14:                                          ; preds = %sw.bb
   br label %sw.epilog42
 
 sw.bb15:                                          ; preds = %sw.bb
-  %inc = add nsw i32 %braceCount.041, 1
+  %inc = add nsw i32 %braceCount.043, 1
   br label %sw.epilog42
 
 sw.bb16:                                          ; preds = %for.body
@@ -1459,17 +1459,17 @@ sw.bb19:                                          ; preds = %sw.bb16, %sw.bb16
   br label %sw.epilog42
 
 sw.default:                                       ; preds = %sw.bb16
-  %cmp20 = icmp slt i32 %len.042, %destCapacity
+  %cmp20 = icmp slt i32 %len.044, %destCapacity
   br i1 %cmp20, label %if.then21, label %if.end26
 
 if.then21:                                        ; preds = %sw.default
-  %idxprom23 = sext i32 %len.042 to i64
+  %idxprom23 = sext i32 %len.044 to i64
   %arrayidx24 = getelementptr inbounds i16, ptr %dest, i64 %idxprom23
   store i16 39, ptr %arrayidx24, align 2
   br label %if.end26
 
 if.end26:                                         ; preds = %sw.default, %if.then21
-  %len.1 = add nsw i32 %len.042, 1
+  %len.1 = add nsw i32 %len.044, 1
   br label %sw.epilog42
 
 sw.bb28:                                          ; preds = %for.body
@@ -1484,19 +1484,22 @@ sw.bb32:                                          ; preds = %for.body
   ]
 
 sw.bb34:                                          ; preds = %sw.bb32
-  %inc35 = add nsw i32 %braceCount.041, 1
+  %inc35 = add nsw i32 %braceCount.043, 1
   br label %sw.epilog42
 
 sw.bb36:                                          ; preds = %sw.bb32
-  %dec = add nsw i32 %braceCount.041, -1
+  %dec = add nsw i32 %braceCount.043, -1
   %cmp37 = icmp eq i32 %dec, 0
   %spec.select37 = select i1 %cmp37, i32 0, i32 3
   br label %sw.epilog42
 
-sw.epilog42:                                      ; preds = %sw.bb36, %sw.bb28, %sw.bb16, %for.body, %sw.bb32, %sw.bb34, %sw.bb19, %if.end26, %sw.bb, %sw.bb14, %sw.bb15
-  %state.1 = phi i32 [ %state.040, %for.body ], [ 3, %sw.bb32 ], [ 3, %sw.bb34 ], [ 0, %if.end26 ], [ 2, %sw.bb19 ], [ 0, %sw.bb ], [ 3, %sw.bb15 ], [ 1, %sw.bb14 ], [ 0, %sw.bb16 ], [ %spec.select, %sw.bb28 ], [ %spec.select37, %sw.bb36 ]
-  %braceCount.1 = phi i32 [ %braceCount.041, %for.body ], [ %braceCount.041, %sw.bb32 ], [ %inc35, %sw.bb34 ], [ %braceCount.041, %if.end26 ], [ %braceCount.041, %sw.bb19 ], [ %braceCount.041, %sw.bb ], [ %inc, %sw.bb15 ], [ %braceCount.041, %sw.bb14 ], [ %braceCount.041, %sw.bb16 ], [ %braceCount.041, %sw.bb28 ], [ %dec, %sw.bb36 ]
-  %len.2 = phi i32 [ %len.042, %for.body ], [ %len.042, %sw.bb32 ], [ %len.042, %sw.bb34 ], [ %len.1, %if.end26 ], [ %len.042, %sw.bb19 ], [ %len.042, %sw.bb ], [ %len.042, %sw.bb15 ], [ %len.042, %sw.bb14 ], [ %len.042, %sw.bb16 ], [ %len.042, %sw.bb28 ], [ %len.042, %sw.bb36 ]
+default.unreachable48:                            ; preds = %for.body
+  unreachable
+
+sw.epilog42:                                      ; preds = %sw.bb36, %sw.bb28, %sw.bb16, %sw.bb32, %sw.bb34, %sw.bb19, %if.end26, %sw.bb, %sw.bb14, %sw.bb15
+  %state.1 = phi i32 [ 3, %sw.bb32 ], [ 3, %sw.bb34 ], [ 0, %if.end26 ], [ 2, %sw.bb19 ], [ 0, %sw.bb ], [ 3, %sw.bb15 ], [ 1, %sw.bb14 ], [ 0, %sw.bb16 ], [ %spec.select, %sw.bb28 ], [ %spec.select37, %sw.bb36 ]
+  %braceCount.1 = phi i32 [ %braceCount.043, %sw.bb32 ], [ %inc35, %sw.bb34 ], [ %braceCount.043, %if.end26 ], [ %braceCount.043, %sw.bb19 ], [ %braceCount.043, %sw.bb ], [ %inc, %sw.bb15 ], [ %braceCount.043, %sw.bb14 ], [ %braceCount.043, %sw.bb16 ], [ %braceCount.043, %sw.bb28 ], [ %dec, %sw.bb36 ]
+  %len.2 = phi i32 [ %len.044, %sw.bb32 ], [ %len.044, %sw.bb34 ], [ %len.1, %if.end26 ], [ %len.044, %sw.bb19 ], [ %len.044, %sw.bb ], [ %len.044, %sw.bb15 ], [ %len.044, %sw.bb14 ], [ %len.044, %sw.bb16 ], [ %len.044, %sw.bb28 ], [ %len.044, %sw.bb36 ]
   %cmp43 = icmp slt i32 %len.2, %destCapacity
   br i1 %cmp43, label %if.then44, label %for.inc
 

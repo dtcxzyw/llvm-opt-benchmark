@@ -12118,26 +12118,24 @@ if.end:                                           ; preds = %_ZNSt10shared_ptrIN
   br i1 %call5, label %if.then6, label %if.end9
 
 if.then6:                                         ; preds = %if.end
-  switch i32 %call322, label %if.end9 [
-    i32 2, label %sw.bb8
-    i32 1, label %sw.bb7
-  ]
+  %switch = icmp eq i32 %call322, 2
+  %_M_finish.i.i8 = getelementptr inbounds %"class.node::crypto::CryptoJob.524", ptr %this, i64 0, i32 3, i32 1, i32 0, i32 0, i32 0, i32 1
+  %_M_end_of_storage.i.i9 = getelementptr inbounds %"class.node::crypto::CryptoJob.524", ptr %this, i64 0, i32 3, i32 1, i32 0, i32 0, i32 0, i32 2
+  br i1 %switch, label %sw.bb8, label %sw.bb7
 
 sw.bb7:                                           ; preds = %if.then6
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
   call void @_ZN4node11SPrintFImplB5cxx11EPKc(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i, ptr noundef nonnull @.str.64)
-  %_M_finish.i.i = getelementptr inbounds %"class.node::crypto::CryptoJob.524", ptr %this, i64 0, i32 3, i32 1, i32 0, i32 0, i32 0, i32 1
-  %18 = load ptr, ptr %_M_finish.i.i, align 8
-  %_M_end_of_storage.i.i = getelementptr inbounds %"class.node::crypto::CryptoJob.524", ptr %this, i64 0, i32 3, i32 1, i32 0, i32 0, i32 0, i32 2
-  %19 = load ptr, ptr %_M_end_of_storage.i.i, align 8
+  %18 = load ptr, ptr %_M_finish.i.i8, align 8
+  %19 = load ptr, ptr %_M_end_of_storage.i.i9, align 8
   %cmp.not.i.i = icmp eq ptr %18, %19
   br i1 %cmp.not.i.i, label %if.else.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %sw.bb7
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #20
-  %20 = load ptr, ptr %_M_finish.i.i, align 8
+  %20 = load ptr, ptr %_M_finish.i.i8, align 8
   %incdec.ptr.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %20, i64 1
-  store ptr %incdec.ptr.i.i, ptr %_M_finish.i.i, align 8
+  store ptr %incdec.ptr.i.i, ptr %_M_finish.i.i8, align 8
   br label %_ZN4node6crypto16CryptoErrorStore6InsertIJEEEvNS0_15NodeCryptoErrorEDpOT_.exit
 
 if.else.i.i:                                      ; preds = %sw.bb7
@@ -12153,9 +12151,7 @@ _ZN4node6crypto16CryptoErrorStore6InsertIJEEEvNS0_15NodeCryptoErrorEDpOT_.exit: 
 sw.bb8:                                           ; preds = %if.then6
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i7)
   call void @_ZN4node11SPrintFImplB5cxx11EPKc(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i7, ptr noundef nonnull @.str.154)
-  %_M_finish.i.i8 = getelementptr inbounds %"class.node::crypto::CryptoJob.524", ptr %this, i64 0, i32 3, i32 1, i32 0, i32 0, i32 0, i32 1
   %21 = load ptr, ptr %_M_finish.i.i8, align 8
-  %_M_end_of_storage.i.i9 = getelementptr inbounds %"class.node::crypto::CryptoJob.524", ptr %this, i64 0, i32 3, i32 1, i32 0, i32 0, i32 0, i32 2
   %22 = load ptr, ptr %_M_end_of_storage.i.i9, align 8
   %cmp.not.i.i10 = icmp eq ptr %21, %22
   br i1 %cmp.not.i.i10, label %if.else.i.i13, label %if.then.i.i11
@@ -12177,7 +12173,7 @@ _ZN4node6crypto16CryptoErrorStore6InsertIJEEEvNS0_15NodeCryptoErrorEDpOT_.exit15
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i7)
   br label %if.end9
 
-if.end9:                                          ; preds = %if.then6, %_ZN4node6crypto16CryptoErrorStore6InsertIJEEEvNS0_15NodeCryptoErrorEDpOT_.exit, %_ZN4node6crypto16CryptoErrorStore6InsertIJEEEvNS0_15NodeCryptoErrorEDpOT_.exit15, %_ZNSt10shared_ptrIN4node6crypto13KeyObjectDataEED2Ev.exit, %if.end
+if.end9:                                          ; preds = %_ZN4node6crypto16CryptoErrorStore6InsertIJEEEvNS0_15NodeCryptoErrorEDpOT_.exit, %_ZN4node6crypto16CryptoErrorStore6InsertIJEEEvNS0_15NodeCryptoErrorEDpOT_.exit15, %_ZNSt10shared_ptrIN4node6crypto13KeyObjectDataEED2Ev.exit, %if.end
   ret void
 }
 

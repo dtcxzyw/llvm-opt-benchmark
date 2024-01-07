@@ -1935,9 +1935,9 @@ entry:
   br i1 %cmp, label %if.then, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %entry
-  %call3121 = tail call i32 @OPENSSL_sk_num(ptr noundef %values) #15
-  %cmp4122 = icmp sgt i32 %call3121, 0
-  br i1 %cmp4122, label %for.body, label %for.end
+  %call3163 = tail call i32 @OPENSSL_sk_num(ptr noundef %values) #15
+  %cmp4164 = icmp sgt i32 %call3163, 0
+  br i1 %cmp4164, label %for.body, label %for.end
 
 if.then:                                          ; preds = %entry
   tail call void @ERR_new() #15
@@ -1946,8 +1946,8 @@ if.then:                                          ; preds = %entry
   br label %return
 
 for.body:                                         ; preds = %for.cond.preheader, %for.inc
-  %i.0123 = phi i32 [ %inc172, %for.inc ], [ 0, %for.cond.preheader ]
-  %call6 = call ptr @OPENSSL_sk_value(ptr noundef %values, i32 noundef %i.0123) #15
+  %i.0165 = phi i32 [ %inc172, %for.inc ], [ 0, %for.cond.preheader ]
+  %call6 = call ptr @OPENSSL_sk_value(ptr noundef %values, i32 noundef %i.0165) #15
   %name = getelementptr inbounds %struct.CONF_VALUE, ptr %call6, i64 0, i32 1
   %0 = load ptr, ptr %name, align 8
   %call7 = call i32 @ossl_v3_name_cmp(ptr noundef %0, ptr noundef nonnull @.str.14) #15
@@ -1979,18 +1979,18 @@ if.else23:                                        ; preds = %if.else18
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 34, i32 noundef 115, ptr noundef nonnull @.str.18, ptr noundef %4) #15
   br label %err
 
-if.then32:                                        ; preds = %if.else18, %if.else13
-  %afi.0169181195206 = phi i32 [ 2, %if.else18 ], [ 1, %if.else13 ]
-  %5 = phi ptr [ @v2i_IPAddrBlocks.v6addr_chars, %if.else18 ], [ @v2i_IPAddrBlocks.v4addr_chars, %if.else13 ]
-  %6 = phi i32 [ 16, %if.else18 ], [ 4, %if.else13 ]
+if.then32:                                        ; preds = %if.else13, %if.else18
+  %5 = phi i32 [ 16, %if.else18 ], [ 4, %if.else13 ]
+  %v2i_IPAddrBlocks.v4addr_chars.v2i_IPAddrBlocks.v6addr_chars9399121 = phi ptr [ @v2i_IPAddrBlocks.v6addr_chars, %if.else18 ], [ @v2i_IPAddrBlocks.v4addr_chars, %if.else13 ]
+  %afi.089101119 = phi i32 [ 2, %if.else18 ], [ 1, %if.else13 ]
   %value = getelementptr inbounds %struct.CONF_VALUE, ptr %call6, i64 0, i32 2
-  %7 = load ptr, ptr %value, align 8
-  %call33 = call i64 @strtoul(ptr noundef %7, ptr noundef nonnull %t, i32 noundef 0) #15
+  %6 = load ptr, ptr %value, align 8
+  %call33 = call i64 @strtoul(ptr noundef %6, ptr noundef nonnull %t, i32 noundef 0) #15
   %conv = trunc i64 %call33 to i32
   store i32 %conv, ptr %safi_, align 4
-  %8 = load ptr, ptr %t, align 8
-  %call34 = call i64 @strspn(ptr noundef %8, ptr noundef nonnull @.str.19) #16
-  %add.ptr = getelementptr inbounds i8, ptr %8, i64 %call34
+  %7 = load ptr, ptr %t, align 8
+  %call34 = call i64 @strspn(ptr noundef %7, ptr noundef nonnull @.str.19) #16
+  %add.ptr = getelementptr inbounds i8, ptr %7, i64 %call34
   store ptr %add.ptr, ptr %t, align 8
   %cmp35 = icmp ugt i32 %conv, 255
   br i1 %cmp35, label %if.then40, label %lor.lhs.false
@@ -1998,8 +1998,8 @@ if.then32:                                        ; preds = %if.else18, %if.else
 lor.lhs.false:                                    ; preds = %if.then32
   %incdec.ptr = getelementptr inbounds i8, ptr %add.ptr, i64 1
   store ptr %incdec.ptr, ptr %t, align 8
-  %9 = load i8, ptr %add.ptr, align 1
-  %cmp38.not = icmp eq i8 %9, 58
+  %8 = load i8, ptr %add.ptr, align 1
+  %cmp38.not = icmp eq i8 %8, 58
   br i1 %cmp38.not, label %if.end43, label %if.then40
 
 if.then40:                                        ; preds = %lor.lhs.false, %if.then32
@@ -2007,9 +2007,9 @@ if.then40:                                        ; preds = %lor.lhs.false, %if.
   call void @ERR_new() #15
   call void @ERR_set_debug(ptr noundef nonnull @.str.13, i32 noundef 990, ptr noundef nonnull @__func__.v2i_IPAddrBlocks) #15
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 34, i32 noundef 164, ptr noundef null) #15
-  %10 = load ptr, ptr %name, align 8
-  %11 = load ptr, ptr %value.le, align 8
-  call void (i32, ...) @ERR_add_error_data(i32 noundef 4, ptr noundef nonnull @.str.20, ptr noundef %10, ptr noundef nonnull @.str.21, ptr noundef %11) #15
+  %9 = load ptr, ptr %name, align 8
+  %10 = load ptr, ptr %value.le, align 8
+  call void (i32, ...) @ERR_add_error_data(i32 noundef 4, ptr noundef nonnull @.str.20, ptr noundef %9, ptr noundef nonnull @.str.21, ptr noundef %10) #15
   br label %err
 
 if.end43:                                         ; preds = %lor.lhs.false
@@ -2020,19 +2020,19 @@ if.end43:                                         ; preds = %lor.lhs.false
   br label %if.end50
 
 if.else47:                                        ; preds = %if.else, %for.body
-  %afi.0169181195206.ph = phi i32 [ 1, %for.body ], [ 2, %if.else ]
-  %.ph = phi ptr [ @v2i_IPAddrBlocks.v4addr_chars, %for.body ], [ @v2i_IPAddrBlocks.v6addr_chars, %if.else ]
-  %.ph209 = phi i32 [ 4, %for.body ], [ 16, %if.else ]
+  %11 = phi i32 [ 4, %for.body ], [ 16, %if.else ]
+  %v2i_IPAddrBlocks.v4addr_chars.v2i_IPAddrBlocks.v6addr_chars9399113 = phi ptr [ @v2i_IPAddrBlocks.v4addr_chars, %for.body ], [ @v2i_IPAddrBlocks.v6addr_chars, %if.else ]
+  %afi.089101109 = phi i32 [ 1, %for.body ], [ 2, %if.else ]
   %value48 = getelementptr inbounds %struct.CONF_VALUE, ptr %call6, i64 0, i32 2
   %12 = load ptr, ptr %value48, align 8
   %call49 = call noalias ptr @CRYPTO_strdup(ptr noundef %12, ptr noundef nonnull @.str.13, i32 noundef 997) #15
   br label %if.end50
 
 if.end50:                                         ; preds = %if.else47, %if.end43
-  %13 = phi i32 [ %6, %if.end43 ], [ %.ph209, %if.else47 ]
-  %14 = phi ptr [ %5, %if.end43 ], [ %.ph, %if.else47 ]
-  %safi.0171179197204216 = phi ptr [ %safi_, %if.end43 ], [ null, %if.else47 ]
-  %afi.0169181195206214 = phi i32 [ %afi.0169181195206, %if.end43 ], [ %afi.0169181195206.ph, %if.else47 ]
+  %13 = phi i32 [ %5, %if.end43 ], [ %11, %if.else47 ]
+  %v2i_IPAddrBlocks.v4addr_chars.v2i_IPAddrBlocks.v6addr_chars9399112 = phi ptr [ %v2i_IPAddrBlocks.v4addr_chars.v2i_IPAddrBlocks.v6addr_chars9399121, %if.end43 ], [ %v2i_IPAddrBlocks.v4addr_chars.v2i_IPAddrBlocks.v6addr_chars9399113, %if.else47 ]
+  %safi.091100110 = phi ptr [ %safi_, %if.end43 ], [ null, %if.else47 ]
+  %afi.089101108 = phi i32 [ %afi.089101119, %if.end43 ], [ %afi.089101109, %if.else47 ]
   %s.1 = phi ptr [ %call46, %if.end43 ], [ %call49, %if.else47 ]
   %cmp51 = icmp eq ptr %s.1, null
   br i1 %cmp51, label %err, label %if.end54
@@ -2043,39 +2043,39 @@ if.end54:                                         ; preds = %if.end50
   br i1 %cmp56, label %if.then58, label %if.end65
 
 if.then58:                                        ; preds = %if.end54
-  %call.i = call fastcc ptr @make_IPAddressFamily(ptr noundef nonnull %call1, i32 noundef %afi.0169181195206214, ptr noundef %safi.0171179197204216)
+  %call.i = call fastcc ptr @make_IPAddressFamily(ptr noundef nonnull %call1, i32 noundef %afi.089101108, ptr noundef %safi.091100110)
   %cmp.i = icmp eq ptr %call.i, null
   br i1 %cmp.i, label %if.then61, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.then58
   %ipAddressChoice.i = getelementptr inbounds %struct.IPAddressFamily_st, ptr %call.i, i64 0, i32 1
-  %15 = load ptr, ptr %ipAddressChoice.i, align 8
-  %cmp1.i = icmp eq ptr %15, null
+  %14 = load ptr, ptr %ipAddressChoice.i, align 8
+  %cmp1.i = icmp eq ptr %14, null
   br i1 %cmp1.i, label %if.then61, label %lor.lhs.false2.i
 
 lor.lhs.false2.i:                                 ; preds = %lor.lhs.false.i
-  %16 = load i32, ptr %15, align 8
-  %u17.phi.trans.insert.i = getelementptr inbounds %struct.IPAddressChoice_st, ptr %15, i64 0, i32 1
+  %15 = load i32, ptr %14, align 8
+  %u17.phi.trans.insert.i = getelementptr inbounds %struct.IPAddressChoice_st, ptr %14, i64 0, i32 1
   %.pre.i = load ptr, ptr %u17.phi.trans.insert.i, align 8
-  %17 = icmp eq ptr %.pre.i, null
-  switch i32 %16, label %if.end15.i [
+  %16 = icmp eq ptr %.pre.i, null
+  switch i32 %15, label %if.end15.i [
     i32 1, label %land.lhs.true.i
     i32 0, label %land.lhs.true10.i
   ]
 
 land.lhs.true.i:                                  ; preds = %lor.lhs.false2.i
-  br i1 %17, label %land.lhs.true19.i, label %if.then61
+  br i1 %16, label %land.lhs.true19.i, label %if.then61
 
 land.lhs.true10.i:                                ; preds = %lor.lhs.false2.i
-  br i1 %17, label %land.lhs.true19.i, label %for.inc
+  br i1 %16, label %land.lhs.true19.i, label %for.inc
 
 if.end15.i:                                       ; preds = %lor.lhs.false2.i
-  br i1 %17, label %land.lhs.true19.i, label %if.end25.i
+  br i1 %16, label %land.lhs.true19.i, label %if.end25.i
 
 land.lhs.true19.i:                                ; preds = %if.end15.i, %land.lhs.true10.i, %land.lhs.true.i
   %call20.i = call ptr @ASN1_NULL_new() #15
-  %18 = load ptr, ptr %ipAddressChoice.i, align 8
-  %u22.i = getelementptr inbounds %struct.IPAddressChoice_st, ptr %18, i64 0, i32 1
+  %17 = load ptr, ptr %ipAddressChoice.i, align 8
+  %u22.i = getelementptr inbounds %struct.IPAddressChoice_st, ptr %17, i64 0, i32 1
   store ptr %call20.i, ptr %u22.i, align 8
   %cmp23.i = icmp eq ptr %call20.i, null
   br i1 %cmp23.i, label %if.then61, label %land.lhs.true19.if.end25_crit_edge.i
@@ -2085,22 +2085,22 @@ land.lhs.true19.if.end25_crit_edge.i:             ; preds = %land.lhs.true19.i
   br label %if.end25.i
 
 if.end25.i:                                       ; preds = %land.lhs.true19.if.end25_crit_edge.i, %if.end15.i
-  %19 = phi ptr [ %.pre10.i, %land.lhs.true19.if.end25_crit_edge.i ], [ %15, %if.end15.i ]
-  store i32 0, ptr %19, align 8
+  %18 = phi ptr [ %.pre10.i, %land.lhs.true19.if.end25_crit_edge.i ], [ %14, %if.end15.i ]
+  store i32 0, ptr %18, align 8
   br label %for.inc
 
 if.then61:                                        ; preds = %land.lhs.true.i, %lor.lhs.false.i, %if.then58, %land.lhs.true19.i
   call void @ERR_new() #15
   call void @ERR_set_debug(ptr noundef nonnull @.str.13, i32 noundef 1008, ptr noundef nonnull @__func__.v2i_IPAddrBlocks) #15
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 34, i32 noundef 165, ptr noundef null) #15
-  %20 = load ptr, ptr %name, align 8
+  %19 = load ptr, ptr %name, align 8
   %value63 = getelementptr inbounds %struct.CONF_VALUE, ptr %call6, i64 0, i32 2
-  %21 = load ptr, ptr %value63, align 8
-  call void (i32, ...) @ERR_add_error_data(i32 noundef 4, ptr noundef nonnull @.str.20, ptr noundef %20, ptr noundef nonnull @.str.21, ptr noundef %21) #15
+  %20 = load ptr, ptr %value63, align 8
+  call void (i32, ...) @ERR_add_error_data(i32 noundef 4, ptr noundef nonnull @.str.20, ptr noundef %19, ptr noundef nonnull @.str.21, ptr noundef %20) #15
   br label %err
 
 if.end65:                                         ; preds = %if.end54
-  %call66 = call i64 @strspn(ptr noundef nonnull %s.1, ptr noundef nonnull %14) #16
+  %call66 = call i64 @strspn(ptr noundef nonnull %s.1, ptr noundef nonnull %v2i_IPAddrBlocks.v4addr_chars.v2i_IPAddrBlocks.v6addr_chars9399112) #16
   %sext = shl i64 %call66, 32
   %conv68 = ashr exact i64 %sext, 32
   %add.ptr69 = getelementptr inbounds i8, ptr %s.1, i64 %conv68
@@ -2111,7 +2111,7 @@ if.end65:                                         ; preds = %if.end54
   %sext77 = shl i64 %add, 32
   %idxprom = ashr exact i64 %sext77, 32
   %arrayidx = getelementptr inbounds i8, ptr %s.1, i64 %idxprom
-  %22 = load i8, ptr %arrayidx, align 1
+  %21 = load i8, ptr %arrayidx, align 1
   store i8 0, ptr %add.ptr69, align 1
   %call75 = call i32 @ossl_a2i_ipadd(ptr noundef nonnull %min, ptr noundef nonnull %s.1) #15
   %cmp76.not = icmp eq i32 %call75, %13
@@ -2121,14 +2121,14 @@ if.then78:                                        ; preds = %if.end65
   call void @ERR_new() #15
   call void @ERR_set_debug(ptr noundef nonnull @.str.13, i32 noundef 1023, ptr noundef nonnull @__func__.v2i_IPAddrBlocks) #15
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 34, i32 noundef 166, ptr noundef null) #15
-  %23 = load ptr, ptr %name, align 8
+  %22 = load ptr, ptr %name, align 8
   %value80 = getelementptr inbounds %struct.CONF_VALUE, ptr %call6, i64 0, i32 2
-  %24 = load ptr, ptr %value80, align 8
-  call void (i32, ...) @ERR_add_error_data(i32 noundef 4, ptr noundef nonnull @.str.20, ptr noundef %23, ptr noundef nonnull @.str.21, ptr noundef %24) #15
+  %23 = load ptr, ptr %value80, align 8
+  call void (i32, ...) @ERR_add_error_data(i32 noundef 4, ptr noundef nonnull @.str.20, ptr noundef %22, ptr noundef nonnull @.str.21, ptr noundef %23) #15
   br label %err
 
 if.end81:                                         ; preds = %if.end65
-  switch i8 %22, label %sw.default [
+  switch i8 %21, label %sw.default [
     i8 47, label %sw.bb82
     i8 45, label %sw.bb110
     i8 0, label %sw.bb162
@@ -2139,30 +2139,30 @@ sw.bb82:                                          ; preds = %if.end81
   %add.ptr84 = getelementptr inbounds i8, ptr %s.1, i64 %idx.ext83
   %call85 = call i64 @strtoul(ptr noundef %add.ptr84, ptr noundef nonnull %t, i32 noundef 10) #15
   %conv86 = trunc i64 %call85 to i32
-  %25 = load ptr, ptr %t, align 8
-  %cmp89 = icmp eq ptr %25, %add.ptr84
+  %24 = load ptr, ptr %t, align 8
+  %cmp89 = icmp eq ptr %24, %add.ptr84
   br i1 %cmp89, label %if.then101, label %lor.lhs.false91
 
 lor.lhs.false91:                                  ; preds = %sw.bb82
-  %26 = load i8, ptr %25, align 1
-  %cmp93.not = icmp ne i8 %26, 0
+  %25 = load i8, ptr %24, align 1
+  %cmp93.not = icmp ne i8 %25, 0
   %mul = shl nuw nsw i32 %13, 3
   %or.cond = icmp ult i32 %mul, %conv86
-  %or.cond80 = select i1 %cmp93.not, i1 true, i1 %or.cond
-  br i1 %or.cond80, label %if.then101, label %if.end104
+  %or.cond78 = select i1 %cmp93.not, i1 true, i1 %or.cond
+  br i1 %or.cond78, label %if.then101, label %if.end104
 
 if.then101:                                       ; preds = %lor.lhs.false91, %sw.bb82
   call void @ERR_new() #15
   call void @ERR_set_debug(ptr noundef nonnull @.str.13, i32 noundef 1035, ptr noundef nonnull @__func__.v2i_IPAddrBlocks) #15
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 34, i32 noundef 116, ptr noundef null) #15
-  %27 = load ptr, ptr %name, align 8
+  %26 = load ptr, ptr %name, align 8
   %value103 = getelementptr inbounds %struct.CONF_VALUE, ptr %call6, i64 0, i32 2
-  %28 = load ptr, ptr %value103, align 8
-  call void (i32, ...) @ERR_add_error_data(i32 noundef 4, ptr noundef nonnull @.str.20, ptr noundef %27, ptr noundef nonnull @.str.21, ptr noundef %28) #15
+  %27 = load ptr, ptr %value103, align 8
+  call void (i32, ...) @ERR_add_error_data(i32 noundef 4, ptr noundef nonnull @.str.20, ptr noundef %26, ptr noundef nonnull @.str.21, ptr noundef %27) #15
   br label %err
 
 if.end104:                                        ; preds = %lor.lhs.false91
-  %call106 = call i32 @X509v3_addr_add_prefix(ptr noundef nonnull %call1, i32 noundef %afi.0169181195206214, ptr noundef %safi.0171179197204216, ptr noundef nonnull %min, i32 noundef %conv86), !range !6
+  %call106 = call i32 @X509v3_addr_add_prefix(ptr noundef nonnull %call1, i32 noundef %afi.089101108, ptr noundef %safi.091100110, ptr noundef nonnull %min, i32 noundef %conv86), !range !6
   %tobool107.not = icmp eq i32 %call106, 0
   br i1 %tobool107.not, label %if.then108, label %for.inc
 
@@ -2176,31 +2176,31 @@ sw.bb110:                                         ; preds = %if.end81
   %conv111 = sext i32 %inc to i64
   %add.ptr113 = getelementptr inbounds i8, ptr %s.1, i64 %conv111
   %call114 = call i64 @strspn(ptr noundef %add.ptr113, ptr noundef nonnull @.str.19) #16
-  %29 = trunc i64 %call114 to i32
-  %conv116 = add i32 %inc, %29
+  %28 = trunc i64 %call114 to i32
+  %conv116 = add i32 %inc, %28
   %conv117 = sext i32 %conv116 to i64
   %add.ptr119 = getelementptr inbounds i8, ptr %s.1, i64 %conv117
-  %call120 = call i64 @strspn(ptr noundef %add.ptr119, ptr noundef nonnull %14) #16
-  %30 = trunc i64 %call120 to i32
-  %cmp123 = icmp eq i32 %30, 0
+  %call120 = call i64 @strspn(ptr noundef %add.ptr119, ptr noundef nonnull %v2i_IPAddrBlocks.v4addr_chars.v2i_IPAddrBlocks.v6addr_chars9399112) #16
+  %29 = trunc i64 %call120 to i32
+  %cmp123 = icmp eq i32 %29, 0
   br i1 %cmp123, label %if.then131, label %lor.lhs.false125
 
 lor.lhs.false125:                                 ; preds = %sw.bb110
-  %conv122 = add i32 %conv116, %30
+  %conv122 = add i32 %conv116, %29
   %idxprom126 = sext i32 %conv122 to i64
   %arrayidx127 = getelementptr inbounds i8, ptr %s.1, i64 %idxprom126
-  %31 = load i8, ptr %arrayidx127, align 1
-  %cmp129.not = icmp eq i8 %31, 0
+  %30 = load i8, ptr %arrayidx127, align 1
+  %cmp129.not = icmp eq i8 %30, 0
   br i1 %cmp129.not, label %if.end134, label %if.then131
 
 if.then131:                                       ; preds = %lor.lhs.false125, %sw.bb110
   call void @ERR_new() #15
   call void @ERR_set_debug(ptr noundef nonnull @.str.13, i32 noundef 1048, ptr noundef nonnull @__func__.v2i_IPAddrBlocks) #15
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 34, i32 noundef 116, ptr noundef null) #15
-  %32 = load ptr, ptr %name, align 8
+  %31 = load ptr, ptr %name, align 8
   %value133 = getelementptr inbounds %struct.CONF_VALUE, ptr %call6, i64 0, i32 2
-  %33 = load ptr, ptr %value133, align 8
-  call void (i32, ...) @ERR_add_error_data(i32 noundef 4, ptr noundef nonnull @.str.20, ptr noundef %32, ptr noundef nonnull @.str.21, ptr noundef %33) #15
+  %32 = load ptr, ptr %value133, align 8
+  call void (i32, ...) @ERR_add_error_data(i32 noundef 4, ptr noundef nonnull @.str.20, ptr noundef %31, ptr noundef nonnull @.str.21, ptr noundef %32) #15
   br label %err
 
 if.end134:                                        ; preds = %lor.lhs.false125
@@ -2212,10 +2212,10 @@ if.then141:                                       ; preds = %if.end134
   call void @ERR_new() #15
   call void @ERR_set_debug(ptr noundef nonnull @.str.13, i32 noundef 1053, ptr noundef nonnull @__func__.v2i_IPAddrBlocks) #15
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 34, i32 noundef 166, ptr noundef null) #15
-  %34 = load ptr, ptr %name, align 8
+  %33 = load ptr, ptr %name, align 8
   %value143 = getelementptr inbounds %struct.CONF_VALUE, ptr %call6, i64 0, i32 2
-  %35 = load ptr, ptr %value143, align 8
-  call void (i32, ...) @ERR_add_error_data(i32 noundef 4, ptr noundef nonnull @.str.20, ptr noundef %34, ptr noundef nonnull @.str.21, ptr noundef %35) #15
+  %34 = load ptr, ptr %value143, align 8
+  call void (i32, ...) @ERR_add_error_data(i32 noundef 4, ptr noundef nonnull @.str.20, ptr noundef %33, ptr noundef nonnull @.str.21, ptr noundef %34) #15
   br label %err
 
 if.end144:                                        ; preds = %if.end134
@@ -2228,14 +2228,14 @@ if.then152:                                       ; preds = %if.end144
   call void @ERR_new() #15
   call void @ERR_set_debug(ptr noundef nonnull @.str.13, i32 noundef 1058, ptr noundef nonnull @__func__.v2i_IPAddrBlocks) #15
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 34, i32 noundef 116, ptr noundef null) #15
-  %36 = load ptr, ptr %name, align 8
+  %35 = load ptr, ptr %name, align 8
   %value154 = getelementptr inbounds %struct.CONF_VALUE, ptr %call6, i64 0, i32 2
-  %37 = load ptr, ptr %value154, align 8
-  call void (i32, ...) @ERR_add_error_data(i32 noundef 4, ptr noundef nonnull @.str.20, ptr noundef %36, ptr noundef nonnull @.str.21, ptr noundef %37) #15
+  %36 = load ptr, ptr %value154, align 8
+  call void (i32, ...) @ERR_add_error_data(i32 noundef 4, ptr noundef nonnull @.str.20, ptr noundef %35, ptr noundef nonnull @.str.21, ptr noundef %36) #15
   br label %err
 
 if.end155:                                        ; preds = %if.end144
-  %call158 = call i32 @X509v3_addr_add_range(ptr noundef nonnull %call1, i32 noundef %afi.0169181195206214, ptr noundef %safi.0171179197204216, ptr noundef nonnull %min, ptr noundef nonnull %max), !range !6
+  %call158 = call i32 @X509v3_addr_add_range(ptr noundef nonnull %call1, i32 noundef %afi.089101108, ptr noundef %safi.091100110, ptr noundef nonnull %min, ptr noundef nonnull %max), !range !6
   %tobool159.not = icmp eq i32 %call158, 0
   br i1 %tobool159.not, label %if.then160, label %for.inc
 
@@ -2247,7 +2247,7 @@ if.then160:                                       ; preds = %if.end155
 
 sw.bb162:                                         ; preds = %if.end81
   %mul164 = shl nuw nsw i32 %13, 3
-  %call165 = call i32 @X509v3_addr_add_prefix(ptr noundef nonnull %call1, i32 noundef %afi.0169181195206214, ptr noundef %safi.0171179197204216, ptr noundef nonnull %min, i32 noundef %mul164), !range !6
+  %call165 = call i32 @X509v3_addr_add_prefix(ptr noundef nonnull %call1, i32 noundef %afi.089101108, ptr noundef %safi.091100110, ptr noundef nonnull %min, i32 noundef %mul164), !range !6
   %tobool166.not = icmp eq i32 %call165, 0
   br i1 %tobool166.not, label %if.then167, label %for.inc
 
@@ -2261,16 +2261,16 @@ sw.default:                                       ; preds = %if.end81
   call void @ERR_new() #15
   call void @ERR_set_debug(ptr noundef nonnull @.str.13, i32 noundef 1074, ptr noundef nonnull @__func__.v2i_IPAddrBlocks) #15
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 34, i32 noundef 116, ptr noundef null) #15
-  %38 = load ptr, ptr %name, align 8
+  %37 = load ptr, ptr %name, align 8
   %value170 = getelementptr inbounds %struct.CONF_VALUE, ptr %call6, i64 0, i32 2
-  %39 = load ptr, ptr %value170, align 8
-  call void (i32, ...) @ERR_add_error_data(i32 noundef 4, ptr noundef nonnull @.str.20, ptr noundef %38, ptr noundef nonnull @.str.21, ptr noundef %39) #15
+  %38 = load ptr, ptr %value170, align 8
+  call void (i32, ...) @ERR_add_error_data(i32 noundef 4, ptr noundef nonnull @.str.20, ptr noundef %37, ptr noundef nonnull @.str.21, ptr noundef %38) #15
   br label %err
 
 for.inc:                                          ; preds = %if.end104, %if.end155, %sw.bb162, %land.lhs.true10.i, %if.end25.i
   %.sink = phi i32 [ 1012, %if.end25.i ], [ 1012, %land.lhs.true10.i ], [ 1079, %sw.bb162 ], [ 1079, %if.end155 ], [ 1079, %if.end104 ]
   call void @CRYPTO_free(ptr noundef nonnull %s.1, ptr noundef nonnull @.str.13, i32 noundef %.sink) #15
-  %inc172 = add nuw nsw i32 %i.0123, 1
+  %inc172 = add nuw nsw i32 %i.0165, 1
   %call3 = call i32 @OPENSSL_sk_num(ptr noundef %values) #15
   %cmp4 = icmp slt i32 %inc172, %call3
   br i1 %cmp4, label %for.body, label %for.end, !llvm.loop !20

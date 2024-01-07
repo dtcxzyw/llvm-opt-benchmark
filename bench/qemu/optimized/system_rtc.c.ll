@@ -56,7 +56,7 @@ sw.bb1.i:                                         ; preds = %sw.bb.i, %entry
   %value.0.i = phi i64 [ %div.i, %entry ], [ %sub.i, %sw.bb.i ]
   %2 = load i64, ptr @rtc_ref_start_datetime, align 8
   %add.i = add i64 %2, %value.0.i
-  %.pr.pre = load i32, ptr @rtc_base_type, align 4
+  %.pre = load i32, ptr @rtc_base_type, align 4
   br label %qemu_ref_timedate.exit
 
 sw.bb2.i:                                         ; preds = %entry
@@ -68,8 +68,8 @@ qemu_ref_timedate.exit.thread:                    ; preds = %sw.bb2.i
   %4 = load i32, ptr @rtc_host_datetime_offset, align 4
   %conv4.i = sext i32 %4 to i64
   %sub5.i = sub nsw i64 %div.i, %conv4.i
-  %add4 = add i64 %sub5.i, %offset
-  store i64 %add4, ptr %ti, align 8
+  %add3 = add i64 %sub5.i, %offset
+  store i64 %add3, ptr %ti, align 8
   br label %sw.bb
 
 sw.default.i:                                     ; preds = %entry
@@ -77,17 +77,14 @@ sw.default.i:                                     ; preds = %entry
   unreachable
 
 qemu_ref_timedate.exit:                           ; preds = %sw.bb1.i, %sw.bb2.i
-  %5 = phi i32 [ %3, %sw.bb2.i ], [ %.pr.pre, %sw.bb1.i ]
+  %5 = phi i32 [ %3, %sw.bb2.i ], [ %.pre, %sw.bb1.i ]
   %value.1.i = phi i64 [ %div.i, %sw.bb2.i ], [ %add.i, %sw.bb1.i ]
   %add = add i64 %value.1.i, %offset
   store i64 %add, ptr %ti, align 8
-  switch i32 %5, label %sw.epilog [
-    i32 2, label %sw.bb
-    i32 0, label %sw.bb
-    i32 1, label %sw.bb2
-  ]
+  %switch = icmp eq i32 %5, 1
+  br i1 %switch, label %sw.bb2, label %sw.bb
 
-sw.bb:                                            ; preds = %qemu_ref_timedate.exit.thread, %qemu_ref_timedate.exit, %qemu_ref_timedate.exit
+sw.bb:                                            ; preds = %qemu_ref_timedate.exit.thread, %qemu_ref_timedate.exit
   %call1 = call ptr @gmtime_r(ptr noundef nonnull %ti, ptr noundef %tm) #9
   br label %sw.epilog
 
@@ -95,7 +92,7 @@ sw.bb2:                                           ; preds = %qemu_ref_timedate.e
   %call3 = call ptr @localtime_r(ptr noundef nonnull %ti, ptr noundef %tm) #9
   br label %sw.epilog
 
-sw.epilog:                                        ; preds = %sw.bb2, %sw.bb, %qemu_ref_timedate.exit
+sw.epilog:                                        ; preds = %sw.bb2, %sw.bb
   ret void
 }
 
@@ -110,13 +107,10 @@ define dso_local i64 @qemu_timedate_diff(ptr noundef %tm) local_unnamed_addr #0 
 entry:
   %tmp = alloca %struct.tm, align 8
   %0 = load i32, ptr @rtc_base_type, align 4
-  switch i32 %0, label %sw.default [
-    i32 2, label %sw.bb
-    i32 0, label %sw.bb
-    i32 1, label %sw.bb1
-  ]
+  %switch = icmp eq i32 %0, 1
+  br i1 %switch, label %sw.bb1, label %sw.bb
 
-sw.bb:                                            ; preds = %entry, %entry
+sw.bb:                                            ; preds = %entry
   %call = tail call i64 @mktimegm(ptr noundef %tm) #9
   br label %sw.epilog
 
@@ -126,10 +120,6 @@ sw.bb1:                                           ; preds = %entry
   store i32 -1, ptr %tm_isdst, align 8
   %call2 = call i64 @mktime(ptr noundef nonnull %tmp) #9
   br label %sw.epilog
-
-sw.default:                                       ; preds = %entry
-  tail call void @abort() #10
-  unreachable
 
 sw.epilog:                                        ; preds = %sw.bb1, %sw.bb
   %seconds.0 = phi i64 [ %call2, %sw.bb1 ], [ %call, %sw.bb ]
@@ -152,9 +142,6 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
 declare noundef i64 @mktime(ptr nocapture noundef) local_unnamed_addr #4
-
-; Function Attrs: noreturn nounwind
-declare void @abort() local_unnamed_addr #5
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @configure_rtc(ptr noundef %opts) local_unnamed_addr #0 {
@@ -304,14 +291,14 @@ if.end49:                                         ; preds = %if.then40, %if.then
 declare ptr @qemu_opt_get(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #6
+declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #5
 
 declare void @replay_add_blocker(ptr noundef) local_unnamed_addr #2
 
 declare void @error_report(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: noreturn nounwind
-declare void @exit(i32 noundef) local_unnamed_addr #5
+declare void @exit(i32 noundef) local_unnamed_addr #6
 
 declare void @object_register_sugar_prop(ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
 
@@ -320,7 +307,7 @@ declare ptr @object_class_by_name(ptr noundef) local_unnamed_addr #2
 declare void @warn_report(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: noreturn nounwind
-declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #5
+declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #6
 
 declare i64 @qemu_clock_get_ns(i32 noundef) local_unnamed_addr #2
 
@@ -340,8 +327,8 @@ attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stac
 attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { mustprogress nofree nounwind willreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #9 = { nounwind }

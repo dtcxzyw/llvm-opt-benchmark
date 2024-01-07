@@ -196,7 +196,7 @@ while.end:                                        ; preds = %while.body, %while.
   %c.0.lcssa = phi i32 [ %add1, %while.cond.preheader ], [ %xor37, %while.body ]
   %length.addr.0.lcssa = phi i64 [ %length, %while.cond.preheader ], [ %sub39, %while.body ]
   %k.0.lcssa = phi ptr [ %key, %while.cond.preheader ], [ %add.ptr, %while.body ]
-  switch i64 %length.addr.0.lcssa, label %if.end431 [
+  switch i64 %length.addr.0.lcssa, label %default.unreachable [
     i64 12, label %sw.bb
     i64 11, label %sw.bb46
     i64 10, label %sw.bb54
@@ -378,7 +378,7 @@ while.end175:                                     ; preds = %while.body115, %whi
   %c.1.lcssa = phi i32 [ %add1, %while.cond113.preheader ], [ %xor171, %while.body115 ]
   %length.addr.1.lcssa = phi i64 [ %length, %while.cond113.preheader ], [ %sub173, %while.body115 ]
   %k112.0.lcssa = phi ptr [ %key, %while.cond113.preheader ], [ %add.ptr174, %while.body115 ]
-  switch i64 %length.addr.1.lcssa, label %if.end431 [
+  switch i64 %length.addr.1.lcssa, label %default.unreachable [
     i64 12, label %sw.bb176
     i64 11, label %sw.bb198
     i64 10, label %sw.bb203
@@ -591,7 +591,7 @@ while.end371:                                     ; preds = %while.body287, %whi
   %c.4.lcssa = phi i32 [ %add1, %while.cond285.preheader ], [ %xor367, %while.body287 ]
   %length.addr.2.lcssa = phi i64 [ %length, %while.cond285.preheader ], [ %sub369, %while.body287 ]
   %k284.0.lcssa = phi ptr [ %key, %while.cond285.preheader ], [ %add.ptr370, %while.body287 ]
-  switch i64 %length.addr.2.lcssa, label %if.end431 [
+  switch i64 %length.addr.2.lcssa, label %default.unreachable [
     i64 12, label %sw.bb372
     i64 11, label %sw.bb377
     i64 10, label %sw.bb382
@@ -720,10 +720,13 @@ sw.bb425:                                         ; preds = %sw.bb420, %while.en
   %add428 = add i32 %a.6, %conv427
   br label %if.end431
 
-if.end431:                                        ; preds = %sw.bb277, %sw.bb273, %sw.bb260, %sw.bb245, %sw.bb225, %sw.bb203, %sw.bb176, %while.end175, %sw.bb425, %while.end371, %while.end, %sw.bb, %sw.bb46, %sw.bb54, %sw.bb62, %sw.bb70, %sw.bb75, %sw.bb81, %sw.bb87, %sw.bb93, %sw.bb96, %sw.bb100, %sw.bb104
-  %a.7 = phi i32 [ %a.0.lcssa, %while.end ], [ %add107, %sw.bb104 ], [ %add103, %sw.bb100 ], [ %add99, %sw.bb96 ], [ %add95, %sw.bb93 ], [ %add92, %sw.bb87 ], [ %add86, %sw.bb81 ], [ %add80, %sw.bb75 ], [ %add74, %sw.bb70 ], [ %add69, %sw.bb62 ], [ %add61, %sw.bb54 ], [ %add53, %sw.bb46 ], [ %add45, %sw.bb ], [ %a.1.lcssa, %while.end175 ], [ %add280, %sw.bb277 ], [ %add276, %sw.bb273 ], [ %add267, %sw.bb260 ], [ %add255, %sw.bb245 ], [ %add239, %sw.bb225 ], [ %add220, %sw.bb203 ], [ %add197, %sw.bb176 ], [ %a.3.lcssa, %while.end371 ], [ %add428, %sw.bb425 ]
-  %b.12 = phi i32 [ %b.0.lcssa, %while.end ], [ %b.0.lcssa, %sw.bb104 ], [ %b.0.lcssa, %sw.bb100 ], [ %b.0.lcssa, %sw.bb96 ], [ %b.0.lcssa, %sw.bb93 ], [ %add90, %sw.bb87 ], [ %add84, %sw.bb81 ], [ %add78, %sw.bb75 ], [ %add72, %sw.bb70 ], [ %add67, %sw.bb62 ], [ %add59, %sw.bb54 ], [ %add51, %sw.bb46 ], [ %add43, %sw.bb ], [ %b.1.lcssa, %while.end175 ], [ %b.1.lcssa, %sw.bb277 ], [ %b.1.lcssa, %sw.bb273 ], [ %b.3, %sw.bb260 ], [ %add248, %sw.bb245 ], [ %add232, %sw.bb225 ], [ %add213, %sw.bb203 ], [ %add190, %sw.bb176 ], [ %b.4.lcssa, %while.end371 ], [ %b.11, %sw.bb425 ]
-  %c.16 = phi i32 [ %c.0.lcssa, %while.end ], [ %c.0.lcssa, %sw.bb104 ], [ %c.0.lcssa, %sw.bb100 ], [ %c.0.lcssa, %sw.bb96 ], [ %c.0.lcssa, %sw.bb93 ], [ %c.0.lcssa, %sw.bb87 ], [ %c.0.lcssa, %sw.bb81 ], [ %c.0.lcssa, %sw.bb75 ], [ %c.0.lcssa, %sw.bb70 ], [ %add65, %sw.bb62 ], [ %add57, %sw.bb54 ], [ %add49, %sw.bb46 ], [ %add41, %sw.bb ], [ %c.1.lcssa, %while.end175 ], [ %c.1.lcssa, %sw.bb277 ], [ %c.1.lcssa, %sw.bb273 ], [ %c.1.lcssa, %sw.bb260 ], [ %c.1.lcssa, %sw.bb245 ], [ %c.3, %sw.bb225 ], [ %add206, %sw.bb203 ], [ %add183, %sw.bb176 ], [ %c.4.lcssa, %while.end371 ], [ %c.15, %sw.bb425 ]
+default.unreachable:                              ; preds = %while.end371, %while.end175, %while.end
+  unreachable
+
+if.end431:                                        ; preds = %sw.bb277, %sw.bb273, %sw.bb260, %sw.bb245, %sw.bb225, %sw.bb203, %sw.bb176, %sw.bb425, %sw.bb, %sw.bb46, %sw.bb54, %sw.bb62, %sw.bb70, %sw.bb75, %sw.bb81, %sw.bb87, %sw.bb93, %sw.bb96, %sw.bb100, %sw.bb104
+  %a.7 = phi i32 [ %add107, %sw.bb104 ], [ %add103, %sw.bb100 ], [ %add99, %sw.bb96 ], [ %add95, %sw.bb93 ], [ %add92, %sw.bb87 ], [ %add86, %sw.bb81 ], [ %add80, %sw.bb75 ], [ %add74, %sw.bb70 ], [ %add69, %sw.bb62 ], [ %add61, %sw.bb54 ], [ %add53, %sw.bb46 ], [ %add45, %sw.bb ], [ %add280, %sw.bb277 ], [ %add276, %sw.bb273 ], [ %add267, %sw.bb260 ], [ %add255, %sw.bb245 ], [ %add239, %sw.bb225 ], [ %add220, %sw.bb203 ], [ %add197, %sw.bb176 ], [ %add428, %sw.bb425 ]
+  %b.12 = phi i32 [ %b.0.lcssa, %sw.bb104 ], [ %b.0.lcssa, %sw.bb100 ], [ %b.0.lcssa, %sw.bb96 ], [ %b.0.lcssa, %sw.bb93 ], [ %add90, %sw.bb87 ], [ %add84, %sw.bb81 ], [ %add78, %sw.bb75 ], [ %add72, %sw.bb70 ], [ %add67, %sw.bb62 ], [ %add59, %sw.bb54 ], [ %add51, %sw.bb46 ], [ %add43, %sw.bb ], [ %b.1.lcssa, %sw.bb277 ], [ %b.1.lcssa, %sw.bb273 ], [ %b.3, %sw.bb260 ], [ %add248, %sw.bb245 ], [ %add232, %sw.bb225 ], [ %add213, %sw.bb203 ], [ %add190, %sw.bb176 ], [ %b.11, %sw.bb425 ]
+  %c.16 = phi i32 [ %c.0.lcssa, %sw.bb104 ], [ %c.0.lcssa, %sw.bb100 ], [ %c.0.lcssa, %sw.bb96 ], [ %c.0.lcssa, %sw.bb93 ], [ %c.0.lcssa, %sw.bb87 ], [ %c.0.lcssa, %sw.bb81 ], [ %c.0.lcssa, %sw.bb75 ], [ %c.0.lcssa, %sw.bb70 ], [ %add65, %sw.bb62 ], [ %add57, %sw.bb54 ], [ %add49, %sw.bb46 ], [ %add41, %sw.bb ], [ %c.1.lcssa, %sw.bb277 ], [ %c.1.lcssa, %sw.bb273 ], [ %c.1.lcssa, %sw.bb260 ], [ %c.1.lcssa, %sw.bb245 ], [ %c.3, %sw.bb225 ], [ %add206, %sw.bb203 ], [ %add183, %sw.bb176 ], [ %c.15, %sw.bb425 ]
   %xor432 = xor i32 %c.16, %b.12
   %or435 = tail call i32 @llvm.fshl.i32(i32 %b.12, i32 %b.12, i32 14)
   %sub436 = sub i32 %xor432, %or435

@@ -27,11 +27,9 @@ target triple = "x86_64-unknown-linux-gnu"
 @lock = internal global %union._GMutex zeroinitializer, align 8
 @.str.10 = private unnamed_addr constant [35 x i8] c"Addr, RCPUs, Reads, WCPUs, Writes\0A\00", align 1
 @.str.11 = private unnamed_addr constant [36 x i8] c"0x%016lx, 0x%04x, %ld, 0x%04x, %ld\0A\00", align 1
-@.str.12 = private unnamed_addr constant [105 x i8] c"/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/qemu/qemu/contrib/plugins/hotpages.c\00", align 1
-@__func__.cmp_access_count = private unnamed_addr constant [17 x i8] c"cmp_access_count\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define i32 @qemu_plugin_install(i64 noundef %id, ptr nocapture noundef readnone %info, i32 noundef %argc, ptr nocapture noundef readonly %argv) local_unnamed_addr #0 {
+define noundef i32 @qemu_plugin_install(i64 noundef %id, ptr nocapture noundef readnone %info, i32 noundef %argc, ptr nocapture noundef readonly %argv) local_unnamed_addr #0 {
 entry:
   %cmp20 = icmp sgt i32 %argc, 0
   br i1 %cmp20, label %for.body.preheader, label %for.end
@@ -358,11 +356,11 @@ declare ptr @g_hash_table_get_values(ptr noundef) local_unnamed_addr #1
 
 declare ptr @g_list_sort(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: nounwind uwtable
-define internal i32 @cmp_access_count(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) #0 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+define internal i32 @cmp_access_count(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) #5 {
 entry:
   %0 = load i32, ptr @sort_by, align 4
-  switch i32 %0, label %do.body [
+  switch i32 %0, label %default.unreachable [
     i32 0, label %sw.bb
     i32 1, label %sw.bb4
     i32 2, label %sw.bb9
@@ -405,8 +403,7 @@ sw.bb14:                                          ; preds = %entry
   %cmp16 = icmp ugt i64 %9, %10
   br label %sw.epilog
 
-do.body:                                          ; preds = %entry
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.12, i32 noundef 70, ptr noundef nonnull @__func__.cmp_access_count, ptr noundef null) #9
+default.unreachable:                              ; preds = %entry
   unreachable
 
 sw.epilog:                                        ; preds = %sw.bb14, %sw.bb9, %sw.bb4, %sw.bb
@@ -423,19 +420,15 @@ declare void @qemu_plugin_outs(ptr noundef) local_unnamed_addr #1
 
 declare ptr @g_string_free(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-; Function Attrs: noreturn
-declare void @g_assertion_message_expr(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
-
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { nounwind }
 attributes #7 = { cold }
 attributes #8 = { nounwind allocsize(0,1) }
-attributes #9 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

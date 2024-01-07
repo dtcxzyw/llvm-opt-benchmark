@@ -1118,7 +1118,7 @@ declare void @qemu_vfree(ptr noundef) local_unnamed_addr #1
 declare zeroext i1 @job_is_cancelled(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal ptr @active_write_prepare(ptr noundef %s, i64 noundef %offset, i64 noundef %bytes) #0 {
+define internal noundef ptr @active_write_prepare(ptr noundef %s, i64 noundef %offset, i64 noundef %bytes) #0 {
 entry:
   %.compoundliteral.sroa.9 = alloca [21 x i8], align 1
   %granularity = getelementptr inbounds %struct.MirrorBlockJob, ptr %s, i64 0, i32 16
@@ -1332,7 +1332,7 @@ if.else66:                                        ; preds = %sw.epilog
   %14 = load i64, ptr %granularity, align 8
   %.fr75 = freeze i64 %14
   %15 = urem i64 %offset.addr.0, %.fr75
-  %mul70 = sub i64 %offset.addr.0, %15
+  %mul70 = sub nuw i64 %offset.addr.0, %15
   %add73 = add i64 %add35.fr, -1
   %sub74 = add i64 %add73, %.fr75
   %16 = urem i64 %sub74, %.fr75
@@ -2563,7 +2563,7 @@ if.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal zeroext i1 @mirror_cancel(ptr noundef %job, i1 noundef zeroext %force) #0 {
+define internal noundef zeroext i1 @mirror_cancel(ptr noundef %job, i1 noundef zeroext %force) #0 {
 entry:
   %target1 = getelementptr inbounds %struct.MirrorBlockJob, ptr %job, i64 0, i32 1
   %0 = load ptr, ptr %target1, align 8
@@ -3690,16 +3690,8 @@ entry:
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.compoundliteral.sroa.6.0..sroa_idx, i8 0, i64 56, i1 false)
   %waiting_requests = getelementptr inbounds %struct.MirrorOp, ptr %call, i64 0, i32 8
   call void @qemu_co_queue_init(ptr noundef nonnull %waiting_requests) #11
-  %0 = icmp ult i32 %mirror_method, 3
-  br i1 %0, label %switch.lookup, label %sw.default
-
-sw.default:                                       ; preds = %entry
-  call void @abort() #12
-  unreachable
-
-switch.lookup:                                    ; preds = %entry
-  %1 = zext nneg i32 %mirror_method to i64
-  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table.mirror_perform, i64 0, i64 %1
+  %0 = sext i32 %mirror_method to i64
+  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table.mirror_perform, i64 0, i64 %0
   %switch.load = load ptr, ptr %switch.gep, align 8
   %call10 = call ptr @qemu_coroutine_create(ptr noundef nonnull %switch.load, ptr noundef nonnull %call) #11
   %co11 = getelementptr inbounds %struct.MirrorOp, ptr %call, i64 0, i32 9
@@ -3707,22 +3699,22 @@ switch.lookup:                                    ; preds = %entry
   %next = getelementptr inbounds %struct.MirrorOp, ptr %call, i64 0, i32 11
   store ptr null, ptr %next, align 8
   %tql_prev = getelementptr inbounds %struct.MirrorBlockJob, ptr %s, i64 0, i32 29, i32 0, i32 1
-  %2 = load ptr, ptr %tql_prev, align 8
+  %1 = load ptr, ptr %tql_prev, align 8
   %tql_prev13 = getelementptr inbounds %struct.MirrorOp, ptr %call, i64 0, i32 11, i32 0, i32 1
-  store ptr %2, ptr %tql_prev13, align 8
-  store ptr %call, ptr %2, align 8
+  store ptr %1, ptr %tql_prev13, align 8
+  store ptr %call, ptr %1, align 8
   store ptr %next, ptr %tql_prev, align 8
   call void @qemu_coroutine_enter(ptr noundef %call10) #11
-  %3 = load i64, ptr %bytes_handled, align 8
-  %cmp = icmp sgt i64 %3, -1
+  %2 = load i64, ptr %bytes_handled, align 8
+  %cmp = icmp sgt i64 %2, -1
   br i1 %cmp, label %if.end, label %if.else
 
-if.else:                                          ; preds = %switch.lookup
+if.else:                                          ; preds = %entry
   call void @__assert_fail(ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.1, i32 noundef 473, ptr noundef nonnull @__PRETTY_FUNCTION__.mirror_perform) #12
   unreachable
 
-if.end:                                           ; preds = %switch.lookup
-  %cmp20 = icmp ult i64 %3, 4294967296
+if.end:                                           ; preds = %entry
+  %cmp20 = icmp ult i64 %2, 4294967296
   br i1 %cmp20, label %if.end24, label %if.else23
 
 if.else23:                                        ; preds = %if.end
@@ -3730,12 +3722,12 @@ if.else23:                                        ; preds = %if.end
   unreachable
 
 if.end24:                                         ; preds = %if.end
-  %conv25 = trunc i64 %3 to i32
+  %conv25 = trunc i64 %2 to i32
   ret i32 %conv25
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal ptr @graph_lockable_auto_lock(ptr noundef readnone returned %x) #0 {
+define internal noundef ptr @graph_lockable_auto_lock(ptr noundef readnone returned %x) #0 {
 entry:
   tail call void @bdrv_graph_co_rdlock() #11
   ret ptr %x

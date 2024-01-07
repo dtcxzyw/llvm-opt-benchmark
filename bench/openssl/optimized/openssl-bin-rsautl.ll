@@ -263,11 +263,10 @@ if.then59:                                        ; preds = %if.end56
   br label %end
 
 if.end61:                                         ; preds = %if.end56
-  switch i8 %key_type.0, label %if.end61.unreachabledefault [
+  switch i8 %key_type.0, label %default.unreachable149 [
     i8 1, label %sw.bb63
     i8 2, label %sw.bb65
     i8 3, label %sw.bb67
-    i8 0, label %return
   ]
 
 sw.bb63:                                          ; preds = %if.end61
@@ -290,6 +289,9 @@ if.then70:                                        ; preds = %sw.bb67
   %call71 = call ptr @X509_get_pubkey(ptr noundef nonnull %call68) #2
   call void @X509_free(ptr noundef nonnull %call68) #2
   br label %sw.epilog73
+
+default.unreachable149:                           ; preds = %if.end117, %if.end61
+  unreachable
 
 sw.epilog73:                                      ; preds = %if.then70, %sw.bb65, %sw.bb63
   %pkey.0 = phi ptr [ %call71, %if.then70 ], [ %call66, %sw.bb65 ], [ %call64, %sw.bb63 ]
@@ -353,7 +355,7 @@ if.end112:                                        ; preds = %for.body, %for.cond
   br i1 %cmp114, label %end, label %if.end117
 
 if.end117:                                        ; preds = %if.end112
-  switch i8 %rsa_mode.0, label %sw.epilog176 [
+  switch i8 %rsa_mode.0, label %default.unreachable149 [
     i8 2, label %sw.bb119
     i8 1, label %sw.bb131
     i8 3, label %sw.bb146
@@ -373,8 +375,6 @@ land.lhs.true123:                                 ; preds = %sw.bb119
 
 land.rhs:                                         ; preds = %land.lhs.true123
   %call128 = call i32 @EVP_PKEY_verify_recover(ptr noundef nonnull %call113, ptr noundef %call92, ptr noundef nonnull %rsa_outlen, ptr noundef %call90, i64 noundef %conv101) #2
-  %cmp129 = icmp sgt i32 %call128, 0
-  %10 = zext i1 %cmp129 to i32
   br label %sw.epilog176
 
 sw.bb131:                                         ; preds = %if.end117
@@ -390,8 +390,6 @@ land.lhs.true135:                                 ; preds = %sw.bb131
 
 land.rhs140:                                      ; preds = %land.lhs.true135
   %call141 = call i32 @EVP_PKEY_sign(ptr noundef nonnull %call113, ptr noundef %call92, ptr noundef nonnull %rsa_outlen, ptr noundef %call90, i64 noundef %conv101) #2
-  %cmp142 = icmp sgt i32 %call141, 0
-  %11 = zext i1 %cmp142 to i32
   br label %sw.epilog176
 
 sw.bb146:                                         ; preds = %if.end117
@@ -407,8 +405,6 @@ land.lhs.true150:                                 ; preds = %sw.bb146
 
 land.rhs155:                                      ; preds = %land.lhs.true150
   %call156 = call i32 @EVP_PKEY_encrypt(ptr noundef nonnull %call113, ptr noundef %call92, ptr noundef nonnull %rsa_outlen, ptr noundef %call90, i64 noundef %conv101) #2
-  %cmp157 = icmp sgt i32 %call156, 0
-  %12 = zext i1 %cmp157 to i32
   br label %sw.epilog176
 
 sw.bb161:                                         ; preds = %if.end117
@@ -424,20 +420,18 @@ land.lhs.true165:                                 ; preds = %sw.bb161
 
 land.rhs170:                                      ; preds = %land.lhs.true165
   %call171 = call i32 @EVP_PKEY_decrypt(ptr noundef nonnull %call113, ptr noundef %call92, ptr noundef nonnull %rsa_outlen, ptr noundef %call90, i64 noundef %conv101) #2
-  %cmp172 = icmp sgt i32 %call171, 0
-  %13 = zext i1 %cmp172 to i32
   br label %sw.epilog176
 
-sw.epilog176:                                     ; preds = %land.rhs170, %land.rhs155, %land.rhs140, %land.rhs, %if.end117
-  %rv.0 = phi i32 [ %call95, %if.end117 ], [ %10, %land.rhs ], [ %11, %land.rhs140 ], [ %12, %land.rhs155 ], [ %13, %land.rhs170 ]
-  %tobool177.not = icmp eq i32 %rv.0, 0
-  br i1 %tobool177.not, label %if.then178, label %if.end180
+sw.epilog176:                                     ; preds = %land.rhs170, %land.rhs155, %land.rhs140, %land.rhs
+  %rv.0.in.in = phi i32 [ %call128, %land.rhs ], [ %call141, %land.rhs140 ], [ %call156, %land.rhs155 ], [ %call171, %land.rhs170 ]
+  %rv.0.in = icmp slt i32 %rv.0.in.in, 1
+  br i1 %rv.0.in, label %if.then178, label %if.end180
 
 if.then178:                                       ; preds = %sw.bb161, %land.lhs.true165, %sw.bb146, %land.lhs.true150, %sw.bb131, %land.lhs.true135, %sw.bb119, %land.lhs.true123, %sw.epilog176
-  %14 = load ptr, ptr @bio_err, align 8
-  %call179 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %14, ptr noundef nonnull @.str.64) #2
-  %15 = load ptr, ptr @bio_err, align 8
-  call void @ERR_print_errors(ptr noundef %15) #2
+  %10 = load ptr, ptr @bio_err, align 8
+  %call179 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %10, ptr noundef nonnull @.str.64) #2
+  %11 = load ptr, ptr @bio_err, align 8
+  call void @ERR_print_errors(ptr noundef %11) #2
   br label %end
 
 if.end180:                                        ; preds = %sw.epilog176
@@ -445,20 +439,20 @@ if.end180:                                        ; preds = %sw.epilog176
   br i1 %tobool181.not, label %if.else, label %if.then182
 
 if.then182:                                       ; preds = %if.end180
-  %16 = load i64, ptr %rsa_outlen, align 8
-  %call183 = call i32 @ASN1_parse_dump(ptr noundef nonnull %call83, ptr noundef %call92, i64 noundef %16, i32 noundef 1, i32 noundef -1) #2
+  %12 = load i64, ptr %rsa_outlen, align 8
+  %call183 = call i32 @ASN1_parse_dump(ptr noundef nonnull %call83, ptr noundef %call92, i64 noundef %12, i32 noundef 1, i32 noundef -1) #2
   %tobool184.not = icmp eq i32 %call183, 0
   br i1 %tobool184.not, label %if.then185, label %end
 
 if.then185:                                       ; preds = %if.then182
-  %17 = load ptr, ptr @bio_err, align 8
-  call void @ERR_print_errors(ptr noundef %17) #2
+  %13 = load ptr, ptr @bio_err, align 8
+  call void @ERR_print_errors(ptr noundef %13) #2
   br label %end
 
 if.else:                                          ; preds = %if.end180
   %tobool187.not = icmp eq i32 %hexdump.0, 0
-  %18 = load i64, ptr %rsa_outlen, align 8
-  %conv192 = trunc i64 %18 to i32
+  %14 = load i64, ptr %rsa_outlen, align 8
+  %conv192 = trunc i64 %14 to i32
   br i1 %tobool187.not, label %if.else191, label %if.then188
 
 if.then188:                                       ; preds = %if.else
@@ -484,15 +478,12 @@ end:                                              ; preds = %sw.bb38, %sw.bb32, 
   call void @BIO_free_all(ptr noundef %out.0) #2
   call void @CRYPTO_free(ptr noundef %rsa_in.0, ptr noundef nonnull @.str.65, i32 noundef 288) #2
   call void @CRYPTO_free(ptr noundef %rsa_out.0, ptr noundef nonnull @.str.65, i32 noundef 289) #2
-  %19 = load ptr, ptr %passin, align 8
-  call void @CRYPTO_free(ptr noundef %19, ptr noundef nonnull @.str.65, i32 noundef 290) #2
+  %15 = load ptr, ptr %passin, align 8
+  call void @CRYPTO_free(ptr noundef %15, ptr noundef nonnull @.str.65, i32 noundef 290) #2
   br label %return
 
-if.end61.unreachabledefault:                      ; preds = %if.end61
-  unreachable
-
-return:                                           ; preds = %if.end61, %sw.bb67, %sw.epilog73, %end
-  %retval.0 = phi i32 [ %ret.0, %end ], [ 1, %sw.epilog73 ], [ 1, %if.end61 ], [ 1, %sw.bb67 ]
+return:                                           ; preds = %sw.bb67, %sw.epilog73, %end
+  %retval.0 = phi i32 [ %ret.0, %end ], [ 1, %sw.epilog73 ], [ 1, %sw.bb67 ]
   ret i32 %retval.0
 }
 

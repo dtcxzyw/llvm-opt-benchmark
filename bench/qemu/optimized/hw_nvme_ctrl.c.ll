@@ -945,7 +945,7 @@ entry:
   %flags = getelementptr inbounds %struct.NvmeCmd, ptr %cmd, i64 0, i32 1
   %0 = load i8, ptr %flags, align 1
   %1 = lshr i8 %0, 6
-  switch i8 %1, label %entry.unreachabledefault [
+  switch i8 %1, label %default.unreachable22 [
     i8 0, label %sw.bb
     i8 1, label %sw.bb7
     i8 2, label %sw.bb7
@@ -1335,7 +1335,7 @@ sw.bb7:                                           ; preds = %entry, %entry
   %call9 = tail call fastcc zeroext i16 @nvme_map_sgl(ptr noundef %n, ptr noundef %sg, i64 %58, i64 %60, i64 noundef %len)
   br label %return
 
-entry.unreachabledefault:                         ; preds = %entry
+default.unreachable22:                            ; preds = %entry
   unreachable
 
 return:                                           ; preds = %if.end5.i.i, %unmap.i, %if.end128.i, %cleanup.i, %if.end.i, %entry, %sw.bb7
@@ -15851,7 +15851,7 @@ entry:
   %shl = add i32 %add, 4
   %cdw13 = getelementptr inbounds %struct.NvmeRequest, ptr %req, i64 0, i32 6, i32 10
   %2 = load i32, ptr %cdw13, align 1
-  %.fr116 = freeze i32 %2
+  %.fr112 = freeze i32 %2
   %status4 = getelementptr inbounds %struct.NvmeRequest, ptr %req, i64 0, i32 3
   store i16 0, ptr %status4, align 8
   %call5 = call fastcc zeroext i16 @nvme_get_mgmt_zone_slba_idx(ptr noundef %0, ptr noundef nonnull %cmd1, ptr noundef nonnull %slba, ptr noundef nonnull %zone_idx), !range !48
@@ -15859,7 +15859,7 @@ entry:
   br i1 %tobool.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %and = and i32 %.fr116, 255
+  %and = and i32 %.fr112, 255
   %or.cond = icmp ugt i32 %and, 1
   br i1 %or.cond, label %return, label %if.end8
 
@@ -15874,7 +15874,7 @@ land.lhs.true10:                                  ; preds = %if.end8
   br i1 %tobool11.not, label %return, label %if.end13
 
 if.end13:                                         ; preds = %land.lhs.true10, %if.end8
-  %shr = lshr i32 %.fr116, 8
+  %shr = lshr i32 %.fr112, 8
   %and14 = and i32 %shr, 255
   %cmp15 = icmp ugt i32 %and14, 7
   br i1 %cmp15, label %return, label %if.end17
@@ -15955,8 +15955,8 @@ if.end36:                                         ; preds = %if.then31, %if.end2
   %14 = load i32, ptr %zone_idx, align 4
   %num_zones = getelementptr inbounds %struct.NvmeNamespace, ptr %0, i64 0, i32 23
   %15 = load i32, ptr %num_zones, align 8
-  %cmp40107 = icmp ult i32 %14, %15
-  br i1 %cmp40107, label %for.body.lr.ph, label %for.end.thread
+  %cmp40103 = icmp ult i32 %14, %15
+  br i1 %cmp40103, label %for.body.lr.ph, label %for.end.thread
 
 for.end.thread:                                   ; preds = %if.end36
   store i64 0, ptr %call39, align 1
@@ -15966,20 +15966,20 @@ for.body.lr.ph:                                   ; preds = %if.end36
   %16 = load ptr, ptr %zone_array, align 8
   %idxprom = zext i32 %14 to i64
   %arrayidx = getelementptr %struct.NvmeZone, ptr %16, i64 %idxprom
-  %17 = and i32 %.fr116, 65536
+  %17 = and i32 %.fr112, 65536
   %tobool42.not = icmp eq i32 %17, 0
   br i1 %tobool42.not, label %for.body.us, label %for.body
 
-for.body.us:                                      ; preds = %for.body.lr.ph, %nvme_zone_matches_filter.exit.thread88.us
-  %i.0110.us = phi i32 [ %inc51.us, %nvme_zone_matches_filter.exit.thread88.us ], [ %14, %for.body.lr.ph ]
-  %zone.0109.us = phi ptr [ %incdec.ptr.us, %nvme_zone_matches_filter.exit.thread88.us ], [ %arrayidx, %for.body.lr.ph ]
-  %nr_zones.0108.us = phi i64 [ %20, %nvme_zone_matches_filter.exit.thread88.us ], [ 0, %for.body.lr.ph ]
-  %incdec.ptr.us = getelementptr %struct.NvmeZone, ptr %zone.0109.us, i64 1
-  %18 = getelementptr i8, ptr %zone.0109.us, i64 1
+for.body.us:                                      ; preds = %for.body.lr.ph, %for.cond.us
+  %i.0106.us = phi i32 [ %inc51.us, %for.cond.us ], [ %14, %for.body.lr.ph ]
+  %zone.0105.us = phi ptr [ %incdec.ptr.us, %for.cond.us ], [ %arrayidx, %for.body.lr.ph ]
+  %nr_zones.0104.us = phi i64 [ %20, %for.cond.us ], [ 0, %for.body.lr.ph ]
+  %incdec.ptr.us = getelementptr %struct.NvmeZone, ptr %zone.0105.us, i64 1
+  %18 = getelementptr i8, ptr %zone.0105.us, i64 1
   %zone.0.val.us = load i8, ptr %18, align 1
   %zone.0.val.fr.us = freeze i8 %zone.0.val.us
   %19 = lshr i8 %zone.0.val.fr.us, 4
-  switch i32 %and14, label %nvme_zone_matches_filter.exit.thread88.us [
+  switch i32 %and14, label %sw.bb12.i.us [
     i32 0, label %nvme_zone_matches_filter.exit.thread.us
     i32 1, label %nvme_zone_matches_filter.exit.us
     i32 2, label %sw.bb2.i.us
@@ -15987,61 +15987,60 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %nv
     i32 4, label %sw.bb6.i.us
     i32 5, label %sw.bb8.i.us
     i32 6, label %sw.bb10.i.us
-    i32 7, label %sw.bb12.i.us
   ]
 
 sw.bb12.i.us:                                     ; preds = %for.body.us
   %cmp13.i.us = icmp eq i8 %19, 15
-  br i1 %cmp13.i.us, label %nvme_zone_matches_filter.exit.thread.us, label %nvme_zone_matches_filter.exit.thread88.us
+  br i1 %cmp13.i.us, label %nvme_zone_matches_filter.exit.thread.us, label %for.cond.us
 
 sw.bb10.i.us:                                     ; preds = %for.body.us
   %cmp11.i.us = icmp eq i8 %19, 13
-  br i1 %cmp11.i.us, label %nvme_zone_matches_filter.exit.thread.us, label %nvme_zone_matches_filter.exit.thread88.us
+  br i1 %cmp11.i.us, label %nvme_zone_matches_filter.exit.thread.us, label %for.cond.us
 
 sw.bb8.i.us:                                      ; preds = %for.body.us
   %cmp9.i.us = icmp eq i8 %19, 14
-  br i1 %cmp9.i.us, label %nvme_zone_matches_filter.exit.thread.us, label %nvme_zone_matches_filter.exit.thread88.us
+  br i1 %cmp9.i.us, label %nvme_zone_matches_filter.exit.thread.us, label %for.cond.us
 
 sw.bb6.i.us:                                      ; preds = %for.body.us
   %cmp7.i.us = icmp eq i8 %19, 4
-  br i1 %cmp7.i.us, label %nvme_zone_matches_filter.exit.thread.us, label %nvme_zone_matches_filter.exit.thread88.us
+  br i1 %cmp7.i.us, label %nvme_zone_matches_filter.exit.thread.us, label %for.cond.us
 
 sw.bb4.i.us:                                      ; preds = %for.body.us
   %cmp5.i.us = icmp eq i8 %19, 3
-  br i1 %cmp5.i.us, label %nvme_zone_matches_filter.exit.thread.us, label %nvme_zone_matches_filter.exit.thread88.us
+  br i1 %cmp5.i.us, label %nvme_zone_matches_filter.exit.thread.us, label %for.cond.us
 
 sw.bb2.i.us:                                      ; preds = %for.body.us
   %cmp3.i.us = icmp eq i8 %19, 2
-  br i1 %cmp3.i.us, label %nvme_zone_matches_filter.exit.thread.us, label %nvme_zone_matches_filter.exit.thread88.us
+  br i1 %cmp3.i.us, label %nvme_zone_matches_filter.exit.thread.us, label %for.cond.us
 
 nvme_zone_matches_filter.exit.us:                 ; preds = %for.body.us
   %cmp.i63.us = icmp eq i8 %19, 1
-  br i1 %cmp.i63.us, label %nvme_zone_matches_filter.exit.thread.us, label %nvme_zone_matches_filter.exit.thread88.us
+  br i1 %cmp.i63.us, label %nvme_zone_matches_filter.exit.thread.us, label %for.cond.us
 
 nvme_zone_matches_filter.exit.thread.us:          ; preds = %nvme_zone_matches_filter.exit.us, %sw.bb2.i.us, %sw.bb4.i.us, %sw.bb6.i.us, %sw.bb8.i.us, %sw.bb10.i.us, %sw.bb12.i.us, %for.body.us
-  %inc87.us = add i64 %nr_zones.0108.us, 1
-  br label %nvme_zone_matches_filter.exit.thread88.us
+  %inc87.us = add i64 %nr_zones.0104.us, 1
+  br label %for.cond.us
 
-nvme_zone_matches_filter.exit.thread88.us:        ; preds = %nvme_zone_matches_filter.exit.thread.us, %nvme_zone_matches_filter.exit.us, %sw.bb2.i.us, %sw.bb4.i.us, %sw.bb6.i.us, %sw.bb8.i.us, %sw.bb10.i.us, %sw.bb12.i.us, %for.body.us
-  %20 = phi i64 [ %inc87.us, %nvme_zone_matches_filter.exit.thread.us ], [ %nr_zones.0108.us, %nvme_zone_matches_filter.exit.us ], [ %nr_zones.0108.us, %sw.bb12.i.us ], [ %nr_zones.0108.us, %sw.bb10.i.us ], [ %nr_zones.0108.us, %sw.bb8.i.us ], [ %nr_zones.0108.us, %sw.bb6.i.us ], [ %nr_zones.0108.us, %sw.bb4.i.us ], [ %nr_zones.0108.us, %sw.bb2.i.us ], [ %nr_zones.0108.us, %for.body.us ]
-  %inc51.us = add nuw i32 %i.0110.us, 1
-  %exitcond118.not = icmp eq i32 %inc51.us, %15
-  br i1 %exitcond118.not, label %for.end, label %for.body.us, !llvm.loop !52
+for.cond.us:                                      ; preds = %nvme_zone_matches_filter.exit.thread.us, %nvme_zone_matches_filter.exit.us, %sw.bb2.i.us, %sw.bb4.i.us, %sw.bb6.i.us, %sw.bb8.i.us, %sw.bb10.i.us, %sw.bb12.i.us
+  %20 = phi i64 [ %inc87.us, %nvme_zone_matches_filter.exit.thread.us ], [ %nr_zones.0104.us, %nvme_zone_matches_filter.exit.us ], [ %nr_zones.0104.us, %sw.bb12.i.us ], [ %nr_zones.0104.us, %sw.bb10.i.us ], [ %nr_zones.0104.us, %sw.bb8.i.us ], [ %nr_zones.0104.us, %sw.bb6.i.us ], [ %nr_zones.0104.us, %sw.bb4.i.us ], [ %nr_zones.0104.us, %sw.bb2.i.us ]
+  %inc51.us = add nuw i32 %i.0106.us, 1
+  %exitcond114.not = icmp eq i32 %inc51.us, %15
+  br i1 %exitcond114.not, label %for.end, label %for.body.us, !llvm.loop !52
 
-for.body:                                         ; preds = %for.body.lr.ph, %nvme_zone_matches_filter.exit.thread88
-  %i.0110 = phi i32 [ %inc51, %nvme_zone_matches_filter.exit.thread88 ], [ %14, %for.body.lr.ph ]
-  %zone.0109 = phi ptr [ %incdec.ptr, %nvme_zone_matches_filter.exit.thread88 ], [ %arrayidx, %for.body.lr.ph ]
-  %nr_zones.0108 = phi i64 [ %23, %nvme_zone_matches_filter.exit.thread88 ], [ 0, %for.body.lr.ph ]
-  %cmp44.not = icmp ult i64 %nr_zones.0108, %div
+for.body:                                         ; preds = %for.body.lr.ph, %for.cond
+  %i.0106 = phi i32 [ %inc51, %for.cond ], [ %14, %for.body.lr.ph ]
+  %zone.0105 = phi ptr [ %incdec.ptr, %for.cond ], [ %arrayidx, %for.body.lr.ph ]
+  %nr_zones.0104 = phi i64 [ %23, %for.cond ], [ 0, %for.body.lr.ph ]
+  %cmp44.not = icmp ult i64 %nr_zones.0104, %div
   br i1 %cmp44.not, label %if.end47, label %for.end
 
 if.end47:                                         ; preds = %for.body
-  %incdec.ptr = getelementptr %struct.NvmeZone, ptr %zone.0109, i64 1
-  %21 = getelementptr i8, ptr %zone.0109, i64 1
+  %incdec.ptr = getelementptr %struct.NvmeZone, ptr %zone.0105, i64 1
+  %21 = getelementptr i8, ptr %zone.0105, i64 1
   %zone.0.val = load i8, ptr %21, align 1
   %zone.0.val.fr = freeze i8 %zone.0.val
   %22 = lshr i8 %zone.0.val.fr, 4
-  switch i32 %and14, label %nvme_zone_matches_filter.exit.thread88 [
+  switch i32 %and14, label %default.unreachable.i [
     i32 0, label %nvme_zone_matches_filter.exit.thread
     i32 1, label %nvme_zone_matches_filter.exit
     i32 2, label %sw.bb2.i
@@ -16054,47 +16053,50 @@ if.end47:                                         ; preds = %for.body
 
 sw.bb2.i:                                         ; preds = %if.end47
   %cmp3.i = icmp eq i8 %22, 2
-  br i1 %cmp3.i, label %nvme_zone_matches_filter.exit.thread, label %nvme_zone_matches_filter.exit.thread88
+  br i1 %cmp3.i, label %nvme_zone_matches_filter.exit.thread, label %for.cond
 
 sw.bb4.i:                                         ; preds = %if.end47
   %cmp5.i = icmp eq i8 %22, 3
-  br i1 %cmp5.i, label %nvme_zone_matches_filter.exit.thread, label %nvme_zone_matches_filter.exit.thread88
+  br i1 %cmp5.i, label %nvme_zone_matches_filter.exit.thread, label %for.cond
 
 sw.bb6.i:                                         ; preds = %if.end47
   %cmp7.i = icmp eq i8 %22, 4
-  br i1 %cmp7.i, label %nvme_zone_matches_filter.exit.thread, label %nvme_zone_matches_filter.exit.thread88
+  br i1 %cmp7.i, label %nvme_zone_matches_filter.exit.thread, label %for.cond
 
 sw.bb8.i:                                         ; preds = %if.end47
   %cmp9.i = icmp eq i8 %22, 14
-  br i1 %cmp9.i, label %nvme_zone_matches_filter.exit.thread, label %nvme_zone_matches_filter.exit.thread88
+  br i1 %cmp9.i, label %nvme_zone_matches_filter.exit.thread, label %for.cond
 
 sw.bb10.i:                                        ; preds = %if.end47
   %cmp11.i = icmp eq i8 %22, 13
-  br i1 %cmp11.i, label %nvme_zone_matches_filter.exit.thread, label %nvme_zone_matches_filter.exit.thread88
+  br i1 %cmp11.i, label %nvme_zone_matches_filter.exit.thread, label %for.cond
 
 sw.bb12.i:                                        ; preds = %if.end47
   %cmp13.i = icmp eq i8 %22, 15
-  br i1 %cmp13.i, label %nvme_zone_matches_filter.exit.thread, label %nvme_zone_matches_filter.exit.thread88
+  br i1 %cmp13.i, label %nvme_zone_matches_filter.exit.thread, label %for.cond
+
+default.unreachable.i:                            ; preds = %if.end47
+  unreachable
 
 nvme_zone_matches_filter.exit:                    ; preds = %if.end47
   %cmp.i63 = icmp eq i8 %22, 1
-  br i1 %cmp.i63, label %nvme_zone_matches_filter.exit.thread, label %nvme_zone_matches_filter.exit.thread88
+  br i1 %cmp.i63, label %nvme_zone_matches_filter.exit.thread, label %for.cond
 
 nvme_zone_matches_filter.exit.thread:             ; preds = %if.end47, %sw.bb2.i, %sw.bb4.i, %sw.bb6.i, %sw.bb8.i, %sw.bb10.i, %sw.bb12.i, %nvme_zone_matches_filter.exit
-  %inc87 = add nuw i64 %nr_zones.0108, 1
-  br label %nvme_zone_matches_filter.exit.thread88
+  %inc87 = add nuw i64 %nr_zones.0104, 1
+  br label %for.cond
 
-nvme_zone_matches_filter.exit.thread88:           ; preds = %if.end47, %sw.bb2.i, %sw.bb4.i, %sw.bb6.i, %sw.bb8.i, %sw.bb10.i, %sw.bb12.i, %nvme_zone_matches_filter.exit, %nvme_zone_matches_filter.exit.thread
-  %23 = phi i64 [ %inc87, %nvme_zone_matches_filter.exit.thread ], [ %nr_zones.0108, %nvme_zone_matches_filter.exit ], [ %nr_zones.0108, %sw.bb12.i ], [ %nr_zones.0108, %sw.bb10.i ], [ %nr_zones.0108, %sw.bb8.i ], [ %nr_zones.0108, %sw.bb6.i ], [ %nr_zones.0108, %sw.bb4.i ], [ %nr_zones.0108, %sw.bb2.i ], [ %nr_zones.0108, %if.end47 ]
-  %inc51 = add nuw i32 %i.0110, 1
+for.cond:                                         ; preds = %sw.bb2.i, %sw.bb4.i, %sw.bb6.i, %sw.bb8.i, %sw.bb10.i, %sw.bb12.i, %nvme_zone_matches_filter.exit, %nvme_zone_matches_filter.exit.thread
+  %23 = phi i64 [ %inc87, %nvme_zone_matches_filter.exit.thread ], [ %nr_zones.0104, %nvme_zone_matches_filter.exit ], [ %nr_zones.0104, %sw.bb12.i ], [ %nr_zones.0104, %sw.bb10.i ], [ %nr_zones.0104, %sw.bb8.i ], [ %nr_zones.0104, %sw.bb6.i ], [ %nr_zones.0104, %sw.bb4.i ], [ %nr_zones.0104, %sw.bb2.i ]
+  %inc51 = add nuw i32 %i.0106, 1
   %exitcond.not = icmp eq i32 %inc51, %15
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !52
 
-for.end:                                          ; preds = %nvme_zone_matches_filter.exit.thread88, %for.body, %nvme_zone_matches_filter.exit.thread88.us
-  %nr_zones.0.lcssa = phi i64 [ %20, %nvme_zone_matches_filter.exit.thread88.us ], [ %nr_zones.0108, %for.body ], [ %23, %nvme_zone_matches_filter.exit.thread88 ]
+for.end:                                          ; preds = %for.cond, %for.body, %for.cond.us
+  %nr_zones.0.lcssa = phi i64 [ %20, %for.cond.us ], [ %nr_zones.0104, %for.body ], [ %23, %for.cond ]
   store i64 %nr_zones.0.lcssa, ptr %call39, align 1
-  %cmp58113 = icmp ule i64 %zone_entry_sz.0, %sub
-  %24 = select i1 %cmp40107, i1 %cmp58113, i1 false
+  %cmp58109 = icmp ule i64 %zone_entry_sz.0, %sub
+  %24 = select i1 %cmp40103, i1 %cmp58109, i1 false
   br i1 %24, label %for.body60.lr.ph, label %for.end107
 
 for.body60.lr.ph:                                 ; preds = %for.end
@@ -16106,15 +16108,15 @@ for.body60.lr.ph:                                 ; preds = %for.end
 for.body60:                                       ; preds = %for.body60.lr.ph, %for.inc105
   %27 = phi i32 [ %15, %for.body60.lr.ph ], [ %44, %for.inc105 ]
   %28 = phi i32 [ %14, %for.body60.lr.ph ], [ %inc106, %for.inc105 ]
-  %buf_p.0115 = phi ptr [ %add.ptr, %for.body60.lr.ph ], [ %buf_p.2, %for.inc105 ]
-  %max_zones.0114 = phi i64 [ %div, %for.body60.lr.ph ], [ %max_zones.1, %for.inc105 ]
+  %buf_p.0111 = phi ptr [ %add.ptr, %for.body60.lr.ph ], [ %buf_p.2, %for.inc105 ]
+  %max_zones.0110 = phi i64 [ %div, %for.body60.lr.ph ], [ %max_zones.1, %for.inc105 ]
   %29 = load ptr, ptr %zone_array, align 8
   %idxprom62 = zext i32 %28 to i64
   %arrayidx63 = getelementptr %struct.NvmeZone, ptr %29, i64 %idxprom62
   %30 = getelementptr i8, ptr %arrayidx63, i64 1
   %arrayidx63.val = load i8, ptr %30, align 1
   %31 = lshr i8 %arrayidx63.val, 4
-  switch i32 %and14, label %for.inc105 [
+  switch i32 %and14, label %default.unreachable.i79 [
     i32 0, label %if.then65
     i32 1, label %nvme_zone_matches_filter.exit80
     i32 2, label %sw.bb2.i75
@@ -16149,28 +16151,31 @@ sw.bb12.i64:                                      ; preds = %for.body60
   %cmp13.i65 = icmp eq i8 %31, 15
   br i1 %cmp13.i65, label %if.then65, label %for.inc105
 
+default.unreachable.i79:                          ; preds = %for.body60
+  unreachable
+
 nvme_zone_matches_filter.exit80:                  ; preds = %for.body60
   %cmp.i78 = icmp eq i8 %31, 1
   br i1 %cmp.i78, label %if.then65, label %for.inc105
 
 if.then65:                                        ; preds = %for.body60, %sw.bb2.i75, %sw.bb4.i73, %sw.bb6.i71, %sw.bb8.i69, %sw.bb10.i67, %sw.bb12.i64, %nvme_zone_matches_filter.exit80
-  %add.ptr66 = getelementptr i8, ptr %buf_p.0115, i64 64
+  %add.ptr66 = getelementptr i8, ptr %buf_p.0111, i64 64
   %32 = load i8, ptr %arrayidx63, align 8
-  store i8 %32, ptr %buf_p.0115, align 1
+  store i8 %32, ptr %buf_p.0111, align 1
   %33 = load i8, ptr %30, align 1
-  %zs69 = getelementptr inbounds %struct.NvmeZoneDescr, ptr %buf_p.0115, i64 0, i32 1
+  %zs69 = getelementptr inbounds %struct.NvmeZoneDescr, ptr %buf_p.0111, i64 0, i32 1
   store i8 %33, ptr %zs69, align 1
   %zcap = getelementptr inbounds %struct.NvmeZoneDescr, ptr %arrayidx63, i64 0, i32 4
   %34 = load i64, ptr %zcap, align 8
-  %zcap72 = getelementptr inbounds %struct.NvmeZoneDescr, ptr %buf_p.0115, i64 0, i32 4
+  %zcap72 = getelementptr inbounds %struct.NvmeZoneDescr, ptr %buf_p.0111, i64 0, i32 4
   store i64 %34, ptr %zcap72, align 1
   %zslba = getelementptr inbounds %struct.NvmeZoneDescr, ptr %arrayidx63, i64 0, i32 5
   %35 = load i64, ptr %zslba, align 8
-  %zslba75 = getelementptr inbounds %struct.NvmeZoneDescr, ptr %buf_p.0115, i64 0, i32 5
+  %zslba75 = getelementptr inbounds %struct.NvmeZoneDescr, ptr %buf_p.0111, i64 0, i32 5
   store i64 %35, ptr %zslba75, align 1
   %za = getelementptr inbounds %struct.NvmeZoneDescr, ptr %arrayidx63, i64 0, i32 2
   %36 = load i8, ptr %za, align 2
-  %za77 = getelementptr inbounds %struct.NvmeZoneDescr, ptr %buf_p.0115, i64 0, i32 2
+  %za77 = getelementptr inbounds %struct.NvmeZoneDescr, ptr %buf_p.0111, i64 0, i32 2
   store i8 %36, ptr %za77, align 1
   %arrayidx63.val61 = load i8, ptr %30, align 1
   %37 = lshr i8 %arrayidx63.val61, 4
@@ -16188,7 +16193,7 @@ if.then79:                                        ; preds = %if.then65
 
 if.end85:                                         ; preds = %if.then65, %if.then79
   %.sink = phi i64 [ %39, %if.then79 ], [ -1, %if.then65 ]
-  %40 = getelementptr inbounds %struct.NvmeZoneDescr, ptr %buf_p.0115, i64 0, i32 6
+  %40 = getelementptr inbounds %struct.NvmeZoneDescr, ptr %buf_p.0111, i64 0, i32 6
   store i64 %.sink, ptr %40, align 1
   br i1 %cmp9, label %if.then88, label %if.end103
 
@@ -16216,16 +16221,16 @@ if.end99:                                         ; preds = %if.then94, %if.then
 
 if.end103:                                        ; preds = %if.end99, %if.end85
   %buf_p.1 = phi ptr [ %add.ptr102, %if.end99 ], [ %add.ptr66, %if.end85 ]
-  %dec = add nsw i64 %max_zones.0114, -1
+  %dec = add nsw i64 %max_zones.0110, -1
   %.pre = load i32, ptr %zone_idx, align 4
-  %.pre119 = load i32, ptr %num_zones, align 8
+  %.pre115 = load i32, ptr %num_zones, align 8
   br label %for.inc105
 
-for.inc105:                                       ; preds = %for.body60, %sw.bb2.i75, %sw.bb4.i73, %sw.bb6.i71, %sw.bb8.i69, %sw.bb10.i67, %sw.bb12.i64, %nvme_zone_matches_filter.exit80, %if.end103
-  %44 = phi i32 [ %.pre119, %if.end103 ], [ %27, %nvme_zone_matches_filter.exit80 ], [ %27, %sw.bb12.i64 ], [ %27, %sw.bb10.i67 ], [ %27, %sw.bb8.i69 ], [ %27, %sw.bb6.i71 ], [ %27, %sw.bb4.i73 ], [ %27, %sw.bb2.i75 ], [ %27, %for.body60 ]
-  %45 = phi i32 [ %.pre, %if.end103 ], [ %28, %nvme_zone_matches_filter.exit80 ], [ %28, %sw.bb12.i64 ], [ %28, %sw.bb10.i67 ], [ %28, %sw.bb8.i69 ], [ %28, %sw.bb6.i71 ], [ %28, %sw.bb4.i73 ], [ %28, %sw.bb2.i75 ], [ %28, %for.body60 ]
-  %max_zones.1 = phi i64 [ %dec, %if.end103 ], [ %max_zones.0114, %nvme_zone_matches_filter.exit80 ], [ %max_zones.0114, %sw.bb12.i64 ], [ %max_zones.0114, %sw.bb10.i67 ], [ %max_zones.0114, %sw.bb8.i69 ], [ %max_zones.0114, %sw.bb6.i71 ], [ %max_zones.0114, %sw.bb4.i73 ], [ %max_zones.0114, %sw.bb2.i75 ], [ %max_zones.0114, %for.body60 ]
-  %buf_p.2 = phi ptr [ %buf_p.1, %if.end103 ], [ %buf_p.0115, %nvme_zone_matches_filter.exit80 ], [ %buf_p.0115, %sw.bb12.i64 ], [ %buf_p.0115, %sw.bb10.i67 ], [ %buf_p.0115, %sw.bb8.i69 ], [ %buf_p.0115, %sw.bb6.i71 ], [ %buf_p.0115, %sw.bb4.i73 ], [ %buf_p.0115, %sw.bb2.i75 ], [ %buf_p.0115, %for.body60 ]
+for.inc105:                                       ; preds = %sw.bb2.i75, %sw.bb4.i73, %sw.bb6.i71, %sw.bb8.i69, %sw.bb10.i67, %sw.bb12.i64, %nvme_zone_matches_filter.exit80, %if.end103
+  %44 = phi i32 [ %.pre115, %if.end103 ], [ %27, %nvme_zone_matches_filter.exit80 ], [ %27, %sw.bb12.i64 ], [ %27, %sw.bb10.i67 ], [ %27, %sw.bb8.i69 ], [ %27, %sw.bb6.i71 ], [ %27, %sw.bb4.i73 ], [ %27, %sw.bb2.i75 ]
+  %45 = phi i32 [ %.pre, %if.end103 ], [ %28, %nvme_zone_matches_filter.exit80 ], [ %28, %sw.bb12.i64 ], [ %28, %sw.bb10.i67 ], [ %28, %sw.bb8.i69 ], [ %28, %sw.bb6.i71 ], [ %28, %sw.bb4.i73 ], [ %28, %sw.bb2.i75 ]
+  %max_zones.1 = phi i64 [ %dec, %if.end103 ], [ %max_zones.0110, %nvme_zone_matches_filter.exit80 ], [ %max_zones.0110, %sw.bb12.i64 ], [ %max_zones.0110, %sw.bb10.i67 ], [ %max_zones.0110, %sw.bb8.i69 ], [ %max_zones.0110, %sw.bb6.i71 ], [ %max_zones.0110, %sw.bb4.i73 ], [ %max_zones.0110, %sw.bb2.i75 ]
+  %buf_p.2 = phi ptr [ %buf_p.1, %if.end103 ], [ %buf_p.0111, %nvme_zone_matches_filter.exit80 ], [ %buf_p.0111, %sw.bb12.i64 ], [ %buf_p.0111, %sw.bb10.i67 ], [ %buf_p.0111, %sw.bb8.i69 ], [ %buf_p.0111, %sw.bb6.i71 ], [ %buf_p.0111, %sw.bb4.i73 ], [ %buf_p.0111, %sw.bb2.i75 ]
   %inc106 = add i32 %45, 1
   store i32 %inc106, ptr %zone_idx, align 4
   %cmp56 = icmp ult i32 %inc106, %44

@@ -1934,7 +1934,7 @@ do.body:                                          ; preds = %do.body.preheader, 
   %6 = lshr i32 %5, %rem.i.i6.i.i.i
   %conv3.i.i.i = and i32 %6, 1
   %or.i.i.i = or disjoint i32 %shl.i.i.i, %conv3.i.i.i
-  switch i32 %or.i.i.i, label %do.body.unreachabledefault [
+  switch i32 %or.i.i.i, label %default.unreachable [
     i32 1, label %sw.bb
     i32 2, label %sw.bb3
     i32 3, label %sw.bb7
@@ -1962,7 +1962,7 @@ sw.bb7:                                           ; preds = %do.body
   %spec.select = select i1 %cmp.i58.not, i32 %idx.addr.0, i32 %root1.0
   br label %sw.epilog
 
-do.body.unreachabledefault:                       ; preds = %do.body
+default.unreachable:                              ; preds = %do.body
   unreachable
 
 sw.default:                                       ; preds = %do.body
@@ -2305,12 +2305,12 @@ lpad14.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds =
   br label %ehcleanup214
 
 lpad14.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.loopexit: ; preds = %for.end66, %while.body
-  %lpad.loopexit518 = landingpad { ptr, i32 }
+  %lpad.loopexit519 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup214
 
 lpad14.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.loopexit.split-lp: ; preds = %if.end.i.i.i.i.i361, %if.then.i.i342, %if.end.i.i.i.i.i, %if.then.i.i, %sw.bb
-  %lpad.loopexit.split-lp519 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp520 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup214
 
@@ -2319,9 +2319,9 @@ lpad14.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.l
           cleanup
   br label %ehcleanup214
 
-for.cond202.preheader:                            ; preds = %sw.epilog200, %for.inc197, %sw.epilog200.thread509
-  %14 = phi ptr [ null, %sw.epilog200.thread509 ], [ %125, %for.inc197 ], [ null, %sw.epilog200 ]
-  %15 = phi i32 [ %.pr512, %sw.epilog200.thread509 ], [ %126, %for.inc197 ], [ %.pr, %sw.epilog200 ]
+for.cond202.preheader:                            ; preds = %sw.epilog200, %for.inc197, %sw.epilog200.thread510
+  %14 = phi ptr [ null, %sw.epilog200.thread510 ], [ %125, %for.inc197 ], [ null, %sw.epilog200 ]
+  %15 = phi i32 [ %.pr513, %sw.epilog200.thread510 ], [ %126, %for.inc197 ], [ %.pr, %sw.epilog200 ]
   %16 = icmp eq i32 %15, 0
   br i1 %16, label %for.end213, label %for.body206
 
@@ -2331,9 +2331,9 @@ while.body:                                       ; preds = %while.body.lr.ph, %
           to label %invoke.cont32 unwind label %lpad14.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.loopexit, !range !27
 
 invoke.cont32:                                    ; preds = %while.body
-  switch i32 %call33, label %sw.epilog200 [
+  switch i32 %call33, label %default.unreachable498 [
     i32 0, label %sw.bb
-    i32 2, label %sw.epilog200.thread509
+    i32 2, label %sw.epilog200.thread510
     i32 3, label %sw.bb46
     i32 4, label %sw.bb46
     i32 5, label %sw.bb69
@@ -2359,7 +2359,7 @@ invoke.cont38:                                    ; preds = %sw.bb
 
 entry.if.end_crit_edge.i.i:                       ; preds = %invoke.cont38
   %.pre.i.i71 = load ptr, ptr %m_neg.i.i, align 8
-  br label %sw.epilog200.thread509.sink.split
+  br label %sw.epilog200.thread510.sink.split
 
 if.then.i.i:                                      ; preds = %invoke.cont38
   %shl.i.i.i = shl i32 %21, 1
@@ -2406,7 +2406,7 @@ _ZN6bufferIP3tbvLb0ELj8EE6expandEv.exit.i.i:      ; preds = %.noexc73, %for.end.
   %.pre1.i.i = phi i32 [ %22, %for.end.i.i.i ], [ %.pre1.pre.i.i, %.noexc73 ]
   store ptr %call.i.i.i72, ptr %m_neg.i.i, align 8
   store i32 %shl.i.i.i, ptr %m_capacity.i.i.i.i, align 4
-  br label %sw.epilog200.thread509.sink.split
+  br label %sw.epilog200.thread510.sink.split
 
 sw.bb46:                                          ; preds = %invoke.cont32, %invoke.cont32
   %24 = load i32, ptr %m_pos.i, align 8
@@ -2753,9 +2753,6 @@ _ZN6bufferIP3tbvLb0ELj8EE6expandEv.exit.i.i227:   ; preds = %.noexc236, %for.end
   store i32 %shl.i.i.i207, ptr %m_capacity.i.i114, align 4
   br label %for.inc90
 
-invoke.cont80.unreachabledefault:                 ; preds = %invoke.cont80
-  unreachable
-
 sw.default:                                       ; preds = %invoke.cont80
   invoke void @_Z26notify_assertion_violationPKciS0_(ptr noundef nonnull @.str.1, i32 noundef 365, ptr noundef nonnull @.str.2)
           to label %invoke.cont89 unwind label %lpad72.loopexit.split-lp
@@ -2765,15 +2762,15 @@ invoke.cont89:                                    ; preds = %sw.default
   unreachable
 
 for.inc90:                                        ; preds = %_ZN6bufferIP3tbvLb0ELj8EE6expandEv.exit.i.i227, %entry.if.end_crit_edge.i.i232, %_ZN6bufferIP3tbvLb0ELj8EE6expandEv.exit.i.i192, %entry.if.end_crit_edge.i.i197, %_ZN6bufferIP3tbvLb0ELj8EE6expandEv.exit.i157, %entry.if.end_crit_edge.i162
-  %.sink528 = phi i32 [ %45, %entry.if.end_crit_edge.i162 ], [ %.pre1.i158, %_ZN6bufferIP3tbvLb0ELj8EE6expandEv.exit.i157 ], [ %49, %entry.if.end_crit_edge.i.i197 ], [ %.pre1.i.i193, %_ZN6bufferIP3tbvLb0ELj8EE6expandEv.exit.i.i192 ], [ %53, %entry.if.end_crit_edge.i.i232 ], [ %.pre1.i.i228, %_ZN6bufferIP3tbvLb0ELj8EE6expandEv.exit.i.i227 ]
+  %.sink530 = phi i32 [ %45, %entry.if.end_crit_edge.i162 ], [ %.pre1.i158, %_ZN6bufferIP3tbvLb0ELj8EE6expandEv.exit.i157 ], [ %49, %entry.if.end_crit_edge.i.i197 ], [ %.pre1.i.i193, %_ZN6bufferIP3tbvLb0ELj8EE6expandEv.exit.i.i192 ], [ %53, %entry.if.end_crit_edge.i.i232 ], [ %.pre1.i.i228, %_ZN6bufferIP3tbvLb0ELj8EE6expandEv.exit.i.i227 ]
   %.sink = phi ptr [ %.pre.i163, %entry.if.end_crit_edge.i162 ], [ %call.i.i165, %_ZN6bufferIP3tbvLb0ELj8EE6expandEv.exit.i157 ], [ %.pre.i.i198, %entry.if.end_crit_edge.i.i197 ], [ %call.i.i.i200, %_ZN6bufferIP3tbvLb0ELj8EE6expandEv.exit.i.i192 ], [ %.pre.i.i233, %entry.if.end_crit_edge.i.i232 ], [ %call.i.i.i235, %_ZN6bufferIP3tbvLb0ELj8EE6expandEv.exit.i.i227 ]
-  %m_pos.i.i113.sink527 = phi ptr [ %m_pos.i50, %entry.if.end_crit_edge.i162 ], [ %m_pos.i50, %_ZN6bufferIP3tbvLb0ELj8EE6expandEv.exit.i157 ], [ %m_pos.i.i116, %entry.if.end_crit_edge.i.i197 ], [ %m_pos.i.i116, %_ZN6bufferIP3tbvLb0ELj8EE6expandEv.exit.i.i192 ], [ %m_pos.i.i113, %entry.if.end_crit_edge.i.i232 ], [ %m_pos.i.i113, %_ZN6bufferIP3tbvLb0ELj8EE6expandEv.exit.i.i227 ]
-  %idx.ext.i.i229 = zext i32 %.sink528 to i64
+  %m_pos.i.i113.sink529 = phi ptr [ %m_pos.i50, %entry.if.end_crit_edge.i162 ], [ %m_pos.i50, %_ZN6bufferIP3tbvLb0ELj8EE6expandEv.exit.i157 ], [ %m_pos.i.i116, %entry.if.end_crit_edge.i.i197 ], [ %m_pos.i.i116, %_ZN6bufferIP3tbvLb0ELj8EE6expandEv.exit.i.i192 ], [ %m_pos.i.i113, %entry.if.end_crit_edge.i.i232 ], [ %m_pos.i.i113, %_ZN6bufferIP3tbvLb0ELj8EE6expandEv.exit.i.i227 ]
+  %idx.ext.i.i229 = zext i32 %.sink530 to i64
   %add.ptr.i.i230 = getelementptr inbounds ptr, ptr %.sink, i64 %idx.ext.i.i229
   store ptr %42, ptr %add.ptr.i.i230, align 8
-  %57 = load i32, ptr %m_pos.i.i113.sink527, align 8
+  %57 = load i32, ptr %m_pos.i.i113.sink529, align 8
   %inc.i.i231 = add i32 %57, 1
-  store i32 %inc.i.i231, ptr %m_pos.i.i113.sink527, align 8
+  store i32 %inc.i.i231, ptr %m_pos.i.i113.sink529, align 8
   %indvars.iv.next481 = add nuw nsw i64 %indvars.iv480, 1
   %58 = load i32, ptr %m_pos.i, align 8
   %59 = zext i32 %58 to i64
@@ -3113,7 +3110,7 @@ invoke.cont170:                                   ; preds = %.noexc335, %if.then
 
 entry.if.end_crit_edge.i.i368:                    ; preds = %invoke.cont170
   %.pre.i.i369 = load ptr, ptr %m_neg.i.i, align 8
-  br label %sw.epilog200.thread509.sink.split
+  br label %sw.epilog200.thread510.sink.split
 
 if.then.i.i342:                                   ; preds = %invoke.cont170
   %call.i.i.i371 = invoke noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 0)
@@ -3157,7 +3154,7 @@ _ZN6bufferIP3tbvLb0ELj8EE6expandEv.exit.i.i363:   ; preds = %.noexc372, %for.end
   %.pre1.i.i364 = phi i32 [ %114, %for.end.i.i.i356 ], [ %.pre1.pre.i.i362, %.noexc372 ]
   store ptr %call.i.i.i371, ptr %m_neg.i.i, align 8
   store i32 0, ptr %m_capacity.i.i.i.i, align 4
-  br label %sw.epilog200.thread509.sink.split
+  br label %sw.epilog200.thread510.sink.split
 
 invoke.cont179:                                   ; preds = %invoke.cont165
   br i1 %cmp4.not.i329, label %if.end191, label %invoke.cont184
@@ -3252,23 +3249,29 @@ for.inc197:                                       ; preds = %_ZN10union_bvecI11t
   %cmp153 = icmp ult i64 %indvars.iv.next478, %127
   br i1 %cmp153, label %for.body154, label %for.cond202.preheader, !llvm.loop !32
 
-sw.epilog200.thread509.sink.split:                ; preds = %_ZN6bufferIP3tbvLb0ELj8EE6expandEv.exit.i.i363, %entry.if.end_crit_edge.i.i368, %_ZN6bufferIP3tbvLb0ELj8EE6expandEv.exit.i.i, %entry.if.end_crit_edge.i.i
-  %.sink531 = phi i32 [ %20, %entry.if.end_crit_edge.i.i ], [ %.pre1.i.i, %_ZN6bufferIP3tbvLb0ELj8EE6expandEv.exit.i.i ], [ 0, %entry.if.end_crit_edge.i.i368 ], [ %.pre1.i.i364, %_ZN6bufferIP3tbvLb0ELj8EE6expandEv.exit.i.i363 ]
-  %.sink530 = phi ptr [ %.pre.i.i71, %entry.if.end_crit_edge.i.i ], [ %call.i.i.i72, %_ZN6bufferIP3tbvLb0ELj8EE6expandEv.exit.i.i ], [ %.pre.i.i369, %entry.if.end_crit_edge.i.i368 ], [ %call.i.i.i371, %_ZN6bufferIP3tbvLb0ELj8EE6expandEv.exit.i.i363 ]
+invoke.cont80.unreachabledefault:                 ; preds = %invoke.cont80
+  unreachable
+
+default.unreachable498:                           ; preds = %invoke.cont32
+  unreachable
+
+sw.epilog200.thread510.sink.split:                ; preds = %_ZN6bufferIP3tbvLb0ELj8EE6expandEv.exit.i.i363, %entry.if.end_crit_edge.i.i368, %_ZN6bufferIP3tbvLb0ELj8EE6expandEv.exit.i.i, %entry.if.end_crit_edge.i.i
+  %.sink533 = phi i32 [ %20, %entry.if.end_crit_edge.i.i ], [ %.pre1.i.i, %_ZN6bufferIP3tbvLb0ELj8EE6expandEv.exit.i.i ], [ 0, %entry.if.end_crit_edge.i.i368 ], [ %.pre1.i.i364, %_ZN6bufferIP3tbvLb0ELj8EE6expandEv.exit.i.i363 ]
+  %.sink532 = phi ptr [ %.pre.i.i71, %entry.if.end_crit_edge.i.i ], [ %call.i.i.i72, %_ZN6bufferIP3tbvLb0ELj8EE6expandEv.exit.i.i ], [ %.pre.i.i369, %entry.if.end_crit_edge.i.i368 ], [ %call.i.i.i371, %_ZN6bufferIP3tbvLb0ELj8EE6expandEv.exit.i.i363 ]
   %call158.lcssa.sink = phi ptr [ %call37, %entry.if.end_crit_edge.i.i ], [ %call37, %_ZN6bufferIP3tbvLb0ELj8EE6expandEv.exit.i.i ], [ %call158, %entry.if.end_crit_edge.i.i368 ], [ %call158, %_ZN6bufferIP3tbvLb0ELj8EE6expandEv.exit.i.i363 ]
-  %idx.ext.i.i365 = zext i32 %.sink531 to i64
-  %add.ptr.i.i366 = getelementptr inbounds ptr, ptr %.sink530, i64 %idx.ext.i.i365
+  %idx.ext.i.i365 = zext i32 %.sink533 to i64
+  %add.ptr.i.i366 = getelementptr inbounds ptr, ptr %.sink532, i64 %idx.ext.i.i365
   store ptr %call158.lcssa.sink, ptr %add.ptr.i.i366, align 8
   %128 = load i32, ptr %m_pos.i.i.i.i, align 8
   %inc.i.i367 = add i32 %128, 1
   store i32 %inc.i.i367, ptr %m_pos.i.i.i.i, align 8
-  br label %sw.epilog200.thread509
+  br label %sw.epilog200.thread510
 
-sw.epilog200.thread509:                           ; preds = %invoke.cont32, %sw.epilog200.thread509.sink.split
-  %.pr512 = load i32, ptr %m_pos.i, align 8
+sw.epilog200.thread510:                           ; preds = %invoke.cont32, %sw.epilog200.thread510.sink.split
+  %.pr513 = load i32, ptr %m_pos.i, align 8
   br label %for.cond202.preheader
 
-sw.epilog200:                                     ; preds = %if.end.i.i.i.i.i315, %_ZN10union_bvecI11tbv_manager3tbvED2Ev.exit, %invoke.cont67, %invoke.cont32
+sw.epilog200:                                     ; preds = %if.end.i.i.i.i.i315, %_ZN10union_bvecI11tbv_manager3tbvED2Ev.exit, %invoke.cont67
   %.pr = load i32, ptr %m_pos.i, align 8
   %cmp.i = icmp eq i32 %.pr, 0
   br i1 %cmp.i, label %for.cond202.preheader, label %while.body, !llvm.loop !33
@@ -3326,7 +3329,7 @@ terminate.lpad.i429:                              ; preds = %if.end.i.i.i.i428
   unreachable
 
 ehcleanup214:                                     ; preds = %lpad14.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.loopexit, %lpad14.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.loopexit.split-lp, %lpad14.loopexit, %lpad14.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad14.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %lpad14.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad14.loopexit.split-lp.loopexit, %ehcleanup
-  %.pn43 = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %lpad.loopexit, %lpad14.loopexit ], [ %lpad.loopexit439, %lpad14.loopexit.split-lp.loopexit ], [ %lpad.loopexit449, %lpad14.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit452, %lpad14.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp456, %lpad14.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit518, %lpad14.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.loopexit ], [ %lpad.loopexit.split-lp519, %lpad14.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.loopexit.split-lp ]
+  %.pn43 = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %lpad.loopexit, %lpad14.loopexit ], [ %lpad.loopexit439, %lpad14.loopexit.split-lp.loopexit ], [ %lpad.loopexit449, %lpad14.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit452, %lpad14.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp456, %lpad14.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit519, %lpad14.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.loopexit ], [ %lpad.loopexit.split-lp520, %lpad14.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.loopexit.split-lp ]
   call void @_ZN6bufferIP3tbvLb0ELj8EED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %new_todo) #16
   call void @_ZN6bufferIP3tbvLb0ELj8EED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %todo) #16
   br label %ehcleanup216

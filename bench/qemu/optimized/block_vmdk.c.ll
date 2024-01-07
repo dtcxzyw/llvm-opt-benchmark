@@ -1321,15 +1321,12 @@ if.end:                                           ; preds = %while.body.i
   %mul1.neg.i = shl i64 %sub.neg.i, 9
   %sub2.i = add i64 %mul1.neg.i, %offset
   %rem.i = urem i64 %sub2.i, %mul.i
-  switch i32 %call1, label %sw.epilog [
-    i32 -1, label %sw.bb
+  switch i32 %call1, label %default.unreachable25 [
+    i32 -1, label %sw.epilog
     i32 -2, label %sw.bb4
     i32 -3, label %sw.bb5
     i32 0, label %sw.bb6
   ]
-
-sw.bb:                                            ; preds = %if.end
-  br label %sw.epilog
 
 sw.bb4:                                           ; preds = %if.end
   br label %sw.epilog
@@ -1364,9 +1361,12 @@ if.end14:                                         ; preds = %if.then8, %sw.bb6
   %.pre24 = shl i64 %.pre, 9
   br label %sw.epilog
 
-sw.epilog:                                        ; preds = %if.end14, %sw.bb5, %sw.bb4, %sw.bb, %if.end
-  %mul.pre-phi = phi i64 [ %.pre24, %if.end14 ], [ %mul.i, %sw.bb5 ], [ %mul.i, %sw.bb4 ], [ %mul.i, %sw.bb ], [ %mul.i, %if.end ]
-  %ret.1 = phi i32 [ %ret.0, %if.end14 ], [ 2, %sw.bb5 ], [ 0, %sw.bb4 ], [ -5, %sw.bb ], [ %call1, %if.end ]
+default.unreachable25:                            ; preds = %if.end
+  unreachable
+
+sw.epilog:                                        ; preds = %if.end, %if.end14, %sw.bb5, %sw.bb4
+  %mul.pre-phi = phi i64 [ %mul.i, %if.end ], [ %.pre24, %if.end14 ], [ %mul.i, %sw.bb5 ], [ %mul.i, %sw.bb4 ]
+  %ret.1 = phi i32 [ -5, %if.end ], [ %ret.0, %if.end14 ], [ 2, %sw.bb5 ], [ 0, %sw.bb4 ]
   %sub = sub i64 %mul.pre-phi, %rem.i
   %cond = tail call i64 @llvm.smin.i64(i64 %sub, i64 %bytes)
   store i64 %cond, ptr %pnum, align 8

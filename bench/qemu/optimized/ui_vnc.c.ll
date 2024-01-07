@@ -2515,28 +2515,29 @@ vnc_server_info_get.exit.thread:                  ; preds = %lor.lhs.false.i, %i
 
 if.end3:                                          ; preds = %vnc_auth_name.exit.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %err.i)
-  switch i32 %event, label %sw.epilog [
+  %13 = load ptr, ptr %info, align 8
+  switch i32 %event, label %default.unreachable [
     i32 37, label %sw.bb
     i32 38, label %sw.bb6
     i32 39, label %sw.bb8
   ]
 
 sw.bb:                                            ; preds = %if.end3
-  %13 = load ptr, ptr %info, align 8
   call void @qapi_event_send_vnc_connected(ptr noundef nonnull %call.i, ptr noundef %13) #23
   br label %sw.epilog
 
 sw.bb6:                                           ; preds = %if.end3
-  %14 = load ptr, ptr %info, align 8
-  call void @qapi_event_send_vnc_initialized(ptr noundef nonnull %call.i, ptr noundef %14) #23
+  call void @qapi_event_send_vnc_initialized(ptr noundef nonnull %call.i, ptr noundef %13) #23
   br label %sw.epilog
 
 sw.bb8:                                           ; preds = %if.end3
-  %15 = load ptr, ptr %info, align 8
-  call void @qapi_event_send_vnc_disconnected(ptr noundef nonnull %call.i, ptr noundef %15) #23
+  call void @qapi_event_send_vnc_disconnected(ptr noundef nonnull %call.i, ptr noundef %13) #23
   br label %sw.epilog
 
-sw.epilog:                                        ; preds = %if.end3, %sw.bb8, %sw.bb6, %sw.bb
+default.unreachable:                              ; preds = %if.end3
+  unreachable
+
+sw.epilog:                                        ; preds = %sw.bb8, %sw.bb6, %sw.bb
   call void @qapi_free_VncServerInfo(ptr noundef nonnull %call.i) #23
   br label %return
 

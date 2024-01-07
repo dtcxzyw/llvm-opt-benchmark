@@ -5873,8 +5873,8 @@ entry:
   %ref.tmp50 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp55 = alloca %"class.std::__cxx11::basic_string", align 8
   %call = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %_text, ptr noundef nonnull @.str.7)
-  %cmp52 = icmp eq i64 %length, 0
-  br i1 %cmp52, label %for.end, label %for.body.lr.ph
+  %cmp53 = icmp eq i64 %length, 0
+  br i1 %cmp53, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
   %sub.ptr.rhs.cast = ptrtoint ptr %s to i64
@@ -5883,9 +5883,9 @@ for.body.lr.ph:                                   ; preds = %entry
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %conv54 = phi i64 [ 0, %for.body.lr.ph ], [ %conv, %for.inc ]
-  %i.053 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
-  %arrayidx = getelementptr inbounds i8, ptr %s, i64 %conv54
+  %conv55 = phi i64 [ 0, %for.body.lr.ph ], [ %conv, %for.inc ]
+  %i.054 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
+  %arrayidx = getelementptr inbounds i8, ptr %s, i64 %conv55
   %1 = load i8, ptr %arrayidx, align 1
   switch i8 %1, label %sw.default [
     i8 10, label %sw.bb
@@ -5981,9 +5981,9 @@ for.body22.lr.ph.i:                               ; preds = %if.end9.i
   %sub17.i = xor i32 %notmask.i, -1
   %and18.i = and i32 %sub17.i, %conv15.i
   %5 = add nsw i32 %len.031.i, -2
-  %scevgep65 = getelementptr i8, ptr %scevgep, i64 %conv54
+  %scevgep67 = getelementptr i8, ptr %scevgep, i64 %conv55
   %6 = zext i32 %indvars.iv to i64
-  %scevgep67 = getelementptr i8, ptr %scevgep65, i64 %6
+  %scevgep69 = getelementptr i8, ptr %scevgep67, i64 %6
   br label %for.body22.i
 
 for.body22.i:                                     ; preds = %if.end27.i, %for.body22.lr.ph.i
@@ -6011,7 +6011,7 @@ for.end34.i:                                      ; preds = %if.end27.i
   br i1 %or.cond1.i, label %if.then23, label %if.end38.i
 
 if.end38.i:                                       ; preds = %for.end34.i
-  switch i32 %len.031.i, label %_ZN11flatbuffers8FromUTF8EPPKc.exit [
+  switch i32 %len.031.i, label %default.unreachable.i [
     i32 2, label %sw.bb.i
     i32 3, label %sw.bb44.i
     i32 4, label %sw.bb50.i
@@ -6032,9 +6032,12 @@ sw.bb50.i:                                        ; preds = %if.end38.i
   %or.cond4.i = icmp ult i32 %14, -1048576
   br i1 %or.cond4.i, label %if.then23, label %_ZN11flatbuffers8FromUTF8EPPKc.exit
 
-_ZN11flatbuffers8FromUTF8EPPKc.exit:              ; preds = %if.end38.i, %sw.bb.i, %sw.bb44.i, %sw.bb50.i, %if.then7.i
-  %utf8.1 = phi ptr [ %incdec.ptr.i, %if.then7.i ], [ %scevgep67, %sw.bb50.i ], [ %scevgep67, %sw.bb44.i ], [ %scevgep67, %sw.bb.i ], [ %scevgep67, %if.end38.i ]
-  %retval.0.i = phi i32 [ %conv8.i, %if.then7.i ], [ %or.i, %sw.bb50.i ], [ %or.i, %sw.bb44.i ], [ %or.i, %sw.bb.i ], [ %or.i, %if.end38.i ]
+default.unreachable.i:                            ; preds = %if.end38.i
+  unreachable
+
+_ZN11flatbuffers8FromUTF8EPPKc.exit:              ; preds = %sw.bb.i, %sw.bb44.i, %sw.bb50.i, %if.then7.i
+  %utf8.1 = phi ptr [ %incdec.ptr.i, %if.then7.i ], [ %scevgep69, %sw.bb50.i ], [ %scevgep69, %sw.bb44.i ], [ %scevgep69, %sw.bb.i ]
+  %retval.0.i = phi i32 [ %conv8.i, %if.then7.i ], [ %or.i, %sw.bb50.i ], [ %or.i, %sw.bb44.i ], [ %or.i, %sw.bb.i ]
   %cmp22 = icmp slt i32 %retval.0.i, 0
   br i1 %cmp22, label %if.then23, label %if.else29
 
@@ -6061,7 +6064,7 @@ if.else29:                                        ; preds = %_ZN11flatbuffers8Fr
 
 if.then31:                                        ; preds = %if.else29
   %sub.ptr.lhs.cast = ptrtoint ptr %utf8.1 to i64
-  %16 = add i64 %conv54, %sub.ptr.rhs.cast
+  %16 = add i64 %conv55, %sub.ptr.rhs.cast
   %sub = sub i64 %sub.ptr.lhs.cast, %16
   %call35 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %_text, ptr noundef nonnull %arrayidx, i64 noundef %sub)
   br label %if.end61
@@ -6128,7 +6131,7 @@ if.end61:                                         ; preds = %invoke.cont42, %inv
   br label %for.inc
 
 for.inc:                                          ; preds = %sw.bb, %sw.bb4, %sw.bb6, %sw.bb8, %sw.bb10, %sw.bb12, %sw.bb14, %invoke.cont, %if.end61, %if.then
-  %i.1 = phi i32 [ %i.053, %if.then ], [ %i.053, %invoke.cont ], [ %conv66, %if.end61 ], [ %i.053, %sw.bb14 ], [ %i.053, %sw.bb12 ], [ %i.053, %sw.bb10 ], [ %i.053, %sw.bb8 ], [ %i.053, %sw.bb6 ], [ %i.053, %sw.bb4 ], [ %i.053, %sw.bb ]
+  %i.1 = phi i32 [ %i.054, %if.then ], [ %i.054, %invoke.cont ], [ %conv66, %if.end61 ], [ %i.054, %sw.bb14 ], [ %i.054, %sw.bb12 ], [ %i.054, %sw.bb10 ], [ %i.054, %sw.bb8 ], [ %i.054, %sw.bb6 ], [ %i.054, %sw.bb4 ], [ %i.054, %sw.bb ]
   %inc = add i32 %i.1, 1
   %conv = zext i32 %inc to i64
   %cmp.not = icmp ult i64 %conv, %length
@@ -6139,8 +6142,8 @@ for.end:                                          ; preds = %for.inc, %entry
   br label %return
 
 return:                                           ; preds = %if.then23, %for.end
-  %cmp51 = phi i1 [ true, %for.end ], [ false, %if.then23 ]
-  ret i1 %cmp51
+  %cmp52 = phi i1 [ true, %for.end ], [ false, %if.then23 ]
+  ret i1 %cmp52
 
 eh.resume:                                        ; preds = %lpad56, %lpad51, %lpad41, %lpad
   %ref.tmp55.sink = phi ptr [ %ref.tmp55, %lpad56 ], [ %ref.tmp50, %lpad51 ], [ %ref.tmp40, %lpad41 ], [ %ref.tmp, %lpad ]

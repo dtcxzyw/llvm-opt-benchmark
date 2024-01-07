@@ -316,7 +316,6 @@ $_ZTV16tactic_exception = comdat any
 @.str.14 = private unnamed_addr constant [4 x i8] c"mpf\00", align 1
 @.str.15 = private unnamed_addr constant [5 x i8] c"mpff\00", align 1
 @.str.16 = private unnamed_addr constant [5 x i8] c"mpfx\00", align 1
-@.str.17 = private unnamed_addr constant [130 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/z3/z3/src/math/subpaving/tactic/subpaving_tactic.cpp\00", align 1
 @.str.18 = private unnamed_addr constant [29 x i8] c"UNEXPECTED CODE WAS REACHED.\00", align 1
 @.str.19 = private unnamed_addr constant [41 x i8] c"tactic does not support user propagation\00", align 1
 @.str.20 = private unnamed_addr constant [39 x i8] c"tactic does not support clause logging\00", align 1
@@ -1832,9 +1831,9 @@ _ZeqRK6symbolPKc.exit:                            ; preds = %if.end6.i
   %call9.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call2, ptr noundef nonnull dereferenceable(4) @.str.13) #18
   %cmp10.i = icmp eq i32 %call9.i, 0
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
-  br i1 %cmp10.i, label %if.end15, label %if.else.thread91
+  br i1 %cmp10.i, label %if.end15, label %if.else.thread92
 
-if.else.thread91:                                 ; preds = %_ZeqRK6symbolPKc.exit
+if.else.thread92:                                 ; preds = %_ZeqRK6symbolPKc.exit
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i5)
   br label %if.end6.i7
 
@@ -1844,9 +1843,9 @@ if.else:                                          ; preds = %if.end11.i
   %cmp.i6 = icmp eq ptr %.pr.pre, null
   br i1 %cmp.i6, label %if.else6.thread, label %if.end6.i7
 
-if.end6.i7:                                       ; preds = %if.else.thread91, %if.else
-  %.pr94 = phi ptr [ %call2, %if.else.thread91 ], [ %.pr.pre, %if.else ]
-  %1 = ptrtoint ptr %.pr94 to i64
+if.end6.i7:                                       ; preds = %if.else.thread92, %if.else
+  %.pr95 = phi ptr [ %call2, %if.else.thread92 ], [ %.pr.pre, %if.else ]
+  %1 = ptrtoint ptr %.pr95 to i64
   %and.i.i8 = and i64 %1, 7
   %cmp.i.i9 = icmp eq i64 %and.i.i8, 1
   br i1 %cmp.i.i9, label %if.end11.i14, label %_ZeqRK6symbolPKc.exit17
@@ -1865,12 +1864,12 @@ if.else6.thread:                                  ; preds = %if.else.thread, %if
   br label %if.else9.thread
 
 _ZeqRK6symbolPKc.exit17:                          ; preds = %if.end6.i7
-  %call9.i11 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.pr94, ptr noundef nonnull dereferenceable(4) @.str.14) #18
+  %call9.i11 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.pr95, ptr noundef nonnull dereferenceable(4) @.str.14) #18
   %cmp10.i12 = icmp eq i32 %call9.i11, 0
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i5)
-  br i1 %cmp10.i12, label %if.end15, label %if.else6.thread96
+  br i1 %cmp10.i12, label %if.end15, label %if.else6.thread97
 
-if.else6.thread96:                                ; preds = %_ZeqRK6symbolPKc.exit17
+if.else6.thread97:                                ; preds = %_ZeqRK6symbolPKc.exit17
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i18)
   br label %if.end6.i20
 
@@ -1885,8 +1884,8 @@ if.else9.thread:                                  ; preds = %if.else6.thread, %i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i31)
   br label %_ZeqRK6symbolPKc.exit43.thread
 
-if.end6.i20:                                      ; preds = %if.else6.thread96, %if.else6
-  %2 = phi ptr [ %.pr94, %if.else6.thread96 ], [ %.pre, %if.else6 ]
+if.end6.i20:                                      ; preds = %if.else6.thread97, %if.else6
+  %2 = phi ptr [ %.pr95, %if.else6.thread97 ], [ %.pre, %if.else6 ]
   %3 = ptrtoint ptr %2 to i64
   %and.i.i21 = and i64 %3, 7
   %cmp.i.i22 = icmp eq i64 %and.i.i21, 1
@@ -1904,9 +1903,9 @@ _ZeqRK6symbolPKc.exit30:                          ; preds = %if.end6.i20
   %call9.i24 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(5) @.str.15) #18
   %cmp10.i25 = icmp eq i32 %call9.i24, 0
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i18)
-  br i1 %cmp10.i25, label %if.end15, label %if.else9.thread98
+  br i1 %cmp10.i25, label %if.end15, label %if.else9.thread99
 
-if.else9.thread98:                                ; preds = %_ZeqRK6symbolPKc.exit30
+if.else9.thread99:                                ; preds = %_ZeqRK6symbolPKc.exit30
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i31)
   br label %if.end6.i33
 
@@ -1916,9 +1915,9 @@ if.else9:                                         ; preds = %if.end11.i27
   %cmp.i32 = icmp eq ptr %.pr85.pre, null
   br i1 %cmp.i32, label %_ZeqRK6symbolPKc.exit43.thread, label %if.end6.i33
 
-if.end6.i33:                                      ; preds = %if.else9.thread98, %if.else9
-  %.pr85101 = phi ptr [ %2, %if.else9.thread98 ], [ %.pr85.pre, %if.else9 ]
-  %4 = ptrtoint ptr %.pr85101 to i64
+if.end6.i33:                                      ; preds = %if.else9.thread99, %if.else9
+  %.pr85102 = phi ptr [ %2, %if.else9.thread99 ], [ %.pr85.pre, %if.else9 ]
+  %4 = ptrtoint ptr %.pr85102 to i64
   %and.i.i34 = and i64 %4, 7
   %cmp.i.i35 = icmp eq i64 %and.i.i34, 1
   br i1 %cmp.i.i35, label %if.end11.i40, label %_ZeqRK6symbolPKc.exit43
@@ -1936,7 +1935,7 @@ _ZeqRK6symbolPKc.exit43.thread:                   ; preds = %if.else9, %if.else9
   br label %if.end15
 
 _ZeqRK6symbolPKc.exit43:                          ; preds = %if.end6.i33
-  %call9.i37 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.pr85101, ptr noundef nonnull dereferenceable(5) @.str.16) #18
+  %call9.i37 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.pr85102, ptr noundef nonnull dereferenceable(5) @.str.16) #18
   %call9.i37.fr = freeze i32 %call9.i37
   %cmp10.i38 = icmp eq i32 %call9.i37.fr, 0
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i31)
@@ -1954,7 +1953,8 @@ if.end15:                                         ; preds = %5, %_ZeqRK6symbolPK
 
 if.then16:                                        ; preds = %if.end15
   store i32 %new_kind.0, ptr %m_kind, align 8
-  switch i32 %new_kind.0, label %sw.default [
+  %7 = load ptr, ptr %this, align 8
+  switch i32 %new_kind.0, label %default.unreachable91 [
     i32 0, label %sw.bb
     i32 1, label %sw.bb25
     i32 2, label %sw.bb35
@@ -1963,7 +1963,6 @@ if.then16:                                        ; preds = %if.end15
   ]
 
 sw.bb:                                            ; preds = %if.then16
-  %7 = load ptr, ptr %this, align 8
   %m_qm = getelementptr inbounds %"struct.subpaving_tactic::imp", ptr %this, i64 0, i32 1
   store ptr null, ptr %ref.tmp21, align 8
   %call22 = invoke noundef ptr @_ZN9subpaving14mk_mpq_contextER8reslimitR11mpq_managerILb0EERK10params_refP22small_object_allocator(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull align 8 dereferenceable(728) %m_qm, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp21, ptr noundef null)
@@ -1996,27 +1995,26 @@ lpad:                                             ; preds = %if.end.i.i, %sw.bb
   br label %eh.resume
 
 sw.bb25:                                          ; preds = %if.then16
-  %11 = load ptr, ptr %this, align 8
   %m_fm = getelementptr inbounds %"struct.subpaving_tactic::imp", ptr %this, i64 0, i32 3
   store ptr null, ptr %ref.tmp28, align 8
-  %call31 = invoke noundef ptr @_ZN9subpaving14mk_mpf_contextER8reslimitR3f2nI11mpf_managerERK10params_refP22small_object_allocator(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(88) %m_fm, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp28, ptr noundef null)
+  %call31 = invoke noundef ptr @_ZN9subpaving14mk_mpf_contextER8reslimitR3f2nI11mpf_managerERK10params_refP22small_object_allocator(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull align 8 dereferenceable(88) %m_fm, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp28, ptr noundef null)
           to label %invoke.cont30 unwind label %lpad29
 
 invoke.cont30:                                    ; preds = %sw.bb25
   %m_ctx32 = getelementptr inbounds %"struct.subpaving_tactic::imp", ptr %this, i64 0, i32 11
-  %12 = load ptr, ptr %m_ctx32, align 8
-  %cmp.not.i45 = icmp eq ptr %12, %call31
+  %11 = load ptr, ptr %m_ctx32, align 8
+  %cmp.not.i45 = icmp eq ptr %11, %call31
   br i1 %cmp.not.i45, label %sw.epilog, label %if.then.i46
 
 if.then.i46:                                      ; preds = %invoke.cont30
-  %cmp.i.i47 = icmp eq ptr %12, null
+  %cmp.i.i47 = icmp eq ptr %11, null
   br i1 %cmp.i.i47, label %_Z7deallocIN9subpaving7contextEEvPT_.exit.i50, label %if.end.i.i48
 
 if.end.i.i48:                                     ; preds = %if.then.i46
-  %vtable.i.i49 = load ptr, ptr %12, align 8
-  %13 = load ptr, ptr %vtable.i.i49, align 8
-  call void %13(ptr noundef nonnull align 8 dereferenceable(8) %12) #14
-  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %12)
+  %vtable.i.i49 = load ptr, ptr %11, align 8
+  %12 = load ptr, ptr %vtable.i.i49, align 8
+  call void %12(ptr noundef nonnull align 8 dereferenceable(8) %11) #14
+  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %11)
           to label %_Z7deallocIN9subpaving7contextEEvPT_.exit.i50 unwind label %lpad29
 
 _Z7deallocIN9subpaving7contextEEvPT_.exit.i50:    ; preds = %if.end.i.i48, %if.then.i46
@@ -2024,33 +2022,32 @@ _Z7deallocIN9subpaving7contextEEvPT_.exit.i50:    ; preds = %if.end.i.i48, %if.t
   br label %sw.epilog
 
 lpad29:                                           ; preds = %if.end.i.i48, %sw.bb25
-  %14 = landingpad { ptr, i32 }
+  %13 = landingpad { ptr, i32 }
           cleanup
   br label %eh.resume
 
 sw.bb35:                                          ; preds = %if.then16
-  %15 = load ptr, ptr %this, align 8
   %m_hm = getelementptr inbounds %"struct.subpaving_tactic::imp", ptr %this, i64 0, i32 5
   %m_qm38 = getelementptr inbounds %"struct.subpaving_tactic::imp", ptr %this, i64 0, i32 1
   store ptr null, ptr %ref.tmp39, align 8
-  %call42 = invoke noundef ptr @_ZN9subpaving14mk_hwf_contextER8reslimitR3f2nI11hwf_managerER11mpq_managerILb0EERK10params_refP22small_object_allocator(ptr noundef nonnull align 8 dereferenceable(40) %15, ptr noundef nonnull align 8 dereferenceable(40) %m_hm, ptr noundef nonnull align 8 dereferenceable(728) %m_qm38, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp39, ptr noundef null)
+  %call42 = invoke noundef ptr @_ZN9subpaving14mk_hwf_contextER8reslimitR3f2nI11hwf_managerER11mpq_managerILb0EERK10params_refP22small_object_allocator(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull align 8 dereferenceable(40) %m_hm, ptr noundef nonnull align 8 dereferenceable(728) %m_qm38, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp39, ptr noundef null)
           to label %invoke.cont41 unwind label %lpad40
 
 invoke.cont41:                                    ; preds = %sw.bb35
   %m_ctx43 = getelementptr inbounds %"struct.subpaving_tactic::imp", ptr %this, i64 0, i32 11
-  %16 = load ptr, ptr %m_ctx43, align 8
-  %cmp.not.i53 = icmp eq ptr %16, %call42
+  %14 = load ptr, ptr %m_ctx43, align 8
+  %cmp.not.i53 = icmp eq ptr %14, %call42
   br i1 %cmp.not.i53, label %sw.epilog, label %if.then.i54
 
 if.then.i54:                                      ; preds = %invoke.cont41
-  %cmp.i.i55 = icmp eq ptr %16, null
+  %cmp.i.i55 = icmp eq ptr %14, null
   br i1 %cmp.i.i55, label %_Z7deallocIN9subpaving7contextEEvPT_.exit.i58, label %if.end.i.i56
 
 if.end.i.i56:                                     ; preds = %if.then.i54
-  %vtable.i.i57 = load ptr, ptr %16, align 8
-  %17 = load ptr, ptr %vtable.i.i57, align 8
-  call void %17(ptr noundef nonnull align 8 dereferenceable(8) %16) #14
-  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %16)
+  %vtable.i.i57 = load ptr, ptr %14, align 8
+  %15 = load ptr, ptr %vtable.i.i57, align 8
+  call void %15(ptr noundef nonnull align 8 dereferenceable(8) %14) #14
+  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %14)
           to label %_Z7deallocIN9subpaving7contextEEvPT_.exit.i58 unwind label %lpad40
 
 _Z7deallocIN9subpaving7contextEEvPT_.exit.i58:    ; preds = %if.end.i.i56, %if.then.i54
@@ -2058,33 +2055,32 @@ _Z7deallocIN9subpaving7contextEEvPT_.exit.i58:    ; preds = %if.end.i.i56, %if.t
   br label %sw.epilog
 
 lpad40:                                           ; preds = %if.end.i.i56, %sw.bb35
-  %18 = landingpad { ptr, i32 }
+  %16 = landingpad { ptr, i32 }
           cleanup
   br label %eh.resume
 
 sw.bb46:                                          ; preds = %if.then16
-  %19 = load ptr, ptr %this, align 8
   %m_ffm = getelementptr inbounds %"struct.subpaving_tactic::imp", ptr %this, i64 0, i32 6
   %m_qm49 = getelementptr inbounds %"struct.subpaving_tactic::imp", ptr %this, i64 0, i32 1
   store ptr null, ptr %ref.tmp50, align 8
-  %call53 = invoke noundef ptr @_ZN9subpaving15mk_mpff_contextER8reslimitR12mpff_managerR11mpq_managerILb0EERK10params_refP22small_object_allocator(ptr noundef nonnull align 8 dereferenceable(40) %19, ptr noundef nonnull align 8 dereferenceable(89) %m_ffm, ptr noundef nonnull align 8 dereferenceable(728) %m_qm49, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp50, ptr noundef null)
+  %call53 = invoke noundef ptr @_ZN9subpaving15mk_mpff_contextER8reslimitR12mpff_managerR11mpq_managerILb0EERK10params_refP22small_object_allocator(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull align 8 dereferenceable(89) %m_ffm, ptr noundef nonnull align 8 dereferenceable(728) %m_qm49, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp50, ptr noundef null)
           to label %invoke.cont52 unwind label %lpad51
 
 invoke.cont52:                                    ; preds = %sw.bb46
   %m_ctx54 = getelementptr inbounds %"struct.subpaving_tactic::imp", ptr %this, i64 0, i32 11
-  %20 = load ptr, ptr %m_ctx54, align 8
-  %cmp.not.i61 = icmp eq ptr %20, %call53
+  %17 = load ptr, ptr %m_ctx54, align 8
+  %cmp.not.i61 = icmp eq ptr %17, %call53
   br i1 %cmp.not.i61, label %sw.epilog, label %if.then.i62
 
 if.then.i62:                                      ; preds = %invoke.cont52
-  %cmp.i.i63 = icmp eq ptr %20, null
+  %cmp.i.i63 = icmp eq ptr %17, null
   br i1 %cmp.i.i63, label %_Z7deallocIN9subpaving7contextEEvPT_.exit.i66, label %if.end.i.i64
 
 if.end.i.i64:                                     ; preds = %if.then.i62
-  %vtable.i.i65 = load ptr, ptr %20, align 8
-  %21 = load ptr, ptr %vtable.i.i65, align 8
-  call void %21(ptr noundef nonnull align 8 dereferenceable(8) %20) #14
-  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %20)
+  %vtable.i.i65 = load ptr, ptr %17, align 8
+  %18 = load ptr, ptr %vtable.i.i65, align 8
+  call void %18(ptr noundef nonnull align 8 dereferenceable(8) %17) #14
+  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %17)
           to label %_Z7deallocIN9subpaving7contextEEvPT_.exit.i66 unwind label %lpad51
 
 _Z7deallocIN9subpaving7contextEEvPT_.exit.i66:    ; preds = %if.end.i.i64, %if.then.i62
@@ -2092,33 +2088,32 @@ _Z7deallocIN9subpaving7contextEEvPT_.exit.i66:    ; preds = %if.end.i.i64, %if.t
   br label %sw.epilog
 
 lpad51:                                           ; preds = %if.end.i.i64, %sw.bb46
-  %22 = landingpad { ptr, i32 }
+  %19 = landingpad { ptr, i32 }
           cleanup
   br label %eh.resume
 
 sw.bb57:                                          ; preds = %if.then16
-  %23 = load ptr, ptr %this, align 8
   %m_fxm = getelementptr inbounds %"struct.subpaving_tactic::imp", ptr %this, i64 0, i32 7
   %m_qm60 = getelementptr inbounds %"struct.subpaving_tactic::imp", ptr %this, i64 0, i32 1
   store ptr null, ptr %ref.tmp61, align 8
-  %call64 = invoke noundef ptr @_ZN9subpaving15mk_mpfx_contextER8reslimitR12mpfx_managerR11mpq_managerILb0EERK10params_refP22small_object_allocator(ptr noundef nonnull align 8 dereferenceable(40) %23, ptr noundef nonnull align 8 dereferenceable(85) %m_fxm, ptr noundef nonnull align 8 dereferenceable(728) %m_qm60, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp61, ptr noundef null)
+  %call64 = invoke noundef ptr @_ZN9subpaving15mk_mpfx_contextER8reslimitR12mpfx_managerR11mpq_managerILb0EERK10params_refP22small_object_allocator(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull align 8 dereferenceable(85) %m_fxm, ptr noundef nonnull align 8 dereferenceable(728) %m_qm60, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp61, ptr noundef null)
           to label %invoke.cont63 unwind label %lpad62
 
 invoke.cont63:                                    ; preds = %sw.bb57
   %m_ctx65 = getelementptr inbounds %"struct.subpaving_tactic::imp", ptr %this, i64 0, i32 11
-  %24 = load ptr, ptr %m_ctx65, align 8
-  %cmp.not.i69 = icmp eq ptr %24, %call64
+  %20 = load ptr, ptr %m_ctx65, align 8
+  %cmp.not.i69 = icmp eq ptr %20, %call64
   br i1 %cmp.not.i69, label %sw.epilog, label %if.then.i70
 
 if.then.i70:                                      ; preds = %invoke.cont63
-  %cmp.i.i71 = icmp eq ptr %24, null
+  %cmp.i.i71 = icmp eq ptr %20, null
   br i1 %cmp.i.i71, label %_Z7deallocIN9subpaving7contextEEvPT_.exit.i74, label %if.end.i.i72
 
 if.end.i.i72:                                     ; preds = %if.then.i70
-  %vtable.i.i73 = load ptr, ptr %24, align 8
-  %25 = load ptr, ptr %vtable.i.i73, align 8
-  call void %25(ptr noundef nonnull align 8 dereferenceable(8) %24) #14
-  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %24)
+  %vtable.i.i73 = load ptr, ptr %20, align 8
+  %21 = load ptr, ptr %vtable.i.i73, align 8
+  call void %21(ptr noundef nonnull align 8 dereferenceable(8) %20) #14
+  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %20)
           to label %_Z7deallocIN9subpaving7contextEEvPT_.exit.i74 unwind label %lpad62
 
 _Z7deallocIN9subpaving7contextEEvPT_.exit.i74:    ; preds = %if.end.i.i72, %if.then.i70
@@ -2126,36 +2121,34 @@ _Z7deallocIN9subpaving7contextEEvPT_.exit.i74:    ; preds = %if.end.i.i72, %if.t
   br label %sw.epilog
 
 lpad62:                                           ; preds = %if.end.i.i72, %sw.bb57
-  %26 = landingpad { ptr, i32 }
+  %22 = landingpad { ptr, i32 }
           cleanup
   br label %eh.resume
 
-sw.default:                                       ; preds = %if.then16
-  call void @_Z26notify_assertion_violationPKciS0_(ptr noundef nonnull @.str.17, i32 noundef 112, ptr noundef nonnull @.str.18)
-  call void @exit(i32 noundef 114) #15
+default.unreachable91:                            ; preds = %if.then16
   unreachable
 
 sw.epilog:                                        ; preds = %invoke.cont63, %_Z7deallocIN9subpaving7contextEEvPT_.exit.i74, %invoke.cont52, %_Z7deallocIN9subpaving7contextEEvPT_.exit.i66, %invoke.cont41, %_Z7deallocIN9subpaving7contextEEvPT_.exit.i58, %invoke.cont30, %_Z7deallocIN9subpaving7contextEEvPT_.exit.i50, %invoke.cont, %_Z7deallocIN9subpaving7contextEEvPT_.exit.i
   %ref.tmp61.sink = phi ptr [ %ref.tmp21, %_Z7deallocIN9subpaving7contextEEvPT_.exit.i ], [ %ref.tmp21, %invoke.cont ], [ %ref.tmp28, %_Z7deallocIN9subpaving7contextEEvPT_.exit.i50 ], [ %ref.tmp28, %invoke.cont30 ], [ %ref.tmp39, %_Z7deallocIN9subpaving7contextEEvPT_.exit.i58 ], [ %ref.tmp39, %invoke.cont41 ], [ %ref.tmp50, %_Z7deallocIN9subpaving7contextEEvPT_.exit.i66 ], [ %ref.tmp50, %invoke.cont52 ], [ %ref.tmp61, %_Z7deallocIN9subpaving7contextEEvPT_.exit.i74 ], [ %ref.tmp61, %invoke.cont63 ]
   call void @_ZN10params_refD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp61.sink) #14
   %call68 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 8)
-  %27 = load ptr, ptr %this, align 8
+  %23 = load ptr, ptr %this, align 8
   %m_ctx69 = getelementptr inbounds %"struct.subpaving_tactic::imp", ptr %this, i64 0, i32 11
-  %28 = load ptr, ptr %m_ctx69, align 8
+  %24 = load ptr, ptr %m_ctx69, align 8
   %m_e2v = getelementptr inbounds %"struct.subpaving_tactic::imp", ptr %this, i64 0, i32 13
-  call void @_ZN14expr2subpavingC1ER11ast_managerRN9subpaving7contextEP8expr2var(ptr noundef nonnull align 8 dereferenceable(8) %call68, ptr noundef nonnull align 8 dereferenceable(976) %27, ptr noundef nonnull align 8 dereferenceable(8) %28, ptr noundef nonnull %m_e2v)
+  call void @_ZN14expr2subpavingC1ER11ast_managerRN9subpaving7contextEP8expr2var(ptr noundef nonnull align 8 dereferenceable(8) %call68, ptr noundef nonnull align 8 dereferenceable(976) %23, ptr noundef nonnull align 8 dereferenceable(8) %24, ptr noundef nonnull %m_e2v)
   %m_e2s = getelementptr inbounds %"struct.subpaving_tactic::imp", ptr %this, i64 0, i32 14
-  %29 = load ptr, ptr %m_e2s, align 8
-  %cmp.not.i77 = icmp eq ptr %29, %call68
+  %25 = load ptr, ptr %m_e2s, align 8
+  %cmp.not.i77 = icmp eq ptr %25, %call68
   br i1 %cmp.not.i77, label %if.end72, label %if.then.i78
 
 if.then.i78:                                      ; preds = %sw.epilog
-  %cmp.i.i79 = icmp eq ptr %29, null
+  %cmp.i.i79 = icmp eq ptr %25, null
   br i1 %cmp.i.i79, label %_Z7deallocI14expr2subpavingEvPT_.exit.i, label %if.end.i.i80
 
 if.end.i.i80:                                     ; preds = %if.then.i78
-  call void @_ZN14expr2subpavingD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %29) #14
-  call void @_ZN6memory10deallocateEPv(ptr noundef nonnull %29)
+  call void @_ZN14expr2subpavingD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %25) #14
+  call void @_ZN6memory10deallocateEPv(ptr noundef nonnull %25)
   br label %_Z7deallocI14expr2subpavingEvPT_.exit.i
 
 _Z7deallocI14expr2subpavingEvPT_.exit.i:          ; preds = %if.end.i.i80, %if.then.i78
@@ -2164,17 +2157,17 @@ _Z7deallocI14expr2subpavingEvPT_.exit.i:          ; preds = %if.end.i.i80, %if.t
 
 if.end72:                                         ; preds = %_Z7deallocI14expr2subpavingEvPT_.exit.i, %sw.epilog, %if.end15
   %m_ctx73 = getelementptr inbounds %"struct.subpaving_tactic::imp", ptr %this, i64 0, i32 11
-  %30 = load ptr, ptr %m_ctx73, align 8
-  %vtable = load ptr, ptr %30, align 8
+  %26 = load ptr, ptr %m_ctx73, align 8
+  %vtable = load ptr, ptr %26, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 14
-  %31 = load ptr, ptr %vfn, align 8
-  call void %31(ptr noundef nonnull align 8 dereferenceable(8) %30, ptr noundef nonnull align 8 dereferenceable(8) %p)
+  %27 = load ptr, ptr %vfn, align 8
+  call void %27(ptr noundef nonnull align 8 dereferenceable(8) %26, ptr noundef nonnull align 8 dereferenceable(8) %p)
   ret void
 
 eh.resume:                                        ; preds = %lpad62, %lpad51, %lpad40, %lpad29, %lpad
-  %ref.tmp61.sink102 = phi ptr [ %ref.tmp61, %lpad62 ], [ %ref.tmp50, %lpad51 ], [ %ref.tmp39, %lpad40 ], [ %ref.tmp28, %lpad29 ], [ %ref.tmp21, %lpad ]
-  %.pn = phi { ptr, i32 } [ %26, %lpad62 ], [ %22, %lpad51 ], [ %18, %lpad40 ], [ %14, %lpad29 ], [ %10, %lpad ]
-  call void @_ZN10params_refD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp61.sink102) #14
+  %ref.tmp61.sink103 = phi ptr [ %ref.tmp61, %lpad62 ], [ %ref.tmp50, %lpad51 ], [ %ref.tmp39, %lpad40 ], [ %ref.tmp28, %lpad29 ], [ %ref.tmp21, %lpad ]
+  %.pn = phi { ptr, i32 } [ %22, %lpad62 ], [ %19, %lpad51 ], [ %16, %lpad40 ], [ %13, %lpad29 ], [ %10, %lpad ]
+  call void @_ZN10params_refD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp61.sink103) #14
   resume { ptr, i32 } %.pn
 }
 
@@ -3003,7 +2996,7 @@ while.body.i.i.i:                                 ; preds = %for.cond, %sw.bb.i.
   %c.0.i.i.i = phi ptr [ %2, %sw.bb.i.i.i ], [ %0, %for.cond ]
   %bf.load.i.i.i.i = load i32, ptr %c.0.i.i.i, align 8
   %bf.lshr.i.i.i.i = lshr i32 %bf.load.i.i.i.i, 30
-  switch i32 %bf.lshr.i.i.i.i, label %while.body.unreachabledefault.i.i.i [
+  switch i32 %bf.lshr.i.i.i.i, label %while.body.i.i.i.unreachabledefault [
     i32 0, label %sw.bb.i.i.i
     i32 1, label %sw.bb3.i.i.i
     i32 2, label %sw.bb5.i.i.i
@@ -3032,7 +3025,10 @@ sw.bb7.i.i.i:                                     ; preds = %while.body.i.i.i
   %8 = load i32, ptr %7, align 4
   br label %invoke.cont
 
-while.body.unreachabledefault.i.i.i:              ; preds = %while.body.i.i.i
+while.body.i.i.i.unreachabledefault:              ; preds = %while.body.i.i.i
+  unreachable
+
+default.unreachable:                              ; preds = %if.end.i.i.i
   unreachable
 
 invoke.cont:                                      ; preds = %sw.bb7.i.i.i, %sw.bb5.i.i.i, %sw.bb3.i.i.i, %for.cond
@@ -3073,7 +3069,7 @@ if.end.i.i.i:                                     ; preds = %sw.epilog.i.i.i, %c
   %c.017.i.i.i = load ptr, ptr %c.017.in.i.i.i, align 8
   %bf.load.i.i.i.i7 = load i32, ptr %c.017.i.i.i, align 8
   %bf.lshr.i.i.i.i8 = lshr i32 %bf.load.i.i.i.i7, 30
-  switch i32 %bf.lshr.i.i.i.i8, label %if.end.unreachabledefault.i.i.i [
+  switch i32 %bf.lshr.i.i.i.i8, label %default.unreachable [
     i32 0, label %sw.bb.i.i.i9
     i32 1, label %sw.bb.i.i.i9
     i32 2, label %sw.epilog.i.i.i
@@ -3096,9 +3092,6 @@ sw.bb12.i.i.i:                                    ; preds = %if.end.i.i.i
   %19 = load ptr, ptr %18, align 8
   %arrayidx14.i.i.i = getelementptr inbounds ptr, ptr %19, i64 %indvars.iv
   br label %invoke.cont2
-
-if.end.unreachabledefault.i.i.i:                  ; preds = %if.end.i.i.i
-  unreachable
 
 sw.epilog.i.i.i:                                  ; preds = %sw.bb.i.i.i9, %if.end.i.i.i
   %c.1.in.i.i.i = getelementptr inbounds %"struct.parray_manager<ast_manager::expr_array_config>::cell", ptr %c.017.i.i.i, i64 0, i32 3
@@ -3154,7 +3147,7 @@ cleanup.action:                                   ; preds = %catch
   br label %cleanup.done
 
 cleanup.done:                                     ; preds = %ehcleanup, %cleanup.action
-  %.pn12 = phi { ptr, i32 } [ %26, %cleanup.action ], [ %25, %ehcleanup ]
+  %.pn13 = phi { ptr, i32 } [ %26, %cleanup.action ], [ %25, %ehcleanup ]
   invoke void @__cxa_end_catch()
           to label %eh.resume unwind label %terminate.lpad
 
@@ -3162,7 +3155,7 @@ try.cont:                                         ; preds = %invoke.cont
   ret void
 
 eh.resume:                                        ; preds = %cleanup.done, %lpad
-  %lpad.val15.merged = phi { ptr, i32 } [ %.pn12, %cleanup.done ], [ %20, %lpad ]
+  %lpad.val15.merged = phi { ptr, i32 } [ %.pn13, %cleanup.done ], [ %20, %lpad ]
   resume { ptr, i32 } %lpad.val15.merged
 
 terminate.lpad:                                   ; preds = %cleanup.done
@@ -4082,8 +4075,8 @@ _ZN6vectorIPN14parray_managerIN11ast_manager17expr_array_configEE4cellELb0EjE5re
   br i1 %cmp.i28, label %_ZNK14parray_managerIN11ast_manager17expr_array_configEE4sizeERKNS2_3refE.exit.thread, label %while.body.i.preheader
 
 _ZNK14parray_managerIN11ast_manager17expr_array_configEE4sizeERKNS2_3refE.exit.thread: ; preds = %_ZN6vectorIPN14parray_managerIN11ast_manager17expr_array_configEE4cellELb0EjE5resetEv.exit
-  %bf.load.i86106 = load i32, ptr %.pre, align 8
-  %bf.lshr.i87107 = lshr i32 %bf.load.i86106, 30
+  %bf.load.i86107 = load i32, ptr %.pre, align 8
+  %bf.lshr.i87108 = lshr i32 %bf.load.i86107, 30
   br label %while.end
 
 while.body.i.preheader:                           ; preds = %if.end, %_ZN6vectorIPN14parray_managerIN11ast_manager17expr_array_configEE4cellELb0EjE5resetEv.exit
@@ -4094,7 +4087,7 @@ while.body.i:                                     ; preds = %while.body.i.prehea
   %c.0.i = phi ptr [ %4, %sw.bb.i ], [ %2, %while.body.i.preheader ]
   %bf.load.i.i29 = load i32, ptr %c.0.i, align 8
   %bf.lshr.i.i = lshr i32 %bf.load.i.i29, 30
-  switch i32 %bf.lshr.i.i, label %while.body.unreachabledefault.i [
+  switch i32 %bf.lshr.i.i, label %while.body.i.unreachabledefault [
     i32 0, label %sw.bb.i
     i32 1, label %sw.bb3.i
     i32 2, label %sw.bb5.i
@@ -4123,7 +4116,10 @@ sw.bb7.i:                                         ; preds = %while.body.i
   %10 = load i32, ptr %9, align 4
   br label %_ZNK14parray_managerIN11ast_manager17expr_array_configEE4sizeERKNS2_3refE.exit
 
-while.body.unreachabledefault.i:                  ; preds = %while.body.i
+while.body.i.unreachabledefault:                  ; preds = %while.body.i
+  unreachable
+
+default.unreachable103:                           ; preds = %for.body
   unreachable
 
 _ZNK14parray_managerIN11ast_manager17expr_array_configEE4sizeERKNS2_3refE.exit: ; preds = %sw.bb3.i, %sw.bb5.i, %sw.bb7.i
@@ -4181,7 +4177,7 @@ _ZN6vectorIPN14parray_managerIN11ast_manager17expr_array_configEE4cellELb0EjE9pu
 
 while.end:                                        ; preds = %_ZN6vectorIPN14parray_managerIN11ast_manager17expr_array_configEE4cellELb0EjE9push_backERKS5_.exit, %_ZNK14parray_managerIN11ast_manager17expr_array_configEE4sizeERKNS2_3refE.exit.thread, %_ZNK14parray_managerIN11ast_manager17expr_array_configEE4sizeERKNS2_3refE.exit
   %c.0.lcssa = phi ptr [ %2, %_ZNK14parray_managerIN11ast_manager17expr_array_configEE4sizeERKNS2_3refE.exit ], [ null, %_ZNK14parray_managerIN11ast_manager17expr_array_configEE4sizeERKNS2_3refE.exit.thread ], [ %20, %_ZN6vectorIPN14parray_managerIN11ast_manager17expr_array_configEE4cellELb0EjE9push_backERKS5_.exit ]
-  %bf.lshr.i.lcssa = phi i32 [ %bf.lshr.i87, %_ZNK14parray_managerIN11ast_manager17expr_array_configEE4sizeERKNS2_3refE.exit ], [ %bf.lshr.i87107, %_ZNK14parray_managerIN11ast_manager17expr_array_configEE4sizeERKNS2_3refE.exit.thread ], [ %bf.lshr.i, %_ZN6vectorIPN14parray_managerIN11ast_manager17expr_array_configEE4cellELb0EjE9push_backERKS5_.exit ]
+  %bf.lshr.i.lcssa = phi i32 [ %bf.lshr.i87, %_ZNK14parray_managerIN11ast_manager17expr_array_configEE4sizeERKNS2_3refE.exit ], [ %bf.lshr.i87108, %_ZNK14parray_managerIN11ast_manager17expr_array_configEE4sizeERKNS2_3refE.exit.thread ], [ %bf.lshr.i, %_ZN6vectorIPN14parray_managerIN11ast_manager17expr_array_configEE4cellELb0EjE9push_backERKS5_.exit ]
   %cmp8.not = icmp eq i32 %bf.lshr.i.lcssa, 3
   br i1 %cmp8.not, label %if.end10, label %if.then9
 
@@ -4218,7 +4214,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %31 = load ptr, ptr %30, align 8
   %bf.load = load i32, ptr %27, align 8
   %bf.lshr = lshr i32 %bf.load, 30
-  switch i32 %bf.lshr, label %for.body.unreachabledefault [
+  switch i32 %bf.lshr, label %default.unreachable103 [
     i32 0, label %sw.bb
     i32 1, label %sw.bb18
     i32 2, label %sw.bb30
@@ -4325,9 +4321,6 @@ sw.bb30:                                          ; preds = %for.body
 sw.bb38:                                          ; preds = %for.body
   tail call void @_Z26notify_assertion_violationPKciS0_(ptr noundef nonnull @.str.28, i32 noundef 587, ptr noundef nonnull @.str.18)
   tail call void @exit(i32 noundef 114) #15
-  unreachable
-
-for.body.unreachabledefault:                      ; preds = %for.body
   unreachable
 
 if.end.i52:                                       ; preds = %sw.bb, %if.end25, %sw.bb30
@@ -4660,7 +4653,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %26 = load ptr, ptr %arrayidx.i18, align 8
   %bf.load.i19 = load i32, ptr %26, align 8
   %bf.lshr.i20 = lshr i32 %bf.load.i19, 30
-  switch i32 %bf.lshr.i20, label %for.body.unreachabledefault [
+  switch i32 %bf.lshr.i20, label %default.unreachable [
     i32 0, label %sw.bb
     i32 2, label %sw.bb8
     i32 1, label %sw.bb9
@@ -4820,7 +4813,7 @@ sw.bb11:                                          ; preds = %for.body
   tail call void @exit(i32 noundef 114) #15
   unreachable
 
-for.body.unreachabledefault:                      ; preds = %for.body
+default.unreachable:                              ; preds = %for.body
   unreachable
 
 sw.epilog:                                        ; preds = %if.then2.i.i.i35, %if.then.i.i.i31, %sw.bb8, %_ZN14parray_managerIN11ast_manager17expr_array_configEE10rpush_backERPP4exprRjRKS4_.exit, %_ZN14parray_managerIN11ast_manager17expr_array_configEE4rsetEPP4exprjRKS4_.exit
@@ -4850,7 +4843,7 @@ while.body:                                       ; preds = %if.end, %entry
   %bf.load.i = phi i32 [ %bf.load.i.pre, %entry ], [ %bf.set, %if.end ]
   %c.addr.0 = phi ptr [ %c, %entry ], [ %next.0, %if.end ]
   %bf.lshr.i = lshr i32 %bf.load.i, 30
-  switch i32 %bf.lshr.i, label %while.body.unreachabledefault [
+  switch i32 %bf.lshr.i, label %default.unreachable [
     i32 0, label %sw.bb
     i32 1, label %sw.bb
     i32 2, label %sw.epilog
@@ -4931,7 +4924,7 @@ _ZN14parray_managerIN11ast_manager17expr_array_configEE8capacityEPP4expr.exit.i:
   tail call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(520) %12, i64 noundef %add.i, ptr noundef nonnull %arrayidx.i.i)
   br label %sw.epilog.thread
 
-while.body.unreachabledefault:                    ; preds = %while.body
+default.unreachable:                              ; preds = %while.body
   unreachable
 
 sw.epilog.thread:                                 ; preds = %_ZN14parray_managerIN11ast_manager17expr_array_configEE7dec_refEjPP4expr.exit, %_ZN14parray_managerIN11ast_manager17expr_array_configEE8capacityEPP4expr.exit.i

@@ -9557,10 +9557,10 @@ entry:
   %call9.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %call8.i, ptr noundef nonnull align 8 dereferenceable(32) %newline.i)
   %indent.i1.i = getelementptr inbounds %"class.Assimp::JSONWriter", ptr %out, i64 0, i32 1
   %call.i2.i = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc(ptr noundef nonnull align 8 dereferenceable(32) %indent.i1.i, i8 noundef signext 9)
-  %flags.i.i = getelementptr inbounds %"class.Assimp::JSONWriter", ptr %out, i64 0, i32 6
+  %d1.i = getelementptr inbounds %class.aiMatrix4x4t, ptr %ai, i64 0, i32 12
   %c1.i = getelementptr inbounds %class.aiMatrix4x4t, ptr %ai, i64 0, i32 8
   %b1.i = getelementptr inbounds %class.aiMatrix4x4t, ptr %ai, i64 0, i32 4
-  %d1.i = getelementptr inbounds %class.aiMatrix4x4t, ptr %ai, i64 0, i32 12
+  %flags.i.i = getelementptr inbounds %"class.Assimp::JSONWriter", ptr %out, i64 0, i32 6
   %space.i.i = getelementptr inbounds %"class.Assimp::JSONWriter", ptr %out, i64 0, i32 3
   %buff.i = getelementptr inbounds %"class.Assimp::JSONWriter", ptr %out, i64 0, i32 4
   br label %for.cond1.preheader
@@ -9571,10 +9571,11 @@ for.cond1.preheader:                              ; preds = %entry, %for.inc4
 
 if.end.i:                                         ; preds = %for.cond1.preheader, %_ZN6Assimp10JSONWriter7ElementIfEEvRKT_.exit
   %indvars.iv = phi i64 [ 0, %for.cond1.preheader ], [ %indvars.iv.next, %_ZN6Assimp10JSONWriter7ElementIfEEvRKT_.exit ]
-  switch i32 %x.021, label %_ZNK12aiMatrix4x4tIfEixEj.exit [
-    i32 3, label %sw.bb4.i
+  switch i32 %x.021, label %default.unreachable.i [
+    i32 0, label %_ZNK12aiMatrix4x4tIfEixEj.exit
     i32 1, label %sw.bb2.i
     i32 2, label %sw.bb3.i
+    i32 3, label %sw.bb4.i
   ]
 
 sw.bb2.i:                                         ; preds = %if.end.i
@@ -9585,6 +9586,9 @@ sw.bb3.i:                                         ; preds = %if.end.i
 
 sw.bb4.i:                                         ; preds = %if.end.i
   br label %_ZNK12aiMatrix4x4tIfEixEj.exit
+
+default.unreachable.i:                            ; preds = %if.end.i
+  unreachable
 
 _ZNK12aiMatrix4x4tIfEixEj.exit:                   ; preds = %if.end.i, %sw.bb2.i, %sw.bb3.i, %sw.bb4.i
   %retval.0.i = phi ptr [ %d1.i, %sw.bb4.i ], [ %c1.i, %sw.bb3.i ], [ %b1.i, %sw.bb2.i ], [ %ai, %if.end.i ]

@@ -44,7 +44,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.22 = private unnamed_addr constant [14 x i8] c"%d.%d.%d.%d%n\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define i32 @X509V3_add_value(ptr noundef %name, ptr noundef %value, ptr nocapture noundef %extlist) local_unnamed_addr #0 {
+define noundef i32 @X509V3_add_value(ptr noundef %name, ptr noundef %value, ptr nocapture noundef %extlist) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq ptr %value, null
   br i1 %cmp.not, label %entry.split, label %cond.true.split
@@ -64,7 +64,7 @@ cond.end:                                         ; preds = %entry.split, %cond.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @x509v3_add_len_value(ptr noundef %name, ptr noundef %value, i64 noundef %vallen, ptr nocapture noundef %extlist) unnamed_addr #0 {
+define internal fastcc noundef i32 @x509v3_add_len_value(ptr noundef %name, ptr noundef %value, i64 noundef %vallen, ptr nocapture noundef %extlist) unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %extlist, align 8
   %cmp = icmp eq ptr %0, null
@@ -160,7 +160,7 @@ return:                                           ; preds = %if.end29, %if.end41
 declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @X509V3_add_value_uchar(ptr noundef %name, ptr noundef %value, ptr nocapture noundef %extlist) local_unnamed_addr #0 {
+define noundef i32 @X509V3_add_value_uchar(ptr noundef %name, ptr noundef %value, ptr nocapture noundef %extlist) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq ptr %value, null
   br i1 %cmp.not, label %entry.split, label %cond.true.split
@@ -180,7 +180,7 @@ cond.end:                                         ; preds = %entry.split, %cond.
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @x509v3_add_len_value_uchar(ptr noundef %name, ptr noundef %value, i64 noundef %vallen, ptr nocapture noundef %extlist) local_unnamed_addr #0 {
+define noundef i32 @x509v3_add_len_value_uchar(ptr noundef %name, ptr noundef %value, i64 noundef %vallen, ptr nocapture noundef %extlist) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc i32 @x509v3_add_len_value(ptr noundef %name, ptr noundef %value, i64 noundef %vallen, ptr noundef %extlist), !range !4
   ret i32 %call
@@ -211,7 +211,7 @@ return:                                           ; preds = %entry, %if.end
 declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @X509V3_add_value_bool(ptr noundef %name, i32 noundef %asn1_bool, ptr nocapture noundef %extlist) local_unnamed_addr #0 {
+define noundef i32 @X509V3_add_value_bool(ptr noundef %name, i32 noundef %asn1_bool, ptr nocapture noundef %extlist) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq i32 %asn1_bool, 0
   br i1 %tobool.not, label %if.end, label %if.then
@@ -230,7 +230,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @X509V3_add_value_bool_nf(ptr noundef %name, i32 noundef %asn1_bool, ptr nocapture noundef %extlist) local_unnamed_addr #0 {
+define noundef i32 @X509V3_add_value_bool_nf(ptr noundef %name, i32 noundef %asn1_bool, ptr nocapture noundef %extlist) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq i32 %asn1_bool, 0
   br i1 %tobool.not, label %return, label %if.then
@@ -498,7 +498,7 @@ declare i32 @BN_is_zero(ptr noundef) local_unnamed_addr #2
 declare ptr @BN_to_ASN1_INTEGER(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @X509V3_add_value_int(ptr noundef %name, ptr noundef %aint, ptr nocapture noundef %extlist) local_unnamed_addr #0 {
+define noundef i32 @X509V3_add_value_int(ptr noundef %name, ptr noundef %aint, ptr nocapture noundef %extlist) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %aint, null
   br i1 %tobool.not, label %return, label %if.end.i
@@ -535,7 +535,7 @@ return:                                           ; preds = %i2s_ASN1_INTEGER.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @X509V3_get_value_bool(ptr nocapture noundef readonly %value, ptr nocapture noundef writeonly %asn1_bool) local_unnamed_addr #0 {
+define noundef i32 @X509V3_get_value_bool(ptr nocapture noundef readonly %value, ptr nocapture noundef writeonly %asn1_bool) local_unnamed_addr #0 {
 entry:
   %value1 = getelementptr inbounds %struct.CONF_VALUE, ptr %value, i64 0, i32 2
   %0 = load ptr, ptr %value1, align 8
@@ -631,7 +631,7 @@ declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_
 declare void @ERR_add_error_data(i32 noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @X509V3_get_value_int(ptr nocapture noundef readonly %value, ptr nocapture noundef writeonly %aint) local_unnamed_addr #0 {
+define noundef i32 @X509V3_get_value_int(ptr nocapture noundef readonly %value, ptr nocapture noundef writeonly %aint) local_unnamed_addr #0 {
 entry:
   %value1 = getelementptr inbounds %struct.CONF_VALUE, ptr %value, i64 0, i32 2
   %0 = load ptr, ptr %value1, align 8
@@ -677,10 +677,8 @@ for.cond:                                         ; preds = %entry, %for.inc
   ]
 
 for.body:                                         ; preds = %for.cond
-  switch i32 %state.0, label %for.inc [
-    i32 1, label %sw.bb
-    i32 2, label %sw.bb30
-  ]
+  %switch = icmp eq i32 %state.0, 1
+  br i1 %switch, label %sw.bb, label %sw.bb30
 
 sw.bb:                                            ; preds = %for.body
   switch i8 %0, label %for.inc [
@@ -868,10 +866,10 @@ if.end42:                                         ; preds = %X509V3_add_value.ex
   %add.ptr43 = getelementptr inbounds i8, ptr %p.0, i64 1
   br label %for.inc
 
-for.inc:                                          ; preds = %sw.bb, %for.body, %if.end23, %if.end14, %if.end42, %sw.bb30
-  %q.1 = phi ptr [ %q.0, %for.body ], [ %add.ptr43, %if.end42 ], [ %q.0, %sw.bb30 ], [ %add.ptr, %if.end14 ], [ %add.ptr20, %if.end23 ], [ %q.0, %sw.bb ]
-  %ntmp.1 = phi ptr [ %ntmp.0, %for.body ], [ null, %if.end42 ], [ %ntmp.0, %sw.bb30 ], [ %p.018.i, %if.end14 ], [ %p.018.i33, %if.end23 ], [ %ntmp.0, %sw.bb ]
-  %state.1 = phi i32 [ %state.0, %for.body ], [ 1, %if.end42 ], [ 2, %sw.bb30 ], [ 2, %if.end14 ], [ 1, %if.end23 ], [ 1, %sw.bb ]
+for.inc:                                          ; preds = %sw.bb, %if.end23, %if.end14, %if.end42, %sw.bb30
+  %q.1 = phi ptr [ %add.ptr43, %if.end42 ], [ %q.0, %sw.bb30 ], [ %add.ptr, %if.end14 ], [ %add.ptr20, %if.end23 ], [ %q.0, %sw.bb ]
+  %ntmp.1 = phi ptr [ null, %if.end42 ], [ %ntmp.0, %sw.bb30 ], [ %p.018.i, %if.end14 ], [ %p.018.i33, %if.end23 ], [ %ntmp.0, %sw.bb ]
+  %state.1 = phi i32 [ 1, %if.end42 ], [ 2, %sw.bb30 ], [ 2, %if.end14 ], [ 1, %if.end23 ], [ 1, %sw.bb ]
   %incdec.ptr = getelementptr inbounds i8, ptr %p.0, i64 1
   br label %for.cond, !llvm.loop !8
 
@@ -1178,7 +1176,7 @@ declare ptr @OPENSSL_sk_value(ptr noundef, i32 noundef) local_unnamed_addr #2
 declare i32 @OBJ_obj2nid(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @append_ia5(ptr nocapture noundef %sk, ptr nocapture noundef readonly %email) unnamed_addr #0 {
+define internal fastcc noundef i32 @append_ia5(ptr nocapture noundef %sk, ptr nocapture noundef readonly %email) unnamed_addr #0 {
 entry:
   %type = getelementptr inbounds %struct.asn1_string_st, ptr %email, i64 0, i32 1
   %0 = load i32, ptr %type, align 4
@@ -1737,7 +1735,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_a2i_ipadd(ptr nocapture noundef writeonly %ipout, ptr noundef %ipasc) local_unnamed_addr #0 {
+define noundef i32 @ossl_a2i_ipadd(ptr nocapture noundef writeonly %ipout, ptr noundef %ipasc) local_unnamed_addr #0 {
 entry:
   %v6stat.i = alloca %struct.IPV6_STAT, align 4
   %call = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %ipasc, i32 noundef 58) #12
@@ -1996,7 +1994,7 @@ return:                                           ; preds = %if.end18, %if.end, 
 declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ipv4_from_asc(ptr nocapture noundef writeonly %v4, ptr nocapture noundef readonly %in) unnamed_addr #0 {
+define internal fastcc noundef i32 @ipv4_from_asc(ptr nocapture noundef writeonly %v4, ptr nocapture noundef readonly %in) unnamed_addr #0 {
 entry:
   %a0 = alloca i32, align 4
   %a1 = alloca i32, align 4
@@ -2072,7 +2070,7 @@ return:                                           ; preds = %lor.lhs.false19, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @X509V3_NAME_from_section(ptr noundef %nm, ptr noundef %dn_sk, i64 noundef %chtype) local_unnamed_addr #0 {
+define noundef i32 @X509V3_NAME_from_section(ptr noundef %nm, ptr noundef %dn_sk, i64 noundef %chtype) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %nm, null
   br i1 %tobool.not, label %return, label %for.cond.preheader
@@ -2267,7 +2265,7 @@ return:                                           ; preds = %if.then10.i, %while
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal i32 @equal_nocase(ptr nocapture noundef readonly %pattern, i64 noundef %pattern_len, ptr nocapture noundef readonly %subject, i64 noundef %subject_len, i32 noundef %flags) #6 {
+define internal noundef i32 @equal_nocase(ptr nocapture noundef readonly %pattern, i64 noundef %pattern_len, ptr nocapture noundef readonly %subject, i64 noundef %subject_len, i32 noundef %flags) #6 {
 entry:
   %and.i = and i32 %flags, 32768
   %cmp.i = icmp eq i32 %and.i, 0
@@ -2369,7 +2367,7 @@ return:                                           ; preds = %while.body, %if.the
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @equal_wildcard(ptr noundef %pattern, i64 noundef %pattern_len, ptr noundef %subject, i64 noundef %subject_len, i32 noundef %flags) #0 {
+define internal noundef i32 @equal_wildcard(ptr noundef %pattern, i64 noundef %pattern_len, ptr noundef %subject, i64 noundef %subject_len, i32 noundef %flags) #0 {
 entry:
   %cmp = icmp ugt i64 %subject_len, 1
   br i1 %cmp, label %land.lhs.true, label %if.then
@@ -2942,7 +2940,7 @@ declare noundef i32 @__isoc99_sscanf(ptr nocapture noundef readonly, ptr nocaptu
 declare i32 @CONF_parse_list(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ipv6_cb(ptr nocapture noundef readonly %elem, i32 noundef %len, ptr nocapture noundef %usr) #0 {
+define internal noundef i32 @ipv6_cb(ptr nocapture noundef readonly %elem, i32 noundef %len, ptr nocapture noundef %usr) #0 {
 entry:
   %total = getelementptr inbounds %struct.IPV6_STAT, ptr %usr, i64 0, i32 1
   %0 = load i32, ptr %total, align 4

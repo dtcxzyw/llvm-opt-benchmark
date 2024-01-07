@@ -523,7 +523,7 @@ declare void @timer_mod_ns(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare void @timer_del(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @get_timer(ptr noundef %f, ptr noundef %pv, i64 %size, ptr nocapture readnone %field) #0 {
+define internal noundef i32 @get_timer(ptr noundef %f, ptr noundef %pv, i64 %size, ptr nocapture readnone %field) #0 {
 entry:
   %call.i = tail call i64 @qemu_get_be64(ptr noundef %f) #16
   %cmp.not.i = icmp eq i64 %call.i, -1
@@ -542,7 +542,7 @@ timer_get.exit:                                   ; preds = %if.then.i, %if.else
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @put_timer(ptr noundef %f, ptr noundef %pv, i64 %size, ptr nocapture readnone %field, ptr nocapture readnone %vmdesc) #0 {
+define internal noundef i32 @put_timer(ptr noundef %f, ptr noundef %pv, i64 %size, ptr nocapture readnone %field, ptr nocapture readnone %vmdesc) #0 {
 entry:
   %call.i = tail call i64 @timer_expire_time_ns(ptr noundef %pv) #16
   tail call void @qemu_put_be64(ptr noundef %f, i64 noundef %call.i) #16
@@ -804,7 +804,7 @@ declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #2
 declare void @g_slist_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @register_savevm_live(ptr noundef %idstr, i32 noundef %instance_id, i32 noundef %version_id, ptr noundef %ops, ptr noundef %opaque) local_unnamed_addr #0 {
+define dso_local noundef i32 @register_savevm_live(ptr noundef %idstr, i32 noundef %instance_id, i32 noundef %version_id, ptr noundef %ops, ptr noundef %opaque) local_unnamed_addr #0 {
 entry:
   %call = tail call noalias dereferenceable_or_null(336) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 336) #18
   %version_id1 = getelementptr inbounds %struct.SaveStateEntry, ptr %call, i64 0, i32 4
@@ -1180,7 +1180,7 @@ declare void @g_free(ptr noundef) local_unnamed_addr #1
 declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @vmstate_replace_hack_for_ppc(ptr noundef %obj, i32 noundef %instance_id, ptr noundef %vmsd, ptr noundef %opaque) local_unnamed_addr #0 {
+define dso_local noundef i32 @vmstate_replace_hack_for_ppc(ptr noundef %obj, i32 noundef %instance_id, ptr noundef %vmsd, ptr noundef %opaque) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %vmsd, align 8
   %se.017.i = load ptr, ptr @savevm_state, align 8
@@ -1301,12 +1301,12 @@ savevm_state_handler_remove.exit:                 ; preds = %save_state_priority
   br label %if.end
 
 if.end:                                           ; preds = %for.inc.i, %entry, %savevm_state_handler_remove.exit
-  %call.i7 = tail call i32 @vmstate_register_with_alias_id(ptr noundef %obj, i32 noundef %instance_id, ptr noundef nonnull %vmsd, ptr noundef %opaque, i32 noundef -1, i32 noundef 0, ptr noundef null), !range !13
+  %call.i7 = tail call noundef i32 @vmstate_register_with_alias_id(ptr noundef %obj, i32 noundef %instance_id, ptr noundef nonnull %vmsd, ptr noundef %opaque, i32 noundef -1, i32 noundef 0, ptr noundef null), !range !13
   ret i32 %call.i7
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @vmstate_register_with_alias_id(ptr noundef %obj, i32 noundef %instance_id, ptr noundef %vmsd, ptr noundef %opaque, i32 noundef %alias_id, i32 noundef %required_for_version, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef i32 @vmstate_register_with_alias_id(ptr noundef %obj, i32 noundef %instance_id, ptr noundef %vmsd, ptr noundef %opaque, i32 noundef %alias_id, i32 noundef %required_for_version, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq i32 %alias_id, -1
   br i1 %cmp, label %if.end, label %lor.lhs.false
@@ -1812,7 +1812,7 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 
 trace_savevm_send_ping.exit:                      ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %7 = tail call i32 @llvm.bswap.i32(i32 %value)
+  %7 = tail call noundef i32 @llvm.bswap.i32(i32 %value)
   store i32 %7, ptr %buf, align 4
   call fastcc void @qemu_savevm_command_send(ptr noundef %f, i32 noundef 2, i16 noundef zeroext 4, ptr noundef nonnull %buf)
   ret void
@@ -1862,7 +1862,7 @@ trace_savevm_send_open_return_path.exit:          ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qemu_savevm_send_packaged(ptr noundef %f, ptr noundef %buf, i64 noundef %len) local_unnamed_addr #0 {
+define dso_local noundef i32 @qemu_savevm_send_packaged(ptr noundef %f, ptr noundef %buf, i64 noundef %len) local_unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %tmp = alloca i32, align 4
@@ -1882,7 +1882,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %conv = trunc i64 %len to i32
-  %2 = tail call i32 @llvm.bswap.i32(i32 %conv)
+  %2 = tail call noundef i32 @llvm.bswap.i32(i32 %conv)
   store i32 %2, ptr %tmp, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %3 = load i32, ptr @trace_events_enabled_count, align 4
@@ -1946,10 +1946,10 @@ entry:
 
 if.then:                                          ; preds = %entry
   %call1 = tail call i64 @ram_pagesize_summary() #16
-  %0 = tail call i64 @llvm.bswap.i64(i64 %call1)
+  %0 = tail call noundef i64 @llvm.bswap.i64(i64 %call1)
   store i64 %0, ptr %tmp, align 16
   %call3 = tail call i64 @qemu_target_page_size() #16
-  %1 = tail call i64 @llvm.bswap.i64(i64 %call3)
+  %1 = tail call noundef i64 @llvm.bswap.i64(i64 %call3)
   %arrayidx5 = getelementptr inbounds [2 x i64], ptr %tmp, i64 0, i64 1
   store i64 %1, ptr %arrayidx5, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
@@ -2291,7 +2291,7 @@ trace_savevm_send_recv_bitmap.exit:               ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @qemu_savevm_state_blocked(ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @qemu_savevm_state_blocked(ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %se.08 = load ptr, ptr @savevm_state, align 8
   %tobool.not9.not = icmp eq ptr %se.08, null
@@ -2452,7 +2452,7 @@ declare i32 @vmstate_save_state(ptr noundef, ptr noundef, ptr noundef, ptr nound
 declare void @json_writer_end_object(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @qemu_savevm_state_guest_unplug_pending() local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @qemu_savevm_state_guest_unplug_pending() local_unnamed_addr #0 {
 entry:
   %se.07 = load ptr, ptr @savevm_state, align 8
   %tobool.not8.not = icmp eq ptr %se.07, null
@@ -4417,16 +4417,16 @@ entry:
 
 retry:                                            ; preds = %postcopy_pause_incoming.exit, %entry
   %f.addr.0 = phi ptr [ %f, %entry ], [ %214, %postcopy_pause_incoming.exit ]
-  %call429 = call i32 @qemu_get_byte(ptr noundef %f.addr.0) #16
+  %call431 = call i32 @qemu_get_byte(ptr noundef %f.addr.0) #16
   %0 = load ptr, ptr %postcopy_qemufile_dst, align 8
-  %call1431 = call i32 @qemu_file_get_error_obj_any(ptr noundef %f.addr.0, ptr noundef %0, ptr noundef null) #16
-  %tobool.not432 = icmp eq i32 %call1431, 0
-  br i1 %tobool.not432, label %if.end, label %out
+  %call1433 = call i32 @qemu_file_get_error_obj_any(ptr noundef %f.addr.0, ptr noundef %0, ptr noundef null) #16
+  %tobool.not434 = icmp eq i32 %call1433, 0
+  br i1 %tobool.not434, label %if.end, label %out
 
 if.end:                                           ; preds = %retry, %sw.epilog
-  %call433 = phi i32 [ %call, %sw.epilog ], [ %call429, %retry ]
-  %conv434 = trunc i32 %call433 to i8
-  %conv2 = and i32 %call433, 255
+  %call435 = phi i32 [ %call, %sw.epilog ], [ %call431, %retry ]
+  %conv436 = trunc i32 %call435 to i8
+  %conv2 = and i32 %call435, 255
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %1 = load i32, ptr @trace_events_enabled_count, align 4
   %tobool.i.i = icmp ne i32 %1, 0
@@ -4461,7 +4461,7 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 
 trace_qemu_loadvm_state_section.exit:             ; preds = %if.end, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  switch i8 %conv434, label %sw.default [
+  switch i8 %conv436, label %sw.default [
     i8 1, label %sw.bb
     i8 4, label %sw.bb
     i8 2, label %sw.bb8
@@ -4472,7 +4472,7 @@ trace_qemu_loadvm_state_section.exit:             ; preds = %if.end, %land.lhs.t
 
 sw.bb:                                            ; preds = %trace_qemu_loadvm_state_section.exit, %trace_qemu_loadvm_state_section.exit
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %idstr.i)
-  %cmp.i = icmp eq i8 %conv434, 4
+  %cmp.i = icmp eq i8 %conv436, 4
   %call.i = call i32 @qemu_get_be32(ptr noundef %f.addr.0) #16
   %call2.i = call i64 @qemu_get_counted_string(ptr noundef %f.addr.0, ptr noundef nonnull %idstr.i) #16
   %tobool.not.i = icmp eq i64 %call2.i, 0
@@ -4696,7 +4696,7 @@ qemu_loadvm_section_start_full.exit:              ; preds = %if.end.i
   br i1 %cmp, label %if.then26, label %sw.epilog
 
 sw.bb8:                                           ; preds = %trace_qemu_loadvm_state_section.exit, %trace_qemu_loadvm_state_section.exit
-  %cmp.i23 = icmp eq i8 %conv434, 3
+  %cmp.i23 = icmp eq i8 %conv436, 3
   %call.i24 = call i32 @qemu_get_be32(ptr noundef %f.addr.0) #16
   %call2.i25 = call i32 @qemu_file_get_error(ptr noundef %f.addr.0) #16
   %tobool.not.i26 = icmp eq i32 %call2.i25, 0
@@ -4906,7 +4906,7 @@ if.then26.i:                                      ; preds = %trace_loadvm_proces
   br label %loadvm_process_command.exit
 
 if.end34.i:                                       ; preds = %trace_loadvm_process_command.exit
-  switch i32 %conv6.i, label %loadvm_process_command.exit [
+  switch i32 %conv6.i, label %default.unreachable.i [
     i32 1, label %sw.bb.i
     i32 2, label %sw.bb56.i
     i32 7, label %sw.bb62.i
@@ -5823,8 +5823,11 @@ if.then3.i:                                       ; preds = %if.then.i118
   call void @migration_incoming_disable_colo() #16
   br label %loadvm_process_command.exit
 
-loadvm_process_command.exit:                      ; preds = %if.then3.i, %if.then.i118, %sw.bb76.i, %if.end4.i155, %trace_loadvm_postcopy_handle_resume.exit.i, %if.then.i147, %if.end.i198, %if.then.i196, %trace_loadvm_handle_cmd_packaged_main.exit.i, %if.then11.i287, %if.then.i56, %if.then11.i62, %if.then26.i, %if.end34.i, %if.then37.i60, %if.then43.i, %if.end44.i, %land.lhs.true47.i, %if.then49.i, %if.then52.i, %if.then60.i, %if.end61.i, %loadvm_postcopy_handle_advise.exit, %loadvm_postcopy_handle_listen.exit, %loadvm_postcopy_ram_handle_discard.exit, %loadvm_handle_recv_bitmap.exit
-  %retval.0.i58 = phi i32 [ %call5.i57, %if.then.i56 ], [ -22, %if.then11.i62 ], [ -34, %if.then26.i ], [ %retval.0.i128, %loadvm_handle_recv_bitmap.exit ], [ %retval.0.i173, %loadvm_postcopy_ram_handle_discard.exit ], [ %retval.0.i220, %loadvm_postcopy_handle_listen.exit ], [ %retval.0.i248, %loadvm_postcopy_handle_advise.exit ], [ -1, %if.then60.i ], [ 0, %if.then37.i60 ], [ %call50.i, %if.then52.i ], [ -1, %if.then43.i ], [ 0, %if.end44.i ], [ 0, %land.lhs.true47.i ], [ 0, %if.then49.i ], [ 0, %if.end61.i ], [ 0, %if.end34.i ], [ %cond.i288, %if.then11.i287 ], [ %call17.i296, %trace_loadvm_handle_cmd_packaged_main.exit.i ], [ -1, %if.then.i196 ], [ 1, %if.end.i198 ], [ 0, %if.then.i147 ], [ 0, %trace_loadvm_postcopy_handle_resume.exit.i ], [ 0, %if.end4.i155 ], [ %call.i115, %sw.bb76.i ], [ %call1.i119, %if.then3.i ], [ 0, %if.then.i118 ]
+default.unreachable.i:                            ; preds = %if.end34.i
+  unreachable
+
+loadvm_process_command.exit:                      ; preds = %if.then3.i, %if.then.i118, %sw.bb76.i, %if.end4.i155, %trace_loadvm_postcopy_handle_resume.exit.i, %if.then.i147, %if.end.i198, %if.then.i196, %trace_loadvm_handle_cmd_packaged_main.exit.i, %if.then11.i287, %if.then.i56, %if.then11.i62, %if.then26.i, %if.then37.i60, %if.then43.i, %if.end44.i, %land.lhs.true47.i, %if.then49.i, %if.then52.i, %if.then60.i, %if.end61.i, %loadvm_postcopy_handle_advise.exit, %loadvm_postcopy_handle_listen.exit, %loadvm_postcopy_ram_handle_discard.exit, %loadvm_handle_recv_bitmap.exit
+  %retval.0.i58 = phi i32 [ %call5.i57, %if.then.i56 ], [ -22, %if.then11.i62 ], [ -34, %if.then26.i ], [ %retval.0.i128, %loadvm_handle_recv_bitmap.exit ], [ %retval.0.i173, %loadvm_postcopy_ram_handle_discard.exit ], [ %retval.0.i220, %loadvm_postcopy_handle_listen.exit ], [ %retval.0.i248, %loadvm_postcopy_handle_advise.exit ], [ -1, %if.then60.i ], [ 0, %if.then37.i60 ], [ %call50.i, %if.then52.i ], [ -1, %if.then43.i ], [ 0, %if.end44.i ], [ 0, %land.lhs.true47.i ], [ 0, %if.then49.i ], [ 0, %if.end61.i ], [ %cond.i288, %if.then11.i287 ], [ %call17.i296, %trace_loadvm_handle_cmd_packaged_main.exit.i ], [ -1, %if.then.i196 ], [ 1, %if.end.i198 ], [ 0, %if.then.i147 ], [ 0, %trace_loadvm_postcopy_handle_resume.exit.i ], [ 0, %if.end4.i155 ], [ %call.i115, %sw.bb76.i ], [ %call1.i119, %if.then3.i ], [ 0, %if.then.i118 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i63)
   %174 = load i32, ptr @trace_events_enabled_count, align 4
   %tobool.i.i64 = icmp ne i32 %174, 0
@@ -5876,7 +5879,7 @@ sw.epilog:                                        ; preds = %if.end27.i, %qemu_l
   br i1 %tobool.not, label %if.end, label %out
 
 out:                                              ; preds = %trace_qemu_loadvm_state_section_command.exit, %sw.epilog, %retry
-  %ret.0 = phi i32 [ %call1431, %retry ], [ %call1, %sw.epilog ], [ %retval.0.i58, %trace_qemu_loadvm_state_section_command.exit ]
+  %ret.0 = phi i32 [ %call1433, %retry ], [ %call1, %sw.epilog ], [ %retval.0.i58, %trace_qemu_loadvm_state_section_command.exit ]
   %cmp24 = icmp slt i32 %ret.0, 0
   br i1 %cmp24, label %if.then26, label %if.end37
 
@@ -6527,7 +6530,7 @@ return:                                           ; preds = %trace_loadvm_approv
 declare i32 @migrate_send_rp_switchover_ack(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @save_snapshot(ptr noundef %name, i1 noundef zeroext %overwrite, ptr noundef %vmstate, i1 noundef zeroext %has_devices, ptr noundef %devices, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @save_snapshot(ptr noundef %name, i1 noundef zeroext %overwrite, ptr noundef %vmstate, i1 noundef zeroext %has_devices, ptr noundef %devices, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %sn1 = alloca %struct.QEMUSnapshotInfo, align 8
   %call = tail call ptr @g_date_time_new_now_local() #16
@@ -6919,7 +6922,7 @@ declare ptr @qemu_file_new_input(ptr noundef) local_unnamed_addr #1
 declare void @migration_incoming_state_destroy() local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @load_snapshot(ptr noundef %name, ptr noundef %vmstate, i1 noundef zeroext %has_devices, ptr noundef %devices, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @load_snapshot(ptr noundef %name, ptr noundef %vmstate, i1 noundef zeroext %has_devices, ptr noundef %devices, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %sn = alloca %struct.QEMUSnapshotInfo, align 8
   %.compoundliteral = alloca %struct.YankInstance, align 8
@@ -7215,7 +7218,7 @@ declare i32 @llvm.bswap.i32(i32) #11
 declare i64 @llvm.bswap.i64(i64) #11
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @configuration_pre_load(ptr nocapture noundef writeonly %opaque) #0 {
+define internal noundef i32 @configuration_pre_load(ptr nocapture noundef writeonly %opaque) #0 {
 entry:
   %call = tail call i32 @qemu_target_page_bits_min() #16
   %target_page_bits = getelementptr inbounds %struct.SaveState, ptr %opaque, i64 0, i32 5
@@ -7259,7 +7262,7 @@ if.then9:                                         ; preds = %if.end
 
 if.end12:                                         ; preds = %if.end
   %call.i14 = tail call ptr @migrate_get_current() #16
-  %call.i.i.i = tail call noalias dereferenceable_or_null(8) ptr @g_try_malloc0(i64 noundef 8) #20
+  %call.i.i.i = tail call noalias noundef dereferenceable_or_null(8) ptr @g_try_malloc0(i64 noundef 8) #20
   %cmp.i.i = icmp eq ptr %call.i.i.i, null
   br i1 %cmp.i.i, label %if.then.i.i, label %for.cond.preheader.i
 
@@ -7354,7 +7357,7 @@ out:                                              ; preds = %configuration_valid
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @configuration_pre_save(ptr nocapture noundef %opaque) #0 {
+define internal noundef i32 @configuration_pre_save(ptr nocapture noundef %opaque) #0 {
 entry:
   %0 = load ptr, ptr @current_machine, align 8
   %call.i = tail call ptr @object_get_class(ptr noundef %0) #16
@@ -7438,7 +7441,7 @@ for.end:                                          ; preds = %for.inc
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @configuration_post_save(ptr nocapture noundef %opaque) #0 {
+define internal noundef i32 @configuration_post_save(ptr nocapture noundef %opaque) #0 {
 entry:
   %capabilities = getelementptr inbounds %struct.SaveState, ptr %opaque, i64 0, i32 7
   %0 = load ptr, ptr %capabilities, align 8
@@ -7504,7 +7507,7 @@ get_validatable_capabilities_count.exit:          ; preds = %for.inc.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @get_capability(ptr noundef %f, ptr nocapture noundef writeonly %pv, i64 %size, ptr nocapture readnone %field) #0 {
+define internal noundef i32 @get_capability(ptr noundef %f, ptr nocapture noundef writeonly %pv, i64 %size, ptr nocapture readnone %field) #0 {
 entry:
   %capability_str = alloca [256 x i8], align 16
   %call = tail call i32 @qemu_get_byte(ptr noundef %f) #16
@@ -7541,7 +7544,7 @@ return:                                           ; preds = %for.end, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @put_capability(ptr noundef %f, ptr nocapture noundef readonly %pv, i64 %size, ptr nocapture readnone %field, ptr nocapture readnone %vmdesc) #0 {
+define internal noundef i32 @put_capability(ptr noundef %f, ptr nocapture noundef readonly %pv, i64 %size, ptr nocapture readnone %field, ptr nocapture readnone %vmdesc) #0 {
 entry:
   %0 = load i32, ptr %pv, align 4
   %call = tail call ptr @qapi_enum_lookup(ptr noundef nonnull @MigrationCapability_lookup, i32 noundef %0) #16
@@ -7561,7 +7564,7 @@ if.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @vmstate_uuid_post_load(ptr noundef %opaque, i32 %version_id) #0 {
+define internal noundef i32 @vmstate_uuid_post_load(ptr noundef %opaque, i32 %version_id) #0 {
 entry:
   %uuid_src = alloca [37 x i8], align 16
   %uuid_dst = alloca [37 x i8], align 16
@@ -7713,7 +7716,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc zeroext i1 @check_section_footer(ptr noundef %f, ptr noundef %se) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @check_section_footer(ptr noundef %f, ptr noundef %se) unnamed_addr #0 {
 entry:
   %call = tail call ptr @migrate_get_current() #16
   %send_section_footer = getelementptr inbounds %struct.MigrationState, ptr %call, i64 0, i32 42
@@ -7789,7 +7792,7 @@ declare i32 @postcopy_ram_incoming_cleanup(ptr noundef) local_unnamed_addr #1
 declare void @postcopy_thread_create(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noalias ptr @postcopy_ram_listen_thread(ptr nocapture readnone %opaque) #0 {
+define internal noalias noundef ptr @postcopy_ram_listen_thread(ptr nocapture readnone %opaque) #0 {
 entry:
   %_now.i.i19 = alloca %struct.timeval, align 8
   %_now.i.i = alloca %struct.timeval, align 8
@@ -8271,7 +8274,7 @@ declare void @qemu_sem_wait(ptr noundef) local_unnamed_addr #1
 declare void @g_tree_foreach(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @postcopy_sync_page_req(ptr noundef %key, ptr nocapture readnone %value, ptr noundef %data) #0 {
+define internal noundef i32 @postcopy_sync_page_req(ptr noundef %key, ptr nocapture readnone %value, ptr noundef %data) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %rb_offset = alloca i64, align 8

@@ -366,7 +366,7 @@ declare void @HMAC_CTX_free(ptr noundef) local_unnamed_addr #1
 declare void @PyObject_Free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_hashlib_HMAC_update(ptr noundef %self, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal noundef ptr @_hashlib_HMAC_update(ptr noundef %self, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %argsbuf = alloca [1 x ptr], align 8
   %cmp = icmp eq ptr %kwnames, null
@@ -546,7 +546,7 @@ _hashlib_HMAC_copy_impl.exit:                     ; preds = %if.then.i, %if.then
 declare ptr @_PyArg_UnpackKeywords(ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @_hmac_update(ptr noundef %self, ptr noundef %obj) unnamed_addr #0 {
+define internal fastcc noundef i32 @_hmac_update(ptr noundef %self, ptr noundef %obj) unnamed_addr #0 {
 entry:
   %view = alloca %struct.Py_buffer, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %view, i8 0, i64 80, i1 false)
@@ -759,7 +759,7 @@ declare ptr @ERR_reason_error_string(i64 noundef) local_unnamed_addr #1
 declare ptr @PyErr_Format(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @_hmac_digest(ptr noundef %self, ptr noundef %buf, i32 noundef %len) unnamed_addr #0 {
+define internal fastcc noundef i32 @_hmac_digest(ptr noundef %self, ptr noundef %buf, i32 noundef %len) unnamed_addr #0 {
 entry:
   %len.addr = alloca i32, align 4
   store i32 %len, ptr %len.addr, align 4
@@ -1031,7 +1031,7 @@ return:                                           ; preds = %if.then41, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @hashlib_clear(ptr noundef %m) #0 {
+define internal noundef i32 @hashlib_clear(ptr noundef %m) #0 {
 entry:
   %call.i = tail call ptr @PyModule_GetState(ptr noundef %m) #9
   %0 = load ptr, ptr %call.i, align 8
@@ -3137,21 +3137,17 @@ entry:
   %0 = load ptr, ptr %hashtable, align 8
   %call2 = tail call ptr @_Py_hashtable_get(ptr noundef %0, ptr noundef %name) #9
   %cmp.not = icmp eq ptr %call2, null
+  %switch18 = icmp eq i32 %py_ht, 1
   br i1 %cmp.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
-  switch i32 %py_ht, label %if.then27 [
-    i32 0, label %sw.bb
-    i32 2, label %sw.bb
-    i32 3, label %sw.bb
-    i32 1, label %sw.bb8
-  ]
+  br i1 %switch18, label %sw.bb8, label %sw.bb
 
-sw.bb:                                            ; preds = %if.then, %if.then, %if.then
+sw.bb:                                            ; preds = %if.then
   %evp = getelementptr inbounds %struct.py_hashentry_t, ptr %call2, i64 0, i32 5
   %1 = load ptr, ptr %evp, align 8
   %cmp3 = icmp eq ptr %1, null
-  br i1 %cmp3, label %if.then4, label %if.end25.thread21
+  br i1 %cmp3, label %if.then4, label %if.end25.thread25
 
 if.then4:                                         ; preds = %sw.bb
   %ossl_name = getelementptr inbounds %struct.py_hashentry_t, ptr %call2, i64 0, i32 2
@@ -3164,7 +3160,7 @@ sw.bb8:                                           ; preds = %if.then
   %evp_nosecurity = getelementptr inbounds %struct.py_hashentry_t, ptr %call2, i64 0, i32 6
   %3 = load ptr, ptr %evp_nosecurity, align 8
   %cmp9 = icmp eq ptr %3, null
-  br i1 %cmp9, label %if.then10, label %if.end25.thread21
+  br i1 %cmp9, label %if.then10, label %if.end25.thread25
 
 if.then10:                                        ; preds = %sw.bb8
   %ossl_name11 = getelementptr inbounds %struct.py_hashentry_t, ptr %call2, i64 0, i32 2
@@ -3174,24 +3170,19 @@ if.then10:                                        ; preds = %sw.bb8
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %if.then10, %if.then4
-  %digest.0 = phi ptr [ %call5, %if.then4 ], [ %call12, %if.then10 ]
+  %digest.0 = phi ptr [ %call12, %if.then10 ], [ %call5, %if.then4 ]
   %cmp16.not = icmp eq ptr %digest.0, null
-  br i1 %cmp16.not, label %if.then27, label %if.end25.thread21
+  br i1 %cmp16.not, label %if.then27, label %if.end25.thread25
 
-if.end25.thread21:                                ; preds = %sw.bb8, %sw.bb, %sw.epilog
-  %digest.027 = phi ptr [ %digest.0, %sw.epilog ], [ %3, %sw.bb8 ], [ %1, %sw.bb ]
-  %call18 = tail call i32 @EVP_MD_up_ref(ptr noundef nonnull %digest.027) #9
+if.end25.thread25:                                ; preds = %sw.epilog, %sw.bb8, %sw.bb
+  %digest.022 = phi ptr [ %digest.0, %sw.epilog ], [ %1, %sw.bb ], [ %3, %sw.bb8 ]
+  %call18 = tail call i32 @EVP_MD_up_ref(ptr noundef nonnull %digest.022) #9
   br label %return
 
 if.else:                                          ; preds = %entry
-  switch i32 %py_ht, label %if.then27 [
-    i32 0, label %sw.bb20
-    i32 2, label %sw.bb20
-    i32 3, label %sw.bb20
-    i32 1, label %sw.bb22
-  ]
+  br i1 %switch18, label %sw.bb22, label %sw.bb20
 
-sw.bb20:                                          ; preds = %if.else, %if.else, %if.else
+sw.bb20:                                          ; preds = %if.else
   %call21 = tail call ptr @EVP_MD_fetch(ptr noundef null, ptr noundef %name, ptr noundef null) #9
   br label %if.end25
 
@@ -3204,14 +3195,14 @@ if.end25:                                         ; preds = %sw.bb20, %sw.bb22
   %cmp26 = icmp eq ptr %digest.1, null
   br i1 %cmp26, label %if.then27, label %return
 
-if.then27:                                        ; preds = %if.then, %if.else, %sw.epilog, %if.end25
+if.then27:                                        ; preds = %sw.epilog, %if.end25
   %unsupported_digestmod_error = getelementptr inbounds %struct._hashlibstate, ptr %call.i, i64 0, i32 4
   %5 = load ptr, ptr %unsupported_digestmod_error, align 8
   tail call void (ptr, ptr, ...) @_setException(ptr noundef %5, ptr noundef nonnull @.str.79, ptr noundef %name)
   br label %return
 
-return:                                           ; preds = %if.end25.thread21, %if.end25, %if.then27
-  %retval.0 = phi ptr [ null, %if.then27 ], [ %digest.1, %if.end25 ], [ %digest.027, %if.end25.thread21 ]
+return:                                           ; preds = %if.end25.thread25, %if.end25, %if.then27
+  %retval.0 = phi ptr [ null, %if.then27 ], [ %digest.1, %if.end25 ], [ %digest.022, %if.end25.thread25 ]
   ret ptr %retval.0
 }
 
@@ -3450,7 +3441,7 @@ declare ptr @PyUnicode_AsUTF8(ptr noundef) local_unnamed_addr #1
 declare i32 @HMAC_Init_ex(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @hashlib_init_hashtable(ptr noundef %module) #0 {
+define internal noundef i32 @hashlib_init_hashtable(ptr noundef %module) #0 {
 entry:
   %call.i = tail call ptr @PyModule_GetState(ptr noundef %module) #9
   %call.i2 = tail call ptr @_Py_hashtable_new_full(ptr noundef nonnull @py_hashentry_t_hash_name, ptr noundef nonnull @py_hashentry_t_compare_name, ptr noundef null, ptr noundef nonnull @py_hashentry_t_destroy_value, ptr noundef null) #9
@@ -3938,7 +3929,7 @@ declare void @EVP_MD_CTX_free(ptr noundef) local_unnamed_addr #1
 declare ptr @EVP_MD_CTX_md(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @EVP_update(ptr noundef %self, ptr noundef %obj) #0 {
+define internal noundef ptr @EVP_update(ptr noundef %self, ptr noundef %obj) #0 {
 entry:
   %view = alloca %struct.Py_buffer, align 8
   %0 = getelementptr i8, ptr %obj, i64 8

@@ -80,6 +80,8 @@ $_ZN6google8protobuf8internal7cleanup21arena_destruct_objectIN4absl12lts_2023080
 @_ZZN6google8protobuf8internal12_GLOBAL__N_116SentryArenaBlockEvE17kSentryArenaBlock = internal constant %"struct.google::protobuf::internal::ArenaBlock" { ptr null, ptr @_ZZN6google8protobuf8internal12_GLOBAL__N_116SentryArenaBlockEvE17kSentryArenaBlock, i64 0 }, align 8
 @.str.4 = private unnamed_addr constant [80 x i8] c"min_bytes <= std::numeric_limits<size_t>::max() - SerialArena::kBlockHeaderSize\00", align 1
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_arena.cc, ptr null }]
+@switch.table._ZN6google8protobuf8internal15ThreadSafeArena10AddCleanupEPvPFvS3_E = private unnamed_addr constant [3 x i64] [i64 16, i64 8, i64 8], align 8
+@switch.table._ZN6google8protobuf8internal15ThreadSafeArena10AddCleanupEPvPFvS3_E.7 = private unnamed_addr constant [3 x i64] [i64 -16, i64 -8, i64 -8], align 8
 
 @_ZN6google8protobuf8internal15ThreadSafeArenaC1Ev = unnamed_addr alias void (ptr), ptr @_ZN6google8protobuf8internal15ThreadSafeArenaC2Ev
 @_ZN6google8protobuf8internal15ThreadSafeArenaC1EPcm = unnamed_addr alias void (ptr, ptr, i64), ptr @_ZN6google8protobuf8internal15ThreadSafeArenaC2EPcm
@@ -1162,347 +1164,299 @@ if.end10:                                         ; preds = %_ZN6google8protobuf
 define noundef ptr @_ZN6google8protobuf8internal11SerialArena34AllocateAlignedWithCleanupFallbackEmmPFvPvE(ptr nocapture noundef nonnull align 8 dereferenceable(96) %this, i64 noundef %n, i64 noundef %align, ptr noundef %destructor) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp.i = icmp ult i64 %align, 9
-  %add.i40 = add i64 %align, -8
+  %add.i36 = add i64 %align, -8
   %cmp.i4 = icmp eq ptr %destructor, null
   %cmp.i69 = icmp eq ptr %destructor, @_ZN6google8protobuf8internal7cleanup21arena_destruct_objectINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvPv
   %cmp1.i71 = icmp eq ptr %destructor, @_ZN6google8protobuf8internal7cleanup21arena_destruct_objectIN4absl12lts_202308024CordEEEvPv
-  %narrow.not = or i1 %cmp.i69, %cmp1.i71
-  %0 = select i1 %narrow.not, i64 8, i64 16
-  %cond.i8 = select i1 %cmp.i4, i64 0, i64 %0
+  %. = select i1 %cmp1.i71, i64 2, i64 0
+  %retval.i67.0 = select i1 %cmp.i69, i64 1, i64 %.
   %head_.i.i = getelementptr inbounds %"class.google::protobuf::internal::SerialArena", ptr %this, i64 0, i32 6
-  %parent_.i = getelementptr inbounds %"class.google::protobuf::internal::SerialArena", ptr %this, i64 0, i32 9
-  %limit_.i43 = getelementptr inbounds %"class.google::protobuf::internal::SerialArena", ptr %this, i64 0, i32 1
+  %limit_.i39 = getelementptr inbounds %"class.google::protobuf::internal::SerialArena", ptr %this, i64 0, i32 1
   %space_used_.i.i = getelementptr inbounds %"class.google::protobuf::internal::SerialArena", ptr %this, i64 0, i32 7
+  %parent_.i = getelementptr inbounds %"class.google::protobuf::internal::SerialArena", ptr %this, i64 0, i32 9
   %space_allocated_.i.i = getelementptr inbounds %"class.google::protobuf::internal::SerialArena", ptr %this, i64 0, i32 8
   %prefetch_ptr_.i.i = getelementptr inbounds %"class.google::protobuf::internal::SerialArena", ptr %this, i64 0, i32 2
   %prefetch_limit_.i.i = getelementptr inbounds %"class.google::protobuf::internal::SerialArena", ptr %this, i64 0, i32 3
-  %add.i.i46 = add i64 %align, -1
+  %add.i.i42 = add i64 %align, -1
   %not.i.i = sub i64 0, %align
-  br i1 %cmp.i, label %tailrecurse.us, label %tailrecurse
+  %switch.gep = getelementptr inbounds [3 x i64], ptr @switch.table._ZN6google8protobuf8internal15ThreadSafeArena10AddCleanupEPvPFvS3_E, i64 0, i64 %retval.i67.0
+  %switch.gep75 = getelementptr inbounds [3 x i64], ptr @switch.table._ZN6google8protobuf8internal15ThreadSafeArena10AddCleanupEPvPFvS3_E, i64 0, i64 %retval.i67.0
+  br label %tailrecurse
 
-tailrecurse.us:                                   ; preds = %entry, %_ZN6google8protobuf8internal11SerialArena16AllocateNewBlockEm.exit.us
-  %n.tr.us = phi i64 [ %and.i37.us, %_ZN6google8protobuf8internal11SerialArena16AllocateNewBlockEm.exit.us ], [ %n, %entry ]
-  %sub.i36.us = add i64 %n.tr.us, 7
-  %and.i37.us = and i64 %sub.i36.us, -8
-  %add.us = add i64 %and.i37.us, %cond.i8
-  %1 = load atomic i64, ptr %head_.i.i monotonic, align 8
-  %atomic-temp.i.0.i.i.i.us = inttoptr i64 %1 to ptr
-  %size.i.i.us = getelementptr inbounds %"struct.google::protobuf::internal::ArenaBlock", ptr %atomic-temp.i.0.i.i.i.us, i64 0, i32 2
-  %2 = load i64, ptr %size.i.i.us, align 8
-  %cmp.i.i.us = icmp eq i64 %2, 0
-  br i1 %cmp.i.i.us, label %_ZN6google8protobuf8internal11SerialArena16AllocateNewBlockEm.exit.us, label %if.then.i42.us
+tailrecurse:                                      ; preds = %_ZN6google8protobuf8internal7cleanup4SizeEPFvPvE.exit.i, %entry
+  %n.tr = phi i64 [ %n, %entry ], [ %and.i37, %_ZN6google8protobuf8internal7cleanup4SizeEPFvPvE.exit.i ]
+  %sub.i36 = add i64 %n.tr, 7
+  %and.i37 = and i64 %sub.i36, -8
+  %sub.i37 = add i64 %add.i36, %n.tr
+  %cond.i = select i1 %cmp.i, i64 %and.i37, i64 %sub.i37
+  br i1 %cmp.i4, label %_ZN6google8protobuf8internal7cleanup4SizeEPFvPvE.exit, label %switch.lookup
 
-if.then.i42.us:                                   ; preds = %tailrecurse.us
-  %3 = load ptr, ptr %limit_.i43, align 8
-  %cleanup_nodes.i.us = getelementptr inbounds %"struct.google::protobuf::internal::ArenaBlock", ptr %atomic-temp.i.0.i.i.i.us, i64 0, i32 1
-  store ptr %3, ptr %cleanup_nodes.i.us, align 8
-  %4 = load atomic i64, ptr %this monotonic, align 8
-  %add.ptr.i.i.us = getelementptr inbounds i8, ptr %atomic-temp.i.0.i.i.i.us, i64 24
-  %sub.ptr.rhs.cast.i.us = ptrtoint ptr %add.ptr.i.i.us to i64
-  %sub.ptr.sub.i44.us = sub i64 %4, %sub.ptr.rhs.cast.i.us
-  %5 = load atomic i64, ptr %space_used_.i.i monotonic, align 8
-  %add.i.i.us = add i64 %sub.ptr.sub.i44.us, %5
-  store atomic i64 %add.i.i.us, ptr %space_used_.i.i monotonic, align 8
-  %.pre.i.us = load i64, ptr %size.i.i.us, align 8
-  br label %_ZN6google8protobuf8internal11SerialArena16AllocateNewBlockEm.exit.us
+switch.lookup:                                    ; preds = %tailrecurse
+  %switch.load = load i64, ptr %switch.gep, align 8
+  br label %_ZN6google8protobuf8internal7cleanup4SizeEPFvPvE.exit
 
-_ZN6google8protobuf8internal11SerialArena16AllocateNewBlockEm.exit.us: ; preds = %tailrecurse.us, %if.then.i42.us
-  %6 = phi i64 [ %.pre.i.us, %if.then.i42.us ], [ 0, %tailrecurse.us ]
-  %7 = load ptr, ptr %parent_.i, align 8
-  %alloc_policy_.i.i.us = getelementptr inbounds %"class.google::protobuf::internal::ThreadSafeArena", ptr %7, i64 0, i32 1
-  %8 = load i64, ptr %alloc_policy_.i.i.us, align 8
-  %and.i.i.i.us = and i64 %8, -8
-  %9 = inttoptr i64 %and.i.i.i.us to ptr
-  %call8.i.us = tail call fastcc { ptr, i64 } @_ZN6google8protobuf8internalL14AllocateMemoryEPKNS1_16AllocationPolicyEmm(ptr noundef %9, i64 noundef %6, i64 noundef %add.us)
-  %10 = extractvalue { ptr, i64 } %call8.i.us, 0
-  %11 = extractvalue { ptr, i64 } %call8.i.us, 1
-  %12 = load atomic i64, ptr %space_allocated_.i.i monotonic, align 8
-  %add.i15.i.us = add i64 %12, %11
-  store atomic i64 %add.i15.i.us, ptr %space_allocated_.i.i monotonic, align 8
-  store ptr %atomic-temp.i.0.i.i.i.us, ptr %10, align 8
-  %cleanup_nodes.i.i.us = getelementptr inbounds %"struct.google::protobuf::internal::ArenaBlock", ptr %10, i64 0, i32 1
-  store ptr null, ptr %cleanup_nodes.i.i.us, align 8
-  %size3.i.i.us = getelementptr inbounds %"struct.google::protobuf::internal::ArenaBlock", ptr %10, i64 0, i32 2
-  store i64 %11, ptr %size3.i.i.us, align 8
-  %add.ptr.i16.i.us = getelementptr inbounds i8, ptr %10, i64 24
-  %and.i.i.us = and i64 %11, -8
-  %add.ptr.i.i.i.us = getelementptr inbounds i8, ptr %10, i64 %and.i.i.us
-  %13 = ptrtoint ptr %add.ptr.i16.i.us to i64
-  store atomic i64 %13, ptr %this monotonic, align 8
-  store ptr %add.ptr.i16.i.us, ptr %prefetch_ptr_.i.i, align 8
-  store ptr %add.ptr.i.i.i.us, ptr %limit_.i43, align 8
-  store ptr %add.ptr.i.i.i.us, ptr %prefetch_limit_.i.i, align 8
-  %14 = ptrtoint ptr %10 to i64
-  store atomic i64 %14, ptr %head_.i.i release, align 8
-  %15 = load atomic i64, ptr %this monotonic, align 8
-  %sub.i.i.us = add i64 %add.i.i46, %15
-  %and.i.i47.us = and i64 %sub.i.i.us, %not.i.i
-  %add.i.us = add i64 %and.i.i47.us, %and.i37.us
-  %add6.i.us = add i64 %add.i.us, %cond.i8
-  %16 = ptrtoint ptr %add.ptr.i.i.i.us to i64
-  %cmp.i15.us = icmp ugt i64 %add6.i.us, %16
-  br i1 %cmp.i15.us, label %tailrecurse.us, label %if.end.i
-
-tailrecurse:                                      ; preds = %entry, %_ZN6google8protobuf8internal11SerialArena16AllocateNewBlockEm.exit
-  %n.tr = phi i64 [ %and.i, %_ZN6google8protobuf8internal11SerialArena16AllocateNewBlockEm.exit ], [ %n, %entry ]
-  %sub.i41 = add i64 %add.i40, %n.tr
-  %add = add i64 %sub.i41, %cond.i8
-  %17 = load atomic i64, ptr %head_.i.i monotonic, align 8
-  %atomic-temp.i.0.i.i.i = inttoptr i64 %17 to ptr
+_ZN6google8protobuf8internal7cleanup4SizeEPFvPvE.exit: ; preds = %switch.lookup, %tailrecurse
+  %cond.i8 = phi i64 [ 0, %tailrecurse ], [ %switch.load, %switch.lookup ]
+  %add = add i64 %cond.i8, %cond.i
+  %0 = load atomic i64, ptr %head_.i.i monotonic, align 8
+  %atomic-temp.i.0.i.i.i = inttoptr i64 %0 to ptr
   %size.i.i = getelementptr inbounds %"struct.google::protobuf::internal::ArenaBlock", ptr %atomic-temp.i.0.i.i.i, i64 0, i32 2
-  %18 = load i64, ptr %size.i.i, align 8
-  %cmp.i.i = icmp eq i64 %18, 0
-  br i1 %cmp.i.i, label %_ZN6google8protobuf8internal11SerialArena16AllocateNewBlockEm.exit, label %if.then.i42
+  %1 = load i64, ptr %size.i.i, align 8
+  %cmp.i.i = icmp eq i64 %1, 0
+  br i1 %cmp.i.i, label %_ZN6google8protobuf8internal11SerialArena16AllocateNewBlockEm.exit, label %if.then.i38
 
-if.then.i42:                                      ; preds = %tailrecurse
-  %19 = load ptr, ptr %limit_.i43, align 8
+if.then.i38:                                      ; preds = %_ZN6google8protobuf8internal7cleanup4SizeEPFvPvE.exit
+  %2 = load ptr, ptr %limit_.i39, align 8
   %cleanup_nodes.i = getelementptr inbounds %"struct.google::protobuf::internal::ArenaBlock", ptr %atomic-temp.i.0.i.i.i, i64 0, i32 1
-  store ptr %19, ptr %cleanup_nodes.i, align 8
-  %20 = load atomic i64, ptr %this monotonic, align 8
+  store ptr %2, ptr %cleanup_nodes.i, align 8
+  %3 = load atomic i64, ptr %this monotonic, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %atomic-temp.i.0.i.i.i, i64 24
   %sub.ptr.rhs.cast.i = ptrtoint ptr %add.ptr.i.i to i64
-  %sub.ptr.sub.i44 = sub i64 %20, %sub.ptr.rhs.cast.i
-  %21 = load atomic i64, ptr %space_used_.i.i monotonic, align 8
-  %add.i.i = add i64 %sub.ptr.sub.i44, %21
+  %sub.ptr.sub.i40 = sub i64 %3, %sub.ptr.rhs.cast.i
+  %4 = load atomic i64, ptr %space_used_.i.i monotonic, align 8
+  %add.i.i = add i64 %sub.ptr.sub.i40, %4
   store atomic i64 %add.i.i, ptr %space_used_.i.i monotonic, align 8
   %.pre.i = load i64, ptr %size.i.i, align 8
   br label %_ZN6google8protobuf8internal11SerialArena16AllocateNewBlockEm.exit
 
-_ZN6google8protobuf8internal11SerialArena16AllocateNewBlockEm.exit: ; preds = %tailrecurse, %if.then.i42
-  %22 = phi i64 [ %.pre.i, %if.then.i42 ], [ 0, %tailrecurse ]
-  %23 = load ptr, ptr %parent_.i, align 8
-  %alloc_policy_.i.i = getelementptr inbounds %"class.google::protobuf::internal::ThreadSafeArena", ptr %23, i64 0, i32 1
-  %24 = load i64, ptr %alloc_policy_.i.i, align 8
-  %and.i.i.i = and i64 %24, -8
-  %25 = inttoptr i64 %and.i.i.i to ptr
-  %call8.i = tail call fastcc { ptr, i64 } @_ZN6google8protobuf8internalL14AllocateMemoryEPKNS1_16AllocationPolicyEmm(ptr noundef %25, i64 noundef %22, i64 noundef %add)
-  %26 = extractvalue { ptr, i64 } %call8.i, 0
-  %27 = extractvalue { ptr, i64 } %call8.i, 1
-  %28 = load atomic i64, ptr %space_allocated_.i.i monotonic, align 8
-  %add.i15.i = add i64 %28, %27
+_ZN6google8protobuf8internal11SerialArena16AllocateNewBlockEm.exit: ; preds = %_ZN6google8protobuf8internal7cleanup4SizeEPFvPvE.exit, %if.then.i38
+  %5 = phi i64 [ %.pre.i, %if.then.i38 ], [ 0, %_ZN6google8protobuf8internal7cleanup4SizeEPFvPvE.exit ]
+  %6 = load ptr, ptr %parent_.i, align 8
+  %alloc_policy_.i.i = getelementptr inbounds %"class.google::protobuf::internal::ThreadSafeArena", ptr %6, i64 0, i32 1
+  %7 = load i64, ptr %alloc_policy_.i.i, align 8
+  %and.i.i.i = and i64 %7, -8
+  %8 = inttoptr i64 %and.i.i.i to ptr
+  %call8.i = tail call fastcc { ptr, i64 } @_ZN6google8protobuf8internalL14AllocateMemoryEPKNS1_16AllocationPolicyEmm(ptr noundef %8, i64 noundef %5, i64 noundef %add)
+  %9 = extractvalue { ptr, i64 } %call8.i, 0
+  %10 = extractvalue { ptr, i64 } %call8.i, 1
+  %11 = load atomic i64, ptr %space_allocated_.i.i monotonic, align 8
+  %add.i15.i = add i64 %11, %10
   store atomic i64 %add.i15.i, ptr %space_allocated_.i.i monotonic, align 8
-  store ptr %atomic-temp.i.0.i.i.i, ptr %26, align 8
-  %cleanup_nodes.i.i = getelementptr inbounds %"struct.google::protobuf::internal::ArenaBlock", ptr %26, i64 0, i32 1
+  store ptr %atomic-temp.i.0.i.i.i, ptr %9, align 8
+  %cleanup_nodes.i.i = getelementptr inbounds %"struct.google::protobuf::internal::ArenaBlock", ptr %9, i64 0, i32 1
   store ptr null, ptr %cleanup_nodes.i.i, align 8
-  %size3.i.i = getelementptr inbounds %"struct.google::protobuf::internal::ArenaBlock", ptr %26, i64 0, i32 2
-  store i64 %27, ptr %size3.i.i, align 8
-  %add.ptr.i16.i = getelementptr inbounds i8, ptr %26, i64 24
-  %and.i.i = and i64 %27, -8
-  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %26, i64 %and.i.i
-  %29 = ptrtoint ptr %add.ptr.i16.i to i64
-  store atomic i64 %29, ptr %this monotonic, align 8
+  %size3.i.i = getelementptr inbounds %"struct.google::protobuf::internal::ArenaBlock", ptr %9, i64 0, i32 2
+  store i64 %10, ptr %size3.i.i, align 8
+  %add.ptr.i16.i = getelementptr inbounds i8, ptr %9, i64 24
+  %and.i.i = and i64 %10, -8
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %9, i64 %and.i.i
+  %12 = ptrtoint ptr %add.ptr.i16.i to i64
+  store atomic i64 %12, ptr %this monotonic, align 8
   store ptr %add.ptr.i16.i, ptr %prefetch_ptr_.i.i, align 8
-  store ptr %add.ptr.i.i.i, ptr %limit_.i43, align 8
+  store ptr %add.ptr.i.i.i, ptr %limit_.i39, align 8
   store ptr %add.ptr.i.i.i, ptr %prefetch_limit_.i.i, align 8
-  %30 = ptrtoint ptr %26 to i64
-  store atomic i64 %30, ptr %head_.i.i release, align 8
-  %sub.i = add i64 %n.tr, 7
-  %and.i = and i64 %sub.i, -8
-  %31 = load atomic i64, ptr %this monotonic, align 8
-  %sub.i.i = add i64 %add.i.i46, %31
-  %and.i.i47 = and i64 %sub.i.i, %not.i.i
-  %add.i = add i64 %and.i.i47, %and.i
-  %add6.i = add i64 %add.i, %cond.i8
-  %32 = ptrtoint ptr %add.ptr.i.i.i to i64
-  %cmp.i15 = icmp ugt i64 %add6.i, %32
+  %13 = ptrtoint ptr %9 to i64
+  store atomic i64 %13, ptr %head_.i.i release, align 8
+  %14 = load atomic i64, ptr %this monotonic, align 8
+  %sub.i.i = add i64 %add.i.i42, %14
+  %and.i.i43 = and i64 %sub.i.i, %not.i.i
+  %add.i = add i64 %and.i.i43, %and.i37
+  br i1 %cmp.i4, label %_ZN6google8protobuf8internal7cleanup4SizeEPFvPvE.exit.i, label %switch.lookup74
+
+switch.lookup74:                                  ; preds = %_ZN6google8protobuf8internal11SerialArena16AllocateNewBlockEm.exit
+  %switch.load76 = load i64, ptr %switch.gep75, align 8
+  br label %_ZN6google8protobuf8internal7cleanup4SizeEPFvPvE.exit.i
+
+_ZN6google8protobuf8internal7cleanup4SizeEPFvPvE.exit.i: ; preds = %switch.lookup74, %_ZN6google8protobuf8internal11SerialArena16AllocateNewBlockEm.exit
+  %cond.i.i = phi i64 [ 0, %_ZN6google8protobuf8internal11SerialArena16AllocateNewBlockEm.exit ], [ %switch.load76, %switch.lookup74 ]
+  %add6.i = add i64 %cond.i.i, %add.i
+  %15 = ptrtoint ptr %add.ptr.i.i.i to i64
+  %cmp.i15 = icmp ugt i64 %add6.i, %15
   br i1 %cmp.i15, label %tailrecurse, label %if.end.i
 
-if.end.i:                                         ; preds = %_ZN6google8protobuf8internal11SerialArena16AllocateNewBlockEm.exit, %_ZN6google8protobuf8internal11SerialArena16AllocateNewBlockEm.exit.us
-  %sub.ptr.rhs.cast.i82.pre-phi = phi i64 [ %16, %_ZN6google8protobuf8internal11SerialArena16AllocateNewBlockEm.exit.us ], [ %32, %_ZN6google8protobuf8internal11SerialArena16AllocateNewBlockEm.exit ]
-  %33 = phi ptr [ %add.ptr.i16.i.us, %_ZN6google8protobuf8internal11SerialArena16AllocateNewBlockEm.exit.us ], [ %add.ptr.i16.i, %_ZN6google8protobuf8internal11SerialArena16AllocateNewBlockEm.exit ]
-  %34 = phi ptr [ %add.ptr.i.i.i.us, %_ZN6google8protobuf8internal11SerialArena16AllocateNewBlockEm.exit.us ], [ %add.ptr.i.i.i, %_ZN6google8protobuf8internal11SerialArena16AllocateNewBlockEm.exit ]
-  %.us-phi = phi i64 [ %and.i.i47.us, %_ZN6google8protobuf8internal11SerialArena16AllocateNewBlockEm.exit.us ], [ %and.i.i47, %_ZN6google8protobuf8internal11SerialArena16AllocateNewBlockEm.exit ]
-  %.us-phi66 = phi i64 [ %add.i.us, %_ZN6google8protobuf8internal11SerialArena16AllocateNewBlockEm.exit.us ], [ %add.i, %_ZN6google8protobuf8internal11SerialArena16AllocateNewBlockEm.exit ]
-  %35 = inttoptr i64 %.us-phi66 to ptr
-  store atomic i64 %.us-phi66, ptr %this monotonic, align 8
-  %.35 = select i1 %cmp1.i71, i64 2, i64 0
-  %retval.i53.0 = select i1 %cmp.i69, i64 1, i64 %.35
-  %36 = add nsw i64 %retval.i53.0, -1
-  %switch.selectcmp39 = icmp ult i64 %36, 2
-  %37 = select i1 %switch.selectcmp39, i64 -8, i64 -16
-  %add.ptr.i = getelementptr inbounds i8, ptr %34, i64 %37
-  store ptr %add.ptr.i, ptr %limit_.i43, align 8
-  %sub.ptr.lhs.cast.i81 = ptrtoint ptr %add.ptr.i to i64
-  %sub.ptr.sub.i83 = sub i64 %sub.ptr.lhs.cast.i81, %sub.ptr.rhs.cast.i82.pre-phi
-  %cmp.i84 = icmp slt i64 %sub.ptr.sub.i83, 385
-  %cmp3.i87 = icmp ugt ptr %34, %33
-  %or.cond76 = select i1 %cmp.i84, i1 %cmp3.i87, i1 false
-  br i1 %or.cond76, label %if.then4.i88, label %_ZN6google8protobuf8internal11SerialArena22MaybePrefetchBackwardsEPKc.exit
+if.end.i:                                         ; preds = %_ZN6google8protobuf8internal7cleanup4SizeEPFvPvE.exit.i
+  %16 = inttoptr i64 %add.i to ptr
+  store atomic i64 %add.i, ptr %this monotonic, align 8
+  %switch.gep78 = getelementptr inbounds [3 x i64], ptr @switch.table._ZN6google8protobuf8internal15ThreadSafeArena10AddCleanupEPvPFvS3_E.7, i64 0, i64 %retval.i67.0
+  %switch.load79 = load i64, ptr %switch.gep78, align 8
+  %add.ptr.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 %switch.load79
+  store ptr %add.ptr.i, ptr %limit_.i39, align 8
+  %cmp3.i87 = icmp sgt i64 %and.i.i, 24
+  br i1 %cmp3.i87, label %if.then4.i88, label %_ZN6google8protobuf8internal11SerialArena22MaybePrefetchBackwardsEPKc.exit
 
 if.then4.i88:                                     ; preds = %if.end.i
-  %cmp.i48 = icmp ult ptr %34, %add.ptr.i
-  %.sroa.speculated62 = select i1 %cmp.i48, ptr %34, ptr %add.ptr.i
-  %add.ptr.i89 = getelementptr inbounds i8, ptr %.sroa.speculated62, i64 -384
-  %cmp.i49 = icmp ult ptr %33, %add.ptr.i89
-  %.sroa.speculated59 = select i1 %cmp.i49, ptr %add.ptr.i89, ptr %33
-  %cmp10.i67 = icmp ugt ptr %.sroa.speculated62, %.sroa.speculated59
-  br i1 %cmp10.i67, label %for.body.i92, label %for.end.i91
+  %cmp.i44 = icmp ult ptr %add.ptr.i.i.i, %add.ptr.i
+  %.sroa.speculated58 = select i1 %cmp.i44, ptr %add.ptr.i.i.i, ptr %add.ptr.i
+  %add.ptr.i89 = getelementptr inbounds i8, ptr %.sroa.speculated58, i64 -384
+  %cmp.i45 = icmp ult ptr %add.ptr.i16.i, %add.ptr.i89
+  %.sroa.speculated55 = select i1 %cmp.i45, ptr %add.ptr.i89, ptr %add.ptr.i16.i
+  %cmp10.i60 = icmp ugt ptr %.sroa.speculated58, %.sroa.speculated55
+  br i1 %cmp10.i60, label %for.body.i92, label %for.end.i91
 
 for.body.i92:                                     ; preds = %if.then4.i88, %for.body.i92
-  %prefetch_limit.i.068 = phi ptr [ %add.ptr11.i, %for.body.i92 ], [ %.sroa.speculated62, %if.then4.i88 ]
-  tail call void asm sideeffect "prefetchw ($0)", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %prefetch_limit.i.068) #25, !srcloc !7
-  %add.ptr11.i = getelementptr inbounds i8, ptr %prefetch_limit.i.068, i64 -64
-  %cmp10.i = icmp ugt ptr %add.ptr11.i, %.sroa.speculated59
+  %prefetch_limit.i.061 = phi ptr [ %add.ptr11.i, %for.body.i92 ], [ %.sroa.speculated58, %if.then4.i88 ]
+  tail call void asm sideeffect "prefetchw ($0)", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %prefetch_limit.i.061) #25, !srcloc !7
+  %add.ptr11.i = getelementptr inbounds i8, ptr %prefetch_limit.i.061, i64 -64
+  %cmp10.i = icmp ugt ptr %add.ptr11.i, %.sroa.speculated55
   br i1 %cmp10.i, label %for.body.i92, label %for.end.i91.loopexit, !llvm.loop !15
 
 for.end.i91.loopexit:                             ; preds = %for.body.i92
-  %.pre.pre = load ptr, ptr %limit_.i43, align 8
+  %.pre.pre = load ptr, ptr %limit_.i39, align 8
   br label %for.end.i91
 
 for.end.i91:                                      ; preds = %for.end.i91.loopexit, %if.then4.i88
   %.pre = phi ptr [ %add.ptr.i, %if.then4.i88 ], [ %.pre.pre, %for.end.i91.loopexit ]
-  %prefetch_limit.i.0.lcssa = phi ptr [ %.sroa.speculated62, %if.then4.i88 ], [ %add.ptr11.i, %for.end.i91.loopexit ]
+  %prefetch_limit.i.0.lcssa = phi ptr [ %.sroa.speculated58, %if.then4.i88 ], [ %add.ptr11.i, %for.end.i91.loopexit ]
   store ptr %prefetch_limit.i.0.lcssa, ptr %prefetch_limit_.i.i, align 8
   br label %_ZN6google8protobuf8internal11SerialArena22MaybePrefetchBackwardsEPKc.exit
 
-_ZN6google8protobuf8internal11SerialArena22MaybePrefetchBackwardsEPKc.exit: ; preds = %if.end.i, %for.end.i91
-  %38 = phi ptr [ %add.ptr.i, %if.end.i ], [ %.pre, %for.end.i91 ]
-  switch i64 %retval.i53.0, label %sw.default.i98 [
+_ZN6google8protobuf8internal11SerialArena22MaybePrefetchBackwardsEPKc.exit: ; preds = %for.end.i91, %if.end.i
+  %17 = phi ptr [ %.pre, %for.end.i91 ], [ %add.ptr.i, %if.end.i ]
+  switch i64 %retval.i67.0, label %sw.default.i98 [
     i64 1, label %sw.bb.i100
     i64 2, label %sw.bb2.i99
   ]
 
 sw.bb.i100:                                       ; preds = %_ZN6google8protobuf8internal11SerialArena22MaybePrefetchBackwardsEPKc.exit
-  %or.i = or i64 %.us-phi, 1
-  store i64 %or.i, ptr %38, align 1
+  %or.i = or i64 %and.i.i43, 1
+  store i64 %or.i, ptr %17, align 1
   br label %_ZN6google8protobuf8internal7cleanup10CreateNodeENS2_3TagEPvPKvPFvS4_E.exit
 
 sw.bb2.i99:                                       ; preds = %_ZN6google8protobuf8internal11SerialArena22MaybePrefetchBackwardsEPKc.exit
-  %or5.i = or i64 %.us-phi, 2
-  store i64 %or5.i, ptr %38, align 1
+  %or5.i = or i64 %and.i.i43, 2
+  store i64 %or5.i, ptr %17, align 1
   br label %_ZN6google8protobuf8internal7cleanup10CreateNodeENS2_3TagEPvPKvPFvS4_E.exit
 
 sw.default.i98:                                   ; preds = %_ZN6google8protobuf8internal11SerialArena22MaybePrefetchBackwardsEPKc.exit
-  store i64 %.us-phi, ptr %38, align 1
-  %n7.i.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %38, i64 8
+  store i64 %and.i.i43, ptr %17, align 1
+  %n7.i.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %17, i64 8
   store ptr %destructor, ptr %n7.i.sroa.2.0..sroa_idx, align 1
   br label %_ZN6google8protobuf8internal7cleanup10CreateNodeENS2_3TagEPvPKvPFvS4_E.exit
 
 _ZN6google8protobuf8internal7cleanup10CreateNodeENS2_3TagEPvPKvPFvS4_E.exit: ; preds = %sw.default.i98, %sw.bb2.i99, %sw.bb.i100
-  %39 = load ptr, ptr %prefetch_ptr_.i.i, align 8
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %39 to i64
-  %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %.us-phi66
+  %18 = load ptr, ptr %prefetch_ptr_.i.i, align 8
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %18 to i64
+  %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %add.i
   %cmp.i26 = icmp slt i64 %sub.ptr.sub.i, 1025
-  %40 = load ptr, ptr %prefetch_limit_.i.i, align 8
-  %cmp3.i = icmp ult ptr %39, %40
+  %19 = load ptr, ptr %prefetch_limit_.i.i, align 8
+  %cmp3.i = icmp ult ptr %18, %19
   %or.cond = select i1 %cmp.i26, i1 %cmp3.i, i1 false
   br i1 %or.cond, label %if.then4.i, label %_ZN6google8protobuf8internal11SerialArena26AllocateAlignedWithCleanupEmmPFvPvE.exit
 
 if.then4.i:                                       ; preds = %_ZN6google8protobuf8internal7cleanup10CreateNodeENS2_3TagEPvPKvPFvS4_E.exit
-  %cmp.i51 = icmp ugt ptr %39, %35
-  %.sroa.speculated56 = select i1 %cmp.i51, ptr %39, ptr %35
-  %add.ptr.i29 = getelementptr inbounds i8, ptr %.sroa.speculated56, i64 1024
-  %cmp.i53 = icmp ult ptr %add.ptr.i29, %40
-  %.sroa.speculated = select i1 %cmp.i53, ptr %add.ptr.i29, ptr %40
-  %cmp8.i69 = icmp ult ptr %.sroa.speculated56, %.sroa.speculated
-  br i1 %cmp8.i69, label %for.body.i, label %for.end.i
+  %cmp.i47 = icmp ugt ptr %18, %16
+  %.sroa.speculated52 = select i1 %cmp.i47, ptr %18, ptr %16
+  %add.ptr.i29 = getelementptr inbounds i8, ptr %.sroa.speculated52, i64 1024
+  %cmp.i49 = icmp ult ptr %add.ptr.i29, %19
+  %.sroa.speculated = select i1 %cmp.i49, ptr %add.ptr.i29, ptr %19
+  %cmp8.i62 = icmp ult ptr %.sroa.speculated52, %.sroa.speculated
+  br i1 %cmp8.i62, label %for.body.i, label %for.end.i
 
 for.body.i:                                       ; preds = %if.then4.i, %for.body.i
-  %prefetch_ptr.i.070 = phi ptr [ %add.ptr9.i, %for.body.i ], [ %.sroa.speculated56, %if.then4.i ]
-  tail call void asm sideeffect "prefetchw ($0)", "r,~{dirflag},~{fpsr},~{flags}"(ptr %prefetch_ptr.i.070) #25, !srcloc !7
-  %add.ptr9.i = getelementptr inbounds i8, ptr %prefetch_ptr.i.070, i64 64
+  %prefetch_ptr.i.063 = phi ptr [ %add.ptr9.i, %for.body.i ], [ %.sroa.speculated52, %if.then4.i ]
+  tail call void asm sideeffect "prefetchw ($0)", "r,~{dirflag},~{fpsr},~{flags}"(ptr %prefetch_ptr.i.063) #25, !srcloc !7
+  %add.ptr9.i = getelementptr inbounds i8, ptr %prefetch_ptr.i.063, i64 64
   %cmp8.i = icmp ult ptr %add.ptr9.i, %.sroa.speculated
   br i1 %cmp8.i, label %for.body.i, label %for.end.i, !llvm.loop !8
 
 for.end.i:                                        ; preds = %for.body.i, %if.then4.i
-  %prefetch_ptr.i.0.lcssa = phi ptr [ %.sroa.speculated56, %if.then4.i ], [ %add.ptr9.i, %for.body.i ]
+  %prefetch_ptr.i.0.lcssa = phi ptr [ %.sroa.speculated52, %if.then4.i ], [ %add.ptr9.i, %for.body.i ]
   store ptr %prefetch_ptr.i.0.lcssa, ptr %prefetch_ptr_.i.i, align 8
   br label %_ZN6google8protobuf8internal11SerialArena26AllocateAlignedWithCleanupEmmPFvPvE.exit
 
 _ZN6google8protobuf8internal11SerialArena26AllocateAlignedWithCleanupEmmPFvPvE.exit: ; preds = %for.end.i, %_ZN6google8protobuf8internal7cleanup10CreateNodeENS2_3TagEPvPKvPFvS4_E.exit
-  %41 = inttoptr i64 %.us-phi to ptr
-  ret ptr %41
+  %20 = inttoptr i64 %and.i.i43 to ptr
+  ret ptr %20
 }
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6google8protobuf8internal11SerialArena18AddCleanupFallbackEPvPFvS3_E(ptr nocapture noundef nonnull align 8 dereferenceable(96) %this, ptr noundef %elem, ptr noundef %destructor) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp.i = icmp eq ptr %destructor, null
+  br i1 %cmp.i, label %_ZN6google8protobuf8internal7cleanup4SizeEPFvPvE.exit, label %cond.false.i
+
+cond.false.i:                                     ; preds = %entry
   %cmp.i16 = icmp eq ptr %destructor, @_ZN6google8protobuf8internal7cleanup21arena_destruct_objectINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvPv
   %cmp1.i18 = icmp eq ptr %destructor, @_ZN6google8protobuf8internal7cleanup21arena_destruct_objectIN4absl12lts_202308024CordEEEvPv
-  %narrow.not = or i1 %cmp.i16, %cmp1.i18
-  %0 = select i1 %narrow.not, i64 8, i64 16
-  %cond.i = select i1 %cmp.i, i64 0, i64 %0
-  %head_.i.i = getelementptr inbounds %"class.google::protobuf::internal::SerialArena", ptr %this, i64 0, i32 6
-  %1 = load atomic i64, ptr %head_.i.i monotonic, align 8
-  %atomic-temp.i.0.i.i.i = inttoptr i64 %1 to ptr
-  %size.i.i = getelementptr inbounds %"struct.google::protobuf::internal::ArenaBlock", ptr %atomic-temp.i.0.i.i.i, i64 0, i32 2
-  %2 = load i64, ptr %size.i.i, align 8
-  %cmp.i.i = icmp eq i64 %2, 0
-  br i1 %cmp.i.i, label %if.end.i26, label %if.then.i
+  %. = select i1 %cmp1.i18, i64 2, i64 0
+  %retval.i14.0 = select i1 %cmp.i16, i64 1, i64 %.
+  %switch.gep = getelementptr inbounds [3 x i64], ptr @switch.table._ZN6google8protobuf8internal15ThreadSafeArena10AddCleanupEPvPFvS3_E, i64 0, i64 %retval.i14.0
+  %switch.load = load i64, ptr %switch.gep, align 8
+  br label %_ZN6google8protobuf8internal7cleanup4SizeEPFvPvE.exit
 
-if.then.i:                                        ; preds = %entry
-  %limit_.i18 = getelementptr inbounds %"class.google::protobuf::internal::SerialArena", ptr %this, i64 0, i32 1
-  %3 = load ptr, ptr %limit_.i18, align 8
+_ZN6google8protobuf8internal7cleanup4SizeEPFvPvE.exit: ; preds = %cond.false.i, %entry
+  %cond.i = phi i64 [ 0, %entry ], [ %switch.load, %cond.false.i ]
+  %head_.i.i = getelementptr inbounds %"class.google::protobuf::internal::SerialArena", ptr %this, i64 0, i32 6
+  %0 = load atomic i64, ptr %head_.i.i monotonic, align 8
+  %atomic-temp.i.0.i.i.i = inttoptr i64 %0 to ptr
+  %size.i.i = getelementptr inbounds %"struct.google::protobuf::internal::ArenaBlock", ptr %atomic-temp.i.0.i.i.i, i64 0, i32 2
+  %1 = load i64, ptr %size.i.i, align 8
+  %cmp.i.i = icmp eq i64 %1, 0
+  br i1 %cmp.i.i, label %_ZN6google8protobuf8internal11SerialArena16AllocateNewBlockEm.exit, label %if.then.i
+
+if.then.i:                                        ; preds = %_ZN6google8protobuf8internal7cleanup4SizeEPFvPvE.exit
+  %limit_.i16 = getelementptr inbounds %"class.google::protobuf::internal::SerialArena", ptr %this, i64 0, i32 1
+  %2 = load ptr, ptr %limit_.i16, align 8
   %cleanup_nodes.i = getelementptr inbounds %"struct.google::protobuf::internal::ArenaBlock", ptr %atomic-temp.i.0.i.i.i, i64 0, i32 1
-  store ptr %3, ptr %cleanup_nodes.i, align 8
-  %4 = load atomic i64, ptr %this monotonic, align 8
+  store ptr %2, ptr %cleanup_nodes.i, align 8
+  %3 = load atomic i64, ptr %this monotonic, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %atomic-temp.i.0.i.i.i, i64 24
-  %sub.ptr.rhs.cast.i19 = ptrtoint ptr %add.ptr.i.i to i64
-  %sub.ptr.sub.i20 = sub i64 %4, %sub.ptr.rhs.cast.i19
+  %sub.ptr.rhs.cast.i17 = ptrtoint ptr %add.ptr.i.i to i64
+  %sub.ptr.sub.i18 = sub i64 %3, %sub.ptr.rhs.cast.i17
   %space_used_.i.i = getelementptr inbounds %"class.google::protobuf::internal::SerialArena", ptr %this, i64 0, i32 7
-  %5 = load atomic i64, ptr %space_used_.i.i monotonic, align 8
-  %add.i.i = add i64 %sub.ptr.sub.i20, %5
+  %4 = load atomic i64, ptr %space_used_.i.i monotonic, align 8
+  %add.i.i = add i64 %sub.ptr.sub.i18, %4
   store atomic i64 %add.i.i, ptr %space_used_.i.i monotonic, align 8
   %.pre.i = load i64, ptr %size.i.i, align 8
-  br label %if.end.i26
+  br label %_ZN6google8protobuf8internal11SerialArena16AllocateNewBlockEm.exit
 
-if.end.i26:                                       ; preds = %if.then.i, %entry
-  %6 = phi i64 [ %.pre.i, %if.then.i ], [ 0, %entry ]
+_ZN6google8protobuf8internal11SerialArena16AllocateNewBlockEm.exit: ; preds = %_ZN6google8protobuf8internal7cleanup4SizeEPFvPvE.exit, %if.then.i
+  %5 = phi i64 [ %.pre.i, %if.then.i ], [ 0, %_ZN6google8protobuf8internal7cleanup4SizeEPFvPvE.exit ]
   %parent_.i = getelementptr inbounds %"class.google::protobuf::internal::SerialArena", ptr %this, i64 0, i32 9
-  %7 = load ptr, ptr %parent_.i, align 8
-  %alloc_policy_.i.i = getelementptr inbounds %"class.google::protobuf::internal::ThreadSafeArena", ptr %7, i64 0, i32 1
-  %8 = load i64, ptr %alloc_policy_.i.i, align 8
-  %and.i.i.i = and i64 %8, -8
-  %9 = inttoptr i64 %and.i.i.i to ptr
-  %call8.i = tail call fastcc { ptr, i64 } @_ZN6google8protobuf8internalL14AllocateMemoryEPKNS1_16AllocationPolicyEmm(ptr noundef %9, i64 noundef %6, i64 noundef %cond.i)
-  %10 = extractvalue { ptr, i64 } %call8.i, 0
-  %11 = extractvalue { ptr, i64 } %call8.i, 1
+  %6 = load ptr, ptr %parent_.i, align 8
+  %alloc_policy_.i.i = getelementptr inbounds %"class.google::protobuf::internal::ThreadSafeArena", ptr %6, i64 0, i32 1
+  %7 = load i64, ptr %alloc_policy_.i.i, align 8
+  %and.i.i.i = and i64 %7, -8
+  %8 = inttoptr i64 %and.i.i.i to ptr
+  %call8.i = tail call fastcc { ptr, i64 } @_ZN6google8protobuf8internalL14AllocateMemoryEPKNS1_16AllocationPolicyEmm(ptr noundef %8, i64 noundef %5, i64 noundef %cond.i)
+  %9 = extractvalue { ptr, i64 } %call8.i, 0
+  %10 = extractvalue { ptr, i64 } %call8.i, 1
   %space_allocated_.i.i = getelementptr inbounds %"class.google::protobuf::internal::SerialArena", ptr %this, i64 0, i32 8
-  %12 = load atomic i64, ptr %space_allocated_.i.i monotonic, align 8
-  %add.i15.i = add i64 %12, %11
+  %11 = load atomic i64, ptr %space_allocated_.i.i monotonic, align 8
+  %add.i15.i = add i64 %11, %10
   store atomic i64 %add.i15.i, ptr %space_allocated_.i.i monotonic, align 8
-  store ptr %atomic-temp.i.0.i.i.i, ptr %10, align 8
-  %cleanup_nodes.i.i = getelementptr inbounds %"struct.google::protobuf::internal::ArenaBlock", ptr %10, i64 0, i32 1
+  store ptr %atomic-temp.i.0.i.i.i, ptr %9, align 8
+  %cleanup_nodes.i.i = getelementptr inbounds %"struct.google::protobuf::internal::ArenaBlock", ptr %9, i64 0, i32 1
   store ptr null, ptr %cleanup_nodes.i.i, align 8
-  %size3.i.i = getelementptr inbounds %"struct.google::protobuf::internal::ArenaBlock", ptr %10, i64 0, i32 2
-  store i64 %11, ptr %size3.i.i, align 8
-  %add.ptr.i16.i = getelementptr inbounds i8, ptr %10, i64 24
-  %and.i.i = and i64 %11, -8
-  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %10, i64 %and.i.i
-  %13 = ptrtoint ptr %add.ptr.i16.i to i64
-  store atomic i64 %13, ptr %this monotonic, align 8
+  %size3.i.i = getelementptr inbounds %"struct.google::protobuf::internal::ArenaBlock", ptr %9, i64 0, i32 2
+  store i64 %10, ptr %size3.i.i, align 8
+  %add.ptr.i16.i = getelementptr inbounds i8, ptr %9, i64 24
+  %and.i.i = and i64 %10, -8
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %9, i64 %and.i.i
+  %12 = ptrtoint ptr %add.ptr.i16.i to i64
+  store atomic i64 %12, ptr %this monotonic, align 8
   %prefetch_ptr_.i.i = getelementptr inbounds %"class.google::protobuf::internal::SerialArena", ptr %this, i64 0, i32 2
   store ptr %add.ptr.i16.i, ptr %prefetch_ptr_.i.i, align 8
   %limit_.i.i = getelementptr inbounds %"class.google::protobuf::internal::SerialArena", ptr %this, i64 0, i32 1
   store ptr %add.ptr.i.i.i, ptr %limit_.i.i, align 8
   %prefetch_limit_.i.i = getelementptr inbounds %"class.google::protobuf::internal::SerialArena", ptr %this, i64 0, i32 3
   store ptr %add.ptr.i.i.i, ptr %prefetch_limit_.i.i, align 8
-  %14 = ptrtoint ptr %10 to i64
-  store atomic i64 %14, ptr %head_.i.i release, align 8
-  %.15 = select i1 %cmp1.i18, i64 2, i64 0
-  %retval.i11.0 = select i1 %cmp.i16, i64 1, i64 %.15
-  %15 = add nsw i64 %retval.i11.0, -1
-  %switch.selectcmp17 = icmp ult i64 %15, 2
-  %16 = select i1 %switch.selectcmp17, i64 -8, i64 -16
-  %add.ptr.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 %16
+  %13 = ptrtoint ptr %9 to i64
+  store atomic i64 %13, ptr %head_.i.i release, align 8
+  %cmp.i13 = icmp eq ptr %destructor, @_ZN6google8protobuf8internal7cleanup21arena_destruct_objectINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvPv
+  %cmp1.i = icmp eq ptr %destructor, @_ZN6google8protobuf8internal7cleanup21arena_destruct_objectIN4absl12lts_202308024CordEEEvPv
+  %.15 = select i1 %cmp1.i, i64 2, i64 0
+  %retval.i11.0 = select i1 %cmp.i13, i64 1, i64 %.15
+  %switch.gep28 = getelementptr inbounds [3 x i64], ptr @switch.table._ZN6google8protobuf8internal15ThreadSafeArena10AddCleanupEPvPFvS3_E.7, i64 0, i64 %retval.i11.0
+  %switch.load29 = load i64, ptr %switch.gep28, align 8
+  %add.ptr.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 %switch.load29
   store ptr %add.ptr.i, ptr %limit_.i.i, align 8
   %cmp3.i = icmp sgt i64 %and.i.i, 24
   br i1 %cmp3.i, label %if.then4.i, label %_ZN6google8protobuf8internal11SerialArena22MaybePrefetchBackwardsEPKc.exit
 
-if.then4.i:                                       ; preds = %if.end.i26
-  %cmp.i21 = icmp ult ptr %add.ptr.i.i.i, %add.ptr.i
-  %.sroa.speculated25 = select i1 %cmp.i21, ptr %add.ptr.i.i.i, ptr %add.ptr.i
-  %add.ptr.i27 = getelementptr inbounds i8, ptr %.sroa.speculated25, i64 -384
-  %cmp.i22 = icmp ult ptr %add.ptr.i16.i, %add.ptr.i27
-  %.sroa.speculated = select i1 %cmp.i22, ptr %add.ptr.i27, ptr %add.ptr.i16.i
-  %cmp10.i26 = icmp ugt ptr %.sroa.speculated25, %.sroa.speculated
-  br i1 %cmp10.i26, label %for.body.i, label %for.end.i
+if.then4.i:                                       ; preds = %_ZN6google8protobuf8internal11SerialArena16AllocateNewBlockEm.exit
+  %cmp.i19 = icmp ult ptr %add.ptr.i.i.i, %add.ptr.i
+  %.sroa.speculated23 = select i1 %cmp.i19, ptr %add.ptr.i.i.i, ptr %add.ptr.i
+  %add.ptr.i27 = getelementptr inbounds i8, ptr %.sroa.speculated23, i64 -384
+  %cmp.i20 = icmp ult ptr %add.ptr.i16.i, %add.ptr.i27
+  %.sroa.speculated = select i1 %cmp.i20, ptr %add.ptr.i27, ptr %add.ptr.i16.i
+  %cmp10.i24 = icmp ugt ptr %.sroa.speculated23, %.sroa.speculated
+  br i1 %cmp10.i24, label %for.body.i, label %for.end.i
 
 for.body.i:                                       ; preds = %if.then4.i, %for.body.i
-  %prefetch_limit.i.027 = phi ptr [ %add.ptr11.i, %for.body.i ], [ %.sroa.speculated25, %if.then4.i ]
-  tail call void asm sideeffect "prefetchw ($0)", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %prefetch_limit.i.027) #25, !srcloc !7
-  %add.ptr11.i = getelementptr inbounds i8, ptr %prefetch_limit.i.027, i64 -64
+  %prefetch_limit.i.025 = phi ptr [ %add.ptr11.i, %for.body.i ], [ %.sroa.speculated23, %if.then4.i ]
+  tail call void asm sideeffect "prefetchw ($0)", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %prefetch_limit.i.025) #25, !srcloc !7
+  %add.ptr11.i = getelementptr inbounds i8, ptr %prefetch_limit.i.025, i64 -64
   %cmp10.i = icmp ugt ptr %add.ptr11.i, %.sroa.speculated
   br i1 %cmp10.i, label %for.body.i, label %for.end.i.loopexit, !llvm.loop !15
 
@@ -1512,31 +1466,31 @@ for.end.i.loopexit:                               ; preds = %for.body.i
 
 for.end.i:                                        ; preds = %for.end.i.loopexit, %if.then4.i
   %.pre = phi ptr [ %add.ptr.i, %if.then4.i ], [ %.pre.pre, %for.end.i.loopexit ]
-  %prefetch_limit.i.0.lcssa = phi ptr [ %.sroa.speculated25, %if.then4.i ], [ %add.ptr11.i, %for.end.i.loopexit ]
+  %prefetch_limit.i.0.lcssa = phi ptr [ %.sroa.speculated23, %if.then4.i ], [ %add.ptr11.i, %for.end.i.loopexit ]
   store ptr %prefetch_limit.i.0.lcssa, ptr %prefetch_limit_.i.i, align 8
   br label %_ZN6google8protobuf8internal11SerialArena22MaybePrefetchBackwardsEPKc.exit
 
-_ZN6google8protobuf8internal11SerialArena22MaybePrefetchBackwardsEPKc.exit: ; preds = %for.end.i, %if.end.i26
-  %17 = phi ptr [ %.pre, %for.end.i ], [ %add.ptr.i, %if.end.i26 ]
-  %18 = ptrtoint ptr %elem to i64
+_ZN6google8protobuf8internal11SerialArena22MaybePrefetchBackwardsEPKc.exit: ; preds = %for.end.i, %_ZN6google8protobuf8internal11SerialArena16AllocateNewBlockEm.exit
+  %14 = phi ptr [ %.pre, %for.end.i ], [ %add.ptr.i, %_ZN6google8protobuf8internal11SerialArena16AllocateNewBlockEm.exit ]
+  %15 = ptrtoint ptr %elem to i64
   switch i64 %retval.i11.0, label %sw.default.i32 [
     i64 1, label %sw.bb.i34
     i64 2, label %sw.bb2.i33
   ]
 
 sw.bb.i34:                                        ; preds = %_ZN6google8protobuf8internal11SerialArena22MaybePrefetchBackwardsEPKc.exit
-  %or.i = or i64 %18, 1
-  store i64 %or.i, ptr %17, align 1
+  %or.i = or i64 %15, 1
+  store i64 %or.i, ptr %14, align 1
   br label %_ZN6google8protobuf8internal7cleanup10CreateNodeENS2_3TagEPvPKvPFvS4_E.exit
 
 sw.bb2.i33:                                       ; preds = %_ZN6google8protobuf8internal11SerialArena22MaybePrefetchBackwardsEPKc.exit
-  %or5.i = or i64 %18, 2
-  store i64 %or5.i, ptr %17, align 1
+  %or5.i = or i64 %15, 2
+  store i64 %or5.i, ptr %14, align 1
   br label %_ZN6google8protobuf8internal7cleanup10CreateNodeENS2_3TagEPvPKvPFvS4_E.exit
 
 sw.default.i32:                                   ; preds = %_ZN6google8protobuf8internal11SerialArena22MaybePrefetchBackwardsEPKc.exit
-  store i64 %18, ptr %17, align 1
-  %n7.i.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %17, i64 8
+  store i64 %15, ptr %14, align 1
+  %n7.i.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %14, i64 8
   store ptr %destructor, ptr %n7.i.sroa.2.0..sroa_idx, align 1
   br label %_ZN6google8protobuf8internal7cleanup10CreateNodeENS2_3TagEPvPKvPFvS4_E.exit
 
@@ -1718,7 +1672,7 @@ while.body:                                       ; preds = %do.body, %_ZN6googl
   %it.015 = phi ptr [ %add.ptr, %_ZN6google8protobuf8internal7cleanup11DestroyNodeEPKv.exit ], [ %4, %do.body ]
   %elem.i.0.copyload = load i64, ptr %it.015, align 1
   %and.i = and i64 %elem.i.0.copyload, 3
-  switch i64 %and.i, label %while.body.unreachabledefault [
+  switch i64 %and.i, label %default.unreachable16 [
     i64 1, label %sw.bb.i
     i64 2, label %sw.bb1.i
     i64 0, label %sw.default.i
@@ -1750,7 +1704,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
   tail call void @__clang_call_terminate(ptr %10) #27
   unreachable
 
-while.body.unreachabledefault:                    ; preds = %while.body
+default.unreachable16:                            ; preds = %while.body
   unreachable
 
 sw.default.i:                                     ; preds = %while.body, %while.body
@@ -2669,7 +2623,7 @@ while.body.i.i:                                   ; preds = %do.body.i.i, %_ZN6g
   %it.015.i.i = phi ptr [ %add.ptr.i.i, %_ZN6google8protobuf8internal7cleanup11DestroyNodeEPKv.exit.i.i ], [ %11, %do.body.i.i ]
   %elem.i.0.copyload.i.i = load i64, ptr %it.015.i.i, align 1
   %and.i.i.i = and i64 %elem.i.0.copyload.i.i, 3
-  switch i64 %and.i.i.i, label %while.body.unreachabledefault.i.i [
+  switch i64 %and.i.i.i, label %default.unreachable [
     i64 1, label %sw.bb.i.i.i
     i64 2, label %sw.bb1.i.i.i
     i64 0, label %sw.default.i.i.i
@@ -2701,7 +2655,7 @@ terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i
   tail call void @__clang_call_terminate(ptr %17) #27
   unreachable
 
-while.body.unreachabledefault.i.i:                ; preds = %while.body.i.i
+default.unreachable:                              ; preds = %while.body.i.i
   unreachable
 
 sw.default.i.i.i:                                 ; preds = %while.body.i.i, %while.body.i.i
@@ -3249,60 +3203,69 @@ if.then:                                          ; preds = %entry
   %5 = inttoptr i64 %and.i.i to ptr
   %add.i = add i64 %and.i.i, %and.i
   %cmp.i.i = icmp eq ptr %destructor, null
+  br i1 %cmp.i.i, label %_ZN6google8protobuf8internal7cleanup4SizeEPFvPvE.exit.i, label %cond.false.i.i
+
+cond.false.i.i:                                   ; preds = %if.then
   %cmp.i44 = icmp eq ptr %destructor, @_ZN6google8protobuf8internal7cleanup21arena_destruct_objectINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvPv
   %cmp1.i46 = icmp eq ptr %destructor, @_ZN6google8protobuf8internal7cleanup21arena_destruct_objectIN4absl12lts_202308024CordEEEvPv
-  %narrow.not = or i1 %cmp.i44, %cmp1.i46
-  %6 = select i1 %narrow.not, i64 8, i64 16
-  %cond.i.i = select i1 %cmp.i.i, i64 0, i64 %6
-  %add6.i = add i64 %add.i, %cond.i.i
+  %. = select i1 %cmp1.i46, i64 2, i64 0
+  %retval.i42.0 = select i1 %cmp.i44, i64 1, i64 %.
+  %switch.gep = getelementptr inbounds [3 x i64], ptr @switch.table._ZN6google8protobuf8internal15ThreadSafeArena10AddCleanupEPvPFvS3_E, i64 0, i64 %retval.i42.0
+  %switch.load = load i64, ptr %switch.gep, align 8
+  br label %_ZN6google8protobuf8internal7cleanup4SizeEPFvPvE.exit.i
+
+_ZN6google8protobuf8internal7cleanup4SizeEPFvPvE.exit.i: ; preds = %cond.false.i.i, %if.then
+  %cond.i.i = phi i64 [ 0, %if.then ], [ %switch.load, %cond.false.i.i ]
+  %add6.i = add i64 %cond.i.i, %add.i
   %limit_.i = getelementptr inbounds %"class.google::protobuf::internal::SerialArena", ptr %3, i64 0, i32 1
-  %7 = load ptr, ptr %limit_.i, align 8
-  %8 = ptrtoint ptr %7 to i64
-  %cmp.i = icmp ugt i64 %add6.i, %8
+  %6 = load ptr, ptr %limit_.i, align 8
+  %7 = ptrtoint ptr %6 to i64
+  %cmp.i = icmp ugt i64 %add6.i, %7
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
-if.then.i:                                        ; preds = %if.then
+if.then.i:                                        ; preds = %_ZN6google8protobuf8internal7cleanup4SizeEPFvPvE.exit.i
   %call7.i = tail call noundef ptr @_ZN6google8protobuf8internal11SerialArena34AllocateAlignedWithCleanupFallbackEmmPFvPvE(ptr noundef nonnull align 8 dereferenceable(96) %3, i64 noundef %and.i, i64 noundef %align, ptr noundef %destructor)
   br label %return
 
-if.end.i:                                         ; preds = %if.then
-  %9 = inttoptr i64 %add.i to ptr
+if.end.i:                                         ; preds = %_ZN6google8protobuf8internal7cleanup4SizeEPFvPvE.exit.i
+  %8 = inttoptr i64 %add.i to ptr
   store atomic i64 %add.i, ptr %3 monotonic, align 8
-  %.31 = select i1 %cmp1.i46, i64 2, i64 0
-  %retval.i37.0 = select i1 %cmp.i44, i64 1, i64 %.31
-  %10 = add nsw i64 %retval.i37.0, -1
-  %switch.selectcmp33 = icmp ult i64 %10, 2
-  %11 = select i1 %switch.selectcmp33, i64 -8, i64 -16
-  %add.ptr.i = getelementptr inbounds i8, ptr %7, i64 %11
+  %cmp.i39 = icmp eq ptr %destructor, @_ZN6google8protobuf8internal7cleanup21arena_destruct_objectINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvPv
+  %cmp1.i = icmp eq ptr %destructor, @_ZN6google8protobuf8internal7cleanup21arena_destruct_objectIN4absl12lts_202308024CordEEEvPv
+  %.31 = select i1 %cmp1.i, i64 2, i64 0
+  %retval.i37.0 = select i1 %cmp.i39, i64 1, i64 %.31
+  %switch.gep54 = getelementptr inbounds [3 x i64], ptr @switch.table._ZN6google8protobuf8internal15ThreadSafeArena10AddCleanupEPvPFvS3_E.7, i64 0, i64 %retval.i37.0
+  %switch.load55 = load i64, ptr %switch.gep54, align 8
+  %add.ptr.i = getelementptr inbounds i8, ptr %6, i64 %switch.load55
   store ptr %add.ptr.i, ptr %limit_.i, align 8
   %prefetch_limit_.i55 = getelementptr inbounds %"class.google::protobuf::internal::SerialArena", ptr %3, i64 0, i32 3
-  %12 = load ptr, ptr %prefetch_limit_.i55, align 8
+  %9 = load ptr, ptr %prefetch_limit_.i55, align 8
   %sub.ptr.lhs.cast.i56 = ptrtoint ptr %add.ptr.i to i64
-  %sub.ptr.rhs.cast.i57 = ptrtoint ptr %12 to i64
+  %sub.ptr.rhs.cast.i57 = ptrtoint ptr %9 to i64
   %sub.ptr.sub.i58 = sub i64 %sub.ptr.lhs.cast.i56, %sub.ptr.rhs.cast.i57
   %cmp.i59 = icmp sgt i64 %sub.ptr.sub.i58, 384
   br i1 %cmp.i59, label %_ZN6google8protobuf8internal11SerialArena22MaybePrefetchBackwardsEPKc.exit, label %if.end.i60
 
 if.end.i60:                                       ; preds = %if.end.i
   %prefetch_ptr_.i61 = getelementptr inbounds %"class.google::protobuf::internal::SerialArena", ptr %3, i64 0, i32 2
-  %13 = load ptr, ptr %prefetch_ptr_.i61, align 8
-  %cmp3.i62 = icmp ugt ptr %12, %13
+  %10 = load ptr, ptr %prefetch_ptr_.i61, align 8
+  %cmp3.i62 = icmp ugt ptr %9, %10
   br i1 %cmp3.i62, label %if.then4.i63, label %_ZN6google8protobuf8internal11SerialArena22MaybePrefetchBackwardsEPKc.exit
 
 if.then4.i63:                                     ; preds = %if.end.i60
-  %cmp.i34 = icmp ult ptr %12, %add.ptr.i
-  %.sroa.speculated49 = select i1 %cmp.i34, ptr %12, ptr %add.ptr.i
-  %add.ptr.i64 = getelementptr inbounds i8, ptr %.sroa.speculated49, i64 -384
-  %cmp.i35 = icmp ult ptr %13, %add.ptr.i64
-  %.sroa.speculated46 = select i1 %cmp.i35, ptr %add.ptr.i64, ptr %13
-  %cmp10.i50 = icmp ugt ptr %.sroa.speculated49, %.sroa.speculated46
-  br i1 %cmp10.i50, label %for.body.i67, label %for.end.i66
+  %cmp.i32 = icmp ult ptr %9, %add.ptr.i
+  %.sroa.speculated46 = select i1 %cmp.i32, ptr %9, ptr %add.ptr.i
+  %add.ptr.i64 = getelementptr inbounds i8, ptr %.sroa.speculated46, i64 -384
+  %cmp.i33 = icmp ult ptr %10, %add.ptr.i64
+  %.sroa.speculated43 = select i1 %cmp.i33, ptr %add.ptr.i64, ptr %10
+  %cmp10.i47 = icmp ugt ptr %.sroa.speculated46, %.sroa.speculated43
+  br i1 %cmp10.i47, label %for.body.i67, label %for.end.i66
 
 for.body.i67:                                     ; preds = %if.then4.i63, %for.body.i67
-  %prefetch_limit.i.051 = phi ptr [ %add.ptr11.i, %for.body.i67 ], [ %.sroa.speculated49, %if.then4.i63 ]
-  tail call void asm sideeffect "prefetchw ($0)", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %prefetch_limit.i.051) #25, !srcloc !7
-  %add.ptr11.i = getelementptr inbounds i8, ptr %prefetch_limit.i.051, i64 -64
-  %cmp10.i = icmp ugt ptr %add.ptr11.i, %.sroa.speculated46
+  %prefetch_limit.i.048 = phi ptr [ %add.ptr11.i, %for.body.i67 ], [ %.sroa.speculated46, %if.then4.i63 ]
+  tail call void asm sideeffect "prefetchw ($0)", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %prefetch_limit.i.048) #25, !srcloc !7
+  %add.ptr11.i = getelementptr inbounds i8, ptr %prefetch_limit.i.048, i64 -64
+  %cmp10.i = icmp ugt ptr %add.ptr11.i, %.sroa.speculated43
   br i1 %cmp10.i, label %for.body.i67, label %for.end.i66.loopexit, !llvm.loop !15
 
 for.end.i66.loopexit:                             ; preds = %for.body.i67
@@ -3311,12 +3274,12 @@ for.end.i66.loopexit:                             ; preds = %for.body.i67
 
 for.end.i66:                                      ; preds = %for.end.i66.loopexit, %if.then4.i63
   %.pre = phi ptr [ %add.ptr.i, %if.then4.i63 ], [ %.pre.pre, %for.end.i66.loopexit ]
-  %prefetch_limit.i.0.lcssa = phi ptr [ %.sroa.speculated49, %if.then4.i63 ], [ %add.ptr11.i, %for.end.i66.loopexit ]
+  %prefetch_limit.i.0.lcssa = phi ptr [ %.sroa.speculated46, %if.then4.i63 ], [ %add.ptr11.i, %for.end.i66.loopexit ]
   store ptr %prefetch_limit.i.0.lcssa, ptr %prefetch_limit_.i55, align 8
   br label %_ZN6google8protobuf8internal11SerialArena22MaybePrefetchBackwardsEPKc.exit
 
 _ZN6google8protobuf8internal11SerialArena22MaybePrefetchBackwardsEPKc.exit: ; preds = %if.end.i, %for.end.i66, %if.end.i60
-  %14 = phi ptr [ %add.ptr.i, %if.end.i ], [ %.pre, %for.end.i66 ], [ %add.ptr.i, %if.end.i60 ]
+  %11 = phi ptr [ %add.ptr.i, %if.end.i ], [ %.pre, %for.end.i66 ], [ %add.ptr.i, %if.end.i60 ]
   switch i64 %retval.i37.0, label %sw.default.i73 [
     i64 1, label %sw.bb.i75
     i64 2, label %sw.bb2.i74
@@ -3324,51 +3287,51 @@ _ZN6google8protobuf8internal11SerialArena22MaybePrefetchBackwardsEPKc.exit: ; pr
 
 sw.bb.i75:                                        ; preds = %_ZN6google8protobuf8internal11SerialArena22MaybePrefetchBackwardsEPKc.exit
   %or.i = or i64 %and.i.i, 1
-  store i64 %or.i, ptr %14, align 1
+  store i64 %or.i, ptr %11, align 1
   br label %_ZN6google8protobuf8internal7cleanup10CreateNodeENS2_3TagEPvPKvPFvS4_E.exit
 
 sw.bb2.i74:                                       ; preds = %_ZN6google8protobuf8internal11SerialArena22MaybePrefetchBackwardsEPKc.exit
   %or5.i = or i64 %and.i.i, 2
-  store i64 %or5.i, ptr %14, align 1
+  store i64 %or5.i, ptr %11, align 1
   br label %_ZN6google8protobuf8internal7cleanup10CreateNodeENS2_3TagEPvPKvPFvS4_E.exit
 
 sw.default.i73:                                   ; preds = %_ZN6google8protobuf8internal11SerialArena22MaybePrefetchBackwardsEPKc.exit
-  store i64 %and.i.i, ptr %14, align 1
-  %n7.i.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %14, i64 8
+  store i64 %and.i.i, ptr %11, align 1
+  %n7.i.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %11, i64 8
   store ptr %destructor, ptr %n7.i.sroa.2.0..sroa_idx, align 1
   br label %_ZN6google8protobuf8internal7cleanup10CreateNodeENS2_3TagEPvPKvPFvS4_E.exit
 
 _ZN6google8protobuf8internal7cleanup10CreateNodeENS2_3TagEPvPKvPFvS4_E.exit: ; preds = %sw.default.i73, %sw.bb2.i74, %sw.bb.i75
   %prefetch_ptr_.i = getelementptr inbounds %"class.google::protobuf::internal::SerialArena", ptr %arena.0, i64 0, i32 2
-  %15 = load ptr, ptr %prefetch_ptr_.i, align 8
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %15 to i64
+  %12 = load ptr, ptr %prefetch_ptr_.i, align 8
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %12 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %add.i
   %cmp.i21 = icmp sgt i64 %sub.ptr.sub.i, 1024
   br i1 %cmp.i21, label %return, label %if.end.i22
 
 if.end.i22:                                       ; preds = %_ZN6google8protobuf8internal7cleanup10CreateNodeENS2_3TagEPvPKvPFvS4_E.exit
-  %16 = load ptr, ptr %prefetch_limit_.i55, align 8
-  %cmp3.i = icmp ult ptr %15, %16
+  %13 = load ptr, ptr %prefetch_limit_.i55, align 8
+  %cmp3.i = icmp ult ptr %12, %13
   br i1 %cmp3.i, label %if.then4.i, label %return
 
 if.then4.i:                                       ; preds = %if.end.i22
-  %cmp.i37 = icmp ugt ptr %15, %9
-  %.sroa.speculated43 = select i1 %cmp.i37, ptr %15, ptr %9
-  %add.ptr.i24 = getelementptr inbounds i8, ptr %.sroa.speculated43, i64 1024
-  %cmp.i40 = icmp ult ptr %add.ptr.i24, %16
-  %.sroa.speculated = select i1 %cmp.i40, ptr %add.ptr.i24, ptr %16
-  %cmp8.i52 = icmp ult ptr %.sroa.speculated43, %.sroa.speculated
-  br i1 %cmp8.i52, label %for.body.i, label %for.end.i
+  %cmp.i35 = icmp ugt ptr %12, %8
+  %.sroa.speculated40 = select i1 %cmp.i35, ptr %12, ptr %8
+  %add.ptr.i24 = getelementptr inbounds i8, ptr %.sroa.speculated40, i64 1024
+  %cmp.i37 = icmp ult ptr %add.ptr.i24, %13
+  %.sroa.speculated = select i1 %cmp.i37, ptr %add.ptr.i24, ptr %13
+  %cmp8.i49 = icmp ult ptr %.sroa.speculated40, %.sroa.speculated
+  br i1 %cmp8.i49, label %for.body.i, label %for.end.i
 
 for.body.i:                                       ; preds = %if.then4.i, %for.body.i
-  %prefetch_ptr.i.053 = phi ptr [ %add.ptr9.i, %for.body.i ], [ %.sroa.speculated43, %if.then4.i ]
-  tail call void asm sideeffect "prefetchw ($0)", "r,~{dirflag},~{fpsr},~{flags}"(ptr %prefetch_ptr.i.053) #25, !srcloc !7
-  %add.ptr9.i = getelementptr inbounds i8, ptr %prefetch_ptr.i.053, i64 64
+  %prefetch_ptr.i.050 = phi ptr [ %add.ptr9.i, %for.body.i ], [ %.sroa.speculated40, %if.then4.i ]
+  tail call void asm sideeffect "prefetchw ($0)", "r,~{dirflag},~{fpsr},~{flags}"(ptr %prefetch_ptr.i.050) #25, !srcloc !7
+  %add.ptr9.i = getelementptr inbounds i8, ptr %prefetch_ptr.i.050, i64 64
   %cmp8.i = icmp ult ptr %add.ptr9.i, %.sroa.speculated
   br i1 %cmp8.i, label %for.body.i, label %for.end.i, !llvm.loop !8
 
 for.end.i:                                        ; preds = %for.body.i, %if.then4.i
-  %prefetch_ptr.i.0.lcssa = phi ptr [ %.sroa.speculated43, %if.then4.i ], [ %add.ptr9.i, %for.body.i ]
+  %prefetch_ptr.i.0.lcssa = phi ptr [ %.sroa.speculated40, %if.then4.i ], [ %add.ptr9.i, %for.body.i ]
   store ptr %prefetch_ptr.i.0.lcssa, ptr %prefetch_ptr_.i, align 8
   br label %return
 
@@ -3396,60 +3359,69 @@ entry:
   %1 = inttoptr i64 %and.i.i to ptr
   %add.i = add i64 %and.i.i, %and.i
   %cmp.i.i = icmp eq ptr %destructor, null
+  br i1 %cmp.i.i, label %_ZN6google8protobuf8internal7cleanup4SizeEPFvPvE.exit.i, label %cond.false.i.i
+
+cond.false.i.i:                                   ; preds = %entry
   %cmp.i36 = icmp eq ptr %destructor, @_ZN6google8protobuf8internal7cleanup21arena_destruct_objectINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvPv
   %cmp1.i38 = icmp eq ptr %destructor, @_ZN6google8protobuf8internal7cleanup21arena_destruct_objectIN4absl12lts_202308024CordEEEvPv
-  %narrow.not = or i1 %cmp.i36, %cmp1.i38
-  %2 = select i1 %narrow.not, i64 8, i64 16
-  %cond.i.i = select i1 %cmp.i.i, i64 0, i64 %2
-  %add6.i = add i64 %add.i, %cond.i.i
+  %. = select i1 %cmp1.i38, i64 2, i64 0
+  %retval.i34.0 = select i1 %cmp.i36, i64 1, i64 %.
+  %switch.gep = getelementptr inbounds [3 x i64], ptr @switch.table._ZN6google8protobuf8internal15ThreadSafeArena10AddCleanupEPvPFvS3_E, i64 0, i64 %retval.i34.0
+  %switch.load = load i64, ptr %switch.gep, align 8
+  br label %_ZN6google8protobuf8internal7cleanup4SizeEPFvPvE.exit.i
+
+_ZN6google8protobuf8internal7cleanup4SizeEPFvPvE.exit.i: ; preds = %cond.false.i.i, %entry
+  %cond.i.i = phi i64 [ 0, %entry ], [ %switch.load, %cond.false.i.i ]
+  %add6.i = add i64 %cond.i.i, %add.i
   %limit_.i = getelementptr inbounds %"class.google::protobuf::internal::SerialArena", ptr %call, i64 0, i32 1
-  %3 = load ptr, ptr %limit_.i, align 8
-  %4 = ptrtoint ptr %3 to i64
-  %cmp.i = icmp ugt i64 %add6.i, %4
+  %2 = load ptr, ptr %limit_.i, align 8
+  %3 = ptrtoint ptr %2 to i64
+  %cmp.i = icmp ugt i64 %add6.i, %3
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
-if.then.i:                                        ; preds = %entry
+if.then.i:                                        ; preds = %_ZN6google8protobuf8internal7cleanup4SizeEPFvPvE.exit.i
   %call7.i = tail call noundef ptr @_ZN6google8protobuf8internal11SerialArena34AllocateAlignedWithCleanupFallbackEmmPFvPvE(ptr noundef nonnull align 8 dereferenceable(96) %call, i64 noundef %and.i, i64 noundef %align, ptr noundef %destructor)
   br label %_ZN6google8protobuf8internal11SerialArena26AllocateAlignedWithCleanupEmmPFvPvE.exit
 
-if.end.i:                                         ; preds = %entry
-  %5 = inttoptr i64 %add.i to ptr
+if.end.i:                                         ; preds = %_ZN6google8protobuf8internal7cleanup4SizeEPFvPvE.exit.i
+  %4 = inttoptr i64 %add.i to ptr
   store atomic i64 %add.i, ptr %call monotonic, align 8
-  %.28 = select i1 %cmp1.i38, i64 2, i64 0
-  %retval.i29.0 = select i1 %cmp.i36, i64 1, i64 %.28
-  %6 = add nsw i64 %retval.i29.0, -1
-  %switch.selectcmp30 = icmp ult i64 %6, 2
-  %7 = select i1 %switch.selectcmp30, i64 -8, i64 -16
-  %add.ptr.i = getelementptr inbounds i8, ptr %3, i64 %7
+  %cmp.i31 = icmp eq ptr %destructor, @_ZN6google8protobuf8internal7cleanup21arena_destruct_objectINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvPv
+  %cmp1.i = icmp eq ptr %destructor, @_ZN6google8protobuf8internal7cleanup21arena_destruct_objectIN4absl12lts_202308024CordEEEvPv
+  %.28 = select i1 %cmp1.i, i64 2, i64 0
+  %retval.i29.0 = select i1 %cmp.i31, i64 1, i64 %.28
+  %switch.gep51 = getelementptr inbounds [3 x i64], ptr @switch.table._ZN6google8protobuf8internal15ThreadSafeArena10AddCleanupEPvPFvS3_E.7, i64 0, i64 %retval.i29.0
+  %switch.load52 = load i64, ptr %switch.gep51, align 8
+  %add.ptr.i = getelementptr inbounds i8, ptr %2, i64 %switch.load52
   store ptr %add.ptr.i, ptr %limit_.i, align 8
   %prefetch_limit_.i47 = getelementptr inbounds %"class.google::protobuf::internal::SerialArena", ptr %call, i64 0, i32 3
-  %8 = load ptr, ptr %prefetch_limit_.i47, align 8
+  %5 = load ptr, ptr %prefetch_limit_.i47, align 8
   %sub.ptr.lhs.cast.i48 = ptrtoint ptr %add.ptr.i to i64
-  %sub.ptr.rhs.cast.i49 = ptrtoint ptr %8 to i64
+  %sub.ptr.rhs.cast.i49 = ptrtoint ptr %5 to i64
   %sub.ptr.sub.i50 = sub i64 %sub.ptr.lhs.cast.i48, %sub.ptr.rhs.cast.i49
   %cmp.i51 = icmp sgt i64 %sub.ptr.sub.i50, 384
   br i1 %cmp.i51, label %_ZN6google8protobuf8internal11SerialArena22MaybePrefetchBackwardsEPKc.exit, label %if.end.i52
 
 if.end.i52:                                       ; preds = %if.end.i
   %prefetch_ptr_.i53 = getelementptr inbounds %"class.google::protobuf::internal::SerialArena", ptr %call, i64 0, i32 2
-  %9 = load ptr, ptr %prefetch_ptr_.i53, align 8
-  %cmp3.i54 = icmp ugt ptr %8, %9
+  %6 = load ptr, ptr %prefetch_ptr_.i53, align 8
+  %cmp3.i54 = icmp ugt ptr %5, %6
   br i1 %cmp3.i54, label %if.then4.i55, label %_ZN6google8protobuf8internal11SerialArena22MaybePrefetchBackwardsEPKc.exit
 
 if.then4.i55:                                     ; preds = %if.end.i52
-  %cmp.i32 = icmp ult ptr %8, %add.ptr.i
-  %.sroa.speculated46 = select i1 %cmp.i32, ptr %8, ptr %add.ptr.i
-  %add.ptr.i56 = getelementptr inbounds i8, ptr %.sroa.speculated46, i64 -384
-  %cmp.i33 = icmp ult ptr %9, %add.ptr.i56
-  %.sroa.speculated43 = select i1 %cmp.i33, ptr %add.ptr.i56, ptr %9
-  %cmp10.i47 = icmp ugt ptr %.sroa.speculated46, %.sroa.speculated43
-  br i1 %cmp10.i47, label %for.body.i59, label %for.end.i58
+  %cmp.i29 = icmp ult ptr %5, %add.ptr.i
+  %.sroa.speculated43 = select i1 %cmp.i29, ptr %5, ptr %add.ptr.i
+  %add.ptr.i56 = getelementptr inbounds i8, ptr %.sroa.speculated43, i64 -384
+  %cmp.i30 = icmp ult ptr %6, %add.ptr.i56
+  %.sroa.speculated40 = select i1 %cmp.i30, ptr %add.ptr.i56, ptr %6
+  %cmp10.i44 = icmp ugt ptr %.sroa.speculated43, %.sroa.speculated40
+  br i1 %cmp10.i44, label %for.body.i59, label %for.end.i58
 
 for.body.i59:                                     ; preds = %if.then4.i55, %for.body.i59
-  %prefetch_limit.i.048 = phi ptr [ %add.ptr11.i, %for.body.i59 ], [ %.sroa.speculated46, %if.then4.i55 ]
-  tail call void asm sideeffect "prefetchw ($0)", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %prefetch_limit.i.048) #25, !srcloc !7
-  %add.ptr11.i = getelementptr inbounds i8, ptr %prefetch_limit.i.048, i64 -64
-  %cmp10.i = icmp ugt ptr %add.ptr11.i, %.sroa.speculated43
+  %prefetch_limit.i.045 = phi ptr [ %add.ptr11.i, %for.body.i59 ], [ %.sroa.speculated43, %if.then4.i55 ]
+  tail call void asm sideeffect "prefetchw ($0)", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %prefetch_limit.i.045) #25, !srcloc !7
+  %add.ptr11.i = getelementptr inbounds i8, ptr %prefetch_limit.i.045, i64 -64
+  %cmp10.i = icmp ugt ptr %add.ptr11.i, %.sroa.speculated40
   br i1 %cmp10.i, label %for.body.i59, label %for.end.i58.loopexit, !llvm.loop !15
 
 for.end.i58.loopexit:                             ; preds = %for.body.i59
@@ -3458,12 +3430,12 @@ for.end.i58.loopexit:                             ; preds = %for.body.i59
 
 for.end.i58:                                      ; preds = %for.end.i58.loopexit, %if.then4.i55
   %.pre = phi ptr [ %add.ptr.i, %if.then4.i55 ], [ %.pre.pre, %for.end.i58.loopexit ]
-  %prefetch_limit.i.0.lcssa = phi ptr [ %.sroa.speculated46, %if.then4.i55 ], [ %add.ptr11.i, %for.end.i58.loopexit ]
+  %prefetch_limit.i.0.lcssa = phi ptr [ %.sroa.speculated43, %if.then4.i55 ], [ %add.ptr11.i, %for.end.i58.loopexit ]
   store ptr %prefetch_limit.i.0.lcssa, ptr %prefetch_limit_.i47, align 8
   br label %_ZN6google8protobuf8internal11SerialArena22MaybePrefetchBackwardsEPKc.exit
 
 _ZN6google8protobuf8internal11SerialArena22MaybePrefetchBackwardsEPKc.exit: ; preds = %if.end.i, %for.end.i58, %if.end.i52
-  %10 = phi ptr [ %add.ptr.i, %if.end.i ], [ %.pre, %for.end.i58 ], [ %add.ptr.i, %if.end.i52 ]
+  %7 = phi ptr [ %add.ptr.i, %if.end.i ], [ %.pre, %for.end.i58 ], [ %add.ptr.i, %if.end.i52 ]
   switch i64 %retval.i29.0, label %sw.default.i65 [
     i64 1, label %sw.bb.i67
     i64 2, label %sw.bb2.i66
@@ -3471,51 +3443,51 @@ _ZN6google8protobuf8internal11SerialArena22MaybePrefetchBackwardsEPKc.exit: ; pr
 
 sw.bb.i67:                                        ; preds = %_ZN6google8protobuf8internal11SerialArena22MaybePrefetchBackwardsEPKc.exit
   %or.i = or i64 %and.i.i, 1
-  store i64 %or.i, ptr %10, align 1
+  store i64 %or.i, ptr %7, align 1
   br label %_ZN6google8protobuf8internal7cleanup10CreateNodeENS2_3TagEPvPKvPFvS4_E.exit
 
 sw.bb2.i66:                                       ; preds = %_ZN6google8protobuf8internal11SerialArena22MaybePrefetchBackwardsEPKc.exit
   %or5.i = or i64 %and.i.i, 2
-  store i64 %or5.i, ptr %10, align 1
+  store i64 %or5.i, ptr %7, align 1
   br label %_ZN6google8protobuf8internal7cleanup10CreateNodeENS2_3TagEPvPKvPFvS4_E.exit
 
 sw.default.i65:                                   ; preds = %_ZN6google8protobuf8internal11SerialArena22MaybePrefetchBackwardsEPKc.exit
-  store i64 %and.i.i, ptr %10, align 1
-  %n7.i.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 8
+  store i64 %and.i.i, ptr %7, align 1
+  %n7.i.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %destructor, ptr %n7.i.sroa.2.0..sroa_idx, align 1
   br label %_ZN6google8protobuf8internal7cleanup10CreateNodeENS2_3TagEPvPKvPFvS4_E.exit
 
 _ZN6google8protobuf8internal7cleanup10CreateNodeENS2_3TagEPvPKvPFvS4_E.exit: ; preds = %sw.default.i65, %sw.bb2.i66, %sw.bb.i67
   %prefetch_ptr_.i = getelementptr inbounds %"class.google::protobuf::internal::SerialArena", ptr %call, i64 0, i32 2
-  %11 = load ptr, ptr %prefetch_ptr_.i, align 8
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %11 to i64
+  %8 = load ptr, ptr %prefetch_ptr_.i, align 8
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %8 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %add.i
   %cmp.i13 = icmp sgt i64 %sub.ptr.sub.i, 1024
   br i1 %cmp.i13, label %_ZN6google8protobuf8internal11SerialArena26AllocateAlignedWithCleanupEmmPFvPvE.exit, label %if.end.i14
 
 if.end.i14:                                       ; preds = %_ZN6google8protobuf8internal7cleanup10CreateNodeENS2_3TagEPvPKvPFvS4_E.exit
-  %12 = load ptr, ptr %prefetch_limit_.i47, align 8
-  %cmp3.i = icmp ult ptr %11, %12
+  %9 = load ptr, ptr %prefetch_limit_.i47, align 8
+  %cmp3.i = icmp ult ptr %8, %9
   br i1 %cmp3.i, label %if.then4.i, label %_ZN6google8protobuf8internal11SerialArena26AllocateAlignedWithCleanupEmmPFvPvE.exit
 
 if.then4.i:                                       ; preds = %if.end.i14
-  %cmp.i35 = icmp ugt ptr %11, %5
-  %.sroa.speculated40 = select i1 %cmp.i35, ptr %11, ptr %5
-  %add.ptr.i16 = getelementptr inbounds i8, ptr %.sroa.speculated40, i64 1024
-  %cmp.i37 = icmp ult ptr %add.ptr.i16, %12
-  %.sroa.speculated = select i1 %cmp.i37, ptr %add.ptr.i16, ptr %12
-  %cmp8.i49 = icmp ult ptr %.sroa.speculated40, %.sroa.speculated
-  br i1 %cmp8.i49, label %for.body.i, label %for.end.i
+  %cmp.i32 = icmp ugt ptr %8, %4
+  %.sroa.speculated37 = select i1 %cmp.i32, ptr %8, ptr %4
+  %add.ptr.i16 = getelementptr inbounds i8, ptr %.sroa.speculated37, i64 1024
+  %cmp.i34 = icmp ult ptr %add.ptr.i16, %9
+  %.sroa.speculated = select i1 %cmp.i34, ptr %add.ptr.i16, ptr %9
+  %cmp8.i46 = icmp ult ptr %.sroa.speculated37, %.sroa.speculated
+  br i1 %cmp8.i46, label %for.body.i, label %for.end.i
 
 for.body.i:                                       ; preds = %if.then4.i, %for.body.i
-  %prefetch_ptr.i.050 = phi ptr [ %add.ptr9.i, %for.body.i ], [ %.sroa.speculated40, %if.then4.i ]
-  tail call void asm sideeffect "prefetchw ($0)", "r,~{dirflag},~{fpsr},~{flags}"(ptr %prefetch_ptr.i.050) #25, !srcloc !7
-  %add.ptr9.i = getelementptr inbounds i8, ptr %prefetch_ptr.i.050, i64 64
+  %prefetch_ptr.i.047 = phi ptr [ %add.ptr9.i, %for.body.i ], [ %.sroa.speculated37, %if.then4.i ]
+  tail call void asm sideeffect "prefetchw ($0)", "r,~{dirflag},~{fpsr},~{flags}"(ptr %prefetch_ptr.i.047) #25, !srcloc !7
+  %add.ptr9.i = getelementptr inbounds i8, ptr %prefetch_ptr.i.047, i64 64
   %cmp8.i = icmp ult ptr %add.ptr9.i, %.sroa.speculated
   br i1 %cmp8.i, label %for.body.i, label %for.end.i, !llvm.loop !8
 
 for.end.i:                                        ; preds = %for.body.i, %if.then4.i
-  %prefetch_ptr.i.0.lcssa = phi ptr [ %.sroa.speculated40, %if.then4.i ], [ %add.ptr9.i, %for.body.i ]
+  %prefetch_ptr.i.0.lcssa = phi ptr [ %.sroa.speculated37, %if.then4.i ], [ %add.ptr9.i, %for.body.i ]
   store ptr %prefetch_ptr.i.0.lcssa, ptr %prefetch_ptr_.i, align 8
   br label %_ZN6google8protobuf8internal11SerialArena26AllocateAlignedWithCleanupEmmPFvPvE.exit
 
@@ -3534,113 +3506,114 @@ entry:
   %cmp.i.not.i = icmp eq i64 %1, %2
   %last_serial_arena.i.i = getelementptr inbounds %"struct.google::protobuf::internal::ThreadSafeArena::ThreadCache", ptr %0, i64 0, i32 2
   %3 = load ptr, ptr %last_serial_arena.i.i, align 16
-  br i1 %cmp.i.not.i, label %_ZN6google8protobuf8internal15ThreadSafeArena14GetSerialArenaEv.exit, label %if.then.i20
+  br i1 %cmp.i.not.i, label %_ZN6google8protobuf8internal15ThreadSafeArena14GetSerialArenaEv.exit, label %if.then.i18
 
-if.then.i20:                                      ; preds = %entry
-  %call2.i21 = tail call noundef ptr @_ZN6google8protobuf8internal15ThreadSafeArena22GetSerialArenaFallbackEm(ptr noundef nonnull align 8 dereferenceable(144) %this, i64 noundef 16)
+if.then.i18:                                      ; preds = %entry
+  %call2.i19 = tail call noundef ptr @_ZN6google8protobuf8internal15ThreadSafeArena22GetSerialArenaFallbackEm(ptr noundef nonnull align 8 dereferenceable(144) %this, i64 noundef 16)
   br label %_ZN6google8protobuf8internal15ThreadSafeArena14GetSerialArenaEv.exit
 
-_ZN6google8protobuf8internal15ThreadSafeArena14GetSerialArenaEv.exit: ; preds = %entry, %if.then.i20
-  %arena.1.i = phi ptr [ %call2.i21, %if.then.i20 ], [ %3, %entry ]
+_ZN6google8protobuf8internal15ThreadSafeArena14GetSerialArenaEv.exit: ; preds = %entry, %if.then.i18
+  %arena.1.i = phi ptr [ %call2.i19, %if.then.i18 ], [ %3, %entry ]
   %cmp.i.i = icmp eq ptr %cleanup, null
-  br i1 %cmp.i.i, label %_ZN6google8protobuf8internal7cleanup4SizeEPFvPvE.exit.i.thread, label %_ZN6google8protobuf8internal7cleanup4SizeEPFvPvE.exit.i
+  br i1 %cmp.i.i, label %_ZN6google8protobuf8internal7cleanup4SizeEPFvPvE.exit.i.thread, label %cond.false.i.i
 
 _ZN6google8protobuf8internal7cleanup4SizeEPFvPvE.exit.i.thread: ; preds = %_ZN6google8protobuf8internal15ThreadSafeArena14GetSerialArenaEv.exit
-  %limit_.i29 = getelementptr inbounds %"class.google::protobuf::internal::SerialArena", ptr %arena.1.i, i64 0, i32 1
-  %4 = load ptr, ptr %limit_.i29, align 8
+  %limit_.i27 = getelementptr inbounds %"class.google::protobuf::internal::SerialArena", ptr %arena.1.i, i64 0, i32 1
+  %4 = load ptr, ptr %limit_.i27, align 8
   %5 = load atomic i64, ptr %arena.1.i monotonic, align 8
   br label %if.end.i
 
-_ZN6google8protobuf8internal7cleanup4SizeEPFvPvE.exit.i: ; preds = %_ZN6google8protobuf8internal15ThreadSafeArena14GetSerialArenaEv.exit
+cond.false.i.i:                                   ; preds = %_ZN6google8protobuf8internal15ThreadSafeArena14GetSerialArenaEv.exit
   %cmp.i16 = icmp eq ptr %cleanup, @_ZN6google8protobuf8internal7cleanup21arena_destruct_objectINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvPv
   %cmp1.i18 = icmp eq ptr %cleanup, @_ZN6google8protobuf8internal7cleanup21arena_destruct_objectIN4absl12lts_202308024CordEEEvPv
-  %narrow.not = or i1 %cmp.i16, %cmp1.i18
-  %6 = select i1 %narrow.not, i64 8, i64 16
+  %. = select i1 %cmp1.i18, i64 2, i64 0
+  %retval.i14.0 = select i1 %cmp.i16, i64 1, i64 %.
+  %switch.gep = getelementptr inbounds [3 x i64], ptr @switch.table._ZN6google8protobuf8internal15ThreadSafeArena10AddCleanupEPvPFvS3_E, i64 0, i64 %retval.i14.0
+  %switch.load = load i64, ptr %switch.gep, align 8
   %limit_.i = getelementptr inbounds %"class.google::protobuf::internal::SerialArena", ptr %arena.1.i, i64 0, i32 1
-  %7 = load ptr, ptr %limit_.i, align 8
-  %8 = load atomic i64, ptr %arena.1.i monotonic, align 8
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %7 to i64
-  %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %8
-  %cmp.i = icmp ugt i64 %6, %sub.ptr.sub.i
+  %6 = load ptr, ptr %limit_.i, align 8
+  %7 = load atomic i64, ptr %arena.1.i monotonic, align 8
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %6 to i64
+  %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %7
+  %cmp.i = icmp ugt i64 %switch.load, %sub.ptr.sub.i
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
-if.then.i:                                        ; preds = %_ZN6google8protobuf8internal7cleanup4SizeEPFvPvE.exit.i
+if.then.i:                                        ; preds = %cond.false.i.i
   tail call void @_ZN6google8protobuf8internal11SerialArena18AddCleanupFallbackEPvPFvS3_E(ptr noundef nonnull align 8 dereferenceable(96) %arena.1.i, ptr noundef %elem, ptr noundef nonnull %cleanup)
   br label %_ZN6google8protobuf8internal11SerialArena10AddCleanupEPvPFvS3_E.exit
 
-if.end.i:                                         ; preds = %_ZN6google8protobuf8internal7cleanup4SizeEPFvPvE.exit.i.thread, %_ZN6google8protobuf8internal7cleanup4SizeEPFvPvE.exit.i
-  %9 = phi ptr [ %4, %_ZN6google8protobuf8internal7cleanup4SizeEPFvPvE.exit.i.thread ], [ %7, %_ZN6google8protobuf8internal7cleanup4SizeEPFvPvE.exit.i ]
-  %limit_.i34 = phi ptr [ %limit_.i29, %_ZN6google8protobuf8internal7cleanup4SizeEPFvPvE.exit.i.thread ], [ %limit_.i, %_ZN6google8protobuf8internal7cleanup4SizeEPFvPvE.exit.i ]
+if.end.i:                                         ; preds = %_ZN6google8protobuf8internal7cleanup4SizeEPFvPvE.exit.i.thread, %cond.false.i.i
+  %8 = phi ptr [ %4, %_ZN6google8protobuf8internal7cleanup4SizeEPFvPvE.exit.i.thread ], [ %6, %cond.false.i.i ]
+  %limit_.i32 = phi ptr [ %limit_.i27, %_ZN6google8protobuf8internal7cleanup4SizeEPFvPvE.exit.i.thread ], [ %limit_.i, %cond.false.i.i ]
   %cmp.i11 = icmp eq ptr %cleanup, @_ZN6google8protobuf8internal7cleanup21arena_destruct_objectINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvPv
   %cmp1.i = icmp eq ptr %cleanup, @_ZN6google8protobuf8internal7cleanup21arena_destruct_objectIN4absl12lts_202308024CordEEEvPv
   %.17 = select i1 %cmp1.i, i64 2, i64 0
   %retval.i9.0 = select i1 %cmp.i11, i64 1, i64 %.17
-  %10 = add nsw i64 %retval.i9.0, -1
-  %switch.selectcmp19 = icmp ult i64 %10, 2
-  %11 = select i1 %switch.selectcmp19, i64 -8, i64 -16
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %9, i64 %11
-  store ptr %add.ptr.i.i, ptr %limit_.i34, align 8
+  %switch.gep37 = getelementptr inbounds [3 x i64], ptr @switch.table._ZN6google8protobuf8internal15ThreadSafeArena10AddCleanupEPvPFvS3_E.7, i64 0, i64 %retval.i9.0
+  %switch.load38 = load i64, ptr %switch.gep37, align 8
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %8, i64 %switch.load38
+  store ptr %add.ptr.i.i, ptr %limit_.i32, align 8
   %prefetch_limit_.i = getelementptr inbounds %"class.google::protobuf::internal::SerialArena", ptr %arena.1.i, i64 0, i32 3
-  %12 = load ptr, ptr %prefetch_limit_.i, align 8
+  %9 = load ptr, ptr %prefetch_limit_.i, align 8
   %sub.ptr.lhs.cast.i25 = ptrtoint ptr %add.ptr.i.i to i64
-  %sub.ptr.rhs.cast.i26 = ptrtoint ptr %12 to i64
+  %sub.ptr.rhs.cast.i26 = ptrtoint ptr %9 to i64
   %sub.ptr.sub.i27 = sub i64 %sub.ptr.lhs.cast.i25, %sub.ptr.rhs.cast.i26
   %cmp.i28 = icmp sgt i64 %sub.ptr.sub.i27, 384
   br i1 %cmp.i28, label %_ZN6google8protobuf8internal11SerialArena22MaybePrefetchBackwardsEPKc.exit, label %if.end.i29
 
 if.end.i29:                                       ; preds = %if.end.i
   %prefetch_ptr_.i = getelementptr inbounds %"class.google::protobuf::internal::SerialArena", ptr %arena.1.i, i64 0, i32 2
-  %13 = load ptr, ptr %prefetch_ptr_.i, align 8
-  %cmp3.i = icmp ugt ptr %12, %13
+  %10 = load ptr, ptr %prefetch_ptr_.i, align 8
+  %cmp3.i = icmp ugt ptr %9, %10
   br i1 %cmp3.i, label %if.then4.i, label %_ZN6google8protobuf8internal11SerialArena22MaybePrefetchBackwardsEPKc.exit
 
 if.then4.i:                                       ; preds = %if.end.i29
-  %cmp.i23 = icmp ult ptr %12, %add.ptr.i.i
-  %.sroa.speculated27 = select i1 %cmp.i23, ptr %12, ptr %add.ptr.i.i
-  %add.ptr.i = getelementptr inbounds i8, ptr %.sroa.speculated27, i64 -384
-  %cmp.i24 = icmp ult ptr %13, %add.ptr.i
-  %.sroa.speculated = select i1 %cmp.i24, ptr %add.ptr.i, ptr %13
-  %cmp10.i35 = icmp ugt ptr %.sroa.speculated27, %.sroa.speculated
-  br i1 %cmp10.i35, label %for.body.i, label %for.end.i
+  %cmp.i21 = icmp ult ptr %9, %add.ptr.i.i
+  %.sroa.speculated25 = select i1 %cmp.i21, ptr %9, ptr %add.ptr.i.i
+  %add.ptr.i = getelementptr inbounds i8, ptr %.sroa.speculated25, i64 -384
+  %cmp.i22 = icmp ult ptr %10, %add.ptr.i
+  %.sroa.speculated = select i1 %cmp.i22, ptr %add.ptr.i, ptr %10
+  %cmp10.i33 = icmp ugt ptr %.sroa.speculated25, %.sroa.speculated
+  br i1 %cmp10.i33, label %for.body.i, label %for.end.i
 
 for.body.i:                                       ; preds = %if.then4.i, %for.body.i
-  %prefetch_limit.i.036 = phi ptr [ %add.ptr11.i, %for.body.i ], [ %.sroa.speculated27, %if.then4.i ]
-  tail call void asm sideeffect "prefetchw ($0)", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %prefetch_limit.i.036) #25, !srcloc !7
-  %add.ptr11.i = getelementptr inbounds i8, ptr %prefetch_limit.i.036, i64 -64
+  %prefetch_limit.i.034 = phi ptr [ %add.ptr11.i, %for.body.i ], [ %.sroa.speculated25, %if.then4.i ]
+  tail call void asm sideeffect "prefetchw ($0)", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %prefetch_limit.i.034) #25, !srcloc !7
+  %add.ptr11.i = getelementptr inbounds i8, ptr %prefetch_limit.i.034, i64 -64
   %cmp10.i = icmp ugt ptr %add.ptr11.i, %.sroa.speculated
   br i1 %cmp10.i, label %for.body.i, label %for.end.i.loopexit, !llvm.loop !15
 
 for.end.i.loopexit:                               ; preds = %for.body.i
-  %.pre.pre = load ptr, ptr %limit_.i34, align 8
+  %.pre.pre = load ptr, ptr %limit_.i32, align 8
   br label %for.end.i
 
 for.end.i:                                        ; preds = %for.end.i.loopexit, %if.then4.i
   %.pre = phi ptr [ %add.ptr.i.i, %if.then4.i ], [ %.pre.pre, %for.end.i.loopexit ]
-  %prefetch_limit.i.0.lcssa = phi ptr [ %.sroa.speculated27, %if.then4.i ], [ %add.ptr11.i, %for.end.i.loopexit ]
+  %prefetch_limit.i.0.lcssa = phi ptr [ %.sroa.speculated25, %if.then4.i ], [ %add.ptr11.i, %for.end.i.loopexit ]
   store ptr %prefetch_limit.i.0.lcssa, ptr %prefetch_limit_.i, align 8
   br label %_ZN6google8protobuf8internal11SerialArena22MaybePrefetchBackwardsEPKc.exit
 
 _ZN6google8protobuf8internal11SerialArena22MaybePrefetchBackwardsEPKc.exit: ; preds = %if.end.i, %for.end.i, %if.end.i29
-  %14 = phi ptr [ %add.ptr.i.i, %if.end.i ], [ %.pre, %for.end.i ], [ %add.ptr.i.i, %if.end.i29 ]
-  %15 = ptrtoint ptr %elem to i64
+  %11 = phi ptr [ %add.ptr.i.i, %if.end.i ], [ %.pre, %for.end.i ], [ %add.ptr.i.i, %if.end.i29 ]
+  %12 = ptrtoint ptr %elem to i64
   switch i64 %retval.i9.0, label %sw.default.i33 [
     i64 1, label %sw.bb.i35
     i64 2, label %sw.bb2.i34
   ]
 
 sw.bb.i35:                                        ; preds = %_ZN6google8protobuf8internal11SerialArena22MaybePrefetchBackwardsEPKc.exit
-  %or.i = or i64 %15, 1
-  store i64 %or.i, ptr %14, align 1
+  %or.i = or i64 %12, 1
+  store i64 %or.i, ptr %11, align 1
   br label %_ZN6google8protobuf8internal11SerialArena10AddCleanupEPvPFvS3_E.exit
 
 sw.bb2.i34:                                       ; preds = %_ZN6google8protobuf8internal11SerialArena22MaybePrefetchBackwardsEPKc.exit
-  %or5.i = or i64 %15, 2
-  store i64 %or5.i, ptr %14, align 1
+  %or5.i = or i64 %12, 2
+  store i64 %or5.i, ptr %11, align 1
   br label %_ZN6google8protobuf8internal11SerialArena10AddCleanupEPvPFvS3_E.exit
 
 sw.default.i33:                                   ; preds = %_ZN6google8protobuf8internal11SerialArena22MaybePrefetchBackwardsEPKc.exit
-  store i64 %15, ptr %14, align 1
-  %n7.i.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %14, i64 8
+  store i64 %12, ptr %11, align 1
+  %n7.i.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %11, i64 8
   store ptr %cleanup, ptr %n7.i.sroa.2.0..sroa_idx, align 1
   br label %_ZN6google8protobuf8internal11SerialArena10AddCleanupEPvPFvS3_E.exit
 

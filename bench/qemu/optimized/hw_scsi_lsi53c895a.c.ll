@@ -4037,8 +4037,8 @@ entry:
   %1 = load i8, ptr %istat1, align 1
   %2 = or i8 %1, 2
   store i8 %2, ptr %istat1, align 1
-  %cmp4883 = icmp sgt i32 %inc, 8
-  br i1 %cmp4883, label %if.then, label %if.end14.lr.ph
+  %cmp4885 = icmp sgt i32 %inc, 8
+  br i1 %cmp4885, label %if.then, label %if.end14.lr.ph
 
 if.end14.lr.ph:                                   ; preds = %entry
   %dsp = getelementptr inbounds %struct.LSIState, ptr %s, i64 0, i32 40
@@ -4204,7 +4204,7 @@ trace_lsi_execute_script_stop.exit:               ; preds = %if.end13, %land.lhs
   br label %return
 
 if.end14:                                         ; preds = %if.end14.lr.ph, %again.backedge
-  %inc2884 = phi i32 [ 1, %if.end14.lr.ph ], [ %inc2, %again.backedge ]
+  %inc2886 = phi i32 [ 1, %if.end14.lr.ph ], [ %inc2, %again.backedge ]
   %18 = load i32, ptr %dsp, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %buf.i)
   %call.i.i = call ptr @object_dynamic_cast_assert(ptr noundef nonnull %s, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.5, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #11
@@ -4225,8 +4225,8 @@ if.then17:                                        ; preds = %if.end14
   br label %again.backedge
 
 again.backedge:                                   ; preds = %if.then17, %if.then645
-  %inc2 = add nuw nsw i32 %inc2884, 1
-  %cmp = icmp ugt i32 %inc2884, 9999
+  %inc2 = add nuw nsw i32 %inc2886, 1
+  %cmp = icmp ugt i32 %inc2886, 9999
   %21 = load i32, ptr @lsi_execute_script.reentrancy_level, align 4
   %cmp4 = icmp sgt i32 %21, 8
   %or.cond = select i1 %cmp, i1 true, i1 %cmp4
@@ -4285,7 +4285,7 @@ trace_lsi_execute_script.exit:                    ; preds = %if.end19, %land.lhs
   %add26 = add i32 %31, 8
   store i32 %add26, ptr %dsp, align 4
   %shr27 = lshr i32 %19, 30
-  switch i32 %shr27, label %if.end19.unreachabledefault [
+  switch i32 %shr27, label %default.unreachable899 [
     i32 0, label %sw.bb
     i32 1, label %sw.bb171
     i32 2, label %sw.bb470
@@ -5919,7 +5919,7 @@ if.then190:                                       ; preds = %if.end185
 if.end194:                                        ; preds = %if.then190, %if.end185
   %addr.1 = phi i32 [ %add193, %if.then190 ], [ %22, %if.end185 ]
   store i32 %addr.1, ptr %dnad195, align 8
-  switch i32 %and173, label %sw.epilog636 [
+  switch i32 %and173, label %default.unreachable [
     i32 0, label %sw.bb196
     i32 1, label %sw.bb238
     i32 2, label %sw.bb250
@@ -6428,7 +6428,7 @@ if.else.i.i615:                                   ; preds = %if.then.i.i608
 
 trace_lsi_execute_script_io_opcode.exit:          ; preds = %if.else354, %land.lhs.true5.i.i605, %if.then8.i.i610, %if.else.i.i615
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i601)
-  switch i32 %and173, label %sw.epilog393 [
+  switch i32 %and173, label %default.unreachable [
     i32 5, label %sw.bb375
     i32 6, label %sw.bb377
     i32 7, label %sw.bb382
@@ -6462,10 +6462,10 @@ if.then389:                                       ; preds = %if.end386
   %472 = load i8, ptr %sfbr529, align 1
   br label %sw.epilog393
 
-sw.epilog393:                                     ; preds = %if.end386, %if.then379, %if.then389, %sw.bb375, %trace_lsi_execute_script_io_opcode.exit
-  %op1.0 = phi i8 [ 0, %trace_lsi_execute_script_io_opcode.exit ], [ %472, %if.then389 ], [ %conv361, %sw.bb375 ], [ %conv361, %if.then379 ], [ %conv361, %if.end386 ]
-  %op0.2 = phi i8 [ 0, %trace_lsi_execute_script_io_opcode.exit ], [ %op0.1, %if.then389 ], [ %471, %sw.bb375 ], [ %call380, %if.then379 ], [ %op0.1, %if.end386 ]
-  switch i32 %and365, label %sw.epilog393.unreachabledefault [
+sw.epilog393:                                     ; preds = %if.end386, %if.then379, %if.then389, %sw.bb375
+  %op1.0 = phi i8 [ %472, %if.then389 ], [ %conv361, %sw.bb375 ], [ %conv361, %if.then379 ], [ %conv361, %if.end386 ]
+  %op0.2 = phi i8 [ %op0.1, %if.then389 ], [ %471, %sw.bb375 ], [ %call380, %if.then379 ], [ %op0.1, %if.end386 ]
+  switch i32 %and365, label %default.unreachable899 [
     i32 0, label %sw.epilog464
     i32 1, label %sw.bb395
     i32 2, label %sw.bb406
@@ -6535,24 +6535,18 @@ if.else457:                                       ; preds = %sw.bb442
   store i32 %conv461, ptr %carry491, align 8
   br label %sw.epilog464
 
-sw.epilog393.unreachabledefault:                  ; preds = %sw.epilog393
-  unreachable
-
 sw.epilog464:                                     ; preds = %sw.epilog393, %if.then451, %if.else457, %sw.bb432, %sw.bb420, %sw.bb415, %sw.bb411, %sw.bb406, %sw.bb395
   %op0.3 = phi i8 [ %conv448, %if.then451 ], [ %conv448, %if.else457 ], [ %add435, %sw.bb432 ], [ %conv429, %sw.bb420 ], [ %and418306, %sw.bb415 ], [ %xor307, %sw.bb411 ], [ %or409308, %sw.bb406 ], [ %conv403, %sw.bb395 ], [ %op1.0, %sw.epilog393 ]
-  switch i32 %and173, label %sw.epilog636 [
-    i32 5, label %sw.bb465
-    i32 7, label %sw.bb465
-    i32 6, label %sw.bb466
-  ]
+  %switch = icmp eq i32 %and173, 6
+  br i1 %switch, label %sw.bb466, label %sw.bb465
 
-sw.bb465:                                         ; preds = %sw.epilog464, %sw.epilog464
+sw.bb465:                                         ; preds = %sw.epilog464
   call fastcc void @lsi_reg_writeb(ptr noundef nonnull %s, i32 noundef %or358, i8 noundef zeroext %op0.3)
   br label %sw.epilog636
 
 sw.bb466:                                         ; preds = %sw.bb377, %sw.epilog464
-  %op0.3875 = phi i8 [ %op0.3, %sw.epilog464 ], [ %conv361, %sw.bb377 ]
-  store i8 %op0.3875, ptr %sfbr529, align 1
+  %op0.3877 = phi i8 [ %op0.3, %sw.epilog464 ], [ %conv361, %sw.bb377 ]
+  store i8 %op0.3877, ptr %sfbr529, align 1
   br label %sw.epilog636
 
 sw.bb470:                                         ; preds = %trace_lsi_execute_script.exit
@@ -7263,8 +7257,8 @@ if.else.i.i836:                                   ; preds = %if.then.i.i830
 
 trace_lsi_execute_script_mm_load.exit:            ; preds = %if.then606, %land.lhs.true5.i.i827, %if.then8.i.i832, %if.else.i.i836
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i823)
-  %cmp612879.not = icmp eq i32 %and601, 0
-  br i1 %cmp612879.not, label %sw.epilog636, label %for.body
+  %cmp612881.not = icmp eq i32 %and601, 0
+  br i1 %cmp612881.not, label %sw.epilog636, label %for.body
 
 for.body:                                         ; preds = %trace_lsi_execute_script_mm_load.exit, %for.body
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ 0, %trace_lsi_execute_script_mm_load.exit ]
@@ -7312,36 +7306,39 @@ if.else.i.i850:                                   ; preds = %if.then.i.i844
 
 trace_lsi_execute_script_mm_store.exit:           ; preds = %if.else618, %land.lhs.true5.i.i841, %if.then8.i.i846, %if.else.i.i850
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i837)
-  %cmp620881.not = icmp eq i32 %and601, 0
-  br i1 %cmp620881.not, label %for.end629, label %for.body622.preheader
+  %cmp620883.not = icmp eq i32 %and601, 0
+  br i1 %cmp620883.not, label %for.end629, label %for.body622.preheader
 
 for.body622.preheader:                            ; preds = %trace_lsi_execute_script_mm_store.exit
-  %wide.trip.count894 = zext nneg i32 %and601 to i64
+  %wide.trip.count896 = zext nneg i32 %and601 to i64
   br label %for.body622
 
 for.body622:                                      ; preds = %for.body622.preheader, %for.body622
-  %indvars.iv890 = phi i64 [ 0, %for.body622.preheader ], [ %indvars.iv.next891, %for.body622 ]
-  %608 = trunc i64 %indvars.iv890 to i32
+  %indvars.iv892 = phi i64 [ 0, %for.body622.preheader ], [ %indvars.iv.next893, %for.body622 ]
+  %608 = trunc i64 %indvars.iv892 to i32
   %609 = add i32 %and603, %608
   %call624 = call fastcc zeroext i8 @lsi_reg_readb(ptr noundef %s, i32 noundef %609)
-  %arrayidx626 = getelementptr [7 x i8], ptr %data, i64 0, i64 %indvars.iv890
+  %arrayidx626 = getelementptr [7 x i8], ptr %data, i64 0, i64 %indvars.iv892
   store i8 %call624, ptr %arrayidx626, align 1
-  %indvars.iv.next891 = add nuw nsw i64 %indvars.iv890, 1
-  %exitcond895.not = icmp eq i64 %indvars.iv.next891, %wide.trip.count894
-  br i1 %exitcond895.not, label %for.end629, label %for.body622, !llvm.loop !13
+  %indvars.iv.next893 = add nuw nsw i64 %indvars.iv892, 1
+  %exitcond897.not = icmp eq i64 %indvars.iv.next893, %wide.trip.count896
+  br i1 %exitcond897.not, label %for.end629, label %for.body622, !llvm.loop !13
 
 for.end629:                                       ; preds = %for.body622, %trace_lsi_execute_script_mm_store.exit
-  %conv632.pre-phi = phi i64 [ 0, %trace_lsi_execute_script_mm_store.exit ], [ %wide.trip.count894, %for.body622 ]
+  %conv632.pre-phi = phi i64 [ 0, %trace_lsi_execute_script_mm_store.exit ], [ %wide.trip.count896, %for.body622 ]
   %conv630 = zext i32 %addr.3 to i64
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !7
   fence seq_cst
   %call.i.i.i.i852 = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i821, i64 noundef %conv630, i32 1, ptr noundef nonnull %data, i64 noundef %conv632.pre-phi, i1 noundef zeroext true) #11
   br label %sw.epilog636
 
-if.end19.unreachabledefault:                      ; preds = %trace_lsi_execute_script.exit
+default.unreachable899:                           ; preds = %sw.epilog393, %trace_lsi_execute_script.exit
   unreachable
 
-sw.epilog636:                                     ; preds = %for.body, %for.inc.i535, %trace_lsi_execute_script_mm_load.exit, %if.then244, %if.then5.i, %if.end3.i, %trace_lsi_wait_reselect.exit.i, %lsi_memcpy.exit, %for.end629, %trace_lsi_execute_script_tc_cc_failed.exit, %if.then571, %if.else576, %trace_lsi_execute_script_tc_illegal.exit, %trace_lsi_execute_script_tc_return.exit, %trace_lsi_execute_script_tc_call.exit, %trace_lsi_execute_script_tc_jump.exit, %if.end347, %if.then350, %if.end310, %if.then313, %if.then254, %lsi_irq_on_rsl.exit, %trace_lsi_execute_script_io_disconnect.exit, %if.then247, %if.end232, %if.then214, %trace_lsi_execute_script_io_alreadyreselected.exit, %if.end194, %sw.bb466, %sw.bb465, %sw.epilog464, %trace_lsi_execute_script_tc_delayedselect_timeout.exit, %trace_lsi_execute_script_tc_nop.exit, %sw.epilog153, %trace_lsi_execute_script_blockmove_badphase.exit, %trace_lsi_execute_script_blockmove_delayed.exit
+default.unreachable:                              ; preds = %trace_lsi_execute_script_io_opcode.exit, %if.end194
+  unreachable
+
+sw.epilog636:                                     ; preds = %for.body, %for.inc.i535, %trace_lsi_execute_script_mm_load.exit, %if.then244, %if.then5.i, %if.end3.i, %trace_lsi_wait_reselect.exit.i, %lsi_memcpy.exit, %for.end629, %trace_lsi_execute_script_tc_cc_failed.exit, %if.then571, %if.else576, %trace_lsi_execute_script_tc_illegal.exit, %trace_lsi_execute_script_tc_return.exit, %trace_lsi_execute_script_tc_call.exit, %trace_lsi_execute_script_tc_jump.exit, %if.end347, %if.then350, %if.end310, %if.then313, %if.then254, %lsi_irq_on_rsl.exit, %trace_lsi_execute_script_io_disconnect.exit, %if.then247, %if.end232, %if.then214, %trace_lsi_execute_script_io_alreadyreselected.exit, %sw.bb466, %sw.bb465, %trace_lsi_execute_script_tc_delayedselect_timeout.exit, %trace_lsi_execute_script_tc_nop.exit, %sw.epilog153, %trace_lsi_execute_script_blockmove_badphase.exit, %trace_lsi_execute_script_blockmove_delayed.exit
   %610 = load i8, ptr %istat1, align 1
   %611 = and i8 %610, 2
   %tobool640.not = icmp eq i8 %611, 0

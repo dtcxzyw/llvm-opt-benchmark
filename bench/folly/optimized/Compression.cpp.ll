@@ -313,7 +313,6 @@ $_ZTVN5folly17BadExpectedAccessIvEE = comdat any
 @_ZTSN5folly2io12_GLOBAL__N_116LZMA2StreamCodecE = internal constant [44 x i8] c"N5folly2io12_GLOBAL__N_116LZMA2StreamCodecE\00", align 1
 @_ZTIN5folly2io12_GLOBAL__N_116LZMA2StreamCodecE = internal constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN5folly2io12_GLOBAL__N_116LZMA2StreamCodecE, ptr @_ZTIN5folly2io11StreamCodecE }, align 8
 @.str.55 = private unnamed_addr constant [49 x i8] c"cannot create std::vector larger than max_size()\00", align 1
-@.str.56 = private unnamed_addr constant [34 x i8] c"LZMA2StreamCodec: invalid FlushOp\00", align 1
 @.str.57 = private unnamed_addr constant [44 x i8] c"LZMA2StreamCodec: lzma_easy_encoder error: \00", align 1
 @.str.58 = private unnamed_addr constant [19 x i8] c"index out of range\00", align 1
 @.str.59 = private unnamed_addr constant [26 x i8] c"LZMA2StreamCodec: error: \00", align 1
@@ -7422,43 +7421,42 @@ sw.default.i:                                     ; preds = %_ZN5folly8OptionalI
   invoke void @_ZNSt16invalid_argumentC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception.i87, ptr noundef nonnull @.str.60)
           to label %invoke.cont.i88.invoke unwind label %lpad.i
 
-invoke.cont.i88.invoke:                           ; preds = %sw.default, %sw.default.i
-  %24 = phi ptr [ %exception, %sw.default ], [ %exception.i87, %sw.default.i ]
-  invoke void @__cxa_throw(ptr nonnull %24, ptr nonnull @_ZTISt16invalid_argument, ptr nonnull @_ZNSt16invalid_argumentD1Ev) #31
+invoke.cont.i88.invoke:                           ; preds = %sw.default.i
+  invoke void @__cxa_throw(ptr nonnull %exception.i87, ptr nonnull @_ZTISt16invalid_argument, ptr nonnull @_ZNSt16invalid_argumentD1Ev) #31
           to label %invoke.cont.i88.cont unwind label %lpad
 
 invoke.cont.i88.cont:                             ; preds = %invoke.cont.i88.invoke
   unreachable
 
 lpad.i:                                           ; preds = %sw.default.i
-  %25 = landingpad { ptr, i32 }
+  %24 = landingpad { ptr, i32 }
           cleanup
   tail call void @__cxa_free_exception(ptr %exception.i87) #29
   br label %ehcleanup
 
 switch.lookup:                                    ; preds = %_ZN5folly8OptionalI11lzma_streamEptEv.exit85
-  %26 = zext nneg i32 %flushOp to i64
-  %switch.gep = getelementptr inbounds [3 x i32], ptr @switch.table._ZN5folly2io12_GLOBAL__N_116LZMA2StreamCodec16doCompressStreamERNS_5RangeIPKhEERNS3_IPhEENS0_11StreamCodec7FlushOpE, i64 0, i64 %26
+  %25 = zext nneg i32 %flushOp to i64
+  %switch.gep = getelementptr inbounds [3 x i32], ptr @switch.table._ZN5folly2io12_GLOBAL__N_116LZMA2StreamCodec16doCompressStreamERNS_5RangeIPKhEERNS3_IPhEENS0_11StreamCodec7FlushOpE, i64 0, i64 %25
   %switch.load = load i32, ptr %switch.gep, align 4
   %call29 = tail call i32 @lzma_code(ptr noundef nonnull %cstream_, i32 noundef %switch.load) #29
   %call31 = invoke fastcc noundef i32 @_ZN5folly2io12_GLOBAL__N_116lzmaThrowOnErrorE8lzma_ret(i32 noundef %call29)
           to label %invoke.cont30 unwind label %lpad
 
 invoke.cont30:                                    ; preds = %switch.lookup
-  switch i32 %flushOp, label %sw.default [
+  switch i32 %flushOp, label %default.unreachable [
     i32 0, label %if.then.i
     i32 1, label %sw.bb32
     i32 2, label %sw.bb42
   ]
 
 lpad:                                             ; preds = %if.then.i.i.i91, %switch.lookup, %invoke.cont.i88.invoke
-  %27 = landingpad { ptr, i32 }
+  %26 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 sw.bb32:                                          ; preds = %invoke.cont30
-  %28 = load i8, ptr %hasValue.i.i.i63, align 8, !tbaa !160, !range !28, !noundef !29
-  %tobool.not.i.i.i90 = icmp eq i8 %28, 0
+  %27 = load i8, ptr %hasValue.i.i.i63, align 8, !tbaa !160, !range !28, !noundef !29
+  %tobool.not.i.i.i90 = icmp eq i8 %27, 0
   br i1 %tobool.not.i.i.i90, label %if.then.i.i.i91, label %invoke.cont34
 
 if.then.i.i.i91:                                  ; preds = %sw.bb32
@@ -7469,8 +7467,8 @@ if.then.i.i.i91:                                  ; preds = %sw.bb32
   unreachable
 
 invoke.cont34:                                    ; preds = %sw.bb32
-  %29 = load i64, ptr %avail_in, align 8, !tbaa !180
-  %cmp = icmp eq i64 %29, 0
+  %28 = load i64, ptr %avail_in, align 8, !tbaa !180
+  %cmp = icmp eq i64 %28, 0
   %.pre9 = load i64, ptr %avail_out, align 8, !tbaa !182
   br i1 %cmp, label %invoke.cont38, label %"_ZN5folly6detail14ScopeGuardImplIZNS_2io12_GLOBAL__N_116LZMA2StreamCodec16doCompressStreamERNS_5RangeIPKhEERNS5_IPhEENS2_11StreamCodec7FlushOpEE3$_0Lb1EED2Ev.exit"
 
@@ -7482,16 +7480,8 @@ sw.bb42:                                          ; preds = %invoke.cont30
   %cmp43 = icmp eq i32 %call29, 1
   br label %if.then.i
 
-sw.default:                                       ; preds = %invoke.cont30
-  %exception = tail call ptr @__cxa_allocate_exception(i64 16) #29
-  invoke void @_ZNSt16invalid_argumentC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception, ptr noundef nonnull @.str.56)
-          to label %invoke.cont.i88.invoke unwind label %lpad44
-
-lpad44:                                           ; preds = %sw.default
-  %30 = landingpad { ptr, i32 }
-          cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #29
-  br label %ehcleanup
+default.unreachable:                              ; preds = %invoke.cont30
+  unreachable
 
 if.then.i:                                        ; preds = %sw.bb42, %invoke.cont38, %invoke.cont30
   %retval.0.ph = phi i1 [ %cmp41, %invoke.cont38 ], [ false, %invoke.cont30 ], [ %cmp43, %sw.bb42 ]
@@ -7512,37 +7502,37 @@ if.then.i.i.i.i.i.i:                              ; preds = %if.then.i
   unreachable
 
 terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i.i.i.i
-  %31 = landingpad { ptr, i32 }
+  %29 = landingpad { ptr, i32 }
           catch ptr null
-  %32 = extractvalue { ptr, i32 } %31, 0
-  tail call void @__clang_call_terminate(ptr %32) #28
+  %30 = extractvalue { ptr, i32 } %29, 0
+  tail call void @__clang_call_terminate(ptr %30) #28
   unreachable
 
 "_ZN5folly6detail14ScopeGuardImplIZNS_2io12_GLOBAL__N_116LZMA2StreamCodec16doCompressStreamERNS_5RangeIPKhEERNS5_IPhEENS2_11StreamCodec7FlushOpEE3$_0Lb1EED2Ev.exit": ; preds = %"if.then.i._ZN5folly6detail14ScopeGuardImplIZNS_2io12_GLOBAL__N_116LZMA2StreamCodec16doCompressStreamERNS_5RangeIPKhEERNS5_IPhEENS2_11StreamCodec7FlushOpEE3$_0Lb1EED2Ev.exit_crit_edge", %invoke.cont34
-  %33 = phi i64 [ %.pre8, %"if.then.i._ZN5folly6detail14ScopeGuardImplIZNS_2io12_GLOBAL__N_116LZMA2StreamCodec16doCompressStreamERNS_5RangeIPKhEERNS5_IPhEENS2_11StreamCodec7FlushOpEE3$_0Lb1EED2Ev.exit_crit_edge" ], [ %.pre9, %invoke.cont34 ]
-  %34 = phi i64 [ %.pre7, %"if.then.i._ZN5folly6detail14ScopeGuardImplIZNS_2io12_GLOBAL__N_116LZMA2StreamCodec16doCompressStreamERNS_5RangeIPKhEERNS5_IPhEENS2_11StreamCodec7FlushOpEE3$_0Lb1EED2Ev.exit_crit_edge" ], [ %29, %invoke.cont34 ]
+  %31 = phi i64 [ %.pre8, %"if.then.i._ZN5folly6detail14ScopeGuardImplIZNS_2io12_GLOBAL__N_116LZMA2StreamCodec16doCompressStreamERNS_5RangeIPKhEERNS5_IPhEENS2_11StreamCodec7FlushOpEE3$_0Lb1EED2Ev.exit_crit_edge" ], [ %.pre9, %invoke.cont34 ]
+  %32 = phi i64 [ %.pre7, %"if.then.i._ZN5folly6detail14ScopeGuardImplIZNS_2io12_GLOBAL__N_116LZMA2StreamCodec16doCompressStreamERNS_5RangeIPKhEERNS5_IPhEENS2_11StreamCodec7FlushOpEE3$_0Lb1EED2Ev.exit_crit_edge" ], [ %28, %invoke.cont34 ]
   %retval.0118 = phi i1 [ %retval.0.ph, %"if.then.i._ZN5folly6detail14ScopeGuardImplIZNS_2io12_GLOBAL__N_116LZMA2StreamCodec16doCompressStreamERNS_5RangeIPKhEERNS5_IPhEENS2_11StreamCodec7FlushOpEE3$_0Lb1EED2Ev.exit_crit_edge" ], [ false, %invoke.cont34 ]
-  %35 = load ptr, ptr %e_.i66, align 8, !tbaa !51
-  %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %35 to i64
-  %36 = load ptr, ptr %input, align 8, !tbaa !50
-  %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %36 to i64
-  %37 = add i64 %34, %sub.ptr.rhs.cast.i.i.i.i
-  %sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %37
-  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %36, i64 %sub.i.i.i
+  %33 = load ptr, ptr %e_.i66, align 8, !tbaa !51
+  %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %33 to i64
+  %34 = load ptr, ptr %input, align 8, !tbaa !50
+  %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %34 to i64
+  %35 = add i64 %32, %sub.ptr.rhs.cast.i.i.i.i
+  %sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %35
+  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %34, i64 %sub.i.i.i
   store ptr %add.ptr.i.i.i.i, ptr %input, align 8, !tbaa !50
-  %38 = load ptr, ptr %e_.i78, align 8, !tbaa !56
-  %39 = load ptr, ptr %output, align 8, !tbaa !54
-  %sub.ptr.lhs.cast.i11.i.i.i = ptrtoint ptr %38 to i64
-  %sub.ptr.rhs.cast.i12.i.i.i = ptrtoint ptr %39 to i64
-  %40 = add i64 %33, %sub.ptr.rhs.cast.i12.i.i.i
-  %sub8.i.i.i = sub i64 %sub.ptr.lhs.cast.i11.i.i.i, %40
-  %add.ptr.i19.i.i.i = getelementptr inbounds i8, ptr %39, i64 %sub8.i.i.i
+  %36 = load ptr, ptr %e_.i78, align 8, !tbaa !56
+  %37 = load ptr, ptr %output, align 8, !tbaa !54
+  %sub.ptr.lhs.cast.i11.i.i.i = ptrtoint ptr %36 to i64
+  %sub.ptr.rhs.cast.i12.i.i.i = ptrtoint ptr %37 to i64
+  %38 = add i64 %31, %sub.ptr.rhs.cast.i12.i.i.i
+  %sub8.i.i.i = sub i64 %sub.ptr.lhs.cast.i11.i.i.i, %38
+  %add.ptr.i19.i.i.i = getelementptr inbounds i8, ptr %37, i64 %sub8.i.i.i
   store ptr %add.ptr.i19.i.i.i, ptr %output, align 8, !tbaa !54
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %SCOPE_EXIT_STATE0) #29
   br label %return
 
-ehcleanup:                                        ; preds = %lpad44, %lpad, %lpad.i
-  %.pn = phi { ptr, i32 } [ %30, %lpad44 ], [ %27, %lpad ], [ %25, %lpad.i ]
+ehcleanup:                                        ; preds = %lpad, %lpad.i
+  %.pn = phi { ptr, i32 } [ %26, %lpad ], [ %24, %lpad.i ]
   call fastcc void @"_ZN5folly6detail14ScopeGuardImplIZNS_2io12_GLOBAL__N_116LZMA2StreamCodec16doCompressStreamERNS_5RangeIPKhEERNS5_IPhEENS2_11StreamCodec7FlushOpEE3$_0Lb1EED2Ev"(ptr noundef nonnull align 8 dereferenceable(32) %SCOPE_EXIT_STATE0) #29
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %SCOPE_EXIT_STATE0) #29
   br label %common.resume

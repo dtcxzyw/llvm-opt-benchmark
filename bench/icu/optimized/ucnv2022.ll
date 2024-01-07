@@ -2647,7 +2647,7 @@ DONE:                                             ; preds = %while.cond
   ]
 
 if.else10:                                        ; preds = %DONE.thread, %DONE
-  switch i32 %var, label %if.then147.sink.split [
+  switch i32 %var, label %default.unreachable [
     i32 1, label %sw.bb11
     i32 3, label %sw.bb58
     i32 2, label %sw.bb133
@@ -2807,6 +2807,9 @@ sw.bb133:                                         ; preds = %if.else10
   %cmp134 = icmp eq i32 %shr.i, 48
   br i1 %cmp134, label %if.end141, label %if.then186.sink.split
 
+default.unreachable:                              ; preds = %if.else10
+  unreachable
+
 if.end141:                                        ; preds = %sw.bb133, %sw.bb112, %sw.bb117, %if.end80, %if.end101, %if.else126, %if.end, %if.else37, %if.else51
   %.pr = load i32, ptr %err, align 4
   %cmp.i71 = icmp sgt i32 %.pr, 0
@@ -2822,7 +2825,7 @@ if.else145:                                       ; preds = %if.end141
     i32 19, label %if.then186
   ]
 
-if.then147.sink.split:                            ; preds = %if.else10, %sw.bb85, %sw.bb64, %sw.bb15, %DONE, %DONE.thread84
+if.then147.sink.split:                            ; preds = %sw.bb85, %sw.bb64, %sw.bb15, %DONE, %DONE.thread84
   store i32 18, ptr %err, align 4
   br label %if.then147
 

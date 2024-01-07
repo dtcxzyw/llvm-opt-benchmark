@@ -2293,7 +2293,7 @@ if.then3:                                         ; preds = %if.then
   br label %sw.epilog
 
 if.end5:                                          ; preds = %qcow2_get_cluster_type.exit
-  switch i32 %retval.0.i, label %sw.default [
+  switch i32 %retval.0.i, label %default.unreachable38 [
     i32 4, label %sw.bb
     i32 3, label %sw.bb7
     i32 2, label %sw.bb7
@@ -2363,8 +2363,7 @@ if.then3.i33:                                     ; preds = %do.end.i30
   %call5.i36 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %17, ptr noundef nonnull @.str.16, ptr noundef %call4.i35) #19
   br label %sw.epilog
 
-sw.default:                                       ; preds = %if.end5
-  tail call void @abort() #15
+default.unreachable38:                            ; preds = %if.end5
   unreachable
 
 sw.epilog:                                        ; preds = %if.then3.i33, %do.end.i30, %if.then3.i24, %do.end.i, %if.end5, %if.end5, %if.then11, %if.then, %if.then3
@@ -2372,9 +2371,6 @@ sw.epilog:                                        ; preds = %if.then3.i33, %do.e
 }
 
 declare void @qcow2_parse_compressed_l2_entry(ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
-
-; Function Attrs: noreturn nounwind
-declare void @abort() local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i32 @qcow2_write_caches(ptr noundef %bs) local_unnamed_addr #0 {
@@ -6999,7 +6995,7 @@ if.then14:                                        ; preds = %qcow2_get_cluster_t
   br label %if.end18
 
 if.end18:                                         ; preds = %if.then14, %qcow2_get_cluster_type.exit
-  switch i32 %retval.0.i87, label %if.end18.unreachabledefault [
+  switch i32 %retval.0.i87, label %default.unreachable112 [
     i32 0, label %sw.bb131
     i32 2, label %sw.bb55
     i32 3, label %sw.bb55
@@ -7188,7 +7184,7 @@ if.then134:                                       ; preds = %sw.bb131
   %52 = call i64 @fwrite(ptr nonnull @.str.75, i64 66, i64 1, ptr %51) #19
   br label %for.inc
 
-if.end18.unreachabledefault:                      ; preds = %if.end18
+default.unreachable112:                           ; preds = %if.end18
   unreachable
 
 for.inc:                                          ; preds = %if.then29, %if.then35, %if.then48, %if.end45, %if.then117, %if.end115, %sw.bb126, %if.then134, %sw.bb131, %if.end90
