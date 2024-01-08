@@ -179,7 +179,7 @@ delete.end:                                       ; preds = %delete.notnull, %en
 }
 
 ; Function Attrs: mustprogress uwtable
-define ptr @ucasemap_open_75(ptr noundef %locale, i32 noundef %options, ptr noundef %pErrorCode) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noundef ptr @ucasemap_open_75(ptr noundef %locale, i32 noundef %options, ptr noundef %pErrorCode) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i32, ptr %pErrorCode, align 4
   %cmp.i = icmp slt i32 %0, 1
@@ -687,7 +687,7 @@ if.then1.i159:                                    ; preds = %if.end.i157
   br label %if.end218
 
 if.end218:                                        ; preds = %if.end.i157, %if.then1.i159, %if.else8.i, %if.then4.i, %if.end.i152, %_ZN12_GLOBAL__N_112appendResultEiiPKDsRN6icu_758ByteSinkEjPNS2_5EditsER10UErrorCode.exit
-  %c.8 = phi i32 [ %call204, %_ZN12_GLOBAL__N_112appendResultEiiPKDsRN6icu_758ByteSinkEjPNS2_5EditsER10UErrorCode.exit ], [ %call204, %if.end.i152 ], [ %call204, %if.then4.i ], [ %call204, %if.else8.i ], [ %c.7, %if.then1.i159 ], [ %c.7, %if.end.i157 ]
+  %c.8 = phi i32 [ %call204, %_ZN12_GLOBAL__N_112appendResultEiiPKDsRN6icu_758ByteSinkEjPNS2_5EditsER10UErrorCode.exit ], [ %call204, %if.end.i152 ], [ %call204, %if.then4.i ], [ %call204, %if.else8.i ], [ -1, %if.then1.i159 ], [ -1, %if.end.i157 ]
   %cmp219 = icmp slt i32 %titleLimit.9, %index.1
   %or.cond = and i1 %cmp221, %cmp219
   br i1 %or.cond, label %if.then222, label %if.end232
@@ -2586,7 +2586,7 @@ declare i32 @u_terminateChars_75(ptr noundef, i32 noundef, i32 noundef, ptr noun
 declare void @_ZN6icu_7520CheckedArrayByteSinkD1Ev(ptr noundef nonnull align 8 dereferenceable(29)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define i32 @ucasemap_utf8ToLower_75(ptr nocapture noundef readonly %csm, ptr noundef %dest, i32 noundef %destCapacity, ptr noundef %src, i32 noundef %srcLength, ptr noundef nonnull %pErrorCode) local_unnamed_addr #0 {
+define noundef i32 @ucasemap_utf8ToLower_75(ptr nocapture noundef readonly %csm, ptr noundef %dest, i32 noundef %destCapacity, ptr noundef %src, i32 noundef %srcLength, ptr noundef nonnull %pErrorCode) local_unnamed_addr #0 {
 entry:
   %caseLocale = getelementptr inbounds %struct.UCaseMap, ptr %csm, i64 0, i32 2
   %0 = load i32, ptr %caseLocale, align 8
@@ -2610,7 +2610,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define i32 @ucasemap_utf8ToUpper_75(ptr nocapture noundef readonly %csm, ptr noundef %dest, i32 noundef %destCapacity, ptr noundef %src, i32 noundef %srcLength, ptr noundef nonnull %pErrorCode) local_unnamed_addr #0 {
+define noundef i32 @ucasemap_utf8ToUpper_75(ptr nocapture noundef readonly %csm, ptr noundef %dest, i32 noundef %destCapacity, ptr noundef %src, i32 noundef %srcLength, ptr noundef nonnull %pErrorCode) local_unnamed_addr #0 {
 entry:
   %caseLocale = getelementptr inbounds %struct.UCaseMap, ptr %csm, i64 0, i32 2
   %0 = load i32, ptr %caseLocale, align 8
@@ -3081,7 +3081,7 @@ if.end:                                           ; preds = %_ZN12_GLOBAL__N_17t
 }
 
 ; Function Attrs: mustprogress uwtable
-define i32 @ucasemap_utf8FoldCase_75(ptr nocapture noundef readonly %csm, ptr noundef %dest, i32 noundef %destCapacity, ptr noundef %src, i32 noundef %srcLength, ptr noundef nonnull %pErrorCode) local_unnamed_addr #0 {
+define noundef i32 @ucasemap_utf8FoldCase_75(ptr nocapture noundef readonly %csm, ptr noundef %dest, i32 noundef %destCapacity, ptr noundef %src, i32 noundef %srcLength, ptr noundef nonnull %pErrorCode) local_unnamed_addr #0 {
 entry:
   %options = getelementptr inbounds %struct.UCaseMap, ptr %csm, i64 0, i32 3
   %0 = load i32, ptr %options, align 4

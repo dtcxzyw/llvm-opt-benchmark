@@ -3168,7 +3168,7 @@ while.body:                                       ; preds = %while.body.preheade
   %incdec.ptr82 = getelementptr i8, ptr %outp.197, i64 1
   store i8 %conv, ptr %outp.197, align 1
   %rem = urem i32 %ch.098, %base.1100
-  %div83 = sdiv i32 %base.1100, 10
+  %div83 = udiv i32 %base.1100, 10
   %cmp80 = icmp ugt i32 %digits.199, 1
   br i1 %cmp80, label %while.body, label %while.end, !llvm.loop !12
 

@@ -12637,7 +12637,6 @@ if.end34.i399.sink.split:                         ; preds = %codegen_addop_i.exi
   br label %if.end34.i399
 
 if.end34.i399:                                    ; preds = %if.end34.i399.sink.split, %if.end.i376, %if.end23.i
-  %have_dict.2.i = phi i32 [ %have_dict.0.i744, %if.end23.i ], [ 1, %if.end.i376 ], [ 1, %if.end34.i399.sink.split ]
   %126 = load ptr, ptr %values.i, align 8
   %arrayidx38.i = getelementptr %struct.asdl_expr_seq, ptr %126, i64 0, i32 2, i64 %i.0.i358742
   %127 = load ptr, ptr %arrayidx38.i, align 8
@@ -12729,7 +12728,7 @@ if.else70.i:                                      ; preds = %if.else.i369
 
 for.inc.i372:                                     ; preds = %codegen_addop_i.exit176.i, %codegen_addop_i.exit160.i, %if.else70.i, %if.end59.i
   %elements.2.i = phi i64 [ 0, %codegen_addop_i.exit160.i ], [ %inc.i371, %if.else70.i ], [ 0, %codegen_addop_i.exit176.i ], [ 0, %if.end59.i ]
-  %have_dict.3.i = phi i32 [ %have_dict.2.i, %codegen_addop_i.exit160.i ], [ %have_dict.0.i744, %if.else70.i ], [ 1, %codegen_addop_i.exit176.i ], [ 1, %if.end59.i ]
+  %have_dict.3.i = phi i32 [ 1, %codegen_addop_i.exit160.i ], [ %have_dict.0.i744, %if.else70.i ], [ 1, %codegen_addop_i.exit176.i ], [ 1, %if.end59.i ]
   %inc73.i = add nuw nsw i64 %i.0.i358742, 1
   %exitcond766.not = icmp eq i64 %inc73.i, %115
   br i1 %exitcond766.not, label %for.end.i360, label %for.body.i367, !llvm.loop !55
@@ -21051,7 +21050,7 @@ for.body115.lr.ph:                                ; preds = %if.end109
   br label %for.body115.outer
 
 for.body115.outer:                                ; preds = %for.inc167.thread, %for.body115.lr.ph
-  %have_dict.0182.ph = phi i32 [ %have_dict.2, %for.inc167.thread ], [ 0, %for.body115.lr.ph ]
+  %29 = phi i1 [ false, %for.inc167.thread ], [ true, %for.body115.lr.ph ]
   %i.3180.ph = phi i64 [ %inc168199, %for.inc167.thread ], [ 0, %for.body115.lr.ph ]
   br label %for.body115
 
@@ -21059,9 +21058,9 @@ for.body115:                                      ; preds = %for.body115.outer, 
   %i.3180 = phi i64 [ %inc168, %for.inc167 ], [ %i.3180.ph, %for.body115.outer ]
   %nseen.0179 = phi i64 [ %inc165, %for.inc167 ], [ 0, %for.body115.outer ]
   %arrayidx118 = getelementptr %struct.asdl_keyword_seq, ptr %keywords, i64 0, i32 2, i64 %i.3180
-  %29 = load ptr, ptr %arrayidx118, align 8
-  %30 = load ptr, ptr %29, align 8
-  %cmp120 = icmp eq ptr %30, null
+  %30 = load ptr, ptr %arrayidx118, align 8
+  %31 = load ptr, ptr %30, align 8
+  %cmp120 = icmp eq ptr %31, null
   br i1 %cmp120, label %if.then122, label %for.inc167
 
 if.then122:                                       ; preds = %for.body115
@@ -21075,67 +21074,65 @@ if.then124:                                       ; preds = %if.then122
   br i1 %cmp126, label %return, label %if.end129
 
 if.end129:                                        ; preds = %if.then124
-  %tobool130.not = icmp eq i32 %have_dict.0182.ph, 0
-  br i1 %tobool130.not, label %if.end150, label %if.then131
+  br i1 %29, label %if.end150, label %if.then131
 
 if.then131:                                       ; preds = %if.end129
-  %31 = load ptr, ptr %u132, align 8
-  %u_instr_sequence133 = getelementptr inbounds %struct.compiler_unit, ptr %31, i64 0, i32 3
-  %s_used.i.i.i = getelementptr inbounds %struct.compiler_unit, ptr %31, i64 0, i32 3, i32 2
-  %32 = load i32, ptr %s_used.i.i.i, align 4
-  %add.i.i.i = add i32 %32, 1
-  %s_allocated.i.i.i = getelementptr inbounds %struct.compiler_unit, ptr %31, i64 0, i32 3, i32 1
+  %32 = load ptr, ptr %u132, align 8
+  %u_instr_sequence133 = getelementptr inbounds %struct.compiler_unit, ptr %32, i64 0, i32 3
+  %s_used.i.i.i = getelementptr inbounds %struct.compiler_unit, ptr %32, i64 0, i32 3, i32 2
+  %33 = load i32, ptr %s_used.i.i.i, align 4
+  %add.i.i.i = add i32 %33, 1
+  %s_allocated.i.i.i = getelementptr inbounds %struct.compiler_unit, ptr %32, i64 0, i32 3, i32 1
   %call.i.i.i = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i, ptr noundef nonnull %u_instr_sequence133, ptr noundef nonnull %s_allocated.i.i.i, i32 noundef 100, i64 noundef 44), !range !5
   %cmp.i.i.i = icmp eq i32 %call.i.i.i, -1
   br i1 %cmp.i.i.i, label %return, label %instr_sequence_next_inst.exit.i.i
 
 instr_sequence_next_inst.exit.i.i:                ; preds = %if.then131
-  %33 = load i32, ptr %s_used.i.i.i, align 4
-  %inc.i.i.i = add i32 %33, 1
+  %34 = load i32, ptr %s_used.i.i.i, align 4
+  %inc.i.i.i = add i32 %34, 1
   store i32 %inc.i.i.i, ptr %s_used.i.i.i, align 4
-  %cmp.i.i = icmp eq i32 %33, -1
+  %cmp.i.i = icmp eq i32 %34, -1
   br i1 %cmp.i.i, label %return, label %codegen_addop_i.exit
 
 codegen_addop_i.exit:                             ; preds = %instr_sequence_next_inst.exit.i.i
-  %34 = load ptr, ptr %u_instr_sequence133, align 8
-  %idxprom.i.i = sext i32 %33 to i64
-  %arrayidx.i.i = getelementptr %struct._PyCompile_Instruction, ptr %34, i64 %idxprom.i.i
+  %35 = load ptr, ptr %u_instr_sequence133, align 8
+  %idxprom.i.i = sext i32 %34 to i64
+  %arrayidx.i.i = getelementptr %struct._PyCompile_Instruction, ptr %35, i64 %idxprom.i.i
   store i32 68, ptr %arrayidx.i.i, align 4
-  %i_oparg.i.i = getelementptr %struct._PyCompile_Instruction, ptr %34, i64 %idxprom.i.i, i32 1
+  %i_oparg.i.i = getelementptr %struct._PyCompile_Instruction, ptr %35, i64 %idxprom.i.i, i32 1
   store i32 1, ptr %i_oparg.i.i, align 4
-  %i_loc.i.i = getelementptr %struct._PyCompile_Instruction, ptr %34, i64 %idxprom.i.i, i32 2
+  %i_loc.i.i = getelementptr %struct._PyCompile_Instruction, ptr %35, i64 %idxprom.i.i, i32 2
   br label %if.end150.sink.split
 
 if.end140:                                        ; preds = %if.then122
-  %tobool141.not = icmp eq i32 %have_dict.0182.ph, 0
-  br i1 %tobool141.not, label %if.then142, label %if.end150
+  br i1 %29, label %if.then142, label %if.end150
 
 if.then142:                                       ; preds = %if.end140
-  %35 = load ptr, ptr %u132, align 8
-  %u_instr_sequence144 = getelementptr inbounds %struct.compiler_unit, ptr %35, i64 0, i32 3
-  %s_used.i.i.i91 = getelementptr inbounds %struct.compiler_unit, ptr %35, i64 0, i32 3, i32 2
-  %36 = load i32, ptr %s_used.i.i.i91, align 4
-  %add.i.i.i92 = add i32 %36, 1
-  %s_allocated.i.i.i93 = getelementptr inbounds %struct.compiler_unit, ptr %35, i64 0, i32 3, i32 1
+  %36 = load ptr, ptr %u132, align 8
+  %u_instr_sequence144 = getelementptr inbounds %struct.compiler_unit, ptr %36, i64 0, i32 3
+  %s_used.i.i.i91 = getelementptr inbounds %struct.compiler_unit, ptr %36, i64 0, i32 3, i32 2
+  %37 = load i32, ptr %s_used.i.i.i91, align 4
+  %add.i.i.i92 = add i32 %37, 1
+  %s_allocated.i.i.i93 = getelementptr inbounds %struct.compiler_unit, ptr %36, i64 0, i32 3, i32 1
   %call.i.i.i94 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i92, ptr noundef nonnull %u_instr_sequence144, ptr noundef nonnull %s_allocated.i.i.i93, i32 noundef 100, i64 noundef 44), !range !5
   %cmp.i.i.i95 = icmp eq i32 %call.i.i.i94, -1
   br i1 %cmp.i.i.i95, label %return, label %instr_sequence_next_inst.exit.i.i96
 
 instr_sequence_next_inst.exit.i.i96:              ; preds = %if.then142
-  %37 = load i32, ptr %s_used.i.i.i91, align 4
-  %inc.i.i.i97 = add i32 %37, 1
+  %38 = load i32, ptr %s_used.i.i.i91, align 4
+  %inc.i.i.i97 = add i32 %38, 1
   store i32 %inc.i.i.i97, ptr %s_used.i.i.i91, align 4
-  %cmp.i.i98 = icmp eq i32 %37, -1
+  %cmp.i.i98 = icmp eq i32 %38, -1
   br i1 %cmp.i.i98, label %return, label %codegen_addop_i.exit106
 
 codegen_addop_i.exit106:                          ; preds = %instr_sequence_next_inst.exit.i.i96
-  %38 = load ptr, ptr %u_instr_sequence144, align 8
-  %idxprom.i.i100 = sext i32 %37 to i64
-  %arrayidx.i.i101 = getelementptr %struct._PyCompile_Instruction, ptr %38, i64 %idxprom.i.i100
+  %39 = load ptr, ptr %u_instr_sequence144, align 8
+  %idxprom.i.i100 = sext i32 %38 to i64
+  %arrayidx.i.i101 = getelementptr %struct._PyCompile_Instruction, ptr %39, i64 %idxprom.i.i100
   store i32 48, ptr %arrayidx.i.i101, align 4
-  %i_oparg.i.i102 = getelementptr %struct._PyCompile_Instruction, ptr %38, i64 %idxprom.i.i100, i32 1
+  %i_oparg.i.i102 = getelementptr %struct._PyCompile_Instruction, ptr %39, i64 %idxprom.i.i100, i32 1
   store i32 0, ptr %i_oparg.i.i102, align 4
-  %i_loc.i.i103 = getelementptr %struct._PyCompile_Instruction, ptr %38, i64 %idxprom.i.i100, i32 2
+  %i_loc.i.i103 = getelementptr %struct._PyCompile_Instruction, ptr %39, i64 %idxprom.i.i100, i32 2
   br label %if.end150.sink.split
 
 if.end150.sink.split:                             ; preds = %codegen_addop_i.exit106, %codegen_addop_i.exit
@@ -21146,29 +21143,28 @@ if.end150.sink.split:                             ; preds = %codegen_addop_i.exi
   br label %if.end150
 
 if.end150:                                        ; preds = %if.end150.sink.split, %if.end129, %if.end140
-  %have_dict.2 = phi i32 [ %have_dict.0182.ph, %if.end140 ], [ 1, %if.end129 ], [ 1, %if.end150.sink.split ]
-  %value151 = getelementptr inbounds %struct._keyword, ptr %29, i64 0, i32 1
-  %39 = load ptr, ptr %value151, align 8
-  %call152 = tail call fastcc i32 @compiler_visit_expr(ptr noundef %c, ptr noundef %39), !range !5
+  %value151 = getelementptr inbounds %struct._keyword, ptr %30, i64 0, i32 1
+  %40 = load ptr, ptr %value151, align 8
+  %call152 = tail call fastcc i32 @compiler_visit_expr(ptr noundef %c, ptr noundef %40), !range !5
   %cmp153 = icmp eq i32 %call152, -1
   br i1 %cmp153, label %return, label %if.end156
 
 if.end156:                                        ; preds = %if.end150
-  %40 = load ptr, ptr %u132, align 8
-  %u_instr_sequence158 = getelementptr inbounds %struct.compiler_unit, ptr %40, i64 0, i32 3
-  %s_used.i.i.i107 = getelementptr inbounds %struct.compiler_unit, ptr %40, i64 0, i32 3, i32 2
-  %41 = load i32, ptr %s_used.i.i.i107, align 4
-  %add.i.i.i108 = add i32 %41, 1
-  %s_allocated.i.i.i109 = getelementptr inbounds %struct.compiler_unit, ptr %40, i64 0, i32 3, i32 1
+  %41 = load ptr, ptr %u132, align 8
+  %u_instr_sequence158 = getelementptr inbounds %struct.compiler_unit, ptr %41, i64 0, i32 3
+  %s_used.i.i.i107 = getelementptr inbounds %struct.compiler_unit, ptr %41, i64 0, i32 3, i32 2
+  %42 = load i32, ptr %s_used.i.i.i107, align 4
+  %add.i.i.i108 = add i32 %42, 1
+  %s_allocated.i.i.i109 = getelementptr inbounds %struct.compiler_unit, ptr %41, i64 0, i32 3, i32 1
   %call.i.i.i110 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i108, ptr noundef nonnull %u_instr_sequence158, ptr noundef nonnull %s_allocated.i.i.i109, i32 noundef 100, i64 noundef 44), !range !5
   %cmp.i.i.i111 = icmp eq i32 %call.i.i.i110, -1
   br i1 %cmp.i.i.i111, label %return, label %instr_sequence_next_inst.exit.i.i112
 
 instr_sequence_next_inst.exit.i.i112:             ; preds = %if.end156
-  %42 = load i32, ptr %s_used.i.i.i107, align 4
-  %inc.i.i.i113 = add i32 %42, 1
+  %43 = load i32, ptr %s_used.i.i.i107, align 4
+  %inc.i.i.i113 = add i32 %43, 1
   store i32 %inc.i.i.i113, ptr %s_used.i.i.i107, align 4
-  %cmp.i.i114 = icmp eq i32 %42, -1
+  %cmp.i.i114 = icmp eq i32 %43, -1
   br i1 %cmp.i.i114, label %return, label %for.inc167.thread
 
 for.inc167:                                       ; preds = %for.body115
@@ -21178,13 +21174,13 @@ for.inc167:                                       ; preds = %for.body115
   br i1 %exitcond193.not, label %for.end169, label %for.body115, !llvm.loop !89
 
 for.inc167.thread:                                ; preds = %instr_sequence_next_inst.exit.i.i112
-  %43 = load ptr, ptr %u_instr_sequence158, align 8
-  %idxprom.i.i116 = sext i32 %42 to i64
-  %arrayidx.i.i117 = getelementptr %struct._PyCompile_Instruction, ptr %43, i64 %idxprom.i.i116
+  %44 = load ptr, ptr %u_instr_sequence158, align 8
+  %idxprom.i.i116 = sext i32 %43 to i64
+  %arrayidx.i.i117 = getelementptr %struct._PyCompile_Instruction, ptr %44, i64 %idxprom.i.i116
   store i32 68, ptr %arrayidx.i.i117, align 4
-  %i_oparg.i.i118 = getelementptr %struct._PyCompile_Instruction, ptr %43, i64 %idxprom.i.i116, i32 1
+  %i_oparg.i.i118 = getelementptr %struct._PyCompile_Instruction, ptr %44, i64 %idxprom.i.i116, i32 1
   store i32 1, ptr %i_oparg.i.i118, align 4
-  %i_loc.i.i119 = getelementptr %struct._PyCompile_Instruction, ptr %43, i64 %idxprom.i.i116, i32 2
+  %i_loc.i.i119 = getelementptr %struct._PyCompile_Instruction, ptr %44, i64 %idxprom.i.i116, i32 2
   store i64 %loc.coerce0, ptr %i_loc.i.i119, align 4
   %loc.sroa.2.0.i_loc.sroa_idx.i.i120 = getelementptr inbounds i8, ptr %i_loc.i.i119, i64 8
   store i64 %loc.coerce1, ptr %loc.sroa.2.0.i_loc.sroa_idx.i.i120, align 4
@@ -21193,7 +21189,6 @@ for.inc167.thread:                                ; preds = %instr_sequence_next
   br i1 %exitcond193.not200, label %if.end189, label %for.body115.outer, !llvm.loop !89
 
 for.end169:                                       ; preds = %for.inc167
-  %44 = icmp eq i32 %have_dict.0182.ph, 0
   %tobool170.not = icmp eq i64 %cond7, %i.3180.ph
   br i1 %tobool170.not, label %if.end189, label %if.then171
 
@@ -21203,7 +21198,7 @@ if.then171:                                       ; preds = %for.end169
   br i1 %cmp174, label %return, label %if.end177
 
 if.end177:                                        ; preds = %if.then171
-  br i1 %44, label %if.end189, label %if.then179
+  br i1 %29, label %if.end189, label %if.then179
 
 if.then179:                                       ; preds = %if.end177
   %45 = load ptr, ptr %u132, align 8

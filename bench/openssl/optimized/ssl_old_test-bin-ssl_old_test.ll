@@ -327,7 +327,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @str.1 = private unnamed_addr constant [22 x i8] c"server authentication\00", align 1
 
 ; Function Attrs: noreturn nounwind uwtable
-define dso_local i32 @main(i32 noundef %argc, ptr noundef %argv) local_unnamed_addr #0 {
+define dso_local noundef i32 @main(i32 noundef %argc, ptr noundef %argv) local_unnamed_addr #0 {
 entry:
   %argc.addr = alloca i32, align 4
   %argv.addr = alloca ptr, align 8
@@ -1280,10 +1280,10 @@ if.end641:                                        ; preds = %if.else497, %if.els
   br label %while.cond.outer, !llvm.loop !5
 
 bad.sink.split:                                   ; preds = %if.end73, %if.end559, %if.else564
-  %.lcssa1032.sink = phi ptr [ %8, %if.else564 ], [ %8, %if.end559 ], [ %11, %if.end73 ]
+  %.lcssa1031.sink = phi ptr [ %8, %if.else564 ], [ %8, %if.end559 ], [ %11, %if.end73 ]
   %.str.73.sink = phi ptr [ %.str.73..str.74, %if.else564 ], [ @.str.72, %if.end559 ], [ @.str.17, %if.end73 ]
   %.sink = load ptr, ptr @bio_err, align 8
-  %call568 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %.sink, ptr noundef nonnull %.str.73.sink, ptr noundef %.lcssa1032.sink) #21
+  %call568 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %.sink, ptr noundef nonnull %.str.73.sink, ptr noundef %.lcssa1031.sink) #21
   br label %bad
 
 bad:                                              ; preds = %if.then517, %if.then506, %if.then477, %if.then466, %if.then455, %if.then444, %if.then433, %if.then412, %if.then401, %if.then390, %if.then379, %if.then368, %if.then357, %if.then346, %if.then335, %if.then324, %if.then313, %if.then302, %if.then287, %if.then271, %if.then190, %if.then179, %if.then168, %if.then157, %if.then125, %if.then112, %if.then69, %bad.sink.split
@@ -2328,8 +2328,8 @@ if.end1235:                                       ; preds = %if.then1228, %if.en
 
 for.cond1237:                                     ; preds = %sw.epilog
   %inc1271 = add nuw nsw i32 %i.1570, 1
-  %exitcond895.not = icmp eq i32 %inc1271, %number.0.ph
-  br i1 %exitcond895.not, label %for.end1272, label %for.body1240, !llvm.loop !9
+  %exitcond894.not = icmp eq i32 %inc1271, %number.0.ph
+  br i1 %exitcond894.not, label %for.end1272, label %for.body1240, !llvm.loop !9
 
 for.body1240:                                     ; preds = %if.end1235, %for.cond1237
   %i.1570 = phi i32 [ %inc1271, %for.cond1237 ], [ 0, %if.end1235 ]
@@ -2365,7 +2365,7 @@ if.then1255:                                      ; preds = %if.then1251
   br label %end
 
 if.end1258:                                       ; preds = %if.then1251, %if.end1248
-  switch i32 %bio_type.3, label %sw.epilog [
+  switch i32 %bio_type.3, label %default.unreachable [
     i32 0, label %sw.bb
     i32 1, label %sw.bb1260
     i32 2, label %sw.bb1262
@@ -2373,7 +2373,7 @@ if.end1258:                                       ; preds = %if.then1251, %if.en
   ]
 
 sw.bb:                                            ; preds = %if.end1258
-  %call1259 = call i32 @doit(ptr noundef %call1191, ptr noundef %call1190, i64 noundef %bytes.0.ph)
+  %call1259 = call i32 @doit(ptr noundef %call1191, ptr noundef %call1190, i64 noundef %bytes.0.ph), !range !10
   br label %sw.epilog
 
 sw.bb1260:                                        ; preds = %if.end1258
@@ -2381,15 +2381,18 @@ sw.bb1260:                                        ; preds = %if.end1258
   br label %sw.epilog
 
 sw.bb1262:                                        ; preds = %if.end1258
-  %call1263 = call i32 @doit_localhost(ptr noundef %call1191, ptr noundef %call1190, i32 noundef 4, i64 noundef %bytes.0.ph, ptr noundef nonnull %s_time, ptr noundef nonnull %c_time)
+  %call1263 = call i32 @doit_localhost(ptr noundef %call1191, ptr noundef %call1190, i32 noundef 4, i64 noundef %bytes.0.ph, ptr noundef nonnull %s_time, ptr noundef nonnull %c_time), !range !10
   br label %sw.epilog
 
 sw.bb1264:                                        ; preds = %if.end1258
-  %call1265 = call i32 @doit_localhost(ptr noundef %call1191, ptr noundef %call1190, i32 noundef 6, i64 noundef %bytes.0.ph, ptr noundef nonnull %s_time, ptr noundef nonnull %c_time)
+  %call1265 = call i32 @doit_localhost(ptr noundef %call1191, ptr noundef %call1190, i32 noundef 6, i64 noundef %bytes.0.ph, ptr noundef nonnull %s_time, ptr noundef nonnull %c_time), !range !10
   br label %sw.epilog
 
-sw.epilog:                                        ; preds = %sw.bb1264, %sw.bb1262, %sw.bb1260, %sw.bb, %if.end1258
-  %ret.1 = phi i32 [ %ret.0569, %if.end1258 ], [ %call1265, %sw.bb1264 ], [ %call1263, %sw.bb1262 ], [ %call1261, %sw.bb1260 ], [ %call1259, %sw.bb ]
+default.unreachable:                              ; preds = %if.end1258
+  unreachable
+
+sw.epilog:                                        ; preds = %sw.bb1264, %sw.bb1262, %sw.bb1260, %sw.bb
+  %ret.1 = phi i32 [ %call1265, %sw.bb1264 ], [ %call1263, %sw.bb1262 ], [ %call1261, %sw.bb1260 ], [ %call1259, %sw.bb ]
   %cmp1266.not = icmp eq i32 %ret.1, 0
   br i1 %cmp1266.not, label %for.cond1237, label %if.end1299
 
@@ -2432,7 +2435,7 @@ if.then1295:                                      ; preds = %if.end1291
   br label %end
 
 if.end1299:                                       ; preds = %sw.epilog, %if.end1235, %if.end1291, %land.lhs.true1281, %land.lhs.true1277, %for.end1272
-  %ret.2239 = phi i32 [ 0, %if.end1291 ], [ 0, %land.lhs.true1281 ], [ 0, %land.lhs.true1277 ], [ 0, %for.end1272 ], [ 1, %if.end1235 ], [ %ret.1, %sw.epilog ]
+  %ret.2239 = phi i32 [ 0, %if.end1291 ], [ 0, %land.lhs.true1281 ], [ 0, %land.lhs.true1277 ], [ 0, %for.end1272 ], [ 1, %if.end1235 ], [ 1, %sw.epilog ]
   %cmp1300.not = icmp eq i32 %should_reuse.0.ph, -1
   br i1 %cmp1300.not, label %if.end1315, label %if.then1302
 
@@ -2801,7 +2804,7 @@ declare i32 @SSL_CTX_set_default_ctlog_list_file(ptr noundef) local_unnamed_addr
 declare void @SSL_CTX_set_verify(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @verify_callback(i32 noundef %ok, ptr noundef %ctx) #8 {
+define internal noundef i32 @verify_callback(i32 noundef %ok, ptr noundef %ctx) #8 {
 entry:
   %buf = alloca [256 x i8], align 16
   %call = tail call ptr @X509_STORE_CTX_get_current_cert(ptr noundef %ctx) #21
@@ -2950,7 +2953,7 @@ declare i32 @SSL_CTX_use_psk_identity_hint(ptr noundef, ptr noundef) local_unnam
 declare void @SSL_CTX_set_next_proto_select_cb(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal i32 @cb_client_npn(ptr nocapture readnone %s, ptr nocapture noundef writeonly %out, ptr nocapture noundef writeonly %outlen, ptr nocapture readnone %in, i32 %inlen, ptr nocapture readnone %arg) #9 {
+define internal noundef i32 @cb_client_npn(ptr nocapture readnone %s, ptr nocapture noundef writeonly %out, ptr nocapture noundef writeonly %outlen, ptr nocapture readnone %in, i32 %inlen, ptr nocapture readnone %arg) #9 {
 entry:
   store ptr getelementptr inbounds ([11 x i8], ptr @NEXT_PROTO_STRING, i64 0, i64 1), ptr %out, align 8
   store i8 9, ptr %outlen, align 1
@@ -2960,7 +2963,7 @@ entry:
 declare void @SSL_CTX_set_next_protos_advertised_cb(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal i32 @cb_server_npn(ptr nocapture readnone %s, ptr nocapture noundef writeonly %data, ptr nocapture noundef writeonly %len, ptr nocapture readnone %arg) #9 {
+define internal noundef i32 @cb_server_npn(ptr nocapture readnone %s, ptr nocapture noundef writeonly %data, ptr nocapture noundef writeonly %len, ptr nocapture readnone %arg) #9 {
 entry:
   store ptr @NEXT_PROTO_STRING, ptr %data, align 8
   store i32 10, ptr %len, align 4
@@ -2968,7 +2971,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal i32 @cb_server_rejects_npn(ptr nocapture readnone %s, ptr nocapture readnone %data, ptr nocapture readnone %len, ptr nocapture readnone %arg) #10 {
+define internal noundef i32 @cb_server_rejects_npn(ptr nocapture readnone %s, ptr nocapture readnone %data, ptr nocapture readnone %len, ptr nocapture readnone %arg) #10 {
 entry:
   ret i32 3
 }
@@ -2976,7 +2979,7 @@ entry:
 declare i32 @SSL_CTX_add_client_custom_ext(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal i32 @serverinfo_cli_parse_cb(ptr nocapture readnone %s, i32 noundef %ext_type, ptr nocapture readnone %in, i64 %inlen, ptr nocapture readnone %al, ptr nocapture readnone %arg) #11 {
+define internal noundef i32 @serverinfo_cli_parse_cb(ptr nocapture readnone %s, i32 noundef %ext_type, ptr nocapture readnone %in, i64 %inlen, ptr nocapture readnone %al, ptr nocapture readnone %arg) #11 {
 entry:
   %switch.selectcmp = icmp eq i32 %ext_type, 62208
   %switch.select = select i1 %switch.selectcmp, ptr @serverinfo_tack_seen, ptr @serverinfo_other_seen
@@ -2991,7 +2994,7 @@ entry:
 declare i32 @SSL_CTX_use_serverinfo_file(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define internal i32 @custom_ext_0_cli_add_cb(ptr nocapture readnone %s, i32 noundef %ext_type, ptr nocapture readnone %out, ptr nocapture readnone %outlen, ptr nocapture readnone %al, ptr nocapture readnone %arg) #12 {
+define internal noundef i32 @custom_ext_0_cli_add_cb(ptr nocapture readnone %s, i32 noundef %ext_type, ptr nocapture readnone %out, ptr nocapture readnone %outlen, ptr nocapture readnone %al, ptr nocapture readnone %arg) #12 {
 entry:
   %cmp.not = icmp eq i32 %ext_type, 1000
   br i1 %cmp.not, label %if.end, label %if.then
@@ -3005,13 +3008,13 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal i32 @custom_ext_0_cli_parse_cb(ptr nocapture readnone %s, i32 %ext_type, ptr nocapture readnone %in, i64 %inlen, ptr nocapture readnone %al, ptr nocapture readnone %arg) #10 {
+define internal noundef i32 @custom_ext_0_cli_parse_cb(ptr nocapture readnone %s, i32 %ext_type, ptr nocapture readnone %in, i64 %inlen, ptr nocapture readnone %al, ptr nocapture readnone %arg) #10 {
 entry:
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, inaccessiblemem: none) uwtable
-define internal i32 @custom_ext_1_cli_add_cb(ptr nocapture readnone %s, i32 noundef %ext_type, ptr nocapture noundef writeonly %out, ptr nocapture noundef writeonly %outlen, ptr nocapture readnone %al, ptr nocapture readnone %arg) #13 {
+define internal noundef i32 @custom_ext_1_cli_add_cb(ptr nocapture readnone %s, i32 noundef %ext_type, ptr nocapture noundef writeonly %out, ptr nocapture noundef writeonly %outlen, ptr nocapture readnone %al, ptr nocapture readnone %arg) #13 {
 entry:
   %cmp.not = icmp eq i32 %ext_type, 1001
   br i1 %cmp.not, label %if.end, label %if.then
@@ -3027,13 +3030,13 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal i32 @custom_ext_1_cli_parse_cb(ptr nocapture readnone %s, i32 %ext_type, ptr nocapture readnone %in, i64 %inlen, ptr nocapture readnone %al, ptr nocapture readnone %arg) #10 {
+define internal noundef i32 @custom_ext_1_cli_parse_cb(ptr nocapture readnone %s, i32 %ext_type, ptr nocapture readnone %in, i64 %inlen, ptr nocapture readnone %al, ptr nocapture readnone %arg) #10 {
 entry:
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, inaccessiblemem: none) uwtable
-define internal i32 @custom_ext_2_cli_add_cb(ptr nocapture readnone %s, i32 noundef %ext_type, ptr nocapture noundef writeonly %out, ptr nocapture noundef writeonly %outlen, ptr nocapture readnone %al, ptr nocapture readnone %arg) #13 {
+define internal noundef i32 @custom_ext_2_cli_add_cb(ptr nocapture readnone %s, i32 noundef %ext_type, ptr nocapture noundef writeonly %out, ptr nocapture noundef writeonly %outlen, ptr nocapture readnone %al, ptr nocapture readnone %arg) #13 {
 entry:
   %cmp.not = icmp eq i32 %ext_type, 1002
   br i1 %cmp.not, label %if.end, label %if.then
@@ -3049,7 +3052,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define internal i32 @custom_ext_2_cli_parse_cb(ptr nocapture readnone %s, i32 noundef %ext_type, ptr nocapture readnone %in, i64 noundef %inlen, ptr nocapture readnone %al, ptr nocapture readnone %arg) #12 {
+define internal noundef i32 @custom_ext_2_cli_parse_cb(ptr nocapture readnone %s, i32 noundef %ext_type, ptr nocapture readnone %in, i64 noundef %inlen, ptr nocapture readnone %al, ptr nocapture readnone %arg) #12 {
 entry:
   %cmp.not = icmp ne i32 %ext_type, 1002
   %cmp1.not = icmp ne i64 %inlen, 0
@@ -3065,7 +3068,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, inaccessiblemem: none) uwtable
-define internal i32 @custom_ext_3_cli_add_cb(ptr nocapture readnone %s, i32 noundef %ext_type, ptr nocapture noundef writeonly %out, ptr nocapture noundef writeonly %outlen, ptr nocapture readnone %al, ptr nocapture readnone %arg) #13 {
+define internal noundef i32 @custom_ext_3_cli_add_cb(ptr nocapture readnone %s, i32 noundef %ext_type, ptr nocapture noundef writeonly %out, ptr nocapture noundef writeonly %outlen, ptr nocapture readnone %al, ptr nocapture readnone %arg) #13 {
 entry:
   %cmp.not = icmp eq i32 %ext_type, 1003
   br i1 %cmp.not, label %if.end, label %if.then
@@ -3081,7 +3084,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: read, inaccessiblemem: none) uwtable
-define internal i32 @custom_ext_3_cli_parse_cb(ptr nocapture readnone %s, i32 noundef %ext_type, ptr nocapture noundef readonly %in, i64 noundef %inlen, ptr nocapture readnone %al, ptr nocapture readnone %arg) #14 {
+define internal noundef i32 @custom_ext_3_cli_parse_cb(ptr nocapture readnone %s, i32 noundef %ext_type, ptr nocapture noundef readonly %in, i64 noundef %inlen, ptr nocapture readnone %al, ptr nocapture readnone %arg) #14 {
 entry:
   %cmp.not = icmp ne i32 %ext_type, 1003
   %cmp1.not = icmp ne i64 %inlen, 4
@@ -3108,27 +3111,27 @@ if.end6:                                          ; preds = %if.then5, %2
 declare i32 @SSL_CTX_add_server_custom_ext(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define internal i32 @custom_ext_0_srv_add_cb(ptr nocapture readnone %s, i32 %ext_type, ptr nocapture readnone %out, ptr nocapture readnone %outlen, ptr nocapture readnone %al, ptr nocapture readnone %arg) #12 {
+define internal noundef i32 @custom_ext_0_srv_add_cb(ptr nocapture readnone %s, i32 %ext_type, ptr nocapture readnone %out, ptr nocapture readnone %outlen, ptr nocapture readnone %al, ptr nocapture readnone %arg) #12 {
 entry:
   store i1 true, ptr @custom_ext_error, align 4
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define internal i32 @custom_ext_0_srv_parse_cb(ptr nocapture readnone %s, i32 %ext_type, ptr nocapture readnone %in, i64 %inlen, ptr nocapture readnone %al, ptr nocapture readnone %arg) #12 {
+define internal noundef i32 @custom_ext_0_srv_parse_cb(ptr nocapture readnone %s, i32 %ext_type, ptr nocapture readnone %in, i64 %inlen, ptr nocapture readnone %al, ptr nocapture readnone %arg) #12 {
 entry:
   store i1 true, ptr @custom_ext_error, align 4
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal i32 @custom_ext_1_srv_add_cb(ptr nocapture readnone %s, i32 %ext_type, ptr nocapture readnone %out, ptr nocapture readnone %outlen, ptr nocapture readnone %al, ptr nocapture readnone %arg) #10 {
+define internal noundef i32 @custom_ext_1_srv_add_cb(ptr nocapture readnone %s, i32 %ext_type, ptr nocapture readnone %out, ptr nocapture readnone %outlen, ptr nocapture readnone %al, ptr nocapture readnone %arg) #10 {
 entry:
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: read, inaccessiblemem: none) uwtable
-define internal i32 @custom_ext_1_srv_parse_cb(ptr nocapture readnone %s, i32 noundef %ext_type, ptr nocapture noundef readonly %in, i64 noundef %inlen, ptr nocapture readnone %al, ptr nocapture readnone %arg) #14 {
+define internal noundef i32 @custom_ext_1_srv_parse_cb(ptr nocapture readnone %s, i32 noundef %ext_type, ptr nocapture noundef readonly %in, i64 noundef %inlen, ptr nocapture readnone %al, ptr nocapture readnone %arg) #14 {
 entry:
   %cmp.not = icmp ne i32 %ext_type, 1001
   %cmp1.not = icmp ne i64 %inlen, 3
@@ -3153,7 +3156,7 @@ if.end6:                                          ; preds = %if.then5, %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal i32 @custom_ext_2_srv_add_cb(ptr nocapture readnone %s, i32 %ext_type, ptr nocapture noundef writeonly %out, ptr nocapture noundef writeonly %outlen, ptr nocapture readnone %al, ptr nocapture readnone %arg) #9 {
+define internal noundef i32 @custom_ext_2_srv_add_cb(ptr nocapture readnone %s, i32 %ext_type, ptr nocapture noundef writeonly %out, ptr nocapture noundef writeonly %outlen, ptr nocapture readnone %al, ptr nocapture readnone %arg) #9 {
 entry:
   store ptr null, ptr %out, align 8
   store i64 0, ptr %outlen, align 8
@@ -3161,7 +3164,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: read, inaccessiblemem: none) uwtable
-define internal i32 @custom_ext_2_srv_parse_cb(ptr nocapture readnone %s, i32 noundef %ext_type, ptr nocapture noundef readonly %in, i64 noundef %inlen, ptr nocapture readnone %al, ptr nocapture readnone %arg) #14 {
+define internal noundef i32 @custom_ext_2_srv_parse_cb(ptr nocapture readnone %s, i32 noundef %ext_type, ptr nocapture noundef readonly %in, i64 noundef %inlen, ptr nocapture readnone %al, ptr nocapture readnone %arg) #14 {
 entry:
   %cmp.not = icmp ne i32 %ext_type, 1002
   %cmp1.not = icmp ne i64 %inlen, 3
@@ -3186,7 +3189,7 @@ if.end6:                                          ; preds = %if.then5, %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal i32 @custom_ext_3_srv_add_cb(ptr nocapture readnone %s, i32 %ext_type, ptr nocapture noundef writeonly %out, ptr nocapture noundef writeonly %outlen, ptr nocapture readnone %al, ptr nocapture readnone %arg) #9 {
+define internal noundef i32 @custom_ext_3_srv_add_cb(ptr nocapture readnone %s, i32 %ext_type, ptr nocapture noundef writeonly %out, ptr nocapture noundef writeonly %outlen, ptr nocapture readnone %al, ptr nocapture readnone %arg) #9 {
 entry:
   store ptr @custom_ext_srv_string, ptr %out, align 8
   store i64 4, ptr %outlen, align 8
@@ -3194,7 +3197,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: read, inaccessiblemem: none) uwtable
-define internal i32 @custom_ext_3_srv_parse_cb(ptr nocapture readnone %s, i32 noundef %ext_type, ptr nocapture noundef readonly %in, i64 noundef %inlen, ptr nocapture readnone %al, ptr nocapture readnone %arg) #14 {
+define internal noundef i32 @custom_ext_3_srv_parse_cb(ptr nocapture readnone %s, i32 noundef %ext_type, ptr nocapture noundef readonly %in, i64 noundef %inlen, ptr nocapture readnone %al, ptr nocapture readnone %arg) #14 {
 entry:
   %cmp.not = icmp ne i32 %ext_type, 1003
   %cmp1.not = icmp ne i64 %inlen, 3
@@ -3221,7 +3224,7 @@ if.end6:                                          ; preds = %if.then5, %2
 declare void @SSL_CTX_set_alpn_select_cb(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @cb_server_alpn(ptr nocapture readnone %s, ptr noundef %out, ptr noundef %outlen, ptr noundef %in, i32 noundef %inlen, ptr noundef %arg) #8 {
+define internal noundef i32 @cb_server_alpn(ptr nocapture readnone %s, ptr noundef %out, ptr noundef %outlen, ptr noundef %in, i32 noundef %inlen, ptr noundef %arg) #8 {
 entry:
   %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %arg) #22
   %cmp.i = icmp ugt i64 %call.i, 65534
@@ -3429,7 +3432,7 @@ declare noalias ptr @CRYPTO_zalloc(i64 noundef, ptr noundef, i32 noundef) local_
 declare i64 @SSL_CTX_callback_ctrl(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @servername_cb(ptr noundef %s, ptr nocapture readnone %ad, ptr nocapture readnone %arg) #8 {
+define internal noundef i32 @servername_cb(ptr noundef %s, ptr nocapture readnone %ad, ptr nocapture readnone %arg) #8 {
 entry:
   %call = tail call ptr @SSL_get_servername(ptr noundef %s, i32 noundef 0) #21
   %0 = load ptr, ptr @sn_server2, align 8
@@ -4933,7 +4936,7 @@ declare ptr @SSL_get_version(ptr noundef) local_unnamed_addr #2
 declare i32 @SSL_session_reused(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @write_session(ptr noundef %filename, ptr noundef %sess) unnamed_addr #8 {
+define internal fastcc noundef i32 @write_session(ptr noundef %filename, ptr noundef %sess) unnamed_addr #8 {
 entry:
   %cmp = icmp eq ptr %sess, null
   br i1 %cmp, label %if.then, label %if.end
@@ -5181,7 +5184,7 @@ return:                                           ; preds = %if.end41, %if.end31
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @verify_alpn(ptr noundef %client, ptr noundef %server) unnamed_addr #8 {
+define internal fastcc noundef i32 @verify_alpn(ptr noundef %client, ptr noundef %server) unnamed_addr #8 {
 entry:
   %client_proto = alloca ptr, align 8
   %server_proto = alloca ptr, align 8
@@ -5306,7 +5309,7 @@ return:                                           ; preds = %err, %if.end27, %lo
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @verify_servername(ptr noundef %server) unnamed_addr #8 {
+define internal fastcc noundef i32 @verify_servername(ptr noundef %server) unnamed_addr #8 {
 entry:
   %call = tail call ptr @SSL_get_SSL_CTX(ptr noundef %server) #21
   %0 = load i32, ptr @sn_expect, align 4
