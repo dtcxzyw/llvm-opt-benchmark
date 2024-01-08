@@ -19617,7 +19617,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %0 = add i32 %BitWidth, -16
-  %1 = tail call i32 @llvm.fshl.i32(i32 %BitWidth, i32 %0, i32 28)
+  %1 = tail call i32 @llvm.fshl.i32(i32 %0, i32 %0, i32 28)
   switch i32 %1, label %sw.default [
     i32 0, label %sw.bb
     i32 1, label %sw.bb1

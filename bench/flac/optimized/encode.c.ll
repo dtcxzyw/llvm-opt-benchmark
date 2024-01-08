@@ -965,7 +965,7 @@ if.end188.i:                                      ; preds = %if.end181.i
 
 if.then197.i:                                     ; preds = %if.end188.i
   %108 = add i16 %107, -8
-  %109 = call i16 @llvm.fshl.i16(i16 %107, i16 %108, i16 13)
+  %109 = call i16 @llvm.fshl.i16(i16 %108, i16 %108, i16 13)
   switch i16 %109, label %if.else215.i [
     i16 1, label %if.end219.i
     i16 0, label %if.end219.i
@@ -5749,7 +5749,7 @@ for.body6:                                        ; preds = %for.body6.preheader
 
 if.end:                                           ; preds = %for.body6, %for.body.preheader, %for.cond4.preheader, %for.cond.preheader
   %4 = add i32 %bps, -8
-  %5 = tail call i32 @llvm.fshl.i32(i32 %bps, i32 %4, i32 29)
+  %5 = tail call i32 @llvm.fshl.i32(i32 %4, i32 %4, i32 29)
   switch i32 %5, label %if.else437 [
     i32 0, label %if.then16
     i32 1, label %if.then63

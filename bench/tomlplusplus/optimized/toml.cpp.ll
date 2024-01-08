@@ -1479,7 +1479,7 @@ if.end3.i:                                        ; preds = %entry
   br i1 %or.cond.i, label %if.then7.i, label %if.end10.i
 
 if.then7.i:                                       ; preds = %if.end3.i
-  switch i16 %and.i2.i.i, label %if.then7.unreachabledefault.i [
+  switch i16 %and.i2.i.i, label %default.unreachable.i [
     i16 1, label %if.end10.i
     i16 2, label %sw.bb8.i
     i16 3, label %sw.bb9.i
@@ -1491,7 +1491,7 @@ sw.bb8.i:                                         ; preds = %if.then7.i
 sw.bb9.i:                                         ; preds = %if.then7.i
   br label %if.end10.i
 
-if.then7.unreachabledefault.i:                    ; preds = %if.then7.i
+default.unreachable.i:                            ; preds = %if.then7.i
   unreachable
 
 if.end10.i:                                       ; preds = %sw.bb9.i, %sw.bb8.i, %if.then7.i, %if.end3.i
@@ -1571,7 +1571,7 @@ if.end3.i:                                        ; preds = %entry
   br i1 %or.cond.i, label %if.then7.i, label %if.end10.i
 
 if.then7.i:                                       ; preds = %if.end3.i
-  switch i16 %and.i2.i.i, label %if.then7.unreachabledefault.i [
+  switch i16 %and.i2.i.i, label %default.unreachable.i [
     i16 1, label %if.end10.i
     i16 2, label %sw.bb8.i
     i16 3, label %sw.bb9.i
@@ -1583,7 +1583,7 @@ sw.bb8.i:                                         ; preds = %if.then7.i
 sw.bb9.i:                                         ; preds = %if.then7.i
   br label %if.end10.i
 
-if.then7.unreachabledefault.i:                    ; preds = %if.then7.i
+default.unreachable.i:                            ; preds = %if.then7.i
   unreachable
 
 if.end10.i:                                       ; preds = %sw.bb9.i, %sw.bb8.i, %if.then7.i, %if.end3.i
@@ -1663,7 +1663,7 @@ if.end3.i:                                        ; preds = %entry
   br i1 %or.cond.i, label %if.then7.i, label %if.end10.i
 
 if.then7.i:                                       ; preds = %if.end3.i
-  switch i16 %and.i2.i.i, label %if.then7.unreachabledefault.i [
+  switch i16 %and.i2.i.i, label %default.unreachable.i [
     i16 1, label %if.end10.i
     i16 2, label %sw.bb8.i
     i16 3, label %sw.bb9.i
@@ -1675,7 +1675,7 @@ sw.bb8.i:                                         ; preds = %if.then7.i
 sw.bb9.i:                                         ; preds = %if.then7.i
   br label %if.end10.i
 
-if.then7.unreachabledefault.i:                    ; preds = %if.then7.i
+default.unreachable.i:                            ; preds = %if.then7.i
   unreachable
 
 if.end10.i:                                       ; preds = %sw.bb9.i, %sw.bb8.i, %if.then7.i, %if.end3.i
@@ -1755,7 +1755,7 @@ if.end3.i:                                        ; preds = %entry
   br i1 %or.cond.i, label %if.then7.i, label %if.end10.i
 
 if.then7.i:                                       ; preds = %if.end3.i
-  switch i16 %and.i2.i.i, label %if.then7.unreachabledefault.i [
+  switch i16 %and.i2.i.i, label %default.unreachable.i [
     i16 1, label %if.end10.i
     i16 2, label %sw.bb8.i
     i16 3, label %sw.bb9.i
@@ -1767,7 +1767,7 @@ sw.bb8.i:                                         ; preds = %if.then7.i
 sw.bb9.i:                                         ; preds = %if.then7.i
   br label %if.end10.i
 
-if.then7.unreachabledefault.i:                    ; preds = %if.then7.i
+default.unreachable.i:                            ; preds = %if.then7.i
   unreachable
 
 if.end10.i:                                       ; preds = %sw.bb9.i, %sw.bb8.i, %if.then7.i, %if.end3.i
@@ -1847,7 +1847,7 @@ if.end3.i:                                        ; preds = %entry
   br i1 %or.cond.i, label %if.then7.i, label %if.end10.i
 
 if.then7.i:                                       ; preds = %if.end3.i
-  switch i16 %and.i2.i.i, label %if.then7.unreachabledefault.i [
+  switch i16 %and.i2.i.i, label %default.unreachable.i [
     i16 1, label %if.end10.i
     i16 2, label %sw.bb8.i
     i16 3, label %sw.bb9.i
@@ -1859,7 +1859,7 @@ sw.bb8.i:                                         ; preds = %if.then7.i
 sw.bb9.i:                                         ; preds = %if.then7.i
   br label %if.end10.i
 
-if.then7.unreachabledefault.i:                    ; preds = %if.then7.i
+default.unreachable.i:                            ; preds = %if.then7.i
   unreachable
 
 if.end10.i:                                       ; preds = %sw.bb9.i, %sw.bb8.i, %if.then7.i, %if.end3.i
@@ -1933,7 +1933,7 @@ for.body.i:                                       ; preds = %for.body.i, %if.the
 
 if.end3.i:                                        ; preds = %entry
   %and.i2.i.i = and i16 %format, 3
-  switch i16 %and.i2.i.i, label %if.end3.unreachabledefault.i [
+  switch i16 %and.i2.i.i, label %default.unreachable [
     i16 3, label %sw.bb9.i
     i16 1, label %sw.bb.i
     i16 2, label %sw.bb8.i
@@ -1949,7 +1949,7 @@ sw.bb8.i:                                         ; preds = %if.end3.i
 sw.bb9.i:                                         ; preds = %if.end3.i
   br label %if.end10.i
 
-if.end3.unreachabledefault.i:                     ; preds = %if.end3.i
+default.unreachable:                              ; preds = %if.end3.i
   unreachable
 
 if.end10.i:                                       ; preds = %sw.bb9.i, %sw.bb8.i, %sw.bb.i, %if.end3.i
@@ -2023,7 +2023,7 @@ for.body.i:                                       ; preds = %for.body.i, %if.the
 
 if.end3.i:                                        ; preds = %entry
   %and.i2.i.i = and i16 %format, 3
-  switch i16 %and.i2.i.i, label %if.end3.unreachabledefault.i [
+  switch i16 %and.i2.i.i, label %default.unreachable [
     i16 3, label %sw.bb9.i
     i16 1, label %sw.bb.i
     i16 2, label %sw.bb8.i
@@ -2039,7 +2039,7 @@ sw.bb8.i:                                         ; preds = %if.end3.i
 sw.bb9.i:                                         ; preds = %if.end3.i
   br label %if.end10.i
 
-if.end3.unreachabledefault.i:                     ; preds = %if.end3.i
+default.unreachable:                              ; preds = %if.end3.i
   unreachable
 
 if.end10.i:                                       ; preds = %sw.bb9.i, %sw.bb8.i, %sw.bb.i, %if.end3.i
@@ -2113,7 +2113,7 @@ for.body.i:                                       ; preds = %for.body.i, %if.the
 
 if.end3.i:                                        ; preds = %entry
   %and.i2.i.i = and i16 %format, 3
-  switch i16 %and.i2.i.i, label %if.end3.unreachabledefault.i [
+  switch i16 %and.i2.i.i, label %default.unreachable [
     i16 3, label %sw.bb9.i
     i16 1, label %sw.bb.i
     i16 2, label %sw.bb8.i
@@ -2129,7 +2129,7 @@ sw.bb8.i:                                         ; preds = %if.end3.i
 sw.bb9.i:                                         ; preds = %if.end3.i
   br label %if.end10.i
 
-if.end3.unreachabledefault.i:                     ; preds = %if.end3.i
+default.unreachable:                              ; preds = %if.end3.i
   unreachable
 
 if.end10.i:                                       ; preds = %sw.bb9.i, %sw.bb8.i, %sw.bb.i, %if.end3.i
@@ -2203,7 +2203,7 @@ for.body.i:                                       ; preds = %for.body.i, %if.the
 
 if.end3.i:                                        ; preds = %entry
   %and.i2.i.i = and i16 %format, 3
-  switch i16 %and.i2.i.i, label %if.end3.unreachabledefault.i [
+  switch i16 %and.i2.i.i, label %default.unreachable [
     i16 3, label %sw.bb9.i
     i16 1, label %sw.bb.i
     i16 2, label %sw.bb8.i
@@ -2219,7 +2219,7 @@ sw.bb8.i:                                         ; preds = %if.end3.i
 sw.bb9.i:                                         ; preds = %if.end3.i
   br label %if.end10.i
 
-if.end3.unreachabledefault.i:                     ; preds = %if.end3.i
+default.unreachable:                              ; preds = %if.end3.i
   unreachable
 
 if.end10.i:                                       ; preds = %sw.bb9.i, %sw.bb8.i, %sw.bb.i, %if.end3.i
@@ -2293,7 +2293,7 @@ for.body.i:                                       ; preds = %for.body.i, %if.the
 
 if.end3.i:                                        ; preds = %entry
   %and.i2.i.i = and i16 %format, 3
-  switch i16 %and.i2.i.i, label %if.end3.unreachabledefault.i [
+  switch i16 %and.i2.i.i, label %default.unreachable [
     i16 3, label %sw.bb9.i
     i16 1, label %sw.bb.i
     i16 2, label %sw.bb8.i
@@ -2309,7 +2309,7 @@ sw.bb8.i:                                         ; preds = %if.end3.i
 sw.bb9.i:                                         ; preds = %if.end3.i
   br label %if.end10.i
 
-if.end3.unreachabledefault.i:                     ; preds = %if.end3.i
+default.unreachable:                              ; preds = %if.end3.i
   unreachable
 
 if.end10.i:                                       ; preds = %sw.bb9.i, %sw.bb8.i, %sw.bb.i, %if.end3.i
@@ -18094,7 +18094,7 @@ if.then:                                          ; preds = %land.lhs.true
   %flags_.i = getelementptr inbounds %"class.toml::v3::value.11", ptr %val, i64 0, i32 2
   %2 = load i16, ptr %flags_.i, align 8
   %3 = and i16 %2, 3
-  switch i16 %3, label %if.then.unreachabledefault [
+  switch i16 %3, label %default.unreachable [
     i16 1, label %sw.bb
     i16 2, label %sw.bb12
     i16 3, label %sw.bb23
@@ -18185,7 +18185,7 @@ if.then27:                                        ; preds = %sw.bb23
   tail call void @_ZN4toml2v34impl15print_to_streamERSolNS0_11value_flagsEm(ptr noundef nonnull align 8 dereferenceable(8) %13, i64 noundef %14, i16 noundef zeroext 3, i64 noundef 0)
   br label %return
 
-if.then.unreachabledefault:                       ; preds = %if.then
+default.unreachable:                              ; preds = %if.then
   unreachable
 
 if.end34:                                         ; preds = %if.then, %sw.bb, %sw.bb12, %sw.bb23, %land.lhs.true
@@ -28081,7 +28081,7 @@ if.end:                                           ; preds = %entry
 
 if.end5:                                          ; preds = %if.end
   %0 = add i32 %__base, -2
-  %1 = tail call i32 @llvm.fshl.i32(i32 %__base, i32 %0, i32 31)
+  %1 = tail call i32 @llvm.fshl.i32(i32 %0, i32 %0, i32 31)
   switch i32 %1, label %sw.default [
     i32 7, label %sw.bb
     i32 4, label %sw.bb6
@@ -33334,7 +33334,7 @@ if.end8:                                          ; preds = %if.else, %if.then6
   %__first.addr.0 = phi ptr [ %incdec.ptr, %if.then6 ], [ %__first, %if.else ]
   %__unsigned_val.0 = phi i64 [ %add, %if.then6 ], [ %__value, %if.else ]
   %0 = add i32 %__base, -2
-  %1 = tail call i32 @llvm.fshl.i32(i32 %__base, i32 %0, i32 31)
+  %1 = tail call i32 @llvm.fshl.i32(i32 %0, i32 %0, i32 31)
   switch i32 %1, label %sw.default [
     i32 7, label %sw.bb
     i32 4, label %sw.bb9
@@ -38408,7 +38408,7 @@ if.end11:                                         ; preds = %if.else, %if.then8
   %__first.addr.0 = phi ptr [ %incdec.ptr, %if.then8 ], [ %__first, %if.else ]
   %__unsigned_val.0 = phi i32 [ %add, %if.then8 ], [ %conv, %if.else ]
   %0 = add i32 %__base, -2
-  %1 = tail call i32 @llvm.fshl.i32(i32 %__base, i32 %0, i32 31)
+  %1 = tail call i32 @llvm.fshl.i32(i32 %0, i32 %0, i32 31)
   switch i32 %1, label %sw.default [
     i32 7, label %sw.bb
     i32 4, label %sw.bb12
@@ -38811,7 +38811,7 @@ if.end11:                                         ; preds = %if.else, %if.then8
   %__first.addr.0 = phi ptr [ %incdec.ptr, %if.then8 ], [ %__first, %if.else ]
   %__unsigned_val.0 = phi i32 [ %add, %if.then8 ], [ %conv, %if.else ]
   %0 = add i32 %__base, -2
-  %1 = tail call i32 @llvm.fshl.i32(i32 %__base, i32 %0, i32 31)
+  %1 = tail call i32 @llvm.fshl.i32(i32 %0, i32 %0, i32 31)
   switch i32 %1, label %sw.default [
     i32 7, label %sw.bb
     i32 4, label %sw.bb12
@@ -39210,7 +39210,7 @@ if.end8:                                          ; preds = %if.else, %if.then6
   %__first.addr.0 = phi ptr [ %incdec.ptr, %if.then6 ], [ %__first, %if.else ]
   %__unsigned_val.0 = phi i32 [ %add, %if.then6 ], [ %__value, %if.else ]
   %0 = add i32 %__base, -2
-  %1 = tail call i32 @llvm.fshl.i32(i32 %__base, i32 %0, i32 31)
+  %1 = tail call i32 @llvm.fshl.i32(i32 %0, i32 %0, i32 31)
   switch i32 %1, label %sw.default [
     i32 7, label %sw.bb
     i32 4, label %sw.bb9
@@ -39609,7 +39609,7 @@ if.end8:                                          ; preds = %if.else, %if.then6
   %__first.addr.0 = phi ptr [ %incdec.ptr, %if.then6 ], [ %__first, %if.else ]
   %__unsigned_val.0 = phi i64 [ %add, %if.then6 ], [ %__value, %if.else ]
   %0 = add i32 %__base, -2
-  %1 = tail call i32 @llvm.fshl.i32(i32 %__base, i32 %0, i32 31)
+  %1 = tail call i32 @llvm.fshl.i32(i32 %0, i32 %0, i32 31)
   switch i32 %1, label %sw.default [
     i32 7, label %sw.bb
     i32 4, label %sw.bb9
@@ -39994,7 +39994,7 @@ if.end:                                           ; preds = %entry
 
 if.end6:                                          ; preds = %if.end
   %0 = add i32 %__base, -2
-  %1 = tail call i32 @llvm.fshl.i32(i32 %__base, i32 %0, i32 31)
+  %1 = tail call i32 @llvm.fshl.i32(i32 %0, i32 %0, i32 31)
   switch i32 %1, label %sw.default [
     i32 7, label %sw.bb
     i32 4, label %sw.bb7
@@ -40282,7 +40282,7 @@ if.end:                                           ; preds = %entry
 
 if.end6:                                          ; preds = %if.end
   %0 = add i32 %__base, -2
-  %1 = tail call i32 @llvm.fshl.i32(i32 %__base, i32 %0, i32 31)
+  %1 = tail call i32 @llvm.fshl.i32(i32 %0, i32 %0, i32 31)
   switch i32 %1, label %sw.default [
     i32 7, label %sw.bb
     i32 4, label %sw.bb7
@@ -40628,7 +40628,7 @@ if.end:                                           ; preds = %entry
 
 if.end5:                                          ; preds = %if.end
   %0 = add i32 %__base, -2
-  %1 = tail call i32 @llvm.fshl.i32(i32 %__base, i32 %0, i32 31)
+  %1 = tail call i32 @llvm.fshl.i32(i32 %0, i32 %0, i32 31)
   switch i32 %1, label %sw.default [
     i32 7, label %sw.bb
     i32 4, label %sw.bb6
@@ -41000,7 +41000,7 @@ if.end:                                           ; preds = %entry
 
 if.end5:                                          ; preds = %if.end
   %0 = add i32 %__base, -2
-  %1 = tail call i32 @llvm.fshl.i32(i32 %__base, i32 %0, i32 31)
+  %1 = tail call i32 @llvm.fshl.i32(i32 %0, i32 %0, i32 31)
   switch i32 %1, label %sw.default [
     i32 7, label %sw.bb
     i32 4, label %sw.bb6

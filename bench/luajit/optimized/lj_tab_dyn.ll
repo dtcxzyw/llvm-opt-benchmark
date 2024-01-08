@@ -79,7 +79,7 @@ if.then:                                          ; preds = %entry
   %1 = shl nuw nsw i32 %asize, 3
   %narrow = add nuw nsw i32 %1, 64
   %add = zext nneg i32 %narrow to i64
-  %call = tail call ptr @lj_mem_newgco(ptr noundef %L, i64 noundef %add) #11
+  %call = tail call ptr @lj_mem_newgco(ptr noundef %L, i64 noundef %add) #10
   %gct = getelementptr inbounds %struct.GCtab, ptr %call, i64 0, i32 2
   store i8 11, ptr %gct, align 1
   %nomm = getelementptr inbounds %struct.GCtab, ptr %call, i64 0, i32 3
@@ -110,7 +110,7 @@ if.then:                                          ; preds = %entry
 
 if.else:                                          ; preds = %entry
   %cmp.not = icmp eq i32 %asize, 0
-  %call9 = tail call ptr @lj_mem_newgco(ptr noundef %L, i64 noundef 64) #11
+  %call9 = tail call ptr @lj_mem_newgco(ptr noundef %L, i64 noundef 64) #10
   %gct10 = getelementptr inbounds %struct.GCtab, ptr %call9, i64 0, i32 2
   store i8 11, ptr %gct10, align 1
   %nomm11 = getelementptr inbounds %struct.GCtab, ptr %call9, i64 0, i32 3
@@ -141,13 +141,13 @@ if.then28:                                        ; preds = %if.else
   br i1 %cmp29, label %if.then31, label %if.end
 
 if.then31:                                        ; preds = %if.then28
-  tail call void @lj_err_msg(ptr noundef nonnull %L, i32 noundef 139) #12
+  tail call void @lj_err_msg(ptr noundef nonnull %L, i32 noundef 139) #11
   unreachable
 
 if.end:                                           ; preds = %if.then28
   %9 = shl nuw nsw i32 %asize, 3
   %mul33 = zext nneg i32 %9 to i64
-  %call34 = tail call ptr @lj_mem_realloc(ptr noundef nonnull %L, ptr noundef null, i64 noundef 0, i64 noundef %mul33) #11
+  %call34 = tail call ptr @lj_mem_realloc(ptr noundef nonnull %L, ptr noundef null, i64 noundef 0, i64 noundef %mul33) #10
   %10 = ptrtoint ptr %call34 to i64
   store i64 %10, ptr %array13, align 8
   store i32 %asize, ptr %asize17, align 8
@@ -163,7 +163,7 @@ if.then40:                                        ; preds = %if.end39
   br i1 %cmp.i, label %if.then.i, label %newhpart.exit
 
 if.then.i:                                        ; preds = %if.then40
-  tail call void @lj_err_msg(ptr noundef nonnull %L, i32 noundef 139) #12
+  tail call void @lj_err_msg(ptr noundef nonnull %L, i32 noundef 139) #11
   unreachable
 
 newhpart.exit:                                    ; preds = %if.then40
@@ -171,7 +171,7 @@ newhpart.exit:                                    ; preds = %if.then40
   %conv.i = zext nneg i32 %shl.i to i64
   %11 = zext nneg i32 %hbits to i64
   %mul.i = shl nuw nsw i64 24, %11
-  %call.i = tail call ptr @lj_mem_realloc(ptr noundef nonnull %L, ptr noundef null, i64 noundef 0, i64 noundef %mul.i) #11
+  %call.i = tail call ptr @lj_mem_realloc(ptr noundef nonnull %L, ptr noundef null, i64 noundef 0, i64 noundef %mul.i) #10
   %12 = ptrtoint ptr %call.i to i64
   %node1.i = getelementptr inbounds %struct.GCtab, ptr %t.0, i64 0, i32 8
   store i64 %12, ptr %node1.i, align 8
@@ -405,7 +405,7 @@ if.end51:                                         ; preds = %for.body30, %if.end
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
 
-; Function Attrs: nofree nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define hidden void @lj_tab_clear(ptr nocapture noundef %t) local_unnamed_addr #3 {
 entry:
   %asize1.i = getelementptr inbounds %struct.GCtab, ptr %t, i64 0, i32 9
@@ -478,7 +478,7 @@ if.then:                                          ; preds = %entry
   %4 = load ptr, ptr %g, align 8
   %allocd.i41 = getelementptr inbounds %struct.global_State, ptr %g, i64 0, i32 1
   %5 = load ptr, ptr %allocd.i41, align 8
-  %call.i42 = tail call ptr %4(ptr noundef %5, ptr noundef %2, i64 noundef %mul, i64 noundef 0) #11
+  %call.i42 = tail call ptr %4(ptr noundef %5, ptr noundef %2, i64 noundef %mul, i64 noundef 0) #10
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
@@ -506,7 +506,7 @@ if.then7:                                         ; preds = %land.lhs.true
   %11 = load ptr, ptr %g, align 8
   %allocd.i34 = getelementptr inbounds %struct.global_State, ptr %g, i64 0, i32 1
   %12 = load ptr, ptr %allocd.i34, align 8
-  %call.i35 = tail call ptr %11(ptr noundef %12, ptr noundef %9, i64 noundef %mul11, i64 noundef 0) #11
+  %call.i35 = tail call ptr %11(ptr noundef %12, ptr noundef %9, i64 noundef %mul11, i64 noundef 0) #10
   br label %if.end12
 
 if.end12:                                         ; preds = %if.then7, %land.lhs.true, %if.end
@@ -538,7 +538,7 @@ if.end21:                                         ; preds = %if.else, %if.then15
   %17 = load ptr, ptr %g, align 8
   %allocd.i = getelementptr inbounds %struct.global_State, ptr %g, i64 0, i32 1
   %18 = load ptr, ptr %allocd.i, align 8
-  %call.i = tail call ptr %17(ptr noundef %18, ptr noundef nonnull %t, i64 noundef %.sink27, i64 noundef 0) #11
+  %call.i = tail call ptr %17(ptr noundef %18, ptr noundef nonnull %t, i64 noundef %.sink27, i64 noundef 0) #10
   ret void
 }
 
@@ -561,7 +561,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp2, label %if.then3, label %if.end
 
 if.then3:                                         ; preds = %if.then
-  tail call void @lj_err_msg(ptr noundef %L, i32 noundef 139) #12
+  tail call void @lj_err_msg(ptr noundef %L, i32 noundef 139) #11
   unreachable
 
 if.end:                                           ; preds = %if.then
@@ -576,7 +576,7 @@ if.end:                                           ; preds = %if.then
 if.then6:                                         ; preds = %if.end
   %7 = shl nuw nsw i32 %asize, 3
   %mul = zext nneg i32 %7 to i64
-  %call = tail call ptr @lj_mem_realloc(ptr noundef %L, ptr noundef null, i64 noundef 0, i64 noundef %mul) #11
+  %call = tail call ptr @lj_mem_realloc(ptr noundef %L, ptr noundef null, i64 noundef 0, i64 noundef %mul) #10
   %8 = load i8, ptr %colo, align 1
   %or = or i8 %8, -128
   store i8 %or, ptr %colo, align 1
@@ -602,7 +602,7 @@ if.else:                                          ; preds = %if.end
   %mul21 = shl nuw nsw i64 %conv20, 3
   %10 = shl nuw nsw i32 %asize, 3
   %mul23 = zext nneg i32 %10 to i64
-  %call24 = tail call ptr @lj_mem_realloc(ptr noundef %L, ptr noundef %6, i64 noundef %mul21, i64 noundef %mul23) #11
+  %call24 = tail call ptr @lj_mem_realloc(ptr noundef %L, ptr noundef %6, i64 noundef %mul21, i64 noundef %mul23) #10
   br label %for.body32.preheader
 
 for.body32.preheader:                             ; preds = %for.body, %if.else, %if.then6
@@ -631,7 +631,7 @@ if.then39:                                        ; preds = %if.end38
   br i1 %cmp.i120, label %if.then.i, label %newhpart.exit
 
 if.then.i:                                        ; preds = %if.then39
-  tail call void @lj_err_msg(ptr noundef %L, i32 noundef 139) #12
+  tail call void @lj_err_msg(ptr noundef %L, i32 noundef 139) #11
   unreachable
 
 newhpart.exit:                                    ; preds = %if.then39
@@ -639,7 +639,7 @@ newhpart.exit:                                    ; preds = %if.then39
   %conv.i = zext nneg i32 %shl.i to i64
   %19 = zext nneg i32 %hbits to i64
   %mul.i = shl nuw nsw i64 24, %19
-  %call.i121 = tail call ptr @lj_mem_realloc(ptr noundef %L, ptr noundef null, i64 noundef 0, i64 noundef %mul.i) #11
+  %call.i121 = tail call ptr @lj_mem_realloc(ptr noundef %L, ptr noundef null, i64 noundef 0, i64 noundef %mul.i) #10
   %20 = ptrtoint ptr %call.i121 to i64
   store i64 %20, ptr %node, align 8
   %arrayidx.i123 = getelementptr inbounds %struct.Node, ptr %call.i121, i64 %conv.i
@@ -707,7 +707,7 @@ if.then64:                                        ; preds = %for.body59
   %shr.i.i = lshr i32 %shl.i90, 18
   %or.i.i = or disjoint i32 %shr.i.i, %shl.i.i
   %sub.i.i = sub i32 %xor.i.i, %or.i.i
-  %or3.i.i = call i32 @llvm.fshl.i32(i32 %or.i.i, i32 %shl.i.i, i32 5)
+  %or3.i.i = call i32 @llvm.fshl.i32(i32 %or.i.i, i32 %or.i.i, i32 5)
   %xor4.i.i = xor i32 %or3.i.i, %sub.i.i
   %or7.i.i = call i32 @llvm.fshl.i32(i32 %sub.i.i, i32 %sub.i.i, i32 13)
   %sub8.i.i = sub i32 %xor4.i.i, %or7.i.i
@@ -764,7 +764,7 @@ for.end71:                                        ; preds = %for.inc69
 if.then76:                                        ; preds = %for.end71
   %mul78 = shl nuw nsw i64 %wide.trip.count113, 3
   %mul80 = shl nuw nsw i64 %27, 3
-  %call81 = call ptr @lj_mem_realloc(ptr noundef %L, ptr noundef %26, i64 noundef %mul78, i64 noundef %mul80) #11
+  %call81 = call ptr @lj_mem_realloc(ptr noundef %L, ptr noundef %26, i64 noundef %mul78, i64 noundef %mul80) #10
   %43 = ptrtoint ptr %call81 to i64
   store i64 %43, ptr %array52, align 8
   br label %if.end85
@@ -807,7 +807,7 @@ for.end105:                                       ; preds = %for.inc103
   %49 = load ptr, ptr %47, align 8
   %allocd.i = getelementptr inbounds %struct.global_State, ptr %47, i64 0, i32 1
   %50 = load ptr, ptr %allocd.i, align 8
-  %call.i = call ptr %49(ptr noundef %50, ptr noundef nonnull %1, i64 noundef %mul109, i64 noundef 0) #11
+  %call.i = call ptr %49(ptr noundef %50, ptr noundef nonnull %1, i64 noundef %mul109, i64 noundef 0) #10
   br label %if.end110
 
 if.end110:                                        ; preds = %for.end105, %if.end85
@@ -835,7 +835,7 @@ entry:
   %shr.i = lshr i32 %shl, 18
   %or.i = or disjoint i32 %shr.i, %shl.i
   %sub.i = sub i32 %xor.i, %or.i
-  %or3.i = tail call i32 @llvm.fshl.i32(i32 %or.i, i32 %shl.i, i32 5)
+  %or3.i = tail call i32 @llvm.fshl.i32(i32 %or.i, i32 %or.i, i32 5)
   %xor4.i = xor i32 %or3.i, %sub.i
   %or7.i = tail call i32 @llvm.fshl.i32(i32 %sub.i, i32 %sub.i, i32 13)
   %sub8.i = sub i32 %xor4.i, %or7.i
@@ -975,7 +975,7 @@ cond.false:                                       ; preds = %if.then11
   %shr.i.i = lshr i32 %shl.i, 18
   %or.i.i28 = or disjoint i32 %shr.i.i, %shl.i.i
   %sub.i.i = sub i32 %xor.i.i, %or.i.i28
-  %or3.i.i = tail call i32 @llvm.fshl.i32(i32 %or.i.i28, i32 %shl.i.i, i32 5)
+  %or3.i.i = tail call i32 @llvm.fshl.i32(i32 %or.i.i28, i32 %or.i.i28, i32 5)
   %xor4.i.i = xor i32 %or3.i.i, %sub.i.i
   %or7.i.i = tail call i32 @llvm.fshl.i32(i32 %sub.i.i, i32 %sub.i.i, i32 13)
   %sub8.i.i = sub i32 %xor4.i.i, %or7.i.i
@@ -1022,7 +1022,7 @@ if.end:                                           ; preds = %if.then6
   br i1 %cmp15, label %if.then17, label %if.then6.i
 
 if.then17:                                        ; preds = %if.end
-  tail call void @lj_err_msg(ptr noundef %L, i32 noundef 154) #12
+  tail call void @lj_err_msg(ptr noundef %L, i32 noundef 154) #11
   unreachable
 
 if.else19:                                        ; preds = %if.else
@@ -1030,7 +1030,7 @@ if.else19:                                        ; preds = %if.else
   br i1 %cmp20, label %if.then22, label %if.else9.i
 
 if.then22:                                        ; preds = %if.else19
-  tail call void @lj_err_msg(ptr noundef %L, i32 noundef 173) #12
+  tail call void @lj_err_msg(ptr noundef %L, i32 noundef 173) #11
   unreachable
 
 if.then6.i:                                       ; preds = %if.end
@@ -1043,7 +1043,7 @@ if.then6.i:                                       ; preds = %if.end
   %shr.i58.i = lshr i32 %shl.i58, 18
   %or.i59.i = or disjoint i32 %shr.i58.i, %shl.i57.i
   %sub.i60.i = sub i32 %xor.i56.i, %or.i59.i
-  %or3.i63.i = tail call i32 @llvm.fshl.i32(i32 %or.i59.i, i32 %shl.i57.i, i32 5)
+  %or3.i63.i = tail call i32 @llvm.fshl.i32(i32 %or.i59.i, i32 %or.i59.i, i32 5)
   %xor4.i64.i = xor i32 %or3.i63.i, %sub.i60.i
   %or7.i67.i = tail call i32 @llvm.fshl.i32(i32 %sub.i60.i, i32 %sub.i60.i, i32 13)
   %sub8.i68.i = sub i32 %xor4.i64.i, %or7.i67.i
@@ -1091,7 +1091,7 @@ hashkey.exit:                                     ; preds = %if.then6.i, %if.the
 do.body:                                          ; preds = %do.cond, %hashkey.exit
   %n.0 = phi ptr [ %arrayidx.i.i57, %hashkey.exit ], [ %35, %do.cond ]
   %key27 = getelementptr inbounds %struct.Node, ptr %n.0, i64 0, i32 1
-  %call28 = tail call i32 @lj_obj_equal(ptr noundef nonnull %key27, ptr noundef nonnull %key) #11
+  %call28 = tail call i32 @lj_obj_equal(ptr noundef nonnull %key27, ptr noundef nonnull %key) #10
   %tobool.not = icmp eq i32 %call28, 0
   br i1 %tobool.not, label %do.cond, label %return
 
@@ -1362,7 +1362,7 @@ entry:
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define hidden ptr @lj_tab_getinth(ptr nocapture noundef readonly %t, i32 noundef %key) local_unnamed_addr #6 {
 entry:
   %conv = sitofp i32 %key to double
@@ -1372,7 +1372,7 @@ entry:
   %tr.sh.diff = trunc i64 %sh.diff to i32
   %shl = and i32 %tr.sh.diff, -2
   %xor.i = xor i32 %shl, %k.sroa.0.0.extract.trunc
-  %or.i = tail call i32 @llvm.fshl.i32(i32 %shl, i32 %tr.sh.diff, i32 14)
+  %or.i = tail call i32 @llvm.fshl.i32(i32 %shl, i32 %shl, i32 14)
   %sub.i = sub i32 %xor.i, %or.i
   %or3.i = tail call i32 @llvm.fshl.i32(i32 %or.i, i32 %or.i, i32 5)
   %xor4.i = xor i32 %or3.i, %sub.i
@@ -1413,7 +1413,7 @@ return:                                           ; preds = %do.body, %do.cond
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define hidden ptr @lj_tab_getstr(ptr nocapture noundef readonly %t, ptr noundef readonly %key) local_unnamed_addr #7 {
+define hidden ptr @lj_tab_getstr(ptr nocapture noundef readonly %t, ptr noundef readonly %key) local_unnamed_addr #6 {
 entry:
   %sid = getelementptr inbounds %struct.GCstr, ptr %key, i64 0, i32 5
   %0 = load i32, ptr %sid, align 4
@@ -1520,7 +1520,7 @@ cond.false:                                       ; preds = %if.then12
   %tr.sh.diff.i = trunc i64 %sh.diff.i to i32
   %shl.i = and i32 %tr.sh.diff.i, -2
   %xor.i.i = xor i32 %shl.i, %k.sroa.0.0.extract.trunc.i
-  %or.i.i = tail call i32 @llvm.fshl.i32(i32 %shl.i, i32 %tr.sh.diff.i, i32 14)
+  %or.i.i = tail call i32 @llvm.fshl.i32(i32 %shl.i, i32 %shl.i, i32 14)
   %sub.i.i = sub i32 %xor.i.i, %or.i.i
   %or3.i.i = tail call i32 @llvm.fshl.i32(i32 %or.i.i, i32 %or.i.i, i32 5)
   %xor4.i.i = xor i32 %or3.i.i, %sub.i.i
@@ -1578,7 +1578,7 @@ if.then6.i:                                       ; preds = %if.then7
   %shr.i58.i = lshr i32 %shl.i48, 18
   %or.i59.i = or disjoint i32 %shr.i58.i, %shl.i57.i
   %sub.i60.i = sub i32 %xor.i56.i, %or.i59.i
-  %or3.i63.i = tail call i32 @llvm.fshl.i32(i32 %or.i59.i, i32 %shl.i57.i, i32 5)
+  %or3.i63.i = tail call i32 @llvm.fshl.i32(i32 %or.i59.i, i32 %or.i59.i, i32 5)
   %xor4.i64.i = xor i32 %or3.i63.i, %sub.i60.i
   %or7.i67.i = tail call i32 @llvm.fshl.i32(i32 %sub.i60.i, i32 %sub.i60.i, i32 13)
   %sub8.i68.i = sub i32 %xor4.i64.i, %or7.i67.i
@@ -1626,7 +1626,7 @@ hashkey.exit:                                     ; preds = %if.then6.i, %if.the
 do.body:                                          ; preds = %do.cond, %hashkey.exit
   %n.0 = phi ptr [ %arrayidx.i.i47, %hashkey.exit ], [ %32, %do.cond ]
   %key27 = getelementptr inbounds %struct.Node, ptr %n.0, i64 0, i32 1
-  %call28 = tail call i32 @lj_obj_equal(ptr noundef nonnull %key27, ptr noundef nonnull %key) #11
+  %call28 = tail call i32 @lj_obj_equal(ptr noundef nonnull %key27, ptr noundef nonnull %key) #10
   %tobool29.not = icmp eq i32 %call28, 0
   br i1 %tobool29.not, label %do.cond, label %return
 
@@ -1683,7 +1683,7 @@ if.then6.i:                                       ; preds = %if.else.i
   %shr.i58.i = lshr i32 %shl.i, 18
   %or.i59.i = or disjoint i32 %shr.i58.i, %shl.i57.i
   %sub.i60.i = sub i32 %xor.i56.i, %or.i59.i
-  %or3.i63.i = tail call i32 @llvm.fshl.i32(i32 %or.i59.i, i32 %shl.i57.i, i32 5)
+  %or3.i63.i = tail call i32 @llvm.fshl.i32(i32 %or.i59.i, i32 %or.i59.i, i32 5)
   %xor4.i64.i = xor i32 %or3.i63.i, %sub.i60.i
   %or7.i67.i = tail call i32 @llvm.fshl.i32(i32 %sub.i60.i, i32 %sub.i60.i, i32 13)
   %sub8.i68.i = sub i32 %xor4.i64.i, %or7.i67.i
@@ -1786,7 +1786,7 @@ if.then6.i103:                                    ; preds = %if.else.i77
   %shr.i58.i107 = lshr i32 %shl.i104, 18
   %or.i59.i108 = or disjoint i32 %shr.i58.i107, %shl.i57.i106
   %sub.i60.i109 = sub i32 %xor.i56.i105, %or.i59.i108
-  %or3.i63.i110 = tail call i32 @llvm.fshl.i32(i32 %or.i59.i108, i32 %shl.i57.i106, i32 5)
+  %or3.i63.i110 = tail call i32 @llvm.fshl.i32(i32 %or.i59.i108, i32 %or.i59.i108, i32 5)
   %xor4.i64.i111 = xor i32 %or3.i63.i110, %sub.i60.i109
   %or7.i67.i112 = tail call i32 @llvm.fshl.i32(i32 %sub.i60.i109, i32 %sub.i60.i109, i32 13)
   %sub8.i68.i113 = sub i32 %xor4.i64.i111, %or7.i67.i112
@@ -1891,7 +1891,7 @@ if.then6.i149:                                    ; preds = %if.else.i123
   %shr.i58.i153 = lshr i32 %shl.i150, 18
   %or.i59.i154 = or disjoint i32 %shr.i58.i153, %shl.i57.i152
   %sub.i60.i155 = sub i32 %xor.i56.i151, %or.i59.i154
-  %or3.i63.i156 = tail call i32 @llvm.fshl.i32(i32 %or.i59.i154, i32 %shl.i57.i152, i32 5)
+  %or3.i63.i156 = tail call i32 @llvm.fshl.i32(i32 %or.i59.i154, i32 %or.i59.i154, i32 5)
   %xor4.i64.i157 = xor i32 %or3.i63.i156, %sub.i60.i155
   %or7.i67.i158 = tail call i32 @llvm.fshl.i32(i32 %sub.i60.i155, i32 %sub.i60.i155, i32 13)
   %sub8.i68.i159 = sub i32 %xor4.i64.i157, %or7.i67.i158
@@ -1982,7 +1982,7 @@ if.then6.i195:                                    ; preds = %if.else.i169
   %shr.i58.i199 = lshr i32 %shl.i196, 18
   %or.i59.i200 = or disjoint i32 %shr.i58.i199, %shl.i57.i198
   %sub.i60.i201 = sub i32 %xor.i56.i197, %or.i59.i200
-  %or3.i63.i202 = tail call i32 @llvm.fshl.i32(i32 %or.i59.i200, i32 %shl.i57.i198, i32 5)
+  %or3.i63.i202 = tail call i32 @llvm.fshl.i32(i32 %or.i59.i200, i32 %or.i59.i200, i32 5)
   %xor4.i64.i203 = xor i32 %or3.i63.i202, %sub.i60.i201
   %or7.i67.i204 = tail call i32 @llvm.fshl.i32(i32 %sub.i60.i201, i32 %sub.i60.i201, i32 13)
   %sub8.i68.i205 = sub i32 %xor4.i64.i203, %or7.i67.i204
@@ -2189,7 +2189,7 @@ if.then6.i:                                       ; preds = %if.else.i
   %shr.i58.i = lshr i32 %shl.i, 18
   %or.i59.i = or disjoint i32 %shr.i58.i, %shl.i57.i
   %sub.i60.i = sub i32 %xor.i56.i, %or.i59.i
-  %or3.i63.i = tail call i32 @llvm.fshl.i32(i32 %or.i59.i, i32 %shl.i57.i, i32 5)
+  %or3.i63.i = tail call i32 @llvm.fshl.i32(i32 %or.i59.i, i32 %or.i59.i, i32 5)
   %xor4.i64.i = xor i32 %or3.i63.i, %sub.i60.i
   %or7.i67.i = tail call i32 @llvm.fshl.i32(i32 %sub.i60.i, i32 %sub.i60.i, i32 13)
   %sub8.i68.i = sub i32 %xor4.i64.i, %or7.i67.i
@@ -2235,7 +2235,7 @@ hashkey.exit:                                     ; preds = %if.then.i, %if.then
 do.body:                                          ; preds = %do.cond, %hashkey.exit
   %n.0 = phi ptr [ %arrayidx.i.i, %hashkey.exit ], [ %15, %do.cond ]
   %key13 = getelementptr inbounds %struct.Node, ptr %n.0, i64 0, i32 1
-  %call14 = tail call i32 @lj_obj_equal(ptr noundef nonnull %key13, ptr noundef nonnull %key) #11
+  %call14 = tail call i32 @lj_obj_equal(ptr noundef nonnull %key13, ptr noundef nonnull %key) #10
   %tobool.not = icmp eq i32 %call14, 0
   br i1 %tobool.not, label %do.cond, label %if.then15
 
@@ -2358,7 +2358,7 @@ return:                                           ; preds = %for.end23, %if.then
   ret i32 %retval.0
 }
 
-; Function Attrs: nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define hidden i32 @lj_tab_len(ptr nocapture noundef readonly %t) local_unnamed_addr #6 {
 entry:
   %asize = getelementptr inbounds %struct.GCtab, ptr %t, i64 0, i32 9
@@ -2428,7 +2428,7 @@ cond.false.i:                                     ; preds = %while.cond.i
   %tr.sh.diff.i.i = trunc i64 %sh.diff.i.i to i32
   %shl.i.i = and i32 %tr.sh.diff.i.i, -2
   %xor.i.i.i = xor i32 %shl.i.i, %k.sroa.0.0.extract.trunc.i.i
-  %or.i.i.i = tail call i32 @llvm.fshl.i32(i32 %shl.i.i, i32 %tr.sh.diff.i.i, i32 14)
+  %or.i.i.i = tail call i32 @llvm.fshl.i32(i32 %shl.i.i, i32 %shl.i.i, i32 14)
   %sub.i.i.i = sub i32 %xor.i.i.i, %or.i.i.i
   %or3.i.i.i = tail call i32 @llvm.fshl.i32(i32 %or.i.i.i, i32 %or.i.i.i, i32 5)
   %xor4.i.i.i = xor i32 %or3.i.i.i, %sub.i.i.i
@@ -2494,7 +2494,7 @@ cond.false19.i:                                   ; preds = %while.cond8.i
   %tr.sh.diff.i37.i = trunc i64 %sh.diff.i36.i to i32
   %shl.i38.i = and i32 %tr.sh.diff.i37.i, -2
   %xor.i.i39.i = xor i32 %shl.i38.i, %k.sroa.0.0.extract.trunc.i35.i
-  %or.i.i40.i = tail call i32 @llvm.fshl.i32(i32 %shl.i38.i, i32 %tr.sh.diff.i37.i, i32 14)
+  %or.i.i40.i = tail call i32 @llvm.fshl.i32(i32 %shl.i38.i, i32 %shl.i38.i, i32 14)
   %sub.i.i41.i = sub i32 %xor.i.i39.i, %or.i.i40.i
   %or3.i.i42.i = tail call i32 @llvm.fshl.i32(i32 %or.i.i40.i, i32 %or.i.i40.i, i32 5)
   %xor4.i.i43.i = xor i32 %or3.i.i42.i, %sub.i.i41.i
@@ -2568,7 +2568,7 @@ cond.false50.i:                                   ; preds = %while.body38.i
   %tr.sh.diff.i67.i = trunc i64 %sh.diff.i66.i to i32
   %shl.i68.i = and i32 %tr.sh.diff.i67.i, -2
   %xor.i.i69.i = xor i32 %shl.i68.i, %k.sroa.0.0.extract.trunc.i65.i
-  %or.i.i70.i = tail call i32 @llvm.fshl.i32(i32 %shl.i68.i, i32 %tr.sh.diff.i67.i, i32 14)
+  %or.i.i70.i = tail call i32 @llvm.fshl.i32(i32 %shl.i68.i, i32 %shl.i68.i, i32 14)
   %sub.i.i71.i = sub i32 %xor.i.i69.i, %or.i.i70.i
   %or3.i.i72.i = tail call i32 @llvm.fshl.i32(i32 %or.i.i70.i, i32 %or.i.i70.i, i32 5)
   %xor4.i.i73.i = xor i32 %or3.i.i72.i, %sub.i.i71.i
@@ -2639,7 +2639,7 @@ return:                                           ; preds = %while.cond.preheade
   ret i32 %retval.0
 }
 
-; Function Attrs: nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define hidden i32 @lj_tab_len_hint(ptr nocapture noundef readonly %t, i64 noundef %hint) local_unnamed_addr #6 {
 entry:
   %asize1 = getelementptr inbounds %struct.GCtab, ptr %t, i64 0, i32 9
@@ -2699,33 +2699,32 @@ return:                                           ; preds = %if.end34, %if.then3
 declare hidden ptr @lj_mem_newgco(ptr noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.fshl.i32(i32, i32, i32) #8
+declare i32 @llvm.fshl.i32(i32, i32, i32) #7
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #8
+declare i32 @llvm.umax.i32(i32, i32) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { nofree nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #9 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #10 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #11 = { nounwind }
-attributes #12 = { noreturn nounwind }
+attributes #6 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #8 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #9 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #10 = { nounwind }
+attributes #11 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

@@ -87,7 +87,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.27 = private unnamed_addr constant [27 x i8] c"pcnet: Bad SWSTYLE=0x%02x\0A\00", align 1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @pcnet_receive(ptr noundef %nc, ptr noundef %buf, i64 noundef %size_) local_unnamed_addr #0 {
+define dso_local noundef i64 @pcnet_receive(ptr noundef %nc, ptr noundef %buf, i64 noundef %size_) local_unnamed_addr #0 {
 entry:
   %rda.i236 = alloca %struct.anon.4, align 4
   %rda10.i237 = alloca %struct.anon.5, align 4
@@ -2817,11 +2817,9 @@ entry:
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %and1 = lshr i32 %addr, 2
-  %2 = and i32 %and1, 3
-  %3 = shl i32 %addr, 30
-  %4 = or disjoint i32 %2, %3
-  switch i32 %4, label %if.end [
+  %and1 = and i32 %addr, 15
+  %2 = tail call i32 @llvm.fshl.i32(i32 %and1, i32 %and1, i32 30)
+  switch i32 %2, label %if.end [
     i32 0, label %sw.bb
     i32 1, label %sw.bb2
     i32 2, label %sw.bb4
@@ -2830,8 +2828,8 @@ if.then:                                          ; preds = %entry
 
 sw.bb:                                            ; preds = %if.then
   %rap = getelementptr inbounds %struct.PCNetState_st, ptr %opaque, i64 0, i32 3
-  %5 = load i32, ptr %rap, align 8
-  switch i32 %5, label %sw.default.i [
+  %3 = load i32, ptr %rap, align 8
+  switch i32 %3, label %sw.default.i [
     i32 0, label %sw.bb.i
     i32 16, label %sw.bb1.i
     i32 17, label %sw.bb2.i
@@ -2842,8 +2840,8 @@ sw.bb:                                            ; preds = %if.then
 sw.bb.i:                                          ; preds = %sw.bb
   tail call fastcc void @pcnet_update_irq(ptr noundef nonnull %opaque)
   %csr.i = getelementptr inbounds %struct.PCNetState_st, ptr %opaque, i64 0, i32 9
-  %6 = load i16, ptr %csr.i, align 4
-  %conv.i = zext i16 %6 to i32
+  %4 = load i16, ptr %csr.i, align 4
+  %conv.i = zext i16 %4 to i32
   %and.i = and i32 %conv.i, 30720
   %tobool.not.i = icmp eq i32 %and.i, 0
   %cond.i = select i1 %tobool.not.i, i32 0, i32 32768
@@ -2852,37 +2850,37 @@ sw.bb.i:                                          ; preds = %sw.bb
 
 sw.bb1.i:                                         ; preds = %sw.bb
   %arrayidx15.i.i = getelementptr %struct.PCNetState_st, ptr %opaque, i64 0, i32 9, i64 1
-  %7 = load i16, ptr %arrayidx15.i.i, align 2
-  %conv16.i.i = zext i16 %7 to i32
+  %5 = load i16, ptr %arrayidx15.i.i, align 2
+  %conv16.i.i = zext i16 %5 to i32
   br label %if.end
 
 sw.bb2.i:                                         ; preds = %sw.bb
   %arrayidx15.i13.i = getelementptr %struct.PCNetState_st, ptr %opaque, i64 0, i32 9, i64 2
-  %8 = load i16, ptr %arrayidx15.i13.i, align 2
-  %conv16.i14.i = zext i16 %8 to i32
+  %6 = load i16, ptr %arrayidx15.i13.i, align 2
+  %conv16.i14.i = zext i16 %6 to i32
   br label %if.end
 
 sw.bb4.i:                                         ; preds = %sw.bb
   %arrayidx7.i.i = getelementptr %struct.PCNetState_st, ptr %opaque, i64 0, i32 10, i64 20
-  %9 = load i16, ptr %arrayidx7.i.i, align 2
-  %conv8.i.i = zext i16 %9 to i32
+  %7 = load i16, ptr %arrayidx7.i.i, align 2
+  %conv8.i.i = zext i16 %7 to i32
   br label %if.end
 
 sw.bb6.i:                                         ; preds = %sw.bb
-  %10 = getelementptr i8, ptr %opaque, i64 8444
-  %11 = load i32, ptr %10, align 4
+  %8 = getelementptr i8, ptr %opaque, i64 8444
+  %9 = load i32, ptr %8, align 4
   br label %if.end
 
 sw.default.i:                                     ; preds = %sw.bb
-  %idxprom.i = zext i32 %5 to i64
+  %idxprom.i = zext i32 %3 to i64
   %arrayidx15.i = getelementptr %struct.PCNetState_st, ptr %opaque, i64 0, i32 9, i64 %idxprom.i
-  %12 = load i16, ptr %arrayidx15.i, align 2
-  %conv16.i = zext i16 %12 to i32
+  %10 = load i16, ptr %arrayidx15.i, align 2
+  %conv16.i = zext i16 %10 to i32
   br label %if.end
 
 sw.bb2:                                           ; preds = %if.then
   %rap3 = getelementptr inbounds %struct.PCNetState_st, ptr %opaque, i64 0, i32 3
-  %13 = load i32, ptr %rap3, align 8
+  %11 = load i32, ptr %rap3, align 8
   br label %if.end
 
 sw.bb4:                                           ; preds = %if.then
@@ -2891,21 +2889,21 @@ sw.bb4:                                           ; preds = %if.then
 
 sw.bb5:                                           ; preds = %if.then
   %rap6 = getelementptr inbounds %struct.PCNetState_st, ptr %opaque, i64 0, i32 3
-  %14 = load i32, ptr %rap6, align 8
-  %and.i9 = and i32 %14, 127
-  %15 = and i32 %14, 124
-  %switch.i = icmp eq i32 %15, 4
+  %12 = load i32, ptr %rap6, align 8
+  %and.i9 = and i32 %12, 127
+  %13 = and i32 %12, 124
+  %switch.i = icmp eq i32 %13, 4
   br i1 %switch.i, label %sw.bb.i11, label %sw.default.i10
 
 sw.bb.i11:                                        ; preds = %sw.bb5
   %idxprom.i12 = zext nneg i32 %and.i9 to i64
   %arrayidx.i = getelementptr %struct.PCNetState_st, ptr %opaque, i64 0, i32 10, i64 %idxprom.i12
-  %16 = load i16, ptr %arrayidx.i, align 2
-  %17 = and i16 %16, 32767
-  %and1.i = zext nneg i16 %17 to i32
+  %14 = load i16, ptr %arrayidx.i, align 2
+  %15 = and i16 %14, 32767
+  %and1.i = zext nneg i16 %15 to i32
   %lnkst.i = getelementptr inbounds %struct.PCNetState_st, ptr %opaque, i64 0, i32 5
-  %18 = load i32, ptr %lnkst.i, align 16
-  %and2.i = and i32 %18, 383
+  %16 = load i32, ptr %lnkst.i, align 16
+  %and2.i = and i32 %16, 383
   %and3.i = and i32 %and2.i, %and1.i
   %tobool.not.i13 = icmp eq i32 %and3.i, 0
   %cond.i14 = select i1 %tobool.not.i13, i32 0, i32 32768
@@ -2919,18 +2917,18 @@ sw.default.i10:                                   ; preds = %sw.bb5
 cond.true.i:                                      ; preds = %sw.default.i10
   %idxprom6.i = zext nneg i32 %and.i9 to i64
   %arrayidx7.i = getelementptr %struct.PCNetState_st, ptr %opaque, i64 0, i32 10, i64 %idxprom6.i
-  %19 = load i16, ptr %arrayidx7.i, align 2
-  %conv8.i = zext i16 %19 to i32
+  %17 = load i16, ptr %arrayidx7.i, align 2
+  %conv8.i = zext i16 %17 to i32
   br label %if.end
 
 if.end:                                           ; preds = %cond.true.i, %sw.default.i10, %sw.bb.i11, %sw.default.i, %sw.bb6.i, %sw.bb4.i, %sw.bb2.i, %sw.bb1.i, %sw.bb.i, %if.then, %sw.bb2, %sw.bb4, %entry
-  %val.0 = phi i32 [ -1, %if.then ], [ 0, %sw.bb4 ], [ %13, %sw.bb2 ], [ -1, %entry ], [ %conv8.i.i, %sw.bb4.i ], [ %conv16.i14.i, %sw.bb2.i ], [ %conv16.i.i, %sw.bb1.i ], [ %conv16.i, %sw.default.i ], [ %11, %sw.bb6.i ], [ %or.i, %sw.bb.i ], [ %or.i15, %sw.bb.i11 ], [ %conv8.i, %cond.true.i ], [ 0, %sw.default.i10 ]
+  %val.0 = phi i32 [ -1, %if.then ], [ 0, %sw.bb4 ], [ %11, %sw.bb2 ], [ -1, %entry ], [ %conv8.i.i, %sw.bb4.i ], [ %conv16.i14.i, %sw.bb2.i ], [ %conv16.i.i, %sw.bb1.i ], [ %conv16.i, %sw.default.i ], [ %9, %sw.bb6.i ], [ %or.i, %sw.bb.i ], [ %or.i15, %sw.bb.i11 ], [ %conv8.i, %cond.true.i ], [ 0, %sw.default.i10 ]
   tail call fastcc void @pcnet_update_irq(ptr noundef nonnull %opaque)
   ret i32 %val.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal zeroext i1 @is_version_2(ptr nocapture readnone %opaque, i32 noundef %version_id) #5 {
+define internal noundef zeroext i1 @is_version_2(ptr nocapture readnone %opaque, i32 noundef %version_id) #5 {
 entry:
   %cmp = icmp eq i32 %version_id, 2
   ret i1 %cmp
@@ -4059,6 +4057,9 @@ declare i32 @llvm.smin.i32(i32, i32) #8
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #9
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.fshl.i32(i32, i32, i32) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10

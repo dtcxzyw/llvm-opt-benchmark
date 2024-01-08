@@ -4829,7 +4829,7 @@ if.then3:                                         ; preds = %_ZNK22arrow_vendore
 
 _ZNK3org6apache5arrow7flatbuf3Int8bitWidthEv.exit33: ; preds = %_ZNK3org6apache5arrow7flatbuf3Int8bitWidthEv.exit21
   %5 = add nsw i32 %4, -8
-  %6 = tail call i32 @llvm.fshl.i32(i32 %4, i32 %5, i32 29)
+  %6 = tail call i32 @llvm.fshl.i32(i32 %5, i32 %5, i32 29)
   switch i32 %6, label %sw.default [
     i32 0, label %sw.bb
     i32 1, label %sw.bb10

@@ -45,7 +45,7 @@ init.end:                                         ; preds = %init, %init.check, 
   %sub = add i64 %add, %2
   %div = udiv i64 %sub, %2
   %3 = add i32 %PFlags, -16777216
-  %4 = tail call i32 @llvm.fshl.i32(i32 %PFlags, i32 %3, i32 8)
+  %4 = tail call i32 @llvm.fshl.i32(i32 %3, i32 %3, i32 8)
   %switch.maskindex = trunc i32 %4 to i8
   %switch.shifted = lshr i8 95, %switch.maskindex
   %5 = and i8 %switch.shifted, 1
@@ -198,7 +198,7 @@ if.then3:                                         ; preds = %if.end
 
 if.end5:                                          ; preds = %if.end
   %4 = add i32 %Flags, -16777216
-  %5 = tail call i32 @llvm.fshl.i32(i32 %Flags, i32 %4, i32 8)
+  %5 = tail call i32 @llvm.fshl.i32(i32 %4, i32 %4, i32 8)
   %switch.maskindex = trunc i32 %5 to i8
   %switch.shifted = lshr i8 95, %switch.maskindex
   %6 = and i8 %switch.shifted, 1

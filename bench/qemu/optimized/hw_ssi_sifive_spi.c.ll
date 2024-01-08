@@ -347,7 +347,7 @@ define internal void @sifive_spi_write(ptr noundef %opaque, i64 noundef %addr, i
 entry:
   %conv = trunc i64 %val64 to i32
   %0 = add i64 %addr, -8
-  %1 = tail call i64 @llvm.fshl.i64(i64 %addr, i64 %0, i64 62)
+  %1 = tail call i64 @llvm.fshl.i64(i64 %0, i64 %0, i64 62)
   switch i64 %1, label %sifive_spi_is_bad_reg.exit [
     i64 0, label %do.body
     i64 1, label %do.body

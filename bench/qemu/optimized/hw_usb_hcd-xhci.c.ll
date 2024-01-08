@@ -463,7 +463,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @usb_xhci_post_load(ptr noundef %opaque, i32 %version_id) #2 {
+define internal noundef i32 @usb_xhci_post_load(ptr noundef %opaque, i32 %version_id) #2 {
 entry:
   %slot_ctx = alloca [4 x i32], align 16
   %ep_ctx = alloca [5 x i32], align 16
@@ -1998,7 +1998,7 @@ if.end160:                                        ; preds = %if.end, %land.lhs.t
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @xhci_setup_packet(ptr noundef %xfer) unnamed_addr #2 {
+define internal fastcc noundef i32 @xhci_setup_packet(ptr noundef %xfer) unnamed_addr #2 {
 entry:
   %in_xfer = getelementptr inbounds %struct.XHCITransfer, ptr %xfer, i64 0, i32 9
   %0 = load i8, ptr %in_xfer, align 4
@@ -3713,7 +3713,7 @@ declare void @usb_packet_init(ptr noundef) local_unnamed_addr #3
 declare ptr @usb_ep_get(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal zeroext i1 @xhci_er_full(ptr nocapture readnone %opaque, i32 %version_id) #11 {
+define internal noundef zeroext i1 @xhci_er_full(ptr nocapture readnone %opaque, i32 %version_id) #11 {
 entry:
   ret i1 false
 }
@@ -3848,7 +3848,7 @@ if.then15.i:                                      ; preds = %if.then14.i
   %15 = load i32, ptr %numports_3.i, align 4
   %add17.i = add i32 %15, %14
   %idxprom.i = zext i32 %add17.i to i64
-  %16 = add i32 %14, 1
+  %16 = add nuw i32 %14, 1
   %add20.i = add i32 %16, %15
   %portnr.i = getelementptr %struct.XHCIState, ptr %call.i, i64 0, i32 27, i64 %idxprom.i, i32 2
   store i32 %add20.i, ptr %portnr.i, align 4
@@ -3856,7 +3856,7 @@ if.then15.i:                                      ; preds = %if.then14.i
 
 if.else.i:                                        ; preds = %if.then14.i
   %portnr25.i = getelementptr %struct.XHCIState, ptr %call.i, i64 0, i32 27, i64 %indvars.iv.i, i32 2
-  %17 = add i32 %14, 1
+  %17 = add nuw i32 %14, 1
   store i32 %17, ptr %portnr25.i, align 4
   br label %if.end26.i
 
@@ -3902,7 +3902,7 @@ if.then40.i:                                      ; preds = %if.end37.i
 
 if.then42.i:                                      ; preds = %if.then40.i
   %portnr47.i = getelementptr %struct.XHCIState, ptr %call.i, i64 0, i32 27, i64 %indvars.iv.i, i32 2
-  %24 = add i32 %23, 1
+  %24 = add nuw i32 %23, 1
   store i32 %24, ptr %portnr47.i, align 4
   br label %if.end58.i
 
@@ -3910,7 +3910,7 @@ if.else48.i:                                      ; preds = %if.then40.i
   %25 = load i32, ptr %numports_2.i, align 16
   %add51.i = add i32 %25, %23
   %idxprom52.i = zext i32 %add51.i to i64
-  %26 = add i32 %23, 1
+  %26 = add nuw i32 %23, 1
   %add56.i = add i32 %26, %25
   %portnr57.i = getelementptr %struct.XHCIState, ptr %call.i, i64 0, i32 27, i64 %idxprom52.i, i32 2
   store i32 %add56.i, ptr %portnr57.i, align 4
@@ -5107,7 +5107,7 @@ return:                                           ; preds = %if.end.i, %lor.lhs.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @xhci_ep_nuke_one_xfer(ptr noundef %t, i32 noundef %report) unnamed_addr #2 {
+define internal fastcc noundef i32 @xhci_ep_nuke_one_xfer(ptr noundef %t, i32 noundef %report) unnamed_addr #2 {
 entry:
   %tobool.not = icmp eq i32 %report, 0
   br i1 %tobool.not, label %if.end, label %land.lhs.true
@@ -6026,11 +6026,9 @@ if.else:                                          ; preds = %entry
   %sub = shl i64 %reg, 27
   %sext = add i64 %sub, -4294967296
   %idxprom = ashr i64 %sext, 32
-  %and4 = lshr i64 %reg, 2
-  %9 = and i64 %and4, 7
-  %10 = shl i64 %reg, 62
-  %11 = or disjoint i64 %9, %10
-  switch i64 %11, label %if.end [
+  %and4 = and i64 %reg, 31
+  %9 = tail call i64 @llvm.fshl.i64(i64 %and4, i64 %and4, i64 62)
+  switch i64 %9, label %if.end [
     i64 0, label %sw.bb5
     i64 1, label %sw.bb6
     i64 2, label %sw.bb7
@@ -6042,69 +6040,69 @@ if.else:                                          ; preds = %entry
 
 sw.bb5:                                           ; preds = %if.else
   %arrayidx = getelementptr %struct.XHCIState, ptr %ptr, i64 0, i32 32, i64 %idxprom
-  %12 = load i32, ptr %arrayidx, align 8
+  %10 = load i32, ptr %arrayidx, align 8
   br label %if.end
 
 sw.bb6:                                           ; preds = %if.else
   %imod = getelementptr %struct.XHCIState, ptr %ptr, i64 0, i32 32, i64 %idxprom, i32 1
-  %13 = load i32, ptr %imod, align 4
+  %11 = load i32, ptr %imod, align 4
   br label %if.end
 
 sw.bb7:                                           ; preds = %if.else
   %erstsz = getelementptr %struct.XHCIState, ptr %ptr, i64 0, i32 32, i64 %idxprom, i32 2
-  %14 = load i32, ptr %erstsz, align 8
+  %12 = load i32, ptr %erstsz, align 8
   br label %if.end
 
 sw.bb8:                                           ; preds = %if.else
   %erstba_low = getelementptr %struct.XHCIState, ptr %ptr, i64 0, i32 32, i64 %idxprom, i32 3
-  %15 = load i32, ptr %erstba_low, align 4
+  %13 = load i32, ptr %erstba_low, align 4
   br label %if.end
 
 sw.bb9:                                           ; preds = %if.else
   %erstba_high = getelementptr %struct.XHCIState, ptr %ptr, i64 0, i32 32, i64 %idxprom, i32 4
-  %16 = load i32, ptr %erstba_high, align 8
+  %14 = load i32, ptr %erstba_high, align 8
   br label %if.end
 
 sw.bb10:                                          ; preds = %if.else
   %erdp_low = getelementptr %struct.XHCIState, ptr %ptr, i64 0, i32 32, i64 %idxprom, i32 5
-  %17 = load i32, ptr %erdp_low, align 4
+  %15 = load i32, ptr %erdp_low, align 4
   br label %if.end
 
 sw.bb11:                                          ; preds = %if.else
   %erdp_high = getelementptr %struct.XHCIState, ptr %ptr, i64 0, i32 32, i64 %idxprom, i32 6
-  %18 = load i32, ptr %erdp_high, align 8
+  %16 = load i32, ptr %erdp_high, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %sw.bb5, %sw.bb6, %sw.bb7, %sw.bb8, %sw.bb9, %sw.bb10, %sw.bb11, %sw.bb, %trace_usb_xhci_unimplemented.exit
-  %ret.0 = phi i32 [ %conv, %sw.bb ], [ 0, %trace_usb_xhci_unimplemented.exit ], [ 0, %if.else ], [ %18, %sw.bb11 ], [ %17, %sw.bb10 ], [ %16, %sw.bb9 ], [ %15, %sw.bb8 ], [ %14, %sw.bb7 ], [ %13, %sw.bb6 ], [ %12, %sw.bb5 ]
+  %ret.0 = phi i32 [ %conv, %sw.bb ], [ 0, %trace_usb_xhci_unimplemented.exit ], [ 0, %if.else ], [ %16, %sw.bb11 ], [ %15, %sw.bb10 ], [ %14, %sw.bb9 ], [ %13, %sw.bb8 ], [ %12, %sw.bb7 ], [ %11, %sw.bb6 ], [ %10, %sw.bb5 ]
   %conv13 = trunc i64 %reg to i32
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i15)
-  %19 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i16 = icmp ne i32 %19, 0
-  %20 = load i16, ptr @_TRACE_USB_XHCI_RUNTIME_READ_DSTATE, align 2
-  %tobool4.i.i17 = icmp ne i16 %20, 0
+  %17 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i16 = icmp ne i32 %17, 0
+  %18 = load i16, ptr @_TRACE_USB_XHCI_RUNTIME_READ_DSTATE, align 2
+  %tobool4.i.i17 = icmp ne i16 %18, 0
   %or.cond.i.i18 = select i1 %tobool.i.i16, i1 %tobool4.i.i17, i1 false
   br i1 %or.cond.i.i18, label %land.lhs.true5.i.i19, label %trace_usb_xhci_runtime_read.exit
 
 land.lhs.true5.i.i19:                             ; preds = %if.end
-  %21 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i20 = and i32 %21, 32768
+  %19 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i20 = and i32 %19, 32768
   %cmp.i.not.i.i21 = icmp eq i32 %and.i.i.i20, 0
   br i1 %cmp.i.not.i.i21, label %trace_usb_xhci_runtime_read.exit, label %if.then.i.i22
 
 if.then.i.i22:                                    ; preds = %land.lhs.true5.i.i19
-  %22 = load i8, ptr @message_with_timestamp, align 1
-  %23 = and i8 %22, 1
-  %tobool7.not.i.i23 = icmp eq i8 %23, 0
+  %20 = load i8, ptr @message_with_timestamp, align 1
+  %21 = and i8 %20, 1
+  %tobool7.not.i.i23 = icmp eq i8 %21, 0
   br i1 %tobool7.not.i.i23, label %if.else.i.i28, label %if.then8.i.i24
 
 if.then8.i.i24:                                   ; preds = %if.then.i.i22
   %call9.i.i25 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i15, ptr noundef null) #15
   %call10.i.i26 = tail call i32 @qemu_get_thread_id() #15
-  %24 = load i64, ptr %_now.i.i15, align 8
+  %22 = load i64, ptr %_now.i.i15, align 8
   %tv_usec.i.i27 = getelementptr inbounds %struct.timeval, ptr %_now.i.i15, i64 0, i32 1
-  %25 = load i64, ptr %tv_usec.i.i27, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.207, i32 noundef %call10.i.i26, i64 noundef %24, i64 noundef %25, i32 noundef %conv13, i32 noundef %ret.0) #15
+  %23 = load i64, ptr %tv_usec.i.i27, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.207, i32 noundef %call10.i.i26, i64 noundef %22, i64 noundef %23, i32 noundef %conv13, i32 noundef %ret.0) #15
   br label %trace_usb_xhci_runtime_read.exit
 
 if.else.i.i28:                                    ; preds = %if.then.i.i22
@@ -6209,11 +6207,9 @@ if.end:                                           ; preds = %trace_usb_xhci_runt
   %sext = shl i64 %div44, 32
   %idxprom = ashr exact i64 %sext, 32
   %arrayidx = getelementptr %struct.XHCIState, ptr %ptr, i64 0, i32 32, i64 %idxprom
-  %and = lshr i64 %reg, 2
-  %14 = and i64 %and, 7
-  %15 = shl i64 %reg, 62
-  %16 = or disjoint i64 %14, %15
-  switch i64 %16, label %sw.default [
+  %and = and i64 %reg, 31
+  %14 = tail call i64 @llvm.fshl.i64(i64 %and, i64 %and, i64 62)
+  switch i64 %14, label %sw.default [
     i64 0, label %sw.bb
     i64 1, label %sw.bb16
     i64 2, label %sw.bb18
@@ -6230,54 +6226,54 @@ sw.bb:                                            ; preds = %if.end
   %and8 = and i32 %.pre, -4
   %spec.select = select i1 %tobool.not, i32 %.pre, i32 %and8
   %and11 = and i32 %spec.select, -3
-  %17 = and i32 %conv1, 2
-  %conv15 = or disjoint i32 %and11, %17
+  %15 = and i32 %conv1, 2
+  %conv15 = or disjoint i32 %and11, %15
   store i32 %conv15, ptr %arrayidx, align 8
   %cmp.i = icmp eq i32 %conv4, 0
   br i1 %cmp.i, label %if.then.i, label %if.end21.i
 
 if.then.i:                                        ; preds = %sw.bb
   %intr.i = getelementptr inbounds %struct.XHCIState, ptr %ptr, i64 0, i32 32
-  %18 = load i32, ptr %intr.i, align 8
-  %19 = and i32 %18, 3
-  %or.cond.not.i = icmp eq i32 %19, 3
+  %16 = load i32, ptr %intr.i, align 8
+  %17 = and i32 %16, 3
+  %or.cond.not.i = icmp eq i32 %17, 3
   br i1 %or.cond.not.i, label %land.lhs.true6.i, label %if.end.i
 
 land.lhs.true6.i:                                 ; preds = %if.then.i
   %usbcmd.i = getelementptr inbounds %struct.XHCIState, ptr %ptr, i64 0, i32 18
-  %20 = load i32, ptr %usbcmd.i, align 16
-  %and7.i = and i32 %20, 4
+  %18 = load i32, ptr %usbcmd.i, align 16
+  %and7.i = and i32 %18, 4
   %tobool8.not.i = icmp ne i32 %and7.i, 0
   br label %if.end.i
 
 if.end.i:                                         ; preds = %land.lhs.true6.i, %if.then.i
   %tobool13.i = phi i1 [ false, %if.then.i ], [ %tobool8.not.i, %land.lhs.true6.i ]
   %intr_raise.i = getelementptr inbounds %struct.XHCIState, ptr %ptr, i64 0, i32 16
-  %21 = load ptr, ptr %intr_raise.i, align 16
-  %tobool10.not.i = icmp eq ptr %21, null
+  %19 = load ptr, ptr %intr_raise.i, align 16
+  %tobool10.not.i = icmp eq ptr %19, null
   br i1 %tobool10.not.i, label %if.end21.i, label %if.then11.i
 
 if.then11.i:                                      ; preds = %if.end.i
-  %call.i = tail call zeroext i1 %21(ptr noundef nonnull %ptr, i32 noundef 0, i1 noundef zeroext %tobool13.i) #15
+  %call.i = tail call zeroext i1 %19(ptr noundef nonnull %ptr, i32 noundef 0, i1 noundef zeroext %tobool13.i) #15
   br i1 %call.i, label %if.then14.i, label %if.end21.i
 
 if.then14.i:                                      ; preds = %if.then11.i
-  %22 = load i32, ptr %intr.i, align 8
-  %and18.i = and i32 %22, -2
+  %20 = load i32, ptr %intr.i, align 8
+  %and18.i = and i32 %20, -2
   store i32 %and18.i, ptr %intr.i, align 8
   br label %if.end21.i
 
 if.end21.i:                                       ; preds = %if.then14.i, %if.then11.i, %if.end.i, %sw.bb
   %intr_update.i = getelementptr inbounds %struct.XHCIState, ptr %ptr, i64 0, i32 15
-  %23 = load ptr, ptr %intr_update.i, align 8
-  %tobool22.not.i = icmp eq ptr %23, null
+  %21 = load ptr, ptr %intr_update.i, align 8
+  %tobool22.not.i = icmp eq ptr %21, null
   br i1 %tobool22.not.i, label %sw.epilog, label %if.then23.i
 
 if.then23.i:                                      ; preds = %if.end21.i
-  %24 = load i32, ptr %arrayidx, align 8
-  %and28.i = and i32 %24, 2
+  %22 = load i32, ptr %arrayidx, align 8
+  %and28.i = and i32 %22, 2
   %tobool29.i = icmp ne i32 %and28.i, 0
-  tail call void %23(ptr noundef nonnull %ptr, i32 noundef %conv4, i1 noundef zeroext %tobool29.i) #15
+  tail call void %21(ptr noundef nonnull %ptr, i32 noundef %conv4, i1 noundef zeroext %tobool29.i) #15
   br label %sw.epilog
 
 sw.bb16:                                          ; preds = %if.end
@@ -6293,9 +6289,9 @@ sw.bb18:                                          ; preds = %if.end
 
 sw.bb21:                                          ; preds = %if.end
   %nec_quirks = getelementptr inbounds %struct.XHCIState, ptr %ptr, i64 0, i32 34
-  %25 = load i8, ptr %nec_quirks, align 8
-  %26 = and i8 %25, 1
-  %tobool22.not = icmp eq i8 %26, 0
+  %23 = load i8, ptr %nec_quirks, align 8
+  %24 = and i8 %23, 1
+  %tobool22.not = icmp eq i8 %24, 0
   %erstba_low28 = getelementptr %struct.XHCIState, ptr %ptr, i64 0, i32 32, i64 %idxprom, i32 3
   br i1 %tobool22.not, label %if.else, label %if.then23
 
@@ -6314,13 +6310,13 @@ sw.bb30:                                          ; preds = %if.end
   store i32 %conv1, ptr %erstba_high, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %seg.i)
   %erstba_low.i = getelementptr %struct.XHCIState, ptr %ptr, i64 0, i32 32, i64 %idxprom, i32 3
-  %27 = load i32, ptr %erstba_low.i, align 4
-  %conv.i.i = zext i32 %27 to i64
+  %25 = load i32, ptr %erstba_low.i, align 4
+  %conv.i.i = zext i32 %25 to i64
   %conv1.i.i = shl i64 %val, 32
   %or.i.i = or disjoint i64 %conv1.i.i, %conv.i.i
   %erstsz.i = getelementptr %struct.XHCIState, ptr %ptr, i64 0, i32 32, i64 %idxprom, i32 2
-  %28 = load i32, ptr %erstsz.i, align 8
-  %cmp.i61 = icmp eq i32 %28, 0
+  %26 = load i32, ptr %erstsz.i, align 8
+  %cmp.i61 = icmp eq i32 %26, 0
   %cmp2.i = icmp eq i64 %or.i.i, 0
   %or.cond.i = select i1 %cmp.i61, i1 true, i1 %cmp2.i
   br i1 %or.cond.i, label %if.then.i63, label %if.end.i62
@@ -6333,28 +6329,28 @@ if.then.i63:                                      ; preds = %sw.bb30
   br label %xhci_er_reset.exit
 
 if.end.i62:                                       ; preds = %sw.bb30
-  %cmp4.not.i = icmp eq i32 %28, 1
+  %cmp4.not.i = icmp eq i32 %26, 1
   br i1 %cmp4.not.i, label %if.end6.i, label %do.end.i
 
 do.end.i:                                         ; preds = %if.end.i62
   %usbsts.i.i = getelementptr inbounds %struct.XHCIState, ptr %ptr, i64 0, i32 19
-  %29 = load i32, ptr %usbsts.i.i, align 4
-  %or.i26.i = or i32 %29, 4096
+  %27 = load i32, ptr %usbsts.i.i, align 4
+  %or.i26.i = or i32 %27, 4096
   store i32 %or.i26.i, ptr %usbsts.i.i, align 4
   br label %xhci_er_reset.exit
 
 if.end6.i:                                        ; preds = %if.end.i62
   %as.i = getelementptr inbounds %struct.XHCIState, ptr %ptr, i64 0, i32 4
-  %30 = load ptr, ptr %as.i, align 8
+  %28 = load ptr, ptr %as.i, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !5
   fence seq_cst
-  %call.i.i.i.i = call i32 @address_space_rw(ptr noundef %30, i64 noundef %or.i.i, i32 1, ptr noundef nonnull %seg.i, i64 noundef 16, i1 noundef zeroext false) #15
+  %call.i.i.i.i = call i32 @address_space_rw(ptr noundef %28, i64 noundef %or.i.i, i32 1, ptr noundef nonnull %seg.i, i64 noundef 16, i1 noundef zeroext false) #15
   %cmp35.not.i = icmp eq i32 %call.i.i.i.i, 0
   br i1 %cmp35.not.i, label %if.end43.i, label %do.body37.i
 
 do.body37.i:                                      ; preds = %if.end6.i
-  %31 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i = and i32 %31, 2048
+  %29 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i = and i32 %29, 2048
   %cmp.i.not.i = icmp eq i32 %and.i.i, 0
   br i1 %cmp.i.not.i, label %do.end42.i, label %if.then40.i
 
@@ -6364,31 +6360,31 @@ if.then40.i:                                      ; preds = %do.body37.i
 
 do.end42.i:                                       ; preds = %if.then40.i, %do.body37.i
   %usbsts.i27.i = getelementptr inbounds %struct.XHCIState, ptr %ptr, i64 0, i32 19
-  %32 = load i32, ptr %usbsts.i27.i, align 4
-  %or.i28.i = or i32 %32, 4096
+  %30 = load i32, ptr %usbsts.i27.i, align 4
+  %or.i28.i = or i32 %30, 4096
   store i32 %or.i28.i, ptr %usbsts.i27.i, align 4
   br label %xhci_er_reset.exit
 
 if.end43.i:                                       ; preds = %if.end6.i
   %size.i = getelementptr inbounds %struct.XHCIEvRingSeg, ptr %seg.i, i64 0, i32 2
-  %33 = load i32, ptr %size.i, align 8
-  %34 = add i32 %33, -4097
-  %or.cond1.i = icmp ult i32 %34, -4081
+  %31 = load i32, ptr %size.i, align 8
+  %32 = add i32 %31, -4097
+  %or.cond1.i = icmp ult i32 %32, -4081
   br i1 %or.cond1.i, label %do.end53.i, label %if.end54.i
 
 do.end53.i:                                       ; preds = %if.end43.i
   %usbsts.i29.i = getelementptr inbounds %struct.XHCIState, ptr %ptr, i64 0, i32 19
-  %35 = load i32, ptr %usbsts.i29.i, align 4
-  %or.i30.i = or i32 %35, 4096
+  %33 = load i32, ptr %usbsts.i29.i, align 4
+  %or.i30.i = or i32 %33, 4096
   store i32 %or.i30.i, ptr %usbsts.i29.i, align 4
   br label %xhci_er_reset.exit
 
 if.end54.i:                                       ; preds = %if.end43.i
-  %36 = load i64, ptr %seg.i, align 8
+  %34 = load i64, ptr %seg.i, align 8
   %er_start58.i = getelementptr %struct.XHCIState, ptr %ptr, i64 0, i32 32, i64 %idxprom, i32 9
-  store i64 %36, ptr %er_start58.i, align 8
+  store i64 %34, ptr %er_start58.i, align 8
   %er_size60.i = getelementptr %struct.XHCIState, ptr %ptr, i64 0, i32 32, i64 %idxprom, i32 10
-  store i32 %33, ptr %er_size60.i, align 8
+  store i32 %31, ptr %er_size60.i, align 8
   %er_ep_idx.i = getelementptr %struct.XHCIState, ptr %ptr, i64 0, i32 32, i64 %idxprom, i32 11
   store i32 0, ptr %er_ep_idx.i, align 4
   %er_pcs.i = getelementptr %struct.XHCIState, ptr %ptr, i64 0, i32 32, i64 %idxprom, i32 8
@@ -6406,42 +6402,42 @@ sw.bb32:                                          ; preds = %if.end
   br i1 %tobool34.not, label %if.end37.thread, label %if.then47
 
 if.end37.thread:                                  ; preds = %sw.bb32
-  %37 = load i32, ptr %erdp_low3979, align 4
-  %and4080 = and i32 %37, 8
+  %35 = load i32, ptr %erdp_low3979, align 4
+  %and4080 = and i32 %35, 8
   %conv4381 = or disjoint i32 %and4080, %conv1
   store i32 %conv4381, ptr %erdp_low3979, align 4
   br label %sw.epilog
 
 if.then47:                                        ; preds = %sw.bb32
-  %38 = and i32 %conv1, -9
-  store i32 %38, ptr %erdp_low3979, align 4
+  %36 = and i32 %conv1, -9
+  store i32 %36, ptr %erdp_low3979, align 4
   %erdp_high = getelementptr %struct.XHCIState, ptr %ptr, i64 0, i32 32, i64 %idxprom, i32 6
-  %39 = load i32, ptr %erdp_high, align 8
+  %37 = load i32, ptr %erdp_high, align 8
   %conv.i = and i64 %val, 4294967287
-  %conv1.i = zext i32 %39 to i64
+  %conv1.i = zext i32 %37 to i64
   %shl.i = shl nuw i64 %conv1.i, 32
   %or.i = or disjoint i64 %shl.i, %conv.i
   %er_start = getelementptr %struct.XHCIState, ptr %ptr, i64 0, i32 32, i64 %idxprom, i32 9
-  %40 = load i64, ptr %er_start, align 8
-  %sub49 = sub i64 %or.i, %40
+  %38 = load i64, ptr %er_start, align 8
+  %sub49 = sub i64 %or.i, %38
   %div5045 = lshr i64 %sub49, 4
   %conv51 = trunc i64 %div5045 to i32
-  %cmp53.not = icmp ult i64 %or.i, %40
+  %cmp53.not = icmp ult i64 %or.i, %38
   br i1 %cmp53.not, label %sw.epilog, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.then47
   %er_size = getelementptr %struct.XHCIState, ptr %ptr, i64 0, i32 32, i64 %idxprom, i32 10
-  %41 = load i32, ptr %er_size, align 8
-  %mul = shl i32 %41, 4
+  %39 = load i32, ptr %er_size, align 8
+  %mul = shl i32 %39, 4
   %conv56 = zext i32 %mul to i64
-  %add = add i64 %40, %conv56
+  %add = add i64 %38, %conv56
   %cmp57 = icmp ult i64 %or.i, %add
   br i1 %cmp57, label %land.lhs.true59, label %sw.epilog
 
 land.lhs.true59:                                  ; preds = %land.lhs.true
   %er_ep_idx = getelementptr %struct.XHCIState, ptr %ptr, i64 0, i32 32, i64 %idxprom, i32 11
-  %42 = load i32, ptr %er_ep_idx, align 4
-  %cmp60.not = icmp eq i32 %42, %conv51
+  %40 = load i32, ptr %er_ep_idx, align 4
+  %cmp60.not = icmp eq i32 %40, %conv51
   br i1 %cmp60.not, label %sw.epilog, label %if.then62
 
 if.then62:                                        ; preds = %land.lhs.true59
@@ -6455,32 +6451,32 @@ sw.bb65:                                          ; preds = %if.end
 
 sw.default:                                       ; preds = %if.end
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i64)
-  %43 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i65 = icmp ne i32 %43, 0
-  %44 = load i16, ptr @_TRACE_USB_XHCI_UNIMPLEMENTED_DSTATE, align 2
-  %tobool4.i.i66 = icmp ne i16 %44, 0
+  %41 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i65 = icmp ne i32 %41, 0
+  %42 = load i16, ptr @_TRACE_USB_XHCI_UNIMPLEMENTED_DSTATE, align 2
+  %tobool4.i.i66 = icmp ne i16 %42, 0
   %or.cond.i.i67 = select i1 %tobool.i.i65, i1 %tobool4.i.i66, i1 false
   br i1 %or.cond.i.i67, label %land.lhs.true5.i.i68, label %trace_usb_xhci_unimplemented.exit78
 
 land.lhs.true5.i.i68:                             ; preds = %sw.default
-  %45 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i69 = and i32 %45, 32768
+  %43 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i69 = and i32 %43, 32768
   %cmp.i.not.i.i70 = icmp eq i32 %and.i.i.i69, 0
   br i1 %cmp.i.not.i.i70, label %trace_usb_xhci_unimplemented.exit78, label %if.then.i.i71
 
 if.then.i.i71:                                    ; preds = %land.lhs.true5.i.i68
-  %46 = load i8, ptr @message_with_timestamp, align 1
-  %47 = and i8 %46, 1
-  %tobool7.not.i.i72 = icmp eq i8 %47, 0
+  %44 = load i8, ptr @message_with_timestamp, align 1
+  %45 = and i8 %44, 1
+  %tobool7.not.i.i72 = icmp eq i8 %45, 0
   br i1 %tobool7.not.i.i72, label %if.else.i.i77, label %if.then8.i.i73
 
 if.then8.i.i73:                                   ; preds = %if.then.i.i71
   %call9.i.i74 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i64, ptr noundef null) #15
   %call10.i.i75 = tail call i32 @qemu_get_thread_id() #15
-  %48 = load i64, ptr %_now.i.i64, align 8
+  %46 = load i64, ptr %_now.i.i64, align 8
   %tv_usec.i.i76 = getelementptr inbounds %struct.timeval, ptr %_now.i.i64, i64 0, i32 1
-  %49 = load i64, ptr %tv_usec.i.i76, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.133, i32 noundef %call10.i.i75, i64 noundef %48, i64 noundef %49, ptr noundef nonnull @.str.199, i32 noundef %conv) #15
+  %47 = load i64, ptr %tv_usec.i.i76, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.133, i32 noundef %call10.i.i75, i64 noundef %46, i64 noundef %47, ptr noundef nonnull @.str.199, i32 noundef %conv) #15
   br label %trace_usb_xhci_unimplemented.exit78
 
 if.else.i.i77:                                    ; preds = %if.then.i.i71
@@ -6496,7 +6492,7 @@ sw.epilog:                                        ; preds = %if.end37.thread, %i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @xhci_doorbell_read(ptr nocapture readnone %ptr, i64 noundef %reg, i32 %size) #2 {
+define internal noundef i64 @xhci_doorbell_read(ptr nocapture readnone %ptr, i64 noundef %reg, i32 %size) #2 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %conv = trunc i64 %reg to i32
@@ -8675,13 +8671,13 @@ if.then107.i:                                     ; preds = %sw.bb104.i
   %sub.i474.i = add i32 %conv111.i, -1229146232
   %shr.i475.i = lshr i32 %conv.i, 8
   %sub1.i.i = sub nsw i32 0, %shr.i475.i
-  %or.i.i.i = call i32 @llvm.fshl.i32(i32 %sub.i474.i, i32 %sub.i474.i, i32 %sub1.i.i)
+  %or.i.i.i = call noundef i32 @llvm.fshl.i32(i32 %sub.i474.i, i32 %sub.i474.i, i32 %sub1.i.i)
   %add.i476.i = add i32 %conv111.i, 1229146232
-  %or.i7.i.i = call i32 @llvm.fshl.i32(i32 %add.i476.i, i32 %add.i476.i, i32 %conv.i)
+  %or.i7.i.i = call noundef i32 @llvm.fshl.i32(i32 %add.i476.i, i32 %add.i476.i, i32 %conv.i)
   %add4.i.i = add i32 %or.i.i.i, %or.i7.i.i
   %xor.i.i = xor i32 %conv.i, 1229146232
   %shr5.i.i = lshr i32 %conv111.i, 16
-  %or.i8.i.i = call i32 @llvm.fshl.i32(i32 %xor.i.i, i32 %xor.i.i, i32 %shr5.i.i)
+  %or.i8.i.i = call noundef i32 @llvm.fshl.i32(i32 %xor.i.i, i32 %xor.i.i, i32 %shr5.i.i)
   %284 = xor i32 %add4.i.i, -1
   %not.i.i = add i32 %or.i8.i.i, %284
   %and113.i = and i32 %not.i.i, 65535

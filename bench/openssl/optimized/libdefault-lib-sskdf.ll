@@ -230,7 +230,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @sskdf_derive(ptr noundef %vctx, ptr noundef %key, i64 noundef %keylen, ptr noundef %params) #0 {
+define internal noundef i32 @sskdf_derive(ptr noundef %vctx, ptr noundef %key, i64 noundef %keylen, ptr noundef %params) #0 {
 entry:
   %kmac_out_len.addr.i.i = alloca i64, align 8
   %params.i.i = alloca [2 x %struct.ossl_param_st], align 16
@@ -390,7 +390,7 @@ if.else.i.i:                                      ; preds = %if.end4.i.i
 
 switch.early.test.i.i:                            ; preds = %if.else.i.i
   %15 = add i64 %8, -20
-  %16 = call i64 @llvm.fshl.i64(i64 %8, i64 %15, i64 62)
+  %16 = call i64 @llvm.fshl.i64(i64 %15, i64 %15, i64 62)
   switch i64 %16, label %kmac_init.exit.thread.i [
     i64 11, label %if.end19.i.i
     i64 7, label %if.end19.i.i
@@ -571,13 +571,13 @@ return:                                           ; preds = %if.then33, %if.end1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal nonnull ptr @sskdf_settable_ctx_params(ptr nocapture readnone %ctx, ptr nocapture readnone %provctx) #1 {
+define internal noundef nonnull ptr @sskdf_settable_ctx_params(ptr nocapture readnone %ctx, ptr nocapture readnone %provctx) #1 {
 entry:
   ret ptr @sskdf_settable_ctx_params.known_settable_ctx_params
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @sskdf_set_ctx_params(ptr noundef %vctx, ptr noundef %params) #0 {
+define internal noundef i32 @sskdf_set_ctx_params(ptr noundef %vctx, ptr noundef %params) #0 {
 entry:
   %sz = alloca i64, align 8
   %0 = load ptr, ptr %vctx, align 8
@@ -674,7 +674,7 @@ return:                                           ; preds = %if.end39, %if.end48
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal nonnull ptr @sskdf_gettable_ctx_params(ptr nocapture readnone %ctx, ptr nocapture readnone %provctx) #1 {
+define internal noundef nonnull ptr @sskdf_gettable_ctx_params(ptr nocapture readnone %ctx, ptr nocapture readnone %provctx) #1 {
 entry:
   ret ptr @sskdf_gettable_ctx_params.known_gettable_ctx_params
 }
@@ -721,7 +721,7 @@ return:                                           ; preds = %entry, %sskdf_size.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @x963kdf_derive(ptr noundef %vctx, ptr noundef %key, i64 noundef %keylen, ptr noundef %params) #0 {
+define internal noundef i32 @x963kdf_derive(ptr noundef %vctx, ptr noundef %key, i64 noundef %keylen, ptr noundef %params) #0 {
 entry:
   %call = tail call i32 @ossl_prov_is_running() #7
   %tobool.not = icmp eq i32 %call, 0
@@ -820,7 +820,7 @@ declare i32 @EVP_MAC_is_a(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare i32 @EVP_MD_get_size(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @SSKDF_hash_kdm(ptr noundef %kdf_md, ptr noundef %z, i64 noundef %z_len, ptr noundef %info, i64 noundef %info_len, i32 noundef %append_ctr, ptr noundef %derived_key, i64 noundef %derived_key_len) unnamed_addr #0 {
+define internal fastcc noundef i32 @SSKDF_hash_kdm(ptr noundef %kdf_md, ptr noundef %z, i64 noundef %z_len, ptr noundef %info, i64 noundef %info_len, i32 noundef %append_ctr, ptr noundef %derived_key, i64 noundef %derived_key_len) unnamed_addr #0 {
 entry:
   %c = alloca [4 x i8], align 4
   %mac = alloca [64 x i8], align 16

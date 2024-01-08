@@ -2938,7 +2938,7 @@ trace_ufs_mmio_write.exit:                        ; preds = %if.end, %land.lhs.t
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i7)
   %conv3 = trunc i64 %data to i32
   %14 = add i64 %addr, -32
-  %15 = tail call i64 @llvm.fshl.i64(i64 %addr, i64 %14, i64 62)
+  %15 = tail call i64 @llvm.fshl.i64(i64 %14, i64 %14, i64 62)
   switch i64 %15, label %sw.default.i [
     i64 0, label %sw.bb.i
     i64 1, label %sw.bb1.i

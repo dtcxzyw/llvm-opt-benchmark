@@ -1843,7 +1843,7 @@ if.end202:                                        ; preds = %if.end196
   %bits_per_sample204 = getelementptr inbounds %struct.FLAC__StreamEncoderProtected, ptr %29, i64 0, i32 7
   %30 = load i32, ptr %bits_per_sample204, align 4
   %31 = add i32 %30, -8
-  %32 = tail call i32 @llvm.fshl.i32(i32 %30, i32 %31, i32 30)
+  %32 = tail call i32 @llvm.fshl.i32(i32 %31, i32 %31, i32 30)
   switch i32 %32, label %return [
     i32 0, label %if.end227
     i32 1, label %if.end227

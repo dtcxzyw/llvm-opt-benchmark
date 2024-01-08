@@ -5296,7 +5296,7 @@ if.end121.i:                                      ; preds = %if.end111.i, %if.th
   %precision.1.i = phi i64 [ %spec.store.select.i, %vaarg.end73.i ], [ -1, %if.else81.i ], [ -1, %if.end53.i ], [ %sub91.i, %if.then89.i ], [ %add116.i, %if.end111.i ]
   %f.addr.4.i = phi ptr [ %incdec.ptr80.i, %vaarg.end73.i ], [ %incdec.ptr58.i, %if.else81.i ], [ %f.addr.2.i, %if.end53.i ], [ %incdec.ptr93.i, %if.then89.i ], [ %incdec.ptr117.i, %if.end111.i ]
   %38 = add i8 %37, -106
-  %39 = call i8 @llvm.fshl.i8(i8 %37, i8 %38, i8 7)
+  %39 = call i8 @llvm.fshl.i8(i8 %38, i8 %38, i8 7)
   switch i8 %39, label %if.end155.i [
     i8 1, label %if.then125.i
     i8 8, label %if.end155thread-pre-split.i

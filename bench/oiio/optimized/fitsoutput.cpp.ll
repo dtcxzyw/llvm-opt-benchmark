@@ -1866,7 +1866,7 @@ invoke.cont:                                      ; preds = %if.then.i.i.i.i.i.i
   %m_bitpix = getelementptr inbounds %"class.OpenImageIO_v2_6_0::FitsOutput", ptr %this, i64 0, i32 3
   %10 = load i32, ptr %m_bitpix, align 8
   %11 = add i32 %10, 64
-  %12 = call i32 @llvm.fshl.i32(i32 %10, i32 %11, i32 28)
+  %12 = call i32 @llvm.fshl.i32(i32 %11, i32 %11, i32 28)
   %.pre = ptrtoint ptr %data_tmp.sroa.0.0 to i64
   %.pre75 = sub i64 %retval.0.i.i.i.i.i.i.i, %.pre
   switch i32 %12, label %if.end58 [
