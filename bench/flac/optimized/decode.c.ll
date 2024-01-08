@@ -1079,7 +1079,7 @@ declare i32 @FLAC__stream_decoder_set_ogg_serial_number(ptr noundef, i64 noundef
 declare i32 @FLAC__stream_decoder_init_ogg_file(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @write_callback(ptr nocapture readnone %decoder, ptr noundef %frame, ptr noundef %buffer, ptr noundef %client_data) #0 {
+define internal noundef i32 @write_callback(ptr nocapture readnone %decoder, ptr noundef %frame, ptr noundef %buffer, ptr noundef %client_data) #0 {
 entry:
   %dpos = alloca i64, align 8
   %fout1 = getelementptr inbounds %struct.DecoderSession, ptr %client_data, i64 0, i32 38
@@ -1541,7 +1541,7 @@ for.end334:                                       ; preds = %for.body327
 
 if.else337:                                       ; preds = %if.else310
   %70 = add i32 %add282, -8
-  %71 = call i32 @llvm.fshl.i32(i32 %add282, i32 %70, i32 29)
+  %71 = call i32 @llvm.fshl.i32(i32 %70, i32 %70, i32 29)
   switch i32 %71, label %if.else803 [
     i32 1, label %if.then341
     i32 2, label %if.then512
@@ -2626,7 +2626,7 @@ declare void @stats_print_info(i32 noundef, ptr noundef, ...) local_unnamed_addr
 declare i32 @flac__utils_canonicalize_skip_until_specification(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @canonicalize_until_specification(ptr noundef %spec, ptr noundef %inbasefilename, i32 noundef %sample_rate, i64 noundef %skip, i64 noundef %total_samples_in_input) unnamed_addr #0 {
+define internal fastcc noundef i32 @canonicalize_until_specification(ptr noundef %spec, ptr noundef %inbasefilename, i32 noundef %sample_rate, i64 noundef %skip, i64 noundef %total_samples_in_input) unnamed_addr #0 {
 entry:
   %call = tail call i32 @flac__utils_canonicalize_skip_until_specification(ptr noundef %spec, i32 noundef %sample_rate) #13
   %tobool.not = icmp eq i32 %call, 0
@@ -2760,7 +2760,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @write_iff_headers(ptr noundef %f, ptr nocapture noundef %decoder_session, i64 noundef %samples) unnamed_addr #0 {
+define internal fastcc noundef i32 @write_iff_headers(ptr noundef %f, ptr nocapture noundef %decoder_session, i64 noundef %samples) unnamed_addr #0 {
 entry:
   %val.addr.i37.i.i = alloca i32, align 4
   %val.addr.i30.i.i = alloca i32, align 4
@@ -3644,7 +3644,7 @@ declare noundef i64 @ftello64(ptr nocapture noundef) local_unnamed_addr #4
 declare noundef i32 @fseeko64(ptr nocapture noundef, i64 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind sspstrong uwtable
-define internal fastcc i32 @write_riff_wave_fmt_chunk_body(ptr nocapture noundef %f, i32 noundef %is_waveformatextensible, i32 noundef %bps, i32 noundef %channels, i32 noundef %sample_rate, i32 noundef %channel_mask) unnamed_addr #8 {
+define internal fastcc noundef i32 @write_riff_wave_fmt_chunk_body(ptr nocapture noundef %f, i32 noundef %is_waveformatextensible, i32 noundef %bps, i32 noundef %channels, i32 noundef %sample_rate, i32 noundef %channel_mask) unnamed_addr #8 {
 entry:
   %val.addr.i46 = alloca i32, align 4
   %val.addr.i42 = alloca i16, align 2
@@ -3755,7 +3755,7 @@ return:                                           ; preds = %if.end46, %if.end42
 }
 
 ; Function Attrs: nofree nounwind sspstrong uwtable
-define internal fastcc i32 @write_big_endian_uint32(ptr nocapture noundef %f, i32 noundef %val) unnamed_addr #8 {
+define internal fastcc noundef i32 @write_big_endian_uint32(ptr nocapture noundef %f, i32 noundef %val) unnamed_addr #8 {
 entry:
   %val.addr = alloca i32, align 4
   %arrayidx = getelementptr inbounds i8, ptr %val.addr, i64 3

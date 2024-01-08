@@ -3719,8 +3719,8 @@ if.then48:                                        ; preds = %if.end43
 if.then51:                                        ; preds = %if.then48
   %or.i.i217 = tail call i64 @llvm.fshl.i64(i64 %shr11.i214, i64 %or.i213, i64 63)
   %shr11.i.i218 = lshr i64 %bstream.sroa.23.2, 3
-  %conv1.i.i215600 = and i64 %or.i213, 1
-  %7 = icmp eq i64 %conv1.i.i215600, 0
+  %conv1.i.i215601 = and i64 %or.i213, 1
+  %7 = icmp eq i64 %conv1.i.i215601, 0
   br label %if.end54
 
 if.end54:                                         ; preds = %if.then48, %if.then51, %if.end43
@@ -4146,6 +4146,9 @@ for.end510.split.us.us:                           ; preds = %sw.epilog.us.us
 cond.end342.us.us.unreachabledefault:             ; preds = %cond.end342.us.us
   unreachable
 
+default.unreachable:                              ; preds = %if.end485
+  unreachable
+
 for.body276:                                      ; preds = %for.cond274.preheader, %for.body276
   %indvars.iv526 = phi i64 [ 0, %for.cond274.preheader ], [ %indvars.iv.next527, %for.body276 ]
   %bstream.sroa.0.11452 = phi i64 [ %bstream.sroa.0.10456, %for.cond274.preheader ], [ %or.i268, %for.body276 ]
@@ -4309,7 +4312,7 @@ if.end485:                                        ; preds = %if.then402, %if.els
   %b.0 = ashr i32 %b.0.in, 6
   %g.0 = ashr i32 %g.0.in, 6
   %r.0 = ashr i32 %r.0.in, 6
-  switch i32 %rotation.0, label %if.end485.unreachabledefault469 [
+  switch i32 %rotation.0, label %default.unreachable [
     i32 1, label %sw.bb
     i32 2, label %sw.bb486
     i32 3, label %sw.bb487
@@ -4324,9 +4327,6 @@ sw.bb486:                                         ; preds = %if.end485
 
 sw.bb487:                                         ; preds = %if.end485
   br label %sw.epilog
-
-if.end485.unreachabledefault469:                  ; preds = %if.end485
-  unreachable
 
 sw.epilog:                                        ; preds = %if.end485, %sw.bb487, %sw.bb486, %sw.bb
   %r.1 = phi i32 [ %r.0, %if.end485 ], [ %r.0, %sw.bb487 ], [ %r.0, %sw.bb486 ], [ %a.0, %sw.bb ]
@@ -5402,7 +5402,7 @@ land.lhs.true76:                                  ; preds = %if.end73
 
 if.then81:                                        ; preds = %land.lhs.true76
   %41 = add i32 %39, -8
-  %42 = call i32 @llvm.fshl.i32(i32 %39, i32 %41, i32 29)
+  %42 = call i32 @llvm.fshl.i32(i32 %41, i32 %41, i32 29)
   %switch = icmp ult i32 %42, 4
   br i1 %switch, label %if.end105, label %if.then101
 

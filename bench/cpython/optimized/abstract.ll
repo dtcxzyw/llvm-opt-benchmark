@@ -995,7 +995,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.94 = private unnamed_addr constant [67 x i8] c"issubclass() arg 2 must be a class, a tuple of classes, or a union\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @PyObject_Type(ptr noundef readonly %o) local_unnamed_addr #0 {
+define dso_local noundef ptr @PyObject_Type(ptr noundef readonly %o) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %o, null
   br i1 %cmp, label %if.then, label %if.end
@@ -2327,7 +2327,7 @@ land.end:                                         ; preds = %land.rhs, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @PyObject_CheckReadBuffer(ptr noundef %obj) local_unnamed_addr #0 {
+define dso_local noundef i32 @PyObject_CheckReadBuffer(ptr noundef %obj) local_unnamed_addr #0 {
 entry:
   %view = alloca %struct.Py_buffer, align 8
   %0 = getelementptr i8, ptr %obj, i64 8
@@ -2445,14 +2445,14 @@ return:                                           ; preds = %if.end.i, %if.then1
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @PyObject_AsCharBuffer(ptr noundef %obj, ptr noundef %buffer, ptr noundef %buffer_len) local_unnamed_addr #0 {
+define dso_local noundef i32 @PyObject_AsCharBuffer(ptr noundef %obj, ptr noundef %buffer, ptr noundef %buffer_len) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc i32 @as_read_buffer(ptr noundef %obj, ptr noundef %buffer, ptr noundef %buffer_len), !range !5
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @as_read_buffer(ptr noundef %obj, ptr noundef writeonly %buffer, ptr noundef writeonly %buffer_len) unnamed_addr #0 {
+define internal fastcc noundef i32 @as_read_buffer(ptr noundef %obj, ptr noundef writeonly %buffer, ptr noundef writeonly %buffer_len) unnamed_addr #0 {
 entry:
   %view = alloca %struct.Py_buffer, align 8
   %cmp = icmp eq ptr %obj, null
@@ -2558,14 +2558,14 @@ return:                                           ; preds = %if.then1.i.i, %if.e
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @PyObject_AsReadBuffer(ptr noundef %obj, ptr noundef %buffer, ptr noundef %buffer_len) local_unnamed_addr #0 {
+define dso_local noundef i32 @PyObject_AsReadBuffer(ptr noundef %obj, ptr noundef %buffer, ptr noundef %buffer_len) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc i32 @as_read_buffer(ptr noundef %obj, ptr noundef %buffer, ptr noundef %buffer_len), !range !5
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @PyObject_AsWriteBuffer(ptr noundef %obj, ptr noundef writeonly %buffer, ptr noundef writeonly %buffer_len) local_unnamed_addr #0 {
+define dso_local noundef i32 @PyObject_AsWriteBuffer(ptr noundef %obj, ptr noundef writeonly %buffer, ptr noundef writeonly %buffer_len) local_unnamed_addr #0 {
 entry:
   %view = alloca %struct.Py_buffer, align 8
   %cmp = icmp eq ptr %obj, null
@@ -3065,7 +3065,7 @@ declare ptr @_PyImport_GetModuleAttrString(ptr noundef, ptr noundef) local_unnam
 declare ptr @PyObject_CallFunctionObjArgs(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @PyBuffer_FromContiguous(ptr nocapture noundef readonly %view, ptr nocapture noundef readonly %buf, i64 noundef %len, i8 noundef signext %fort) local_unnamed_addr #0 {
+define dso_local noundef i32 @PyBuffer_FromContiguous(ptr nocapture noundef readonly %view, ptr nocapture noundef readonly %buf, i64 noundef %len, i8 noundef signext %fort) local_unnamed_addr #0 {
 entry:
   %len1 = getelementptr inbounds %struct.Py_buffer, ptr %view, i64 0, i32 2
   %0 = load i64, ptr %len1, align 8
@@ -3275,7 +3275,7 @@ for.end:                                          ; preds = %if.else, %entry, %i
 declare void @PyMem_Free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @PyObject_CopyData(ptr noundef %dest, ptr noundef %src) local_unnamed_addr #0 {
+define dso_local noundef i32 @PyObject_CopyData(ptr noundef %dest, ptr noundef %src) local_unnamed_addr #0 {
 entry:
   %view_dest = alloca %struct.Py_buffer, align 8
   %view_src = alloca %struct.Py_buffer, align 8
@@ -3814,7 +3814,7 @@ if.end:                                           ; preds = %for.body10, %for.bo
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @PyBuffer_FillInfo(ptr noundef %view, ptr noundef %obj, ptr noundef %buf, i64 noundef %len, i32 noundef %readonly, i32 noundef %flags) local_unnamed_addr #0 {
+define dso_local noundef i32 @PyBuffer_FillInfo(ptr noundef %view, ptr noundef %obj, ptr noundef %buf, i64 noundef %len, i32 noundef %readonly, i32 noundef %flags) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %view, null
   br i1 %cmp, label %if.then, label %if.end
@@ -3894,7 +3894,7 @@ entry:
 declare i32 @_Py_CallInInterpreter(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @_buffer_release_call(ptr noundef %arg) #0 {
+define internal noundef i32 @_buffer_release_call(ptr noundef %arg) #0 {
 entry:
   %obj1.i = getelementptr inbounds %struct.Py_buffer, ptr %arg, i64 0, i32 1
   %0 = load ptr, ptr %obj1.i, align 8
@@ -6747,7 +6747,7 @@ declare ptr @PyFloat_FromString(ptr noundef) local_unnamed_addr #2
 define dso_local ptr @PyNumber_ToBase(ptr noundef %n, i32 noundef %base) local_unnamed_addr #0 {
 entry:
   %0 = add i32 %base, -2
-  %1 = tail call i32 @llvm.fshl.i32(i32 %base, i32 %0, i32 31)
+  %1 = tail call i32 @llvm.fshl.i32(i32 %0, i32 %0, i32 31)
   switch i32 %1, label %if.then [
     i32 7, label %if.end
     i32 4, label %if.end
@@ -10197,7 +10197,7 @@ declare i32 @PyObject_IsTrue(ptr noundef) local_unnamed_addr #2
 declare i32 @_Py_CheckRecursiveCall(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @check_class(ptr noundef %cls, ptr noundef %error) unnamed_addr #0 {
+define internal fastcc noundef i32 @check_class(ptr noundef %cls, ptr noundef %error) unnamed_addr #0 {
 entry:
   %bases.i = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %bases.i)

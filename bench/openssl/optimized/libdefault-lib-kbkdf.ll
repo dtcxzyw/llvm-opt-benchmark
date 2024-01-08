@@ -279,7 +279,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @kbkdf_derive(ptr noundef %vctx, ptr noundef %key, i64 noundef %keylen, ptr noundef %params) #0 {
+define internal noundef i32 @kbkdf_derive(ptr noundef %vctx, ptr noundef %key, i64 noundef %keylen, ptr noundef %params) #0 {
 entry:
   %outlen.addr.i = alloca i64, align 8
   %params.i = alloca [2 x %struct.ossl_param_st], align 16
@@ -474,13 +474,13 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal nonnull ptr @kbkdf_settable_ctx_params(ptr nocapture readnone %ctx, ptr nocapture readnone %provctx) #1 {
+define internal noundef nonnull ptr @kbkdf_settable_ctx_params(ptr nocapture readnone %ctx, ptr nocapture readnone %provctx) #1 {
 entry:
   ret ptr @kbkdf_settable_ctx_params.known_settable_ctx_params
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @kbkdf_set_ctx_params(ptr noundef %vctx, ptr noundef %params) #0 {
+define internal noundef i32 @kbkdf_set_ctx_params(ptr noundef %vctx, ptr noundef %params) #0 {
 entry:
   %new_r = alloca i32, align 4
   %0 = load ptr, ptr %vctx, align 8
@@ -623,7 +623,7 @@ if.then75:                                        ; preds = %if.end72
 if.end79:                                         ; preds = %if.then75
   %9 = load i32, ptr %new_r, align 4
   %10 = add i32 %9, -8
-  %11 = call i32 @llvm.fshl.i32(i32 %9, i32 %10, i32 29)
+  %11 = call i32 @llvm.fshl.i32(i32 %10, i32 %10, i32 29)
   %switch = icmp ult i32 %11, 4
   br i1 %switch, label %if.end88, label %return
 
@@ -688,7 +688,7 @@ return:                                           ; preds = %if.end79, %land.lhs
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal nonnull ptr @kbkdf_gettable_ctx_params(ptr nocapture readnone %ctx, ptr nocapture readnone %provctx) #1 {
+define internal noundef nonnull ptr @kbkdf_gettable_ctx_params(ptr nocapture readnone %ctx, ptr nocapture readnone %provctx) #1 {
 entry:
   ret ptr @kbkdf_gettable_ctx_params.known_gettable_ctx_params
 }
@@ -735,7 +735,7 @@ declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_un
 declare i64 @EVP_MAC_CTX_get_mac_size(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @derive(ptr noundef %ctx_init, i32 noundef %mode, ptr nocapture noundef readonly %iv, i64 noundef %iv_len, ptr noundef %label, i64 noundef %label_len, ptr noundef %context, i64 noundef %context_len, ptr noundef %k_i, i64 noundef %h, i32 noundef %l, i32 noundef %has_separator, ptr nocapture noundef writeonly %ko, i64 noundef %ko_len, i32 noundef %r) unnamed_addr #0 {
+define internal fastcc noundef i32 @derive(ptr noundef %ctx_init, i32 noundef %mode, ptr nocapture noundef readonly %iv, i64 noundef %iv_len, ptr noundef %label, i64 noundef %label_len, ptr noundef %context, i64 noundef %context_len, ptr noundef %k_i, i64 noundef %h, i32 noundef %l, i32 noundef %has_separator, ptr nocapture noundef writeonly %ko, i64 noundef %ko_len, i32 noundef %r) unnamed_addr #0 {
 entry:
   %l.addr = alloca i32, align 4
   %zero = alloca i8, align 1
@@ -768,7 +768,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %if
   %counter.029 = phi i32 [ 1, %for.body.lr.ph ], [ %inc, %if.end38 ]
   %k_i_len.028 = phi i64 [ %iv_len, %for.body.lr.ph ], [ %h, %if.end38 ]
   %written.027 = phi i64 [ 0, %for.body.lr.ph ], [ %add, %if.end38 ]
-  %or8.i = call i32 @llvm.bswap.i32(i32 %counter.029)
+  %or8.i = call noundef i32 @llvm.bswap.i32(i32 %counter.029)
   store i32 %or8.i, ptr %i, align 4
   %call5 = call ptr @EVP_MAC_CTX_dup(ptr noundef %ctx_init) #7
   %cmp6 = icmp eq ptr %call5, null

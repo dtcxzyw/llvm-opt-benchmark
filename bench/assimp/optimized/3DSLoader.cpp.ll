@@ -5267,7 +5267,7 @@ _ZN6Assimp12StreamReaderILb0ELb0EE12SetReadLimitEj.exit: ; preds = %if.then.i, %
   %12 = load i16, ptr %chunk, align 2
   %conv11 = zext i16 %12 to i32
   %13 = add nsw i32 %conv11, -16656
-  %14 = call i32 @llvm.fshl.i32(i32 %conv11, i32 %13, i32 28)
+  %14 = call i32 @llvm.fshl.i32(i32 %13, i32 %13, i32 28)
   switch i32 %14, label %sw.epilog [
     i32 0, label %sw.bb
     i32 5, label %sw.bb26

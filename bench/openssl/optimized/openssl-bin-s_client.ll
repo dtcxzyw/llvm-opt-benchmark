@@ -1747,7 +1747,7 @@ sw.bb457:                                         ; preds = %if.end119
   %call458 = call ptr @opt_arg() #16
   %call459 = call i32 @atoi(ptr nocapture noundef %call458) #17
   %31 = add i32 %call459, -512
-  %32 = call i32 @llvm.fshl.i32(i32 %call459, i32 %31, i32 23)
+  %32 = call i32 @llvm.fshl.i32(i32 %31, i32 %31, i32 23)
   switch i32 %32, label %sw.default [
     i32 0, label %sw.epilog485
     i32 1, label %sw.bb461

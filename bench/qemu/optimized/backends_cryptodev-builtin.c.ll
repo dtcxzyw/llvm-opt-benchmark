@@ -248,7 +248,7 @@ for.end19:                                        ; preds = %for.inc17, %for.con
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @cryptodev_builtin_create_session(ptr noundef %backend, ptr nocapture noundef %sess_info, i32 %queue_index, ptr noundef readonly %cb, ptr noundef %opaque) #0 {
+define internal noundef i32 @cryptodev_builtin_create_session(ptr noundef %backend, ptr nocapture noundef %sess_info, i32 %queue_index, ptr noundef readonly %cb, ptr noundef %opaque) #0 {
 entry:
   %opts.i = alloca %struct.QCryptoAkCipherOptions, align 4
   %local_error = alloca ptr, align 8
@@ -366,7 +366,7 @@ sw.bb27.i:                                        ; preds = %if.end7.i
   %key_len28.i = getelementptr inbounds %struct.CryptoDevBackendSessionInfo, ptr %sess_info, i64 0, i32 1, i32 0, i32 1
   %7 = load i32, ptr %key_len28.i, align 4
   %8 = add i32 %7, -16
-  %9 = tail call i32 @llvm.fshl.i32(i32 %7, i32 %8, i32 29)
+  %9 = tail call i32 @llvm.fshl.i32(i32 %8, i32 %8, i32 29)
   %10 = icmp ult i32 %9, 7
   br i1 %10, label %switch.hole_check, label %cryptodev_builtin_get_aes_algo.exit52.i
 
@@ -579,7 +579,7 @@ return:                                           ; preds = %if.end8, %if.then10
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @cryptodev_builtin_close_session(ptr noundef %backend, i64 noundef %session_id, i32 %queue_index, ptr noundef readonly %cb, ptr noundef %opaque) #0 {
+define internal noundef i32 @cryptodev_builtin_close_session(ptr noundef %backend, i64 noundef %session_id, i32 %queue_index, ptr noundef readonly %cb, ptr noundef %opaque) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %backend, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 39, ptr noundef nonnull @__func__.CRYPTODEV_BACKEND_BUILTIN) #6
   %cmp = icmp ult i64 %session_id, 256
@@ -629,7 +629,7 @@ if.end16:                                         ; preds = %if.then15, %if.end1
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @cryptodev_builtin_operation(ptr noundef %backend, ptr nocapture noundef readonly %op_info) #0 {
+define internal noundef i32 @cryptodev_builtin_operation(ptr noundef %backend, ptr nocapture noundef readonly %op_info) #0 {
 entry:
   %local_error = alloca ptr, align 8
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %backend, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 39, ptr noundef nonnull @__func__.CRYPTODEV_BACKEND_BUILTIN) #6
