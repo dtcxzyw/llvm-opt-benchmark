@@ -574,7 +574,6 @@ target triple = "x86_64-unknown-linux-gnu"
 @__const.early_data_skip_helper.bad_early_data = private unnamed_addr constant [6 x i8] c"\17\03\03\00\01\00", align 1
 @.str.489 = private unnamed_addr constant [69 x i8] c"BIO_write_ex(wbio, bad_early_data, sizeof(bad_early_data), &written)\00", align 1
 @.str.490 = private unnamed_addr constant [14 x i8] c"SSL_ERROR_SSL\00", align 1
-@.str.491 = private unnamed_addr constant [18 x i8] c"Invalid test type\00", align 1
 @.str.492 = private unnamed_addr constant [17 x i8] c"ERR_peek_error()\00", align 1
 @.str.493 = private unnamed_addr constant [25 x i8] c"TLS_AES_128_CCM_8_SHA256\00", align 1
 @.str.494 = private unnamed_addr constant [23 x i8] c"TLS_AES_128_GCM_SHA256\00", align 1
@@ -19741,7 +19740,7 @@ lor.lhs.false89:                                  ; preds = %lor.lhs.false86
   br i1 %tobool92.not, label %end, label %if.end94
 
 if.end94:                                         ; preds = %lor.lhs.false89
-  switch i32 %testtype, label %sw.default [
+  switch i32 %testtype, label %default.unreachable [
     i32 0, label %sw.epilog
     i32 1, label %sw.bb95
     i32 2, label %sw.bb110
@@ -19802,9 +19801,8 @@ lor.lhs.false134:                                 ; preds = %sw.bb127
   %tobool137.not = icmp ne i32 %call136, 0
   br label %end
 
-sw.default:                                       ; preds = %if.end94
-  call void (ptr, i32, ptr, ...) @test_error(ptr noundef nonnull @.str.14, i32 noundef 3992, ptr noundef nonnull @.str.491) #23
-  br label %end
+default.unreachable:                              ; preds = %if.end94
+  unreachable
 
 sw.epilog:                                        ; preds = %lor.lhs.false101, %if.end94
   call void @ERR_clear_error() #23
@@ -19850,8 +19848,8 @@ if.end164:                                        ; preds = %lor.lhs.false159
   %tobool167.not = icmp ne i32 %call166, 0
   br label %end
 
-end:                                              ; preds = %if.end164, %lor.lhs.false134, %sw.epilog, %lor.lhs.false145, %lor.lhs.false148, %lor.lhs.false152, %lor.lhs.false159, %sw.bb127, %if.end118, %sw.bb110, %sw.bb95, %lor.lhs.false101, %if.end82, %lor.lhs.false86, %lor.lhs.false89, %if.end72, %lor.lhs.false78, %land.lhs.true65, %if.else52, %if.then41, %if.end25, %if.end11, %lor.lhs.false, %if.end, %sw.default
-  %testresult.0.shrunk = phi i1 [ false, %sw.default ], [ false, %sw.bb127 ], [ false, %if.end118 ], [ false, %sw.bb110 ], [ false, %lor.lhs.false159 ], [ false, %lor.lhs.false152 ], [ false, %lor.lhs.false148 ], [ false, %lor.lhs.false145 ], [ false, %sw.epilog ], [ false, %lor.lhs.false101 ], [ false, %sw.bb95 ], [ false, %lor.lhs.false89 ], [ false, %lor.lhs.false86 ], [ false, %if.end82 ], [ false, %lor.lhs.false78 ], [ false, %if.end72 ], [ false, %land.lhs.true65 ], [ false, %if.then41 ], [ false, %if.else52 ], [ false, %if.end25 ], [ false, %lor.lhs.false ], [ false, %if.end11 ], [ false, %if.end ], [ %tobool137.not, %lor.lhs.false134 ], [ %tobool167.not, %if.end164 ]
+end:                                              ; preds = %if.end164, %lor.lhs.false134, %sw.epilog, %lor.lhs.false145, %lor.lhs.false148, %lor.lhs.false152, %lor.lhs.false159, %sw.bb127, %if.end118, %sw.bb110, %sw.bb95, %lor.lhs.false101, %if.end82, %lor.lhs.false86, %lor.lhs.false89, %if.end72, %lor.lhs.false78, %land.lhs.true65, %if.else52, %if.then41, %if.end25, %if.end11, %lor.lhs.false, %if.end
+  %testresult.0.shrunk = phi i1 [ false, %sw.bb127 ], [ false, %if.end118 ], [ false, %sw.bb110 ], [ false, %lor.lhs.false159 ], [ false, %lor.lhs.false152 ], [ false, %lor.lhs.false148 ], [ false, %lor.lhs.false145 ], [ false, %sw.epilog ], [ false, %lor.lhs.false101 ], [ false, %sw.bb95 ], [ false, %lor.lhs.false89 ], [ false, %lor.lhs.false86 ], [ false, %if.end82 ], [ false, %lor.lhs.false78 ], [ false, %if.end72 ], [ false, %land.lhs.true65 ], [ false, %if.then41 ], [ false, %if.else52 ], [ false, %if.end25 ], [ false, %lor.lhs.false ], [ false, %if.end11 ], [ false, %if.end ], [ %tobool137.not, %lor.lhs.false134 ], [ %tobool167.not, %if.end164 ]
   %testresult.0 = zext i1 %testresult.0.shrunk to i32
   %28 = load ptr, ptr @clientpsk, align 8
   call void @SSL_SESSION_free(ptr noundef %28) #23

@@ -28812,7 +28812,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp1, label %if.then2, label %if.else
 
 if.then2:                                         ; preds = %if.then
-  switch i64 %exp, label %if.end84 [
+  switch i64 %exp, label %default.unreachable [
     i64 0, label %sw.bb
     i64 1, label %sw.bb3
     i64 2, label %sw.bb4
@@ -28853,7 +28853,7 @@ sw.bb12:                                          ; preds = %if.then2
   br label %if.end84.sink.split
 
 if.else:                                          ; preds = %if.then
-  switch i64 %exp, label %if.end84 [
+  switch i64 %exp, label %default.unreachable [
     i64 5, label %sw.bb16
     i64 6, label %sw.bb20
     i64 7, label %sw.bb24
@@ -28901,7 +28901,7 @@ if.else37:                                        ; preds = %entry
   br i1 %cmp38, label %if.then39, label %if.else61
 
 if.then39:                                        ; preds = %if.else37
-  switch i64 %exp, label %if.end84 [
+  switch i64 %exp, label %default.unreachable [
     i64 10, label %sw.bb40
     i64 11, label %sw.bb44
     i64 12, label %sw.bb48
@@ -28989,12 +28989,15 @@ sw.bb78:                                          ; preds = %if.else61
   %sub81 = add i64 %mul80.neg, %v
   br label %if.end84.sink.split
 
+default.unreachable:                              ; preds = %if.then39, %if.else, %if.then2
+  unreachable
+
 if.end84.sink.split:                              ; preds = %sw.bb16, %sw.bb20, %sw.bb24, %sw.bb28, %sw.bb32, %sw.bb, %sw.bb3, %sw.bb4, %sw.bb8, %sw.bb12, %sw.bb62, %sw.bb66, %sw.bb70, %sw.bb74, %sw.bb78, %sw.bb40, %sw.bb44, %sw.bb48, %sw.bb52, %sw.bb56
   %sub59.sink = phi i64 [ %sub59, %sw.bb56 ], [ %sub55, %sw.bb52 ], [ %sub51, %sw.bb48 ], [ %sub47, %sw.bb44 ], [ %sub43, %sw.bb40 ], [ %sub81, %sw.bb78 ], [ %sub77, %sw.bb74 ], [ %sub73, %sw.bb70 ], [ %sub69, %sw.bb66 ], [ %sub65, %sw.bb62 ], [ %sub15, %sw.bb12 ], [ %sub11, %sw.bb8 ], [ %sub7, %sw.bb4 ], [ %sub, %sw.bb3 ], [ 0, %sw.bb ], [ %sub35, %sw.bb32 ], [ %sub31, %sw.bb28 ], [ %sub27, %sw.bb24 ], [ %sub23, %sw.bb20 ], [ %sub19, %sw.bb16 ]
   store i64 %sub59.sink, ptr %r, align 8
   br label %if.end84
 
-if.end84:                                         ; preds = %if.end84.sink.split, %if.then39, %if.else61, %if.then2, %if.else
+if.end84:                                         ; preds = %if.end84.sink.split, %if.else61
   ret void
 }
 

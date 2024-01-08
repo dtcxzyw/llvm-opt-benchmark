@@ -705,87 +705,26 @@ entry:
   %d4.i = getelementptr inbounds %class.aiMatrix4x4t, ptr %agg.result, i64 0, i32 15
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %c4.i, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %d4.i, align 4
+  %d1.i = getelementptr inbounds %class.aiMatrix4x4t, ptr %agg.result, i64 0, i32 12
   %c1.i = getelementptr inbounds %class.aiMatrix4x4t, ptr %agg.result, i64 0, i32 8
   %b1.i = getelementptr inbounds %class.aiMatrix4x4t, ptr %agg.result, i64 0, i32 4
-  %d1.i = getelementptr inbounds %class.aiMatrix4x4t, ptr %agg.result, i64 0, i32 12
   br label %for.cond1.preheader
 
 for.cond1.preheader:                              ; preds = %entry, %for.inc5
-  %i.034 = phi i32 [ 0, %entry ], [ %inc6, %for.inc5 ]
-  switch i32 %i.034, label %for.body3 [
-    i32 3, label %for.body3.us
-    i32 1, label %for.body3.us7
-    i32 2, label %for.body3.us21
-  ]
+  %i.06 = phi i32 [ 0, %entry ], [ %inc6, %for.inc5 ]
+  br label %for.body3
 
-for.body3.us:                                     ; preds = %for.cond1.preheader, %_Z4ReadIfET_PN6Assimp8IOStreamE.exit.us
-  %indvars.iv46 = phi i64 [ %indvars.iv.next47, %_Z4ReadIfET_PN6Assimp8IOStreamE.exit.us ], [ 0, %for.cond1.preheader ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %t.i)
-  %vtable.i.us = load ptr, ptr %stream, align 8
-  %vfn.i.us = getelementptr inbounds ptr, ptr %vtable.i.us, i64 2
-  %0 = load ptr, ptr %vfn.i.us, align 8
-  %call.i.us = call noundef i64 %0(ptr noundef nonnull align 8 dereferenceable(8) %stream, ptr noundef nonnull %t.i, i64 noundef 4, i64 noundef 1)
-  %cmp.not.i.us = icmp eq i64 %call.i.us, 1
-  br i1 %cmp.not.i.us, label %_Z4ReadIfET_PN6Assimp8IOStreamE.exit.us, label %if.then.i
-
-_Z4ReadIfET_PN6Assimp8IOStreamE.exit.us:          ; preds = %for.body3.us
-  %1 = load float, ptr %t.i, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %t.i)
-  %arrayidx.us = getelementptr inbounds float, ptr %d1.i, i64 %indvars.iv46
-  store float %1, ptr %arrayidx.us, align 4
-  %indvars.iv.next47 = add nuw nsw i64 %indvars.iv46, 1
-  %exitcond49.not = icmp eq i64 %indvars.iv.next47, 4
-  br i1 %exitcond49.not, label %for.inc5, label %for.body3.us, !llvm.loop !4
-
-for.body3.us7:                                    ; preds = %for.cond1.preheader, %_Z4ReadIfET_PN6Assimp8IOStreamE.exit.us13
-  %indvars.iv42 = phi i64 [ %indvars.iv.next43, %_Z4ReadIfET_PN6Assimp8IOStreamE.exit.us13 ], [ 0, %for.cond1.preheader ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %t.i)
-  %vtable.i.us9 = load ptr, ptr %stream, align 8
-  %vfn.i.us10 = getelementptr inbounds ptr, ptr %vtable.i.us9, i64 2
-  %2 = load ptr, ptr %vfn.i.us10, align 8
-  %call.i.us11 = call noundef i64 %2(ptr noundef nonnull align 8 dereferenceable(8) %stream, ptr noundef nonnull %t.i, i64 noundef 4, i64 noundef 1)
-  %cmp.not.i.us12 = icmp eq i64 %call.i.us11, 1
-  br i1 %cmp.not.i.us12, label %_Z4ReadIfET_PN6Assimp8IOStreamE.exit.us13, label %if.then.i
-
-_Z4ReadIfET_PN6Assimp8IOStreamE.exit.us13:        ; preds = %for.body3.us7
-  %3 = load float, ptr %t.i, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %t.i)
-  %arrayidx.us17 = getelementptr inbounds float, ptr %b1.i, i64 %indvars.iv42
-  store float %3, ptr %arrayidx.us17, align 4
-  %indvars.iv.next43 = add nuw nsw i64 %indvars.iv42, 1
-  %exitcond45.not = icmp eq i64 %indvars.iv.next43, 4
-  br i1 %exitcond45.not, label %for.inc5, label %for.body3.us7, !llvm.loop !4
-
-for.body3.us21:                                   ; preds = %for.cond1.preheader, %_Z4ReadIfET_PN6Assimp8IOStreamE.exit.us27
-  %indvars.iv = phi i64 [ %indvars.iv.next, %_Z4ReadIfET_PN6Assimp8IOStreamE.exit.us27 ], [ 0, %for.cond1.preheader ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %t.i)
-  %vtable.i.us23 = load ptr, ptr %stream, align 8
-  %vfn.i.us24 = getelementptr inbounds ptr, ptr %vtable.i.us23, i64 2
-  %4 = load ptr, ptr %vfn.i.us24, align 8
-  %call.i.us25 = call noundef i64 %4(ptr noundef nonnull align 8 dereferenceable(8) %stream, ptr noundef nonnull %t.i, i64 noundef 4, i64 noundef 1)
-  %cmp.not.i.us26 = icmp eq i64 %call.i.us25, 1
-  br i1 %cmp.not.i.us26, label %_Z4ReadIfET_PN6Assimp8IOStreamE.exit.us27, label %if.then.i
-
-_Z4ReadIfET_PN6Assimp8IOStreamE.exit.us27:        ; preds = %for.body3.us21
-  %5 = load float, ptr %t.i, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %t.i)
-  %arrayidx.us31 = getelementptr inbounds float, ptr %c1.i, i64 %indvars.iv
-  store float %5, ptr %arrayidx.us31, align 4
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %for.inc5, label %for.body3.us21, !llvm.loop !4
-
-for.body3:                                        ; preds = %for.cond1.preheader, %_Z4ReadIfET_PN6Assimp8IOStreamE.exit
-  %indvars.iv50 = phi i64 [ %indvars.iv.next51, %_Z4ReadIfET_PN6Assimp8IOStreamE.exit ], [ 0, %for.cond1.preheader ]
+for.body3:                                        ; preds = %for.cond1.preheader, %_ZN12aiMatrix4x4tIfEixEj.exit
+  %indvars.iv = phi i64 [ 0, %for.cond1.preheader ], [ %indvars.iv.next, %_ZN12aiMatrix4x4tIfEixEj.exit ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %t.i)
   %vtable.i = load ptr, ptr %stream, align 8
   %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
-  %6 = load ptr, ptr %vfn.i, align 8
-  %call.i = call noundef i64 %6(ptr noundef nonnull align 8 dereferenceable(8) %stream, ptr noundef nonnull %t.i, i64 noundef 4, i64 noundef 1)
+  %0 = load ptr, ptr %vfn.i, align 8
+  %call.i = call noundef i64 %0(ptr noundef nonnull align 8 dereferenceable(8) %stream, ptr noundef nonnull %t.i, i64 noundef 4, i64 noundef 1)
   %cmp.not.i = icmp eq i64 %call.i, 1
   br i1 %cmp.not.i, label %_Z4ReadIfET_PN6Assimp8IOStreamE.exit, label %if.then.i
 
-if.then.i:                                        ; preds = %for.body3.us21, %for.body3.us7, %for.body3.us, %for.body3
+if.then.i:                                        ; preds = %for.body3
   %exception.i = call ptr @__cxa_allocate_exception(i64 16) #15
   invoke void @_ZN17DeadlyImportErrorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception.i, ptr noundef nonnull @.str.13)
           to label %invoke.cont.i unwind label %lpad.i
@@ -795,24 +734,45 @@ invoke.cont.i:                                    ; preds = %if.then.i
   unreachable
 
 lpad.i:                                           ; preds = %if.then.i
-  %7 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           cleanup
   call void @__cxa_free_exception(ptr %exception.i) #15
-  resume { ptr, i32 } %7
+  resume { ptr, i32 } %1
 
 _Z4ReadIfET_PN6Assimp8IOStreamE.exit:             ; preds = %for.body3
-  %8 = load float, ptr %t.i, align 4
+  %2 = load float, ptr %t.i, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %t.i)
-  %arrayidx = getelementptr inbounds float, ptr %agg.result, i64 %indvars.iv50
-  store float %8, ptr %arrayidx, align 4
-  %indvars.iv.next51 = add nuw nsw i64 %indvars.iv50, 1
-  %exitcond53.not = icmp eq i64 %indvars.iv.next51, 4
-  br i1 %exitcond53.not, label %for.inc5, label %for.body3, !llvm.loop !4
+  switch i32 %i.06, label %default.unreachable.i [
+    i32 0, label %_ZN12aiMatrix4x4tIfEixEj.exit
+    i32 1, label %sw.bb2.i
+    i32 2, label %sw.bb3.i
+    i32 3, label %sw.bb4.i
+  ]
 
-for.inc5:                                         ; preds = %_Z4ReadIfET_PN6Assimp8IOStreamE.exit.us27, %_Z4ReadIfET_PN6Assimp8IOStreamE.exit.us13, %_Z4ReadIfET_PN6Assimp8IOStreamE.exit.us, %_Z4ReadIfET_PN6Assimp8IOStreamE.exit
-  %inc6 = add nuw nsw i32 %i.034, 1
-  %exitcond54.not = icmp eq i32 %inc6, 4
-  br i1 %exitcond54.not, label %for.end7, label %for.cond1.preheader, !llvm.loop !6
+sw.bb2.i:                                         ; preds = %_Z4ReadIfET_PN6Assimp8IOStreamE.exit
+  br label %_ZN12aiMatrix4x4tIfEixEj.exit
+
+sw.bb3.i:                                         ; preds = %_Z4ReadIfET_PN6Assimp8IOStreamE.exit
+  br label %_ZN12aiMatrix4x4tIfEixEj.exit
+
+sw.bb4.i:                                         ; preds = %_Z4ReadIfET_PN6Assimp8IOStreamE.exit
+  br label %_ZN12aiMatrix4x4tIfEixEj.exit
+
+default.unreachable.i:                            ; preds = %_Z4ReadIfET_PN6Assimp8IOStreamE.exit
+  unreachable
+
+_ZN12aiMatrix4x4tIfEixEj.exit:                    ; preds = %_Z4ReadIfET_PN6Assimp8IOStreamE.exit, %sw.bb2.i, %sw.bb3.i, %sw.bb4.i
+  %retval.0.i = phi ptr [ %d1.i, %sw.bb4.i ], [ %c1.i, %sw.bb3.i ], [ %b1.i, %sw.bb2.i ], [ %agg.result, %_Z4ReadIfET_PN6Assimp8IOStreamE.exit ]
+  %arrayidx = getelementptr inbounds float, ptr %retval.0.i, i64 %indvars.iv
+  store float %2, ptr %arrayidx, align 4
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next, 4
+  br i1 %exitcond.not, label %for.inc5, label %for.body3, !llvm.loop !4
+
+for.inc5:                                         ; preds = %_ZN12aiMatrix4x4tIfEixEj.exit
+  %inc6 = add nuw nsw i32 %i.06, 1
+  %exitcond8.not = icmp eq i32 %inc6, 4
+  br i1 %exitcond8.not, label %for.end7, label %for.cond1.preheader, !llvm.loop !6
 
 for.end7:                                         ; preds = %for.inc5
   ret void
@@ -2309,7 +2269,7 @@ arrayctor.cont.thread:                            ; preds = %if.else
 new.ctorloop:                                     ; preds = %if.else
   %29 = add nsw i64 %27, -12
   %30 = urem i64 %29, 12
-  %31 = sub nsw i64 %29, %30
+  %31 = sub nuw nsw i64 %29, %30
   %32 = add nsw i64 %31, 12
   call void @llvm.memset.p0.i64(ptr nonnull align 4 %call14, i8 0, i64 %32, i1 false)
   %mVertices15 = getelementptr inbounds %struct.aiMesh, ptr %mesh, i64 0, i32 3
@@ -2364,7 +2324,7 @@ arrayctor.cont38.thread:                          ; preds = %if.else27
 new.ctorloop32:                                   ; preds = %if.else27
   %38 = add nsw i64 %36, -12
   %39 = urem i64 %38, 12
-  %40 = sub nsw i64 %38, %39
+  %40 = sub nuw nsw i64 %38, %39
   %41 = add nsw i64 %40, 12
   call void @llvm.memset.p0.i64(ptr nonnull align 4 %call30, i8 0, i64 %41, i1 false)
   %mNormals39 = getelementptr inbounds %struct.aiMesh, ptr %mesh, i64 0, i32 4
@@ -2427,7 +2387,7 @@ _Z9ReadArrayI10aiVector3tIfEEvPN6Assimp8IOStreamEPT_j.exit224.thread: ; preds = 
 new.ctorloop57:                                   ; preds = %if.else52
   %49 = add nsw i64 %45, -12
   %50 = urem i64 %49, 12
-  %51 = sub nsw i64 %49, %50
+  %51 = sub nuw nsw i64 %49, %50
   %52 = add nsw i64 %51, 12
   call void @llvm.memset.p0.i64(ptr nonnull align 4 %call55, i8 0, i64 %52, i1 false)
   %mTangents64 = getelementptr inbounds %struct.aiMesh, ptr %mesh, i64 0, i32 5
@@ -2464,7 +2424,7 @@ arrayctor.cont77.thread:                          ; preds = %_Z9ReadArrayI10aiVe
 new.ctorloop71:                                   ; preds = %_Z9ReadArrayI10aiVector3tIfEEvPN6Assimp8IOStreamEPT_j.exit224
   %54 = add nsw i64 %53, -12
   %55 = urem i64 %54, 12
-  %56 = sub nsw i64 %54, %55
+  %56 = sub nuw nsw i64 %54, %55
   %57 = add nsw i64 %56, 12
   call void @llvm.memset.p0.i64(ptr nonnull align 4 %call69, i8 0, i64 %57, i1 false)
   %mBitangents78 = getelementptr inbounds %struct.aiMesh, ptr %mesh, i64 0, i32 6
@@ -2613,7 +2573,7 @@ arrayctor.cont141.thread:                         ; preds = %if.else130
 new.ctorloop135:                                  ; preds = %if.else130
   %75 = add nsw i64 %73, -12
   %76 = urem i64 %75, 12
-  %77 = sub nsw i64 %75, %76
+  %77 = sub nuw nsw i64 %75, %76
   %78 = add nsw i64 %77, 12
   call void @llvm.memset.p0.i64(ptr nonnull align 4 %call133, i8 0, i64 %78, i1 false)
   %arrayidx144 = getelementptr inbounds %struct.aiMesh, ptr %mesh, i64 0, i32 8, i64 %indvars.iv340

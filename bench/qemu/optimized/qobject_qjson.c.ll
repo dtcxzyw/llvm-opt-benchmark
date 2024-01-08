@@ -230,7 +230,7 @@ if.else.i:                                        ; preds = %entry
   unreachable
 
 qobject_type.exit:                                ; preds = %entry
-  switch i32 %obj.val, label %sw.default34 [
+  switch i32 %obj.val, label %default.unreachable [
     i32 1, label %sw.bb
     i32 2, label %qobject_check_type.exit
     i32 3, label %qobject_check_type.exit43
@@ -323,8 +323,7 @@ qobject_check_type.exit73:                        ; preds = %qobject_type.exit
   tail call void @json_writer_bool(ptr noundef %writer, ptr noundef %name, i1 noundef zeroext %call33) #7
   br label %sw.epilog35
 
-sw.default34:                                     ; preds = %qobject_type.exit
-  tail call void @abort() #9
+default.unreachable:                              ; preds = %qobject_type.exit
   unreachable
 
 sw.epilog35:                                      ; preds = %sw.bb3, %sw.bb4, %sw.bb6, %qobject_check_type.exit73, %for.end29, %for.end, %qobject_check_type.exit43, %sw.bb

@@ -51,7 +51,6 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.17 = private unnamed_addr constant [3 x i8] c"wb\00", align 1
 @.str.18 = private unnamed_addr constant [3 x i8] c"rb\00", align 1
 @stderr = external local_unnamed_addr global ptr, align 8
-@.str.19 = private unnamed_addr constant [45 x i8] c"Replay: internal error: invalid replay mode\0A\00", align 1
 @.str.20 = private unnamed_addr constant [21 x i8] c"Replay: open %s: %s\0A\00", align 1
 @.str.21 = private unnamed_addr constant [40 x i8] c"Replay: invalid input log file version\0A\00", align 1
 
@@ -242,7 +241,7 @@ if.end6:                                          ; preds = %do.end, %if.then3, 
 declare void @replay_advance_current_icount(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @replay_exception() local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @replay_exception() local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr @replay_mode, align 4
   switch i32 %0, label %return [
@@ -375,7 +374,7 @@ if.end3:                                          ; preds = %sw.default.i, %if.t
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @replay_interrupt() local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @replay_interrupt() local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr @replay_mode, align 4
   switch i32 %0, label %return [
@@ -529,7 +528,7 @@ if.end2:                                          ; preds = %do.end, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @replay_checkpoint(i32 noundef %checkpoint) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @replay_checkpoint(i32 noundef %checkpoint) local_unnamed_addr #0 {
 entry:
   %add = add i32 %checkpoint, 30
   %cmp = icmp ult i32 %add, 39
@@ -778,38 +777,23 @@ if.else.i:                                        ; preds = %if.end18
   unreachable
 
 if.end.i:                                         ; preds = %if.end18
-  switch i32 %mode.0, label %sw.default.i [
-    i32 1, label %sw.epilog.i
-    i32 2, label %sw.bb1.i
-  ]
-
-sw.bb1.i:                                         ; preds = %if.end.i
-  br label %sw.epilog.i
-
-sw.default.i:                                     ; preds = %if.end.i
-  %1 = load ptr, ptr @stderr, align 8
-  %2 = call i64 @fwrite(ptr nonnull @.str.19, i64 44, i64 1, ptr %1) #13
-  call void @exit(i32 noundef 1) #10
-  unreachable
-
-sw.epilog.i:                                      ; preds = %sw.bb1.i, %if.end.i
-  %fmode.0.i = phi ptr [ @.str.18, %sw.bb1.i ], [ @.str.17, %if.end.i ]
+  %.str.17..str.18.i = select i1 %tobool5.not, ptr @.str.17, ptr @.str.18
   %call2.i = call i32 @atexit(ptr noundef nonnull @replay_finish) #11
-  %call3.i = call noalias ptr @fopen64(ptr noundef nonnull %call15, ptr noundef nonnull %fmode.0.i)
+  %call3.i = call noalias ptr @fopen64(ptr noundef nonnull %call15, ptr noundef nonnull %.str.17..str.18.i)
   store ptr %call3.i, ptr @replay_file, align 8
   %cmp.i = icmp eq ptr %call3.i, null
   br i1 %cmp.i, label %if.then4.i, label %if.end8.i
 
-if.then4.i:                                       ; preds = %sw.epilog.i
-  %3 = load ptr, ptr @stderr, align 8
-  %call5.i = tail call ptr @__errno_location() #14
-  %4 = load i32, ptr %call5.i, align 4
-  %call6.i = call ptr @strerror(i32 noundef %4) #11
-  %call7.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.20, ptr noundef nonnull %call15, ptr noundef %call6.i) #13
+if.then4.i:                                       ; preds = %if.end.i
+  %1 = load ptr, ptr @stderr, align 8
+  %call5.i = tail call ptr @__errno_location() #13
+  %2 = load i32, ptr %call5.i, align 4
+  %call6.i = call ptr @strerror(i32 noundef %2) #11
+  %call7.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.20, ptr noundef nonnull %call15, ptr noundef %call6.i) #14
   call void @exit(i32 noundef 1) #10
   unreachable
 
-if.end8.i:                                        ; preds = %sw.epilog.i
+if.end8.i:                                        ; preds = %if.end.i
   %call9.i = call noalias ptr @g_strdup(ptr noundef nonnull %call15) #11
   store ptr %call9.i, ptr @replay_filename, align 8
   store i32 %mode.0, ptr @replay_mode, align 4
@@ -818,15 +802,15 @@ if.end8.i:                                        ; preds = %sw.epilog.i
   store i32 0, ptr getelementptr inbounds (%struct.ReplayState, ptr @replay_state, i64 0, i32 2), align 8
   store i64 0, ptr getelementptr inbounds (%struct.ReplayState, ptr @replay_state, i64 0, i32 1), align 8
   store i32 0, ptr getelementptr inbounds (%struct.ReplayState, ptr @replay_state, i64 0, i32 4), align 8
-  %5 = load i32, ptr @replay_mode, align 4
-  switch i32 %5, label %replay_enable.exit [
+  %3 = load i32, ptr @replay_mode, align 4
+  switch i32 %3, label %replay_enable.exit [
     i32 1, label %if.then11.i
     i32 2, label %if.then15.i
   ]
 
 if.then11.i:                                      ; preds = %if.end8.i
-  %6 = load ptr, ptr @replay_file, align 8
-  %call12.i = call i32 @fseek(ptr noundef %6, i64 noundef 12, i32 noundef 0)
+  %4 = load ptr, ptr @replay_file, align 8
+  %call12.i = call i32 @fseek(ptr noundef %4, i64 noundef 12, i32 noundef 0)
   br label %replay_enable.exit
 
 if.then15.i:                                      ; preds = %if.end8.i
@@ -835,14 +819,14 @@ if.then15.i:                                      ; preds = %if.end8.i
   br i1 %cmp17.not.i, label %if.end20.i, label %if.then18.i
 
 if.then18.i:                                      ; preds = %if.then15.i
-  %7 = load ptr, ptr @stderr, align 8
-  %8 = call i64 @fwrite(ptr nonnull @.str.21, i64 39, i64 1, ptr %7) #13
+  %5 = load ptr, ptr @stderr, align 8
+  %6 = call i64 @fwrite(ptr nonnull @.str.21, i64 39, i64 1, ptr %5) #14
   call void @exit(i32 noundef 1) #10
   unreachable
 
 if.end20.i:                                       ; preds = %if.then15.i
-  %9 = load ptr, ptr @replay_file, align 8
-  %call21.i = call i32 @fseek(ptr noundef %9, i64 noundef 12, i32 noundef 0)
+  %7 = load ptr, ptr @replay_file, align 8
+  %call21.i = call i32 @fseek(ptr noundef %7, i64 noundef 12, i32 noundef 0)
   call void @replay_fetch_data_kind() #11
   br label %replay_enable.exit
 
@@ -1049,8 +1033,8 @@ attributes #9 = { nofree nounwind }
 attributes #10 = { noreturn nounwind }
 attributes #11 = { nounwind }
 attributes #12 = { nounwind willreturn memory(read) }
-attributes #13 = { cold }
-attributes #14 = { nounwind willreturn memory(none) }
+attributes #13 = { nounwind willreturn memory(none) }
+attributes #14 = { cold }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

@@ -3005,19 +3005,19 @@ cleanup.action.i:                                 ; preds = %ehcleanup.thread.i,
 
 if.then10.i:                                      ; preds = %invoke.cont15
   store i8 2, ptr %call13, align 8
-  %call5.i.i1.i3.i.i16 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #19
-          to label %call5.i.i1.i3.i.i.noexc unwind label %lpad16
+  %call5.i.i1.i2.i.i16 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #19
+          to label %call5.i.i1.i2.i.i.noexc unwind label %lpad16
 
-call5.i.i1.i3.i.i.noexc:                          ; preds = %if.then10.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %call5.i.i1.i3.i.i16, i8 0, i64 24, i1 false)
+call5.i.i1.i2.i.i.noexc:                          ; preds = %if.then10.i
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %call5.i.i1.i2.i.i16, i8 0, i64 24, i1 false)
   %m_value.i15 = getelementptr inbounds %"struct.nlohmann::json_abi_v3_11_3::basic_json<std::map, std::vector, std::__cxx11::basic_string<char>, bool, long, unsigned long, double, (anonymous namespace)::allocator_no_forward>::data", ptr %call13, i64 0, i32 1
-  %13 = ptrtoint ptr %call5.i.i1.i3.i.i16 to i64
+  %13 = ptrtoint ptr %call5.i.i1.i2.i.i16 to i64
   store i64 %13, ptr %m_value.i15, align 8
   br label %if.end13.i
 
-if.end13.i:                                       ; preds = %call5.i.i1.i3.i.i.noexc, %entry.if.end13_crit_edge.i
-  %.val.i = phi ptr [ %.val.pre.i, %entry.if.end13_crit_edge.i ], [ null, %call5.i.i1.i3.i.i.noexc ]
-  %14 = phi ptr [ %.pre.i, %entry.if.end13_crit_edge.i ], [ %call5.i.i1.i3.i.i16, %call5.i.i1.i3.i.i.noexc ]
+if.end13.i:                                       ; preds = %call5.i.i1.i2.i.i.noexc, %entry.if.end13_crit_edge.i
+  %.val.i = phi ptr [ %.val.pre.i, %entry.if.end13_crit_edge.i ], [ null, %call5.i.i1.i2.i.i.noexc ]
+  %14 = phi ptr [ %.pre.i, %entry.if.end13_crit_edge.i ], [ %call5.i.i1.i2.i.i16, %call5.i.i1.i2.i.i.noexc ]
   %15 = getelementptr i8, ptr %14, i64 16
   %.val5.i = load ptr, ptr %15, align 8
   %_M_finish.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<nlohmann::json_abi_v3_11_3::basic_json<std::map, std::vector, std::__cxx11::basic_string<char>, bool, long, unsigned long, double, (anonymous namespace)::allocator_no_forward>, (anonymous namespace)::allocator_no_forward<nlohmann::json_abi_v3_11_3::basic_json<std::map, std::vector, std::__cxx11::basic_string<char>, bool, long, unsigned long, double, (anonymous namespace)::allocator_no_forward>>>::_Vector_impl_data", ptr %14, i64 0, i32 1
@@ -3642,7 +3642,7 @@ declare noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef
 define internal fastcc void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdN12_GLOBAL__N_112my_allocatorENS0_14adl_serializerES3_IhSaIhEEvE10json_valueC2ENS0_6detail7value_tE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %this, i8 noundef zeroext %t) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i.i.i = alloca %"class.std::allocator", align 1
-  switch i8 %t, label %sw.epilog [
+  switch i8 %t, label %default.unreachable [
     i8 1, label %sw.bb
     i8 2, label %sw.bb2
     i8 3, label %sw.bb4
@@ -3751,9 +3751,12 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i.i.i)
   br label %sw.epilog
 
-sw.epilog:                                        ; preds = %entry, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdN12_GLOBAL__N_112my_allocatorENS0_14adl_serializerES3_IhSaIhEEvE6createIS9_JRA1_KcEEEPT_DpOT0_.exit, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdN12_GLOBAL__N_112my_allocatorENS0_14adl_serializerES3_IhSaIhEEvE6createIS3_ISF_NSB_ISF_EEEJEEEPT_DpOT0_.exit, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdN12_GLOBAL__N_112my_allocatorENS0_14adl_serializerES3_IhSaIhEEvE6createIS2_IS9_SF_St4lessIS9_ENSB_ISt4pairIKS9_SF_EEEEJEEEPT_DpOT0_.exit
-  %.sink = phi ptr [ %call5.i.i2.i7, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdN12_GLOBAL__N_112my_allocatorENS0_14adl_serializerES3_IhSaIhEEvE6createIS9_JRA1_KcEEEPT_DpOT0_.exit ], [ %call5.i.i2.i2, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdN12_GLOBAL__N_112my_allocatorENS0_14adl_serializerES3_IhSaIhEEvE6createIS3_ISF_NSB_ISF_EEEJEEEPT_DpOT0_.exit ], [ %call5.i.i2.i, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdN12_GLOBAL__N_112my_allocatorENS0_14adl_serializerES3_IhSaIhEEvE6createIS2_IS9_SF_St4lessIS9_ENSB_ISt4pairIKS9_SF_EEEEJEEEPT_DpOT0_.exit ], [ null, %entry ]
-  store ptr %.sink, ptr %this, align 8
+default.unreachable:                              ; preds = %entry
+  unreachable
+
+sw.epilog:                                        ; preds = %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdN12_GLOBAL__N_112my_allocatorENS0_14adl_serializerES3_IhSaIhEEvE6createIS9_JRA1_KcEEEPT_DpOT0_.exit, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdN12_GLOBAL__N_112my_allocatorENS0_14adl_serializerES3_IhSaIhEEvE6createIS3_ISF_NSB_ISF_EEEJEEEPT_DpOT0_.exit, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdN12_GLOBAL__N_112my_allocatorENS0_14adl_serializerES3_IhSaIhEEvE6createIS2_IS9_SF_St4lessIS9_ENSB_ISt4pairIKS9_SF_EEEEJEEEPT_DpOT0_.exit
+  %call5.i.i2.i7.sink = phi ptr [ %call5.i.i2.i7, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdN12_GLOBAL__N_112my_allocatorENS0_14adl_serializerES3_IhSaIhEEvE6createIS9_JRA1_KcEEEPT_DpOT0_.exit ], [ %call5.i.i2.i2, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdN12_GLOBAL__N_112my_allocatorENS0_14adl_serializerES3_IhSaIhEEvE6createIS3_ISF_NSB_ISF_EEEJEEEPT_DpOT0_.exit ], [ %call5.i.i2.i, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdN12_GLOBAL__N_112my_allocatorENS0_14adl_serializerES3_IhSaIhEEvE6createIS2_IS9_SF_St4lessIS9_ENSB_ISt4pairIKS9_SF_EEEEJEEEPT_DpOT0_.exit ]
+  store ptr %call5.i.i2.i7.sink, ptr %this, align 8
   ret void
 }
 

@@ -1057,11 +1057,11 @@ if.then35:                                        ; preds = %while.body31
   %inc36 = add nsw i32 %ofs.0, 1
   br label %while.body31.backedge
 
-while.body31.backedge:                            ; preds = %if.then35, %if.else193, %while.end371, %sw.bb376, %sw.bb383, %sw.bb386, %sw.bb389, %if.else298, %if.then294, %if.end52, %sw.bb124, %sw.bb121, %do.end119, %ob, %sw.bb66, %vaarg.end, %if.end158, %if.then186, %sw.bb183
-  %mrm.0.be = phi i32 [ %mrm.2, %sw.bb183 ], [ %mrm.2, %if.then186 ], [ %mrm.2, %if.end158 ], [ %mrm.0, %if.then35 ], [ %mrm.0, %if.else193 ], [ %conv391, %sw.bb389 ], [ %mrm.0, %sw.bb386 ], [ %mrm.0, %sw.bb383 ], [ %mrm.0, %sw.bb376 ], [ %mrm.0, %while.end371 ], [ %mrm.0, %if.then294 ], [ %mrm.0, %if.else298 ], [ -1, %if.end52 ], [ -1, %sw.bb124 ], [ -1, %sw.bb121 ], [ -1, %do.end119 ], [ -1, %ob ], [ -1, %sw.bb66 ], [ -1, %vaarg.end ]
-  %ofs.0.be = phi i32 [ %ofs.1, %sw.bb183 ], [ %dec, %if.then186 ], [ %ofs.1, %if.end158 ], [ %inc36, %if.then35 ], [ %ofs.0, %if.else193 ], [ %ofs.0, %sw.bb389 ], [ %inc388, %sw.bb386 ], [ %add385, %sw.bb383 ], [ %add379, %sw.bb376 ], [ %ofs.0, %while.end371 ], [ %add288, %if.then294 ], [ %add299, %if.else298 ], [ %ofs.0, %if.end52 ], [ %ofs.0, %sw.bb124 ], [ %add123, %sw.bb121 ], [ %add120, %do.end119 ], [ %inc96, %ob ], [ %add67, %sw.bb66 ], [ %ofs.0, %vaarg.end ]
-  %pos.0.be = phi i32 [ %inc41, %sw.bb183 ], [ %inc41, %if.then186 ], [ %inc41, %if.end158 ], [ %pos.0, %if.then35 ], [ %pos.0, %if.else193 ], [ %pos.0, %sw.bb389 ], [ %pos.0, %sw.bb386 ], [ %pos.0, %sw.bb383 ], [ %inc380, %sw.bb376 ], [ %inc373, %while.end371 ], [ %inc295, %if.then294 ], [ %inc287, %if.else298 ], [ %inc41, %if.end52 ], [ %inc41, %sw.bb124 ], [ %inc41, %sw.bb121 ], [ %inc41, %do.end119 ], [ %inc41, %ob ], [ %inc41, %sw.bb66 ], [ %inc41, %vaarg.end ]
-  %p.0.be = phi ptr [ %incdec.ptr169, %sw.bb183 ], [ %incdec.ptr169, %if.then186 ], [ %incdec.ptr169, %if.end158 ], [ %incdec.ptr, %if.then35 ], [ %incdec.ptr, %if.else193 ], [ %incdec.ptr, %sw.bb389 ], [ %incdec.ptr387, %sw.bb386 ], [ %add.ptr384, %sw.bb383 ], [ %incdec.ptr377, %sw.bb376 ], [ %p.5, %while.end371 ], [ %p.4, %if.then294 ], [ %p.4, %if.else298 ], [ %incdec.ptr, %if.end52 ], [ %incdec.ptr, %sw.bb124 ], [ %incdec.ptr122, %sw.bb121 ], [ %incdec.ptr, %do.end119 ], [ %incdec.ptr, %ob ], [ %incdec.ptr, %sw.bb66 ], [ %incdec.ptr, %vaarg.end ]
+while.body31.backedge:                            ; preds = %if.then35, %while.end371, %sw.bb376, %sw.bb383, %sw.bb386, %sw.bb389, %if.else298, %if.then294, %if.end52, %sw.bb124, %sw.bb121, %do.end119, %ob, %sw.bb66, %if.end158, %if.then186, %sw.bb183
+  %mrm.0.be = phi i32 [ %mrm.2, %sw.bb183 ], [ %mrm.2, %if.then186 ], [ %mrm.2, %if.end158 ], [ %mrm.0, %if.then35 ], [ %conv391, %sw.bb389 ], [ %mrm.0, %sw.bb386 ], [ %mrm.0, %sw.bb383 ], [ %mrm.0, %sw.bb376 ], [ %mrm.0, %while.end371 ], [ %mrm.0, %if.then294 ], [ %mrm.0, %if.else298 ], [ -1, %if.end52 ], [ -1, %sw.bb124 ], [ -1, %sw.bb121 ], [ -1, %do.end119 ], [ -1, %ob ], [ -1, %sw.bb66 ]
+  %ofs.0.be = phi i32 [ %ofs.1, %sw.bb183 ], [ %dec, %if.then186 ], [ %ofs.1, %if.end158 ], [ %inc36, %if.then35 ], [ %ofs.0, %sw.bb389 ], [ %inc388, %sw.bb386 ], [ %add385, %sw.bb383 ], [ %add379, %sw.bb376 ], [ %ofs.0, %while.end371 ], [ %add288, %if.then294 ], [ %add299, %if.else298 ], [ %ofs.0, %if.end52 ], [ %ofs.0, %sw.bb124 ], [ %add123, %sw.bb121 ], [ %add120, %do.end119 ], [ %inc96, %ob ], [ %add67, %sw.bb66 ]
+  %pos.0.be = phi i32 [ %inc41, %sw.bb183 ], [ %inc41, %if.then186 ], [ %inc41, %if.end158 ], [ %pos.0, %if.then35 ], [ %pos.0, %sw.bb389 ], [ %pos.0, %sw.bb386 ], [ %pos.0, %sw.bb383 ], [ %inc380, %sw.bb376 ], [ %inc373, %while.end371 ], [ %inc295, %if.then294 ], [ %inc287, %if.else298 ], [ %inc41, %if.end52 ], [ %inc41, %sw.bb124 ], [ %inc41, %sw.bb121 ], [ %inc41, %do.end119 ], [ %inc41, %ob ], [ %inc41, %sw.bb66 ]
+  %p.0.be = phi ptr [ %incdec.ptr169, %sw.bb183 ], [ %incdec.ptr169, %if.then186 ], [ %incdec.ptr169, %if.end158 ], [ %incdec.ptr, %if.then35 ], [ %incdec.ptr, %sw.bb389 ], [ %incdec.ptr387, %sw.bb386 ], [ %add.ptr384, %sw.bb383 ], [ %incdec.ptr377, %sw.bb376 ], [ %p.5, %while.end371 ], [ %p.4, %if.then294 ], [ %p.4, %if.else298 ], [ %incdec.ptr, %if.end52 ], [ %incdec.ptr, %sw.bb124 ], [ %incdec.ptr122, %sw.bb121 ], [ %incdec.ptr, %do.end119 ], [ %incdec.ptr, %ob ], [ %incdec.ptr, %sw.bb66 ]
   br label %while.body31
 
 if.else:                                          ; preds = %while.body31
@@ -1094,7 +1094,7 @@ vaarg.end:                                        ; preds = %vaarg.in_mem, %vaar
   %idxprom42 = sext i32 %pos.0 to i64
   %arrayidx43 = getelementptr inbounds i32, ptr %12, i64 %idxprom42
   store i32 %18, ptr %arrayidx43, align 4
-  switch i8 %14, label %while.body31.backedge [
+  switch i8 %14, label %default.unreachable [
     i8 -23, label %sw.bb
     i8 -17, label %sw.bb59
     i8 -13, label %sw.bb66
@@ -1218,8 +1218,8 @@ land.lhs.true:                                    ; preds = %do.body129
   %26 = load i8, ptr %incdec.ptr, align 1
   %.mask = and i8 %26, -32
   %cmp136.not = icmp eq i8 %.mask, 64
-  %or.cond288 = select i1 %cmp133.not, i1 %cmp136.not, i1 false
-  br i1 %or.cond288, label %if.then138, label %do.end148
+  %or.cond292 = select i1 %cmp133.not, i1 %cmp136.not, i1 false
+  br i1 %or.cond292, label %if.then138, label %do.end148
 
 if.then138:                                       ; preds = %land.lhs.true, %do.body129
   %27 = load ptr, ptr %actionlist, align 8
@@ -1255,7 +1255,7 @@ if.end158:                                        ; preds = %land.lhs.true152, %
   %incdec.ptr169 = getelementptr inbounds i8, ptr %p.0, i64 2
   %30 = lshr i8 %26, 3
   %31 = and i8 %30, 3
-  switch i8 %31, label %if.end168.unreachabledefault [
+  switch i8 %31, label %default.unreachable252 [
     i8 3, label %sw.bb173
     i8 2, label %sw.bb178
     i8 1, label %sw.bb183
@@ -1286,11 +1286,14 @@ if.then186:                                       ; preds = %sw.bb183
   %dec = add nsw i32 %ofs.1, -1
   br label %while.body31.backedge
 
-if.end168.unreachabledefault:                     ; preds = %if.end158
+default.unreachable252:                           ; preds = %if.end158
+  unreachable
+
+default.unreachable:                              ; preds = %if.else193, %vaarg.end
   unreachable
 
 if.else193:                                       ; preds = %if.else
-  switch i8 %14, label %while.body31.backedge [
+  switch i8 %14, label %default.unreachable [
     i8 -12, label %sw.bb195
     i8 -10, label %sw.bb195
     i8 -11, label %sw.bb244

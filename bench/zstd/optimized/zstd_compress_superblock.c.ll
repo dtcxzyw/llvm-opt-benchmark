@@ -143,7 +143,7 @@ do.body3.outer.i:                                 ; preds = %do.end46.i, %do.end
   br label %do.body3.i
 
 do.body3.i:                                       ; preds = %do.cond.i, %do.body3.outer.i
-  %seqCount.0.i = phi i64 [ %seqCount.1214.i, %do.cond.i ], [ 0, %do.body3.outer.i ]
+  %seqCount.0.i = phi i64 [ %seqCount.1215.i, %do.cond.i ], [ 0, %do.body3.outer.i ]
   %litSize.0.i = phi i64 [ %21, %do.cond.i ], [ 0, %do.body3.outer.i ]
   br i1 %cmp4.i, label %if.end.thread.i, label %if.else.i
 
@@ -176,13 +176,13 @@ if.end.i:                                         ; preds = %if.then.i.i, %if.el
   %retval.sroa.0.0.insert.ext.i.i = zext nneg i32 %retval.sroa.0.1.i.i to i64
   %add.i = add i64 %litSize.0.i, %retval.sroa.0.0.insert.ext.i.i
   %inc.i = add i64 %seqCount.0.i, 1
-  %spec.select242.i = select i1 %cond.fr.i, i64 %sub.ptr.sub.i, i64 %add.i
+  %spec.select253.i = select i1 %cond.fr.i, i64 %sub.ptr.sub.i, i64 %add.i
   br label %if.end.thread.i
 
 if.end.thread.i:                                  ; preds = %if.end.i, %do.body3.i
-  %seqCount.1214.i = phi i64 [ %seqCount.0.i, %do.body3.i ], [ %inc.i, %if.end.i ]
-  %lastSequence.0211.i = phi i1 [ true, %do.body3.i ], [ %cond.fr.i, %if.end.i ]
-  %21 = phi i64 [ %sub.ptr.sub.i, %do.body3.i ], [ %spec.select242.i, %if.end.i ]
+  %seqCount.1215.i = phi i64 [ %seqCount.0.i, %do.body3.i ], [ %inc.i, %if.end.i ]
+  %lastSequence.0212.i = phi i1 [ true, %do.body3.i ], [ %cond.fr.i, %if.end.i ]
+  %21 = phi i64 [ %sub.ptr.sub.i, %do.body3.i ], [ %spec.select253.i, %if.end.i ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %maxSymbolValue.i.i.i)
   store i32 255, ptr %maxSymbolValue.i.i.i, align 4
   %22 = load i32, ptr %entropyMetadata, align 8
@@ -216,15 +216,15 @@ if.end19.i.i.i:                                   ; preds = %if.end.thread.i
 ZSTD_estimateSubBlockSize_literal.exit.i.i:       ; preds = %if.end19.i.i.i, %if.end.i.i.i, %if.then9.i.i.i, %if.then3.i.i.i, %if.end.thread.i
   %retval.0.i.i.i = phi i64 [ 1, %if.then3.i.i.i ], [ %add16.i.i.i, %if.end.i.i.i ], [ 0, %if.end19.i.i.i ], [ %21, %if.end.thread.i ], [ %21, %if.then9.i.i.i ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %maxSymbolValue.i.i.i)
-  %cmp.i.i.i = icmp eq i64 %seqCount.1214.i, 0
+  %cmp.i.i.i = icmp eq i64 %seqCount.1215.i, 0
   br i1 %cmp.i.i.i, label %ZSTD_estimateSubBlockSize.exit.thread.i, label %if.end.i7.i.i
 
 if.end.i7.i.i:                                    ; preds = %ZSTD_estimateSubBlockSize_literal.exit.i.i
   %25 = load i32, ptr %ofType.i.i.i, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %max.i.i.i.i)
-  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %ofCodePtr.0.ph.i, i64 %seqCount.1214.i
+  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %ofCodePtr.0.ph.i, i64 %seqCount.1215.i
   store i32 31, ptr %max.i.i.i.i, align 4
-  %call.i.i.i.i = call i64 @HIST_countFast_wksp(ptr noundef %6, ptr noundef nonnull %max.i.i.i.i, ptr noundef %ofCodePtr.0.ph.i, i64 noundef %seqCount.1214.i, ptr noundef %6, i64 noundef 8920) #4
+  %call.i.i.i.i = call i64 @HIST_countFast_wksp(ptr noundef %6, ptr noundef nonnull %max.i.i.i.i, ptr noundef %ofCodePtr.0.ph.i, i64 noundef %seqCount.1215.i, ptr noundef %6, i64 noundef 8920) #4
   switch i32 %25, label %if.else5.i.i.i.i [
     i32 0, label %if.then.i.i.i.i
     i32 1, label %while.cond.preheader.i.i.i.i
@@ -256,7 +256,7 @@ if.end11.i.i.i.i:                                 ; preds = %if.then8.i.i.i.i, %
 
 while.cond.preheader.i.i.i.i:                     ; preds = %if.end11.i.i.i.i, %if.else5.i.i.i.i, %if.end.i7.i.i
   %cSymbolTypeSizeEstimateInBits.029.i.i.i.i = phi i64 [ %cSymbolTypeSizeEstimateInBits.0.i.i.i.i, %if.end11.i.i.i.i ], [ 0, %if.else5.i.i.i.i ], [ 0, %if.end.i7.i.i ]
-  %cmp1523.i.i.i.i = icmp sgt i64 %seqCount.1214.i, 0
+  %cmp1523.i.i.i.i = icmp sgt i64 %seqCount.1215.i, 0
   br i1 %cmp1523.i.i.i.i, label %while.body.us.i.i.i.i, label %while.end.i.i.i.i
 
 while.body.us.i.i.i.i:                            ; preds = %while.cond.preheader.i.i.i.i, %while.body.us.i.i.i.i
@@ -270,7 +270,7 @@ while.body.us.i.i.i.i:                            ; preds = %while.cond.preheade
   br i1 %cmp15.us.i.i.i.i, label %while.body.us.i.i.i.i, label %while.end.i.i.i.i, !llvm.loop !4
 
 if.then13.i.i.i.i:                                ; preds = %if.end11.i.i.i.i, %if.then.i.i.i.i
-  %mul.i.i.i.i = mul i64 %seqCount.1214.i, 10
+  %mul.i.i.i.i = mul i64 %seqCount.1215.i, 10
   br label %ZSTD_estimateSubBlockSize_symbolType.exit.i.i.i
 
 while.end.i.i.i.i:                                ; preds = %while.body.us.i.i.i.i, %while.cond.preheader.i.i.i.i
@@ -283,9 +283,9 @@ ZSTD_estimateSubBlockSize_symbolType.exit.i.i.i:  ; preds = %while.end.i.i.i.i, 
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %max.i.i.i.i)
   %29 = load i32, ptr %fseMetadata.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %max.i17.i.i.i)
-  %add.ptr.i18.i.i.i = getelementptr inbounds i8, ptr %llCodePtr.0.ph.i, i64 %seqCount.1214.i
+  %add.ptr.i18.i.i.i = getelementptr inbounds i8, ptr %llCodePtr.0.ph.i, i64 %seqCount.1215.i
   store i32 35, ptr %max.i17.i.i.i, align 4
-  %call.i19.i.i.i = call i64 @HIST_countFast_wksp(ptr noundef %6, ptr noundef nonnull %max.i17.i.i.i, ptr noundef %llCodePtr.0.ph.i, i64 noundef %seqCount.1214.i, ptr noundef %6, i64 noundef 8920) #4
+  %call.i19.i.i.i = call i64 @HIST_countFast_wksp(ptr noundef %6, ptr noundef nonnull %max.i17.i.i.i, ptr noundef %llCodePtr.0.ph.i, i64 noundef %seqCount.1215.i, ptr noundef %6, i64 noundef 8920) #4
   switch i32 %29, label %if.else5.i37.i.i.i [
     i32 0, label %if.then.i28.i.i.i
     i32 1, label %while.cond.preheader.i20.i.i.i
@@ -317,11 +317,11 @@ if.end11.i32.i.i.i:                               ; preds = %if.then8.i39.i.i.i,
 
 while.cond.preheader.i20.i.i.i:                   ; preds = %if.end11.i32.i.i.i, %if.else5.i37.i.i.i, %ZSTD_estimateSubBlockSize_symbolType.exit.i.i.i
   %cSymbolTypeSizeEstimateInBits.029.i21.i.i.i = phi i64 [ %cSymbolTypeSizeEstimateInBits.0.i33.i.i.i, %if.end11.i32.i.i.i ], [ 0, %if.else5.i37.i.i.i ], [ 0, %ZSTD_estimateSubBlockSize_symbolType.exit.i.i.i ]
-  %cmp1523.i22.i.i.i = icmp sgt i64 %seqCount.1214.i, 0
+  %cmp1523.i22.i.i.i = icmp sgt i64 %seqCount.1215.i, 0
   br i1 %cmp1523.i22.i.i.i, label %while.body.i.i.i.i, label %while.end.i23.i.i.i
 
 if.then13.i35.i.i.i:                              ; preds = %if.end11.i32.i.i.i, %if.then.i28.i.i.i
-  %mul.i36.i.i.i = mul i64 %seqCount.1214.i, 10
+  %mul.i36.i.i.i = mul i64 %seqCount.1215.i, 10
   br label %ZSTD_estimateSubBlockSize_symbolType.exit41.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %while.cond.preheader.i20.i.i.i, %while.body.i.i.i.i
@@ -347,9 +347,9 @@ ZSTD_estimateSubBlockSize_symbolType.exit41.i.i.i: ; preds = %while.end.i23.i.i.
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %max.i17.i.i.i)
   %34 = load i32, ptr %mlType.i.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %max.i42.i.i.i)
-  %add.ptr.i43.i.i.i = getelementptr inbounds i8, ptr %mlCodePtr.0.ph.i, i64 %seqCount.1214.i
+  %add.ptr.i43.i.i.i = getelementptr inbounds i8, ptr %mlCodePtr.0.ph.i, i64 %seqCount.1215.i
   store i32 52, ptr %max.i42.i.i.i, align 4
-  %call.i44.i.i.i = call i64 @HIST_countFast_wksp(ptr noundef %6, ptr noundef nonnull %max.i42.i.i.i, ptr noundef %mlCodePtr.0.ph.i, i64 noundef %seqCount.1214.i, ptr noundef %6, i64 noundef 8920) #4
+  %call.i44.i.i.i = call i64 @HIST_countFast_wksp(ptr noundef %6, ptr noundef nonnull %max.i42.i.i.i, ptr noundef %mlCodePtr.0.ph.i, i64 noundef %seqCount.1215.i, ptr noundef %6, i64 noundef 8920) #4
   switch i32 %34, label %if.else5.i72.i.i.i [
     i32 0, label %if.then.i63.i.i.i
     i32 1, label %while.cond.preheader.i45.i.i.i
@@ -381,11 +381,11 @@ if.end11.i67.i.i.i:                               ; preds = %if.then8.i74.i.i.i,
 
 while.cond.preheader.i45.i.i.i:                   ; preds = %if.end11.i67.i.i.i, %if.else5.i72.i.i.i, %ZSTD_estimateSubBlockSize_symbolType.exit41.i.i.i
   %cSymbolTypeSizeEstimateInBits.029.i46.i.i.i = phi i64 [ %cSymbolTypeSizeEstimateInBits.0.i68.i.i.i, %if.end11.i67.i.i.i ], [ 0, %if.else5.i72.i.i.i ], [ 0, %ZSTD_estimateSubBlockSize_symbolType.exit41.i.i.i ]
-  %cmp1523.i47.i.i.i = icmp sgt i64 %seqCount.1214.i, 0
+  %cmp1523.i47.i.i.i = icmp sgt i64 %seqCount.1215.i, 0
   br i1 %cmp1523.i47.i.i.i, label %while.body.i53.i.i.i, label %while.end.i48.i.i.i
 
 if.then13.i70.i.i.i:                              ; preds = %if.end11.i67.i.i.i, %if.then.i63.i.i.i
-  %mul.i71.i.i.i = mul i64 %seqCount.1214.i, 10
+  %mul.i71.i.i.i = mul i64 %seqCount.1215.i, 10
   br label %ZSTD_estimateSubBlockSize_symbolType.exit76.i.i.i
 
 while.body.i53.i.i.i:                             ; preds = %while.cond.preheader.i45.i.i.i, %while.body.i53.i.i.i
@@ -417,19 +417,19 @@ ZSTD_estimateSubBlockSize_symbolType.exit76.i.i.i: ; preds = %while.end.i48.i.i.
   %add10.i.i.i = add i64 %cSeqSizeEstimate.0.i.i.i, %retval.0.i51.i.i.i
   %add3.i.i = add i64 %add10.i.i.i, %add8.i.i.i
   %cmp14.i = icmp ugt i64 %add3.i.i, %14
-  %or.cond.i = or i1 %lastSequence.0211.i, %cmp14.i
+  %or.cond.i = or i1 %lastSequence.0212.i, %cmp14.i
   br i1 %or.cond.i, label %if.then17.i, label %do.cond.i
 
 ZSTD_estimateSubBlockSize.exit.thread.i:          ; preds = %ZSTD_estimateSubBlockSize_literal.exit.i.i
   %add3.i159.i = add i64 %retval.0.i.i.i, 6
   %cmp14160.i = icmp ugt i64 %add3.i159.i, %14
-  %or.cond161.i = or i1 %lastSequence.0211.i, %cmp14160.i
+  %or.cond161.i = or i1 %lastSequence.0212.i, %cmp14160.i
   br i1 %or.cond161.i, label %ZSTD_seqDecompressedSize.exit.i, label %do.cond.i
 
 if.then17.i:                                      ; preds = %ZSTD_estimateSubBlockSize_symbolType.exit76.i.i.i
-  %add.ptr.i.i = getelementptr inbounds %struct.seqDef_s, ptr %sp.0.ph.i, i64 %seqCount.1214.i
+  %add.ptr.i.i = getelementptr inbounds %struct.seqDef_s, ptr %sp.0.ph.i, i64 %seqCount.1215.i
   %sub.ptr.lhs.cast.i84.i = ptrtoint ptr %add.ptr.i.i to i64
-  %cmp7.i.i = icmp sgt i64 %seqCount.1214.i, 0
+  %cmp7.i.i = icmp sgt i64 %seqCount.1215.i, 0
   br i1 %cmp7.i.i, label %while.body.lr.ph.i.i, label %ZSTD_seqDecompressedSize.exit.i
 
 while.body.lr.ph.i.i:                             ; preds = %if.then17.i
@@ -473,7 +473,7 @@ ZSTD_seqDecompressedSize.exit.i:                  ; preds = %ZSTD_getSequenceLen
   %add.ptr.i165.i = phi ptr [ %add.ptr.i.i, %if.then17.i ], [ %sp.0.ph.i, %ZSTD_estimateSubBlockSize.exit.thread.i ], [ %add.ptr.i.i, %ZSTD_getSequenceLength.exit.i.i ]
   %matchLengthSum.0.lcssa.i.i = phi i64 [ 0, %if.then17.i ], [ 0, %ZSTD_estimateSubBlockSize.exit.thread.i ], [ %add2.i88.i, %ZSTD_getSequenceLength.exit.i.i ]
   %add3.i85.i = add i64 %matchLengthSum.0.lcssa.i.i, %21
-  %44 = and i1 %tobool23.i, %lastSequence.0211.i
+  %44 = and i1 %tobool23.i, %lastSequence.0212.i
   %cmp.not.i.i.i = icmp ugt i64 %sub.i.i.i, %21
   %add.i.i95.i = select i1 %cmp.not.i.i.i, i64 3, i64 4
   %cmp3.i.i.i = icmp ule i64 %sub2.i.i.i, %21
@@ -557,15 +557,15 @@ do.end83.i.i.i:                                   ; preds = %if.end71.i.i.i
   br label %ZSTD_compressSubBlock_literal.exit.i.i
 
 do.end87.i.i.i:                                   ; preds = %if.end71.i.i.i
-  switch i64 %add5.i.i.i, label %sw.epilog.i.i.i [
+  %conv90.i.i.i = trunc i64 %21 to i32
+  %shl91.i.i.i = shl i32 %conv90.i.i.i, 4
+  switch i64 %add5.i.i.i, label %default.unreachable [
     i64 3, label %sw.bb.i.i.i
     i64 4, label %sw.bb96.i.i.i
     i64 5, label %sw.bb105.i.i.i
   ]
 
 sw.bb.i.i.i:                                      ; preds = %do.end87.i.i.i
-  %conv90.i.i.i = trunc i64 %21 to i32
-  %shl91.i.i.i = shl i32 %conv90.i.i.i, 4
   %add92.i.i.i = add i32 %spec.select, %shl91.i.i.i
   %conv93.i.i.i = trunc i64 %add53.i.i.i to i32
   %shl94.i.i.i = shl i32 %conv93.i.i.i, 14
@@ -578,22 +578,18 @@ sw.bb.i.i.i:                                      ; preds = %do.end87.i.i.i
   br label %sw.epilog.i.i.i
 
 sw.bb96.i.i.i:                                    ; preds = %do.end87.i.i.i
-  %conv99.i.i.i = trunc i64 %21 to i32
-  %shl100.i.i.i = shl i32 %conv99.i.i.i, 4
   %conv102.i.i.i = trunc i64 %add53.i.i.i to i32
   %shl103.i.i.i = shl i32 %conv102.i.i.i, 18
-  %add98.i.i.i = or disjoint i32 %shl100.i.i.i, 8
+  %add98.i.i.i = or disjoint i32 %shl91.i.i.i, 8
   %add101.i.i.i = add i32 %add98.i.i.i, %spec.select
   %add104.i.i.i = add i32 %add101.i.i.i, %shl103.i.i.i
   store i32 %add104.i.i.i, ptr %add.ptr1.i.i, align 1
   br label %sw.epilog.i.i.i
 
 sw.bb105.i.i.i:                                   ; preds = %do.end87.i.i.i
-  %conv108.i.i.i = trunc i64 %21 to i32
-  %shl109.i.i.i = shl i32 %conv108.i.i.i, 4
   %conv111.i.i.i = trunc i64 %add53.i.i.i to i32
   %shl112.i.i.i = shl i32 %conv111.i.i.i, 22
-  %add107.i.i.i = or disjoint i32 %shl109.i.i.i, 12
+  %add107.i.i.i = or disjoint i32 %shl91.i.i.i, 12
   %add110.i.i.i = add i32 %add107.i.i.i, %spec.select
   %add113.i.i.i = add i32 %add110.i.i.i, %shl112.i.i.i
   store i32 %add113.i.i.i, ptr %add.ptr1.i.i, align 1
@@ -602,7 +598,10 @@ sw.bb105.i.i.i:                                   ; preds = %do.end87.i.i.i
   store i8 %conv114.i.i.i, ptr %arrayidx.i.i.i, align 1
   br label %sw.epilog.i.i.i
 
-sw.epilog.i.i.i:                                  ; preds = %sw.bb105.i.i.i, %sw.bb96.i.i.i, %sw.bb.i.i.i, %do.end87.i.i.i
+default.unreachable:                              ; preds = %do.end87.i.i.i
+  unreachable
+
+sw.epilog.i.i.i:                                  ; preds = %sw.bb105.i.i.i, %sw.bb96.i.i.i, %sw.bb.i.i.i
   %sub.ptr.lhs.cast117.i.i.i = ptrtoint ptr %add.ptr52.i.i.i to i64
   %sub.ptr.sub119.i.i.i = sub i64 %sub.ptr.lhs.cast117.i.i.i, %sub.ptr.rhs.cast118.i.i.i
   br label %ZSTD_compressSubBlock_literal.exit.i.i
@@ -628,19 +627,19 @@ if.end14.i.i:                                     ; preds = %do.end12.i.i
   br i1 %cmp2.i.i.i, label %ZSTD_compressSubBlock_multi.exit, label %do.end12.i.i.i
 
 do.end12.i.i.i:                                   ; preds = %if.end14.i.i
-  %cmp13.i26.i.i = icmp ult i64 %seqCount.1214.i, 128
+  %cmp13.i26.i.i = icmp ult i64 %seqCount.1215.i, 128
   br i1 %cmp13.i26.i.i, label %if.end30.i.i.i, label %if.else.i.i.i
 
 if.else.i.i.i:                                    ; preds = %do.end12.i.i.i
-  %cmp17.i.i.i = icmp ult i64 %seqCount.1214.i, 32512
+  %cmp17.i.i.i = icmp ult i64 %seqCount.1215.i, 32512
   br i1 %cmp17.i.i.i, label %if.then19.i.i.i, label %if.else24.i.i.i
 
 if.then19.i.i.i:                                  ; preds = %if.else.i.i.i
-  %shr.i29.i.i = lshr i64 %seqCount.1214.i, 8
+  %shr.i29.i.i = lshr i64 %seqCount.1215.i, 8
   %48 = trunc i64 %shr.i29.i.i to i8
   %conv20.i.i.i = or disjoint i8 %48, -128
   store i8 %conv20.i.i.i, ptr %add.ptr15.i.i, align 1
-  %conv21.i.i.i = trunc i64 %seqCount.1214.i to i8
+  %conv21.i.i.i = trunc i64 %seqCount.1215.i to i8
   %arrayidx22.i.i.i = getelementptr inbounds i8, ptr %add.ptr15.i.i, i64 1
   store i8 %conv21.i.i.i, ptr %arrayidx22.i.i.i, align 1
   %add.ptr23.i.i.i = getelementptr inbounds i8, ptr %add.ptr15.i.i, i64 2
@@ -649,14 +648,14 @@ if.then19.i.i.i:                                  ; preds = %if.else.i.i.i
 if.else24.i.i.i:                                  ; preds = %if.else.i.i.i
   store i8 -1, ptr %add.ptr15.i.i, align 1
   %add.ptr26.i.i.i = getelementptr inbounds i8, ptr %add.ptr15.i.i, i64 1
-  %49 = trunc i64 %seqCount.1214.i to i16
+  %49 = trunc i64 %seqCount.1215.i to i16
   %conv27.i.i.i = add i16 %49, -32512
   store i16 %conv27.i.i.i, ptr %add.ptr26.i.i.i, align 1
   %add.ptr28.i.i.i = getelementptr inbounds i8, ptr %add.ptr15.i.i, i64 3
   br label %if.end37.i.i.i
 
 if.end30.i.i.i:                                   ; preds = %do.end12.i.i.i
-  %conv16.i.i.i = trunc i64 %seqCount.1214.i to i8
+  %conv16.i.i.i = trunc i64 %seqCount.1215.i to i8
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %add.ptr15.i.i, i64 1
   store i8 %conv16.i.i.i, ptr %add.ptr15.i.i, align 1
   br i1 %cmp.i.i.i, label %ZSTD_compressSubBlock.exit.i, label %if.end37.i.i.i
@@ -670,7 +669,7 @@ if.end53.i.i.i:                                   ; preds = %if.end37.i.i.i
   store i8 -4, ptr %op.03.i.i.i, align 1
   %sub.ptr.rhs.cast55.i.i.i = ptrtoint ptr %incdec.ptr38.i.i.i to i64
   %sub.ptr.sub56.i.i.i = sub i64 %sub.ptr.lhs.cast.i93.i, %sub.ptr.rhs.cast55.i.i.i
-  %call60.i.i.i = call i64 @ZSTD_encodeSequences(ptr noundef nonnull %incdec.ptr38.i.i.i, i64 noundef %sub.ptr.sub56.i.i.i, ptr noundef nonnull %matchlengthCTable.i.i.i, ptr noundef %mlCodePtr.0.ph.i, ptr noundef nonnull %fse.i.i, ptr noundef %ofCodePtr.0.ph.i, ptr noundef nonnull %litlengthCTable.i.i.i, ptr noundef %llCodePtr.0.ph.i, ptr noundef %sp.0.ph.i, i64 noundef %seqCount.1214.i, i32 noundef %conv.i23.i.i, i32 noundef %5) #4
+  %call60.i.i.i = call i64 @ZSTD_encodeSequences(ptr noundef nonnull %incdec.ptr38.i.i.i, i64 noundef %sub.ptr.sub56.i.i.i, ptr noundef nonnull %matchlengthCTable.i.i.i, ptr noundef %mlCodePtr.0.ph.i, ptr noundef nonnull %fse.i.i, ptr noundef %ofCodePtr.0.ph.i, ptr noundef nonnull %litlengthCTable.i.i.i, ptr noundef %llCodePtr.0.ph.i, ptr noundef %sp.0.ph.i, i64 noundef %seqCount.1215.i, i32 noundef %conv.i23.i.i, i32 noundef %5) #4
   %cmp.i.i.i107.i = icmp ult i64 %call60.i.i.i, -119
   br i1 %cmp.i.i.i107.i, label %do.end74.i.i.i, label %ZSTD_compressSubBlock_multi.exit
 
@@ -691,7 +690,7 @@ if.end53.thread.i.i.i:                            ; preds = %if.end37.i.i.i
   %add.ptr51.i.i.i = getelementptr inbounds i8, ptr %incdec.ptr38.i.i.i, i64 %54
   %sub.ptr.rhs.cast555.i.i.i = ptrtoint ptr %add.ptr51.i.i.i to i64
   %sub.ptr.sub566.i.i.i = sub i64 %sub.ptr.lhs.cast.i93.i, %sub.ptr.rhs.cast555.i.i.i
-  %call609.i.i.i = call i64 @ZSTD_encodeSequences(ptr noundef nonnull %add.ptr51.i.i.i, i64 noundef %sub.ptr.sub566.i.i.i, ptr noundef nonnull %matchlengthCTable.i.i.i, ptr noundef %mlCodePtr.0.ph.i, ptr noundef nonnull %fse.i.i, ptr noundef %ofCodePtr.0.ph.i, ptr noundef nonnull %litlengthCTable.i.i.i, ptr noundef %llCodePtr.0.ph.i, ptr noundef %sp.0.ph.i, i64 noundef %seqCount.1214.i, i32 noundef %conv.i23.i.i, i32 noundef %5) #4
+  %call609.i.i.i = call i64 @ZSTD_encodeSequences(ptr noundef nonnull %add.ptr51.i.i.i, i64 noundef %sub.ptr.sub566.i.i.i, ptr noundef nonnull %matchlengthCTable.i.i.i, ptr noundef %mlCodePtr.0.ph.i, ptr noundef nonnull %fse.i.i, ptr noundef %ofCodePtr.0.ph.i, ptr noundef nonnull %litlengthCTable.i.i.i, ptr noundef %llCodePtr.0.ph.i, ptr noundef %sp.0.ph.i, i64 noundef %seqCount.1215.i, i32 noundef %conv.i23.i.i, i32 noundef %5) #4
   %cmp.i10.i.i.i = icmp ult i64 %call609.i.i.i, -119
   br i1 %cmp.i10.i.i.i, label %land.lhs.true.i.i.i, label %ZSTD_compressSubBlock_multi.exit
 
@@ -752,23 +751,23 @@ do.end39.i:                                       ; preds = %ZSTD_compressSubBlo
 do.end46.i:                                       ; preds = %do.end39.i
   %add.ptr47.i = getelementptr inbounds i8, ptr %ip.0.ph.i, i64 %add3.i85.i
   %add.ptr49.i = getelementptr inbounds i8, ptr %lp.0.ph.i, i64 %21
-  %add.ptr51.i = getelementptr inbounds i8, ptr %llCodePtr.0.ph.i, i64 %seqCount.1214.i
-  %add.ptr52.i = getelementptr inbounds i8, ptr %mlCodePtr.0.ph.i, i64 %seqCount.1214.i
-  %add.ptr53.i = getelementptr inbounds i8, ptr %ofCodePtr.0.ph.i, i64 %seqCount.1214.i
+  %add.ptr51.i = getelementptr inbounds i8, ptr %llCodePtr.0.ph.i, i64 %seqCount.1215.i
+  %add.ptr52.i = getelementptr inbounds i8, ptr %mlCodePtr.0.ph.i, i64 %seqCount.1215.i
+  %add.ptr53.i = getelementptr inbounds i8, ptr %ofCodePtr.0.ph.i, i64 %seqCount.1215.i
   %spec.select.i = select i1 %tobool54.not.i, i32 %writeLitEntropy.0.ph.i, i32 0
   %spec.select83.i = select i1 %tobool57.not.i, i32 %writeSeqEntropy.0.ph.i, i32 0
-  br i1 %lastSequence.0211.i, label %do.end63.i, label %do.body3.outer.i, !llvm.loop !7
+  br i1 %lastSequence.0212.i, label %do.end63.i, label %do.body3.outer.i, !llvm.loop !7
 
 do.cond.i:                                        ; preds = %do.end39.i, %do.end34.i.i, %do.end88.i.i.i, %land.lhs.true.i.i.i, %do.end12.i.i, %cond.end50.i.i.i, %ZSTD_estimateSubBlockSize.exit.thread.i, %ZSTD_estimateSubBlockSize_symbolType.exit76.i.i.i
-  br i1 %lastSequence.0211.i, label %do.end63.i, label %do.body3.i, !llvm.loop !7
+  br i1 %lastSequence.0212.i, label %do.end63.i, label %do.body3.i, !llvm.loop !7
 
 do.end63.i:                                       ; preds = %do.end46.i, %do.cond.i
-  %sp.1221.i = phi ptr [ %sp.0.ph.i, %do.cond.i ], [ %add.ptr.i165.i, %do.end46.i ]
-  %ip.1220.i = phi ptr [ %ip.0.ph.i, %do.cond.i ], [ %add.ptr47.i, %do.end46.i ]
-  %op.1219.i = phi ptr [ %op.0.ph.i, %do.cond.i ], [ %add.ptr38.i.i, %do.end46.i ]
-  %writeSeqEntropy.1218.i = phi i32 [ %writeSeqEntropy.0.ph.i, %do.cond.i ], [ %spec.select83.i, %do.end46.i ]
-  %writeLitEntropy.2217.i = phi i32 [ %writeLitEntropy.0.ph.i, %do.cond.i ], [ %spec.select.i, %do.end46.i ]
-  %tobool64.not.i = icmp eq i32 %writeLitEntropy.2217.i, 0
+  %sp.1222.i = phi ptr [ %sp.0.ph.i, %do.cond.i ], [ %add.ptr.i165.i, %do.end46.i ]
+  %ip.1221.i = phi ptr [ %ip.0.ph.i, %do.cond.i ], [ %add.ptr47.i, %do.end46.i ]
+  %op.1220.i = phi ptr [ %op.0.ph.i, %do.cond.i ], [ %add.ptr38.i.i, %do.end46.i ]
+  %writeSeqEntropy.1219.i = phi i32 [ %writeSeqEntropy.0.ph.i, %do.cond.i ], [ %spec.select83.i, %do.end46.i ]
+  %writeLitEntropy.2218.i = phi i32 [ %writeLitEntropy.0.ph.i, %do.cond.i ], [ %spec.select.i, %do.end46.i ]
+  %tobool64.not.i = icmp eq i32 %writeLitEntropy.2218.i, 0
   br i1 %tobool64.not.i, label %if.end72.i, label %do.end68.i
 
 do.end68.i:                                       ; preds = %do.end63.i
@@ -776,7 +775,7 @@ do.end68.i:                                       ; preds = %do.end63.i
   br label %if.end72.i
 
 if.end72.i:                                       ; preds = %do.end68.i, %do.end63.i
-  %tobool73.not.i = icmp eq i32 %writeSeqEntropy.1218.i, 0
+  %tobool73.not.i = icmp eq i32 %writeSeqEntropy.1219.i, 0
   br i1 %tobool73.not.i, label %if.end81.i, label %land.lhs.true74.i
 
 land.lhs.true74.i:                                ; preds = %if.end72.i
@@ -798,14 +797,14 @@ ZSTD_needSequenceEntropyTables.exit.i:            ; preds = %if.end.i.i
   br i1 %switch11.i.i, label %if.end81.i, label %ZSTD_compressSubBlock_multi.exit
 
 if.end81.i:                                       ; preds = %ZSTD_needSequenceEntropyTables.exit.i, %if.end72.i
-  %cmp82.i = icmp ult ptr %ip.1220.i, %add.ptr.i
+  %cmp82.i = icmp ult ptr %ip.1221.i, %add.ptr.i
   br i1 %cmp82.i, label %if.then84.i, label %do.end136.i
 
 if.then84.i:                                      ; preds = %if.end81.i
-  %sub.ptr.rhs.cast87.i = ptrtoint ptr %op.1219.i to i64
+  %sub.ptr.rhs.cast87.i = ptrtoint ptr %op.1220.i to i64
   %sub.ptr.sub88.i = sub i64 %sub.ptr.lhs.cast20.i, %sub.ptr.rhs.cast87.i
   %sub.ptr.lhs.cast89.i = ptrtoint ptr %add.ptr.i to i64
-  %sub.ptr.rhs.cast90.i = ptrtoint ptr %ip.1220.i to i64
+  %sub.ptr.rhs.cast90.i = ptrtoint ptr %ip.1221.i to i64
   %sub.ptr.sub91.i = sub i64 %sub.ptr.lhs.cast89.i, %sub.ptr.rhs.cast90.i
   %add3.i117.i = add i64 %sub.ptr.sub91.i, 3
   %cmp.i118.i = icmp ugt i64 %add3.i117.i, %sub.ptr.sub88.i
@@ -816,26 +815,26 @@ ZSTD_noCompressBlock.exit.i:                      ; preds = %if.then84.i
   %conv.i119.i = shl i32 %srcSize.tr.i.i, 3
   %add1.i.i = add i32 %conv.i119.i, %lastBlock
   %conv.i.i.i = trunc i32 %add1.i.i to i16
-  store i16 %conv.i.i.i, ptr %op.1219.i, align 1
+  store i16 %conv.i.i.i, ptr %op.1220.i, align 1
   %shr.i.i120.i = lshr i32 %add1.i.i, 16
   %conv1.i.i121.i = trunc i32 %shr.i.i120.i to i8
-  %arrayidx.i.i122.i = getelementptr inbounds i8, ptr %op.1219.i, i64 2
+  %arrayidx.i.i122.i = getelementptr inbounds i8, ptr %op.1220.i, i64 2
   store i8 %conv1.i.i121.i, ptr %arrayidx.i.i122.i, align 1
-  %add.ptr.i123.i = getelementptr inbounds i8, ptr %op.1219.i, i64 3
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i123.i, ptr align 1 %ip.1220.i, i64 %sub.ptr.sub91.i, i1 false)
+  %add.ptr.i123.i = getelementptr inbounds i8, ptr %op.1220.i, i64 3
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i123.i, ptr align 1 %ip.1221.i, i64 %sub.ptr.sub91.i, i1 false)
   %cmp.i125.i = icmp ult i64 %add3.i117.i, -119
   br i1 %cmp.i125.i, label %do.end115.i, label %ZSTD_compressSubBlock_multi.exit
 
 do.end115.i:                                      ; preds = %ZSTD_noCompressBlock.exit.i
-  %add.ptr116.i = getelementptr inbounds i8, ptr %op.1219.i, i64 %add3.i117.i
-  %cmp117.i = icmp ult ptr %sp.1221.i, %8
+  %add.ptr116.i = getelementptr inbounds i8, ptr %op.1220.i, i64 %add3.i117.i
+  %cmp117.i = icmp ult ptr %sp.1222.i, %8
   br i1 %cmp117.i, label %if.then119.i, label %do.end136.i
 
 if.then119.i:                                     ; preds = %do.end115.i
   %rep120.i = getelementptr inbounds %struct.ZSTD_compressedBlockState_t, ptr %3, i64 0, i32 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %rep.i, ptr noundef nonnull align 8 dereferenceable(12) %rep120.i, i64 12, i1 false)
-  %cmp121197.i = icmp ult ptr %7, %sp.1221.i
-  br i1 %cmp121197.i, label %for.body.lr.ph.i, label %for.end.i
+  %cmp121198.i = icmp ult ptr %7, %sp.1222.i
+  br i1 %cmp121198.i, label %for.body.lr.ph.i, label %for.end.i
 
 for.body.lr.ph.i:                                 ; preds = %if.then119.i
   %rep.promoted.i = load i32, ptr %rep.i, align 4
@@ -849,15 +848,15 @@ for.body.lr.ph.i:                                 ; preds = %if.then119.i
   br label %for.body.i
 
 for.body.i:                                       ; preds = %ZSTD_updateRep.exit.i, %for.body.lr.ph.i
-  %arrayidx14.i.val203.i = phi i32 [ %arrayidx14.i.promoted.i, %for.body.lr.ph.i ], [ %arrayidx14.i.val202.i, %ZSTD_updateRep.exit.i ]
-  %arrayidx16.i.val200.i = phi i32 [ %arrayidx16.i.promoted.i, %for.body.lr.ph.i ], [ %arrayidx16.i.val199.i, %ZSTD_updateRep.exit.i ]
-  %seq.0198.i = phi ptr [ %7, %for.body.lr.ph.i ], [ %incdec.ptr.i, %ZSTD_updateRep.exit.i ]
+  %arrayidx14.i.val204.i = phi i32 [ %arrayidx14.i.promoted.i, %for.body.lr.ph.i ], [ %arrayidx14.i.val203.i, %ZSTD_updateRep.exit.i ]
+  %arrayidx16.i.val201.i = phi i32 [ %arrayidx16.i.promoted.i, %for.body.lr.ph.i ], [ %arrayidx16.i.val200.i, %ZSTD_updateRep.exit.i ]
+  %seq.0199.i = phi ptr [ %7, %for.body.lr.ph.i ], [ %incdec.ptr.i, %ZSTD_updateRep.exit.i ]
   %63 = phi i32 [ %rep.promoted.i, %for.body.lr.ph.i ], [ %68, %ZSTD_updateRep.exit.i ]
-  %64 = load i32, ptr %seq.0198.i, align 4
-  %litLength.i127.i = getelementptr inbounds %struct.seqDef_s, ptr %seq.0198.i, i64 0, i32 1
+  %64 = load i32, ptr %seq.0199.i, align 4
+  %litLength.i127.i = getelementptr inbounds %struct.seqDef_s, ptr %seq.0199.i, i64 0, i32 1
   %65 = load i16, ptr %litLength.i127.i, align 4
   %conv.i128.i = zext i16 %65 to i32
-  %sub.ptr.lhs.cast.i133.i = ptrtoint ptr %seq.0198.i to i64
+  %sub.ptr.lhs.cast.i133.i = ptrtoint ptr %seq.0199.i to i64
   %sub.ptr.sub.i135.i = sub i64 %sub.ptr.lhs.cast.i133.i, %sub.ptr.rhs.cast.i134.i
   %sub.ptr.div.i136.i = lshr exact i64 %sub.ptr.sub.i135.i, 3
   %conv3.i137.i = trunc i64 %sub.ptr.div.i136.i to i32
@@ -877,7 +876,7 @@ ZSTD_getSequenceLength.exit153.i:                 ; preds = %if.then.i145.i, %fo
   br i1 %cmp.i154.i, label %if.then.i156.i, label %if.else.i.i
 
 if.then.i156.i:                                   ; preds = %ZSTD_getSequenceLength.exit153.i
-  store i32 %arrayidx14.i.val203.i, ptr %arrayidx16.i.i, align 4
+  store i32 %arrayidx14.i.val204.i, ptr %arrayidx16.i.i, align 4
   store i32 %63, ptr %arrayidx14.i.i, align 4
   %sub.i.i = add i32 %64, -3
   br label %if.end24.sink.split.i.i
@@ -905,23 +904,23 @@ cond.false.i.i:                                   ; preds = %if.else.i.i
 cond.end.i.i:                                     ; preds = %cond.false.i.i, %cond.true.i.i
   %cond.i.i = phi i32 [ %sub10.i.i, %cond.true.i.i ], [ %67, %cond.false.i.i ]
   %cmp12.not.i.i = icmp eq i32 %add.i155.i, 1
-  %cond18.i.i = select i1 %cmp12.not.i.i, i32 %arrayidx16.i.val200.i, i32 %arrayidx14.i.val203.i
+  %cond18.i.i = select i1 %cmp12.not.i.i, i32 %arrayidx16.i.val201.i, i32 %arrayidx14.i.val204.i
   store i32 %cond18.i.i, ptr %arrayidx16.i.i, align 4
   store i32 %63, ptr %arrayidx14.i.i, align 4
   br label %if.end24.sink.split.i.i
 
 if.end24.sink.split.i.i:                          ; preds = %cond.end.i.i, %if.then.i156.i
-  %arrayidx16.i.val201.i = phi i32 [ %cond18.i.i, %cond.end.i.i ], [ %arrayidx14.i.val203.i, %if.then.i156.i ]
+  %arrayidx16.i.val202.i = phi i32 [ %cond18.i.i, %cond.end.i.i ], [ %arrayidx14.i.val204.i, %if.then.i156.i ]
   %cond.sink.i.i = phi i32 [ %cond.i.i, %cond.end.i.i ], [ %sub.i.i, %if.then.i156.i ]
   store i32 %cond.sink.i.i, ptr %rep.i, align 4
   br label %ZSTD_updateRep.exit.i
 
 ZSTD_updateRep.exit.i:                            ; preds = %if.end24.sink.split.i.i, %if.else.i.i
-  %arrayidx14.i.val202.i = phi i32 [ %arrayidx14.i.val203.i, %if.else.i.i ], [ %63, %if.end24.sink.split.i.i ]
-  %arrayidx16.i.val199.i = phi i32 [ %arrayidx16.i.val200.i, %if.else.i.i ], [ %arrayidx16.i.val201.i, %if.end24.sink.split.i.i ]
+  %arrayidx14.i.val203.i = phi i32 [ %arrayidx14.i.val204.i, %if.else.i.i ], [ %63, %if.end24.sink.split.i.i ]
+  %arrayidx16.i.val200.i = phi i32 [ %arrayidx16.i.val201.i, %if.else.i.i ], [ %arrayidx16.i.val202.i, %if.end24.sink.split.i.i ]
   %68 = phi i32 [ %63, %if.else.i.i ], [ %cond.sink.i.i, %if.end24.sink.split.i.i ]
-  %incdec.ptr.i = getelementptr inbounds %struct.seqDef_s, ptr %seq.0198.i, i64 1
-  %cmp121.i = icmp ult ptr %incdec.ptr.i, %sp.1221.i
+  %incdec.ptr.i = getelementptr inbounds %struct.seqDef_s, ptr %seq.0199.i, i64 1
+  %cmp121.i = icmp ult ptr %incdec.ptr.i, %sp.1222.i
   br i1 %cmp121.i, label %for.body.i, label %for.end.i, !llvm.loop !8
 
 for.end.i:                                        ; preds = %ZSTD_updateRep.exit.i, %if.then119.i
@@ -930,7 +929,7 @@ for.end.i:                                        ; preds = %ZSTD_updateRep.exit
   br label %do.end136.i
 
 do.end136.i:                                      ; preds = %for.end.i, %do.end115.i, %if.end81.i
-  %op.2.i = phi ptr [ %add.ptr116.i, %for.end.i ], [ %add.ptr116.i, %do.end115.i ], [ %op.1219.i, %if.end81.i ]
+  %op.2.i = phi ptr [ %add.ptr116.i, %for.end.i ], [ %add.ptr116.i, %do.end115.i ], [ %op.1220.i, %if.end81.i ]
   %sub.ptr.lhs.cast137.i = ptrtoint ptr %op.2.i to i64
   %sub.ptr.rhs.cast138.i = ptrtoint ptr %dst to i64
   %sub.ptr.sub139.i = sub i64 %sub.ptr.lhs.cast137.i, %sub.ptr.rhs.cast138.i

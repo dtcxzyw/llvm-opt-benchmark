@@ -133,7 +133,7 @@ if.end4:                                          ; preds = %if.end, %entry
   ret void
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define internal void @_ZL10_SCSUResetP10UConverter21UConverterResetChoice(ptr nocapture noundef %cnv, i32 noundef %choice) #1 {
 entry:
   %extraInfo = getelementptr inbounds %struct.UConverter, ptr %cnv, i64 0, i32 2
@@ -1412,14 +1412,14 @@ entry:
   %nextWindowUseIndex.i258 = getelementptr inbounds %struct.SCSUData, ptr %1, i64 0, i32 11
   br label %loop
 
-loop:                                             ; preds = %sw.epilog, %entry
-  %source.0 = phi ptr [ %2, %entry ], [ %source.9, %sw.epilog ]
-  %target.0 = phi ptr [ %4, %entry ], [ %target.13, %sw.epilog ]
-  %targetCapacity.0 = phi i32 [ %conv, %entry ], [ %sub378, %sw.epilog ]
-  %isSingleByteMode.0 = phi i8 [ %6, %entry ], [ %isSingleByteMode.2, %sw.epilog ]
-  %dynamicWindow.0 = phi i8 [ %7, %entry ], [ %dynamicWindow.2, %sw.epilog ]
-  %currentOffset.0 = phi i32 [ %8, %entry ], [ %currentOffset.1, %sw.epilog ]
-  %c.0 = phi i32 [ %9, %entry ], [ 0, %sw.epilog ]
+loop:                                             ; preds = %sw.bb371, %entry
+  %source.0 = phi ptr [ %2, %entry ], [ %source.9, %sw.bb371 ]
+  %target.0 = phi ptr [ %4, %entry ], [ %incdec.ptr377, %sw.bb371 ]
+  %targetCapacity.0 = phi i32 [ %conv, %entry ], [ %sub378, %sw.bb371 ]
+  %isSingleByteMode.0 = phi i8 [ %6, %entry ], [ %isSingleByteMode.2, %sw.bb371 ]
+  %dynamicWindow.0 = phi i8 [ %7, %entry ], [ %dynamicWindow.2, %sw.bb371 ]
+  %currentOffset.0 = phi i32 [ %8, %entry ], [ %currentOffset.1, %sw.bb371 ]
+  %c.0 = phi i32 [ %9, %entry ], [ 0, %sw.bb371 ]
   %tobool.not = icmp eq i8 %isSingleByteMode.0, 0
   %cmp194 = icmp ne i32 %c.0, 0
   %cmp196 = icmp sgt i32 %targetCapacity.0, 0
@@ -1955,40 +1955,40 @@ if.else193:                                       ; preds = %loop
   br i1 %or.cond2, label %getTrailUnicode, label %while.cond199.preheader
 
 while.cond199.preheader:                          ; preds = %if.else193
-  %cmp200610 = icmp ult ptr %source.0, %3
-  br i1 %cmp200610, label %while.body201.preheader, label %endloop
+  %cmp200619 = icmp ult ptr %source.0, %3
+  br i1 %cmp200619, label %while.body201.preheader, label %endloop
 
 while.body201.preheader:                          ; preds = %while.cond199.preheader
-  %cmp202773 = icmp slt i32 %targetCapacity.0, 1
-  br i1 %cmp202773, label %endloop.sink.split, label %if.end204
+  %cmp202809 = icmp slt i32 %targetCapacity.0, 1
+  br i1 %cmp202809, label %endloop.sink.split, label %if.end204
 
 while.body201:                                    ; preds = %if.then211
-  %sub216 = add nsw i32 %targetCapacity.6613774, -2
-  %cmp202 = icmp slt i32 %targetCapacity.6613774, 3
+  %sub216 = add nsw i32 %targetCapacity.6622810, -2
+  %cmp202 = icmp slt i32 %targetCapacity.6622810, 3
   br i1 %cmp202, label %endloop.sink.split, label %if.end204, !llvm.loop !18
 
 if.end204:                                        ; preds = %while.body201.preheader, %while.body201
-  %source.6611776 = phi ptr [ %incdec.ptr205, %while.body201 ], [ %source.0, %while.body201.preheader ]
-  %target.6612775 = phi ptr [ %incdec.ptr215, %while.body201 ], [ %target.0, %while.body201.preheader ]
-  %targetCapacity.6613774 = phi i32 [ %sub216, %while.body201 ], [ %targetCapacity.0, %while.body201.preheader ]
-  %incdec.ptr205 = getelementptr inbounds i16, ptr %source.6611776, i64 1
-  %45 = load i16, ptr %source.6611776, align 2
+  %source.6620812 = phi ptr [ %incdec.ptr205, %while.body201 ], [ %source.0, %while.body201.preheader ]
+  %target.6621811 = phi ptr [ %incdec.ptr215, %while.body201 ], [ %target.0, %while.body201.preheader ]
+  %targetCapacity.6622810 = phi i32 [ %sub216, %while.body201 ], [ %targetCapacity.0, %while.body201.preheader ]
+  %incdec.ptr205 = getelementptr inbounds i16, ptr %source.6620812, i64 1
+  %45 = load i16, ptr %source.6620812, align 2
   %conv206 = zext i16 %45 to i32
   %sub207 = add nsw i32 %conv206, -13312
   %cmp208 = icmp ult i32 %sub207, 41984
   br i1 %cmp208, label %if.then209, label %if.else219
 
 if.then209:                                       ; preds = %if.end204
-  %cmp210.not = icmp eq i32 %targetCapacity.6613774, 1
+  %cmp210.not = icmp eq i32 %targetCapacity.6622810, 1
   br i1 %cmp210.not, label %if.else379, label %if.then211
 
 if.then211:                                       ; preds = %if.then209
   %shr = lshr i16 %45, 8
   %conv212 = trunc i16 %shr to i8
-  %incdec.ptr213 = getelementptr inbounds i8, ptr %target.6612775, i64 1
-  store i8 %conv212, ptr %target.6612775, align 1
+  %incdec.ptr213 = getelementptr inbounds i8, ptr %target.6621811, i64 1
+  store i8 %conv212, ptr %target.6621811, align 1
   %conv214 = trunc i16 %45 to i8
-  %incdec.ptr215 = getelementptr inbounds i8, ptr %target.6612775, i64 2
+  %incdec.ptr215 = getelementptr inbounds i8, ptr %target.6621811, i64 2
   store i8 %conv214, ptr %incdec.ptr213, align 1
   %cmp200 = icmp ult ptr %incdec.ptr205, %3
   br i1 %cmp200, label %while.body201, label %endloop, !llvm.loop !18
@@ -2139,8 +2139,8 @@ if.then281:                                       ; preds = %if.else279
 
 getTrailUnicode:                                  ; preds = %if.then281, %if.else193
   %source.7 = phi ptr [ %source.0, %if.else193 ], [ %incdec.ptr205, %if.then281 ]
-  %target.7 = phi ptr [ %target.0, %if.else193 ], [ %target.6612775, %if.then281 ]
-  %targetCapacity.7 = phi i32 [ %targetCapacity.0, %if.else193 ], [ %targetCapacity.6613774, %if.then281 ]
+  %target.7 = phi ptr [ %target.0, %if.else193 ], [ %target.6621811, %if.then281 ]
+  %targetCapacity.7 = phi i32 [ %targetCapacity.0, %if.else193 ], [ %targetCapacity.6622810, %if.then281 ]
   %c.4 = phi i32 [ %c.0, %if.else193 ], [ %conv206, %if.then281 ]
   %cmp286 = icmp ult ptr %source.7, %3
   br i1 %cmp286, label %if.then287, label %endloop
@@ -2386,7 +2386,7 @@ if.else352:                                       ; preds = %if.else279
 endloop.sink.split:                               ; preds = %if.then281, %if.then287, %if.then36, %if.then42, %while.body, %while.body201.preheader, %while.body201, %sw.bb409, %sw.epilog397
   %.sink = phi i32 [ 15, %sw.epilog397 ], [ 15, %sw.bb409 ], [ 15, %while.body201 ], [ 15, %while.body ], [ 12, %if.then42 ], [ 12, %if.then36 ], [ 12, %if.then287 ], [ 12, %if.then281 ], [ 15, %while.body201.preheader ]
   %source.8.ph = phi ptr [ %source.9553, %sw.epilog397 ], [ %source.9553, %sw.bb409 ], [ %incdec.ptr205, %while.body201 ], [ %source.1, %while.body ], [ %source.2, %if.then42 ], [ %incdec.ptr, %if.then36 ], [ %source.7, %if.then287 ], [ %incdec.ptr205, %if.then281 ], [ %source.0, %while.body201.preheader ]
-  %target.8.ph = phi ptr [ %target.9554, %sw.epilog397 ], [ %incdec.ptr411, %sw.bb409 ], [ %incdec.ptr215, %while.body201 ], [ %target.1, %while.body ], [ %target.2, %if.then42 ], [ %target.1, %if.then36 ], [ %target.7, %if.then287 ], [ %target.6612775, %if.then281 ], [ %target.0, %while.body201.preheader ]
+  %target.8.ph = phi ptr [ %target.9554, %sw.epilog397 ], [ %incdec.ptr411, %sw.bb409 ], [ %incdec.ptr215, %while.body201 ], [ %target.1, %while.body ], [ %target.2, %if.then42 ], [ %target.1, %if.then36 ], [ %target.7, %if.then287 ], [ %target.6621811, %if.then281 ], [ %target.0, %while.body201.preheader ]
   %isSingleByteMode.1.ph = phi i8 [ %isSingleByteMode.2556, %sw.epilog397 ], [ %isSingleByteMode.2556, %sw.bb409 ], [ 0, %while.body201 ], [ %isSingleByteMode.0, %while.body ], [ %isSingleByteMode.0, %if.then42 ], [ %isSingleByteMode.0, %if.then36 ], [ 0, %if.then287 ], [ 0, %if.then281 ], [ 0, %while.body201.preheader ]
   %dynamicWindow.1.ph = phi i8 [ %dynamicWindow.2557, %sw.epilog397 ], [ %dynamicWindow.2557, %sw.bb409 ], [ %dynamicWindow.0, %while.body201 ], [ %dynamicWindow.0, %while.body201.preheader ], [ %dynamicWindow.0, %while.body ], [ %dynamicWindow.0, %if.then42 ], [ %dynamicWindow.0, %if.then36 ], [ %dynamicWindow.0, %if.then287 ], [ %dynamicWindow.0, %if.then281 ]
   %c.5.ph = phi i32 [ 0, %sw.epilog397 ], [ 0, %sw.bb409 ], [ 0, %while.body201 ], [ %c.1, %while.body ], [ %c.2, %if.then42 ], [ %conv11, %if.then36 ], [ %c.4, %if.then287 ], [ %conv206, %if.then281 ], [ %c.0, %while.body201.preheader ]
@@ -2408,8 +2408,8 @@ endloop:                                          ; preds = %getTrailSingle, %wh
 
 outputBytes:                                      ; preds = %land.lhs.true224, %if.else259, %if.else352, %if.else347, %_ZL16useDynamicWindowP8SCSUDataa.exit513, %_ZL16useDynamicWindowP8SCSUDataa.exit446, %if.then262, %_ZL16useDynamicWindowP8SCSUDataa.exit398, %if.then237, %if.else187, %if.then185, %if.then163, %if.then152, %if.else138, %_ZL16useDynamicWindowP8SCSUDataa.exit338, %if.then111, %if.then105, %if.else95, %_ZL16useDynamicWindowP8SCSUDataa.exit292, %_ZL16useDynamicWindowP8SCSUDataa.exit, %if.else23
   %source.9 = phi ptr [ %incdec.ptr, %if.else23 ], [ %incdec.ptr, %if.then105 ], [ %incdec.ptr, %if.then111 ], [ %incdec.ptr, %_ZL16useDynamicWindowP8SCSUDataa.exit338 ], [ %incdec.ptr, %if.else138 ], [ %incdec.ptr, %if.then152 ], [ %incdec.ptr, %if.then163 ], [ %incdec.ptr, %if.then185 ], [ %incdec.ptr, %if.else187 ], [ %incdec.ptr47, %_ZL16useDynamicWindowP8SCSUDataa.exit ], [ %incdec.ptr47, %_ZL16useDynamicWindowP8SCSUDataa.exit292 ], [ %incdec.ptr47, %if.else95 ], [ %incdec.ptr292, %_ZL16useDynamicWindowP8SCSUDataa.exit513 ], [ %incdec.ptr292, %if.else347 ], [ %incdec.ptr292, %_ZL16useDynamicWindowP8SCSUDataa.exit446 ], [ %incdec.ptr205, %if.then237 ], [ %incdec.ptr205, %_ZL16useDynamicWindowP8SCSUDataa.exit398 ], [ %incdec.ptr205, %if.then262 ], [ %incdec.ptr205, %if.else352 ], [ %incdec.ptr205, %if.else259 ], [ %incdec.ptr205, %land.lhs.true224 ]
-  %target.9 = phi ptr [ %target.1, %if.else23 ], [ %target.1, %if.then105 ], [ %target.1, %if.then111 ], [ %target.1, %_ZL16useDynamicWindowP8SCSUDataa.exit338 ], [ %target.1, %if.else138 ], [ %target.1, %if.then152 ], [ %target.1, %if.then163 ], [ %target.1, %if.then185 ], [ %target.1, %if.else187 ], [ %target.2, %_ZL16useDynamicWindowP8SCSUDataa.exit ], [ %target.2, %_ZL16useDynamicWindowP8SCSUDataa.exit292 ], [ %incdec.ptr96, %if.else95 ], [ %target.7, %_ZL16useDynamicWindowP8SCSUDataa.exit513 ], [ %target.7, %if.else347 ], [ %target.7, %_ZL16useDynamicWindowP8SCSUDataa.exit446 ], [ %target.6612775, %if.then237 ], [ %target.6612775, %_ZL16useDynamicWindowP8SCSUDataa.exit398 ], [ %target.6612775, %if.then262 ], [ %target.6612775, %if.else352 ], [ %target.6612775, %if.else259 ], [ %target.6612775, %land.lhs.true224 ]
-  %targetCapacity.8 = phi i32 [ %targetCapacity.1, %if.else23 ], [ %targetCapacity.1, %if.then105 ], [ %targetCapacity.1, %if.then111 ], [ %targetCapacity.1, %_ZL16useDynamicWindowP8SCSUDataa.exit338 ], [ %targetCapacity.1, %if.else138 ], [ %targetCapacity.1, %if.then152 ], [ %targetCapacity.1, %if.then163 ], [ %targetCapacity.1, %if.then185 ], [ %targetCapacity.1, %if.else187 ], [ %targetCapacity.2, %_ZL16useDynamicWindowP8SCSUDataa.exit ], [ %targetCapacity.2, %_ZL16useDynamicWindowP8SCSUDataa.exit292 ], [ %dec97, %if.else95 ], [ %targetCapacity.7, %_ZL16useDynamicWindowP8SCSUDataa.exit513 ], [ %targetCapacity.7, %if.else347 ], [ %targetCapacity.7, %_ZL16useDynamicWindowP8SCSUDataa.exit446 ], [ %targetCapacity.6613774, %if.then237 ], [ %targetCapacity.6613774, %_ZL16useDynamicWindowP8SCSUDataa.exit398 ], [ %targetCapacity.6613774, %if.then262 ], [ %targetCapacity.6613774, %if.else352 ], [ %targetCapacity.6613774, %if.else259 ], [ %targetCapacity.6613774, %land.lhs.true224 ]
+  %target.9 = phi ptr [ %target.1, %if.else23 ], [ %target.1, %if.then105 ], [ %target.1, %if.then111 ], [ %target.1, %_ZL16useDynamicWindowP8SCSUDataa.exit338 ], [ %target.1, %if.else138 ], [ %target.1, %if.then152 ], [ %target.1, %if.then163 ], [ %target.1, %if.then185 ], [ %target.1, %if.else187 ], [ %target.2, %_ZL16useDynamicWindowP8SCSUDataa.exit ], [ %target.2, %_ZL16useDynamicWindowP8SCSUDataa.exit292 ], [ %incdec.ptr96, %if.else95 ], [ %target.7, %_ZL16useDynamicWindowP8SCSUDataa.exit513 ], [ %target.7, %if.else347 ], [ %target.7, %_ZL16useDynamicWindowP8SCSUDataa.exit446 ], [ %target.6621811, %if.then237 ], [ %target.6621811, %_ZL16useDynamicWindowP8SCSUDataa.exit398 ], [ %target.6621811, %if.then262 ], [ %target.6621811, %if.else352 ], [ %target.6621811, %if.else259 ], [ %target.6621811, %land.lhs.true224 ]
+  %targetCapacity.8 = phi i32 [ %targetCapacity.1, %if.else23 ], [ %targetCapacity.1, %if.then105 ], [ %targetCapacity.1, %if.then111 ], [ %targetCapacity.1, %_ZL16useDynamicWindowP8SCSUDataa.exit338 ], [ %targetCapacity.1, %if.else138 ], [ %targetCapacity.1, %if.then152 ], [ %targetCapacity.1, %if.then163 ], [ %targetCapacity.1, %if.then185 ], [ %targetCapacity.1, %if.else187 ], [ %targetCapacity.2, %_ZL16useDynamicWindowP8SCSUDataa.exit ], [ %targetCapacity.2, %_ZL16useDynamicWindowP8SCSUDataa.exit292 ], [ %dec97, %if.else95 ], [ %targetCapacity.7, %_ZL16useDynamicWindowP8SCSUDataa.exit513 ], [ %targetCapacity.7, %if.else347 ], [ %targetCapacity.7, %_ZL16useDynamicWindowP8SCSUDataa.exit446 ], [ %targetCapacity.6622810, %if.then237 ], [ %targetCapacity.6622810, %_ZL16useDynamicWindowP8SCSUDataa.exit398 ], [ %targetCapacity.6622810, %if.then262 ], [ %targetCapacity.6622810, %if.else352 ], [ %targetCapacity.6622810, %if.else259 ], [ %targetCapacity.6622810, %land.lhs.true224 ]
   %isSingleByteMode.2 = phi i8 [ %isSingleByteMode.0, %if.else23 ], [ %isSingleByteMode.0, %if.then105 ], [ %isSingleByteMode.0, %if.then111 ], [ %isSingleByteMode.0, %_ZL16useDynamicWindowP8SCSUDataa.exit338 ], [ %isSingleByteMode.0, %if.else138 ], [ %isSingleByteMode.0, %if.then152 ], [ %isSingleByteMode.0, %if.then163 ], [ 0, %if.then185 ], [ %isSingleByteMode.0, %if.else187 ], [ %isSingleByteMode.0, %_ZL16useDynamicWindowP8SCSUDataa.exit ], [ %isSingleByteMode.0, %_ZL16useDynamicWindowP8SCSUDataa.exit292 ], [ 0, %if.else95 ], [ 1, %_ZL16useDynamicWindowP8SCSUDataa.exit513 ], [ 0, %if.else347 ], [ 1, %_ZL16useDynamicWindowP8SCSUDataa.exit446 ], [ 1, %if.then237 ], [ 1, %_ZL16useDynamicWindowP8SCSUDataa.exit398 ], [ 1, %if.then262 ], [ 0, %if.else352 ], [ 0, %if.else259 ], [ 0, %land.lhs.true224 ]
   %dynamicWindow.2 = phi i8 [ %dynamicWindow.0, %if.else23 ], [ %dynamicWindow.0, %if.then105 ], [ %dynamicWindow.0, %if.then111 ], [ %conv.i303, %_ZL16useDynamicWindowP8SCSUDataa.exit338 ], [ %dynamicWindow.0, %if.else138 ], [ %dynamicWindow.0, %if.then152 ], [ %41, %if.then163 ], [ %dynamicWindow.0, %if.then185 ], [ %dynamicWindow.0, %if.else187 ], [ %conv.i, %_ZL16useDynamicWindowP8SCSUDataa.exit ], [ %25, %_ZL16useDynamicWindowP8SCSUDataa.exit292 ], [ %dynamicWindow.0, %if.else95 ], [ %75, %_ZL16useDynamicWindowP8SCSUDataa.exit513 ], [ %dynamicWindow.0, %if.else347 ], [ %conv.i415, %_ZL16useDynamicWindowP8SCSUDataa.exit446 ], [ %dynamicWindow.0, %if.then237 ], [ %conv.i367, %_ZL16useDynamicWindowP8SCSUDataa.exit398 ], [ %55, %if.then262 ], [ %dynamicWindow.0, %if.else352 ], [ %dynamicWindow.0, %if.else259 ], [ %dynamicWindow.0, %land.lhs.true224 ]
   %currentOffset.1 = phi i32 [ %currentOffset.0, %if.else23 ], [ %currentOffset.0, %if.then105 ], [ %currentOffset.0, %if.then111 ], [ %33, %_ZL16useDynamicWindowP8SCSUDataa.exit338 ], [ %currentOffset.0, %if.else138 ], [ %currentOffset.0, %if.then152 ], [ %42, %if.then163 ], [ %currentOffset.0, %if.then185 ], [ %currentOffset.0, %if.else187 ], [ %13, %_ZL16useDynamicWindowP8SCSUDataa.exit ], [ %23, %_ZL16useDynamicWindowP8SCSUDataa.exit292 ], [ %currentOffset.0, %if.else95 ], [ %73, %_ZL16useDynamicWindowP8SCSUDataa.exit513 ], [ %currentOffset.0, %if.else347 ], [ %60, %_ZL16useDynamicWindowP8SCSUDataa.exit446 ], [ %currentOffset.0, %if.then237 ], [ %48, %_ZL16useDynamicWindowP8SCSUDataa.exit398 ], [ %56, %if.then262 ], [ %currentOffset.0, %if.else352 ], [ %currentOffset.0, %if.else259 ], [ %currentOffset.0, %land.lhs.true224 ]
@@ -2419,7 +2419,7 @@ outputBytes:                                      ; preds = %land.lhs.true224, %
   br i1 %cmp362.not, label %if.else379, label %if.then363
 
 if.then363:                                       ; preds = %outputBytes
-  switch i32 %length.0, label %sw.epilog [
+  switch i32 %length.0, label %default.unreachable694 [
     i32 4, label %sw.bb
     i32 3, label %sw.bb367
     i32 2, label %sw.bb371
@@ -2447,14 +2447,13 @@ sw.bb371:                                         ; preds = %sw.bb367, %if.then3
   store i8 %conv373, ptr %target.11, align 1
   %incdec.ptr374 = getelementptr inbounds i8, ptr %target.11, i64 1
   %conv376 = trunc i32 %c.6 to i8
-  %incdec.ptr377 = getelementptr inbounds i8, ptr %target.11, i64 2
   store i8 %conv376, ptr %incdec.ptr374, align 1
-  br label %sw.epilog
-
-sw.epilog:                                        ; preds = %if.then363, %sw.bb371
-  %target.13 = phi ptr [ %target.9, %if.then363 ], [ %incdec.ptr377, %sw.bb371 ]
+  %incdec.ptr377 = getelementptr inbounds i8, ptr %target.11, i64 2
   %sub378 = sub nsw i32 %targetCapacity.8, %length.0
   br label %loop
+
+default.unreachable694:                           ; preds = %if.then363
+  unreachable
 
 if.else379:                                       ; preds = %outputBytes, %if.then209
   %length.0559 = phi i32 [ 2, %if.then209 ], [ %length.0, %outputBytes ]
@@ -2462,7 +2461,7 @@ if.else379:                                       ; preds = %outputBytes, %if.th
   %dynamicWindow.2557 = phi i8 [ %dynamicWindow.0, %if.then209 ], [ %dynamicWindow.2, %outputBytes ]
   %isSingleByteMode.2556 = phi i8 [ 0, %if.then209 ], [ %isSingleByteMode.2, %outputBytes ]
   %targetCapacity.8555 = phi i32 [ 1, %if.then209 ], [ %targetCapacity.8, %outputBytes ]
-  %target.9554 = phi ptr [ %target.6612775, %if.then209 ], [ %target.9, %outputBytes ]
+  %target.9554 = phi ptr [ %target.6621811, %if.then209 ], [ %target.9, %outputBytes ]
   %source.9553 = phi ptr [ %incdec.ptr205, %if.then209 ], [ %source.9, %outputBytes ]
   %sub380 = sub nsw i32 %length.0559, %targetCapacity.8555
   %charErrorBuffer = getelementptr inbounds %struct.UConverter, ptr %0, i64 0, i32 27
@@ -3168,53 +3167,53 @@ if.else216:                                       ; preds = %loop
   br i1 %or.cond2, label %getTrailUnicode, label %while.cond222.preheader
 
 while.cond222.preheader:                          ; preds = %if.else216
-  %cmp223705 = icmp ult ptr %source.0, %3
-  br i1 %cmp223705, label %while.body224.preheader, label %endloop
+  %cmp223716 = icmp ult ptr %source.0, %3
+  br i1 %cmp223716, label %while.body224.preheader, label %endloop
 
 while.body224.preheader:                          ; preds = %while.cond222.preheader
-  %cmp225900 = icmp slt i32 %targetCapacity.0, 1
-  br i1 %cmp225900, label %endloop.sink.split, label %if.end227
+  %cmp225944 = icmp slt i32 %targetCapacity.0, 1
+  br i1 %cmp225944, label %endloop.sink.split, label %if.end227
 
 while.body224:                                    ; preds = %if.end244
-  %sub245 = add nsw i32 %targetCapacity.6708904, -2
-  %cmp225 = icmp slt i32 %targetCapacity.6708904, 3
+  %sub245 = add nsw i32 %targetCapacity.6719948, -2
+  %cmp225 = icmp slt i32 %targetCapacity.6719948, 3
   br i1 %cmp225, label %endloop.sink.split, label %if.end227, !llvm.loop !20
 
 if.end227:                                        ; preds = %while.body224.preheader, %while.body224
-  %source.6706906 = phi ptr [ %incdec.ptr228, %while.body224 ], [ %source.0, %while.body224.preheader ]
-  %target.6707905 = phi ptr [ %incdec.ptr239, %while.body224 ], [ %target.0, %while.body224.preheader ]
-  %targetCapacity.6708904 = phi i32 [ %sub245, %while.body224 ], [ %targetCapacity.0, %while.body224.preheader ]
-  %offsets.11709903 = phi ptr [ %offsets.12, %while.body224 ], [ %offsets.0, %while.body224.preheader ]
-  %sourceIndex.3711902 = phi i32 [ %inc230, %while.body224 ], [ %sourceIndex.0, %while.body224.preheader ]
-  %nextSourceIndex.6712901 = phi i32 [ %inc230, %while.body224 ], [ %nextSourceIndex.0, %while.body224.preheader ]
-  %incdec.ptr228 = getelementptr inbounds i16, ptr %source.6706906, i64 1
-  %47 = load i16, ptr %source.6706906, align 2
+  %source.6717950 = phi ptr [ %incdec.ptr228, %while.body224 ], [ %source.0, %while.body224.preheader ]
+  %target.6718949 = phi ptr [ %incdec.ptr239, %while.body224 ], [ %target.0, %while.body224.preheader ]
+  %targetCapacity.6719948 = phi i32 [ %sub245, %while.body224 ], [ %targetCapacity.0, %while.body224.preheader ]
+  %offsets.11720947 = phi ptr [ %offsets.12, %while.body224 ], [ %offsets.0, %while.body224.preheader ]
+  %sourceIndex.3722946 = phi i32 [ %inc230, %while.body224 ], [ %sourceIndex.0, %while.body224.preheader ]
+  %nextSourceIndex.6723945 = phi i32 [ %inc230, %while.body224 ], [ %nextSourceIndex.0, %while.body224.preheader ]
+  %incdec.ptr228 = getelementptr inbounds i16, ptr %source.6717950, i64 1
+  %47 = load i16, ptr %source.6717950, align 2
   %conv229 = zext i16 %47 to i32
-  %inc230 = add nsw i32 %nextSourceIndex.6712901, 1
+  %inc230 = add nsw i32 %nextSourceIndex.6723945, 1
   %sub231 = add nsw i32 %conv229, -13312
   %cmp232 = icmp ult i32 %sub231, 41984
   br i1 %cmp232, label %if.then233, label %if.else248
 
 if.then233:                                       ; preds = %if.end227
-  %cmp234.not = icmp eq i32 %targetCapacity.6708904, 1
+  %cmp234.not = icmp eq i32 %targetCapacity.6719948, 1
   br i1 %cmp234.not, label %if.else435, label %if.then235
 
 if.then235:                                       ; preds = %if.then233
   %shr = lshr i16 %47, 8
   %conv236 = trunc i16 %shr to i8
-  %incdec.ptr237 = getelementptr inbounds i8, ptr %target.6707905, i64 1
-  store i8 %conv236, ptr %target.6707905, align 1
+  %incdec.ptr237 = getelementptr inbounds i8, ptr %target.6718949, i64 1
+  store i8 %conv236, ptr %target.6718949, align 1
   %conv238 = trunc i16 %47 to i8
-  %incdec.ptr239 = getelementptr inbounds i8, ptr %target.6707905, i64 2
+  %incdec.ptr239 = getelementptr inbounds i8, ptr %target.6718949, i64 2
   store i8 %conv238, ptr %incdec.ptr237, align 1
-  %cmp240.not = icmp eq ptr %offsets.11709903, null
+  %cmp240.not = icmp eq ptr %offsets.11720947, null
   br i1 %cmp240.not, label %if.end244, label %if.then241
 
 if.then241:                                       ; preds = %if.then235
-  %incdec.ptr242 = getelementptr inbounds i32, ptr %offsets.11709903, i64 1
-  store i32 %sourceIndex.3711902, ptr %offsets.11709903, align 4
-  %incdec.ptr243 = getelementptr inbounds i32, ptr %offsets.11709903, i64 2
-  store i32 %sourceIndex.3711902, ptr %incdec.ptr242, align 4
+  %incdec.ptr242 = getelementptr inbounds i32, ptr %offsets.11720947, i64 1
+  store i32 %sourceIndex.3722946, ptr %offsets.11720947, align 4
+  %incdec.ptr243 = getelementptr inbounds i32, ptr %offsets.11720947, i64 2
+  store i32 %sourceIndex.3722946, ptr %incdec.ptr242, align 4
   br label %if.end244
 
 if.end244:                                        ; preds = %if.then241, %if.then235
@@ -3368,11 +3367,11 @@ if.then310:                                       ; preds = %if.else308
 
 getTrailUnicode:                                  ; preds = %if.then310, %if.else216
   %source.7 = phi ptr [ %source.0, %if.else216 ], [ %incdec.ptr228, %if.then310 ]
-  %target.7 = phi ptr [ %target.0, %if.else216 ], [ %target.6707905, %if.then310 ]
-  %targetCapacity.7 = phi i32 [ %targetCapacity.0, %if.else216 ], [ %targetCapacity.6708904, %if.then310 ]
-  %offsets.13 = phi ptr [ %offsets.0, %if.else216 ], [ %offsets.11709903, %if.then310 ]
+  %target.7 = phi ptr [ %target.0, %if.else216 ], [ %target.6718949, %if.then310 ]
+  %targetCapacity.7 = phi i32 [ %targetCapacity.0, %if.else216 ], [ %targetCapacity.6719948, %if.then310 ]
+  %offsets.13 = phi ptr [ %offsets.0, %if.else216 ], [ %offsets.11720947, %if.then310 ]
   %c.4 = phi i32 [ %c.0, %if.else216 ], [ %conv229, %if.then310 ]
-  %sourceIndex.4 = phi i32 [ %sourceIndex.0, %if.else216 ], [ %sourceIndex.3711902, %if.then310 ]
+  %sourceIndex.4 = phi i32 [ %sourceIndex.0, %if.else216 ], [ %sourceIndex.3722946, %if.then310 ]
   %nextSourceIndex.7 = phi i32 [ %nextSourceIndex.0, %if.else216 ], [ %inc230, %if.then310 ]
   %cmp315 = icmp ult ptr %source.7, %3
   br i1 %cmp315, label %if.then316, label %endloop
@@ -3619,8 +3618,8 @@ if.else382:                                       ; preds = %if.else308
 endloop.sink.split:                               ; preds = %if.then310, %if.then316, %if.then50, %if.then56, %while.body, %while.body224.preheader, %while.body224, %sw.bb472, %if.then476, %sw.epilog453, %sw.bb472.thread
   %.sink = phi i32 [ 15, %sw.bb472.thread ], [ 15, %sw.epilog453 ], [ 15, %if.then476 ], [ 15, %sw.bb472 ], [ 15, %while.body224 ], [ 15, %while.body ], [ 12, %if.then56 ], [ 12, %if.then50 ], [ 12, %if.then316 ], [ 12, %if.then310 ], [ 15, %while.body224.preheader ]
   %source.8.ph = phi ptr [ %source.9610, %sw.bb472.thread ], [ %source.9610, %sw.epilog453 ], [ %source.9610, %if.then476 ], [ %source.9610, %sw.bb472 ], [ %incdec.ptr228, %while.body224 ], [ %source.1, %while.body ], [ %source.2, %if.then56 ], [ %incdec.ptr, %if.then50 ], [ %source.7, %if.then316 ], [ %incdec.ptr228, %if.then310 ], [ %source.0, %while.body224.preheader ]
-  %target.8.ph = phi ptr [ %incdec.ptr474637, %sw.bb472.thread ], [ %target.9611, %sw.epilog453 ], [ %incdec.ptr474646, %if.then476 ], [ %incdec.ptr474, %sw.bb472 ], [ %incdec.ptr239, %while.body224 ], [ %target.1, %while.body ], [ %target.2, %if.then56 ], [ %target.1, %if.then50 ], [ %target.7, %if.then316 ], [ %target.6707905, %if.then310 ], [ %target.0, %while.body224.preheader ]
-  %offsets.14.ph = phi ptr [ null, %sw.bb472.thread ], [ %offsets.15613, %sw.epilog453 ], [ %incdec.ptr477, %if.then476 ], [ null, %sw.bb472 ], [ %offsets.12, %while.body224 ], [ %offsets.1, %while.body ], [ %offsets.5, %if.then56 ], [ %offsets.1, %if.then50 ], [ %offsets.13, %if.then316 ], [ %offsets.11709903, %if.then310 ], [ %offsets.0, %while.body224.preheader ]
+  %target.8.ph = phi ptr [ %incdec.ptr474637, %sw.bb472.thread ], [ %target.9611, %sw.epilog453 ], [ %incdec.ptr474646, %if.then476 ], [ %incdec.ptr474, %sw.bb472 ], [ %incdec.ptr239, %while.body224 ], [ %target.1, %while.body ], [ %target.2, %if.then56 ], [ %target.1, %if.then50 ], [ %target.7, %if.then316 ], [ %target.6718949, %if.then310 ], [ %target.0, %while.body224.preheader ]
+  %offsets.14.ph = phi ptr [ null, %sw.bb472.thread ], [ %offsets.15613, %sw.epilog453 ], [ %incdec.ptr477, %if.then476 ], [ null, %sw.bb472 ], [ %offsets.12, %while.body224 ], [ %offsets.1, %while.body ], [ %offsets.5, %if.then56 ], [ %offsets.1, %if.then50 ], [ %offsets.13, %if.then316 ], [ %offsets.11720947, %if.then310 ], [ %offsets.0, %while.body224.preheader ]
   %isSingleByteMode.1.ph = phi i8 [ %isSingleByteMode.2614, %sw.bb472.thread ], [ %isSingleByteMode.2614, %sw.epilog453 ], [ %isSingleByteMode.2614, %if.then476 ], [ %isSingleByteMode.2614, %sw.bb472 ], [ 0, %while.body224 ], [ %isSingleByteMode.0, %while.body ], [ %isSingleByteMode.0, %if.then56 ], [ %isSingleByteMode.0, %if.then50 ], [ 0, %if.then316 ], [ 0, %if.then310 ], [ 0, %while.body224.preheader ]
   %dynamicWindow.1.ph = phi i8 [ %dynamicWindow.2615, %sw.bb472.thread ], [ %dynamicWindow.2615, %sw.epilog453 ], [ %dynamicWindow.2615, %if.then476 ], [ %dynamicWindow.2615, %sw.bb472 ], [ %dynamicWindow.0, %while.body224 ], [ %dynamicWindow.0, %while.body224.preheader ], [ %dynamicWindow.0, %while.body ], [ %dynamicWindow.0, %if.then56 ], [ %dynamicWindow.0, %if.then50 ], [ %dynamicWindow.0, %if.then316 ], [ %dynamicWindow.0, %if.then310 ]
   %c.5.ph = phi i32 [ 0, %sw.bb472.thread ], [ 0, %sw.epilog453 ], [ 0, %if.then476 ], [ 0, %sw.bb472 ], [ 0, %while.body224 ], [ %c.1, %while.body ], [ %c.2, %if.then56 ], [ %conv13, %if.then50 ], [ %c.4, %if.then316 ], [ %conv229, %if.then310 ], [ %c.0, %while.body224.preheader ]
@@ -3644,14 +3643,14 @@ endloop:                                          ; preds = %getTrailSingle, %wh
 
 outputBytes:                                      ; preds = %land.lhs.true253, %if.else288, %if.else382, %if.else377, %_ZL16useDynamicWindowP8SCSUDataa.exit567, %_ZL16useDynamicWindowP8SCSUDataa.exit500, %if.then291, %_ZL16useDynamicWindowP8SCSUDataa.exit452, %if.then266, %if.else210, %if.then208, %if.then186, %if.then175, %if.else161, %_ZL16useDynamicWindowP8SCSUDataa.exit392, %if.then134, %if.then128, %if.end119, %_ZL16useDynamicWindowP8SCSUDataa.exit346, %_ZL16useDynamicWindowP8SCSUDataa.exit, %if.else33
   %source.9 = phi ptr [ %incdec.ptr, %if.else33 ], [ %incdec.ptr, %if.then128 ], [ %incdec.ptr, %if.then134 ], [ %incdec.ptr, %_ZL16useDynamicWindowP8SCSUDataa.exit392 ], [ %incdec.ptr, %if.else161 ], [ %incdec.ptr, %if.then175 ], [ %incdec.ptr, %if.then186 ], [ %incdec.ptr, %if.then208 ], [ %incdec.ptr, %if.else210 ], [ %incdec.ptr61, %_ZL16useDynamicWindowP8SCSUDataa.exit ], [ %incdec.ptr61, %_ZL16useDynamicWindowP8SCSUDataa.exit346 ], [ %incdec.ptr61, %if.end119 ], [ %incdec.ptr321, %_ZL16useDynamicWindowP8SCSUDataa.exit567 ], [ %incdec.ptr321, %if.else377 ], [ %incdec.ptr321, %_ZL16useDynamicWindowP8SCSUDataa.exit500 ], [ %incdec.ptr228, %if.then266 ], [ %incdec.ptr228, %_ZL16useDynamicWindowP8SCSUDataa.exit452 ], [ %incdec.ptr228, %if.then291 ], [ %incdec.ptr228, %if.else382 ], [ %incdec.ptr228, %if.else288 ], [ %incdec.ptr228, %land.lhs.true253 ]
-  %target.9 = phi ptr [ %target.1, %if.else33 ], [ %target.1, %if.then128 ], [ %target.1, %if.then134 ], [ %target.1, %_ZL16useDynamicWindowP8SCSUDataa.exit392 ], [ %target.1, %if.else161 ], [ %target.1, %if.then175 ], [ %target.1, %if.then186 ], [ %target.1, %if.then208 ], [ %target.1, %if.else210 ], [ %target.2, %_ZL16useDynamicWindowP8SCSUDataa.exit ], [ %target.2, %_ZL16useDynamicWindowP8SCSUDataa.exit346 ], [ %incdec.ptr115, %if.end119 ], [ %target.7, %_ZL16useDynamicWindowP8SCSUDataa.exit567 ], [ %target.7, %if.else377 ], [ %target.7, %_ZL16useDynamicWindowP8SCSUDataa.exit500 ], [ %target.6707905, %if.then266 ], [ %target.6707905, %_ZL16useDynamicWindowP8SCSUDataa.exit452 ], [ %target.6707905, %if.then291 ], [ %target.6707905, %if.else382 ], [ %target.6707905, %if.else288 ], [ %target.6707905, %land.lhs.true253 ]
-  %targetCapacity.8 = phi i32 [ %targetCapacity.1, %if.else33 ], [ %targetCapacity.1, %if.then128 ], [ %targetCapacity.1, %if.then134 ], [ %targetCapacity.1, %_ZL16useDynamicWindowP8SCSUDataa.exit392 ], [ %targetCapacity.1, %if.else161 ], [ %targetCapacity.1, %if.then175 ], [ %targetCapacity.1, %if.then186 ], [ %targetCapacity.1, %if.then208 ], [ %targetCapacity.1, %if.else210 ], [ %targetCapacity.2, %_ZL16useDynamicWindowP8SCSUDataa.exit ], [ %targetCapacity.2, %_ZL16useDynamicWindowP8SCSUDataa.exit346 ], [ %dec120, %if.end119 ], [ %targetCapacity.7, %_ZL16useDynamicWindowP8SCSUDataa.exit567 ], [ %targetCapacity.7, %if.else377 ], [ %targetCapacity.7, %_ZL16useDynamicWindowP8SCSUDataa.exit500 ], [ %targetCapacity.6708904, %if.then266 ], [ %targetCapacity.6708904, %_ZL16useDynamicWindowP8SCSUDataa.exit452 ], [ %targetCapacity.6708904, %if.then291 ], [ %targetCapacity.6708904, %if.else382 ], [ %targetCapacity.6708904, %if.else288 ], [ %targetCapacity.6708904, %land.lhs.true253 ]
-  %offsets.15 = phi ptr [ %offsets.1, %if.else33 ], [ %offsets.1, %if.then128 ], [ %offsets.1, %if.then134 ], [ %offsets.1, %_ZL16useDynamicWindowP8SCSUDataa.exit392 ], [ %offsets.1, %if.else161 ], [ %offsets.1, %if.then175 ], [ %offsets.1, %if.then186 ], [ %offsets.1, %if.then208 ], [ %offsets.1, %if.else210 ], [ %offsets.5, %_ZL16useDynamicWindowP8SCSUDataa.exit ], [ %offsets.5, %_ZL16useDynamicWindowP8SCSUDataa.exit346 ], [ %offsets.7, %if.end119 ], [ %offsets.13, %_ZL16useDynamicWindowP8SCSUDataa.exit567 ], [ %offsets.13, %if.else377 ], [ %offsets.13, %_ZL16useDynamicWindowP8SCSUDataa.exit500 ], [ %offsets.11709903, %if.then266 ], [ %offsets.11709903, %_ZL16useDynamicWindowP8SCSUDataa.exit452 ], [ %offsets.11709903, %if.then291 ], [ %offsets.11709903, %if.else382 ], [ %offsets.11709903, %if.else288 ], [ %offsets.11709903, %land.lhs.true253 ]
+  %target.9 = phi ptr [ %target.1, %if.else33 ], [ %target.1, %if.then128 ], [ %target.1, %if.then134 ], [ %target.1, %_ZL16useDynamicWindowP8SCSUDataa.exit392 ], [ %target.1, %if.else161 ], [ %target.1, %if.then175 ], [ %target.1, %if.then186 ], [ %target.1, %if.then208 ], [ %target.1, %if.else210 ], [ %target.2, %_ZL16useDynamicWindowP8SCSUDataa.exit ], [ %target.2, %_ZL16useDynamicWindowP8SCSUDataa.exit346 ], [ %incdec.ptr115, %if.end119 ], [ %target.7, %_ZL16useDynamicWindowP8SCSUDataa.exit567 ], [ %target.7, %if.else377 ], [ %target.7, %_ZL16useDynamicWindowP8SCSUDataa.exit500 ], [ %target.6718949, %if.then266 ], [ %target.6718949, %_ZL16useDynamicWindowP8SCSUDataa.exit452 ], [ %target.6718949, %if.then291 ], [ %target.6718949, %if.else382 ], [ %target.6718949, %if.else288 ], [ %target.6718949, %land.lhs.true253 ]
+  %targetCapacity.8 = phi i32 [ %targetCapacity.1, %if.else33 ], [ %targetCapacity.1, %if.then128 ], [ %targetCapacity.1, %if.then134 ], [ %targetCapacity.1, %_ZL16useDynamicWindowP8SCSUDataa.exit392 ], [ %targetCapacity.1, %if.else161 ], [ %targetCapacity.1, %if.then175 ], [ %targetCapacity.1, %if.then186 ], [ %targetCapacity.1, %if.then208 ], [ %targetCapacity.1, %if.else210 ], [ %targetCapacity.2, %_ZL16useDynamicWindowP8SCSUDataa.exit ], [ %targetCapacity.2, %_ZL16useDynamicWindowP8SCSUDataa.exit346 ], [ %dec120, %if.end119 ], [ %targetCapacity.7, %_ZL16useDynamicWindowP8SCSUDataa.exit567 ], [ %targetCapacity.7, %if.else377 ], [ %targetCapacity.7, %_ZL16useDynamicWindowP8SCSUDataa.exit500 ], [ %targetCapacity.6719948, %if.then266 ], [ %targetCapacity.6719948, %_ZL16useDynamicWindowP8SCSUDataa.exit452 ], [ %targetCapacity.6719948, %if.then291 ], [ %targetCapacity.6719948, %if.else382 ], [ %targetCapacity.6719948, %if.else288 ], [ %targetCapacity.6719948, %land.lhs.true253 ]
+  %offsets.15 = phi ptr [ %offsets.1, %if.else33 ], [ %offsets.1, %if.then128 ], [ %offsets.1, %if.then134 ], [ %offsets.1, %_ZL16useDynamicWindowP8SCSUDataa.exit392 ], [ %offsets.1, %if.else161 ], [ %offsets.1, %if.then175 ], [ %offsets.1, %if.then186 ], [ %offsets.1, %if.then208 ], [ %offsets.1, %if.else210 ], [ %offsets.5, %_ZL16useDynamicWindowP8SCSUDataa.exit ], [ %offsets.5, %_ZL16useDynamicWindowP8SCSUDataa.exit346 ], [ %offsets.7, %if.end119 ], [ %offsets.13, %_ZL16useDynamicWindowP8SCSUDataa.exit567 ], [ %offsets.13, %if.else377 ], [ %offsets.13, %_ZL16useDynamicWindowP8SCSUDataa.exit500 ], [ %offsets.11720947, %if.then266 ], [ %offsets.11720947, %_ZL16useDynamicWindowP8SCSUDataa.exit452 ], [ %offsets.11720947, %if.then291 ], [ %offsets.11720947, %if.else382 ], [ %offsets.11720947, %if.else288 ], [ %offsets.11720947, %land.lhs.true253 ]
   %isSingleByteMode.2 = phi i8 [ %isSingleByteMode.0, %if.else33 ], [ %isSingleByteMode.0, %if.then128 ], [ %isSingleByteMode.0, %if.then134 ], [ %isSingleByteMode.0, %_ZL16useDynamicWindowP8SCSUDataa.exit392 ], [ %isSingleByteMode.0, %if.else161 ], [ %isSingleByteMode.0, %if.then175 ], [ %isSingleByteMode.0, %if.then186 ], [ 0, %if.then208 ], [ %isSingleByteMode.0, %if.else210 ], [ %isSingleByteMode.0, %_ZL16useDynamicWindowP8SCSUDataa.exit ], [ %isSingleByteMode.0, %_ZL16useDynamicWindowP8SCSUDataa.exit346 ], [ 0, %if.end119 ], [ 1, %_ZL16useDynamicWindowP8SCSUDataa.exit567 ], [ 0, %if.else377 ], [ 1, %_ZL16useDynamicWindowP8SCSUDataa.exit500 ], [ 1, %if.then266 ], [ 1, %_ZL16useDynamicWindowP8SCSUDataa.exit452 ], [ 1, %if.then291 ], [ 0, %if.else382 ], [ 0, %if.else288 ], [ 0, %land.lhs.true253 ]
   %dynamicWindow.2 = phi i8 [ %dynamicWindow.0, %if.else33 ], [ %dynamicWindow.0, %if.then128 ], [ %dynamicWindow.0, %if.then134 ], [ %conv.i357, %_ZL16useDynamicWindowP8SCSUDataa.exit392 ], [ %dynamicWindow.0, %if.else161 ], [ %dynamicWindow.0, %if.then175 ], [ %44, %if.then186 ], [ %dynamicWindow.0, %if.then208 ], [ %dynamicWindow.0, %if.else210 ], [ %conv.i, %_ZL16useDynamicWindowP8SCSUDataa.exit ], [ %28, %_ZL16useDynamicWindowP8SCSUDataa.exit346 ], [ %dynamicWindow.0, %if.end119 ], [ %77, %_ZL16useDynamicWindowP8SCSUDataa.exit567 ], [ %dynamicWindow.0, %if.else377 ], [ %conv.i469, %_ZL16useDynamicWindowP8SCSUDataa.exit500 ], [ %dynamicWindow.0, %if.then266 ], [ %conv.i421, %_ZL16useDynamicWindowP8SCSUDataa.exit452 ], [ %57, %if.then291 ], [ %dynamicWindow.0, %if.else382 ], [ %dynamicWindow.0, %if.else288 ], [ %dynamicWindow.0, %land.lhs.true253 ]
   %currentOffset.1 = phi i32 [ %currentOffset.0, %if.else33 ], [ %currentOffset.0, %if.then128 ], [ %currentOffset.0, %if.then134 ], [ %36, %_ZL16useDynamicWindowP8SCSUDataa.exit392 ], [ %currentOffset.0, %if.else161 ], [ %currentOffset.0, %if.then175 ], [ %45, %if.then186 ], [ %currentOffset.0, %if.then208 ], [ %currentOffset.0, %if.else210 ], [ %16, %_ZL16useDynamicWindowP8SCSUDataa.exit ], [ %26, %_ZL16useDynamicWindowP8SCSUDataa.exit346 ], [ %currentOffset.0, %if.end119 ], [ %75, %_ZL16useDynamicWindowP8SCSUDataa.exit567 ], [ %currentOffset.0, %if.else377 ], [ %62, %_ZL16useDynamicWindowP8SCSUDataa.exit500 ], [ %currentOffset.0, %if.then266 ], [ %50, %_ZL16useDynamicWindowP8SCSUDataa.exit452 ], [ %58, %if.then291 ], [ %currentOffset.0, %if.else382 ], [ %currentOffset.0, %if.else288 ], [ %currentOffset.0, %land.lhs.true253 ]
   %c.6 = phi i32 [ %or, %if.else33 ], [ %or130, %if.then128 ], [ %or135, %if.then134 ], [ %or160, %_ZL16useDynamicWindowP8SCSUDataa.exit392 ], [ %or170, %if.else161 ], [ %or182, %if.then175 ], [ %or198, %if.then186 ], [ %or209, %if.then208 ], [ %or211, %if.else210 ], [ %or96, %_ZL16useDynamicWindowP8SCSUDataa.exit ], [ %or113, %_ZL16useDynamicWindowP8SCSUDataa.exit346 ], [ %or124, %if.end119 ], [ %or376, %_ZL16useDynamicWindowP8SCSUDataa.exit567 ], [ %or381, %if.else377 ], [ %or353, %_ZL16useDynamicWindowP8SCSUDataa.exit500 ], [ %or270, %if.then266 ], [ %or287, %_ZL16useDynamicWindowP8SCSUDataa.exit452 ], [ %or303, %if.then291 ], [ %or383, %if.else382 ], [ %conv229, %if.else288 ], [ %conv229, %land.lhs.true253 ]
-  %sourceIndex.5 = phi i32 [ %sourceIndex.1, %if.else33 ], [ %sourceIndex.1, %if.then128 ], [ %sourceIndex.1, %if.then134 ], [ %sourceIndex.1, %_ZL16useDynamicWindowP8SCSUDataa.exit392 ], [ %sourceIndex.1, %if.else161 ], [ %sourceIndex.1, %if.then175 ], [ %sourceIndex.1, %if.then186 ], [ %sourceIndex.1, %if.then208 ], [ %sourceIndex.1, %if.else210 ], [ %sourceIndex.2, %_ZL16useDynamicWindowP8SCSUDataa.exit ], [ %sourceIndex.2, %_ZL16useDynamicWindowP8SCSUDataa.exit346 ], [ %sourceIndex.2, %if.end119 ], [ %sourceIndex.4, %_ZL16useDynamicWindowP8SCSUDataa.exit567 ], [ %sourceIndex.4, %if.else377 ], [ %sourceIndex.4, %_ZL16useDynamicWindowP8SCSUDataa.exit500 ], [ %sourceIndex.3711902, %if.then266 ], [ %sourceIndex.3711902, %_ZL16useDynamicWindowP8SCSUDataa.exit452 ], [ %sourceIndex.3711902, %if.then291 ], [ %sourceIndex.3711902, %if.else382 ], [ %sourceIndex.3711902, %if.else288 ], [ %sourceIndex.3711902, %land.lhs.true253 ]
+  %sourceIndex.5 = phi i32 [ %sourceIndex.1, %if.else33 ], [ %sourceIndex.1, %if.then128 ], [ %sourceIndex.1, %if.then134 ], [ %sourceIndex.1, %_ZL16useDynamicWindowP8SCSUDataa.exit392 ], [ %sourceIndex.1, %if.else161 ], [ %sourceIndex.1, %if.then175 ], [ %sourceIndex.1, %if.then186 ], [ %sourceIndex.1, %if.then208 ], [ %sourceIndex.1, %if.else210 ], [ %sourceIndex.2, %_ZL16useDynamicWindowP8SCSUDataa.exit ], [ %sourceIndex.2, %_ZL16useDynamicWindowP8SCSUDataa.exit346 ], [ %sourceIndex.2, %if.end119 ], [ %sourceIndex.4, %_ZL16useDynamicWindowP8SCSUDataa.exit567 ], [ %sourceIndex.4, %if.else377 ], [ %sourceIndex.4, %_ZL16useDynamicWindowP8SCSUDataa.exit500 ], [ %sourceIndex.3722946, %if.then266 ], [ %sourceIndex.3722946, %_ZL16useDynamicWindowP8SCSUDataa.exit452 ], [ %sourceIndex.3722946, %if.then291 ], [ %sourceIndex.3722946, %if.else382 ], [ %sourceIndex.3722946, %if.else288 ], [ %sourceIndex.3722946, %land.lhs.true253 ]
   %nextSourceIndex.8 = phi i32 [ %inc, %if.else33 ], [ %inc, %if.then128 ], [ %inc, %if.then134 ], [ %inc, %_ZL16useDynamicWindowP8SCSUDataa.exit392 ], [ %inc, %if.else161 ], [ %inc, %if.then175 ], [ %inc, %if.then186 ], [ %inc, %if.then208 ], [ %inc, %if.else210 ], [ %inc62, %_ZL16useDynamicWindowP8SCSUDataa.exit ], [ %inc62, %_ZL16useDynamicWindowP8SCSUDataa.exit346 ], [ %inc62, %if.end119 ], [ %inc322, %_ZL16useDynamicWindowP8SCSUDataa.exit567 ], [ %inc322, %if.else377 ], [ %inc322, %_ZL16useDynamicWindowP8SCSUDataa.exit500 ], [ %inc230, %if.then266 ], [ %inc230, %_ZL16useDynamicWindowP8SCSUDataa.exit452 ], [ %inc230, %if.then291 ], [ %inc230, %if.else382 ], [ %inc230, %if.else288 ], [ %inc230, %land.lhs.true253 ]
   %length.0 = phi i32 [ 2, %if.else33 ], [ 2, %if.then128 ], [ 3, %if.then134 ], [ 2, %_ZL16useDynamicWindowP8SCSUDataa.exit392 ], [ 2, %if.else161 ], [ 2, %if.then175 ], [ 3, %if.then186 ], [ 3, %if.then208 ], [ 3, %if.else210 ], [ 2, %_ZL16useDynamicWindowP8SCSUDataa.exit ], [ 4, %_ZL16useDynamicWindowP8SCSUDataa.exit346 ], [ 4, %if.end119 ], [ 4, %_ZL16useDynamicWindowP8SCSUDataa.exit567 ], [ 4, %if.else377 ], [ 2, %_ZL16useDynamicWindowP8SCSUDataa.exit500 ], [ 2, %if.then266 ], [ 2, %_ZL16useDynamicWindowP8SCSUDataa.exit452 ], [ 3, %if.then291 ], [ 3, %if.else382 ], [ 2, %if.else288 ], [ 2, %land.lhs.true253 ]
   %cmp393.not = icmp sgt i32 %length.0, %targetCapacity.8
@@ -3662,7 +3661,7 @@ if.then394:                                       ; preds = %outputBytes
   br i1 %cmp395, label %if.then396, label %if.else411
 
 if.then396:                                       ; preds = %if.then394
-  switch i32 %length.0, label %if.end433 [
+  switch i32 %length.0, label %default.unreachable807 [
     i32 4, label %sw.bb
     i32 3, label %sw.bb400
     i32 2, label %sw.bb404
@@ -3690,12 +3689,11 @@ sw.bb404:                                         ; preds = %sw.bb400, %if.then3
   store i8 %conv406, ptr %target.11, align 1
   %incdec.ptr407 = getelementptr inbounds i8, ptr %target.11, i64 1
   %conv409 = trunc i32 %c.6 to i8
-  %incdec.ptr410 = getelementptr inbounds i8, ptr %target.11, i64 2
   store i8 %conv409, ptr %incdec.ptr407, align 1
   br label %if.end433
 
 if.else411:                                       ; preds = %if.then394
-  switch i32 %length.0, label %if.end433 [
+  switch i32 %length.0, label %default.unreachable807 [
     i32 4, label %sw.bb412
     i32 3, label %sw.bb417
     i32 2, label %sw.bb422
@@ -3731,27 +3729,30 @@ sw.bb422:                                         ; preds = %sw.bb417, %if.else4
   %incdec.ptr426 = getelementptr inbounds i32, ptr %offsets.17, i64 1
   %incdec.ptr425 = getelementptr inbounds i8, ptr %target.14, i64 1
   %conv428 = trunc i32 %c.6 to i8
-  %incdec.ptr429 = getelementptr inbounds i8, ptr %target.14, i64 2
   store i8 %conv428, ptr %incdec.ptr425, align 1
   %incdec.ptr430 = getelementptr inbounds i32, ptr %offsets.17, i64 2
   store i32 %sourceIndex.5, ptr %incdec.ptr426, align 4
   br label %if.end433
 
-if.end433:                                        ; preds = %sw.bb422, %if.else411, %sw.bb404, %if.then396
-  %target.16 = phi ptr [ %target.9, %if.then396 ], [ %incdec.ptr410, %sw.bb404 ], [ %target.9, %if.else411 ], [ %incdec.ptr429, %sw.bb422 ]
-  %offsets.19 = phi ptr [ null, %if.then396 ], [ null, %sw.bb404 ], [ %offsets.15, %if.else411 ], [ %incdec.ptr430, %sw.bb422 ]
+default.unreachable807:                           ; preds = %if.else411, %if.then396
+  unreachable
+
+if.end433:                                        ; preds = %sw.bb422, %sw.bb404
+  %target.11.pn = phi ptr [ %target.11, %sw.bb404 ], [ %target.14, %sw.bb422 ]
+  %offsets.19 = phi ptr [ null, %sw.bb404 ], [ %incdec.ptr430, %sw.bb422 ]
+  %target.16 = getelementptr inbounds i8, ptr %target.11.pn, i64 2
   %sub434 = sub nsw i32 %targetCapacity.8, %length.0
   br label %loop
 
 if.else435:                                       ; preds = %outputBytes, %if.then233
   %length.0618 = phi i32 [ 2, %if.then233 ], [ %length.0, %outputBytes ]
-  %sourceIndex.5617 = phi i32 [ %sourceIndex.3711902, %if.then233 ], [ %sourceIndex.5, %outputBytes ]
+  %sourceIndex.5617 = phi i32 [ %sourceIndex.3722946, %if.then233 ], [ %sourceIndex.5, %outputBytes ]
   %c.6616 = phi i32 [ %conv229, %if.then233 ], [ %c.6, %outputBytes ]
   %dynamicWindow.2615 = phi i8 [ %dynamicWindow.0, %if.then233 ], [ %dynamicWindow.2, %outputBytes ]
   %isSingleByteMode.2614 = phi i8 [ 0, %if.then233 ], [ %isSingleByteMode.2, %outputBytes ]
-  %offsets.15613 = phi ptr [ %offsets.11709903, %if.then233 ], [ %offsets.15, %outputBytes ]
+  %offsets.15613 = phi ptr [ %offsets.11720947, %if.then233 ], [ %offsets.15, %outputBytes ]
   %targetCapacity.8612 = phi i32 [ 1, %if.then233 ], [ %targetCapacity.8, %outputBytes ]
-  %target.9611 = phi ptr [ %target.6707905, %if.then233 ], [ %target.9, %outputBytes ]
+  %target.9611 = phi ptr [ %target.6718949, %if.then233 ], [ %target.9, %outputBytes ]
   %source.9610 = phi ptr [ %incdec.ptr228, %if.then233 ], [ %source.9, %outputBytes ]
   %sub436 = sub nsw i32 %length.0618, %targetCapacity.8612
   %charErrorBuffer = getelementptr inbounds %struct.UConverter, ptr %0, i64 0, i32 27
@@ -3879,7 +3880,7 @@ entry:
   ret ptr %.str..str.1
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define internal noundef ptr @_ZL14_SCSUSafeClonePK10UConverterPvPiP10UErrorCode(ptr nocapture noundef readonly %cnv, ptr noundef %stackBuffer, ptr nocapture noundef %pBufferSize, ptr nocapture noundef readonly %status) #1 {
 entry:
   %0 = load i32, ptr %status, align 4
@@ -4035,7 +4036,7 @@ return:                                           ; preds = %if.else13, %for.end
 }
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nofree nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

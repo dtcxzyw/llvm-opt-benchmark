@@ -1017,7 +1017,7 @@ if.end26:                                         ; preds = %for.body, %if.then2
   %i.1 = phi i32 [ %inc, %if.then20 ], [ %i.046, %for.body ]
   %b.0.in = phi i16 [ %4, %if.then20 ], [ %c.043, %for.body ]
   %b.0 = trunc i16 %b.0.in to i8
-  switch i32 %node.044, label %sw.epilog [
+  switch i32 %node.044, label %default.unreachable [
     i32 0, label %sw.bb
     i32 1, label %sw.bb36
     i32 2, label %for.cond48.preheader
@@ -1083,15 +1083,18 @@ sw.epilog.loopexit:                               ; preds = %if.then54
   %8 = trunc i64 %indvars.iv.next to i32
   br label %sw.epilog
 
-sw.epilog:                                        ; preds = %sw.epilog.loopexit, %for.cond48.preheader, %sw.bb, %if.then40, %if.else44, %if.else31, %if.end26
-  %node.1 = phi i32 [ %node.044, %if.end26 ], [ 0, %if.then40 ], [ 2, %if.else44 ], [ 0, %if.else31 ], [ 1, %sw.bb ], [ 0, %for.cond48.preheader ], [ 0, %sw.epilog.loopexit ]
-  %runLength.1 = phi i32 [ %runLength.045, %if.end26 ], [ %runLength.045, %if.then40 ], [ %conv37, %if.else44 ], [ %runLength.045, %if.else31 ], [ %runLength.045, %sw.bb ], [ %runLength.045, %for.cond48.preheader ], [ %runLength.045, %sw.epilog.loopexit ]
-  %ai.2 = phi i32 [ %ai.047, %if.end26 ], [ %inc41, %if.then40 ], [ %ai.047, %if.else44 ], [ %inc32, %if.else31 ], [ %ai.047, %sw.bb ], [ %ai.047, %for.cond48.preheader ], [ %8, %sw.epilog.loopexit ]
+default.unreachable:                              ; preds = %if.end26
+  unreachable
+
+sw.epilog:                                        ; preds = %sw.epilog.loopexit, %for.cond48.preheader, %sw.bb, %if.then40, %if.else44, %if.else31
+  %9 = phi i1 [ true, %if.then40 ], [ false, %if.else44 ], [ true, %if.else31 ], [ false, %sw.bb ], [ true, %for.cond48.preheader ], [ true, %sw.epilog.loopexit ]
+  %node.1 = phi i32 [ 0, %if.then40 ], [ 2, %if.else44 ], [ 0, %if.else31 ], [ 1, %sw.bb ], [ 0, %for.cond48.preheader ], [ 0, %sw.epilog.loopexit ]
+  %runLength.1 = phi i32 [ %runLength.045, %if.then40 ], [ %conv37, %if.else44 ], [ %runLength.045, %if.else31 ], [ %runLength.045, %sw.bb ], [ %runLength.045, %for.cond48.preheader ], [ %runLength.045, %sw.epilog.loopexit ]
+  %ai.2 = phi i32 [ %inc41, %if.then40 ], [ %ai.047, %if.else44 ], [ %inc32, %if.else31 ], [ %ai.047, %sw.bb ], [ %ai.047, %for.cond48.preheader ], [ %8, %sw.epilog.loopexit ]
   %cmp17 = icmp slt i32 %ai.2, %tgtLen
   br i1 %cmp17, label %for.body, label %for.end61, !llvm.loop !15
 
 for.end61:                                        ; preds = %sw.epilog
-  %9 = icmp eq i32 %node.1, 0
   br i1 %9, label %if.end65, label %return.sink.split
 
 if.end65:                                         ; preds = %for.cond.preheader, %for.end61

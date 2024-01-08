@@ -927,7 +927,7 @@ declare void @compress_threads_load_cleanup() local_unnamed_addr #1
 define dso_local void @migrate_send_rp_shut(ptr noundef %mis, i32 noundef %value) local_unnamed_addr #0 {
 entry:
   %buf = alloca i32, align 4
-  %0 = tail call i32 @llvm.bswap.i32(i32 %value)
+  %0 = tail call noundef i32 @llvm.bswap.i32(i32 %value)
   store i32 %0, ptr %buf, align 4
   %call1 = call fastcc i32 @migrate_send_rp_message(ptr noundef %mis, i32 noundef 1, i16 noundef zeroext 4, ptr noundef nonnull %buf)
   ret void
@@ -955,10 +955,10 @@ define dso_local i32 @migrate_send_rp_message_req_pages(ptr noundef %mis, ptr no
 entry:
   %bufc = alloca [268 x i8], align 16
   %call = tail call i64 @qemu_ram_pagesize(ptr noundef %rb) #18
-  %0 = tail call i64 @llvm.bswap.i64(i64 %start)
+  %0 = tail call noundef i64 @llvm.bswap.i64(i64 %start)
   store i64 %0, ptr %bufc, align 16
   %conv = trunc i64 %call to i32
-  %1 = tail call i32 @llvm.bswap.i32(i32 %conv)
+  %1 = tail call noundef i32 @llvm.bswap.i32(i32 %conv)
   %add.ptr = getelementptr inbounds i8, ptr %bufc, i64 8
   store i32 %1, ptr %add.ptr, align 8
   %last_rb = getelementptr inbounds %struct.MigrationIncomingState, ptr %mis, i64 0, i32 17
@@ -1145,10 +1145,10 @@ if.end10:                                         ; preds = %land.lhs.true.us, %
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull %page_request_mutex, ptr noundef nonnull @.str.53, i32 noundef 132) #18
   call void @llvm.lifetime.start.p0(i64 268, ptr nonnull %bufc.i)
   %call.i = tail call i64 @qemu_ram_pagesize(ptr noundef %rb) #18
-  %14 = tail call i64 @llvm.bswap.i64(i64 %start)
+  %14 = tail call noundef i64 @llvm.bswap.i64(i64 %start)
   store i64 %14, ptr %bufc.i, align 16
   %conv.i = trunc i64 %call.i to i32
-  %15 = tail call i32 @llvm.bswap.i32(i32 %conv.i)
+  %15 = tail call noundef i32 @llvm.bswap.i32(i32 %conv.i)
   %add.ptr.i = getelementptr inbounds i8, ptr %bufc.i, i64 8
   store i32 %15, ptr %add.ptr.i, align 8
   %last_rb.i = getelementptr inbounds %struct.MigrationIncomingState, ptr %mis, i64 0, i32 17
@@ -1220,7 +1220,7 @@ entry:
 declare i32 @ram_block_discard_disable(i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @migration_incoming_enable_colo() local_unnamed_addr #0 {
+define dso_local noundef i32 @migration_incoming_enable_colo() local_unnamed_addr #0 {
 entry:
   %call = tail call zeroext i1 @migrate_colo() #18
   br i1 %call, label %if.end, label %if.then
@@ -1282,7 +1282,7 @@ declare ptr @qapi_clone(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare zeroext i1 @visit_type_SocketAddress(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @migrate_uri_parse(ptr noundef %uri, ptr nocapture noundef writeonly %channel, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @migrate_uri_parse(ptr noundef %uri, ptr nocapture noundef writeonly %channel, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %call = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #20
   %call1 = tail call noalias dereferenceable_or_null(48) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 48) #20
@@ -1686,7 +1686,7 @@ return:                                           ; preds = %migration_incoming_
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc zeroext i1 @postcopy_try_recover() unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @postcopy_try_recover() unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr @current_incoming, align 8
   %tobool.not.i = icmp eq ptr %0, null
@@ -1986,7 +1986,7 @@ entry:
 define dso_local void @migrate_send_rp_pong(ptr noundef %mis, i32 noundef %value) local_unnamed_addr #0 {
 entry:
   %buf = alloca i32, align 4
-  %0 = tail call i32 @llvm.bswap.i32(i32 %value)
+  %0 = tail call noundef i32 @llvm.bswap.i32(i32 %value)
   store i32 %0, ptr %buf, align 4
   %call1 = call fastcc i32 @migrate_send_rp_message(ptr noundef %mis, i32 noundef 2, i16 noundef zeroext 4, ptr noundef nonnull %buf)
   ret void
@@ -2077,14 +2077,14 @@ declare void @qemu_mutex_unlock_impl(ptr noundef, ptr noundef, i32 noundef) loca
 define dso_local void @migrate_send_rp_resume_ack(ptr noundef %mis, i32 noundef %value) local_unnamed_addr #0 {
 entry:
   %buf = alloca i32, align 4
-  %0 = tail call i32 @llvm.bswap.i32(i32 %value)
+  %0 = tail call noundef i32 @llvm.bswap.i32(i32 %value)
   store i32 %0, ptr %buf, align 4
   %call1 = call fastcc i32 @migrate_send_rp_message(ptr noundef %mis, i32 noundef 6, i16 noundef zeroext 4, ptr noundef nonnull %buf)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local zeroext i1 @migration_is_setup_or_active(i32 noundef %state) local_unnamed_addr #4 {
+define dso_local noundef zeroext i1 @migration_is_setup_or_active(i32 noundef %state) local_unnamed_addr #4 {
 entry:
   %0 = icmp ult i32 %state, 14
   %switch.cast = trunc i32 %state to i14
@@ -2096,7 +2096,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local zeroext i1 @migration_is_running(i32 noundef %state) local_unnamed_addr #4 {
+define dso_local noundef zeroext i1 @migration_is_running(i32 noundef %state) local_unnamed_addr #4 {
 entry:
   %0 = icmp ult i32 %state, 14
   %switch.cast = trunc i32 %state to i14
@@ -2108,7 +2108,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @qmp_query_migrate(ptr nocapture noundef readnone %errp) local_unnamed_addr #0 {
+define dso_local noundef ptr @qmp_query_migrate(ptr nocapture noundef readnone %errp) local_unnamed_addr #0 {
 entry:
   %call = tail call noalias dereferenceable_or_null(224) ptr @g_malloc0(i64 noundef 224) #22
   %0 = load ptr, ptr @current_incoming, align 8
@@ -2658,7 +2658,7 @@ migrate_get_current.exit:                         ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local zeroext i1 @migration_postcopy_is_alive(i32 noundef %state) local_unnamed_addr #4 {
+define dso_local noundef zeroext i1 @migration_postcopy_is_alive(i32 noundef %state) local_unnamed_addr #4 {
 entry:
   %0 = add i32 %state, -5
   %switch.and = and i32 %0, -3
@@ -2717,7 +2717,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @migration_in_bg_snapshot() local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @migration_in_bg_snapshot() local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr @current_migration, align 8
   %tobool.not.i = icmp eq ptr %0, null
@@ -2752,7 +2752,7 @@ land.end:                                         ; preds = %land.rhs, %switch.l
 declare zeroext i1 @migrate_background_snapshot() local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @migration_is_idle() local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @migration_is_idle() local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr @current_migration, align 8
   %tobool.not = icmp eq ptr %0, null
@@ -2868,14 +2868,14 @@ declare void @error_free(ptr noundef) local_unnamed_addr #1
 declare void @migration_reset_vfio_bytes_transferred() local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @migrate_add_blocker(ptr nocapture noundef %reasonp, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef i32 @migrate_add_blocker(ptr nocapture noundef %reasonp, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 (ptr, ptr, i32, ...) @migrate_add_blocker_modes(ptr noundef %reasonp, ptr noundef %errp, i32 noundef 2), !range !8
   ret i32 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @migrate_add_blocker_modes(ptr nocapture noundef %reasonp, ptr noundef %errp, i32 noundef %mode, ...) local_unnamed_addr #0 {
+define dso_local noundef i32 @migrate_add_blocker_modes(ptr nocapture noundef %reasonp, ptr noundef %errp, i32 noundef %mode, ...) local_unnamed_addr #0 {
 entry:
   %_auto_errp_prop.i6 = alloca %struct.ErrorPropagator, align 8
   %_auto_errp_prop.i = alloca %struct.ErrorPropagator, align 8
@@ -3039,7 +3039,7 @@ return:                                           ; preds = %for.inc.i, %is_busy
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @migrate_add_blocker_normal(ptr nocapture noundef %reasonp, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef i32 @migrate_add_blocker_normal(ptr nocapture noundef %reasonp, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 (ptr, ptr, i32, ...) @migrate_add_blocker_modes(ptr noundef %reasonp, ptr noundef %errp, i32 noundef 0, i32 noundef -1), !range !8
   ret i32 %call
@@ -3052,7 +3052,7 @@ declare void @llvm.va_start(ptr) #12
 declare void @llvm.va_end(ptr) #12
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @migrate_add_blocker_internal(ptr nocapture noundef %reasonp, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef i32 @migrate_add_blocker_internal(ptr nocapture noundef %reasonp, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %_auto_errp_prop.i = alloca %struct.ErrorPropagator, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_auto_errp_prop.i)
@@ -3509,7 +3509,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @migration_is_blocked(ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @migration_is_blocked(ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @migrate_mode() #18
   %idxprom = zext i32 %call to i64
@@ -4045,7 +4045,7 @@ migrate_get_current.exit:                         ; preds = %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @migration_rate_limit() local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @migration_rate_limit() local_unnamed_addr #0 {
 entry:
   %_now.i.i9 = alloca %struct.timeval, align 8
   %_now.i.i = alloca %struct.timeval, align 8
@@ -4722,7 +4722,7 @@ declare i32 @multifd_save_setup(ptr noundef) local_unnamed_addr #1
 declare void @qemu_thread_create(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noalias ptr @bg_migration_thread(ptr noundef %opaque) #0 {
+define internal noalias noundef ptr @bg_migration_thread(ptr noundef %opaque) #0 {
 entry:
   %_now.i.i35 = alloca %struct.timeval, align 8
   %_now.i.i.i.i = alloca %struct.timeval, align 8
@@ -5027,7 +5027,7 @@ bg_migration_iteration_finish.exit:               ; preds = %if.end38, %if.end38
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal ptr @migration_thread(ptr noundef %opaque) #0 {
+define internal noundef ptr @migration_thread(ptr noundef %opaque) #0 {
 entry:
   %_now.i.i34 = alloca %struct.timeval, align 8
   %_now.i.i50.i.i = alloca %struct.timeval, align 8
@@ -6796,7 +6796,7 @@ return:                                           ; preds = %entry, %trace_migra
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal ptr @source_return_path_thread(ptr noundef %opaque) #0 {
+define internal noundef ptr @source_return_path_thread(ptr noundef %opaque) #0 {
 entry:
   %_now.i.i129 = alloca %struct.timeval, align 8
   %_now.i.i115 = alloca %struct.timeval, align 8
@@ -6977,7 +6977,7 @@ if.then43:                                        ; preds = %if.end36
   br label %out
 
 if.end46:                                         ; preds = %if.end36
-  switch i32 %conv6, label %while.cond.backedge [
+  switch i32 %conv6, label %default.unreachable [
     i32 1, label %sw.bb
     i32 2, label %sw.bb53
     i32 4, label %sw.bb57
@@ -7193,7 +7193,7 @@ migrate_handle_rp_resume_ack.exit.thread:         ; preds = %trace_source_return
   call void @qemu_sem_post(ptr noundef nonnull %rp_sem.i.i) #18
   br label %while.cond.backedge
 
-while.cond.backedge:                              ; preds = %migrate_handle_rp_resume_ack.exit.thread, %if.end46, %migrate_handle_rp_recv_bitmap.exit, %trace_source_return_path_thread_switchover_acked.exit, %trace_source_return_path_thread_pong.exit
+while.cond.backedge:                              ; preds = %migrate_handle_rp_resume_ack.exit.thread, %migrate_handle_rp_recv_bitmap.exit, %trace_source_return_path_thread_switchover_acked.exit, %trace_source_return_path_thread_pong.exit
   br label %while.cond, !llvm.loop !15
 
 migrate_handle_rp_resume_ack.exit:                ; preds = %trace_source_return_path_thread_resume_ack.exit.i
@@ -7237,6 +7237,9 @@ if.else.i.i112:                                   ; preds = %if.then.i.i106
 trace_source_return_path_thread_switchover_acked.exit: ; preds = %sw.bb116, %land.lhs.true5.i.i103, %if.then8.i.i108, %if.else.i.i112
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i99)
   br label %while.cond.backedge
+
+default.unreachable:                              ; preds = %if.end46
+  unreachable
 
 out:                                              ; preds = %while.cond, %migrate_handle_rp_recv_bitmap.exit, %migrate_handle_rp_resume_ack.exit, %migrate_handle_rp_recv_bitmap.exit.thread, %trace_source_return_path_thread_shut.exit, %if.then51, %if.then98, %if.then87, %if.then43, %if.then28, %if.then11, %if.then
   %.pr = load ptr, ptr %err, align 8
@@ -7582,7 +7585,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @migration_detect_error(ptr noundef %s) unnamed_addr #0 {
+define internal fastcc noundef i32 @migration_detect_error(ptr noundef %s) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %_now.i.i.i = alloca %struct.timeval, align 8

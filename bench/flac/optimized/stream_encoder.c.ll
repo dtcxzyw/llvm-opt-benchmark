@@ -7885,8 +7885,8 @@ for.cond66.preheader:                             ; preds = %if.then35
   br label %for.body71
 
 for.cond.preheader:                               ; preds = %if.then35
-  %cmp43315.not = icmp eq i32 %8, 0
-  br i1 %cmp43315.not, label %if.end106, label %for.body.lr.ph
+  %cmp43310.not = icmp eq i32 %8, 0
+  br i1 %cmp43310.not, label %if.end106, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
   %arrayidx47 = getelementptr inbounds [8 x ptr], ptr %threadtask, i64 0, i64 1
@@ -7926,9 +7926,9 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %cmp43, label %for.body, label %if.end106, !llvm.loop !83
 
 for.body71:                                       ; preds = %for.cond66.preheader, %for.body71
-  %i.1313 = phi i32 [ 0, %for.cond66.preheader ], [ %inc103, %for.body71 ]
+  %i.1308 = phi i32 [ 0, %for.cond66.preheader ], [ %inc103, %for.body71 ]
   %31 = load ptr, ptr %threadtask, align 8
-  %idxprom74 = zext i32 %i.1313 to i64
+  %idxprom74 = zext i32 %i.1308 to i64
   %arrayidx75 = getelementptr inbounds i32, ptr %31, i64 %idxprom74
   %32 = load i32, ptr %arrayidx75, align 4
   %conv76 = sext i32 %32 to i64
@@ -7954,7 +7954,7 @@ for.body71:                                       ; preds = %for.cond66.preheade
   %40 = load ptr, ptr %integer_signal_mid_side98, align 8
   %arrayidx101 = getelementptr inbounds i32, ptr %40, i64 %idxprom74
   store i32 %conv97, ptr %arrayidx101, align 4
-  %inc103 = add i32 %i.1313, 1
+  %inc103 = add i32 %i.1308, 1
   %41 = load ptr, ptr %encoder, align 8
   %blocksize68 = getelementptr inbounds %struct.FLAC__StreamEncoderProtected, ptr %41, i64 0, i32 9
   %42 = load i32, ptr %blocksize68, align 4
@@ -7966,17 +7966,17 @@ if.end106:                                        ; preds = %for.body71, %for.bo
   br i1 %tobool107.not, label %for.cond148.preheader, label %for.cond109.preheader
 
 for.cond109.preheader:                            ; preds = %entry, %if.end33, %if.end106
-  %do_mid_side.0282358 = phi i1 [ false, %if.end106 ], [ true, %if.end33 ], [ true, %entry ]
+  %do_mid_side.0282353 = phi i1 [ false, %if.end106 ], [ true, %if.end33 ], [ true, %entry ]
   %44 = phi ptr [ %43, %if.end106 ], [ %6, %if.end33 ], [ %6, %entry ]
-  %channels111317 = getelementptr inbounds %struct.FLAC__StreamEncoderProtected, ptr %44, i64 0, i32 6
-  %45 = load i32, ptr %channels111317, align 8
-  %cmp112318.not = icmp eq i32 %45, 0
-  br i1 %cmp112318.not, label %if.end145, label %for.body114
+  %channels111312 = getelementptr inbounds %struct.FLAC__StreamEncoderProtected, ptr %44, i64 0, i32 6
+  %45 = load i32, ptr %channels111312, align 8
+  %cmp112313.not = icmp eq i32 %45, 0
+  br i1 %cmp112313.not, label %if.end145, label %for.body114
 
 for.body114:                                      ; preds = %for.cond109.preheader, %get_wasted_bits_.exit
-  %indvars.iv335 = phi i64 [ %indvars.iv.next336, %get_wasted_bits_.exit ], [ 0, %for.cond109.preheader ]
+  %indvars.iv330 = phi i64 [ %indvars.iv.next331, %get_wasted_bits_.exit ], [ 0, %for.cond109.preheader ]
   %46 = phi ptr [ %58, %get_wasted_bits_.exit ], [ %44, %for.cond109.preheader ]
-  %arrayidx117 = getelementptr inbounds [8 x ptr], ptr %threadtask, i64 0, i64 %indvars.iv335
+  %arrayidx117 = getelementptr inbounds [8 x ptr], ptr %threadtask, i64 0, i64 %indvars.iv330
   %47 = load ptr, ptr %arrayidx117, align 8
   %blocksize119 = getelementptr inbounds %struct.FLAC__StreamEncoderProtected, ptr %46, i64 0, i32 9
   %48 = load i32, ptr %blocksize119, align 4
@@ -8038,36 +8038,36 @@ get_wasted_bits_.exit:                            ; preds = %get_wasted_bits_.ex
   %bits_per_sample122 = getelementptr inbounds %struct.FLAC__StreamEncoderProtected, ptr %54, i64 0, i32 7
   %55 = load i32, ptr %bits_per_sample122, align 4
   %spec.select = tail call i32 @llvm.umin.i32(i32 %shift.117.i, i32 %55)
-  %wasted_bits = getelementptr inbounds %struct.FLAC__StreamEncoderThreadTask, ptr %threadtask, i64 0, i32 8, i64 %indvars.iv335, i64 1, i32 2
+  %wasted_bits = getelementptr inbounds %struct.FLAC__StreamEncoderThreadTask, ptr %threadtask, i64 0, i32 8, i64 %indvars.iv330, i64 1, i32 2
   store i32 %spec.select, ptr %wasted_bits, align 8
-  %wasted_bits136 = getelementptr inbounds %struct.FLAC__StreamEncoderThreadTask, ptr %threadtask, i64 0, i32 8, i64 %indvars.iv335, i64 0, i32 2
+  %wasted_bits136 = getelementptr inbounds %struct.FLAC__StreamEncoderThreadTask, ptr %threadtask, i64 0, i32 8, i64 %indvars.iv330, i64 0, i32 2
   store i32 %spec.select, ptr %wasted_bits136, align 8
   %56 = load ptr, ptr %encoder, align 8
   %bits_per_sample138 = getelementptr inbounds %struct.FLAC__StreamEncoderProtected, ptr %56, i64 0, i32 7
   %57 = load i32, ptr %bits_per_sample138, align 4
   %sub139 = sub i32 %57, %spec.select
-  %arrayidx141 = getelementptr inbounds %struct.FLAC__StreamEncoderThreadTask, ptr %threadtask, i64 0, i32 4, i64 %indvars.iv335
+  %arrayidx141 = getelementptr inbounds %struct.FLAC__StreamEncoderThreadTask, ptr %threadtask, i64 0, i32 4, i64 %indvars.iv330
   store i32 %sub139, ptr %arrayidx141, align 4
-  %indvars.iv.next336 = add nuw nsw i64 %indvars.iv335, 1
+  %indvars.iv.next331 = add nuw nsw i64 %indvars.iv330, 1
   %58 = load ptr, ptr %encoder, align 8
   %channels111 = getelementptr inbounds %struct.FLAC__StreamEncoderProtected, ptr %58, i64 0, i32 6
   %59 = load i32, ptr %channels111, align 8
   %60 = zext i32 %59 to i64
-  %cmp112 = icmp ult i64 %indvars.iv.next336, %60
+  %cmp112 = icmp ult i64 %indvars.iv.next331, %60
   br i1 %cmp112, label %for.body114, label %if.end145, !llvm.loop !88
 
 if.end145:                                        ; preds = %get_wasted_bits_.exit, %for.cond109.preheader
-  br i1 %do_mid_side.0282358, label %if.end204, label %for.cond148.preheader
+  br i1 %do_mid_side.0282353, label %if.end204, label %for.cond148.preheader
 
 for.cond148.preheader:                            ; preds = %if.end106, %if.end145
-  %tobool107.not361364 = phi i1 [ false, %if.end145 ], [ true, %if.end106 ]
+  %tobool107.not356359 = phi i1 [ false, %if.end145 ], [ true, %if.end106 ]
   %integer_signal_33bit_side167 = getelementptr inbounds %struct.FLAC__StreamEncoderThreadTask, ptr %threadtask, i64 0, i32 2
   %arrayidx170 = getelementptr inbounds %struct.FLAC__StreamEncoderThreadTask, ptr %threadtask, i64 0, i32 1, i64 1
   br label %for.body151
 
 for.body151:                                      ; preds = %for.cond148.preheader, %if.end174
   %cmp157 = phi i1 [ true, %for.cond148.preheader ], [ false, %if.end174 ]
-  %indvars.iv338 = phi i64 [ 0, %for.cond148.preheader ], [ 1, %if.end174 ]
+  %indvars.iv333 = phi i64 [ 0, %for.cond148.preheader ], [ 1, %if.end174 ]
   %61 = load ptr, ptr %encoder, align 8
   %bits_per_sample154 = getelementptr inbounds %struct.FLAC__StreamEncoderProtected, ptr %61, i64 0, i32 7
   %62 = load i32, ptr %bits_per_sample154, align 4
@@ -8079,7 +8079,7 @@ for.body151:                                      ; preds = %for.cond148.prehead
   br i1 %or.cond, label %if.then159, label %if.else166
 
 if.then159:                                       ; preds = %for.body151
-  %arrayidx162 = getelementptr inbounds %struct.FLAC__StreamEncoderThreadTask, ptr %threadtask, i64 0, i32 1, i64 %indvars.iv338
+  %arrayidx162 = getelementptr inbounds %struct.FLAC__StreamEncoderThreadTask, ptr %threadtask, i64 0, i32 1, i64 %indvars.iv333
   %64 = load ptr, ptr %arrayidx162, align 8
   br i1 %cmp18.not.i221, label %if.end174, label %for.body.preheader.i222
 
@@ -8193,9 +8193,9 @@ if.end174:                                        ; preds = %for.body14.i273, %f
   %bits_per_sample176 = getelementptr inbounds %struct.FLAC__StreamEncoderProtected, ptr %77, i64 0, i32 7
   %78 = load i32, ptr %bits_per_sample176, align 4
   %spec.select217 = tail call i32 @llvm.umin.i32(i32 %w152.0, i32 %78)
-  %wasted_bits186 = getelementptr inbounds %struct.FLAC__StreamEncoderThreadTask, ptr %threadtask, i64 0, i32 9, i64 %indvars.iv338, i64 1, i32 2
+  %wasted_bits186 = getelementptr inbounds %struct.FLAC__StreamEncoderThreadTask, ptr %threadtask, i64 0, i32 9, i64 %indvars.iv333, i64 1, i32 2
   store i32 %spec.select217, ptr %wasted_bits186, align 8
-  %wasted_bits191 = getelementptr inbounds %struct.FLAC__StreamEncoderThreadTask, ptr %threadtask, i64 0, i32 9, i64 %indvars.iv338, i64 0, i32 2
+  %wasted_bits191 = getelementptr inbounds %struct.FLAC__StreamEncoderThreadTask, ptr %threadtask, i64 0, i32 9, i64 %indvars.iv333, i64 0, i32 2
   store i32 %spec.select217, ptr %wasted_bits191, align 8
   %79 = load ptr, ptr %encoder, align 8
   %bits_per_sample193 = getelementptr inbounds %struct.FLAC__StreamEncoderProtected, ptr %79, i64 0, i32 7
@@ -8204,21 +8204,21 @@ if.end174:                                        ; preds = %for.body14.i273, %f
   %cond197 = zext i1 %not.cmp157 to i32
   %sub194 = sub i32 %cond197, %spec.select217
   %add198 = add i32 %sub194, %80
-  %arrayidx200 = getelementptr inbounds %struct.FLAC__StreamEncoderThreadTask, ptr %threadtask, i64 0, i32 5, i64 %indvars.iv338
+  %arrayidx200 = getelementptr inbounds %struct.FLAC__StreamEncoderThreadTask, ptr %threadtask, i64 0, i32 5, i64 %indvars.iv333
   store i32 %add198, ptr %arrayidx200, align 4
   br i1 %cmp157, label %for.body151, label %if.end204, !llvm.loop !92
 
 if.end204:                                        ; preds = %if.end174, %if.end145
-  %do_mid_side.0282359367 = phi i1 [ true, %if.end145 ], [ false, %if.end174 ]
-  %tobool107.not361365 = phi i1 [ false, %if.end145 ], [ %tobool107.not361364, %if.end174 ]
-  br i1 %tobool107.not361365, label %if.end262, label %for.cond207.preheader
+  %do_mid_side.0282354362 = phi i1 [ true, %if.end145 ], [ false, %if.end174 ]
+  %tobool107.not356360 = phi i1 [ false, %if.end145 ], [ %tobool107.not356359, %if.end174 ]
+  br i1 %tobool107.not356360, label %if.end262, label %for.cond207.preheader
 
 for.cond207.preheader:                            ; preds = %if.end204
   %81 = load ptr, ptr %encoder, align 8
-  %channels209321 = getelementptr inbounds %struct.FLAC__StreamEncoderProtected, ptr %81, i64 0, i32 6
-  %82 = load i32, ptr %channels209321, align 8
-  %cmp210322.not = icmp eq i32 %82, 0
-  br i1 %cmp210322.not, label %if.end262, label %for.body212.lr.ph
+  %channels209316 = getelementptr inbounds %struct.FLAC__StreamEncoderProtected, ptr %81, i64 0, i32 6
+  %82 = load i32, ptr %channels209316, align 8
+  %cmp210317.not = icmp eq i32 %82, 0
+  br i1 %cmp210317.not, label %if.end262, label %for.body212.lr.ph
 
 for.body212.lr.ph:                                ; preds = %for.cond207.preheader
   %best_subframe = getelementptr inbounds %struct.FLAC__StreamEncoderThreadTask, ptr %threadtask, i64 0, i32 16
@@ -8226,18 +8226,18 @@ for.body212.lr.ph:                                ; preds = %for.cond207.prehead
   br label %for.body212
 
 for.body212:                                      ; preds = %for.body212.lr.ph, %if.end224
-  %indvars.iv341 = phi i64 [ 0, %for.body212.lr.ph ], [ %indvars.iv.next342, %if.end224 ]
+  %indvars.iv336 = phi i64 [ 0, %for.body212.lr.ph ], [ %indvars.iv.next337, %if.end224 ]
   %83 = phi i32 [ %82, %for.body212.lr.ph ], [ %92, %if.end224 ]
   %84 = phi ptr [ %81, %for.body212.lr.ph ], [ %91, %if.end224 ]
-  %all_subframes_constant.0324 = phi i32 [ 1, %for.body212.lr.ph ], [ %all_subframes_constant.1, %if.end224 ]
+  %all_subframes_constant.0319 = phi i32 [ 1, %for.body212.lr.ph ], [ %all_subframes_constant.1, %if.end224 ]
   %limit_min_bitrate = getelementptr inbounds %struct.FLAC__StreamEncoderProtected, ptr %84, i64 0, i32 21
   %85 = load i32, ptr %limit_min_bitrate, align 8
   %tobool214 = icmp ne i32 %85, 0
-  %tobool215 = icmp ne i32 %all_subframes_constant.0324, 0
+  %tobool215 = icmp ne i32 %all_subframes_constant.0319, 0
   %or.cond1 = select i1 %tobool214, i1 %tobool215, i1 false
-  %indvars.iv.next342 = add nuw nsw i64 %indvars.iv341, 1
+  %indvars.iv.next337 = add nuw nsw i64 %indvars.iv336, 1
   %86 = zext i32 %83 to i64
-  %cmp220 = icmp eq i64 %indvars.iv.next342, %86
+  %cmp220 = icmp eq i64 %indvars.iv.next337, %86
   %or.cond218 = and i1 %cmp220, %or.cond1
   br i1 %or.cond218, label %if.then222, label %if.end224
 
@@ -8246,32 +8246,32 @@ if.then222:                                       ; preds = %for.body212
   br label %if.end224
 
 if.end224:                                        ; preds = %if.then222, %for.body212
-  %arrayidx227 = getelementptr inbounds %struct.FLAC__StreamEncoderThreadTask, ptr %threadtask, i64 0, i32 4, i64 %indvars.iv341
+  %arrayidx227 = getelementptr inbounds %struct.FLAC__StreamEncoderThreadTask, ptr %threadtask, i64 0, i32 4, i64 %indvars.iv336
   %87 = load i32, ptr %arrayidx227, align 4
-  %arrayidx230 = getelementptr inbounds [8 x ptr], ptr %threadtask, i64 0, i64 %indvars.iv341
+  %arrayidx230 = getelementptr inbounds [8 x ptr], ptr %threadtask, i64 0, i64 %indvars.iv336
   %88 = load ptr, ptr %arrayidx230, align 8
-  %arrayidx232 = getelementptr inbounds %struct.FLAC__StreamEncoderThreadTask, ptr %threadtask, i64 0, i32 10, i64 %indvars.iv341
-  %arrayidx234 = getelementptr inbounds %struct.FLAC__StreamEncoderThreadTask, ptr %threadtask, i64 0, i32 14, i64 %indvars.iv341
-  %arrayidx237 = getelementptr inbounds %struct.FLAC__StreamEncoderThreadTask, ptr %threadtask, i64 0, i32 6, i64 %indvars.iv341
-  %add.ptr = getelementptr inbounds i32, ptr %best_subframe, i64 %indvars.iv341
-  %add.ptr242 = getelementptr inbounds i32, ptr %best_subframe_bits, i64 %indvars.iv341
+  %arrayidx232 = getelementptr inbounds %struct.FLAC__StreamEncoderThreadTask, ptr %threadtask, i64 0, i32 10, i64 %indvars.iv336
+  %arrayidx234 = getelementptr inbounds %struct.FLAC__StreamEncoderThreadTask, ptr %threadtask, i64 0, i32 14, i64 %indvars.iv336
+  %arrayidx237 = getelementptr inbounds %struct.FLAC__StreamEncoderThreadTask, ptr %threadtask, i64 0, i32 6, i64 %indvars.iv336
+  %add.ptr = getelementptr inbounds i32, ptr %best_subframe, i64 %indvars.iv336
+  %add.ptr242 = getelementptr inbounds i32, ptr %best_subframe_bits, i64 %indvars.iv336
   call fastcc void @process_subframe_(ptr noundef nonnull %encoder, ptr noundef nonnull %threadtask, i32 noundef %cond10, i32 noundef %call., ptr noundef nonnull %frame_header, i32 noundef %87, ptr noundef %88, ptr noundef nonnull %arrayidx232, ptr noundef nonnull %arrayidx234, ptr noundef nonnull %arrayidx237, ptr noundef nonnull %add.ptr, ptr noundef nonnull %add.ptr242)
-  %arrayidx252 = getelementptr inbounds %struct.FLAC__StreamEncoderThreadTask, ptr %threadtask, i64 0, i32 16, i64 %indvars.iv341
+  %arrayidx252 = getelementptr inbounds %struct.FLAC__StreamEncoderThreadTask, ptr %threadtask, i64 0, i32 16, i64 %indvars.iv336
   %89 = load i32, ptr %arrayidx252, align 4
   %idxprom253 = zext i32 %89 to i64
-  %arrayidx254 = getelementptr inbounds %struct.FLAC__StreamEncoderThreadTask, ptr %threadtask, i64 0, i32 8, i64 %indvars.iv341, i64 %idxprom253
+  %arrayidx254 = getelementptr inbounds %struct.FLAC__StreamEncoderThreadTask, ptr %threadtask, i64 0, i32 8, i64 %indvars.iv336, i64 %idxprom253
   %90 = load i32, ptr %arrayidx254, align 8
   %cmp255.not = icmp eq i32 %90, 0
-  %all_subframes_constant.1 = select i1 %cmp255.not, i32 %all_subframes_constant.0324, i32 0
+  %all_subframes_constant.1 = select i1 %cmp255.not, i32 %all_subframes_constant.0319, i32 0
   %91 = load ptr, ptr %encoder, align 8
   %channels209 = getelementptr inbounds %struct.FLAC__StreamEncoderProtected, ptr %91, i64 0, i32 6
   %92 = load i32, ptr %channels209, align 8
   %93 = zext i32 %92 to i64
-  %cmp210 = icmp ult i64 %indvars.iv.next342, %93
+  %cmp210 = icmp ult i64 %indvars.iv.next337, %93
   br i1 %cmp210, label %for.body212, label %if.end262, !llvm.loop !93
 
 if.end262:                                        ; preds = %if.end224, %for.cond207.preheader, %if.end204
-  br i1 %do_mid_side.0282359367, label %if.else462, label %for.cond265.preheader
+  br i1 %do_mid_side.0282354362, label %if.else462, label %for.cond265.preheader
 
 for.cond265.preheader:                            ; preds = %if.end262
   %integer_signal_33bit_side279 = getelementptr inbounds %struct.FLAC__StreamEncoderThreadTask, ptr %threadtask, i64 0, i32 2
@@ -8281,18 +8281,18 @@ for.cond265.preheader:                            ; preds = %if.end262
 
 for.body268:                                      ; preds = %for.cond265.preheader, %for.body268
   %cmp266 = phi i1 [ true, %for.cond265.preheader ], [ false, %for.body268 ]
-  %indvars.iv344 = phi i64 [ 0, %for.cond265.preheader ], [ 1, %for.body268 ]
-  %arrayidx271 = getelementptr inbounds %struct.FLAC__StreamEncoderThreadTask, ptr %threadtask, i64 0, i32 5, i64 %indvars.iv344
+  %indvars.iv339 = phi i64 [ 0, %for.cond265.preheader ], [ 1, %for.body268 ]
+  %arrayidx271 = getelementptr inbounds %struct.FLAC__StreamEncoderThreadTask, ptr %threadtask, i64 0, i32 5, i64 %indvars.iv339
   %94 = load i32, ptr %arrayidx271, align 4
   %cmp272 = icmp ult i32 %94, 33
-  %arrayidx277 = getelementptr inbounds %struct.FLAC__StreamEncoderThreadTask, ptr %threadtask, i64 0, i32 1, i64 %indvars.iv344
+  %arrayidx277 = getelementptr inbounds %struct.FLAC__StreamEncoderThreadTask, ptr %threadtask, i64 0, i32 1, i64 %indvars.iv339
   %integer_signal_.0.in = select i1 %cmp272, ptr %arrayidx277, ptr %integer_signal_33bit_side279
   %integer_signal_.0 = load ptr, ptr %integer_signal_.0.in, align 8
-  %arrayidx285 = getelementptr inbounds %struct.FLAC__StreamEncoderThreadTask, ptr %threadtask, i64 0, i32 11, i64 %indvars.iv344
-  %arrayidx288 = getelementptr inbounds %struct.FLAC__StreamEncoderThreadTask, ptr %threadtask, i64 0, i32 15, i64 %indvars.iv344
-  %arrayidx291 = getelementptr inbounds %struct.FLAC__StreamEncoderThreadTask, ptr %threadtask, i64 0, i32 7, i64 %indvars.iv344
-  %add.ptr295 = getelementptr inbounds i32, ptr %best_subframe_mid_side, i64 %indvars.iv344
-  %add.ptr298 = getelementptr inbounds i32, ptr %best_subframe_bits_mid_side, i64 %indvars.iv344
+  %arrayidx285 = getelementptr inbounds %struct.FLAC__StreamEncoderThreadTask, ptr %threadtask, i64 0, i32 11, i64 %indvars.iv339
+  %arrayidx288 = getelementptr inbounds %struct.FLAC__StreamEncoderThreadTask, ptr %threadtask, i64 0, i32 15, i64 %indvars.iv339
+  %arrayidx291 = getelementptr inbounds %struct.FLAC__StreamEncoderThreadTask, ptr %threadtask, i64 0, i32 7, i64 %indvars.iv339
+  %add.ptr295 = getelementptr inbounds i32, ptr %best_subframe_mid_side, i64 %indvars.iv339
+  %add.ptr298 = getelementptr inbounds i32, ptr %best_subframe_bits_mid_side, i64 %indvars.iv339
   call fastcc void @process_subframe_(ptr noundef nonnull %encoder, ptr noundef nonnull %threadtask, i32 noundef %cond10, i32 noundef %call., ptr noundef nonnull %frame_header, i32 noundef %94, ptr noundef %integer_signal_.0, ptr noundef nonnull %arrayidx285, ptr noundef nonnull %arrayidx288, ptr noundef nonnull %arrayidx291, ptr noundef nonnull %add.ptr295, ptr noundef nonnull %add.ptr298)
   br i1 %cmp266, label %for.body268, label %if.then308, !llvm.loop !94
 
@@ -8339,17 +8339,17 @@ if.else324:                                       ; preds = %land.lhs.true313, %
   br label %for.body358
 
 for.body358:                                      ; preds = %if.else324, %for.body358
-  %indvars.iv347 = phi i64 [ %cond354, %if.else324 ], [ %indvars.iv.next348, %for.body358 ]
-  %min_bits.0327 = phi i32 [ %add329, %if.else324 ], [ %spec.select220, %for.body358 ]
-  %channel_assignment309.0326 = phi i32 [ 0, %if.else324 ], [ %spec.select219, %for.body358 ]
-  %arrayidx360 = getelementptr inbounds [4 x i32], ptr %bits, i64 0, i64 %indvars.iv347
+  %indvars.iv342 = phi i64 [ %cond354, %if.else324 ], [ %indvars.iv.next343, %for.body358 ]
+  %min_bits.0322 = phi i32 [ %add329, %if.else324 ], [ %spec.select220, %for.body358 ]
+  %channel_assignment309.0321 = phi i32 [ 0, %if.else324 ], [ %spec.select219, %for.body358 ]
+  %arrayidx360 = getelementptr inbounds [4 x i32], ptr %bits, i64 0, i64 %indvars.iv342
   %104 = load i32, ptr %arrayidx360, align 4
-  %cmp361 = icmp ult i32 %104, %min_bits.0327
-  %105 = trunc i64 %indvars.iv347 to i32
-  %spec.select219 = select i1 %cmp361, i32 %105, i32 %channel_assignment309.0326
-  %spec.select220 = tail call i32 @llvm.umin.i32(i32 %104, i32 %min_bits.0327)
-  %indvars.iv.next348 = add nuw nsw i64 %indvars.iv347, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next348, 4
+  %cmp361 = icmp ult i32 %104, %min_bits.0322
+  %105 = trunc i64 %indvars.iv342 to i32
+  %spec.select219 = select i1 %cmp361, i32 %105, i32 %channel_assignment309.0321
+  %spec.select220 = tail call i32 @llvm.umin.i32(i32 %104, i32 %min_bits.0322)
+  %indvars.iv.next343 = add nuw nsw i64 %indvars.iv342, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next343, 4
   br i1 %exitcond.not, label %if.end370, label %for.body358, !llvm.loop !95
 
 if.end370:                                        ; preds = %for.body358, %if.then318
@@ -8367,14 +8367,17 @@ if.then374:                                       ; preds = %if.end370
   br label %return
 
 if.end376:                                        ; preds = %if.end370
-  switch i32 %channel_assignment309.2, label %sw.epilog449 [
-    i32 0, label %sw.epilog.thread
-    i32 1, label %sw.epilog.thread295
-    i32 2, label %sw.epilog.thread300
-    i32 3, label %sw.epilog.thread305
+  switch i32 %channel_assignment309.2, label %default.unreachable [
+    i32 0, label %sw.bb428
+    i32 1, label %sw.bb433
+    i32 2, label %sw.bb438
+    i32 3, label %sw.bb443
   ]
 
-sw.epilog.thread:                                 ; preds = %if.end376
+default.unreachable:                              ; preds = %if.end376
+  unreachable
+
+sw.bb428:                                         ; preds = %if.end376
   %subframe_workspace377 = getelementptr inbounds %struct.FLAC__StreamEncoderThreadTask, ptr %threadtask, i64 0, i32 8
   %best_subframe379 = getelementptr inbounds %struct.FLAC__StreamEncoderThreadTask, ptr %threadtask, i64 0, i32 16
   %108 = load i32, ptr %best_subframe379, align 8
@@ -8386,9 +8389,9 @@ sw.epilog.thread:                                 ; preds = %if.end376
   %arrayidx388 = getelementptr inbounds %struct.FLAC__StreamEncoderThreadTask, ptr %threadtask, i64 0, i32 8, i64 1, i64 %idxprom387
   %subframe_bps429 = getelementptr inbounds %struct.FLAC__StreamEncoderThreadTask, ptr %threadtask, i64 0, i32 4
   %arrayidx432 = getelementptr inbounds %struct.FLAC__StreamEncoderThreadTask, ptr %threadtask, i64 0, i32 4, i64 1
-  br label %sw.epilog449.sink.split
+  br label %sw.epilog449
 
-sw.epilog.thread295:                              ; preds = %if.end376
+sw.bb433:                                         ; preds = %if.end376
   %subframe_workspace390 = getelementptr inbounds %struct.FLAC__StreamEncoderThreadTask, ptr %threadtask, i64 0, i32 8
   %best_subframe392 = getelementptr inbounds %struct.FLAC__StreamEncoderThreadTask, ptr %threadtask, i64 0, i32 16
   %110 = load i32, ptr %best_subframe392, align 8
@@ -8400,9 +8403,9 @@ sw.epilog.thread295:                              ; preds = %if.end376
   %arrayidx401 = getelementptr inbounds %struct.FLAC__StreamEncoderThreadTask, ptr %threadtask, i64 0, i32 9, i64 1, i64 %idxprom400
   %subframe_bps434 = getelementptr inbounds %struct.FLAC__StreamEncoderThreadTask, ptr %threadtask, i64 0, i32 4
   %arrayidx437 = getelementptr inbounds %struct.FLAC__StreamEncoderThreadTask, ptr %threadtask, i64 0, i32 5, i64 1
-  br label %sw.epilog449.sink.split
+  br label %sw.epilog449
 
-sw.epilog.thread300:                              ; preds = %if.end376
+sw.bb438:                                         ; preds = %if.end376
   %arrayidx406 = getelementptr inbounds %struct.FLAC__StreamEncoderThreadTask, ptr %threadtask, i64 0, i32 17, i64 1
   %112 = load i32, ptr %arrayidx406, align 4
   %idxprom407 = zext i32 %112 to i64
@@ -8413,9 +8416,9 @@ sw.epilog.thread300:                              ; preds = %if.end376
   %arrayidx414 = getelementptr inbounds %struct.FLAC__StreamEncoderThreadTask, ptr %threadtask, i64 0, i32 8, i64 1, i64 %idxprom413
   %arrayidx440 = getelementptr inbounds %struct.FLAC__StreamEncoderThreadTask, ptr %threadtask, i64 0, i32 5, i64 1
   %arrayidx442 = getelementptr inbounds %struct.FLAC__StreamEncoderThreadTask, ptr %threadtask, i64 0, i32 4, i64 1
-  br label %sw.epilog449.sink.split
+  br label %sw.epilog449
 
-sw.epilog.thread305:                              ; preds = %if.end376
+sw.bb443:                                         ; preds = %if.end376
   %subframe_workspace_mid_side416 = getelementptr inbounds %struct.FLAC__StreamEncoderThreadTask, ptr %threadtask, i64 0, i32 9
   %114 = load i32, ptr %best_subframe_mid_side, align 8
   %idxprom420 = zext i32 %114 to i64
@@ -8426,111 +8429,104 @@ sw.epilog.thread305:                              ; preds = %if.end376
   %arrayidx427 = getelementptr inbounds %struct.FLAC__StreamEncoderThreadTask, ptr %threadtask, i64 0, i32 9, i64 1, i64 %idxprom426
   %subframe_bps_mid_side444 = getelementptr inbounds %struct.FLAC__StreamEncoderThreadTask, ptr %threadtask, i64 0, i32 5
   %arrayidx447 = getelementptr inbounds %struct.FLAC__StreamEncoderThreadTask, ptr %threadtask, i64 0, i32 5, i64 1
-  br label %sw.epilog449.sink.split
-
-sw.epilog449.sink.split:                          ; preds = %sw.epilog.thread, %sw.epilog.thread295, %sw.epilog.thread300, %sw.epilog.thread305
-  %arrayidx447.sink = phi ptr [ %arrayidx447, %sw.epilog.thread305 ], [ %arrayidx442, %sw.epilog.thread300 ], [ %arrayidx437, %sw.epilog.thread295 ], [ %arrayidx432, %sw.epilog.thread ]
-  %right_subframe.0294.ph = phi ptr [ %arrayidx427, %sw.epilog.thread305 ], [ %arrayidx414, %sw.epilog.thread300 ], [ %arrayidx401, %sw.epilog.thread295 ], [ %arrayidx388, %sw.epilog.thread ]
-  %left_subframe.0292.ph = phi ptr [ %arrayidx421, %sw.epilog.thread305 ], [ %arrayidx408, %sw.epilog.thread300 ], [ %arrayidx395, %sw.epilog.thread295 ], [ %arrayidx382, %sw.epilog.thread ]
-  %left_bps.0.ph.in = phi ptr [ %subframe_bps_mid_side444, %sw.epilog.thread305 ], [ %arrayidx440, %sw.epilog.thread300 ], [ %subframe_bps434, %sw.epilog.thread295 ], [ %subframe_bps429, %sw.epilog.thread ]
-  %left_bps.0.ph = load i32, ptr %left_bps.0.ph.in, align 4
-  %116 = load i32, ptr %arrayidx447.sink, align 4
   br label %sw.epilog449
 
-sw.epilog449:                                     ; preds = %sw.epilog449.sink.split, %if.end376
-  %right_subframe.0294 = phi ptr [ null, %if.end376 ], [ %right_subframe.0294.ph, %sw.epilog449.sink.split ]
-  %left_subframe.0292 = phi ptr [ null, %if.end376 ], [ %left_subframe.0292.ph, %sw.epilog449.sink.split ]
-  %left_bps.0 = phi i32 [ 0, %if.end376 ], [ %left_bps.0.ph, %sw.epilog449.sink.split ]
-  %right_bps.0 = phi i32 [ 0, %if.end376 ], [ %116, %sw.epilog449.sink.split ]
-  %117 = load i32, ptr %frame_header, align 8
-  %118 = load ptr, ptr %frame, align 8
-  %call452 = call fastcc i32 @add_subframe_(ptr noundef nonnull %encoder, i32 noundef %117, i32 noundef %left_bps.0, ptr noundef %left_subframe.0292, ptr noundef %118), !range !8
+sw.epilog449:                                     ; preds = %sw.bb443, %sw.bb438, %sw.bb433, %sw.bb428
+  %right_subframe.0293 = phi ptr [ %arrayidx427, %sw.bb443 ], [ %arrayidx414, %sw.bb438 ], [ %arrayidx401, %sw.bb433 ], [ %arrayidx388, %sw.bb428 ]
+  %left_subframe.0291 = phi ptr [ %arrayidx421, %sw.bb443 ], [ %arrayidx408, %sw.bb438 ], [ %arrayidx395, %sw.bb433 ], [ %arrayidx382, %sw.bb428 ]
+  %left_bps.0.in = phi ptr [ %subframe_bps_mid_side444, %sw.bb443 ], [ %arrayidx440, %sw.bb438 ], [ %subframe_bps434, %sw.bb433 ], [ %subframe_bps429, %sw.bb428 ]
+  %right_bps.0.in = phi ptr [ %arrayidx447, %sw.bb443 ], [ %arrayidx442, %sw.bb438 ], [ %arrayidx437, %sw.bb433 ], [ %arrayidx432, %sw.bb428 ]
+  %right_bps.0 = load i32, ptr %right_bps.0.in, align 4
+  %left_bps.0 = load i32, ptr %left_bps.0.in, align 4
+  %116 = load i32, ptr %frame_header, align 8
+  %117 = load ptr, ptr %frame, align 8
+  %call452 = call fastcc i32 @add_subframe_(ptr noundef nonnull %encoder, i32 noundef %116, i32 noundef %left_bps.0, ptr noundef nonnull %left_subframe.0291, ptr noundef %117), !range !8
   %tobool453.not = icmp eq i32 %call452, 0
   br i1 %tobool453.not, label %return, label %if.end455
 
 if.end455:                                        ; preds = %sw.epilog449
-  %119 = load i32, ptr %frame_header, align 8
-  %120 = load ptr, ptr %frame, align 8
-  %call458 = call fastcc i32 @add_subframe_(ptr noundef nonnull %encoder, i32 noundef %119, i32 noundef %right_bps.0, ptr noundef %right_subframe.0294, ptr noundef %120), !range !8
+  %118 = load i32, ptr %frame_header, align 8
+  %119 = load ptr, ptr %frame, align 8
+  %call458 = call fastcc i32 @add_subframe_(ptr noundef nonnull %encoder, i32 noundef %118, i32 noundef %right_bps.0, ptr noundef nonnull %right_subframe.0293, ptr noundef %119), !range !8
   %tobool459.not = icmp eq i32 %call458, 0
   br i1 %tobool459.not, label %return, label %if.end455.if.end496_crit_edge
 
 if.end455.if.end496_crit_edge:                    ; preds = %if.end455
-  %.pre353 = load ptr, ptr %encoder, align 8
+  %.pre348 = load ptr, ptr %encoder, align 8
   br label %if.end496
 
 if.else462:                                       ; preds = %if.end262
   %frame463 = getelementptr inbounds %struct.FLAC__StreamEncoderThreadTask, ptr %threadtask, i64 0, i32 22
-  %121 = load ptr, ptr %frame463, align 8
-  %call464 = call i32 @FLAC__frame_add_header(ptr noundef nonnull %frame_header, ptr noundef %121) #24
+  %120 = load ptr, ptr %frame463, align 8
+  %call464 = call i32 @FLAC__frame_add_header(ptr noundef nonnull %frame_header, ptr noundef %120) #24
   %tobool465.not = icmp eq i32 %call464, 0
-  %122 = load ptr, ptr %encoder, align 8
+  %121 = load ptr, ptr %encoder, align 8
   br i1 %tobool465.not, label %if.then466, label %for.cond470.preheader
 
 for.cond470.preheader:                            ; preds = %if.else462
-  %channels472329 = getelementptr inbounds %struct.FLAC__StreamEncoderProtected, ptr %122, i64 0, i32 6
-  %123 = load i32, ptr %channels472329, align 8
-  %cmp473330.not = icmp eq i32 %123, 0
-  br i1 %cmp473330.not, label %if.end496, label %for.body475
+  %channels472324 = getelementptr inbounds %struct.FLAC__StreamEncoderProtected, ptr %121, i64 0, i32 6
+  %122 = load i32, ptr %channels472324, align 8
+  %cmp473325.not = icmp eq i32 %122, 0
+  br i1 %cmp473325.not, label %if.end496, label %for.body475
 
 if.then466:                                       ; preds = %if.else462
-  store i32 7, ptr %122, align 8
+  store i32 7, ptr %121, align 8
   br label %return
 
 for.cond470:                                      ; preds = %for.body475
-  %indvars.iv.next351 = add nuw nsw i64 %indvars.iv350, 1
-  %124 = load ptr, ptr %encoder, align 8
-  %channels472 = getelementptr inbounds %struct.FLAC__StreamEncoderProtected, ptr %124, i64 0, i32 6
-  %125 = load i32, ptr %channels472, align 8
-  %126 = zext i32 %125 to i64
-  %cmp473 = icmp ult i64 %indvars.iv.next351, %126
+  %indvars.iv.next346 = add nuw nsw i64 %indvars.iv345, 1
+  %123 = load ptr, ptr %encoder, align 8
+  %channels472 = getelementptr inbounds %struct.FLAC__StreamEncoderProtected, ptr %123, i64 0, i32 6
+  %124 = load i32, ptr %channels472, align 8
+  %125 = zext i32 %124 to i64
+  %cmp473 = icmp ult i64 %indvars.iv.next346, %125
   br i1 %cmp473, label %for.body475, label %if.end496, !llvm.loop !96
 
 for.body475:                                      ; preds = %for.cond470.preheader, %for.cond470
-  %indvars.iv350 = phi i64 [ %indvars.iv.next351, %for.cond470 ], [ 0, %for.cond470.preheader ]
-  %127 = load i32, ptr %frame_header, align 8
-  %arrayidx479 = getelementptr inbounds %struct.FLAC__StreamEncoderThreadTask, ptr %threadtask, i64 0, i32 4, i64 %indvars.iv350
-  %128 = load i32, ptr %arrayidx479, align 4
-  %arrayidx485 = getelementptr inbounds %struct.FLAC__StreamEncoderThreadTask, ptr %threadtask, i64 0, i32 16, i64 %indvars.iv350
-  %129 = load i32, ptr %arrayidx485, align 4
-  %idxprom486 = zext i32 %129 to i64
-  %arrayidx487 = getelementptr inbounds %struct.FLAC__StreamEncoderThreadTask, ptr %threadtask, i64 0, i32 8, i64 %indvars.iv350, i64 %idxprom486
-  %130 = load ptr, ptr %frame463, align 8
-  %call489 = call fastcc i32 @add_subframe_(ptr noundef nonnull %encoder, i32 noundef %127, i32 noundef %128, ptr noundef nonnull %arrayidx487, ptr noundef %130), !range !8
+  %indvars.iv345 = phi i64 [ %indvars.iv.next346, %for.cond470 ], [ 0, %for.cond470.preheader ]
+  %126 = load i32, ptr %frame_header, align 8
+  %arrayidx479 = getelementptr inbounds %struct.FLAC__StreamEncoderThreadTask, ptr %threadtask, i64 0, i32 4, i64 %indvars.iv345
+  %127 = load i32, ptr %arrayidx479, align 4
+  %arrayidx485 = getelementptr inbounds %struct.FLAC__StreamEncoderThreadTask, ptr %threadtask, i64 0, i32 16, i64 %indvars.iv345
+  %128 = load i32, ptr %arrayidx485, align 4
+  %idxprom486 = zext i32 %128 to i64
+  %arrayidx487 = getelementptr inbounds %struct.FLAC__StreamEncoderThreadTask, ptr %threadtask, i64 0, i32 8, i64 %indvars.iv345, i64 %idxprom486
+  %129 = load ptr, ptr %frame463, align 8
+  %call489 = call fastcc i32 @add_subframe_(ptr noundef nonnull %encoder, i32 noundef %126, i32 noundef %127, ptr noundef nonnull %arrayidx487, ptr noundef %129), !range !8
   %tobool490.not = icmp eq i32 %call489, 0
   br i1 %tobool490.not, label %return, label %for.cond470
 
 if.end496:                                        ; preds = %for.cond470, %if.end455.if.end496_crit_edge, %for.cond470.preheader
-  %131 = phi ptr [ %.pre353, %if.end455.if.end496_crit_edge ], [ %122, %for.cond470.preheader ], [ %124, %for.cond470 ]
-  %loose_mid_side_stereo498 = getelementptr inbounds %struct.FLAC__StreamEncoderProtected, ptr %131, i64 0, i32 5
-  %132 = load i32, ptr %loose_mid_side_stereo498, align 4
-  %tobool499.not = icmp eq i32 %132, 0
+  %130 = phi ptr [ %.pre348, %if.end455.if.end496_crit_edge ], [ %121, %for.cond470.preheader ], [ %123, %for.cond470 ]
+  %loose_mid_side_stereo498 = getelementptr inbounds %struct.FLAC__StreamEncoderProtected, ptr %130, i64 0, i32 5
+  %131 = load i32, ptr %loose_mid_side_stereo498, align 4
+  %tobool499.not = icmp eq i32 %131, 0
   br i1 %tobool499.not, label %return, label %if.then500
 
 if.then500:                                       ; preds = %if.end496
-  %133 = load ptr, ptr %private_, align 8
-  %loose_mid_side_stereo_frame_count502 = getelementptr inbounds %struct.FLAC__StreamEncoderPrivate, ptr %133, i64 0, i32 6
-  %134 = load i32, ptr %loose_mid_side_stereo_frame_count502, align 4
-  %inc503 = add i32 %134, 1
+  %132 = load ptr, ptr %private_, align 8
+  %loose_mid_side_stereo_frame_count502 = getelementptr inbounds %struct.FLAC__StreamEncoderPrivate, ptr %132, i64 0, i32 6
+  %133 = load i32, ptr %loose_mid_side_stereo_frame_count502, align 4
+  %inc503 = add i32 %133, 1
   store i32 %inc503, ptr %loose_mid_side_stereo_frame_count502, align 4
-  %135 = load ptr, ptr %private_, align 8
-  %loose_mid_side_stereo_frame_count505 = getelementptr inbounds %struct.FLAC__StreamEncoderPrivate, ptr %135, i64 0, i32 6
-  %136 = load i32, ptr %loose_mid_side_stereo_frame_count505, align 4
-  %loose_mid_side_stereo_frames = getelementptr inbounds %struct.FLAC__StreamEncoderPrivate, ptr %135, i64 0, i32 5
-  %137 = load i32, ptr %loose_mid_side_stereo_frames, align 8
-  %cmp507.not = icmp ult i32 %136, %137
+  %134 = load ptr, ptr %private_, align 8
+  %loose_mid_side_stereo_frame_count505 = getelementptr inbounds %struct.FLAC__StreamEncoderPrivate, ptr %134, i64 0, i32 6
+  %135 = load i32, ptr %loose_mid_side_stereo_frame_count505, align 4
+  %loose_mid_side_stereo_frames = getelementptr inbounds %struct.FLAC__StreamEncoderPrivate, ptr %134, i64 0, i32 5
+  %136 = load i32, ptr %loose_mid_side_stereo_frames, align 8
+  %cmp507.not = icmp ult i32 %135, %136
   br i1 %cmp507.not, label %if.end512, label %if.then509
 
 if.then509:                                       ; preds = %if.then500
   store i32 0, ptr %loose_mid_side_stereo_frame_count505, align 4
-  %.pre354 = load ptr, ptr %private_, align 8
+  %.pre349 = load ptr, ptr %private_, align 8
   br label %if.end512
 
 if.end512:                                        ; preds = %if.then509, %if.then500
-  %138 = phi ptr [ %.pre354, %if.then509 ], [ %135, %if.then500 ]
-  %139 = load i32, ptr %channel_assignment, align 4
-  %last_channel_assignment515 = getelementptr inbounds %struct.FLAC__StreamEncoderPrivate, ptr %138, i64 0, i32 7
-  store i32 %139, ptr %last_channel_assignment515, align 8
+  %137 = phi ptr [ %.pre349, %if.then509 ], [ %134, %if.then500 ]
+  %138 = load i32, ptr %channel_assignment, align 4
+  %last_channel_assignment515 = getelementptr inbounds %struct.FLAC__StreamEncoderPrivate, ptr %137, i64 0, i32 7
+  store i32 %138, ptr %last_channel_assignment515, align 8
   br label %return
 
 return:                                           ; preds = %for.body475, %if.end496, %if.end512, %if.end455, %sw.epilog449, %if.then466, %if.then374

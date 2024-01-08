@@ -3824,8 +3824,8 @@ entry:
   %n = alloca %"class.smt::theory_seq::ne", align 8
   %m_nqs = getelementptr inbounds %"class.smt::theory_seq", ptr %this, i64 0, i32 5
   %0 = load i32, ptr %m_nqs, align 8
-  %cmp22.not = icmp eq i32 %0, 0
-  br i1 %cmp22.not, label %return, label %for.body.lr.ph
+  %cmp20.not = icmp eq i32 %0, 0
+  br i1 %cmp20.not, label %return, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
   %m_elems.i = getelementptr inbounds %"class.smt::theory_seq", ptr %this, i64 0, i32 5, i32 3
@@ -3833,11 +3833,8 @@ for.body.lr.ph:                                   ; preds = %entry
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %i.023 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
   %1 = load ptr, ptr %m_index.i, align 8
-  %idxprom.i.i = zext i32 %i.023 to i64
-  %arrayidx.i.i = getelementptr inbounds i32, ptr %1, i64 %idxprom.i.i
-  %2 = load i32, ptr %arrayidx.i.i, align 4
+  %2 = load i32, ptr %1, align 4
   %3 = load ptr, ptr %m_elems.i, align 8
   %idxprom.i1.i = zext i32 %2 to i64
   %arrayidx.i2.i = getelementptr inbounds %"class.smt::theory_seq::ne", ptr %3, i64 %idxprom.i1.i
@@ -3846,50 +3843,50 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
           to label %invoke.cont unwind label %lpad.loopexit, !range !22
 
 invoke.cont:                                      ; preds = %for.body
-  switch i32 %call4, label %for.inc [
-    i32 0, label %cleanup
+  switch i32 %call4, label %default.unreachable27 [
+    i32 0, label %cleanup.thread
     i32 1, label %sw.bb5
     i32 -1, label %sw.bb8
   ]
 
 lpad.loopexit:                                    ; preds = %for.body, %sw.bb5
-  %lpad.loopexit9 = landingpad { ptr, i32 }
+  %lpad.loopexit8 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad.loopexit.split-lp:                           ; preds = %sw.bb8
-  %lpad.loopexit.split-lp10 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp9 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp, %lpad.loopexit
-  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit9, %lpad.loopexit ], [ %lpad.loopexit.split-lp10, %lpad.loopexit.split-lp ]
+  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit8, %lpad.loopexit ], [ %lpad.loopexit.split-lp9, %lpad.loopexit.split-lp ]
   call void @_ZN3smt10theory_seq2neD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %n) #12
   resume { ptr, i32 } %lpad.phi
 
 sw.bb5:                                           ; preds = %invoke.cont
-  %dec = add i32 %i.023, -1
-  invoke void @_ZN13scoped_vectorIN3smt10theory_seq2neEE14erase_and_swapEj(ptr noundef nonnull align 8 dereferenceable(64) %m_nqs, i32 noundef %i.023)
+  invoke void @_ZN13scoped_vectorIN3smt10theory_seq2neEE14erase_and_swapEj(ptr noundef nonnull align 8 dereferenceable(64) %m_nqs, i32 noundef 0)
           to label %for.inc unwind label %lpad.loopexit
 
 sw.bb8:                                           ; preds = %invoke.cont
-  invoke void @_ZN13scoped_vectorIN3smt10theory_seq2neEE14erase_and_swapEj(ptr noundef nonnull align 8 dereferenceable(64) %m_nqs, i32 noundef %i.023)
-          to label %cleanup unwind label %lpad.loopexit.split-lp
+  invoke void @_ZN13scoped_vectorIN3smt10theory_seq2neEE14erase_and_swapEj(ptr noundef nonnull align 8 dereferenceable(64) %m_nqs, i32 noundef 0)
+          to label %cleanup.thread unwind label %lpad.loopexit.split-lp
 
-cleanup:                                          ; preds = %invoke.cont, %sw.bb8
+default.unreachable27:                            ; preds = %invoke.cont
+  unreachable
+
+cleanup.thread:                                   ; preds = %invoke.cont, %sw.bb8
   call void @_ZN3smt10theory_seq2neD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %n) #12
   br label %return
 
-for.inc:                                          ; preds = %invoke.cont, %sw.bb5
-  %i.2.ph = phi i32 [ %dec, %sw.bb5 ], [ %i.023, %invoke.cont ]
+for.inc:                                          ; preds = %sw.bb5
   call void @_ZN3smt10theory_seq2neD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %n) #12
-  %inc = add i32 %i.2.ph, 1
   %4 = load i32, ptr %m_nqs, align 8
-  %cmp = icmp ult i32 %inc, %4
-  br i1 %cmp, label %for.body, label %return, !llvm.loop !23
+  %cmp.not = icmp eq i32 %4, 0
+  br i1 %cmp.not, label %return, label %for.body, !llvm.loop !23
 
-return:                                           ; preds = %for.inc, %entry, %cleanup
-  %cmp14 = phi i1 [ true, %cleanup ], [ false, %entry ], [ false, %for.inc ]
+return:                                           ; preds = %for.inc, %entry, %cleanup.thread
+  %cmp14 = phi i1 [ true, %cleanup.thread ], [ false, %entry ], [ false, %for.inc ]
   ret i1 %cmp14
 }
 

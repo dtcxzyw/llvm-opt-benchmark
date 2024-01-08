@@ -10,7 +10,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.UTrie2Header = type { i32, i16, i16, i16, i16, i16, i16 }
 
 ; Function Attrs: mustprogress uwtable
-define ptr @utrie2_open_75(i32 noundef %initialValue, i32 noundef %errorValue, ptr nocapture noundef %pErrorCode) local_unnamed_addr #0 {
+define noundef ptr @utrie2_open_75(i32 noundef %initialValue, i32 noundef %errorValue, ptr nocapture noundef %pErrorCode) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %pErrorCode, align 4
   %cmp.i = icmp slt i32 %0, 1
@@ -275,7 +275,7 @@ return:                                           ; preds = %if.end3.i, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define ptr @utrie2_clone_75(ptr noundef readonly %other, ptr nocapture noundef %pErrorCode) local_unnamed_addr #0 {
+define noundef ptr @utrie2_clone_75(ptr noundef readonly %other, ptr nocapture noundef %pErrorCode) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %pErrorCode, align 4
   %cmp.i = icmp slt i32 %0, 1
@@ -1984,15 +1984,13 @@ for.body135:                                      ; preds = %for.body135.prehead
 
 if.end144:                                        ; preds = %for.body135, %for.end127, %for.end110
   %dest16.5 = phi ptr [ %incdec.ptr107, %for.end110 ], [ %dest16.3.lcssa, %for.end127 ], [ %incdec.ptr140, %for.body135 ]
-  switch i32 %valueBits, label %sw.default [
-    i32 0, label %sw.bb
-    i32 1, label %sw.bb156
-  ]
+  %switch = icmp eq i32 %valueBits, 0
+  %data16145 = getelementptr inbounds %struct.UTrie2, ptr %trie, i64 0, i32 1
+  %data32 = getelementptr inbounds %struct.UTrie2, ptr %trie, i64 0, i32 2
+  br i1 %switch, label %sw.bb, label %sw.bb156
 
 sw.bb:                                            ; preds = %if.end144
-  %data16145 = getelementptr inbounds %struct.UTrie2, ptr %trie, i64 0, i32 1
   store ptr %dest16.5, ptr %data16145, align 8
-  %data32 = getelementptr inbounds %struct.UTrie2, ptr %trie, i64 0, i32 2
   store ptr null, ptr %data32, align 8
   %113 = load i32, ptr %dataLength, align 8
   %cmp148220 = icmp sgt i32 %113, 0
@@ -2017,10 +2015,8 @@ for.body149:                                      ; preds = %for.body149.prehead
   br i1 %cmp148, label %for.body149, label %sw.epilog, !llvm.loop !44
 
 sw.bb156:                                         ; preds = %if.end144
-  %data16157 = getelementptr inbounds %struct.UTrie2, ptr %trie, i64 0, i32 1
-  store ptr null, ptr %data16157, align 8
-  %data32158 = getelementptr inbounds %struct.UTrie2, ptr %trie, i64 0, i32 2
-  store ptr %dest16.5, ptr %data32158, align 8
+  store ptr null, ptr %data16145, align 8
+  store ptr %dest16.5, ptr %data32, align 8
   %data159 = getelementptr inbounds %struct.UNewTrie2, ptr %2, i64 0, i32 2
   %116 = load ptr, ptr %data159, align 8
   %117 = load i32, ptr %dataLength, align 8
@@ -2028,10 +2024,6 @@ sw.bb156:                                         ; preds = %if.end144
   %mul162 = shl nsw i64 %conv161, 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %dest16.5, ptr align 4 %116, i64 %mul162, i1 false)
   br label %sw.epilog
-
-sw.default:                                       ; preds = %if.end144
-  store i32 1, ptr %pErrorCode, align 4
-  br label %return
 
 sw.epilog:                                        ; preds = %for.body149, %sw.bb, %sw.bb156
   %data163 = getelementptr inbounds %struct.UNewTrie2, ptr %2, i64 0, i32 2
@@ -2041,7 +2033,7 @@ sw.epilog:                                        ; preds = %for.body149, %sw.bb
   store ptr null, ptr %newTrie6, align 8
   br label %return
 
-return:                                           ; preds = %if.then6.i, %_ZL11compactTrieP6UTrie2P10UErrorCode.exit, %if.then8, %if.then11, %entry, %sw.epilog, %sw.default, %if.then56, %if.then38, %if.then4
+return:                                           ; preds = %if.then6.i, %_ZL11compactTrieP6UTrie2P10UErrorCode.exit, %if.then8, %if.then11, %entry, %sw.epilog, %if.then56, %if.then38, %if.then4
   ret void
 }
 

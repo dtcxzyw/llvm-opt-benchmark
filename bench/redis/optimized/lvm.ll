@@ -33,7 +33,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.9 = private unnamed_addr constant [28 x i8] c"'for' step must be a number\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @luaV_tonumber(ptr noundef readonly %obj, ptr noundef writeonly %n) local_unnamed_addr #0 {
+define hidden noundef ptr @luaV_tonumber(ptr noundef readonly %obj, ptr noundef writeonly %n) local_unnamed_addr #0 {
 entry:
   %num = alloca double, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %num) #9
@@ -76,7 +76,7 @@ declare hidden i32 @luaO_str2d(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @luaV_tostring(ptr noundef %L, ptr nocapture noundef %obj) local_unnamed_addr #0 {
+define hidden noundef i32 @luaV_tostring(ptr noundef %L, ptr nocapture noundef %obj) local_unnamed_addr #0 {
 entry:
   %s = alloca [32 x i8], align 16
   %tt = getelementptr inbounds %struct.lua_TValue, ptr %obj, i64 0, i32 1
@@ -1112,7 +1112,7 @@ do.end:                                           ; preds = %if.end83
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @call_binTM(ptr noundef %L, ptr noundef %p1, ptr noundef %p2, ptr noundef %res, i32 noundef %event) unnamed_addr #0 {
+define internal fastcc noundef i32 @call_binTM(ptr noundef %L, ptr noundef %p1, ptr noundef %p2, ptr noundef %res, i32 noundef %event) unnamed_addr #0 {
 entry:
   %call = tail call ptr @luaT_gettmbyobj(ptr noundef %L, ptr noundef %p1, i32 noundef %event) #9
   %tt = getelementptr inbounds %struct.lua_TValue, ptr %call, i64 0, i32 1
@@ -3003,7 +3003,7 @@ if.then:                                          ; preds = %land.lhs.true.i70, 
   %5 = load double, ptr %.in, align 8, !tbaa !9
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %num.i68) #9
   %6 = load double, ptr %retval.0.i.ph, align 8, !tbaa !9
-  switch i32 %op, label %if.end34 [
+  switch i32 %op, label %default.unreachable [
     i32 5, label %sw.bb
     i32 6, label %sw.bb5
     i32 7, label %sw.bb9
@@ -3074,7 +3074,10 @@ if.then33:                                        ; preds = %if.else
   call void @luaG_aritherror(ptr noundef %L, ptr noundef nonnull %rb, ptr noundef %rc) #9
   br label %if.end34
 
-if.end34:                                         ; preds = %if.then33, %if.else, %sw.bb28, %sw.bb23, %sw.bb17, %sw.bb13, %sw.bb9, %sw.bb5, %sw.bb, %if.then
+default.unreachable:                              ; preds = %if.then
+  unreachable
+
+if.end34:                                         ; preds = %if.then33, %if.else, %sw.bb28, %sw.bb23, %sw.bb17, %sw.bb13, %sw.bb9, %sw.bb5, %sw.bb
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %tempb.sroa.0)
   ret void
 }

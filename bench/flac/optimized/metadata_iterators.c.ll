@@ -92,7 +92,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.38 = private unnamed_addr constant [35 x i8] c"chown(filename, -1, stats->st_gid)\00", align 1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define i32 @FLAC__metadata_get_streaminfo(ptr noundef %filename, ptr nocapture noundef writeonly %streaminfo) local_unnamed_addr #0 {
+define noundef i32 @FLAC__metadata_get_streaminfo(ptr noundef %filename, ptr nocapture noundef writeonly %streaminfo) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc ptr @get_one_metadata_block_(ptr noundef %filename, i32 noundef 0)
   %tobool.not = icmp eq ptr %call, null
@@ -480,7 +480,7 @@ return:                                           ; preds = %entry, %FLAC__metad
 }
 
 ; Function Attrs: mustprogress nofree nounwind sspstrong willreturn memory(write, argmem: none, inaccessiblemem: readwrite) uwtable
-define noalias ptr @FLAC__metadata_simple_iterator_new() local_unnamed_addr #3 {
+define noalias noundef ptr @FLAC__metadata_simple_iterator_new() local_unnamed_addr #3 {
 entry:
   %call = tail call noalias dereferenceable_or_null(248) ptr @calloc(i64 noundef 1, i64 noundef 248) #29
   %cmp.not = icmp eq ptr %call, null
@@ -498,7 +498,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define i32 @FLAC__metadata_simple_iterator_init(ptr nocapture noundef %iterator, ptr nocapture noundef readonly %filename, i32 noundef %read_only, i32 noundef %preserve_file_stats) local_unnamed_addr #0 {
+define noundef i32 @FLAC__metadata_simple_iterator_init(ptr nocapture noundef %iterator, ptr nocapture noundef readonly %filename, i32 noundef %read_only, i32 noundef %preserve_file_stats) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %iterator, align 8
   %cmp.not.i = icmp eq ptr %0, null
@@ -828,7 +828,7 @@ read_metadata_block_data_streaminfo_cb_.exit.i.i: ; preds = %unpack_uint64_.exit
 
 sw.bb1.i.i:                                       ; preds = %if.then
   %conv.i.i.i = zext i32 %2 to i64
-  %call.i79.i = tail call i32 @fseeko64(ptr noundef %3, i64 noundef %conv.i.i.i, i32 noundef 1)
+  %call.i79.i = tail call noundef i32 @fseeko64(ptr noundef %3, i64 noundef %conv.i.i.i, i32 noundef 1)
   %cmp.not.i29.i.i = icmp eq i32 %call.i79.i, 0
   %status.i54 = getelementptr inbounds %struct.FLAC__Metadata_SimpleIterator, ptr %iterator, i64 0, i32 6
   br i1 %cmp.not.i29.i.i, label %if.end.sink.split, label %read_metadata_block_data_.exit.thread56
@@ -1051,7 +1051,7 @@ if.end20.i60.i:                                   ; preds = %if.then18.i58.i, %i
   %35 = phi i32 [ %.pre.i59.i, %if.then18.i58.i ], [ %33, %if.end14.i55.i ]
   %conv22.i61.i = zext i32 %35 to i64
   %add.i.i62.i = add nuw nsw i64 %conv22.i61.i, 1
-  %call.i.i.i63.i = tail call noalias ptr @malloc(i64 noundef %add.i.i62.i) #31
+  %call.i.i.i63.i = tail call noalias noundef ptr @malloc(i64 noundef %add.i.i62.i) #31
   store ptr %call.i.i.i63.i, ptr %entry15.i56.i, align 8
   %cmp25.i64.i = icmp eq ptr %call.i.i.i63.i, null
   br i1 %cmp25.i64.i, label %read_metadata_block_data_vorbis_comment_entry_cb_.exit78.thread.i, label %if.end28.i65.i
@@ -1226,7 +1226,7 @@ if.end20.i.i:                                     ; preds = %if.then18.i.i, %if.
   %44 = phi i32 [ %.pre.i24.i, %if.then18.i.i ], [ %42, %if.end14.i.i ]
   %conv22.i25.i = zext i32 %44 to i64
   %add.i.i26.i = add nuw nsw i64 %conv22.i25.i, 1
-  %call.i.i.i27.i = tail call noalias ptr @malloc(i64 noundef %add.i.i26.i) #31
+  %call.i.i.i27.i = tail call noalias noundef ptr @malloc(i64 noundef %add.i.i26.i) #31
   store ptr %call.i.i.i27.i, ptr %entry15.i.i, align 8
   %cmp25.i.i = icmp eq ptr %call.i.i.i27.i, null
   br i1 %cmp25.i.i, label %read_metadata_block_data_vorbis_comment_entry_cb_.exit.thread.i, label %if.end28.i.i
@@ -1287,7 +1287,7 @@ skip.i.i.i:                                       ; preds = %if.end63.i.i.i, %if
 
 if.then69.i.i.i:                                  ; preds = %skip.i.i.i
   %conv70.i.i.i = zext i32 %block_length.addr.3.i.i.i to i64
-  %call.i10.i = tail call i32 @fseeko64(ptr noundef %3, i64 noundef %conv70.i.i.i, i32 noundef 1)
+  %call.i10.i = tail call noundef i32 @fseeko64(ptr noundef %3, i64 noundef %conv70.i.i.i, i32 noundef 1)
   %cmp72.not.i.i.i = icmp eq i32 %call.i10.i, 0
   br i1 %cmp72.not.i.i.i, label %if.end76.i.i.i, label %read_metadata_block_data_vorbis_comment_cb_.exit.i.i
 
@@ -1684,7 +1684,7 @@ if.then11.i.i.i.i:                                ; preds = %if.end8.i.i.i.i
 if.end12.i.i.i.i:                                 ; preds = %if.then11.i.i.i.i, %if.end8.i.i.i.i
   %conv13.i.i.i.i = zext i32 %len.0.i.i.i to i64
   %add.i.i.i.i.i = add nuw nsw i64 %conv13.i.i.i.i, 1
-  %call.i.i.i.i.i.i = tail call noalias ptr @malloc(i64 noundef %add.i.i.i.i.i) #31
+  %call.i.i.i.i.i.i = tail call noalias noundef ptr @malloc(i64 noundef %add.i.i.i.i.i) #31
   store ptr %call.i.i.i.i.i.i, ptr %mime_type.i.i.i, align 8
   %cmp15.i.i.i.i = icmp eq ptr %call.i.i.i.i.i.i, null
   br i1 %cmp15.i.i.i.i, label %read_metadata_block_data_picture_cstring_cb_.exit.thread.i.i.i, label %if.end18.i.i.i.i
@@ -1757,7 +1757,7 @@ if.then11.i55.i.i.i:                              ; preds = %if.end8.i53.i.i.i
 if.end12.i57.i.i.i:                               ; preds = %if.then11.i55.i.i.i, %if.end8.i53.i.i.i
   %conv13.i58.i.i.i = zext i32 %len.1.i.i.i to i64
   %add.i.i59.i.i.i = add nuw nsw i64 %conv13.i58.i.i.i, 1
-  %call.i.i.i60.i.i.i = tail call noalias ptr @malloc(i64 noundef %add.i.i59.i.i.i) #31
+  %call.i.i.i60.i.i.i = tail call noalias noundef ptr @malloc(i64 noundef %add.i.i59.i.i.i) #31
   store ptr %call.i.i.i60.i.i.i, ptr %description.i.i.i, align 8
   %cmp15.i61.i.i.i = icmp eq ptr %call.i.i.i60.i.i.i, null
   br i1 %cmp15.i61.i.i.i, label %read_metadata_block_data_picture_cstring_cb_.exit75.thread.i.i.i, label %if.end18.i62.i.i.i
@@ -1950,7 +1950,7 @@ if.end12.i.i:                                     ; preds = %if.then11.i.i, %if.
   %116 = phi i32 [ %.pre.i.i, %if.then11.i.i ], [ %114, %if.end8.i.i ]
   %conv13.i.i = zext i32 %116 to i64
   %add.i.i8.i = add nuw nsw i64 %conv13.i.i, 1
-  %call.i.i.i9.i = tail call noalias ptr @malloc(i64 noundef %add.i.i8.i) #31
+  %call.i.i.i9.i = tail call noalias noundef ptr @malloc(i64 noundef %add.i.i8.i) #31
   store ptr %call.i.i.i9.i, ptr %data.i136.i.i, align 8
   %cmp15.i.i = icmp eq ptr %call.i.i.i9.i, null
   br i1 %cmp15.i.i, label %read_metadata_block_data_picture_cstring_cb_.exit.i, label %if.end18.i.i
@@ -2067,7 +2067,7 @@ return:                                           ; preds = %if.else, %if.end, %
 declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind sspstrong uwtable
-define i32 @FLAC__metadata_simple_iterator_next(ptr nocapture noundef %iterator) local_unnamed_addr #6 {
+define noundef i32 @FLAC__metadata_simple_iterator_next(ptr nocapture noundef %iterator) local_unnamed_addr #6 {
 entry:
   %raw_header.i.i = alloca [4 x i8], align 1
   %is_last = getelementptr inbounds %struct.FLAC__Metadata_SimpleIterator, ptr %iterator, i64 0, i32 10
@@ -2163,7 +2163,7 @@ entry:
 declare noalias ptr @strdup(ptr nocapture noundef readonly) local_unnamed_addr #10
 
 ; Function Attrs: nofree nounwind sspstrong uwtable
-define internal fastcc i32 @simple_iterator_prime_input_(ptr nocapture noundef %iterator, i32 noundef %read_only) unnamed_addr #6 {
+define internal fastcc noundef i32 @simple_iterator_prime_input_(ptr nocapture noundef %iterator, i32 noundef %read_only) unnamed_addr #6 {
 entry:
   %raw_header.i.i = alloca [4 x i8], align 1
   %buffer.i.i = alloca [4 x i8], align 1
@@ -2223,7 +2223,7 @@ if.else4.i.i:                                     ; preds = %if.else.i.i
   br i1 %cmp7.i.i, label %if.then8.i.i, label %if.end42.i.i
 
 if.then8.i.i:                                     ; preds = %if.else4.i.i
-  %call.i2.i = tail call i32 @fseeko64(ptr noundef nonnull %3, i64 noundef 2, i32 noundef 1)
+  %call.i2.i = tail call noundef i32 @fseeko64(ptr noundef nonnull %3, i64 noundef 2, i32 noundef 1)
   %cmp10.i.i = icmp slt i32 %call.i2.i, 0
   br i1 %cmp10.i.i, label %sw.bb28, label %for.body.i.i
 
@@ -2249,7 +2249,7 @@ if.end18.i.i:                                     ; preds = %lor.lhs.false.i.i
 
 for.end.i.i:                                      ; preds = %if.end18.i.i
   %conv22.i.i = zext i32 %or.i.i to i64
-  %call.i1.i = tail call i32 @fseeko64(ptr noundef nonnull %3, i64 noundef %conv22.i.i, i32 noundef 1)
+  %call.i1.i = tail call noundef i32 @fseeko64(ptr noundef nonnull %3, i64 noundef %conv22.i.i, i32 noundef 1)
   %cmp24.i.i = icmp slt i32 %call.i1.i, 0
   br i1 %cmp24.i.i, label %sw.bb28, label %if.end27.i.i
 
@@ -2371,7 +2371,7 @@ declare noundef i32 @fseeko64(ptr nocapture noundef, i64 noundef, i32 noundef) l
 declare noundef i64 @ftello64(ptr nocapture noundef) local_unnamed_addr #11
 
 ; Function Attrs: nofree nounwind sspstrong uwtable
-define internal fastcc i32 @read_metadata_block_header_(ptr nocapture noundef %iterator) unnamed_addr #6 {
+define internal fastcc noundef i32 @read_metadata_block_header_(ptr nocapture noundef %iterator) unnamed_addr #6 {
 entry:
   %raw_header.i = alloca [4 x i8], align 1
   %0 = load ptr, ptr %iterator, align 8
@@ -2424,7 +2424,7 @@ return:                                           ; preds = %read_metadata_block
 }
 
 ; Function Attrs: nofree nounwind sspstrong uwtable
-define i32 @FLAC__metadata_simple_iterator_prev(ptr nocapture noundef %iterator) local_unnamed_addr #6 {
+define noundef i32 @FLAC__metadata_simple_iterator_prev(ptr nocapture noundef %iterator) local_unnamed_addr #6 {
 entry:
   %raw_header.i.i19 = alloca [4 x i8], align 1
   %raw_header.i.i = alloca [4 x i8], align 1
@@ -2614,7 +2614,7 @@ entry:
 }
 
 ; Function Attrs: nofree nounwind sspstrong uwtable
-define i32 @FLAC__metadata_simple_iterator_get_application_id(ptr nocapture noundef %iterator, ptr nocapture noundef %id) local_unnamed_addr #6 {
+define noundef i32 @FLAC__metadata_simple_iterator_get_application_id(ptr nocapture noundef %iterator, ptr nocapture noundef %id) local_unnamed_addr #6 {
 entry:
   %0 = load i32, ptr @FLAC__STREAM_METADATA_APPLICATION_ID_LEN, align 4
   %div8 = lshr i32 %0, 3
@@ -2655,7 +2655,7 @@ declare noundef i64 @fread(ptr nocapture noundef, i64 noundef, i64 noundef, ptr 
 declare ptr @FLAC__metadata_object_new(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define i32 @FLAC__metadata_simple_iterator_set_block(ptr noundef %iterator, ptr noundef %block, i32 noundef %use_padding) local_unnamed_addr #0 {
+define noundef i32 @FLAC__metadata_simple_iterator_set_block(ptr noundef %iterator, ptr noundef %block, i32 noundef %use_padding) local_unnamed_addr #0 {
 entry:
   %raw_header.i.i.i = alloca [4 x i8], align 1
   %is_writable = getelementptr inbounds %struct.FLAC__Metadata_SimpleIterator, ptr %iterator, i64 0, i32 5
@@ -2863,7 +2863,7 @@ return:                                           ; preds = %if.end71, %if.else8
 }
 
 ; Function Attrs: nofree nounwind sspstrong uwtable
-define internal fastcc i32 @write_metadata_block_stationary_(ptr nocapture noundef %iterator, ptr nocapture noundef %block) unnamed_addr #6 {
+define internal fastcc noundef i32 @write_metadata_block_stationary_(ptr nocapture noundef %iterator, ptr nocapture noundef %block) unnamed_addr #6 {
 entry:
   %raw_header.i.i = alloca [4 x i8], align 1
   %buffer.i.i = alloca [4 x i8], align 1
@@ -3001,7 +3001,7 @@ return:                                           ; preds = %if.then.i16, %read_
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @write_metadata_block_stationary_with_padding_(ptr nocapture noundef %iterator, ptr nocapture noundef %block, i32 noundef %padding_length, i32 noundef %padding_is_last) unnamed_addr #0 {
+define internal fastcc noundef i32 @write_metadata_block_stationary_with_padding_(ptr nocapture noundef %iterator, ptr nocapture noundef %block, i32 noundef %padding_length, i32 noundef %padding_is_last) unnamed_addr #0 {
 entry:
   %buffer.i.i25 = alloca [4 x i8], align 1
   %buffer.i.i = alloca [4 x i8], align 1
@@ -3156,7 +3156,7 @@ return:                                           ; preds = %if.end22, %write_me
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @rewrite_whole_file_(ptr noundef %iterator, ptr noundef %block, i32 noundef %append) unnamed_addr #0 {
+define internal fastcc noundef i32 @rewrite_whole_file_(ptr noundef %iterator, ptr noundef %block, i32 noundef %append) unnamed_addr #0 {
 entry:
   %raw_header.i.i.i117 = alloca [4 x i8], align 1
   %raw_header.i.i.i.i = alloca [4 x i8], align 1
@@ -3919,7 +3919,7 @@ return:                                           ; preds = %simple_iterator_cop
 }
 
 ; Function Attrs: nofree nounwind sspstrong uwtable
-define internal fastcc i32 @simple_iterator_pop_(ptr nocapture noundef %iterator) unnamed_addr #6 {
+define internal fastcc noundef i32 @simple_iterator_pop_(ptr nocapture noundef %iterator) unnamed_addr #6 {
 entry:
   %raw_header.i.i = alloca [4 x i8], align 1
   %depth = getelementptr inbounds %struct.FLAC__Metadata_SimpleIterator, ptr %iterator, i64 0, i32 9
@@ -3990,7 +3990,7 @@ return:                                           ; preds = %if.then.i, %read_me
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define i32 @FLAC__metadata_simple_iterator_insert_block_after(ptr noundef %iterator, ptr noundef %block, i32 noundef %use_padding) local_unnamed_addr #0 {
+define noundef i32 @FLAC__metadata_simple_iterator_insert_block_after(ptr noundef %iterator, ptr noundef %block, i32 noundef %use_padding) local_unnamed_addr #0 {
 entry:
   %raw_header.i.i.i101 = alloca [4 x i8], align 1
   %raw_header.i.i.i66 = alloca [4 x i8], align 1
@@ -4335,7 +4335,7 @@ return:                                           ; preds = %if.then.i.i119, %if
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define i32 @FLAC__metadata_simple_iterator_delete_block(ptr noundef %iterator, i32 noundef %use_padding) local_unnamed_addr #0 {
+define noundef i32 @FLAC__metadata_simple_iterator_delete_block(ptr noundef %iterator, i32 noundef %use_padding) local_unnamed_addr #0 {
 entry:
   %is_writable = getelementptr inbounds %struct.FLAC__Metadata_SimpleIterator, ptr %iterator, i64 0, i32 5
   %0 = load i32, ptr %is_writable, align 4
@@ -4438,7 +4438,7 @@ return:                                           ; preds = %if.end14, %if.else,
 }
 
 ; Function Attrs: mustprogress nofree nounwind sspstrong willreturn memory(inaccessiblemem: readwrite) uwtable
-define noalias ptr @FLAC__metadata_chain_new() local_unnamed_addr #12 {
+define noalias noundef ptr @FLAC__metadata_chain_new() local_unnamed_addr #12 {
 entry:
   %call = tail call noalias dereferenceable_or_null(80) ptr @calloc(i64 noundef 1, i64 noundef 80) #29
   ret ptr %call
@@ -4493,14 +4493,14 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define i32 @FLAC__metadata_chain_read(ptr noundef %chain, ptr nocapture noundef readonly %filename) local_unnamed_addr #0 {
+define noundef i32 @FLAC__metadata_chain_read(ptr noundef %chain, ptr nocapture noundef readonly %filename) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc i32 @chain_read_(ptr noundef %chain, ptr noundef %filename, i32 noundef 0), !range !4
   ret i32 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @chain_read_(ptr noundef %chain, ptr nocapture noundef readonly %filename, i32 noundef %is_ogg) unnamed_addr #0 {
+define internal fastcc noundef i32 @chain_read_(ptr noundef %chain, ptr nocapture noundef readonly %filename, i32 noundef %is_ogg) unnamed_addr #0 {
 entry:
   %head.i = getelementptr inbounds %struct.FLAC__Metadata_Chain, ptr %chain, i64 0, i32 2
   %0 = load ptr, ptr %head.i, align 8
@@ -4586,14 +4586,14 @@ return:                                           ; preds = %cond.end, %if.then5
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define i32 @FLAC__metadata_chain_read_ogg(ptr noundef %chain, ptr nocapture noundef readonly %filename) local_unnamed_addr #0 {
+define noundef i32 @FLAC__metadata_chain_read_ogg(ptr noundef %chain, ptr nocapture noundef readonly %filename) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc i32 @chain_read_(ptr noundef %chain, ptr noundef %filename, i32 noundef 1), !range !4
   ret i32 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define i32 @FLAC__metadata_chain_read_with_callbacks(ptr nocapture noundef %chain, ptr noundef %handle, ptr nocapture noundef readonly byval(%struct.FLAC__IOCallbacks) align 8 %callbacks) local_unnamed_addr #0 {
+define noundef i32 @FLAC__metadata_chain_read_with_callbacks(ptr nocapture noundef %chain, ptr noundef %handle, ptr nocapture noundef readonly byval(%struct.FLAC__IOCallbacks) align 8 %callbacks) local_unnamed_addr #0 {
 entry:
   %callbacks1.sroa.0.0.copyload = load ptr, ptr %callbacks, align 8
   %callbacks1.sroa.42.0.callbacks.sroa_idx = getelementptr inbounds i8, ptr %callbacks, i64 16
@@ -4672,7 +4672,7 @@ chain_read_with_callbacks_.exit:                  ; preds = %if.then.i, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define i32 @FLAC__metadata_chain_read_ogg_with_callbacks(ptr noundef %chain, ptr noundef %handle, ptr nocapture noundef readonly byval(%struct.FLAC__IOCallbacks) align 8 %callbacks) local_unnamed_addr #0 {
+define noundef i32 @FLAC__metadata_chain_read_ogg_with_callbacks(ptr noundef %chain, ptr noundef %handle, ptr nocapture noundef readonly byval(%struct.FLAC__IOCallbacks) align 8 %callbacks) local_unnamed_addr #0 {
 entry:
   %callbacks1.sroa.0.0.copyload = load ptr, ptr %callbacks, align 8
   %callbacks1.sroa.42.0.callbacks.sroa_idx = getelementptr inbounds i8, ptr %callbacks, i64 16
@@ -4974,7 +4974,7 @@ return:                                           ; preds = %if.then72.us, %if.t
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define i32 @FLAC__metadata_chain_write(ptr nocapture noundef %chain, i32 noundef %use_padding, i32 noundef %preserve_file_stats) local_unnamed_addr #0 {
+define noundef i32 @FLAC__metadata_chain_write(ptr nocapture noundef %chain, i32 noundef %use_padding, i32 noundef %preserve_file_stats) local_unnamed_addr #0 {
 entry:
   %buffer.i70.i = alloca [8192 x i8], align 16
   %buffer.i.i.i22 = alloca [4 x i8], align 1
@@ -5044,7 +5044,7 @@ chain_rewrite_metadata_in_place_.exit.thread:     ; preds = %if.then13
 if.end.i:                                         ; preds = %if.then13
   %first_offset.i.i = getelementptr inbounds %struct.FLAC__Metadata_Chain, ptr %chain, i64 0, i32 6
   %5 = load i64, ptr %first_offset.i.i, align 8
-  %call.i21.i = tail call i32 @fseeko64(ptr noundef nonnull %call.i20, i64 noundef %5, i32 noundef 0)
+  %call.i21.i = tail call noundef i32 @fseeko64(ptr noundef nonnull %call.i20, i64 noundef %5, i32 noundef 0)
   %cmp.not.i.i = icmp eq i32 %call.i21.i, 0
   br i1 %cmp.not.i.i, label %if.end.i.i, label %chain_rewrite_metadata_in_place_.exit
 
@@ -6187,7 +6187,7 @@ if.end.i26:                                       ; preds = %if.else
   %call.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %112) #30
   %add2.i.i = add i64 %call.i.i, 15
   %spec.select.i.i.i = tail call i64 @llvm.umax.i64(i64 %add2.i.i, i64 1)
-  %call.i.i.i27 = tail call noalias ptr @malloc(i64 noundef %spec.select.i.i.i) #31
+  %call.i.i.i27 = tail call noalias noundef ptr @malloc(i64 noundef %spec.select.i.i.i) #31
   store ptr %call.i.i.i27, ptr %tempfilename.i, align 8
   %cmp4.i.i = icmp eq ptr %call.i.i.i27, null
   br i1 %cmp4.i.i, label %err.thread.i, label %if.end.i.i28
@@ -6506,7 +6506,7 @@ if.end:                                           ; preds = %if.then18
   %conv26 = trunc i64 %sub25 to i32
   %length27 = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %call19, i64 0, i32 2
   store i32 %conv26, ptr %length27, align 8
-  %call.i = tail call noalias dereferenceable_or_null(24) ptr @calloc(i64 noundef 1, i64 noundef 24) #29
+  %call.i = tail call noalias noundef dereferenceable_or_null(24) ptr @calloc(i64 noundef 1, i64 noundef 24) #29
   %cmp29 = icmp eq ptr %call.i, null
   br i1 %cmp29, label %if.then31, label %if.end33
 
@@ -6796,7 +6796,7 @@ if.end16:                                         ; preds = %if.then12, %if.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define i32 @FLAC__metadata_chain_write_with_callbacks(ptr nocapture noundef %chain, i32 noundef %use_padding, ptr noundef %handle, ptr nocapture noundef readonly byval(%struct.FLAC__IOCallbacks) align 8 %callbacks) local_unnamed_addr #0 {
+define noundef i32 @FLAC__metadata_chain_write_with_callbacks(ptr nocapture noundef %chain, i32 noundef %use_padding, ptr noundef %handle, ptr nocapture noundef readonly byval(%struct.FLAC__IOCallbacks) align 8 %callbacks) local_unnamed_addr #0 {
 entry:
   %is_ogg = getelementptr inbounds %struct.FLAC__Metadata_Chain, ptr %chain, i64 0, i32 1
   %0 = load i32, ptr %is_ogg, align 8
@@ -6858,7 +6858,7 @@ return:                                           ; preds = %if.end12, %if.end16
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @chain_rewrite_metadata_in_place_cb_(ptr nocapture noundef %chain, ptr noundef %handle, ptr nocapture noundef readonly %write_cb, ptr nocapture noundef readonly %seek_cb) unnamed_addr #0 {
+define internal fastcc noundef i32 @chain_rewrite_metadata_in_place_cb_(ptr nocapture noundef %chain, ptr noundef %handle, ptr nocapture noundef readonly %write_cb, ptr nocapture noundef readonly %seek_cb) unnamed_addr #0 {
 entry:
   %buffer.i = alloca [4 x i8], align 1
   %first_offset = getelementptr inbounds %struct.FLAC__Metadata_Chain, ptr %chain, i64 0, i32 6
@@ -6942,7 +6942,7 @@ return:                                           ; preds = %for.cond, %if.end5,
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define i32 @FLAC__metadata_chain_write_with_callbacks_and_tempfile(ptr nocapture noundef %chain, i32 noundef %use_padding, ptr noundef %handle, ptr nocapture noundef readonly byval(%struct.FLAC__IOCallbacks) align 8 %callbacks, ptr noundef %temp_handle, ptr nocapture noundef readonly byval(%struct.FLAC__IOCallbacks) align 8 %temp_callbacks) local_unnamed_addr #0 {
+define noundef i32 @FLAC__metadata_chain_write_with_callbacks_and_tempfile(ptr nocapture noundef %chain, i32 noundef %use_padding, ptr noundef %handle, ptr nocapture noundef readonly byval(%struct.FLAC__IOCallbacks) align 8 %callbacks, ptr noundef %temp_handle, ptr nocapture noundef readonly byval(%struct.FLAC__IOCallbacks) align 8 %temp_callbacks) local_unnamed_addr #0 {
 entry:
   %is_ogg = getelementptr inbounds %struct.FLAC__Metadata_Chain, ptr %chain, i64 0, i32 1
   %0 = load i32, ptr %is_ogg, align 8
@@ -7032,7 +7032,7 @@ return:                                           ; preds = %for.body, %return.s
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @chain_rewrite_file_cb_(ptr nocapture noundef %chain, ptr noundef %handle, ptr nocapture noundef readonly %read_cb, ptr nocapture noundef readonly %seek_cb, ptr nocapture noundef readonly %eof_cb, ptr noundef %temp_handle, ptr nocapture noundef readonly %temp_write_cb) unnamed_addr #0 {
+define internal fastcc noundef i32 @chain_rewrite_file_cb_(ptr nocapture noundef %chain, ptr noundef %handle, ptr nocapture noundef readonly %read_cb, ptr nocapture noundef readonly %seek_cb, ptr nocapture noundef readonly %eof_cb, ptr noundef %temp_handle, ptr nocapture noundef readonly %temp_write_cb) unnamed_addr #0 {
 entry:
   %buffer.i27 = alloca [8192 x i8], align 16
   %buffer.i21 = alloca [4 x i8], align 1
@@ -7440,7 +7440,7 @@ for.end:                                          ; preds = %for.inc, %entry
 }
 
 ; Function Attrs: mustprogress nofree nounwind sspstrong willreturn memory(inaccessiblemem: readwrite) uwtable
-define noalias ptr @FLAC__metadata_iterator_new() local_unnamed_addr #12 {
+define noalias noundef ptr @FLAC__metadata_iterator_new() local_unnamed_addr #12 {
 entry:
   %call = tail call noalias dereferenceable_or_null(16) ptr @calloc(i64 noundef 1, i64 noundef 16) #29
   ret ptr %call
@@ -7465,7 +7465,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define i32 @FLAC__metadata_iterator_next(ptr nocapture noundef %iterator) local_unnamed_addr #15 {
+define noundef i32 @FLAC__metadata_iterator_next(ptr nocapture noundef %iterator) local_unnamed_addr #15 {
 entry:
   %current = getelementptr inbounds %struct.FLAC__Metadata_Iterator, ptr %iterator, i64 0, i32 1
   %0 = load ptr, ptr %current, align 8
@@ -7488,7 +7488,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define i32 @FLAC__metadata_iterator_prev(ptr nocapture noundef %iterator) local_unnamed_addr #15 {
+define noundef i32 @FLAC__metadata_iterator_prev(ptr nocapture noundef %iterator) local_unnamed_addr #15 {
 entry:
   %current = getelementptr inbounds %struct.FLAC__Metadata_Iterator, ptr %iterator, i64 0, i32 1
   %0 = load ptr, ptr %current, align 8
@@ -7530,7 +7530,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define i32 @FLAC__metadata_iterator_set_block(ptr nocapture noundef %iterator, ptr noundef %block) local_unnamed_addr #0 {
+define noundef i32 @FLAC__metadata_iterator_set_block(ptr nocapture noundef %iterator, ptr noundef %block) local_unnamed_addr #0 {
 entry:
   %current.i = getelementptr inbounds %struct.FLAC__Metadata_Iterator, ptr %iterator, i64 0, i32 1
   %0 = load ptr, ptr %current.i, align 8
@@ -7597,7 +7597,7 @@ land.rhs:                                         ; preds = %if.then.i.i.i, %cha
   br i1 %cmp.i2, label %land.end, label %if.end.i3
 
 if.end.i3:                                        ; preds = %land.rhs
-  %call.i.i = tail call noalias dereferenceable_or_null(24) ptr @calloc(i64 noundef 1, i64 noundef 24) #29
+  %call.i.i = tail call noalias noundef dereferenceable_or_null(24) ptr @calloc(i64 noundef 1, i64 noundef 24) #29
   %cmp1.i = icmp eq ptr %call.i.i, null
   br i1 %cmp1.i, label %land.end, label %if.end3.i
 
@@ -7649,7 +7649,7 @@ land.end:                                         ; preds = %entry, %iterator_in
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define i32 @FLAC__metadata_iterator_delete_block(ptr nocapture noundef %iterator, i32 noundef %replace_with_padding) local_unnamed_addr #0 {
+define noundef i32 @FLAC__metadata_iterator_delete_block(ptr nocapture noundef %iterator, i32 noundef %replace_with_padding) local_unnamed_addr #0 {
 entry:
   %current = getelementptr inbounds %struct.FLAC__Metadata_Iterator, ptr %iterator, i64 0, i32 1
   %0 = load ptr, ptr %current, align 8
@@ -7734,14 +7734,14 @@ return:                                           ; preds = %entry, %if.end8
 }
 
 ; Function Attrs: mustprogress nofree nounwind sspstrong willreturn uwtable
-define i32 @FLAC__metadata_iterator_insert_block_after(ptr nocapture noundef %iterator, ptr noundef %block) local_unnamed_addr #17 {
+define noundef i32 @FLAC__metadata_iterator_insert_block_after(ptr nocapture noundef %iterator, ptr noundef %block) local_unnamed_addr #17 {
 entry:
   %0 = load i32, ptr %block, align 8
   %cmp = icmp eq i32 %0, 0
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call.i = tail call noalias dereferenceable_or_null(24) ptr @calloc(i64 noundef 1, i64 noundef 24) #29
+  %call.i = tail call noalias noundef dereferenceable_or_null(24) ptr @calloc(i64 noundef 1, i64 noundef 24) #29
   %cmp1 = icmp eq ptr %call.i, null
   br i1 %cmp1, label %return, label %if.end3
 
@@ -7797,7 +7797,7 @@ return:                                           ; preds = %if.end, %entry, %it
 declare void @FLAC__metadata_object_delete_data(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind sspstrong willreturn uwtable
-define i32 @FLAC__metadata_iterator_insert_block_before(ptr nocapture noundef %iterator, ptr noundef %block) local_unnamed_addr #17 {
+define noundef i32 @FLAC__metadata_iterator_insert_block_before(ptr nocapture noundef %iterator, ptr noundef %block) local_unnamed_addr #17 {
 entry:
   %0 = load i32, ptr %block, align 8
   %cmp = icmp eq i32 %0, 0
@@ -7812,7 +7812,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp1, label %return, label %if.end3
 
 if.end3:                                          ; preds = %if.end
-  %call.i = tail call noalias dereferenceable_or_null(24) ptr @calloc(i64 noundef 1, i64 noundef 24) #29
+  %call.i = tail call noalias noundef dereferenceable_or_null(24) ptr @calloc(i64 noundef 1, i64 noundef 24) #29
   %cmp4 = icmp eq ptr %call.i, null
   br i1 %cmp4, label %return, label %if.end6
 
@@ -7869,7 +7869,7 @@ declare i32 @FLAC__stream_decoder_set_metadata_respond(ptr noundef, i32 noundef)
 declare i32 @FLAC__stream_decoder_init_file(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal i32 @write_callback_(ptr nocapture readnone %decoder, ptr nocapture readnone %frame, ptr nocapture readnone %buffer, ptr nocapture readnone %client_data) #18 {
+define internal noundef i32 @write_callback_(ptr nocapture readnone %decoder, ptr nocapture readnone %frame, ptr nocapture readnone %buffer, ptr nocapture readnone %client_data) #18 {
 entry:
   ret i32 0
 }
@@ -7933,14 +7933,14 @@ declare noalias noundef ptr @fopen64(ptr nocapture noundef readonly, ptr nocaptu
 declare ptr @__errno_location() local_unnamed_addr #20
 
 ; Function Attrs: nofree nounwind sspstrong uwtable
-define internal i32 @fseek_wrapper_(ptr nocapture noundef %handle, i64 noundef %offset, i32 noundef %whence) #6 {
+define internal noundef i32 @fseek_wrapper_(ptr nocapture noundef %handle, i64 noundef %offset, i32 noundef %whence) #6 {
 entry:
   %call = tail call i32 @fseeko64(ptr noundef %handle, i64 noundef %offset, i32 noundef %whence)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @chain_read_ogg_cb_(ptr noundef %chain, ptr noundef %handle, ptr noundef %read_cb) unnamed_addr #0 {
+define internal fastcc noundef i32 @chain_read_ogg_cb_(ptr noundef %chain, ptr noundef %handle, ptr noundef %read_cb) unnamed_addr #0 {
 entry:
   %handle1 = getelementptr inbounds %struct.FLAC__Metadata_Chain, ptr %chain, i64 0, i32 9
   store ptr %handle, ptr %handle1, align 8
@@ -8039,7 +8039,7 @@ return:                                           ; preds = %lor.lhs.false, %if.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @chain_read_cb_(ptr nocapture noundef %chain, ptr noundef %handle, ptr nocapture noundef readonly %read_cb, ptr nocapture noundef readonly %seek_cb, ptr nocapture noundef readonly %tell_cb) unnamed_addr #0 {
+define internal fastcc noundef i32 @chain_read_cb_(ptr nocapture noundef %chain, ptr noundef %handle, ptr nocapture noundef readonly %read_cb, ptr nocapture noundef readonly %seek_cb, ptr nocapture noundef readonly %tell_cb) unnamed_addr #0 {
 entry:
   %buffer.i32.i.i = alloca [4 x i8], align 1
   %buffer.i.i100.i = alloca [4 x i8], align 1
@@ -8262,7 +8262,7 @@ if.end:                                           ; preds = %sw.epilog
   br label %do.body
 
 do.body:                                          ; preds = %chain_append_node_.exit, %if.end
-  %call.i36 = call noalias dereferenceable_or_null(24) ptr @calloc(i64 noundef 1, i64 noundef 24) #29
+  %call.i36 = call noalias noundef dereferenceable_or_null(24) ptr @calloc(i64 noundef 1, i64 noundef 24) #29
   %cmp9 = icmp eq ptr %call.i36, null
   br i1 %cmp9, label %if.then10, label %if.end12
 
@@ -9083,7 +9083,7 @@ if.then11.i.i.i:                                  ; preds = %if.end8.i.i.i
 if.end12.i.i.i:                                   ; preds = %if.then11.i.i.i, %if.end8.i.i.i
   %conv13.i.i.i = zext i32 %len.0.i.i to i64
   %add.i.i.i.i = add nuw nsw i64 %conv13.i.i.i, 1
-  %call.i.i.i.i.i = call noalias ptr @malloc(i64 noundef %add.i.i.i.i) #31
+  %call.i.i.i.i.i = call noalias noundef ptr @malloc(i64 noundef %add.i.i.i.i) #31
   store ptr %call.i.i.i.i.i, ptr %mime_type.i.i, align 8
   %cmp15.i.i.i = icmp eq ptr %call.i.i.i.i.i, null
   br i1 %cmp15.i.i.i, label %read_metadata_block_data_picture_cstring_cb_.exit.thread.i.i, label %if.end18.i.i.i
@@ -9150,7 +9150,7 @@ if.then11.i55.i.i:                                ; preds = %if.end8.i53.i.i
 if.end12.i57.i.i:                                 ; preds = %if.then11.i55.i.i, %if.end8.i53.i.i
   %conv13.i58.i.i = zext i32 %len.1.i.i to i64
   %add.i.i59.i.i = add nuw nsw i64 %conv13.i58.i.i, 1
-  %call.i.i.i60.i.i = call noalias ptr @malloc(i64 noundef %add.i.i59.i.i) #31
+  %call.i.i.i60.i.i = call noalias noundef ptr @malloc(i64 noundef %add.i.i59.i.i) #31
   store ptr %call.i.i.i60.i.i, ptr %description.i.i, align 8
   %cmp15.i61.i.i = icmp eq ptr %call.i.i.i60.i.i, null
   br i1 %cmp15.i61.i.i, label %read_metadata_block_data_picture_cstring_cb_.exit75.thread.i.i, label %if.end18.i62.i.i
@@ -9305,26 +9305,11 @@ if.end.i142.i:                                    ; preds = %if.else.i138.i
 
 read_metadata_block_data_cb_.exit:                ; preds = %read_metadata_block_data_streaminfo_cb_.exit.i, %read_metadata_block_data_seektable_cb_.exit.i, %read_metadata_block_data_vorbis_comment_cb_.exit.i, %read_metadata_block_data_cuesheet_cb_.exit.i, %read_metadata_block_data_picture_cb_.exit.i
   %retval.0.i46 = phi i32 [ %retval.0.i105.i, %read_metadata_block_data_picture_cb_.exit.i ], [ %retval.0.i79.i, %read_metadata_block_data_cuesheet_cb_.exit.i ], [ %retval.0.i60.i, %read_metadata_block_data_vorbis_comment_cb_.exit.i ], [ %retval.0.i36.i, %read_metadata_block_data_seektable_cb_.exit.i ], [ %retval.0.i.i, %read_metadata_block_data_streaminfo_cb_.exit.i ]
-  switch i32 %retval.0.i46, label %if.then33 [
-    i32 0, label %if.end34
-    i32 1, label %if.then33.loopexit
-    i32 2, label %if.then33.loopexit
-    i32 3, label %if.then33.loopexit
-    i32 4, label %if.then33.loopexit
-    i32 5, label %if.then33.loopexit
-    i32 6, label %if.then33.loopexit
-    i32 7, label %if.then33.loopexit
-    i32 8, label %if.then33.loopexit
-    i32 9, label %if.then33.loopexit
-    i32 10, label %if.then33.loopexit
-    i32 11, label %if.then33.loopexit
-  ]
+  %switch = icmp eq i32 %retval.0.i46, 0
+  br i1 %switch, label %if.end34, label %if.then33
 
-if.then33.loopexit:                               ; preds = %read_metadata_block_data_cb_.exit, %read_metadata_block_data_cb_.exit, %read_metadata_block_data_cb_.exit, %read_metadata_block_data_cb_.exit, %read_metadata_block_data_cb_.exit, %read_metadata_block_data_cb_.exit, %read_metadata_block_data_cb_.exit, %read_metadata_block_data_cb_.exit, %read_metadata_block_data_cb_.exit, %read_metadata_block_data_cb_.exit, %read_metadata_block_data_cb_.exit
-  br label %if.then33
-
-if.then33:                                        ; preds = %if.else.i.i, %if.else.i138.i, %sw.bb1.i, %sw.bb4.i, %if.end16.i.i, %if.end.i142.i, %read_metadata_block_data_cb_.exit, %if.then33.loopexit
-  %retval.0.i51.ph = phi i32 [ 12, %read_metadata_block_data_cb_.exit ], [ 6, %if.end.i142.i ], [ 6, %if.end16.i.i ], [ 6, %sw.bb4.i ], [ 7, %sw.bb1.i ], [ 11, %if.else.i138.i ], [ 11, %if.else.i.i ], [ %retval.0.i46, %if.then33.loopexit ]
+if.then33:                                        ; preds = %read_metadata_block_data_cb_.exit, %if.else.i.i, %if.else.i138.i, %sw.bb1.i, %sw.bb4.i, %if.end16.i.i, %if.end.i142.i
+  %retval.0.i51.ph = phi i32 [ 11, %if.else.i.i ], [ 11, %if.else.i138.i ], [ 7, %sw.bb1.i ], [ 6, %sw.bb4.i ], [ 6, %if.end16.i.i ], [ 6, %if.end.i142.i ], [ %retval.0.i46, %read_metadata_block_data_cb_.exit ]
   store i32 %retval.0.i51.ph, ptr %status30, align 4
   %108 = load ptr, ptr %call.i36, align 8
   %cmp.not.i56 = icmp eq ptr %108, null
@@ -9343,7 +9328,7 @@ if.end34.sink.split:                              ; preds = %sw.default.i, %if.t
   store ptr null, ptr %data22.i.sink, align 8
   br label %if.end34
 
-if.end34:                                         ; preds = %if.end34.sink.split, %sw.bb1.i, %if.end.i142.i, %if.end16.i.i, %read_metadata_block_data_cb_.exit
+if.end34:                                         ; preds = %read_metadata_block_data_cb_.exit, %if.end34.sink.split, %sw.bb1.i, %if.end.i142.i, %if.end16.i.i
   store i32 0, ptr %status30, align 4
   %prev.i = getelementptr inbounds %struct.FLAC__Metadata_Node, ptr %call.i36, i64 0, i32 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %prev.i, i8 0, i64 16, i1 false)
@@ -9432,7 +9417,7 @@ return:                                           ; preds = %chain_calculate_len
 }
 
 ; Function Attrs: nofree nounwind sspstrong uwtable
-define internal i64 @ftell_wrapper_(ptr nocapture noundef %handle) #6 {
+define internal noundef i64 @ftell_wrapper_(ptr nocapture noundef %handle) #6 {
 entry:
   %call = tail call i64 @ftello64(ptr noundef %handle)
   ret i64 %call
@@ -9472,7 +9457,7 @@ return:                                           ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal i32 @chain_read_ogg_write_cb_(ptr nocapture readnone %decoder, ptr nocapture readnone %frame, ptr nocapture readnone %buffer, ptr nocapture readnone %client_data) #18 {
+define internal noundef i32 @chain_read_ogg_write_cb_(ptr nocapture readnone %decoder, ptr nocapture readnone %frame, ptr nocapture readnone %buffer, ptr nocapture readnone %client_data) #18 {
 entry:
   ret i32 1
 }
@@ -9480,7 +9465,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @chain_read_ogg_metadata_cb_(ptr nocapture readnone %decoder, ptr noundef %metadata, ptr nocapture noundef %client_data) #0 {
 entry:
-  %call.i = tail call noalias dereferenceable_or_null(24) ptr @calloc(i64 noundef 1, i64 noundef 24) #29
+  %call.i = tail call noalias noundef dereferenceable_or_null(24) ptr @calloc(i64 noundef 1, i64 noundef 24) #29
   %cmp = icmp eq ptr %call.i, null
   br i1 %cmp, label %if.then, label %if.end
 
@@ -9555,7 +9540,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal fastcc i32 @get_equivalent_status_(i32 noundef %status) unnamed_addr #18 {
+define internal fastcc noundef i32 @get_equivalent_status_(i32 noundef %status) unnamed_addr #18 {
 entry:
   %status. = tail call i32 @llvm.umin.i32(i32 %status, i32 12)
   ret i32 %status.
@@ -9567,7 +9552,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #21
 declare ptr @safe_malloc_mul_2op_p(i64 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @read_metadata_block_data_vorbis_comment_entry_cb_(ptr noundef %handle, ptr nocapture noundef readonly %read_cb, ptr nocapture noundef %entry1, i32 noundef %max_length) unnamed_addr #0 {
+define internal fastcc noundef i32 @read_metadata_block_data_vorbis_comment_entry_cb_(ptr noundef %handle, ptr nocapture noundef readonly %read_cb, ptr nocapture noundef %entry1, i32 noundef %max_length) unnamed_addr #0 {
 entry:
   %buffer = alloca [4 x i8], align 1
   %0 = load i32, ptr @FLAC__STREAM_METADATA_VORBIS_COMMENT_ENTRY_LENGTH_LEN, align 4
@@ -9632,7 +9617,7 @@ if.end20:                                         ; preds = %if.then18, %if.end1
   %4 = phi i32 [ %.pre, %if.then18 ], [ %2, %if.end14 ]
   %conv22 = zext i32 %4 to i64
   %add.i = add nuw nsw i64 %conv22, 1
-  %call.i.i = call noalias ptr @malloc(i64 noundef %add.i) #31
+  %call.i.i = call noalias noundef ptr @malloc(i64 noundef %add.i) #31
   store ptr %call.i.i, ptr %entry15, align 8
   %cmp25 = icmp eq ptr %call.i.i, null
   br i1 %cmp25, label %return, label %if.end28
@@ -9666,7 +9651,7 @@ return:                                           ; preds = %land.lhs.true, %if.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @read_metadata_block_data_picture_cstring_cb_(ptr noundef %handle, ptr nocapture noundef readonly %read_cb, ptr nocapture noundef %data, ptr nocapture noundef %length, i32 noundef %length_len) unnamed_addr #0 {
+define internal fastcc noundef i32 @read_metadata_block_data_picture_cstring_cb_(ptr noundef %handle, ptr nocapture noundef readonly %read_cb, ptr nocapture noundef %data, ptr nocapture noundef %length, i32 noundef %length_len) unnamed_addr #0 {
 entry:
   %buffer = alloca [4 x i8], align 1
   %div17 = lshr i32 %length_len, 3
@@ -9718,7 +9703,7 @@ if.end12:                                         ; preds = %if.then11, %if.end8
   %4 = phi i32 [ %.pre, %if.then11 ], [ %2, %if.end8 ]
   %conv13 = zext i32 %4 to i64
   %add.i = add nuw nsw i64 %conv13, 1
-  %call.i.i = call noalias ptr @malloc(i64 noundef %add.i) #31
+  %call.i.i = call noalias noundef ptr @malloc(i64 noundef %add.i) #31
   store ptr %call.i.i, ptr %data, align 8
   %cmp15 = icmp eq ptr %call.i.i, null
   br i1 %cmp15, label %return, label %if.end18
@@ -9757,7 +9742,7 @@ return:                                           ; preds = %if.then21, %if.end1
 declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #11
 
 ; Function Attrs: nofree nounwind sspstrong uwtable
-define internal fastcc i32 @open_tempfile_(ptr noundef %filename, ptr noundef %tempfile_path_prefix, ptr nocapture noundef writeonly %tempfile, ptr nocapture noundef %tempfilename, ptr nocapture noundef writeonly %status) unnamed_addr #6 {
+define internal fastcc noundef i32 @open_tempfile_(ptr noundef %filename, ptr noundef %tempfile_path_prefix, ptr nocapture noundef writeonly %tempfile, ptr nocapture noundef %tempfilename, ptr nocapture noundef writeonly %status) unnamed_addr #6 {
 entry:
   %cmp = icmp eq ptr %tempfile_path_prefix, null
   br i1 %cmp, label %if.then, label %if.else
@@ -9766,7 +9751,7 @@ if.then:                                          ; preds = %entry
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %filename) #30
   %add2 = add i64 %call, 15
   %spec.select.i = tail call i64 @llvm.umax.i64(i64 %add2, i64 1)
-  %call.i = tail call noalias ptr @malloc(i64 noundef %spec.select.i) #31
+  %call.i = tail call noalias noundef ptr @malloc(i64 noundef %spec.select.i) #31
   store ptr %call.i, ptr %tempfilename, align 8
   %cmp4 = icmp eq ptr %call.i, null
   br i1 %cmp4, label %return.sink.split, label %if.end
@@ -9785,7 +9770,7 @@ if.else:                                          ; preds = %entry
   %add15 = add i64 %call13, 16
   %add18 = add i64 %add15, %call14
   %spec.select.i17 = tail call i64 @llvm.umax.i64(i64 %add18, i64 1)
-  %call.i18 = tail call noalias ptr @malloc(i64 noundef %spec.select.i17) #31
+  %call.i18 = tail call noalias noundef ptr @malloc(i64 noundef %spec.select.i17) #31
   store ptr %call.i18, ptr %tempfilename, align 8
   %cmp20 = icmp eq ptr %call.i18, null
   br i1 %cmp20, label %return.sink.split, label %if.end22
@@ -10922,7 +10907,7 @@ write_metadata_block_data_cb_.exit:               ; preds = %write_metadata_bloc
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @transport_tempfile_(ptr nocapture noundef readonly %filename, ptr nocapture noundef %tempfile, ptr nocapture noundef %tempfilename, ptr nocapture noundef writeonly %status) unnamed_addr #0 {
+define internal fastcc noundef i32 @transport_tempfile_(ptr nocapture noundef readonly %filename, ptr nocapture noundef %tempfile, ptr nocapture noundef %tempfilename, ptr nocapture noundef writeonly %status) unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %tempfile, align 8
   %call = tail call i32 @fclose(ptr noundef %0)

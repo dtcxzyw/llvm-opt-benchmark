@@ -23,7 +23,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.14 = private unnamed_addr constant [8 x i8] c"version\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define i32 @test_get_libctx(ptr noundef writeonly %libctx, ptr noundef writeonly %default_null_prov, ptr noundef %config_file, ptr noundef writeonly %provider, ptr noundef %module_name) local_unnamed_addr #0 {
+define noundef i32 @test_get_libctx(ptr noundef writeonly %libctx, ptr noundef writeonly %default_null_prov, ptr noundef %config_file, ptr noundef writeonly %provider, ptr noundef %module_name) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq ptr %libctx, null
   br i1 %cmp.not, label %if.end4, label %if.then
@@ -103,7 +103,7 @@ declare i32 @OSSL_LIB_CTX_load_config(ptr noundef, ptr noundef) local_unnamed_ad
 declare void @ERR_print_errors_fp(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @test_arg_libctx(ptr noundef %libctx, ptr noundef %default_null_prov, ptr noundef %provider, i32 noundef %argn, ptr noundef %usage) local_unnamed_addr #0 {
+define noundef i32 @test_arg_libctx(ptr noundef %libctx, ptr noundef %default_null_prov, ptr noundef %provider, i32 noundef %argn, ptr noundef %usage) local_unnamed_addr #0 {
 entry:
   %conv = sext i32 %argn to i64
   %call = tail call ptr @test_get_argument(i64 noundef %conv) #8
@@ -415,7 +415,7 @@ return:                                           ; preds = %if.end, %land.rhs, 
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @fips_provider_version_match(ptr noundef %libctx, ptr noundef %versions) local_unnamed_addr #0 {
+define noundef i32 @fips_provider_version_match(ptr noundef %libctx, ptr noundef %versions) local_unnamed_addr #0 {
 entry:
   %prov.i89 = alloca %struct.FIPS_VERSION, align 4
   %prov.i71 = alloca %struct.FIPS_VERSION, align 4
@@ -438,34 +438,34 @@ entry:
   %patch8.i36 = getelementptr inbounds %struct.FIPS_VERSION, ptr %prov.i31, i64 0, i32 2
   %minor5.i = getelementptr inbounds %struct.FIPS_VERSION, ptr %prov.i, i64 0, i32 1
   %patch8.i = getelementptr inbounds %struct.FIPS_VERSION, ptr %prov.i, i64 0, i32 2
-  br label %while.cond
+  %0 = load i8, ptr %versions, align 1
+  %cmp.not164 = icmp eq i8 %0, 0
+  br i1 %cmp.not164, label %return, label %for.cond.preheader.preheader
 
-while.cond:                                       ; preds = %if.end100, %entry
-  %versions.addr.0 = phi ptr [ %versions, %entry ], [ %versions.addr.2.lcssa.ph, %if.end100 ]
-  %r.0 = phi i32 [ undef, %entry ], [ %r.1, %if.end100 ]
-  %0 = load i8, ptr %versions.addr.0, align 1
-  %cmp.not = icmp eq i8 %0, 0
-  br i1 %cmp.not, label %return, label %for.cond.preheader
-
-for.cond.preheader:                               ; preds = %while.cond
+for.cond.preheader.preheader:                     ; preds = %entry
   %call = tail call ptr @__ctype_b_loc() #10
-  %1 = load ptr, ptr %call, align 8
-  %idxprom112 = zext i8 %0 to i64
-  %arrayidx113 = getelementptr inbounds i16, ptr %1, i64 %idxprom112
-  %2 = load i16, ptr %arrayidx113, align 2
-  %3 = and i16 %2, 8192
-  %tobool.not114 = icmp eq i16 %3, 0
-  br i1 %tobool.not114, label %land.rhs.preheader, label %for.inc
+  br label %for.cond.preheader
+
+for.cond.preheader:                               ; preds = %for.cond.preheader.preheader, %while.cond.backedge
+  %1 = phi i8 [ %40, %while.cond.backedge ], [ %0, %for.cond.preheader.preheader ]
+  %versions.addr.0165 = phi ptr [ %versions.addr.2.lcssa.ph, %while.cond.backedge ], [ %versions, %for.cond.preheader.preheader ]
+  %2 = load ptr, ptr %call, align 8
+  %idxprom114 = zext i8 %1 to i64
+  %arrayidx115 = getelementptr inbounds i16, ptr %2, i64 %idxprom114
+  %3 = load i16, ptr %arrayidx115, align 2
+  %4 = and i16 %3, 8192
+  %tobool.not116 = icmp eq i16 %4, 0
+  br i1 %tobool.not116, label %land.rhs.preheader, label %for.inc
 
 for.inc:                                          ; preds = %for.cond.preheader, %for.inc
-  %versions.addr.1115 = phi ptr [ %incdec.ptr, %for.inc ], [ %versions.addr.0, %for.cond.preheader ]
-  %incdec.ptr = getelementptr inbounds i8, ptr %versions.addr.1115, i64 1
+  %versions.addr.1117 = phi ptr [ %incdec.ptr, %for.inc ], [ %versions.addr.0165, %for.cond.preheader ]
+  %incdec.ptr = getelementptr inbounds i8, ptr %versions.addr.1117, i64 1
   %.pr = load i8, ptr %incdec.ptr, align 1
   %idxprom = zext i8 %.pr to i64
-  %arrayidx = getelementptr inbounds i16, ptr %1, i64 %idxprom
-  %4 = load i16, ptr %arrayidx, align 2
-  %5 = and i16 %4, 8192
-  %tobool.not = icmp eq i16 %5, 0
+  %arrayidx = getelementptr inbounds i16, ptr %2, i64 %idxprom
+  %5 = load i16, ptr %arrayidx, align 2
+  %6 = and i16 %5, 8192
+  %tobool.not = icmp eq i16 %6, 0
   br i1 %tobool.not, label %for.end, label %for.inc, !llvm.loop !6
 
 for.end:                                          ; preds = %for.inc
@@ -473,30 +473,30 @@ for.end:                                          ; preds = %for.inc
   br i1 %cmp5, label %return, label %land.rhs.preheader
 
 land.rhs.preheader:                               ; preds = %for.cond.preheader, %for.end
-  %.lcssa129 = phi i16 [ %4, %for.end ], [ %2, %for.cond.preheader ]
-  %versions.addr.1.lcssa128 = phi ptr [ %incdec.ptr, %for.end ], [ %versions.addr.0, %for.cond.preheader ]
-  %6 = phi i8 [ %.pr, %for.end ], [ %0, %for.cond.preheader ]
+  %.lcssa134 = phi i16 [ %5, %for.end ], [ %3, %for.cond.preheader ]
+  %versions.addr.1.lcssa133 = phi ptr [ %incdec.ptr, %for.end ], [ %versions.addr.0165, %for.cond.preheader ]
+  %7 = phi i8 [ %.pr, %for.end ], [ %1, %for.cond.preheader ]
   br label %land.rhs
 
 land.rhs:                                         ; preds = %land.rhs.preheader, %for.inc19
-  %7 = phi i8 [ %10, %for.inc19 ], [ %6, %land.rhs.preheader ]
-  %versions.addr.2120 = phi ptr [ %incdec.ptr20, %for.inc19 ], [ %versions.addr.1.lcssa128, %land.rhs.preheader ]
-  %idxprom13 = zext i8 %7 to i64
-  %arrayidx14 = getelementptr inbounds i16, ptr %1, i64 %idxprom13
-  %8 = load i16, ptr %arrayidx14, align 2
-  %9 = and i16 %8, 8192
-  %tobool17.not = icmp eq i16 %9, 0
+  %8 = phi i8 [ %11, %for.inc19 ], [ %7, %land.rhs.preheader ]
+  %versions.addr.2122 = phi ptr [ %incdec.ptr20, %for.inc19 ], [ %versions.addr.1.lcssa133, %land.rhs.preheader ]
+  %idxprom13 = zext i8 %8 to i64
+  %arrayidx14 = getelementptr inbounds i16, ptr %2, i64 %idxprom13
+  %9 = load i16, ptr %arrayidx14, align 2
+  %10 = and i16 %9, 8192
+  %tobool17.not = icmp eq i16 %10, 0
   br i1 %tobool17.not, label %for.inc19, label %for.end21
 
 for.inc19:                                        ; preds = %land.rhs
-  %incdec.ptr20 = getelementptr inbounds i8, ptr %versions.addr.2120, i64 1
-  %10 = load i8, ptr %incdec.ptr20, align 1
-  %cmp9.not = icmp eq i8 %10, 0
+  %incdec.ptr20 = getelementptr inbounds i8, ptr %versions.addr.2122, i64 1
+  %11 = load i8, ptr %incdec.ptr20, align 1
+  %cmp9.not = icmp eq i8 %11, 0
   br i1 %cmp9.not, label %for.end21, label %land.rhs, !llvm.loop !8
 
 for.end21:                                        ; preds = %land.rhs, %for.inc19
-  %versions.addr.2.lcssa.ph = phi ptr [ %versions.addr.2120, %land.rhs ], [ %incdec.ptr20, %for.inc19 ]
-  switch i8 %6, label %if.else64 [
+  %versions.addr.2.lcssa.ph = phi ptr [ %versions.addr.2122, %land.rhs ], [ %incdec.ptr20, %for.inc19 ]
+  switch i8 %7, label %if.else64 [
     i8 33, label %if.then25
     i8 61, label %if.then30
     i8 60, label %land.lhs.true
@@ -504,43 +504,43 @@ for.end21:                                        ; preds = %land.rhs, %for.inc1
   ]
 
 if.then25:                                        ; preds = %for.end21
-  %incdec.ptr26 = getelementptr inbounds i8, ptr %versions.addr.1.lcssa128, i64 1
+  %incdec.ptr26 = getelementptr inbounds i8, ptr %versions.addr.1.lcssa133, i64 1
   br label %if.end80
 
 if.then30:                                        ; preds = %for.end21
-  %incdec.ptr31 = getelementptr inbounds i8, ptr %versions.addr.1.lcssa128, i64 1
+  %incdec.ptr31 = getelementptr inbounds i8, ptr %versions.addr.1.lcssa133, i64 1
   br label %if.end80
 
 land.lhs.true:                                    ; preds = %for.end21
-  %arrayidx36 = getelementptr inbounds i8, ptr %versions.addr.1.lcssa128, i64 1
-  %11 = load i8, ptr %arrayidx36, align 1
-  %cmp38 = icmp eq i8 %11, 61
-  %add.ptr = getelementptr inbounds i8, ptr %versions.addr.1.lcssa128, i64 2
+  %arrayidx36 = getelementptr inbounds i8, ptr %versions.addr.1.lcssa133, i64 1
+  %12 = load i8, ptr %arrayidx36, align 1
+  %cmp38 = icmp eq i8 %12, 61
+  %add.ptr = getelementptr inbounds i8, ptr %versions.addr.1.lcssa133, i64 2
   %spec.select = select i1 %cmp38, ptr %add.ptr, ptr %arrayidx36
-  %spec.select131 = select i1 %cmp38, i32 2, i32 3
+  %spec.select150 = select i1 %cmp38, i32 2, i32 3
   br label %if.end80
 
 land.lhs.true45:                                  ; preds = %for.end21
-  %arrayidx46 = getelementptr inbounds i8, ptr %versions.addr.1.lcssa128, i64 1
-  %12 = load i8, ptr %arrayidx46, align 1
-  %cmp48 = icmp eq i8 %12, 61
-  %add.ptr51 = getelementptr inbounds i8, ptr %versions.addr.1.lcssa128, i64 2
-  %spec.select132 = select i1 %cmp48, ptr %add.ptr51, ptr %arrayidx46
-  %spec.select133 = select i1 %cmp48, i32 5, i32 4
+  %arrayidx46 = getelementptr inbounds i8, ptr %versions.addr.1.lcssa133, i64 1
+  %13 = load i8, ptr %arrayidx46, align 1
+  %cmp48 = icmp eq i8 %13, 61
+  %add.ptr51 = getelementptr inbounds i8, ptr %versions.addr.1.lcssa133, i64 2
+  %spec.select151 = select i1 %cmp48, ptr %add.ptr51, ptr %arrayidx46
+  %spec.select152 = select i1 %cmp48, i32 5, i32 4
   br label %if.end80
 
 if.else64:                                        ; preds = %for.end21
-  %13 = and i16 %.lcssa129, 2048
-  %tobool71.not = icmp eq i16 %13, 0
+  %14 = and i16 %.lcssa134, 2048
+  %tobool71.not = icmp eq i16 %14, 0
   br i1 %tobool71.not, label %if.else73, label %if.end80
 
 if.else73:                                        ; preds = %if.else64
-  call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.5, i32 noundef 207, ptr noundef nonnull @.str.9, ptr noundef nonnull %versions.addr.1.lcssa128) #8
+  call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.5, i32 noundef 207, ptr noundef nonnull @.str.9, ptr noundef nonnull %versions.addr.1.lcssa133) #8
   br label %return
 
 if.end80:                                         ; preds = %land.lhs.true45, %land.lhs.true, %if.else64, %if.then30, %if.then25
-  %p.0 = phi ptr [ %incdec.ptr26, %if.then25 ], [ %incdec.ptr31, %if.then30 ], [ %versions.addr.1.lcssa128, %if.else64 ], [ %spec.select, %land.lhs.true ], [ %spec.select132, %land.lhs.true45 ]
-  %mode.0 = phi i32 [ 1, %if.then25 ], [ 0, %if.then30 ], [ 0, %if.else64 ], [ %spec.select131, %land.lhs.true ], [ %spec.select133, %land.lhs.true45 ]
+  %p.0 = phi ptr [ %incdec.ptr26, %if.then25 ], [ %incdec.ptr31, %if.then30 ], [ %versions.addr.1.lcssa133, %if.else64 ], [ %spec.select, %land.lhs.true ], [ %spec.select151, %land.lhs.true45 ]
+  %mode.0 = phi i32 [ 1, %if.then25 ], [ 0, %if.then30 ], [ 0, %if.else64 ], [ %spec.select150, %land.lhs.true ], [ %spec.select152, %land.lhs.true45 ]
   %call81 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %p.0, ptr noundef nonnull @.str.10, ptr noundef nonnull %major, ptr noundef nonnull %minor, ptr noundef nonnull %patch) #8
   %cmp82.not = icmp eq i32 %call81, 3
   br i1 %cmp82.not, label %if.end85, label %if.then84
@@ -550,7 +550,10 @@ if.then84:                                        ; preds = %if.end80
   br label %return
 
 if.end85:                                         ; preds = %if.end80
-  switch i32 %mode.0, label %if.end100 [
+  %15 = load i32, ptr %major, align 4
+  %16 = load i32, ptr %minor, align 4
+  %17 = load i32, ptr %patch, align 4
+  switch i32 %mode.0, label %default.unreachable129 [
     i32 0, label %sw.bb
     i32 1, label %sw.bb87
     i32 2, label %sw.bb89
@@ -560,69 +563,40 @@ if.end85:                                         ; preds = %if.end80
   ]
 
 sw.bb:                                            ; preds = %if.end85
-  %14 = load i32, ptr %major, align 4
-  %15 = load i32, ptr %minor, align 4
-  %16 = load i32, ptr %patch, align 4
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %prov.i)
   %call.i = call fastcc i32 @fips_provider_version(ptr noundef %libctx, ptr noundef nonnull %prov.i), !range !5
   %cmp.i = icmp slt i32 %call.i, 1
-  br i1 %cmp.i, label %if.then.i, label %if.end.i
+  br i1 %cmp.i, label %if.then.i, label %if.end100
 
 if.then.i:                                        ; preds = %sw.bb
   %cmp1.i = icmp eq i32 %call.i, 0
-  br label %fips_provider_version_eq.exit
-
-if.end.i:                                         ; preds = %sw.bb
-  %17 = load i32, ptr %prov.i, align 4
-  %cmp3.i = icmp eq i32 %17, %14
-  %18 = load i32, ptr %minor5.i, align 4
-  %cmp6.i = icmp eq i32 %18, %15
-  %or.cond.i = select i1 %cmp3.i, i1 %cmp6.i, i1 false
-  %19 = load i32, ptr %patch8.i, align 4
-  %cmp9.i = icmp eq i32 %19, %16
-  %narrow.i = select i1 %or.cond.i, i1 %cmp9.i, i1 false
-  br label %fips_provider_version_eq.exit
-
-fips_provider_version_eq.exit:                    ; preds = %if.then.i, %if.end.i
-  %retval.0.in.i = phi i1 [ %cmp1.i, %if.then.i ], [ %narrow.i, %if.end.i ]
-  %retval.0.i = zext i1 %retval.0.in.i to i32
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %prov.i)
-  br label %if.end100
+  br i1 %cmp1.i, label %while.cond.backedge, label %return
 
 sw.bb87:                                          ; preds = %if.end85
-  %20 = load i32, ptr %major, align 4
-  %21 = load i32, ptr %minor, align 4
-  %22 = load i32, ptr %patch, align 4
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %prov.i31)
   %call.i32 = call fastcc i32 @fips_provider_version(ptr noundef %libctx, ptr noundef nonnull %prov.i31), !range !5
   %cmp.i33 = icmp slt i32 %call.i32, 1
-  br i1 %cmp.i33, label %if.then.i41, label %if.end.i34
+  br i1 %cmp.i33, label %if.then.i41, label %fips_provider_version_ne.exit
 
 if.then.i41:                                      ; preds = %sw.bb87
   %cmp1.i42 = icmp eq i32 %call.i32, 0
-  br label %fips_provider_version_ne.exit
-
-if.end.i34:                                       ; preds = %sw.bb87
-  %23 = load i32, ptr %prov.i31, align 4
-  %cmp3.not.i = icmp ne i32 %23, %20
-  %24 = load i32, ptr %minor5.i35, align 4
-  %cmp6.not.i = icmp ne i32 %24, %21
-  %or.cond.not.i = select i1 %cmp3.not.i, i1 true, i1 %cmp6.not.i
-  %25 = load i32, ptr %patch8.i36, align 4
-  %cmp9.i37 = icmp ne i32 %25, %22
-  %narrow.i38 = select i1 %or.cond.not.i, i1 true, i1 %cmp9.i37
-  br label %fips_provider_version_ne.exit
-
-fips_provider_version_ne.exit:                    ; preds = %if.then.i41, %if.end.i34
-  %retval.0.in.i39 = phi i1 [ %cmp1.i42, %if.then.i41 ], [ %narrow.i38, %if.end.i34 ]
-  %retval.0.i40 = zext i1 %retval.0.in.i39 to i32
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %prov.i31)
-  br label %if.end100
+  br i1 %cmp1.i42, label %while.cond.backedge, label %return
+
+fips_provider_version_ne.exit:                    ; preds = %sw.bb87
+  %18 = load i32, ptr %prov.i31, align 4
+  %cmp3.not.i = icmp ne i32 %18, %15
+  %19 = load i32, ptr %minor5.i35, align 4
+  %cmp6.not.i = icmp ne i32 %19, %16
+  %or.cond.not.i = select i1 %cmp3.not.i, i1 true, i1 %cmp6.not.i
+  %20 = load i32, ptr %patch8.i36, align 4
+  %cmp9.i37 = icmp ne i32 %20, %17
+  %narrow.i38 = select i1 %or.cond.not.i, i1 true, i1 %cmp9.i37
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %prov.i31)
+  br i1 %narrow.i38, label %while.cond.backedge, label %return
 
 sw.bb89:                                          ; preds = %if.end85
-  %26 = load i32, ptr %major, align 4
-  %27 = load i32, ptr %minor, align 4
-  %28 = load i32, ptr %patch, align 4
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %prov.i43)
   %call.i44 = call fastcc i32 @fips_provider_version(ptr noundef %libctx, ptr noundef nonnull %prov.i43), !range !5
   %cmp.i45 = icmp slt i32 %call.i44, 1
@@ -630,39 +604,40 @@ sw.bb89:                                          ; preds = %if.end85
 
 if.then.i51:                                      ; preds = %sw.bb89
   %cmp1.i52 = icmp eq i32 %call.i44, 0
-  br label %fips_provider_version_le.exit
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %prov.i43)
+  br i1 %cmp1.i52, label %while.cond.backedge, label %return
 
 if.end.i46:                                       ; preds = %sw.bb89
-  %29 = load i32, ptr %prov.i43, align 4
-  %cmp3.i47 = icmp slt i32 %29, %26
+  %21 = load i32, ptr %prov.i43, align 4
+  %cmp3.i47 = icmp slt i32 %21, %15
   br i1 %cmp3.i47, label %fips_provider_version_le.exit, label %lor.rhs.i
 
 lor.rhs.i:                                        ; preds = %if.end.i46
-  %cmp6.i48 = icmp eq i32 %29, %26
-  br i1 %cmp6.i48, label %land.rhs.i, label %fips_provider_version_le.exit
+  %cmp6.i48 = icmp eq i32 %21, %15
+  br i1 %cmp6.i48, label %land.rhs.i, label %fips_provider_version_le.exit.thread
+
+fips_provider_version_le.exit.thread:             ; preds = %lor.rhs.i
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %prov.i43)
+  br label %return
 
 land.rhs.i:                                       ; preds = %lor.rhs.i
-  %30 = load i32, ptr %minor8.i, align 4
-  %cmp9.i50 = icmp slt i32 %30, %27
+  %22 = load i32, ptr %minor8.i, align 4
+  %cmp9.i50 = icmp slt i32 %22, %16
   br i1 %cmp9.i50, label %fips_provider_version_le.exit, label %lor.rhs11.i
 
 lor.rhs11.i:                                      ; preds = %land.rhs.i
-  %cmp13.i = icmp eq i32 %30, %27
-  %31 = load i32, ptr %patch16.i, align 4
-  %cmp17.i = icmp sle i32 %31, %28
-  %32 = select i1 %cmp13.i, i1 %cmp17.i, i1 false
-  br label %fips_provider_version_le.exit
-
-fips_provider_version_le.exit:                    ; preds = %if.then.i51, %if.end.i46, %lor.rhs.i, %land.rhs.i, %lor.rhs11.i
-  %retval.0.shrunk.i = phi i1 [ %cmp1.i52, %if.then.i51 ], [ true, %if.end.i46 ], [ false, %lor.rhs.i ], [ true, %land.rhs.i ], [ %32, %lor.rhs11.i ]
-  %retval.0.i49 = zext i1 %retval.0.shrunk.i to i32
+  %cmp13.i = icmp eq i32 %22, %16
+  %23 = load i32, ptr %patch16.i, align 4
+  %cmp17.i = icmp sle i32 %23, %17
+  %24 = select i1 %cmp13.i, i1 %cmp17.i, i1 false
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %prov.i43)
-  br label %if.end100
+  br i1 %24, label %while.cond.backedge, label %return
+
+fips_provider_version_le.exit:                    ; preds = %if.end.i46, %land.rhs.i
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %prov.i43)
+  br label %while.cond.backedge
 
 sw.bb91:                                          ; preds = %if.end85
-  %33 = load i32, ptr %major, align 4
-  %34 = load i32, ptr %minor, align 4
-  %35 = load i32, ptr %patch, align 4
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %prov.i53)
   %call.i54 = call fastcc i32 @fips_provider_version(ptr noundef %libctx, ptr noundef nonnull %prov.i53), !range !5
   %cmp.i55 = icmp slt i32 %call.i54, 1
@@ -670,39 +645,40 @@ sw.bb91:                                          ; preds = %if.end85
 
 if.then.i69:                                      ; preds = %sw.bb91
   %cmp1.i70 = icmp eq i32 %call.i54, 0
-  br label %fips_provider_version_lt.exit
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %prov.i53)
+  br i1 %cmp1.i70, label %while.cond.backedge, label %return
 
 if.end.i56:                                       ; preds = %sw.bb91
-  %36 = load i32, ptr %prov.i53, align 4
-  %cmp3.i57 = icmp slt i32 %36, %33
+  %25 = load i32, ptr %prov.i53, align 4
+  %cmp3.i57 = icmp slt i32 %25, %15
   br i1 %cmp3.i57, label %fips_provider_version_lt.exit, label %lor.rhs.i58
 
 lor.rhs.i58:                                      ; preds = %if.end.i56
-  %cmp6.i59 = icmp eq i32 %36, %33
-  br i1 %cmp6.i59, label %land.rhs.i62, label %fips_provider_version_lt.exit
+  %cmp6.i59 = icmp eq i32 %25, %15
+  br i1 %cmp6.i59, label %land.rhs.i62, label %fips_provider_version_lt.exit.thread
+
+fips_provider_version_lt.exit.thread:             ; preds = %lor.rhs.i58
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %prov.i53)
+  br label %return
 
 land.rhs.i62:                                     ; preds = %lor.rhs.i58
-  %37 = load i32, ptr %minor8.i63, align 4
-  %cmp9.i64 = icmp slt i32 %37, %34
+  %26 = load i32, ptr %minor8.i63, align 4
+  %cmp9.i64 = icmp slt i32 %26, %16
   br i1 %cmp9.i64, label %fips_provider_version_lt.exit, label %lor.rhs11.i65
 
 lor.rhs11.i65:                                    ; preds = %land.rhs.i62
-  %cmp13.i66 = icmp eq i32 %37, %34
-  %38 = load i32, ptr %patch16.i67, align 4
-  %cmp17.i68 = icmp slt i32 %38, %35
-  %39 = select i1 %cmp13.i66, i1 %cmp17.i68, i1 false
-  br label %fips_provider_version_lt.exit
-
-fips_provider_version_lt.exit:                    ; preds = %if.then.i69, %if.end.i56, %lor.rhs.i58, %land.rhs.i62, %lor.rhs11.i65
-  %retval.0.shrunk.i60 = phi i1 [ %cmp1.i70, %if.then.i69 ], [ true, %if.end.i56 ], [ false, %lor.rhs.i58 ], [ true, %land.rhs.i62 ], [ %39, %lor.rhs11.i65 ]
-  %retval.0.i61 = zext i1 %retval.0.shrunk.i60 to i32
+  %cmp13.i66 = icmp eq i32 %26, %16
+  %27 = load i32, ptr %patch16.i67, align 4
+  %cmp17.i68 = icmp slt i32 %27, %17
+  %28 = select i1 %cmp13.i66, i1 %cmp17.i68, i1 false
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %prov.i53)
-  br label %if.end100
+  br i1 %28, label %while.cond.backedge, label %return
+
+fips_provider_version_lt.exit:                    ; preds = %if.end.i56, %land.rhs.i62
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %prov.i53)
+  br label %while.cond.backedge
 
 sw.bb93:                                          ; preds = %if.end85
-  %40 = load i32, ptr %major, align 4
-  %41 = load i32, ptr %minor, align 4
-  %42 = load i32, ptr %patch, align 4
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %prov.i71)
   %call.i72 = call fastcc i32 @fips_provider_version(ptr noundef %libctx, ptr noundef nonnull %prov.i71), !range !5
   %cmp.i73 = icmp slt i32 %call.i72, 1
@@ -710,39 +686,40 @@ sw.bb93:                                          ; preds = %if.end85
 
 if.then.i87:                                      ; preds = %sw.bb93
   %cmp1.i88 = icmp eq i32 %call.i72, 0
-  br label %fips_provider_version_gt.exit
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %prov.i71)
+  br i1 %cmp1.i88, label %while.cond.backedge, label %return
 
 if.end.i74:                                       ; preds = %sw.bb93
-  %43 = load i32, ptr %prov.i71, align 4
-  %cmp3.i75 = icmp sgt i32 %43, %40
+  %29 = load i32, ptr %prov.i71, align 4
+  %cmp3.i75 = icmp sgt i32 %29, %15
   br i1 %cmp3.i75, label %fips_provider_version_gt.exit, label %lor.rhs.i76
 
 lor.rhs.i76:                                      ; preds = %if.end.i74
-  %cmp6.i77 = icmp eq i32 %43, %40
-  br i1 %cmp6.i77, label %land.rhs.i80, label %fips_provider_version_gt.exit
+  %cmp6.i77 = icmp eq i32 %29, %15
+  br i1 %cmp6.i77, label %land.rhs.i80, label %fips_provider_version_gt.exit.thread
+
+fips_provider_version_gt.exit.thread:             ; preds = %lor.rhs.i76
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %prov.i71)
+  br label %return
 
 land.rhs.i80:                                     ; preds = %lor.rhs.i76
-  %44 = load i32, ptr %minor8.i81, align 4
-  %cmp9.i82 = icmp sgt i32 %44, %41
+  %30 = load i32, ptr %minor8.i81, align 4
+  %cmp9.i82 = icmp sgt i32 %30, %16
   br i1 %cmp9.i82, label %fips_provider_version_gt.exit, label %lor.rhs11.i83
 
 lor.rhs11.i83:                                    ; preds = %land.rhs.i80
-  %cmp13.i84 = icmp eq i32 %44, %41
-  %45 = load i32, ptr %patch16.i85, align 4
-  %cmp17.i86 = icmp sgt i32 %45, %42
-  %46 = select i1 %cmp13.i84, i1 %cmp17.i86, i1 false
-  br label %fips_provider_version_gt.exit
-
-fips_provider_version_gt.exit:                    ; preds = %if.then.i87, %if.end.i74, %lor.rhs.i76, %land.rhs.i80, %lor.rhs11.i83
-  %retval.0.shrunk.i78 = phi i1 [ %cmp1.i88, %if.then.i87 ], [ true, %if.end.i74 ], [ false, %lor.rhs.i76 ], [ true, %land.rhs.i80 ], [ %46, %lor.rhs11.i83 ]
-  %retval.0.i79 = zext i1 %retval.0.shrunk.i78 to i32
+  %cmp13.i84 = icmp eq i32 %30, %16
+  %31 = load i32, ptr %patch16.i85, align 4
+  %cmp17.i86 = icmp sgt i32 %31, %17
+  %32 = select i1 %cmp13.i84, i1 %cmp17.i86, i1 false
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %prov.i71)
-  br label %if.end100
+  br i1 %32, label %while.cond.backedge, label %return
+
+fips_provider_version_gt.exit:                    ; preds = %if.end.i74, %land.rhs.i80
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %prov.i71)
+  br label %while.cond.backedge
 
 sw.bb95:                                          ; preds = %if.end85
-  %47 = load i32, ptr %major, align 4
-  %48 = load i32, ptr %minor, align 4
-  %49 = load i32, ptr %patch, align 4
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %prov.i89)
   %call.i90 = call fastcc i32 @fips_provider_version(ptr noundef %libctx, ptr noundef nonnull %prov.i89), !range !5
   %cmp.i91 = icmp slt i32 %call.i90, 1
@@ -750,42 +727,61 @@ sw.bb95:                                          ; preds = %if.end85
 
 if.then.i105:                                     ; preds = %sw.bb95
   %cmp1.i106 = icmp eq i32 %call.i90, 0
-  br label %fips_provider_version_ge.exit
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %prov.i89)
+  br i1 %cmp1.i106, label %while.cond.backedge, label %return
 
 if.end.i92:                                       ; preds = %sw.bb95
-  %50 = load i32, ptr %prov.i89, align 4
-  %cmp3.i93 = icmp sgt i32 %50, %47
+  %33 = load i32, ptr %prov.i89, align 4
+  %cmp3.i93 = icmp sgt i32 %33, %15
   br i1 %cmp3.i93, label %fips_provider_version_ge.exit, label %lor.rhs.i94
 
 lor.rhs.i94:                                      ; preds = %if.end.i92
-  %cmp6.i95 = icmp eq i32 %50, %47
-  br i1 %cmp6.i95, label %land.rhs.i98, label %fips_provider_version_ge.exit
+  %cmp6.i95 = icmp eq i32 %33, %15
+  br i1 %cmp6.i95, label %land.rhs.i98, label %fips_provider_version_ge.exit.thread
+
+fips_provider_version_ge.exit.thread:             ; preds = %lor.rhs.i94
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %prov.i89)
+  br label %return
 
 land.rhs.i98:                                     ; preds = %lor.rhs.i94
-  %51 = load i32, ptr %minor8.i99, align 4
-  %cmp9.i100 = icmp sgt i32 %51, %48
+  %34 = load i32, ptr %minor8.i99, align 4
+  %cmp9.i100 = icmp sgt i32 %34, %16
   br i1 %cmp9.i100, label %fips_provider_version_ge.exit, label %lor.rhs11.i101
 
 lor.rhs11.i101:                                   ; preds = %land.rhs.i98
-  %cmp13.i102 = icmp eq i32 %51, %48
-  %52 = load i32, ptr %patch16.i103, align 4
-  %cmp17.i104 = icmp sge i32 %52, %49
-  %53 = select i1 %cmp13.i102, i1 %cmp17.i104, i1 false
-  br label %fips_provider_version_ge.exit
-
-fips_provider_version_ge.exit:                    ; preds = %if.then.i105, %if.end.i92, %lor.rhs.i94, %land.rhs.i98, %lor.rhs11.i101
-  %retval.0.shrunk.i96 = phi i1 [ %cmp1.i106, %if.then.i105 ], [ true, %if.end.i92 ], [ false, %lor.rhs.i94 ], [ true, %land.rhs.i98 ], [ %53, %lor.rhs11.i101 ]
-  %retval.0.i97 = zext i1 %retval.0.shrunk.i96 to i32
+  %cmp13.i102 = icmp eq i32 %34, %16
+  %35 = load i32, ptr %patch16.i103, align 4
+  %cmp17.i104 = icmp sge i32 %35, %17
+  %36 = select i1 %cmp13.i102, i1 %cmp17.i104, i1 false
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %prov.i89)
-  br label %if.end100
+  br i1 %36, label %while.cond.backedge, label %return
 
-if.end100:                                        ; preds = %if.end85, %fips_provider_version_eq.exit, %fips_provider_version_ne.exit, %fips_provider_version_le.exit, %fips_provider_version_lt.exit, %fips_provider_version_gt.exit, %fips_provider_version_ge.exit
-  %r.1 = phi i32 [ %r.0, %if.end85 ], [ %retval.0.i97, %fips_provider_version_ge.exit ], [ %retval.0.i79, %fips_provider_version_gt.exit ], [ %retval.0.i61, %fips_provider_version_lt.exit ], [ %retval.0.i49, %fips_provider_version_le.exit ], [ %retval.0.i40, %fips_provider_version_ne.exit ], [ %retval.0.i, %fips_provider_version_eq.exit ]
-  %cmp101 = icmp eq i32 %r.1, 0
-  br i1 %cmp101, label %return, label %while.cond, !llvm.loop !9
+fips_provider_version_ge.exit:                    ; preds = %if.end.i92, %land.rhs.i98
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %prov.i89)
+  br label %while.cond.backedge
 
-return:                                           ; preds = %while.cond, %for.end, %if.end100, %if.then84, %if.else73
-  %retval.0 = phi i32 [ -1, %if.then84 ], [ -1, %if.else73 ], [ 1, %while.cond ], [ 1, %for.end ], [ 0, %if.end100 ]
+default.unreachable129:                           ; preds = %if.end85
+  unreachable
+
+if.end100:                                        ; preds = %sw.bb
+  %37 = load i32, ptr %prov.i, align 4
+  %cmp3.i = icmp eq i32 %37, %15
+  %38 = load i32, ptr %minor5.i, align 4
+  %cmp6.i = icmp eq i32 %38, %16
+  %or.cond.i = select i1 %cmp3.i, i1 %cmp6.i, i1 false
+  %39 = load i32, ptr %patch8.i, align 4
+  %cmp9.i = icmp eq i32 %39, %17
+  %narrow.i = select i1 %or.cond.i, i1 %cmp9.i, i1 false
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %prov.i)
+  br i1 %narrow.i, label %while.cond.backedge, label %return
+
+while.cond.backedge:                              ; preds = %if.end100, %fips_provider_version_ne.exit, %if.then.i, %if.then.i41, %if.then.i51, %lor.rhs11.i, %fips_provider_version_le.exit, %if.then.i69, %lor.rhs11.i65, %fips_provider_version_lt.exit, %if.then.i87, %lor.rhs11.i83, %fips_provider_version_gt.exit, %if.then.i105, %lor.rhs11.i101, %fips_provider_version_ge.exit
+  %40 = load i8, ptr %versions.addr.2.lcssa.ph, align 1
+  %cmp.not = icmp eq i8 %40, 0
+  br i1 %cmp.not, label %return, label %for.cond.preheader, !llvm.loop !9
+
+return:                                           ; preds = %if.then.i, %fips_provider_version_ne.exit, %if.end100, %for.end, %while.cond.backedge, %if.then.i41, %if.then.i51, %lor.rhs11.i, %if.then.i69, %lor.rhs11.i65, %if.then.i87, %lor.rhs11.i83, %if.then.i105, %lor.rhs11.i101, %entry, %fips_provider_version_ge.exit.thread, %fips_provider_version_gt.exit.thread, %fips_provider_version_lt.exit.thread, %fips_provider_version_le.exit.thread, %if.then84, %if.else73
+  %retval.0 = phi i32 [ -1, %if.then84 ], [ -1, %if.else73 ], [ 0, %fips_provider_version_le.exit.thread ], [ 0, %fips_provider_version_lt.exit.thread ], [ 0, %fips_provider_version_gt.exit.thread ], [ 0, %fips_provider_version_ge.exit.thread ], [ 1, %entry ], [ 0, %lor.rhs11.i101 ], [ 0, %if.then.i105 ], [ 0, %lor.rhs11.i83 ], [ 0, %if.then.i87 ], [ 0, %lor.rhs11.i65 ], [ 0, %if.then.i69 ], [ 0, %lor.rhs11.i ], [ 0, %if.then.i51 ], [ 0, %if.then.i41 ], [ 1, %while.cond.backedge ], [ 1, %for.end ], [ 0, %if.end100 ], [ 0, %fips_provider_version_ne.exit ], [ 0, %if.then.i ]
   ret i32 %retval.0
 }
 

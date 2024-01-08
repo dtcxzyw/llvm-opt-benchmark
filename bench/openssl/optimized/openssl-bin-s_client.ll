@@ -7180,7 +7180,7 @@ declare i32 @ASN1_get_object(ptr noundef, ptr noundef, ptr noundef, ptr noundef,
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef i32 @user_data_execute(ptr nocapture noundef %user_data, i32 noundef %cmd, ptr noundef %arg) unnamed_addr #0 {
 entry:
-  switch i32 %cmd, label %sw.epilog [
+  switch i32 %cmd, label %default.unreachable [
     i32 0, label %sw.bb
     i32 1, label %sw.bb20
     i32 2, label %sw.bb22
@@ -7295,7 +7295,10 @@ if.end58:                                         ; preds = %sw.bb53
   store i32 1, ptr %isfin, align 4
   br label %return
 
-sw.epilog:                                        ; preds = %entry, %sw.bb53, %if.end46, %sw.bb29
+default.unreachable:                              ; preds = %entry
+  unreachable
+
+sw.epilog:                                        ; preds = %sw.bb53, %if.end46, %sw.bb29
   %25 = load ptr, ptr @bio_err, align 8
   %call59 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %25, ptr noundef nonnull @.str.520) #16
   %26 = load ptr, ptr @bio_err, align 8

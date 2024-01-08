@@ -48,7 +48,6 @@ target triple = "x86_64-unknown-linux-gnu"
 @__func__.parts64_modrem = private unnamed_addr constant [15 x i8] c"parts64_modrem\00", align 1
 @.str.14 = private unnamed_addr constant [56 x i8] c"b->cls == float_class_inf || a->cls == float_class_zero\00", align 1
 @__func__.parts128_modrem = private unnamed_addr constant [16 x i8] c"parts128_modrem\00", align 1
-@__func__.parts_float_to_ahp = private unnamed_addr constant [19 x i8] c"parts_float_to_ahp\00", align 1
 @__func__.parts128_return_nan = private unnamed_addr constant [20 x i8] c"parts128_return_nan\00", align 1
 @__func__.parts64_round_to_int_normal = private unnamed_addr constant [28 x i8] c"parts64_round_to_int_normal\00", align 1
 @__func__.parts128_round_to_int = private unnamed_addr constant [22 x i8] c"parts128_round_to_int\00", align 1
@@ -77,7 +76,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local zeroext i1 @float16_is_quiet_nan(i16 noundef zeroext %a_, ptr nocapture noundef readnone %status) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @float16_is_quiet_nan(i16 noundef zeroext %a_, ptr nocapture noundef readnone %status) local_unnamed_addr #0 {
 entry:
   %0 = and i16 %a_, 32256
   %cmp11 = icmp eq i16 %0, 32256
@@ -85,7 +84,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local zeroext i1 @bfloat16_is_quiet_nan(i16 noundef zeroext %a_, ptr nocapture noundef readnone %status) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @bfloat16_is_quiet_nan(i16 noundef zeroext %a_, ptr nocapture noundef readnone %status) local_unnamed_addr #0 {
 entry:
   %0 = and i16 %a_, 32704
   %cmp11 = icmp eq i16 %0, 32704
@@ -93,7 +92,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local zeroext i1 @float16_is_signaling_nan(i16 noundef zeroext %a_, ptr nocapture noundef readnone %status) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @float16_is_signaling_nan(i16 noundef zeroext %a_, ptr nocapture noundef readnone %status) local_unnamed_addr #0 {
 entry:
   %conv5 = zext i16 %a_ to i32
   %0 = and i32 %conv5, 32256
@@ -105,7 +104,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local zeroext i1 @bfloat16_is_signaling_nan(i16 noundef zeroext %a_, ptr nocapture noundef readnone %status) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @bfloat16_is_signaling_nan(i16 noundef zeroext %a_, ptr nocapture noundef readnone %status) local_unnamed_addr #0 {
 entry:
   %conv5 = zext i16 %a_ to i32
   %0 = and i32 %conv5, 32704
@@ -117,7 +116,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local zeroext i1 @float32_is_quiet_nan(i32 noundef %a_, ptr nocapture noundef readnone %status) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @float32_is_quiet_nan(i32 noundef %a_, ptr nocapture noundef readnone %status) local_unnamed_addr #0 {
 entry:
   %shl = shl i32 %a_, 1
   %cmp6 = icmp ugt i32 %shl, -8388609
@@ -125,7 +124,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local zeroext i1 @float32_is_signaling_nan(i32 noundef %a_, ptr nocapture noundef readnone %status) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @float32_is_signaling_nan(i32 noundef %a_, ptr nocapture noundef readnone %status) local_unnamed_addr #0 {
 entry:
   %0 = and i32 %a_, 2143289344
   %cmp4 = icmp eq i32 %0, 2139095040
@@ -136,7 +135,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local zeroext i1 @float64_is_quiet_nan(i64 noundef %a_, ptr nocapture noundef readnone %status) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @float64_is_quiet_nan(i64 noundef %a_, ptr nocapture noundef readnone %status) local_unnamed_addr #0 {
 entry:
   %shl = shl i64 %a_, 1
   %cmp6 = icmp ugt i64 %shl, -4503599627370497
@@ -144,7 +143,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local zeroext i1 @float64_is_signaling_nan(i64 noundef %a_, ptr nocapture noundef readnone %status) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @float64_is_signaling_nan(i64 noundef %a_, ptr nocapture noundef readnone %status) local_unnamed_addr #0 {
 entry:
   %0 = and i64 %a_, 9221120237041090560
   %cmp4 = icmp eq i64 %0, 9218868437227405312
@@ -3446,7 +3445,7 @@ parts64_mul.exit:                                 ; preds = %lor.lhs.false.i.i79
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc ptr @parts64_mul(ptr noundef %a, ptr noundef %b, ptr nocapture noundef %s) unnamed_addr #3 {
+define internal fastcc noundef ptr @parts64_mul(ptr noundef %a, ptr noundef %b, ptr nocapture noundef %s) unnamed_addr #3 {
 entry:
   %0 = load i8, ptr %a, align 8
   %conv = zext nneg i8 %0 to i32
@@ -6462,7 +6461,7 @@ parts64_muladd.exit:                              ; preds = %finish_sign.i, %if.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc ptr @parts64_muladd(ptr noundef returned %a, ptr nocapture noundef readonly %b, ptr nocapture noundef %c, i32 noundef %flags, ptr nocapture noundef %s) unnamed_addr #3 {
+define internal fastcc noundef ptr @parts64_muladd(ptr noundef returned %a, ptr nocapture noundef readonly %b, ptr nocapture noundef %c, i32 noundef %flags, ptr nocapture noundef %s) unnamed_addr #3 {
 entry:
   %p_widen = alloca %struct.FloatParts128, align 8
   %c_widen = alloca %struct.FloatParts128, align 8
@@ -9226,7 +9225,7 @@ float16a_unpack_canonical.exit39:                 ; preds = %if.then8.i.i38, %if
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc ptr @parts64_div(ptr noundef %a, ptr noundef %b, ptr nocapture noundef %s) unnamed_addr #3 {
+define internal fastcc noundef ptr @parts64_div(ptr noundef %a, ptr noundef %b, ptr nocapture noundef %s) unnamed_addr #3 {
 entry:
   %0 = load i8, ptr %a, align 8
   %conv = zext nneg i8 %0 to i32
@@ -11522,7 +11521,7 @@ float32_unpack_canonical.exit36:                  ; preds = %if.then8.i.i31, %if
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc ptr @parts64_modrem(ptr noundef %a, ptr noundef %b, ptr nocapture noundef %s) unnamed_addr #3 {
+define internal fastcc noundef ptr @parts64_modrem(ptr noundef %a, ptr noundef %b, ptr nocapture noundef %s) unnamed_addr #3 {
 entry:
   %0 = load i8, ptr %a, align 8
   %conv = zext nneg i8 %0 to i32
@@ -12224,7 +12223,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc ptr @parts128_modrem(ptr noundef %a, ptr noundef %b, ptr noundef writeonly %mod_quot, ptr nocapture noundef %s) unnamed_addr #3 {
+define internal fastcc noundef ptr @parts128_modrem(ptr noundef %a, ptr noundef %b, ptr noundef writeonly %mod_quot, ptr nocapture noundef %s) unnamed_addr #3 {
 entry:
   %0 = load i8, ptr %a, align 8
   %conv = zext nneg i8 %0 to i32
@@ -13460,7 +13459,7 @@ do.body.i.i:                                      ; preds = %if.then.i
   unreachable
 
 if.else:                                          ; preds = %float32_unpack_canonical.exit
-  switch i8 %6, label %do.body.i [
+  switch i8 %6, label %default.unreachable [
     i8 5, label %sw.bb.i
     i8 4, label %entry.sw.bb1_crit_edge.i
     i8 3, label %sw.bb3.i
@@ -13493,8 +13492,7 @@ sw.bb3.i:                                         ; preds = %if.else
   store i64 -9007199254740992, ptr %.compoundliteral.i.sroa.4.0..sroa_idx.i.i, align 8
   br label %if.end
 
-do.body.i:                                        ; preds = %if.else
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.2, i32 noundef 2700, ptr noundef nonnull @__func__.parts_float_to_ahp, ptr noundef null) #16
+default.unreachable:                              ; preds = %if.else
   unreachable
 
 if.end:                                           ; preds = %sw.bb3.i, %sw.bb1.i, %if.else, %if.else, %if.then4.i.i, %sw.bb1.i.i, %if.else.i.i8, %if.then.i.i7, %if.then
@@ -13814,7 +13812,7 @@ do.body.i.i:                                      ; preds = %if.then.i
   unreachable
 
 if.else:                                          ; preds = %float64_unpack_canonical.exit
-  switch i8 %6, label %do.body.i [
+  switch i8 %6, label %default.unreachable [
     i8 5, label %sw.bb.i
     i8 4, label %entry.sw.bb1_crit_edge.i
     i8 3, label %sw.bb3.i
@@ -13847,8 +13845,7 @@ sw.bb3.i:                                         ; preds = %if.else
   store i64 -9007199254740992, ptr %.compoundliteral.i.sroa.4.0..sroa_idx.i.i, align 8
   br label %if.end
 
-do.body.i:                                        ; preds = %if.else
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.2, i32 noundef 2700, ptr noundef nonnull @__func__.parts_float_to_ahp, ptr noundef null) #16
+default.unreachable:                              ; preds = %if.else
   unreachable
 
 if.end:                                           ; preds = %sw.bb3.i, %sw.bb1.i, %if.else, %if.else, %if.then4.i.i, %sw.bb1.i.i, %if.else.i.i8, %if.then.i.i7, %if.then
@@ -31102,19 +31099,19 @@ float64_unpack_canonical.exit:                    ; preds = %if.then8.i.i, %if.t
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local zeroext i16 @float16_default_nan(ptr nocapture noundef readnone %status) local_unnamed_addr #0 {
+define dso_local noundef zeroext i16 @float16_default_nan(ptr nocapture noundef readnone %status) local_unnamed_addr #0 {
 entry:
   ret i16 32256
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local i32 @float32_default_nan(ptr nocapture noundef readnone %status) local_unnamed_addr #0 {
+define dso_local noundef i32 @float32_default_nan(ptr nocapture noundef readnone %status) local_unnamed_addr #0 {
 entry:
   ret i32 2143289344
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local i64 @float64_default_nan(ptr nocapture noundef readnone %status) local_unnamed_addr #0 {
+define dso_local noundef i64 @float64_default_nan(ptr nocapture noundef readnone %status) local_unnamed_addr #0 {
 entry:
   ret i64 9221120237041090560
 }
@@ -31129,34 +31126,34 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local zeroext i16 @bfloat16_default_nan(ptr nocapture noundef readnone %status) local_unnamed_addr #0 {
+define dso_local noundef zeroext i16 @bfloat16_default_nan(ptr nocapture noundef readnone %status) local_unnamed_addr #0 {
 entry:
   ret i16 32704
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local zeroext i16 @float16_silence_nan(i16 noundef zeroext %a, ptr nocapture noundef readnone %status) local_unnamed_addr #0 {
+define dso_local noundef zeroext i16 @float16_silence_nan(i16 noundef zeroext %a, ptr nocapture noundef readnone %status) local_unnamed_addr #0 {
 entry:
   %or.i10.i6 = or i16 %a, 512
   ret i16 %or.i10.i6
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local i32 @float32_silence_nan(i32 noundef %a, ptr nocapture noundef readnone %status) local_unnamed_addr #0 {
+define dso_local noundef i32 @float32_silence_nan(i32 noundef %a, ptr nocapture noundef readnone %status) local_unnamed_addr #0 {
 entry:
   %or.i10.i5 = or i32 %a, 4194304
   ret i32 %or.i10.i5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local i64 @float64_silence_nan(i64 noundef %a, ptr nocapture noundef readnone %status) local_unnamed_addr #0 {
+define dso_local noundef i64 @float64_silence_nan(i64 noundef %a, ptr nocapture noundef readnone %status) local_unnamed_addr #0 {
 entry:
   %or.i10.i = or i64 %a, 2251799813685248
   ret i64 %or.i10.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local zeroext i16 @bfloat16_silence_nan(i16 noundef zeroext %a, ptr nocapture noundef readnone %status) local_unnamed_addr #0 {
+define dso_local noundef zeroext i16 @bfloat16_silence_nan(i16 noundef zeroext %a, ptr nocapture noundef readnone %status) local_unnamed_addr #0 {
 entry:
   %or.i10.i6 = or i16 %a, 64
   ret i16 %or.i10.i6
@@ -31180,7 +31177,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define dso_local zeroext i16 @float16_squash_input_denormal(i16 noundef zeroext %a, ptr nocapture noundef %status) local_unnamed_addr #2 {
+define dso_local noundef zeroext i16 @float16_squash_input_denormal(i16 noundef zeroext %a, ptr nocapture noundef %status) local_unnamed_addr #2 {
 entry:
   %flush_inputs_to_zero = getelementptr inbounds %struct.float_status, ptr %status, i64 0, i32 5
   %0 = load i8, ptr %flush_inputs_to_zero, align 2
@@ -31209,7 +31206,7 @@ return:                                           ; preds = %if.then, %entry, %i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define dso_local i32 @float32_squash_input_denormal(i32 noundef %a, ptr nocapture noundef %status) local_unnamed_addr #2 {
+define dso_local noundef i32 @float32_squash_input_denormal(i32 noundef %a, ptr nocapture noundef %status) local_unnamed_addr #2 {
 entry:
   %flush_inputs_to_zero = getelementptr inbounds %struct.float_status, ptr %status, i64 0, i32 5
   %0 = load i8, ptr %flush_inputs_to_zero, align 2
@@ -31238,7 +31235,7 @@ return:                                           ; preds = %if.then, %entry, %i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define dso_local i64 @float64_squash_input_denormal(i64 noundef %a, ptr nocapture noundef %status) local_unnamed_addr #2 {
+define dso_local noundef i64 @float64_squash_input_denormal(i64 noundef %a, ptr nocapture noundef %status) local_unnamed_addr #2 {
 entry:
   %flush_inputs_to_zero = getelementptr inbounds %struct.float_status, ptr %status, i64 0, i32 5
   %0 = load i8, ptr %flush_inputs_to_zero, align 2
@@ -31267,7 +31264,7 @@ return:                                           ; preds = %if.then, %entry, %i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define dso_local zeroext i16 @bfloat16_squash_input_denormal(i16 noundef zeroext %a, ptr nocapture noundef %status) local_unnamed_addr #2 {
+define dso_local noundef zeroext i16 @bfloat16_squash_input_denormal(i16 noundef zeroext %a, ptr nocapture noundef %status) local_unnamed_addr #2 {
 entry:
   %flush_inputs_to_zero = getelementptr inbounds %struct.float_status, ptr %status, i64 0, i32 5
   %0 = load i8, ptr %flush_inputs_to_zero, align 2
@@ -33180,7 +33177,7 @@ parts64_addsub.exit:                              ; preds = %lor.lhs.false.i.i, 
 }
 
 ; Function Attrs: nounwind sspstrong memory(argmem: readwrite) uwtable
-define internal fastcc zeroext i1 @parts128_sub_normal(ptr nocapture noundef %a, ptr nocapture noundef %b) unnamed_addr #11 {
+define internal fastcc noundef zeroext i1 @parts128_sub_normal(ptr nocapture noundef %a, ptr nocapture noundef %b) unnamed_addr #11 {
 entry:
   %exp = getelementptr inbounds %struct.FloatParts128, ptr %a, i64 0, i32 2
   %0 = load i32, ptr %exp, align 4
@@ -34932,7 +34929,7 @@ if.end10:                                         ; preds = %if.then8, %if.end7
 }
 
 ; Function Attrs: nounwind sspstrong memory(argmem: readwrite) uwtable
-define internal fastcc zeroext i1 @parts256_sub_normal(ptr nocapture noundef %a, ptr nocapture noundef %b) unnamed_addr #11 {
+define internal fastcc noundef zeroext i1 @parts256_sub_normal(ptr nocapture noundef %a, ptr nocapture noundef %b) unnamed_addr #11 {
 entry:
   %exp = getelementptr inbounds %struct.FloatParts256, ptr %a, i64 0, i32 2
   %0 = load i32, ptr %exp, align 4
@@ -35365,7 +35362,7 @@ return:                                           ; preds = %if.end29, %if.then2
 }
 
 ; Function Attrs: nounwind sspstrong memory(argmem: readwrite) uwtable
-define internal fastcc zeroext i1 @frac128_div(ptr nocapture noundef %a, i64 %b.8.val, i64 %b.16.val) unnamed_addr #11 {
+define internal fastcc noundef zeroext i1 @frac128_div(ptr nocapture noundef %a, i64 %b.8.val, i64 %b.16.val) unnamed_addr #11 {
 entry:
   %frac_hi = getelementptr inbounds %struct.FloatParts128, ptr %a, i64 0, i32 3
   %0 = load i64, ptr %frac_hi, align 8
@@ -35659,7 +35656,7 @@ while.end10:                                      ; preds = %while.body8, %estim
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc zeroext i1 @parts64_round_to_int_normal(ptr nocapture noundef %a, i8 noundef zeroext %rmode, i32 noundef %scale, i32 noundef %frac_size) unnamed_addr #3 {
+define internal fastcc noundef zeroext i1 @parts64_round_to_int_normal(ptr nocapture noundef %a, i8 noundef zeroext %rmode, i32 noundef %scale, i32 noundef %frac_size) unnamed_addr #3 {
 entry:
   %cond = tail call i32 @llvm.smax.i32(i32 %scale, i32 -65536)
   %cond6 = tail call i32 @llvm.smin.i32(i32 %cond, i32 65536)
@@ -35831,7 +35828,7 @@ return:                                           ; preds = %if.end38, %if.end33
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc zeroext i1 @parts128_round_to_int_normal(ptr nocapture noundef %a, i8 noundef zeroext %rmode, i32 noundef %frac_size) unnamed_addr #3 {
+define internal fastcc noundef zeroext i1 @parts128_round_to_int_normal(ptr nocapture noundef %a, i8 noundef zeroext %rmode, i32 noundef %frac_size) unnamed_addr #3 {
 entry:
   %exp = getelementptr inbounds %struct.FloatParts128, ptr %a, i64 0, i32 2
   %0 = load i32, ptr %exp, align 4

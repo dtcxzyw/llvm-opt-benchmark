@@ -3,7 +3,7 @@ source_filename = "bench/memcached/original/memcached-jenkins_hash.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-; Function Attrs: nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define dso_local i32 @jenkins_hash(ptr noundef %key, i64 noundef %length) local_unnamed_addr #0 {
 entry:
   %conv = trunc i64 %length to i32
@@ -66,7 +66,7 @@ while.end:                                        ; preds = %while.body, %while.
   %c.0.lcssa = phi i32 [ %add, %while.cond.preheader ], [ %xor40, %while.body ]
   %length.addr.0.lcssa = phi i64 [ %length, %while.cond.preheader ], [ %sub42, %while.body ]
   %k.0.lcssa = phi ptr [ %key, %while.cond.preheader ], [ %add.ptr, %while.body ]
-  switch i64 %length.addr.0.lcssa, label %if.end437 [
+  switch i64 %length.addr.0.lcssa, label %default.unreachable [
     i64 12, label %sw.bb
     i64 11, label %sw.bb49
     i64 10, label %sw.bb57
@@ -248,7 +248,7 @@ while.end180:                                     ; preds = %while.body120, %whi
   %c.1.lcssa = phi i32 [ %add, %while.cond117.preheader ], [ %xor176, %while.body120 ]
   %length.addr.1.lcssa = phi i64 [ %length, %while.cond117.preheader ], [ %sub178, %while.body120 ]
   %k116.0.lcssa = phi ptr [ %key, %while.cond117.preheader ], [ %add.ptr179, %while.body120 ]
-  switch i64 %length.addr.1.lcssa, label %if.end437 [
+  switch i64 %length.addr.1.lcssa, label %default.unreachable [
     i64 12, label %sw.bb181
     i64 11, label %sw.bb203
     i64 10, label %sw.bb208
@@ -461,7 +461,7 @@ while.end377:                                     ; preds = %while.body293, %whi
   %c.4.lcssa = phi i32 [ %add, %while.cond290.preheader ], [ %xor373, %while.body293 ]
   %length.addr.2.lcssa = phi i64 [ %length, %while.cond290.preheader ], [ %sub375, %while.body293 ]
   %k289.0.lcssa = phi ptr [ %key, %while.cond290.preheader ], [ %add.ptr376, %while.body293 ]
-  switch i64 %length.addr.2.lcssa, label %if.end437 [
+  switch i64 %length.addr.2.lcssa, label %default.unreachable [
     i64 12, label %sw.bb378
     i64 11, label %sw.bb383
     i64 10, label %sw.bb388
@@ -590,10 +590,13 @@ sw.bb431:                                         ; preds = %sw.bb426, %while.en
   %add434 = add i32 %a.6, %conv433
   br label %if.end437
 
-if.end437:                                        ; preds = %sw.bb282, %sw.bb278, %sw.bb265, %sw.bb250, %sw.bb230, %sw.bb208, %sw.bb181, %while.end180, %sw.bb431, %while.end377, %while.end, %sw.bb, %sw.bb49, %sw.bb57, %sw.bb65, %sw.bb73, %sw.bb78, %sw.bb84, %sw.bb90, %sw.bb96, %sw.bb99, %sw.bb103, %sw.bb107
-  %a.7 = phi i32 [ %a.0.lcssa, %while.end ], [ %add110, %sw.bb107 ], [ %add106, %sw.bb103 ], [ %add102, %sw.bb99 ], [ %add98, %sw.bb96 ], [ %add95, %sw.bb90 ], [ %add89, %sw.bb84 ], [ %add83, %sw.bb78 ], [ %add77, %sw.bb73 ], [ %add72, %sw.bb65 ], [ %add64, %sw.bb57 ], [ %add56, %sw.bb49 ], [ %add48, %sw.bb ], [ %a.1.lcssa, %while.end180 ], [ %add285, %sw.bb282 ], [ %add281, %sw.bb278 ], [ %add272, %sw.bb265 ], [ %add260, %sw.bb250 ], [ %add244, %sw.bb230 ], [ %add225, %sw.bb208 ], [ %add202, %sw.bb181 ], [ %a.3.lcssa, %while.end377 ], [ %add434, %sw.bb431 ]
-  %b.12 = phi i32 [ %b.0.lcssa, %while.end ], [ %b.0.lcssa, %sw.bb107 ], [ %b.0.lcssa, %sw.bb103 ], [ %b.0.lcssa, %sw.bb99 ], [ %b.0.lcssa, %sw.bb96 ], [ %add93, %sw.bb90 ], [ %add87, %sw.bb84 ], [ %add81, %sw.bb78 ], [ %add75, %sw.bb73 ], [ %add70, %sw.bb65 ], [ %add62, %sw.bb57 ], [ %add54, %sw.bb49 ], [ %add46, %sw.bb ], [ %b.1.lcssa, %while.end180 ], [ %b.1.lcssa, %sw.bb282 ], [ %b.1.lcssa, %sw.bb278 ], [ %b.3, %sw.bb265 ], [ %add253, %sw.bb250 ], [ %add237, %sw.bb230 ], [ %add218, %sw.bb208 ], [ %add195, %sw.bb181 ], [ %b.4.lcssa, %while.end377 ], [ %b.11, %sw.bb431 ]
-  %c.16 = phi i32 [ %c.0.lcssa, %while.end ], [ %c.0.lcssa, %sw.bb107 ], [ %c.0.lcssa, %sw.bb103 ], [ %c.0.lcssa, %sw.bb99 ], [ %c.0.lcssa, %sw.bb96 ], [ %c.0.lcssa, %sw.bb90 ], [ %c.0.lcssa, %sw.bb84 ], [ %c.0.lcssa, %sw.bb78 ], [ %c.0.lcssa, %sw.bb73 ], [ %add68, %sw.bb65 ], [ %add60, %sw.bb57 ], [ %add52, %sw.bb49 ], [ %add44, %sw.bb ], [ %c.1.lcssa, %while.end180 ], [ %c.1.lcssa, %sw.bb282 ], [ %c.1.lcssa, %sw.bb278 ], [ %c.1.lcssa, %sw.bb265 ], [ %c.1.lcssa, %sw.bb250 ], [ %c.3, %sw.bb230 ], [ %add211, %sw.bb208 ], [ %add188, %sw.bb181 ], [ %c.4.lcssa, %while.end377 ], [ %c.15, %sw.bb431 ]
+default.unreachable:                              ; preds = %while.end377, %while.end180, %while.end
+  unreachable
+
+if.end437:                                        ; preds = %sw.bb282, %sw.bb278, %sw.bb265, %sw.bb250, %sw.bb230, %sw.bb208, %sw.bb181, %sw.bb431, %sw.bb, %sw.bb49, %sw.bb57, %sw.bb65, %sw.bb73, %sw.bb78, %sw.bb84, %sw.bb90, %sw.bb96, %sw.bb99, %sw.bb103, %sw.bb107
+  %a.7 = phi i32 [ %add110, %sw.bb107 ], [ %add106, %sw.bb103 ], [ %add102, %sw.bb99 ], [ %add98, %sw.bb96 ], [ %add95, %sw.bb90 ], [ %add89, %sw.bb84 ], [ %add83, %sw.bb78 ], [ %add77, %sw.bb73 ], [ %add72, %sw.bb65 ], [ %add64, %sw.bb57 ], [ %add56, %sw.bb49 ], [ %add48, %sw.bb ], [ %add285, %sw.bb282 ], [ %add281, %sw.bb278 ], [ %add272, %sw.bb265 ], [ %add260, %sw.bb250 ], [ %add244, %sw.bb230 ], [ %add225, %sw.bb208 ], [ %add202, %sw.bb181 ], [ %add434, %sw.bb431 ]
+  %b.12 = phi i32 [ %b.0.lcssa, %sw.bb107 ], [ %b.0.lcssa, %sw.bb103 ], [ %b.0.lcssa, %sw.bb99 ], [ %b.0.lcssa, %sw.bb96 ], [ %add93, %sw.bb90 ], [ %add87, %sw.bb84 ], [ %add81, %sw.bb78 ], [ %add75, %sw.bb73 ], [ %add70, %sw.bb65 ], [ %add62, %sw.bb57 ], [ %add54, %sw.bb49 ], [ %add46, %sw.bb ], [ %b.1.lcssa, %sw.bb282 ], [ %b.1.lcssa, %sw.bb278 ], [ %b.3, %sw.bb265 ], [ %add253, %sw.bb250 ], [ %add237, %sw.bb230 ], [ %add218, %sw.bb208 ], [ %add195, %sw.bb181 ], [ %b.11, %sw.bb431 ]
+  %c.16 = phi i32 [ %c.0.lcssa, %sw.bb107 ], [ %c.0.lcssa, %sw.bb103 ], [ %c.0.lcssa, %sw.bb99 ], [ %c.0.lcssa, %sw.bb96 ], [ %c.0.lcssa, %sw.bb90 ], [ %c.0.lcssa, %sw.bb84 ], [ %c.0.lcssa, %sw.bb78 ], [ %c.0.lcssa, %sw.bb73 ], [ %add68, %sw.bb65 ], [ %add60, %sw.bb57 ], [ %add52, %sw.bb49 ], [ %add44, %sw.bb ], [ %c.1.lcssa, %sw.bb282 ], [ %c.1.lcssa, %sw.bb278 ], [ %c.1.lcssa, %sw.bb265 ], [ %c.1.lcssa, %sw.bb250 ], [ %c.3, %sw.bb230 ], [ %add211, %sw.bb208 ], [ %add188, %sw.bb181 ], [ %c.15, %sw.bb431 ]
   %xor438 = xor i32 %c.16, %b.12
   %xor441 = tail call i32 @llvm.fshl.i32(i32 %b.12, i32 %b.12, i32 14)
   %sub442 = sub i32 %xor438, %xor441
@@ -625,7 +628,7 @@ return:                                           ; preds = %while.end377, %whil
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.fshl.i32(i32, i32, i32) #1
 
-attributes #0 = { nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}

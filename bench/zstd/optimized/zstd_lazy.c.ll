@@ -794,6 +794,9 @@ if.then214.i.us:                                  ; preds = %if.then210.i.us
 while.body.i.us.unreachabledefault:               ; preds = %while.body.i.us
   unreachable
 
+default.unreachable:                              ; preds = %if.end206.i
+  unreachable
+
 while.body.i:                                     ; preds = %while.body.i.lr.ph, %if.then214.i
   %ip.i.01472 = phi ptr [ %add.ptr219.i, %if.then214.i ], [ %ip.i.0.ph1510, %while.body.i.lr.ph ]
   %add.ptr124.i = getelementptr inbounds i8, ptr %ip.i.01472, i64 1
@@ -907,7 +910,7 @@ ZSTD_count.exit:                                  ; preds = %if.then2.i, %if.end
 
 if.end206.i:                                      ; preds = %while.body.i
   store i64 999999999, ptr %offbaseFound.i, align 8
-  switch i32 %spec.select1455, label %if.end206.i.unreachabledefault [
+  switch i32 %spec.select1455, label %default.unreachable [
     i32 4, label %sw.bb1.i521
     i32 5, label %sw.bb2.i519
     i32 6, label %sw.bb4.i517
@@ -924,9 +927,6 @@ sw.bb2.i519:                                      ; preds = %if.end206.i
 sw.bb4.i517:                                      ; preds = %if.end206.i
   %call5.i518 = call fastcc i64 @ZSTD_HcFindBestMatch_noDict_6(ptr noundef %ms, ptr noundef nonnull %ip.i.01472, ptr noundef %add.ptr.i, ptr noundef nonnull %offbaseFound.i), !range !14
   br label %if.then210.i
-
-if.end206.i.unreachabledefault:                   ; preds = %if.end206.i
-  unreachable
 
 if.then210.i:                                     ; preds = %sw.bb1.i521, %sw.bb2.i519, %sw.bb4.i517
   %retval.i331.0 = phi i64 [ %call5.i518, %sw.bb4.i517 ], [ %call3.i520, %sw.bb2.i519 ], [ %call.i522, %sw.bb1.i521 ]
@@ -1452,7 +1452,7 @@ if.then160.i:                                     ; preds = %land.lhs.true154.i
 
 if.end206.i:                                      ; preds = %land.lhs.true154.i, %while.body.i
   store i64 999999999, ptr %offbaseFound.i, align 8
-  switch i32 %spec.select1386, label %sw.epilog151.i419 [
+  switch i32 %spec.select1386, label %default.unreachable [
     i32 4, label %sw.bb104.i433
     i32 5, label %sw.bb106.i431
     i32 6, label %sw.bb108.i429
@@ -1470,7 +1470,7 @@ sw.bb108.i429:                                    ; preds = %if.end206.i
   %call109.i430 = call fastcc i64 @ZSTD_HcFindBestMatch_dictMatchState_6(ptr noundef %ms, ptr noundef %ip.i.01411, ptr noundef %add.ptr.i, ptr noundef nonnull %offbaseFound.i), !range !14
   br label %if.then210.i
 
-sw.epilog151.i419:                                ; preds = %if.end206.i
+default.unreachable:                              ; preds = %if.end206.i
   unreachable
 
 if.then210.i:                                     ; preds = %sw.bb104.i433, %sw.bb106.i431, %sw.bb108.i429
@@ -2114,7 +2114,7 @@ if.then160.i:                                     ; preds = %land.lhs.true154.i
 
 if.end206.i:                                      ; preds = %land.lhs.true154.i, %while.body.i
   store i64 999999999, ptr %offbaseFound.i, align 8
-  switch i32 %spec.select1386, label %sw.epilog205.i375 [
+  switch i32 %spec.select1386, label %default.unreachable [
     i32 4, label %sw.bb158.i389
     i32 5, label %sw.bb160.i387
     i32 6, label %sw.bb162.i385
@@ -2132,7 +2132,7 @@ sw.bb162.i385:                                    ; preds = %if.end206.i
   %call163.i386 = call fastcc i64 @ZSTD_HcFindBestMatch_dedicatedDictSearch_6(ptr noundef %ms, ptr noundef %ip.i.01413, ptr noundef %add.ptr.i, ptr noundef nonnull %offbaseFound.i)
   br label %ZSTD_searchMax.exit524
 
-sw.epilog205.i375:                                ; preds = %if.end206.i
+default.unreachable:                              ; preds = %if.end206.i
   unreachable
 
 ZSTD_searchMax.exit524:                           ; preds = %sw.bb162.i385, %sw.bb160.i387, %sw.bb158.i389
@@ -3066,14 +3066,14 @@ ZSTD_count.exit:                                  ; preds = %if.then2.i, %if.end
 
 if.end206.i:                                      ; preds = %while.body.i
   store i64 999999999, ptr %offbaseFound.i, align 8
-  switch i32 %spec.select1491, label %sw.epilog44.i507 [
+  switch i32 %spec.select1491, label %default.unreachable [
     i32 4, label %sw.bb15.i498
     i32 5, label %sw.bb23.i490
     i32 6, label %sw.bb33.i482
   ]
 
 sw.bb15.i498:                                     ; preds = %if.end206.i
-  switch i32 %cond49.i, label %sw.epilog22.i505 [
+  switch i32 %cond49.i, label %default.unreachable [
     i32 4, label %sw.bb16.i503
     i32 5, label %sw.bb18.i501
     i32 6, label %sw.bb20.i499
@@ -3091,11 +3091,8 @@ sw.bb20.i499:                                     ; preds = %sw.bb15.i498
   %call21.i500 = call fastcc i64 @ZSTD_RowFindBestMatch_noDict_4_6(ptr noundef %ms, ptr noundef nonnull %ip.i.01597, ptr noundef %add.ptr.i, ptr noundef nonnull %offbaseFound.i), !range !14
   br label %if.then210.i
 
-sw.epilog22.i505:                                 ; preds = %sw.bb15.i498
-  unreachable
-
 sw.bb23.i490:                                     ; preds = %if.end206.i
-  switch i32 %cond49.i, label %sw.epilog30.i497 [
+  switch i32 %cond49.i, label %default.unreachable [
     i32 4, label %sw.bb24.i495
     i32 5, label %sw.bb26.i493
     i32 6, label %sw.bb28.i491
@@ -3113,11 +3110,8 @@ sw.bb28.i491:                                     ; preds = %sw.bb23.i490
   %call29.i492 = call fastcc i64 @ZSTD_RowFindBestMatch_noDict_5_6(ptr noundef %ms, ptr noundef nonnull %ip.i.01597, ptr noundef %add.ptr.i, ptr noundef nonnull %offbaseFound.i), !range !14
   br label %if.then210.i
 
-sw.epilog30.i497:                                 ; preds = %sw.bb23.i490
-  unreachable
-
 sw.bb33.i482:                                     ; preds = %if.end206.i
-  switch i32 %cond49.i, label %sw.epilog40.i489 [
+  switch i32 %cond49.i, label %default.unreachable [
     i32 4, label %sw.bb34.i487
     i32 5, label %sw.bb36.i485
     i32 6, label %sw.bb38.i483
@@ -3135,10 +3129,7 @@ sw.bb38.i483:                                     ; preds = %sw.bb33.i482
   %call39.i484 = call fastcc i64 @ZSTD_RowFindBestMatch_noDict_6_6(ptr noundef %ms, ptr noundef nonnull %ip.i.01597, ptr noundef %add.ptr.i, ptr noundef nonnull %offbaseFound.i), !range !14
   br label %if.then210.i
 
-sw.epilog40.i489:                                 ; preds = %sw.bb33.i482
-  unreachable
-
-sw.epilog44.i507:                                 ; preds = %if.end206.i
+default.unreachable:                              ; preds = %sw.bb33.i482, %sw.bb23.i490, %sw.bb15.i498, %if.end206.i
   unreachable
 
 if.then210.i:                                     ; preds = %sw.bb16.i503, %sw.bb18.i501, %sw.bb20.i499, %sw.bb24.i495, %sw.bb26.i493, %sw.bb28.i491, %sw.bb34.i487, %sw.bb36.i485, %sw.bb38.i483
@@ -3965,14 +3956,14 @@ if.then160.i:                                     ; preds = %land.lhs.true154.i
 
 if.end206.i:                                      ; preds = %land.lhs.true154.i, %while.body.i
   store i64 999999999, ptr %offbaseFound.i, align 8
-  switch i32 %spec.select1422, label %sw.epilog151.i419 [
+  switch i32 %spec.select1422, label %default.unreachable [
     i32 4, label %sw.bb120.i410
     i32 5, label %sw.bb130.i402
     i32 6, label %sw.bb140.i394
   ]
 
 sw.bb120.i410:                                    ; preds = %if.end206.i
-  switch i32 %cond49.i, label %sw.epilog127.i417 [
+  switch i32 %cond49.i, label %default.unreachable [
     i32 4, label %sw.bb121.i415
     i32 5, label %sw.bb123.i413
     i32 6, label %sw.bb125.i411
@@ -3990,11 +3981,8 @@ sw.bb125.i411:                                    ; preds = %sw.bb120.i410
   %call126.i412 = call fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_4_6(ptr noundef %ms, ptr noundef %ip.i.01545, ptr noundef %add.ptr.i, ptr noundef nonnull %offbaseFound.i), !range !14
   br label %if.then210.i
 
-sw.epilog127.i417:                                ; preds = %sw.bb120.i410
-  unreachable
-
 sw.bb130.i402:                                    ; preds = %if.end206.i
-  switch i32 %cond49.i, label %sw.epilog137.i409 [
+  switch i32 %cond49.i, label %default.unreachable [
     i32 4, label %sw.bb131.i407
     i32 5, label %sw.bb133.i405
     i32 6, label %sw.bb135.i403
@@ -4012,11 +4000,8 @@ sw.bb135.i403:                                    ; preds = %sw.bb130.i402
   %call136.i404 = call fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_5_6(ptr noundef %ms, ptr noundef %ip.i.01545, ptr noundef %add.ptr.i, ptr noundef nonnull %offbaseFound.i), !range !14
   br label %if.then210.i
 
-sw.epilog137.i409:                                ; preds = %sw.bb130.i402
-  unreachable
-
 sw.bb140.i394:                                    ; preds = %if.end206.i
-  switch i32 %cond49.i, label %sw.epilog147.i401 [
+  switch i32 %cond49.i, label %default.unreachable [
     i32 4, label %sw.bb141.i399
     i32 5, label %sw.bb143.i397
     i32 6, label %sw.bb145.i395
@@ -4034,10 +4019,7 @@ sw.bb145.i395:                                    ; preds = %sw.bb140.i394
   %call146.i396 = call fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_6_6(ptr noundef %ms, ptr noundef %ip.i.01545, ptr noundef %add.ptr.i, ptr noundef nonnull %offbaseFound.i), !range !14
   br label %if.then210.i
 
-sw.epilog147.i401:                                ; preds = %sw.bb140.i394
-  unreachable
-
-sw.epilog151.i419:                                ; preds = %if.end206.i
+default.unreachable:                              ; preds = %sw.bb140.i394, %sw.bb130.i402, %sw.bb120.i410, %if.end206.i
   unreachable
 
 if.then210.i:                                     ; preds = %sw.bb121.i415, %sw.bb123.i413, %sw.bb125.i411, %sw.bb131.i407, %sw.bb133.i405, %sw.bb135.i403, %sw.bb141.i399, %sw.bb143.i397, %sw.bb145.i395
@@ -4983,14 +4965,14 @@ if.then160.i:                                     ; preds = %land.lhs.true154.i
 
 if.end206.i:                                      ; preds = %land.lhs.true154.i, %while.body.i
   store i64 999999999, ptr %offbaseFound.i, align 8
-  switch i32 %spec.select1422, label %sw.epilog205.i375 [
+  switch i32 %spec.select1422, label %default.unreachable [
     i32 4, label %sw.bb174.i366
     i32 5, label %sw.bb184.i358
     i32 6, label %sw.bb194.i350
   ]
 
 sw.bb174.i366:                                    ; preds = %if.end206.i
-  switch i32 %cond49.i, label %sw.epilog181.i373 [
+  switch i32 %cond49.i, label %default.unreachable [
     i32 4, label %sw.bb175.i371
     i32 5, label %sw.bb177.i369
     i32 6, label %sw.bb179.i367
@@ -5008,11 +4990,8 @@ sw.bb179.i367:                                    ; preds = %sw.bb174.i366
   %call180.i368 = call fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_4_6(ptr noundef %ms, ptr noundef %ip.i.01545, ptr noundef %add.ptr.i, ptr noundef nonnull %offbaseFound.i), !range !14
   br label %if.then210.i
 
-sw.epilog181.i373:                                ; preds = %sw.bb174.i366
-  unreachable
-
 sw.bb184.i358:                                    ; preds = %if.end206.i
-  switch i32 %cond49.i, label %sw.epilog191.i365 [
+  switch i32 %cond49.i, label %default.unreachable [
     i32 4, label %sw.bb185.i363
     i32 5, label %sw.bb187.i361
     i32 6, label %sw.bb189.i359
@@ -5030,11 +5009,8 @@ sw.bb189.i359:                                    ; preds = %sw.bb184.i358
   %call190.i360 = call fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_5_6(ptr noundef %ms, ptr noundef %ip.i.01545, ptr noundef %add.ptr.i, ptr noundef nonnull %offbaseFound.i), !range !14
   br label %if.then210.i
 
-sw.epilog191.i365:                                ; preds = %sw.bb184.i358
-  unreachable
-
 sw.bb194.i350:                                    ; preds = %if.end206.i
-  switch i32 %cond49.i, label %sw.epilog201.i357 [
+  switch i32 %cond49.i, label %default.unreachable [
     i32 4, label %sw.bb195.i355
     i32 5, label %sw.bb197.i353
     i32 6, label %sw.bb199.i351
@@ -5052,10 +5028,7 @@ sw.bb199.i351:                                    ; preds = %sw.bb194.i350
   %call200.i352 = call fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_6_6(ptr noundef %ms, ptr noundef %ip.i.01545, ptr noundef %add.ptr.i, ptr noundef nonnull %offbaseFound.i), !range !14
   br label %if.then210.i
 
-sw.epilog201.i357:                                ; preds = %sw.bb194.i350
-  unreachable
-
-sw.epilog205.i375:                                ; preds = %if.end206.i
+default.unreachable:                              ; preds = %sw.bb194.i350, %sw.bb184.i358, %sw.bb174.i366, %if.end206.i
   unreachable
 
 if.then210.i:                                     ; preds = %sw.bb175.i371, %sw.bb177.i369, %sw.bb179.i367, %sw.bb185.i363, %sw.bb187.i361, %sw.bb189.i359, %sw.bb195.i355, %sw.bb197.i353, %sw.bb199.i351
@@ -5873,7 +5846,7 @@ ZSTD_count.exit:                                  ; preds = %if.then2.i, %if.end
 if.end206.i:                                      ; preds = %ZSTD_count.exit, %while.body.i
   %matchLength.i.1 = phi i64 [ %add201.i, %ZSTD_count.exit ], [ 0, %while.body.i ]
   store i64 999999999, ptr %offbaseFound.i, align 8
-  switch i32 %spec.select1532, label %sw.epilog44.i507 [
+  switch i32 %spec.select1532, label %if.end206.i.unreachabledefault [
     i32 4, label %sw.bb1.i521
     i32 5, label %sw.bb2.i519
     i32 6, label %sw.bb4.i517
@@ -5891,7 +5864,10 @@ sw.bb4.i517:                                      ; preds = %if.end206.i
   %call5.i518 = call fastcc i64 @ZSTD_HcFindBestMatch_noDict_6(ptr noundef %ms, ptr noundef %ip.i.01552, ptr noundef %add.ptr.i, ptr noundef nonnull %offbaseFound.i), !range !14
   br label %ZSTD_searchMax.exit524
 
-sw.epilog44.i507:                                 ; preds = %if.end206.i
+if.end206.i.unreachabledefault:                   ; preds = %if.end206.i
+  unreachable
+
+default.unreachable:                              ; preds = %if.end334.i
   unreachable
 
 ZSTD_searchMax.exit524:                           ; preds = %sw.bb4.i517, %sw.bb2.i519, %sw.bb1.i521
@@ -6060,7 +6036,7 @@ if.end334.i:                                      ; preds = %while.body230.i, %l
   %offBase.i.2 = phi i64 [ 1, %if.then270.i ], [ %offBase.i.1, %land.lhs.true267.i ], [ %offBase.i.1, %ZSTD_count.exit1411 ], [ %offBase.i.1, %land.lhs.true237.i ], [ 0, %while.body230.i ]
   %matchLength.i.4 = phi i64 [ %add256.i1526, %if.then270.i ], [ %matchLength.i.3, %land.lhs.true267.i ], [ %matchLength.i.3, %ZSTD_count.exit1411 ], [ %matchLength.i.3, %land.lhs.true237.i ], [ %matchLength.i.3, %while.body230.i ]
   store i64 999999999, ptr %ofbCandidate.i, align 8
-  switch i32 %spec.select1532, label %sw.epilog44.i313 [
+  switch i32 %spec.select1532, label %default.unreachable [
     i32 4, label %sw.bb1.i327
     i32 5, label %sw.bb2.i325
     i32 6, label %sw.bb4.i323
@@ -6077,9 +6053,6 @@ sw.bb2.i325:                                      ; preds = %if.end334.i
 sw.bb4.i323:                                      ; preds = %if.end334.i
   %call5.i324 = call fastcc i64 @ZSTD_HcFindBestMatch_noDict_6(ptr noundef %ms, ptr noundef nonnull %incdec.ptr.i, ptr noundef %add.ptr.i, ptr noundef nonnull %ofbCandidate.i), !range !14
   br label %ZSTD_searchMax.exit330
-
-sw.epilog44.i313:                                 ; preds = %if.end334.i
-  unreachable
 
 ZSTD_searchMax.exit330:                           ; preds = %sw.bb4.i323, %sw.bb2.i325, %sw.bb1.i327
   %retval.i137.0 = phi i64 [ %call5.i324, %sw.bb4.i323 ], [ %call3.i326, %sw.bb2.i325 ], [ %call.i328, %sw.bb1.i327 ]
@@ -6614,7 +6587,7 @@ if.then160.i:                                     ; preds = %land.lhs.true154.i
 if.end206.i:                                      ; preds = %land.lhs.true154.i, %while.body.i, %if.then160.i
   %matchLength.i.0 = phi i64 [ %add171.i, %if.then160.i ], [ 0, %land.lhs.true154.i ], [ 0, %while.body.i ]
   store i64 999999999, ptr %offbaseFound.i, align 8
-  switch i32 %spec.select1390, label %sw.epilog151.i419 [
+  switch i32 %spec.select1390, label %if.end206.i.unreachabledefault [
     i32 4, label %sw.bb104.i433
     i32 5, label %sw.bb106.i431
     i32 6, label %sw.bb108.i429
@@ -6632,7 +6605,10 @@ sw.bb108.i429:                                    ; preds = %if.end206.i
   %call109.i430 = call fastcc i64 @ZSTD_HcFindBestMatch_dictMatchState_6(ptr noundef %ms, ptr noundef %ip.i.01407, ptr noundef %add.ptr.i, ptr noundef nonnull %offbaseFound.i), !range !14
   br label %ZSTD_searchMax.exit524
 
-sw.epilog151.i419:                                ; preds = %if.end206.i
+if.end206.i.unreachabledefault:                   ; preds = %if.end206.i
+  unreachable
+
+default.unreachable:                              ; preds = %if.end334.i
   unreachable
 
 ZSTD_searchMax.exit524:                           ; preds = %sw.bb108.i429, %sw.bb106.i431, %sw.bb104.i433
@@ -6719,7 +6695,7 @@ if.end334.i:                                      ; preds = %while.body230.i, %l
   %offBase.i.3 = phi i64 [ 1, %if.then331.i ], [ %offBase.i.1, %land.lhs.true328.i ], [ %offBase.i.1, %if.then302.i ], [ %offBase.i.1, %land.lhs.true297.i ], [ %offBase.i.1, %while.body230.i ]
   %matchLength.i.5 = phi i64 [ %add314.i, %if.then331.i ], [ %matchLength.i.3, %land.lhs.true328.i ], [ %matchLength.i.3, %if.then302.i ], [ %matchLength.i.3, %land.lhs.true297.i ], [ %matchLength.i.3, %while.body230.i ]
   store i64 999999999, ptr %ofbCandidate.i, align 8
-  switch i32 %spec.select1390, label %sw.epilog151.i225 [
+  switch i32 %spec.select1390, label %default.unreachable [
     i32 4, label %sw.bb104.i239
     i32 5, label %sw.bb106.i237
     i32 6, label %sw.bb108.i235
@@ -6736,9 +6712,6 @@ sw.bb106.i237:                                    ; preds = %if.end334.i
 sw.bb108.i235:                                    ; preds = %if.end334.i
   %call109.i236 = call fastcc i64 @ZSTD_HcFindBestMatch_dictMatchState_6(ptr noundef %ms, ptr noundef nonnull %incdec.ptr.i, ptr noundef %add.ptr.i, ptr noundef nonnull %ofbCandidate.i), !range !14
   br label %ZSTD_searchMax.exit330
-
-sw.epilog151.i225:                                ; preds = %if.end334.i
-  unreachable
 
 ZSTD_searchMax.exit330:                           ; preds = %sw.bb108.i235, %sw.bb106.i237, %sw.bb104.i239
   %retval.i137.0 = phi i64 [ %call109.i236, %sw.bb108.i235 ], [ %call107.i238, %sw.bb106.i237 ], [ %call105.i240, %sw.bb104.i239 ]
@@ -7394,7 +7367,7 @@ if.then160.i:                                     ; preds = %land.lhs.true154.i
 if.end206.i:                                      ; preds = %land.lhs.true154.i, %while.body.i, %if.then160.i
   %matchLength.i.0 = phi i64 [ %add171.i, %if.then160.i ], [ 0, %land.lhs.true154.i ], [ 0, %while.body.i ]
   store i64 999999999, ptr %offbaseFound.i, align 8
-  switch i32 %spec.select1390, label %sw.epilog205.i375 [
+  switch i32 %spec.select1390, label %if.end206.i.unreachabledefault [
     i32 4, label %sw.bb158.i389
     i32 5, label %sw.bb160.i387
     i32 6, label %sw.bb162.i385
@@ -7412,7 +7385,10 @@ sw.bb162.i385:                                    ; preds = %if.end206.i
   %call163.i386 = call fastcc i64 @ZSTD_HcFindBestMatch_dedicatedDictSearch_6(ptr noundef %ms, ptr noundef %ip.i.01407, ptr noundef %add.ptr.i, ptr noundef nonnull %offbaseFound.i)
   br label %ZSTD_searchMax.exit524
 
-sw.epilog205.i375:                                ; preds = %if.end206.i
+if.end206.i.unreachabledefault:                   ; preds = %if.end206.i
+  unreachable
+
+default.unreachable:                              ; preds = %if.end334.i
   unreachable
 
 ZSTD_searchMax.exit524:                           ; preds = %sw.bb162.i385, %sw.bb160.i387, %sw.bb158.i389
@@ -7499,7 +7475,7 @@ if.end334.i:                                      ; preds = %while.body230.i, %l
   %offBase.i.3 = phi i64 [ 1, %if.then331.i ], [ %offBase.i.1, %land.lhs.true328.i ], [ %offBase.i.1, %if.then302.i ], [ %offBase.i.1, %land.lhs.true297.i ], [ %offBase.i.1, %while.body230.i ]
   %matchLength.i.5 = phi i64 [ %add314.i, %if.then331.i ], [ %matchLength.i.3, %land.lhs.true328.i ], [ %matchLength.i.3, %if.then302.i ], [ %matchLength.i.3, %land.lhs.true297.i ], [ %matchLength.i.3, %while.body230.i ]
   store i64 999999999, ptr %ofbCandidate.i, align 8
-  switch i32 %spec.select1390, label %sw.epilog205.i181 [
+  switch i32 %spec.select1390, label %default.unreachable [
     i32 4, label %sw.bb158.i195
     i32 5, label %sw.bb160.i193
     i32 6, label %sw.bb162.i191
@@ -7516,9 +7492,6 @@ sw.bb160.i193:                                    ; preds = %if.end334.i
 sw.bb162.i191:                                    ; preds = %if.end334.i
   %call163.i192 = call fastcc i64 @ZSTD_HcFindBestMatch_dedicatedDictSearch_6(ptr noundef %ms, ptr noundef nonnull %incdec.ptr.i, ptr noundef %add.ptr.i, ptr noundef nonnull %ofbCandidate.i)
   br label %ZSTD_searchMax.exit330
-
-sw.epilog205.i181:                                ; preds = %if.end334.i
-  unreachable
 
 ZSTD_searchMax.exit330:                           ; preds = %sw.bb162.i191, %sw.bb160.i193, %sw.bb158.i195
   %retval.i137.0 = phi i64 [ %call163.i192, %sw.bb162.i191 ], [ %call161.i194, %sw.bb160.i193 ], [ %call159.i196, %sw.bb158.i195 ]
@@ -8465,14 +8438,14 @@ ZSTD_count.exit:                                  ; preds = %if.then2.i, %if.end
 if.end206.i:                                      ; preds = %ZSTD_count.exit, %while.body.i
   %matchLength.i.1 = phi i64 [ %add201.i, %ZSTD_count.exit ], [ 0, %while.body.i ]
   store i64 999999999, ptr %offbaseFound.i, align 8
-  switch i32 %spec.select1568, label %sw.epilog44.i507 [
+  switch i32 %spec.select1568, label %if.end206.i.unreachabledefault [
     i32 4, label %sw.bb15.i498
     i32 5, label %sw.bb23.i490
     i32 6, label %sw.bb33.i482
   ]
 
 sw.bb15.i498:                                     ; preds = %if.end206.i
-  switch i32 %cond49.i, label %sw.epilog22.i505 [
+  switch i32 %cond49.i, label %sw.bb15.i498.unreachabledefault [
     i32 4, label %sw.bb16.i503
     i32 5, label %sw.bb18.i501
     i32 6, label %sw.bb20.i499
@@ -8490,11 +8463,8 @@ sw.bb20.i499:                                     ; preds = %sw.bb15.i498
   %call21.i500 = call fastcc i64 @ZSTD_RowFindBestMatch_noDict_4_6(ptr noundef %ms, ptr noundef %ip.i.01686, ptr noundef %add.ptr.i, ptr noundef nonnull %offbaseFound.i), !range !14
   br label %ZSTD_searchMax.exit524
 
-sw.epilog22.i505:                                 ; preds = %sw.bb15.i498
-  unreachable
-
 sw.bb23.i490:                                     ; preds = %if.end206.i
-  switch i32 %cond49.i, label %sw.epilog30.i497 [
+  switch i32 %cond49.i, label %sw.bb23.i490.unreachabledefault [
     i32 4, label %sw.bb24.i495
     i32 5, label %sw.bb26.i493
     i32 6, label %sw.bb28.i491
@@ -8512,11 +8482,8 @@ sw.bb28.i491:                                     ; preds = %sw.bb23.i490
   %call29.i492 = call fastcc i64 @ZSTD_RowFindBestMatch_noDict_5_6(ptr noundef %ms, ptr noundef %ip.i.01686, ptr noundef %add.ptr.i, ptr noundef nonnull %offbaseFound.i), !range !14
   br label %ZSTD_searchMax.exit524
 
-sw.epilog30.i497:                                 ; preds = %sw.bb23.i490
-  unreachable
-
 sw.bb33.i482:                                     ; preds = %if.end206.i
-  switch i32 %cond49.i, label %sw.epilog40.i489 [
+  switch i32 %cond49.i, label %sw.bb33.i482.unreachabledefault [
     i32 4, label %sw.bb34.i487
     i32 5, label %sw.bb36.i485
     i32 6, label %sw.bb38.i483
@@ -8534,10 +8501,19 @@ sw.bb38.i483:                                     ; preds = %sw.bb33.i482
   %call39.i484 = call fastcc i64 @ZSTD_RowFindBestMatch_noDict_6_6(ptr noundef %ms, ptr noundef %ip.i.01686, ptr noundef %add.ptr.i, ptr noundef nonnull %offbaseFound.i), !range !14
   br label %ZSTD_searchMax.exit524
 
-sw.epilog40.i489:                                 ; preds = %sw.bb33.i482
+if.end206.i.unreachabledefault:                   ; preds = %if.end206.i
   unreachable
 
-sw.epilog44.i507:                                 ; preds = %if.end206.i
+sw.bb15.i498.unreachabledefault:                  ; preds = %sw.bb15.i498
+  unreachable
+
+sw.bb23.i490.unreachabledefault:                  ; preds = %sw.bb23.i490
+  unreachable
+
+sw.bb33.i482.unreachabledefault:                  ; preds = %sw.bb33.i482
+  unreachable
+
+default.unreachable:                              ; preds = %sw.bb33.i288, %sw.bb23.i296, %sw.bb15.i304, %if.end334.i
   unreachable
 
 ZSTD_searchMax.exit524:                           ; preds = %sw.bb38.i483, %sw.bb36.i485, %sw.bb34.i487, %sw.bb28.i491, %sw.bb26.i493, %sw.bb24.i495, %sw.bb20.i499, %sw.bb18.i501, %sw.bb16.i503
@@ -8706,14 +8682,14 @@ if.end334.i:                                      ; preds = %while.body230.i, %l
   %offBase.i.2 = phi i64 [ 1, %if.then270.i ], [ %offBase.i.1, %land.lhs.true267.i ], [ %offBase.i.1, %ZSTD_count.exit1428 ], [ %offBase.i.1, %land.lhs.true237.i ], [ 0, %while.body230.i ]
   %matchLength.i.4 = phi i64 [ %add256.i1560, %if.then270.i ], [ %matchLength.i.3, %land.lhs.true267.i ], [ %matchLength.i.3, %ZSTD_count.exit1428 ], [ %matchLength.i.3, %land.lhs.true237.i ], [ %matchLength.i.3, %while.body230.i ]
   store i64 999999999, ptr %ofbCandidate.i, align 8
-  switch i32 %spec.select1568, label %sw.epilog44.i313 [
+  switch i32 %spec.select1568, label %default.unreachable [
     i32 4, label %sw.bb15.i304
     i32 5, label %sw.bb23.i296
     i32 6, label %sw.bb33.i288
   ]
 
 sw.bb15.i304:                                     ; preds = %if.end334.i
-  switch i32 %cond49.i, label %sw.epilog22.i311 [
+  switch i32 %cond49.i, label %default.unreachable [
     i32 4, label %sw.bb16.i309
     i32 5, label %sw.bb18.i307
     i32 6, label %sw.bb20.i305
@@ -8731,11 +8707,8 @@ sw.bb20.i305:                                     ; preds = %sw.bb15.i304
   %call21.i306 = call fastcc i64 @ZSTD_RowFindBestMatch_noDict_4_6(ptr noundef %ms, ptr noundef nonnull %incdec.ptr.i, ptr noundef %add.ptr.i, ptr noundef nonnull %ofbCandidate.i), !range !14
   br label %ZSTD_searchMax.exit330
 
-sw.epilog22.i311:                                 ; preds = %sw.bb15.i304
-  unreachable
-
 sw.bb23.i296:                                     ; preds = %if.end334.i
-  switch i32 %cond49.i, label %sw.epilog30.i303 [
+  switch i32 %cond49.i, label %default.unreachable [
     i32 4, label %sw.bb24.i301
     i32 5, label %sw.bb26.i299
     i32 6, label %sw.bb28.i297
@@ -8753,11 +8726,8 @@ sw.bb28.i297:                                     ; preds = %sw.bb23.i296
   %call29.i298 = call fastcc i64 @ZSTD_RowFindBestMatch_noDict_5_6(ptr noundef %ms, ptr noundef nonnull %incdec.ptr.i, ptr noundef %add.ptr.i, ptr noundef nonnull %ofbCandidate.i), !range !14
   br label %ZSTD_searchMax.exit330
 
-sw.epilog30.i303:                                 ; preds = %sw.bb23.i296
-  unreachable
-
 sw.bb33.i288:                                     ; preds = %if.end334.i
-  switch i32 %cond49.i, label %sw.epilog40.i295 [
+  switch i32 %cond49.i, label %default.unreachable [
     i32 4, label %sw.bb34.i293
     i32 5, label %sw.bb36.i291
     i32 6, label %sw.bb38.i289
@@ -8774,12 +8744,6 @@ sw.bb36.i291:                                     ; preds = %sw.bb33.i288
 sw.bb38.i289:                                     ; preds = %sw.bb33.i288
   %call39.i290 = call fastcc i64 @ZSTD_RowFindBestMatch_noDict_6_6(ptr noundef %ms, ptr noundef nonnull %incdec.ptr.i, ptr noundef %add.ptr.i, ptr noundef nonnull %ofbCandidate.i), !range !14
   br label %ZSTD_searchMax.exit330
-
-sw.epilog40.i295:                                 ; preds = %sw.bb33.i288
-  unreachable
-
-sw.epilog44.i313:                                 ; preds = %if.end334.i
-  unreachable
 
 ZSTD_searchMax.exit330:                           ; preds = %sw.bb38.i289, %sw.bb36.i291, %sw.bb34.i293, %sw.bb28.i297, %sw.bb26.i299, %sw.bb24.i301, %sw.bb20.i305, %sw.bb18.i307, %sw.bb16.i309
   %retval.i137.0 = phi i64 [ %call39.i290, %sw.bb38.i289 ], [ %call37.i292, %sw.bb36.i291 ], [ %call35.i294, %sw.bb34.i293 ], [ %call29.i298, %sw.bb28.i297 ], [ %call27.i300, %sw.bb26.i299 ], [ %call25.i302, %sw.bb24.i301 ], [ %call21.i306, %sw.bb20.i305 ], [ %call19.i308, %sw.bb18.i307 ], [ %call17.i310, %sw.bb16.i309 ]
@@ -9616,14 +9580,14 @@ if.then160.i:                                     ; preds = %land.lhs.true154.i
 if.end206.i:                                      ; preds = %land.lhs.true154.i, %while.body.i, %if.then160.i
   %matchLength.i.0 = phi i64 [ %add171.i, %if.then160.i ], [ 0, %land.lhs.true154.i ], [ 0, %while.body.i ]
   store i64 999999999, ptr %offbaseFound.i, align 8
-  switch i32 %spec.select1426, label %sw.epilog151.i419 [
+  switch i32 %spec.select1426, label %if.end206.i.unreachabledefault [
     i32 4, label %sw.bb120.i410
     i32 5, label %sw.bb130.i402
     i32 6, label %sw.bb140.i394
   ]
 
 sw.bb120.i410:                                    ; preds = %if.end206.i
-  switch i32 %cond49.i, label %sw.epilog127.i417 [
+  switch i32 %cond49.i, label %sw.bb120.i410.unreachabledefault [
     i32 4, label %sw.bb121.i415
     i32 5, label %sw.bb123.i413
     i32 6, label %sw.bb125.i411
@@ -9641,11 +9605,8 @@ sw.bb125.i411:                                    ; preds = %sw.bb120.i410
   %call126.i412 = call fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_4_6(ptr noundef %ms, ptr noundef %ip.i.01538, ptr noundef %add.ptr.i, ptr noundef nonnull %offbaseFound.i), !range !14
   br label %ZSTD_searchMax.exit524
 
-sw.epilog127.i417:                                ; preds = %sw.bb120.i410
-  unreachable
-
 sw.bb130.i402:                                    ; preds = %if.end206.i
-  switch i32 %cond49.i, label %sw.epilog137.i409 [
+  switch i32 %cond49.i, label %sw.bb130.i402.unreachabledefault [
     i32 4, label %sw.bb131.i407
     i32 5, label %sw.bb133.i405
     i32 6, label %sw.bb135.i403
@@ -9663,11 +9624,8 @@ sw.bb135.i403:                                    ; preds = %sw.bb130.i402
   %call136.i404 = call fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_5_6(ptr noundef %ms, ptr noundef %ip.i.01538, ptr noundef %add.ptr.i, ptr noundef nonnull %offbaseFound.i), !range !14
   br label %ZSTD_searchMax.exit524
 
-sw.epilog137.i409:                                ; preds = %sw.bb130.i402
-  unreachable
-
 sw.bb140.i394:                                    ; preds = %if.end206.i
-  switch i32 %cond49.i, label %sw.epilog147.i401 [
+  switch i32 %cond49.i, label %sw.bb140.i394.unreachabledefault [
     i32 4, label %sw.bb141.i399
     i32 5, label %sw.bb143.i397
     i32 6, label %sw.bb145.i395
@@ -9685,10 +9643,19 @@ sw.bb145.i395:                                    ; preds = %sw.bb140.i394
   %call146.i396 = call fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_6_6(ptr noundef %ms, ptr noundef %ip.i.01538, ptr noundef %add.ptr.i, ptr noundef nonnull %offbaseFound.i), !range !14
   br label %ZSTD_searchMax.exit524
 
-sw.epilog147.i401:                                ; preds = %sw.bb140.i394
+if.end206.i.unreachabledefault:                   ; preds = %if.end206.i
   unreachable
 
-sw.epilog151.i419:                                ; preds = %if.end206.i
+sw.bb120.i410.unreachabledefault:                 ; preds = %sw.bb120.i410
+  unreachable
+
+sw.bb130.i402.unreachabledefault:                 ; preds = %sw.bb130.i402
+  unreachable
+
+sw.bb140.i394.unreachabledefault:                 ; preds = %sw.bb140.i394
+  unreachable
+
+default.unreachable:                              ; preds = %sw.bb140.i200, %sw.bb130.i208, %sw.bb120.i216, %if.end334.i
   unreachable
 
 ZSTD_searchMax.exit524:                           ; preds = %sw.bb145.i395, %sw.bb143.i397, %sw.bb141.i399, %sw.bb135.i403, %sw.bb133.i405, %sw.bb131.i407, %sw.bb125.i411, %sw.bb123.i413, %sw.bb121.i415
@@ -9775,14 +9742,14 @@ if.end334.i:                                      ; preds = %while.body230.i, %l
   %offBase.i.3 = phi i64 [ 1, %if.then331.i ], [ %offBase.i.1, %land.lhs.true328.i ], [ %offBase.i.1, %if.then302.i ], [ %offBase.i.1, %land.lhs.true297.i ], [ %offBase.i.1, %while.body230.i ]
   %matchLength.i.5 = phi i64 [ %add314.i, %if.then331.i ], [ %matchLength.i.3, %land.lhs.true328.i ], [ %matchLength.i.3, %if.then302.i ], [ %matchLength.i.3, %land.lhs.true297.i ], [ %matchLength.i.3, %while.body230.i ]
   store i64 999999999, ptr %ofbCandidate.i, align 8
-  switch i32 %spec.select1426, label %sw.epilog151.i225 [
+  switch i32 %spec.select1426, label %default.unreachable [
     i32 4, label %sw.bb120.i216
     i32 5, label %sw.bb130.i208
     i32 6, label %sw.bb140.i200
   ]
 
 sw.bb120.i216:                                    ; preds = %if.end334.i
-  switch i32 %cond49.i, label %sw.epilog127.i223 [
+  switch i32 %cond49.i, label %default.unreachable [
     i32 4, label %sw.bb121.i221
     i32 5, label %sw.bb123.i219
     i32 6, label %sw.bb125.i217
@@ -9800,11 +9767,8 @@ sw.bb125.i217:                                    ; preds = %sw.bb120.i216
   %call126.i218 = call fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_4_6(ptr noundef %ms, ptr noundef nonnull %incdec.ptr.i, ptr noundef %add.ptr.i, ptr noundef nonnull %ofbCandidate.i), !range !14
   br label %ZSTD_searchMax.exit330
 
-sw.epilog127.i223:                                ; preds = %sw.bb120.i216
-  unreachable
-
 sw.bb130.i208:                                    ; preds = %if.end334.i
-  switch i32 %cond49.i, label %sw.epilog137.i215 [
+  switch i32 %cond49.i, label %default.unreachable [
     i32 4, label %sw.bb131.i213
     i32 5, label %sw.bb133.i211
     i32 6, label %sw.bb135.i209
@@ -9822,11 +9786,8 @@ sw.bb135.i209:                                    ; preds = %sw.bb130.i208
   %call136.i210 = call fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_5_6(ptr noundef %ms, ptr noundef nonnull %incdec.ptr.i, ptr noundef %add.ptr.i, ptr noundef nonnull %ofbCandidate.i), !range !14
   br label %ZSTD_searchMax.exit330
 
-sw.epilog137.i215:                                ; preds = %sw.bb130.i208
-  unreachable
-
 sw.bb140.i200:                                    ; preds = %if.end334.i
-  switch i32 %cond49.i, label %sw.epilog147.i207 [
+  switch i32 %cond49.i, label %default.unreachable [
     i32 4, label %sw.bb141.i205
     i32 5, label %sw.bb143.i203
     i32 6, label %sw.bb145.i201
@@ -9843,12 +9804,6 @@ sw.bb143.i203:                                    ; preds = %sw.bb140.i200
 sw.bb145.i201:                                    ; preds = %sw.bb140.i200
   %call146.i202 = call fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_6_6(ptr noundef %ms, ptr noundef nonnull %incdec.ptr.i, ptr noundef %add.ptr.i, ptr noundef nonnull %ofbCandidate.i), !range !14
   br label %ZSTD_searchMax.exit330
-
-sw.epilog147.i207:                                ; preds = %sw.bb140.i200
-  unreachable
-
-sw.epilog151.i225:                                ; preds = %if.end334.i
-  unreachable
 
 ZSTD_searchMax.exit330:                           ; preds = %sw.bb145.i201, %sw.bb143.i203, %sw.bb141.i205, %sw.bb135.i209, %sw.bb133.i211, %sw.bb131.i213, %sw.bb125.i217, %sw.bb123.i219, %sw.bb121.i221
   %retval.i137.0 = phi i64 [ %call146.i202, %sw.bb145.i201 ], [ %call144.i204, %sw.bb143.i203 ], [ %call142.i206, %sw.bb141.i205 ], [ %call136.i210, %sw.bb135.i209 ], [ %call134.i212, %sw.bb133.i211 ], [ %call132.i214, %sw.bb131.i213 ], [ %call126.i218, %sw.bb125.i217 ], [ %call124.i220, %sw.bb123.i219 ], [ %call122.i222, %sw.bb121.i221 ]
@@ -10806,14 +10761,14 @@ if.then160.i:                                     ; preds = %land.lhs.true154.i
 if.end206.i:                                      ; preds = %land.lhs.true154.i, %while.body.i, %if.then160.i
   %matchLength.i.0 = phi i64 [ %add171.i, %if.then160.i ], [ 0, %land.lhs.true154.i ], [ 0, %while.body.i ]
   store i64 999999999, ptr %offbaseFound.i, align 8
-  switch i32 %spec.select1426, label %sw.epilog205.i375 [
+  switch i32 %spec.select1426, label %if.end206.i.unreachabledefault [
     i32 4, label %sw.bb174.i366
     i32 5, label %sw.bb184.i358
     i32 6, label %sw.bb194.i350
   ]
 
 sw.bb174.i366:                                    ; preds = %if.end206.i
-  switch i32 %cond49.i, label %sw.epilog181.i373 [
+  switch i32 %cond49.i, label %sw.bb174.i366.unreachabledefault [
     i32 4, label %sw.bb175.i371
     i32 5, label %sw.bb177.i369
     i32 6, label %sw.bb179.i367
@@ -10831,11 +10786,8 @@ sw.bb179.i367:                                    ; preds = %sw.bb174.i366
   %call180.i368 = call fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_4_6(ptr noundef %ms, ptr noundef %ip.i.01538, ptr noundef %add.ptr.i, ptr noundef nonnull %offbaseFound.i), !range !14
   br label %ZSTD_searchMax.exit524
 
-sw.epilog181.i373:                                ; preds = %sw.bb174.i366
-  unreachable
-
 sw.bb184.i358:                                    ; preds = %if.end206.i
-  switch i32 %cond49.i, label %sw.epilog191.i365 [
+  switch i32 %cond49.i, label %sw.bb184.i358.unreachabledefault [
     i32 4, label %sw.bb185.i363
     i32 5, label %sw.bb187.i361
     i32 6, label %sw.bb189.i359
@@ -10853,11 +10805,8 @@ sw.bb189.i359:                                    ; preds = %sw.bb184.i358
   %call190.i360 = call fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_5_6(ptr noundef %ms, ptr noundef %ip.i.01538, ptr noundef %add.ptr.i, ptr noundef nonnull %offbaseFound.i), !range !14
   br label %ZSTD_searchMax.exit524
 
-sw.epilog191.i365:                                ; preds = %sw.bb184.i358
-  unreachable
-
 sw.bb194.i350:                                    ; preds = %if.end206.i
-  switch i32 %cond49.i, label %sw.epilog201.i357 [
+  switch i32 %cond49.i, label %sw.bb194.i350.unreachabledefault [
     i32 4, label %sw.bb195.i355
     i32 5, label %sw.bb197.i353
     i32 6, label %sw.bb199.i351
@@ -10875,10 +10824,19 @@ sw.bb199.i351:                                    ; preds = %sw.bb194.i350
   %call200.i352 = call fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_6_6(ptr noundef %ms, ptr noundef %ip.i.01538, ptr noundef %add.ptr.i, ptr noundef nonnull %offbaseFound.i), !range !14
   br label %ZSTD_searchMax.exit524
 
-sw.epilog201.i357:                                ; preds = %sw.bb194.i350
+if.end206.i.unreachabledefault:                   ; preds = %if.end206.i
   unreachable
 
-sw.epilog205.i375:                                ; preds = %if.end206.i
+sw.bb174.i366.unreachabledefault:                 ; preds = %sw.bb174.i366
+  unreachable
+
+sw.bb184.i358.unreachabledefault:                 ; preds = %sw.bb184.i358
+  unreachable
+
+sw.bb194.i350.unreachabledefault:                 ; preds = %sw.bb194.i350
+  unreachable
+
+default.unreachable:                              ; preds = %sw.bb194.i156, %sw.bb184.i164, %sw.bb174.i172, %if.end334.i
   unreachable
 
 ZSTD_searchMax.exit524:                           ; preds = %sw.bb199.i351, %sw.bb197.i353, %sw.bb195.i355, %sw.bb189.i359, %sw.bb187.i361, %sw.bb185.i363, %sw.bb179.i367, %sw.bb177.i369, %sw.bb175.i371
@@ -10965,14 +10923,14 @@ if.end334.i:                                      ; preds = %while.body230.i, %l
   %offBase.i.3 = phi i64 [ 1, %if.then331.i ], [ %offBase.i.1, %land.lhs.true328.i ], [ %offBase.i.1, %if.then302.i ], [ %offBase.i.1, %land.lhs.true297.i ], [ %offBase.i.1, %while.body230.i ]
   %matchLength.i.5 = phi i64 [ %add314.i, %if.then331.i ], [ %matchLength.i.3, %land.lhs.true328.i ], [ %matchLength.i.3, %if.then302.i ], [ %matchLength.i.3, %land.lhs.true297.i ], [ %matchLength.i.3, %while.body230.i ]
   store i64 999999999, ptr %ofbCandidate.i, align 8
-  switch i32 %spec.select1426, label %sw.epilog205.i181 [
+  switch i32 %spec.select1426, label %default.unreachable [
     i32 4, label %sw.bb174.i172
     i32 5, label %sw.bb184.i164
     i32 6, label %sw.bb194.i156
   ]
 
 sw.bb174.i172:                                    ; preds = %if.end334.i
-  switch i32 %cond49.i, label %sw.epilog181.i179 [
+  switch i32 %cond49.i, label %default.unreachable [
     i32 4, label %sw.bb175.i177
     i32 5, label %sw.bb177.i175
     i32 6, label %sw.bb179.i173
@@ -10990,11 +10948,8 @@ sw.bb179.i173:                                    ; preds = %sw.bb174.i172
   %call180.i174 = call fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_4_6(ptr noundef %ms, ptr noundef nonnull %incdec.ptr.i, ptr noundef %add.ptr.i, ptr noundef nonnull %ofbCandidate.i), !range !14
   br label %ZSTD_searchMax.exit330
 
-sw.epilog181.i179:                                ; preds = %sw.bb174.i172
-  unreachable
-
 sw.bb184.i164:                                    ; preds = %if.end334.i
-  switch i32 %cond49.i, label %sw.epilog191.i171 [
+  switch i32 %cond49.i, label %default.unreachable [
     i32 4, label %sw.bb185.i169
     i32 5, label %sw.bb187.i167
     i32 6, label %sw.bb189.i165
@@ -11012,11 +10967,8 @@ sw.bb189.i165:                                    ; preds = %sw.bb184.i164
   %call190.i166 = call fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_5_6(ptr noundef %ms, ptr noundef nonnull %incdec.ptr.i, ptr noundef %add.ptr.i, ptr noundef nonnull %ofbCandidate.i), !range !14
   br label %ZSTD_searchMax.exit330
 
-sw.epilog191.i171:                                ; preds = %sw.bb184.i164
-  unreachable
-
 sw.bb194.i156:                                    ; preds = %if.end334.i
-  switch i32 %cond49.i, label %sw.epilog201.i163 [
+  switch i32 %cond49.i, label %default.unreachable [
     i32 4, label %sw.bb195.i161
     i32 5, label %sw.bb197.i159
     i32 6, label %sw.bb199.i157
@@ -11033,12 +10985,6 @@ sw.bb197.i159:                                    ; preds = %sw.bb194.i156
 sw.bb199.i157:                                    ; preds = %sw.bb194.i156
   %call200.i158 = call fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_6_6(ptr noundef %ms, ptr noundef nonnull %incdec.ptr.i, ptr noundef %add.ptr.i, ptr noundef nonnull %ofbCandidate.i), !range !14
   br label %ZSTD_searchMax.exit330
-
-sw.epilog201.i163:                                ; preds = %sw.bb194.i156
-  unreachable
-
-sw.epilog205.i181:                                ; preds = %if.end334.i
-  unreachable
 
 ZSTD_searchMax.exit330:                           ; preds = %sw.bb199.i157, %sw.bb197.i159, %sw.bb195.i161, %sw.bb189.i165, %sw.bb187.i167, %sw.bb185.i169, %sw.bb179.i173, %sw.bb177.i175, %sw.bb175.i177
   %retval.i137.0 = phi i64 [ %call200.i158, %sw.bb199.i157 ], [ %call198.i160, %sw.bb197.i159 ], [ %call196.i162, %sw.bb195.i161 ], [ %call190.i166, %sw.bb189.i165 ], [ %call188.i168, %sw.bb187.i167 ], [ %call186.i170, %sw.bb185.i169 ], [ %call180.i174, %sw.bb179.i173 ], [ %call178.i176, %sw.bb177.i175 ], [ %call176.i178, %sw.bb175.i177 ]
@@ -11868,7 +11814,7 @@ ZSTD_count.exit:                                  ; preds = %if.then2.i, %if.end
 if.end206.i:                                      ; preds = %ZSTD_count.exit, %while.body.i
   %matchLength.i.1 = phi i64 [ %add201.i, %ZSTD_count.exit ], [ 0, %while.body.i ]
   store i64 999999999, ptr %offbaseFound.i, align 8
-  switch i32 %spec.select1605, label %sw.epilog44.i507 [
+  switch i32 %spec.select1605, label %if.end206.i.unreachabledefault [
     i32 4, label %sw.bb1.i521
     i32 5, label %sw.bb2.i519
     i32 6, label %sw.bb4.i517
@@ -11886,7 +11832,10 @@ sw.bb4.i517:                                      ; preds = %if.end206.i
   %call5.i518 = call fastcc i64 @ZSTD_HcFindBestMatch_noDict_6(ptr noundef %ms, ptr noundef %ip.i.01630, ptr noundef %add.ptr.i, ptr noundef nonnull %offbaseFound.i), !range !14
   br label %ZSTD_searchMax.exit524
 
-sw.epilog44.i507:                                 ; preds = %if.end206.i
+if.end206.i.unreachabledefault:                   ; preds = %if.end206.i
+  unreachable
+
+default.unreachable:                              ; preds = %if.end473.i, %if.end334.i
   unreachable
 
 ZSTD_searchMax.exit524:                           ; preds = %sw.bb4.i517, %sw.bb2.i519, %sw.bb1.i521
@@ -12052,7 +12001,7 @@ if.end334.i:                                      ; preds = %while.body230.i, %l
   %offBase.i.2 = phi i64 [ 1, %if.then270.i ], [ %offBase.i.11638, %land.lhs.true267.i ], [ %offBase.i.11638, %ZSTD_count.exit1412 ], [ %offBase.i.11638, %land.lhs.true237.i ], [ 0, %while.body230.i ]
   %matchLength.i.4 = phi i64 [ %add256.i1595, %if.then270.i ], [ %matchLength.i.31641, %land.lhs.true267.i ], [ %matchLength.i.31641, %ZSTD_count.exit1412 ], [ %matchLength.i.31641, %land.lhs.true237.i ], [ %matchLength.i.31641, %while.body230.i ]
   store i64 999999999, ptr %ofbCandidate.i, align 8
-  switch i32 %spec.select1605, label %sw.epilog44.i313 [
+  switch i32 %spec.select1605, label %default.unreachable [
     i32 4, label %sw.bb1.i327
     i32 5, label %sw.bb2.i325
     i32 6, label %sw.bb4.i323
@@ -12069,9 +12018,6 @@ sw.bb2.i325:                                      ; preds = %if.end334.i
 sw.bb4.i323:                                      ; preds = %if.end334.i
   %call5.i324 = call fastcc i64 @ZSTD_HcFindBestMatch_noDict_6(ptr noundef %ms, ptr noundef nonnull %incdec.ptr.i, ptr noundef %add.ptr.i, ptr noundef nonnull %ofbCandidate.i), !range !14
   br label %ZSTD_searchMax.exit330
-
-sw.epilog44.i313:                                 ; preds = %if.end334.i
-  unreachable
 
 ZSTD_searchMax.exit330:                           ; preds = %sw.bb4.i323, %sw.bb2.i325, %sw.bb1.i327
   %retval.i137.0 = phi i64 [ %call5.i324, %sw.bb4.i323 ], [ %call3.i326, %sw.bb2.i325 ], [ %call.i328, %sw.bb1.i327 ]
@@ -12233,7 +12179,7 @@ if.end473.i:                                      ; preds = %if.then364.i, %land
   %offBase.i.4 = phi i64 [ 1, %if.then409.i ], [ %offBase.i.2, %land.lhs.true406.i ], [ %offBase.i.2, %ZSTD_count.exit1480 ], [ %offBase.i.2, %land.lhs.true372.i ], [ 0, %if.then364.i ]
   %matchLength.i.6 = phi i64 [ %add392.i1600, %if.then409.i ], [ %matchLength.i.4, %land.lhs.true406.i ], [ %matchLength.i.4, %ZSTD_count.exit1480 ], [ %matchLength.i.4, %land.lhs.true372.i ], [ %matchLength.i.4, %if.then364.i ]
   store i64 999999999, ptr %ofbCandidate474.i, align 8
-  switch i32 %spec.select1605, label %sw.epilog44.i [
+  switch i32 %spec.select1605, label %default.unreachable [
     i32 4, label %sw.bb1.i135
     i32 5, label %sw.bb2.i
     i32 6, label %sw.bb4.i
@@ -12250,9 +12196,6 @@ sw.bb2.i:                                         ; preds = %if.end473.i
 sw.bb4.i:                                         ; preds = %if.end473.i
   %call5.i = call fastcc i64 @ZSTD_HcFindBestMatch_noDict_6(ptr noundef %ms, ptr noundef nonnull %incdec.ptr367.i, ptr noundef %add.ptr.i, ptr noundef nonnull %ofbCandidate474.i), !range !14
   br label %ZSTD_searchMax.exit
-
-sw.epilog44.i:                                    ; preds = %if.end473.i
-  unreachable
 
 ZSTD_searchMax.exit:                              ; preds = %sw.bb4.i, %sw.bb2.i, %sw.bb1.i135
   %retval.i120.0 = phi i64 [ %call5.i, %sw.bb4.i ], [ %call3.i, %sw.bb2.i ], [ %call.i136, %sw.bb1.i135 ]
@@ -12788,7 +12731,7 @@ if.then160.i:                                     ; preds = %land.lhs.true154.i
 if.end206.i:                                      ; preds = %land.lhs.true154.i, %while.body.i, %if.then160.i
   %matchLength.i.0 = phi i64 [ %add171.i, %if.then160.i ], [ 0, %land.lhs.true154.i ], [ 0, %while.body.i ]
   store i64 999999999, ptr %offbaseFound.i, align 8
-  switch i32 %spec.select1394, label %sw.epilog151.i419 [
+  switch i32 %spec.select1394, label %if.end206.i.unreachabledefault [
     i32 4, label %sw.bb104.i433
     i32 5, label %sw.bb106.i431
     i32 6, label %sw.bb108.i429
@@ -12806,7 +12749,10 @@ sw.bb108.i429:                                    ; preds = %if.end206.i
   %call109.i430 = call fastcc i64 @ZSTD_HcFindBestMatch_dictMatchState_6(ptr noundef %ms, ptr noundef %ip.i.01414, ptr noundef %add.ptr.i, ptr noundef nonnull %offbaseFound.i), !range !14
   br label %ZSTD_searchMax.exit524
 
-sw.epilog151.i419:                                ; preds = %if.end206.i
+if.end206.i.unreachabledefault:                   ; preds = %if.end206.i
+  unreachable
+
+default.unreachable:                              ; preds = %if.end473.i, %if.end334.i
   unreachable
 
 ZSTD_searchMax.exit524:                           ; preds = %sw.bb108.i429, %sw.bb106.i431, %sw.bb104.i433
@@ -12890,7 +12836,7 @@ if.end334.i:                                      ; preds = %while.body230.i, %l
   %offBase.i.3 = phi i64 [ 1, %if.then331.i ], [ %offBase.i.11422, %land.lhs.true328.i ], [ %offBase.i.11422, %if.then302.i ], [ %offBase.i.11422, %land.lhs.true297.i ], [ %offBase.i.11422, %while.body230.i ]
   %matchLength.i.5 = phi i64 [ %add314.i, %if.then331.i ], [ %matchLength.i.31423, %land.lhs.true328.i ], [ %matchLength.i.31423, %if.then302.i ], [ %matchLength.i.31423, %land.lhs.true297.i ], [ %matchLength.i.31423, %while.body230.i ]
   store i64 999999999, ptr %ofbCandidate.i, align 8
-  switch i32 %spec.select1394, label %sw.epilog151.i225 [
+  switch i32 %spec.select1394, label %default.unreachable [
     i32 4, label %sw.bb104.i239
     i32 5, label %sw.bb106.i237
     i32 6, label %sw.bb108.i235
@@ -12907,9 +12853,6 @@ sw.bb106.i237:                                    ; preds = %if.end334.i
 sw.bb108.i235:                                    ; preds = %if.end334.i
   %call109.i236 = call fastcc i64 @ZSTD_HcFindBestMatch_dictMatchState_6(ptr noundef %ms, ptr noundef nonnull %incdec.ptr.i, ptr noundef %add.ptr.i, ptr noundef nonnull %ofbCandidate.i), !range !14
   br label %ZSTD_searchMax.exit330
-
-sw.epilog151.i225:                                ; preds = %if.end334.i
-  unreachable
 
 ZSTD_searchMax.exit330:                           ; preds = %sw.bb108.i235, %sw.bb106.i237, %sw.bb104.i239
   %retval.i137.0 = phi i64 [ %call109.i236, %sw.bb108.i235 ], [ %call107.i238, %sw.bb106.i237 ], [ %call105.i240, %sw.bb104.i239 ]
@@ -12994,7 +12937,7 @@ if.end473.i:                                      ; preds = %if.then364.i, %land
   %offBase.i.5 = phi i64 [ 1, %if.then470.i ], [ %offBase.i.3, %land.lhs.true467.i ], [ %offBase.i.3, %if.then441.i ], [ %offBase.i.3, %land.lhs.true436.i ], [ %offBase.i.3, %if.then364.i ]
   %matchLength.i.7 = phi i64 [ %add453.i, %if.then470.i ], [ %matchLength.i.5, %land.lhs.true467.i ], [ %matchLength.i.5, %if.then441.i ], [ %matchLength.i.5, %land.lhs.true436.i ], [ %matchLength.i.5, %if.then364.i ]
   store i64 999999999, ptr %ofbCandidate474.i, align 8
-  switch i32 %spec.select1394, label %sw.epilog151.i [
+  switch i32 %spec.select1394, label %default.unreachable [
     i32 4, label %sw.bb104.i
     i32 5, label %sw.bb106.i
     i32 6, label %sw.bb108.i
@@ -13011,9 +12954,6 @@ sw.bb106.i:                                       ; preds = %if.end473.i
 sw.bb108.i:                                       ; preds = %if.end473.i
   %call109.i = call fastcc i64 @ZSTD_HcFindBestMatch_dictMatchState_6(ptr noundef %ms, ptr noundef nonnull %incdec.ptr367.i, ptr noundef %add.ptr.i, ptr noundef nonnull %ofbCandidate474.i), !range !14
   br label %ZSTD_searchMax.exit
-
-sw.epilog151.i:                                   ; preds = %if.end473.i
-  unreachable
 
 ZSTD_searchMax.exit:                              ; preds = %sw.bb108.i, %sw.bb106.i, %sw.bb104.i
   %retval.i120.0 = phi i64 [ %call109.i, %sw.bb108.i ], [ %call107.i, %sw.bb106.i ], [ %call105.i, %sw.bb104.i ]
@@ -13670,7 +13610,7 @@ if.then160.i:                                     ; preds = %land.lhs.true154.i
 if.end206.i:                                      ; preds = %land.lhs.true154.i, %while.body.i, %if.then160.i
   %matchLength.i.0 = phi i64 [ %add171.i, %if.then160.i ], [ 0, %land.lhs.true154.i ], [ 0, %while.body.i ]
   store i64 999999999, ptr %offbaseFound.i, align 8
-  switch i32 %spec.select1394, label %sw.epilog205.i375 [
+  switch i32 %spec.select1394, label %if.end206.i.unreachabledefault [
     i32 4, label %sw.bb158.i389
     i32 5, label %sw.bb160.i387
     i32 6, label %sw.bb162.i385
@@ -13688,7 +13628,10 @@ sw.bb162.i385:                                    ; preds = %if.end206.i
   %call163.i386 = call fastcc i64 @ZSTD_HcFindBestMatch_dedicatedDictSearch_6(ptr noundef %ms, ptr noundef %ip.i.01414, ptr noundef %add.ptr.i, ptr noundef nonnull %offbaseFound.i)
   br label %ZSTD_searchMax.exit524
 
-sw.epilog205.i375:                                ; preds = %if.end206.i
+if.end206.i.unreachabledefault:                   ; preds = %if.end206.i
+  unreachable
+
+default.unreachable:                              ; preds = %if.end473.i, %if.end334.i
   unreachable
 
 ZSTD_searchMax.exit524:                           ; preds = %sw.bb162.i385, %sw.bb160.i387, %sw.bb158.i389
@@ -13772,7 +13715,7 @@ if.end334.i:                                      ; preds = %while.body230.i, %l
   %offBase.i.3 = phi i64 [ 1, %if.then331.i ], [ %offBase.i.11422, %land.lhs.true328.i ], [ %offBase.i.11422, %if.then302.i ], [ %offBase.i.11422, %land.lhs.true297.i ], [ %offBase.i.11422, %while.body230.i ]
   %matchLength.i.5 = phi i64 [ %add314.i, %if.then331.i ], [ %matchLength.i.31423, %land.lhs.true328.i ], [ %matchLength.i.31423, %if.then302.i ], [ %matchLength.i.31423, %land.lhs.true297.i ], [ %matchLength.i.31423, %while.body230.i ]
   store i64 999999999, ptr %ofbCandidate.i, align 8
-  switch i32 %spec.select1394, label %sw.epilog205.i181 [
+  switch i32 %spec.select1394, label %default.unreachable [
     i32 4, label %sw.bb158.i195
     i32 5, label %sw.bb160.i193
     i32 6, label %sw.bb162.i191
@@ -13789,9 +13732,6 @@ sw.bb160.i193:                                    ; preds = %if.end334.i
 sw.bb162.i191:                                    ; preds = %if.end334.i
   %call163.i192 = call fastcc i64 @ZSTD_HcFindBestMatch_dedicatedDictSearch_6(ptr noundef %ms, ptr noundef nonnull %incdec.ptr.i, ptr noundef %add.ptr.i, ptr noundef nonnull %ofbCandidate.i)
   br label %ZSTD_searchMax.exit330
-
-sw.epilog205.i181:                                ; preds = %if.end334.i
-  unreachable
 
 ZSTD_searchMax.exit330:                           ; preds = %sw.bb162.i191, %sw.bb160.i193, %sw.bb158.i195
   %retval.i137.0 = phi i64 [ %call163.i192, %sw.bb162.i191 ], [ %call161.i194, %sw.bb160.i193 ], [ %call159.i196, %sw.bb158.i195 ]
@@ -13876,7 +13816,7 @@ if.end473.i:                                      ; preds = %if.then364.i, %land
   %offBase.i.5 = phi i64 [ 1, %if.then470.i ], [ %offBase.i.3, %land.lhs.true467.i ], [ %offBase.i.3, %if.then441.i ], [ %offBase.i.3, %land.lhs.true436.i ], [ %offBase.i.3, %if.then364.i ]
   %matchLength.i.7 = phi i64 [ %add453.i, %if.then470.i ], [ %matchLength.i.5, %land.lhs.true467.i ], [ %matchLength.i.5, %if.then441.i ], [ %matchLength.i.5, %land.lhs.true436.i ], [ %matchLength.i.5, %if.then364.i ]
   store i64 999999999, ptr %ofbCandidate474.i, align 8
-  switch i32 %spec.select1394, label %sw.epilog205.i [
+  switch i32 %spec.select1394, label %default.unreachable [
     i32 4, label %sw.bb158.i
     i32 5, label %sw.bb160.i
     i32 6, label %sw.bb162.i
@@ -13893,9 +13833,6 @@ sw.bb160.i:                                       ; preds = %if.end473.i
 sw.bb162.i:                                       ; preds = %if.end473.i
   %call163.i = call fastcc i64 @ZSTD_HcFindBestMatch_dedicatedDictSearch_6(ptr noundef %ms, ptr noundef nonnull %incdec.ptr367.i, ptr noundef %add.ptr.i, ptr noundef nonnull %ofbCandidate474.i)
   br label %ZSTD_searchMax.exit
-
-sw.epilog205.i:                                   ; preds = %if.end473.i
-  unreachable
 
 ZSTD_searchMax.exit:                              ; preds = %sw.bb162.i, %sw.bb160.i, %sw.bb158.i
   %retval.i120.0 = phi i64 [ %call163.i, %sw.bb162.i ], [ %call161.i, %sw.bb160.i ], [ %call159.i, %sw.bb158.i ]
@@ -14843,14 +14780,14 @@ ZSTD_count.exit:                                  ; preds = %if.then2.i, %if.end
 if.end206.i:                                      ; preds = %ZSTD_count.exit, %while.body.i
   %matchLength.i.1 = phi i64 [ %add201.i, %ZSTD_count.exit ], [ 0, %while.body.i ]
   store i64 999999999, ptr %offbaseFound.i, align 8
-  switch i32 %spec.select1641, label %sw.epilog44.i507 [
+  switch i32 %spec.select1641, label %if.end206.i.unreachabledefault [
     i32 4, label %sw.bb15.i498
     i32 5, label %sw.bb23.i490
     i32 6, label %sw.bb33.i482
   ]
 
 sw.bb15.i498:                                     ; preds = %if.end206.i
-  switch i32 %cond49.i, label %sw.epilog22.i505 [
+  switch i32 %cond49.i, label %sw.bb15.i498.unreachabledefault [
     i32 4, label %sw.bb16.i503
     i32 5, label %sw.bb18.i501
     i32 6, label %sw.bb20.i499
@@ -14868,11 +14805,8 @@ sw.bb20.i499:                                     ; preds = %sw.bb15.i498
   %call21.i500 = call fastcc i64 @ZSTD_RowFindBestMatch_noDict_4_6(ptr noundef %ms, ptr noundef %ip.i.01773, ptr noundef %add.ptr.i, ptr noundef nonnull %offbaseFound.i), !range !14
   br label %ZSTD_searchMax.exit524
 
-sw.epilog22.i505:                                 ; preds = %sw.bb15.i498
-  unreachable
-
 sw.bb23.i490:                                     ; preds = %if.end206.i
-  switch i32 %cond49.i, label %sw.epilog30.i497 [
+  switch i32 %cond49.i, label %sw.bb23.i490.unreachabledefault [
     i32 4, label %sw.bb24.i495
     i32 5, label %sw.bb26.i493
     i32 6, label %sw.bb28.i491
@@ -14890,11 +14824,8 @@ sw.bb28.i491:                                     ; preds = %sw.bb23.i490
   %call29.i492 = call fastcc i64 @ZSTD_RowFindBestMatch_noDict_5_6(ptr noundef %ms, ptr noundef %ip.i.01773, ptr noundef %add.ptr.i, ptr noundef nonnull %offbaseFound.i), !range !14
   br label %ZSTD_searchMax.exit524
 
-sw.epilog30.i497:                                 ; preds = %sw.bb23.i490
-  unreachable
-
 sw.bb33.i482:                                     ; preds = %if.end206.i
-  switch i32 %cond49.i, label %sw.epilog40.i489 [
+  switch i32 %cond49.i, label %sw.bb33.i482.unreachabledefault [
     i32 4, label %sw.bb34.i487
     i32 5, label %sw.bb36.i485
     i32 6, label %sw.bb38.i483
@@ -14912,10 +14843,19 @@ sw.bb38.i483:                                     ; preds = %sw.bb33.i482
   %call39.i484 = call fastcc i64 @ZSTD_RowFindBestMatch_noDict_6_6(ptr noundef %ms, ptr noundef %ip.i.01773, ptr noundef %add.ptr.i, ptr noundef nonnull %offbaseFound.i), !range !14
   br label %ZSTD_searchMax.exit524
 
-sw.epilog40.i489:                                 ; preds = %sw.bb33.i482
+if.end206.i.unreachabledefault:                   ; preds = %if.end206.i
   unreachable
 
-sw.epilog44.i507:                                 ; preds = %if.end206.i
+sw.bb15.i498.unreachabledefault:                  ; preds = %sw.bb15.i498
+  unreachable
+
+sw.bb23.i490.unreachabledefault:                  ; preds = %sw.bb23.i490
+  unreachable
+
+sw.bb33.i482.unreachabledefault:                  ; preds = %sw.bb33.i482
+  unreachable
+
+default.unreachable:                              ; preds = %sw.bb33.i, %sw.bb23.i, %sw.bb15.i, %if.end473.i, %sw.bb33.i288, %sw.bb23.i296, %sw.bb15.i304, %if.end334.i
   unreachable
 
 ZSTD_searchMax.exit524:                           ; preds = %sw.bb38.i483, %sw.bb36.i485, %sw.bb34.i487, %sw.bb28.i491, %sw.bb26.i493, %sw.bb24.i495, %sw.bb20.i499, %sw.bb18.i501, %sw.bb16.i503
@@ -15081,14 +15021,14 @@ if.end334.i:                                      ; preds = %while.body230.i, %l
   %offBase.i.2 = phi i64 [ 1, %if.then270.i ], [ %offBase.i.11781, %land.lhs.true267.i ], [ %offBase.i.11781, %ZSTD_count.exit1429 ], [ %offBase.i.11781, %land.lhs.true237.i ], [ 0, %while.body230.i ]
   %matchLength.i.4 = phi i64 [ %add256.i1629, %if.then270.i ], [ %matchLength.i.31784, %land.lhs.true267.i ], [ %matchLength.i.31784, %ZSTD_count.exit1429 ], [ %matchLength.i.31784, %land.lhs.true237.i ], [ %matchLength.i.31784, %while.body230.i ]
   store i64 999999999, ptr %ofbCandidate.i, align 8
-  switch i32 %spec.select1641, label %sw.epilog44.i313 [
+  switch i32 %spec.select1641, label %default.unreachable [
     i32 4, label %sw.bb15.i304
     i32 5, label %sw.bb23.i296
     i32 6, label %sw.bb33.i288
   ]
 
 sw.bb15.i304:                                     ; preds = %if.end334.i
-  switch i32 %cond49.i, label %sw.epilog22.i311 [
+  switch i32 %cond49.i, label %default.unreachable [
     i32 4, label %sw.bb16.i309
     i32 5, label %sw.bb18.i307
     i32 6, label %sw.bb20.i305
@@ -15106,11 +15046,8 @@ sw.bb20.i305:                                     ; preds = %sw.bb15.i304
   %call21.i306 = call fastcc i64 @ZSTD_RowFindBestMatch_noDict_4_6(ptr noundef %ms, ptr noundef nonnull %incdec.ptr.i, ptr noundef %add.ptr.i, ptr noundef nonnull %ofbCandidate.i), !range !14
   br label %ZSTD_searchMax.exit330
 
-sw.epilog22.i311:                                 ; preds = %sw.bb15.i304
-  unreachable
-
 sw.bb23.i296:                                     ; preds = %if.end334.i
-  switch i32 %cond49.i, label %sw.epilog30.i303 [
+  switch i32 %cond49.i, label %default.unreachable [
     i32 4, label %sw.bb24.i301
     i32 5, label %sw.bb26.i299
     i32 6, label %sw.bb28.i297
@@ -15128,11 +15065,8 @@ sw.bb28.i297:                                     ; preds = %sw.bb23.i296
   %call29.i298 = call fastcc i64 @ZSTD_RowFindBestMatch_noDict_5_6(ptr noundef %ms, ptr noundef nonnull %incdec.ptr.i, ptr noundef %add.ptr.i, ptr noundef nonnull %ofbCandidate.i), !range !14
   br label %ZSTD_searchMax.exit330
 
-sw.epilog30.i303:                                 ; preds = %sw.bb23.i296
-  unreachable
-
 sw.bb33.i288:                                     ; preds = %if.end334.i
-  switch i32 %cond49.i, label %sw.epilog40.i295 [
+  switch i32 %cond49.i, label %default.unreachable [
     i32 4, label %sw.bb34.i293
     i32 5, label %sw.bb36.i291
     i32 6, label %sw.bb38.i289
@@ -15149,12 +15083,6 @@ sw.bb36.i291:                                     ; preds = %sw.bb33.i288
 sw.bb38.i289:                                     ; preds = %sw.bb33.i288
   %call39.i290 = call fastcc i64 @ZSTD_RowFindBestMatch_noDict_6_6(ptr noundef %ms, ptr noundef nonnull %incdec.ptr.i, ptr noundef %add.ptr.i, ptr noundef nonnull %ofbCandidate.i), !range !14
   br label %ZSTD_searchMax.exit330
-
-sw.epilog40.i295:                                 ; preds = %sw.bb33.i288
-  unreachable
-
-sw.epilog44.i313:                                 ; preds = %if.end334.i
-  unreachable
 
 ZSTD_searchMax.exit330:                           ; preds = %sw.bb38.i289, %sw.bb36.i291, %sw.bb34.i293, %sw.bb28.i297, %sw.bb26.i299, %sw.bb24.i301, %sw.bb20.i305, %sw.bb18.i307, %sw.bb16.i309
   %retval.i137.0 = phi i64 [ %call39.i290, %sw.bb38.i289 ], [ %call37.i292, %sw.bb36.i291 ], [ %call35.i294, %sw.bb34.i293 ], [ %call29.i298, %sw.bb28.i297 ], [ %call27.i300, %sw.bb26.i299 ], [ %call25.i302, %sw.bb24.i301 ], [ %call21.i306, %sw.bb20.i305 ], [ %call19.i308, %sw.bb18.i307 ], [ %call17.i310, %sw.bb16.i309 ]
@@ -15316,14 +15244,14 @@ if.end473.i:                                      ; preds = %if.then364.i, %land
   %offBase.i.4 = phi i64 [ 1, %if.then409.i ], [ %offBase.i.2, %land.lhs.true406.i ], [ %offBase.i.2, %ZSTD_count.exit1497 ], [ %offBase.i.2, %land.lhs.true372.i ], [ 0, %if.then364.i ]
   %matchLength.i.6 = phi i64 [ %add392.i1634, %if.then409.i ], [ %matchLength.i.4, %land.lhs.true406.i ], [ %matchLength.i.4, %ZSTD_count.exit1497 ], [ %matchLength.i.4, %land.lhs.true372.i ], [ %matchLength.i.4, %if.then364.i ]
   store i64 999999999, ptr %ofbCandidate474.i, align 8
-  switch i32 %spec.select1641, label %sw.epilog44.i [
+  switch i32 %spec.select1641, label %default.unreachable [
     i32 4, label %sw.bb15.i
     i32 5, label %sw.bb23.i
     i32 6, label %sw.bb33.i
   ]
 
 sw.bb15.i:                                        ; preds = %if.end473.i
-  switch i32 %cond49.i, label %sw.epilog22.i [
+  switch i32 %cond49.i, label %default.unreachable [
     i32 4, label %sw.bb16.i
     i32 5, label %sw.bb18.i
     i32 6, label %sw.bb20.i
@@ -15341,11 +15269,8 @@ sw.bb20.i:                                        ; preds = %sw.bb15.i
   %call21.i = call fastcc i64 @ZSTD_RowFindBestMatch_noDict_4_6(ptr noundef %ms, ptr noundef nonnull %incdec.ptr367.i, ptr noundef %add.ptr.i, ptr noundef nonnull %ofbCandidate474.i), !range !14
   br label %ZSTD_searchMax.exit
 
-sw.epilog22.i:                                    ; preds = %sw.bb15.i
-  unreachable
-
 sw.bb23.i:                                        ; preds = %if.end473.i
-  switch i32 %cond49.i, label %sw.epilog30.i [
+  switch i32 %cond49.i, label %default.unreachable [
     i32 4, label %sw.bb24.i
     i32 5, label %sw.bb26.i
     i32 6, label %sw.bb28.i
@@ -15363,11 +15288,8 @@ sw.bb28.i:                                        ; preds = %sw.bb23.i
   %call29.i = call fastcc i64 @ZSTD_RowFindBestMatch_noDict_5_6(ptr noundef %ms, ptr noundef nonnull %incdec.ptr367.i, ptr noundef %add.ptr.i, ptr noundef nonnull %ofbCandidate474.i), !range !14
   br label %ZSTD_searchMax.exit
 
-sw.epilog30.i:                                    ; preds = %sw.bb23.i
-  unreachable
-
 sw.bb33.i:                                        ; preds = %if.end473.i
-  switch i32 %cond49.i, label %sw.epilog40.i [
+  switch i32 %cond49.i, label %default.unreachable [
     i32 4, label %sw.bb34.i
     i32 5, label %sw.bb36.i
     i32 6, label %sw.bb38.i
@@ -15384,12 +15306,6 @@ sw.bb36.i:                                        ; preds = %sw.bb33.i
 sw.bb38.i:                                        ; preds = %sw.bb33.i
   %call39.i = call fastcc i64 @ZSTD_RowFindBestMatch_noDict_6_6(ptr noundef %ms, ptr noundef nonnull %incdec.ptr367.i, ptr noundef %add.ptr.i, ptr noundef nonnull %ofbCandidate474.i), !range !14
   br label %ZSTD_searchMax.exit
-
-sw.epilog40.i:                                    ; preds = %sw.bb33.i
-  unreachable
-
-sw.epilog44.i:                                    ; preds = %if.end473.i
-  unreachable
 
 ZSTD_searchMax.exit:                              ; preds = %sw.bb38.i, %sw.bb36.i, %sw.bb34.i, %sw.bb28.i, %sw.bb26.i, %sw.bb24.i, %sw.bb20.i, %sw.bb18.i, %sw.bb16.i
   %retval.i120.0 = phi i64 [ %call39.i, %sw.bb38.i ], [ %call37.i, %sw.bb36.i ], [ %call35.i, %sw.bb34.i ], [ %call29.i, %sw.bb28.i ], [ %call27.i, %sw.bb26.i ], [ %call25.i, %sw.bb24.i ], [ %call21.i, %sw.bb20.i ], [ %call19.i, %sw.bb18.i ], [ %call17.i, %sw.bb16.i ]
@@ -16227,14 +16143,14 @@ if.then160.i:                                     ; preds = %land.lhs.true154.i
 if.end206.i:                                      ; preds = %land.lhs.true154.i, %while.body.i, %if.then160.i
   %matchLength.i.0 = phi i64 [ %add171.i, %if.then160.i ], [ 0, %land.lhs.true154.i ], [ 0, %while.body.i ]
   store i64 999999999, ptr %offbaseFound.i, align 8
-  switch i32 %spec.select1430, label %sw.epilog151.i419 [
+  switch i32 %spec.select1430, label %if.end206.i.unreachabledefault [
     i32 4, label %sw.bb120.i410
     i32 5, label %sw.bb130.i402
     i32 6, label %sw.bb140.i394
   ]
 
 sw.bb120.i410:                                    ; preds = %if.end206.i
-  switch i32 %cond49.i, label %sw.epilog127.i417 [
+  switch i32 %cond49.i, label %sw.bb120.i410.unreachabledefault [
     i32 4, label %sw.bb121.i415
     i32 5, label %sw.bb123.i413
     i32 6, label %sw.bb125.i411
@@ -16252,11 +16168,8 @@ sw.bb125.i411:                                    ; preds = %sw.bb120.i410
   %call126.i412 = call fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_4_6(ptr noundef %ms, ptr noundef %ip.i.01554, ptr noundef %add.ptr.i, ptr noundef nonnull %offbaseFound.i), !range !14
   br label %ZSTD_searchMax.exit524
 
-sw.epilog127.i417:                                ; preds = %sw.bb120.i410
-  unreachable
-
 sw.bb130.i402:                                    ; preds = %if.end206.i
-  switch i32 %cond49.i, label %sw.epilog137.i409 [
+  switch i32 %cond49.i, label %sw.bb130.i402.unreachabledefault [
     i32 4, label %sw.bb131.i407
     i32 5, label %sw.bb133.i405
     i32 6, label %sw.bb135.i403
@@ -16274,11 +16187,8 @@ sw.bb135.i403:                                    ; preds = %sw.bb130.i402
   %call136.i404 = call fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_5_6(ptr noundef %ms, ptr noundef %ip.i.01554, ptr noundef %add.ptr.i, ptr noundef nonnull %offbaseFound.i), !range !14
   br label %ZSTD_searchMax.exit524
 
-sw.epilog137.i409:                                ; preds = %sw.bb130.i402
-  unreachable
-
 sw.bb140.i394:                                    ; preds = %if.end206.i
-  switch i32 %cond49.i, label %sw.epilog147.i401 [
+  switch i32 %cond49.i, label %sw.bb140.i394.unreachabledefault [
     i32 4, label %sw.bb141.i399
     i32 5, label %sw.bb143.i397
     i32 6, label %sw.bb145.i395
@@ -16296,10 +16206,19 @@ sw.bb145.i395:                                    ; preds = %sw.bb140.i394
   %call146.i396 = call fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_6_6(ptr noundef %ms, ptr noundef %ip.i.01554, ptr noundef %add.ptr.i, ptr noundef nonnull %offbaseFound.i), !range !14
   br label %ZSTD_searchMax.exit524
 
-sw.epilog147.i401:                                ; preds = %sw.bb140.i394
+if.end206.i.unreachabledefault:                   ; preds = %if.end206.i
   unreachable
 
-sw.epilog151.i419:                                ; preds = %if.end206.i
+sw.bb120.i410.unreachabledefault:                 ; preds = %sw.bb120.i410
+  unreachable
+
+sw.bb130.i402.unreachabledefault:                 ; preds = %sw.bb130.i402
+  unreachable
+
+sw.bb140.i394.unreachabledefault:                 ; preds = %sw.bb140.i394
+  unreachable
+
+default.unreachable:                              ; preds = %sw.bb140.i, %sw.bb130.i, %sw.bb120.i, %if.end473.i, %sw.bb140.i200, %sw.bb130.i208, %sw.bb120.i216, %if.end334.i
   unreachable
 
 ZSTD_searchMax.exit524:                           ; preds = %sw.bb145.i395, %sw.bb143.i397, %sw.bb141.i399, %sw.bb135.i403, %sw.bb133.i405, %sw.bb131.i407, %sw.bb125.i411, %sw.bb123.i413, %sw.bb121.i415
@@ -16383,14 +16302,14 @@ if.end334.i:                                      ; preds = %while.body230.i, %l
   %offBase.i.3 = phi i64 [ 1, %if.then331.i ], [ %offBase.i.11562, %land.lhs.true328.i ], [ %offBase.i.11562, %if.then302.i ], [ %offBase.i.11562, %land.lhs.true297.i ], [ %offBase.i.11562, %while.body230.i ]
   %matchLength.i.5 = phi i64 [ %add314.i, %if.then331.i ], [ %matchLength.i.31563, %land.lhs.true328.i ], [ %matchLength.i.31563, %if.then302.i ], [ %matchLength.i.31563, %land.lhs.true297.i ], [ %matchLength.i.31563, %while.body230.i ]
   store i64 999999999, ptr %ofbCandidate.i, align 8
-  switch i32 %spec.select1430, label %sw.epilog151.i225 [
+  switch i32 %spec.select1430, label %default.unreachable [
     i32 4, label %sw.bb120.i216
     i32 5, label %sw.bb130.i208
     i32 6, label %sw.bb140.i200
   ]
 
 sw.bb120.i216:                                    ; preds = %if.end334.i
-  switch i32 %cond49.i, label %sw.epilog127.i223 [
+  switch i32 %cond49.i, label %default.unreachable [
     i32 4, label %sw.bb121.i221
     i32 5, label %sw.bb123.i219
     i32 6, label %sw.bb125.i217
@@ -16408,11 +16327,8 @@ sw.bb125.i217:                                    ; preds = %sw.bb120.i216
   %call126.i218 = call fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_4_6(ptr noundef %ms, ptr noundef nonnull %incdec.ptr.i, ptr noundef %add.ptr.i, ptr noundef nonnull %ofbCandidate.i), !range !14
   br label %ZSTD_searchMax.exit330
 
-sw.epilog127.i223:                                ; preds = %sw.bb120.i216
-  unreachable
-
 sw.bb130.i208:                                    ; preds = %if.end334.i
-  switch i32 %cond49.i, label %sw.epilog137.i215 [
+  switch i32 %cond49.i, label %default.unreachable [
     i32 4, label %sw.bb131.i213
     i32 5, label %sw.bb133.i211
     i32 6, label %sw.bb135.i209
@@ -16430,11 +16346,8 @@ sw.bb135.i209:                                    ; preds = %sw.bb130.i208
   %call136.i210 = call fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_5_6(ptr noundef %ms, ptr noundef nonnull %incdec.ptr.i, ptr noundef %add.ptr.i, ptr noundef nonnull %ofbCandidate.i), !range !14
   br label %ZSTD_searchMax.exit330
 
-sw.epilog137.i215:                                ; preds = %sw.bb130.i208
-  unreachable
-
 sw.bb140.i200:                                    ; preds = %if.end334.i
-  switch i32 %cond49.i, label %sw.epilog147.i207 [
+  switch i32 %cond49.i, label %default.unreachable [
     i32 4, label %sw.bb141.i205
     i32 5, label %sw.bb143.i203
     i32 6, label %sw.bb145.i201
@@ -16451,12 +16364,6 @@ sw.bb143.i203:                                    ; preds = %sw.bb140.i200
 sw.bb145.i201:                                    ; preds = %sw.bb140.i200
   %call146.i202 = call fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_6_6(ptr noundef %ms, ptr noundef nonnull %incdec.ptr.i, ptr noundef %add.ptr.i, ptr noundef nonnull %ofbCandidate.i), !range !14
   br label %ZSTD_searchMax.exit330
-
-sw.epilog147.i207:                                ; preds = %sw.bb140.i200
-  unreachable
-
-sw.epilog151.i225:                                ; preds = %if.end334.i
-  unreachable
 
 ZSTD_searchMax.exit330:                           ; preds = %sw.bb145.i201, %sw.bb143.i203, %sw.bb141.i205, %sw.bb135.i209, %sw.bb133.i211, %sw.bb131.i213, %sw.bb125.i217, %sw.bb123.i219, %sw.bb121.i221
   %retval.i137.0 = phi i64 [ %call146.i202, %sw.bb145.i201 ], [ %call144.i204, %sw.bb143.i203 ], [ %call142.i206, %sw.bb141.i205 ], [ %call136.i210, %sw.bb135.i209 ], [ %call134.i212, %sw.bb133.i211 ], [ %call132.i214, %sw.bb131.i213 ], [ %call126.i218, %sw.bb125.i217 ], [ %call124.i220, %sw.bb123.i219 ], [ %call122.i222, %sw.bb121.i221 ]
@@ -16541,14 +16448,14 @@ if.end473.i:                                      ; preds = %if.then364.i, %land
   %offBase.i.5 = phi i64 [ 1, %if.then470.i ], [ %offBase.i.3, %land.lhs.true467.i ], [ %offBase.i.3, %if.then441.i ], [ %offBase.i.3, %land.lhs.true436.i ], [ %offBase.i.3, %if.then364.i ]
   %matchLength.i.7 = phi i64 [ %add453.i, %if.then470.i ], [ %matchLength.i.5, %land.lhs.true467.i ], [ %matchLength.i.5, %if.then441.i ], [ %matchLength.i.5, %land.lhs.true436.i ], [ %matchLength.i.5, %if.then364.i ]
   store i64 999999999, ptr %ofbCandidate474.i, align 8
-  switch i32 %spec.select1430, label %sw.epilog151.i [
+  switch i32 %spec.select1430, label %default.unreachable [
     i32 4, label %sw.bb120.i
     i32 5, label %sw.bb130.i
     i32 6, label %sw.bb140.i
   ]
 
 sw.bb120.i:                                       ; preds = %if.end473.i
-  switch i32 %cond49.i, label %sw.epilog127.i [
+  switch i32 %cond49.i, label %default.unreachable [
     i32 4, label %sw.bb121.i
     i32 5, label %sw.bb123.i
     i32 6, label %sw.bb125.i
@@ -16566,11 +16473,8 @@ sw.bb125.i:                                       ; preds = %sw.bb120.i
   %call126.i = call fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_4_6(ptr noundef %ms, ptr noundef nonnull %incdec.ptr367.i, ptr noundef %add.ptr.i, ptr noundef nonnull %ofbCandidate474.i), !range !14
   br label %ZSTD_searchMax.exit
 
-sw.epilog127.i:                                   ; preds = %sw.bb120.i
-  unreachable
-
 sw.bb130.i:                                       ; preds = %if.end473.i
-  switch i32 %cond49.i, label %sw.epilog137.i [
+  switch i32 %cond49.i, label %default.unreachable [
     i32 4, label %sw.bb131.i
     i32 5, label %sw.bb133.i
     i32 6, label %sw.bb135.i
@@ -16588,11 +16492,8 @@ sw.bb135.i:                                       ; preds = %sw.bb130.i
   %call136.i = call fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_5_6(ptr noundef %ms, ptr noundef nonnull %incdec.ptr367.i, ptr noundef %add.ptr.i, ptr noundef nonnull %ofbCandidate474.i), !range !14
   br label %ZSTD_searchMax.exit
 
-sw.epilog137.i:                                   ; preds = %sw.bb130.i
-  unreachable
-
 sw.bb140.i:                                       ; preds = %if.end473.i
-  switch i32 %cond49.i, label %sw.epilog147.i [
+  switch i32 %cond49.i, label %default.unreachable [
     i32 4, label %sw.bb141.i
     i32 5, label %sw.bb143.i
     i32 6, label %sw.bb145.i
@@ -16609,12 +16510,6 @@ sw.bb143.i:                                       ; preds = %sw.bb140.i
 sw.bb145.i:                                       ; preds = %sw.bb140.i
   %call146.i = call fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_6_6(ptr noundef %ms, ptr noundef nonnull %incdec.ptr367.i, ptr noundef %add.ptr.i, ptr noundef nonnull %ofbCandidate474.i), !range !14
   br label %ZSTD_searchMax.exit
-
-sw.epilog147.i:                                   ; preds = %sw.bb140.i
-  unreachable
-
-sw.epilog151.i:                                   ; preds = %if.end473.i
-  unreachable
 
 ZSTD_searchMax.exit:                              ; preds = %sw.bb145.i, %sw.bb143.i, %sw.bb141.i, %sw.bb135.i, %sw.bb133.i, %sw.bb131.i, %sw.bb125.i, %sw.bb123.i, %sw.bb121.i
   %retval.i120.0 = phi i64 [ %call146.i, %sw.bb145.i ], [ %call144.i, %sw.bb143.i ], [ %call142.i, %sw.bb141.i ], [ %call136.i, %sw.bb135.i ], [ %call134.i, %sw.bb133.i ], [ %call132.i, %sw.bb131.i ], [ %call126.i, %sw.bb125.i ], [ %call124.i, %sw.bb123.i ], [ %call122.i, %sw.bb121.i ]
@@ -17573,14 +17468,14 @@ if.then160.i:                                     ; preds = %land.lhs.true154.i
 if.end206.i:                                      ; preds = %land.lhs.true154.i, %while.body.i, %if.then160.i
   %matchLength.i.0 = phi i64 [ %add171.i, %if.then160.i ], [ 0, %land.lhs.true154.i ], [ 0, %while.body.i ]
   store i64 999999999, ptr %offbaseFound.i, align 8
-  switch i32 %spec.select1430, label %sw.epilog205.i375 [
+  switch i32 %spec.select1430, label %if.end206.i.unreachabledefault [
     i32 4, label %sw.bb174.i366
     i32 5, label %sw.bb184.i358
     i32 6, label %sw.bb194.i350
   ]
 
 sw.bb174.i366:                                    ; preds = %if.end206.i
-  switch i32 %cond49.i, label %sw.epilog181.i373 [
+  switch i32 %cond49.i, label %sw.bb174.i366.unreachabledefault [
     i32 4, label %sw.bb175.i371
     i32 5, label %sw.bb177.i369
     i32 6, label %sw.bb179.i367
@@ -17598,11 +17493,8 @@ sw.bb179.i367:                                    ; preds = %sw.bb174.i366
   %call180.i368 = call fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_4_6(ptr noundef %ms, ptr noundef %ip.i.01554, ptr noundef %add.ptr.i, ptr noundef nonnull %offbaseFound.i), !range !14
   br label %ZSTD_searchMax.exit524
 
-sw.epilog181.i373:                                ; preds = %sw.bb174.i366
-  unreachable
-
 sw.bb184.i358:                                    ; preds = %if.end206.i
-  switch i32 %cond49.i, label %sw.epilog191.i365 [
+  switch i32 %cond49.i, label %sw.bb184.i358.unreachabledefault [
     i32 4, label %sw.bb185.i363
     i32 5, label %sw.bb187.i361
     i32 6, label %sw.bb189.i359
@@ -17620,11 +17512,8 @@ sw.bb189.i359:                                    ; preds = %sw.bb184.i358
   %call190.i360 = call fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_5_6(ptr noundef %ms, ptr noundef %ip.i.01554, ptr noundef %add.ptr.i, ptr noundef nonnull %offbaseFound.i), !range !14
   br label %ZSTD_searchMax.exit524
 
-sw.epilog191.i365:                                ; preds = %sw.bb184.i358
-  unreachable
-
 sw.bb194.i350:                                    ; preds = %if.end206.i
-  switch i32 %cond49.i, label %sw.epilog201.i357 [
+  switch i32 %cond49.i, label %sw.bb194.i350.unreachabledefault [
     i32 4, label %sw.bb195.i355
     i32 5, label %sw.bb197.i353
     i32 6, label %sw.bb199.i351
@@ -17642,10 +17531,19 @@ sw.bb199.i351:                                    ; preds = %sw.bb194.i350
   %call200.i352 = call fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_6_6(ptr noundef %ms, ptr noundef %ip.i.01554, ptr noundef %add.ptr.i, ptr noundef nonnull %offbaseFound.i), !range !14
   br label %ZSTD_searchMax.exit524
 
-sw.epilog201.i357:                                ; preds = %sw.bb194.i350
+if.end206.i.unreachabledefault:                   ; preds = %if.end206.i
   unreachable
 
-sw.epilog205.i375:                                ; preds = %if.end206.i
+sw.bb174.i366.unreachabledefault:                 ; preds = %sw.bb174.i366
+  unreachable
+
+sw.bb184.i358.unreachabledefault:                 ; preds = %sw.bb184.i358
+  unreachable
+
+sw.bb194.i350.unreachabledefault:                 ; preds = %sw.bb194.i350
+  unreachable
+
+default.unreachable:                              ; preds = %sw.bb194.i, %sw.bb184.i, %sw.bb174.i, %if.end473.i, %sw.bb194.i156, %sw.bb184.i164, %sw.bb174.i172, %if.end334.i
   unreachable
 
 ZSTD_searchMax.exit524:                           ; preds = %sw.bb199.i351, %sw.bb197.i353, %sw.bb195.i355, %sw.bb189.i359, %sw.bb187.i361, %sw.bb185.i363, %sw.bb179.i367, %sw.bb177.i369, %sw.bb175.i371
@@ -17729,14 +17627,14 @@ if.end334.i:                                      ; preds = %while.body230.i, %l
   %offBase.i.3 = phi i64 [ 1, %if.then331.i ], [ %offBase.i.11562, %land.lhs.true328.i ], [ %offBase.i.11562, %if.then302.i ], [ %offBase.i.11562, %land.lhs.true297.i ], [ %offBase.i.11562, %while.body230.i ]
   %matchLength.i.5 = phi i64 [ %add314.i, %if.then331.i ], [ %matchLength.i.31563, %land.lhs.true328.i ], [ %matchLength.i.31563, %if.then302.i ], [ %matchLength.i.31563, %land.lhs.true297.i ], [ %matchLength.i.31563, %while.body230.i ]
   store i64 999999999, ptr %ofbCandidate.i, align 8
-  switch i32 %spec.select1430, label %sw.epilog205.i181 [
+  switch i32 %spec.select1430, label %default.unreachable [
     i32 4, label %sw.bb174.i172
     i32 5, label %sw.bb184.i164
     i32 6, label %sw.bb194.i156
   ]
 
 sw.bb174.i172:                                    ; preds = %if.end334.i
-  switch i32 %cond49.i, label %sw.epilog181.i179 [
+  switch i32 %cond49.i, label %default.unreachable [
     i32 4, label %sw.bb175.i177
     i32 5, label %sw.bb177.i175
     i32 6, label %sw.bb179.i173
@@ -17754,11 +17652,8 @@ sw.bb179.i173:                                    ; preds = %sw.bb174.i172
   %call180.i174 = call fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_4_6(ptr noundef %ms, ptr noundef nonnull %incdec.ptr.i, ptr noundef %add.ptr.i, ptr noundef nonnull %ofbCandidate.i), !range !14
   br label %ZSTD_searchMax.exit330
 
-sw.epilog181.i179:                                ; preds = %sw.bb174.i172
-  unreachable
-
 sw.bb184.i164:                                    ; preds = %if.end334.i
-  switch i32 %cond49.i, label %sw.epilog191.i171 [
+  switch i32 %cond49.i, label %default.unreachable [
     i32 4, label %sw.bb185.i169
     i32 5, label %sw.bb187.i167
     i32 6, label %sw.bb189.i165
@@ -17776,11 +17671,8 @@ sw.bb189.i165:                                    ; preds = %sw.bb184.i164
   %call190.i166 = call fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_5_6(ptr noundef %ms, ptr noundef nonnull %incdec.ptr.i, ptr noundef %add.ptr.i, ptr noundef nonnull %ofbCandidate.i), !range !14
   br label %ZSTD_searchMax.exit330
 
-sw.epilog191.i171:                                ; preds = %sw.bb184.i164
-  unreachable
-
 sw.bb194.i156:                                    ; preds = %if.end334.i
-  switch i32 %cond49.i, label %sw.epilog201.i163 [
+  switch i32 %cond49.i, label %default.unreachable [
     i32 4, label %sw.bb195.i161
     i32 5, label %sw.bb197.i159
     i32 6, label %sw.bb199.i157
@@ -17797,12 +17689,6 @@ sw.bb197.i159:                                    ; preds = %sw.bb194.i156
 sw.bb199.i157:                                    ; preds = %sw.bb194.i156
   %call200.i158 = call fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_6_6(ptr noundef %ms, ptr noundef nonnull %incdec.ptr.i, ptr noundef %add.ptr.i, ptr noundef nonnull %ofbCandidate.i), !range !14
   br label %ZSTD_searchMax.exit330
-
-sw.epilog201.i163:                                ; preds = %sw.bb194.i156
-  unreachable
-
-sw.epilog205.i181:                                ; preds = %if.end334.i
-  unreachable
 
 ZSTD_searchMax.exit330:                           ; preds = %sw.bb199.i157, %sw.bb197.i159, %sw.bb195.i161, %sw.bb189.i165, %sw.bb187.i167, %sw.bb185.i169, %sw.bb179.i173, %sw.bb177.i175, %sw.bb175.i177
   %retval.i137.0 = phi i64 [ %call200.i158, %sw.bb199.i157 ], [ %call198.i160, %sw.bb197.i159 ], [ %call196.i162, %sw.bb195.i161 ], [ %call190.i166, %sw.bb189.i165 ], [ %call188.i168, %sw.bb187.i167 ], [ %call186.i170, %sw.bb185.i169 ], [ %call180.i174, %sw.bb179.i173 ], [ %call178.i176, %sw.bb177.i175 ], [ %call176.i178, %sw.bb175.i177 ]
@@ -17887,14 +17773,14 @@ if.end473.i:                                      ; preds = %if.then364.i, %land
   %offBase.i.5 = phi i64 [ 1, %if.then470.i ], [ %offBase.i.3, %land.lhs.true467.i ], [ %offBase.i.3, %if.then441.i ], [ %offBase.i.3, %land.lhs.true436.i ], [ %offBase.i.3, %if.then364.i ]
   %matchLength.i.7 = phi i64 [ %add453.i, %if.then470.i ], [ %matchLength.i.5, %land.lhs.true467.i ], [ %matchLength.i.5, %if.then441.i ], [ %matchLength.i.5, %land.lhs.true436.i ], [ %matchLength.i.5, %if.then364.i ]
   store i64 999999999, ptr %ofbCandidate474.i, align 8
-  switch i32 %spec.select1430, label %sw.epilog205.i [
+  switch i32 %spec.select1430, label %default.unreachable [
     i32 4, label %sw.bb174.i
     i32 5, label %sw.bb184.i
     i32 6, label %sw.bb194.i
   ]
 
 sw.bb174.i:                                       ; preds = %if.end473.i
-  switch i32 %cond49.i, label %sw.epilog181.i [
+  switch i32 %cond49.i, label %default.unreachable [
     i32 4, label %sw.bb175.i
     i32 5, label %sw.bb177.i
     i32 6, label %sw.bb179.i
@@ -17912,11 +17798,8 @@ sw.bb179.i:                                       ; preds = %sw.bb174.i
   %call180.i = call fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_4_6(ptr noundef %ms, ptr noundef nonnull %incdec.ptr367.i, ptr noundef %add.ptr.i, ptr noundef nonnull %ofbCandidate474.i), !range !14
   br label %ZSTD_searchMax.exit
 
-sw.epilog181.i:                                   ; preds = %sw.bb174.i
-  unreachable
-
 sw.bb184.i:                                       ; preds = %if.end473.i
-  switch i32 %cond49.i, label %sw.epilog191.i [
+  switch i32 %cond49.i, label %default.unreachable [
     i32 4, label %sw.bb185.i
     i32 5, label %sw.bb187.i
     i32 6, label %sw.bb189.i
@@ -17934,11 +17817,8 @@ sw.bb189.i:                                       ; preds = %sw.bb184.i
   %call190.i = call fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_5_6(ptr noundef %ms, ptr noundef nonnull %incdec.ptr367.i, ptr noundef %add.ptr.i, ptr noundef nonnull %ofbCandidate474.i), !range !14
   br label %ZSTD_searchMax.exit
 
-sw.epilog191.i:                                   ; preds = %sw.bb184.i
-  unreachable
-
 sw.bb194.i:                                       ; preds = %if.end473.i
-  switch i32 %cond49.i, label %sw.epilog201.i [
+  switch i32 %cond49.i, label %default.unreachable [
     i32 4, label %sw.bb195.i
     i32 5, label %sw.bb197.i
     i32 6, label %sw.bb199.i
@@ -17955,12 +17835,6 @@ sw.bb197.i:                                       ; preds = %sw.bb194.i
 sw.bb199.i:                                       ; preds = %sw.bb194.i
   %call200.i128 = call fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_6_6(ptr noundef %ms, ptr noundef nonnull %incdec.ptr367.i, ptr noundef %add.ptr.i, ptr noundef nonnull %ofbCandidate474.i), !range !14
   br label %ZSTD_searchMax.exit
-
-sw.epilog201.i:                                   ; preds = %sw.bb194.i
-  unreachable
-
-sw.epilog205.i:                                   ; preds = %if.end473.i
-  unreachable
 
 ZSTD_searchMax.exit:                              ; preds = %sw.bb199.i, %sw.bb197.i, %sw.bb195.i, %sw.bb189.i, %sw.bb187.i, %sw.bb185.i, %sw.bb179.i, %sw.bb177.i, %sw.bb175.i
   %retval.i120.0 = phi i64 [ %call200.i128, %sw.bb199.i ], [ %call198.i, %sw.bb197.i ], [ %call196.i, %sw.bb195.i ], [ %call190.i, %sw.bb189.i ], [ %call188.i129, %sw.bb187.i ], [ %call186.i130, %sw.bb185.i ], [ %call180.i, %sw.bb179.i ], [ %call178.i, %sw.bb177.i ], [ %call176.i, %sw.bb175.i ]
@@ -18800,7 +18674,7 @@ if.end206.i:                                      ; preds = %ZSTD_count.exit, %w
   %idx.ext.i.i = zext i32 %14 to i64
   %add.ptr.i.i = getelementptr inbounds i8, ptr %13, i64 %idx.ext.i.i
   %cmp.i.i = icmp ugt ptr %add.ptr.i.i, %ip.i.01915
-  switch i32 %spec.select1890, label %sw.epilog44.i507 [
+  switch i32 %spec.select1890, label %if.end206.i.unreachabledefault [
     i32 4, label %sw.bb7.i513
     i32 5, label %sw.bb9.i511
     i32 6, label %sw.bb11.i509
@@ -18941,7 +18815,10 @@ for.body.us.i.i:                                  ; preds = %for.body.us.i.i, %f
   %exitcond.not.i1395 = icmp eq i64 %indvars.iv.next22.i.i, %33
   br i1 %exitcond.not.i1395, label %ZSTD_searchMax.exit524.sink.split, label %for.body.us.i.i, !llvm.loop !27
 
-sw.epilog44.i507:                                 ; preds = %if.end206.i
+if.end206.i.unreachabledefault:                   ; preds = %if.end206.i
+  unreachable
+
+default.unreachable:                              ; preds = %if.end473.i, %if.end334.i
   unreachable
 
 ZSTD_searchMax.exit524.sink.split:                ; preds = %for.body.us.i.i, %for.body.us4.i.i, %for.body.i.i, %if.end.i.i1376, %if.end.i.i1353, %if.end.i.i
@@ -19113,18 +18990,18 @@ if.end334.i:                                      ; preds = %while.body230.i, %l
   %offBase.i.2 = phi i64 [ 1, %if.then270.i ], [ %offBase.i.11923, %land.lhs.true267.i ], [ %offBase.i.11923, %ZSTD_count.exit1460 ], [ %offBase.i.11923, %land.lhs.true237.i ], [ 0, %while.body230.i ]
   %matchLength.i.4 = phi i64 [ %add256.i1880, %if.then270.i ], [ %matchLength.i.31926, %land.lhs.true267.i ], [ %matchLength.i.31926, %ZSTD_count.exit1460 ], [ %matchLength.i.31926, %land.lhs.true237.i ], [ %matchLength.i.31926, %while.body230.i ]
   store i64 999999999, ptr %ofbCandidate.i, align 8
-  %46 = load ptr, ptr %base4.i, align 8
-  %47 = load i32, ptr %nextToUpdate.i.i1372, align 4
-  %idx.ext.i.i1464 = zext i32 %47 to i64
-  %add.ptr.i.i1465 = getelementptr inbounds i8, ptr %46, i64 %idx.ext.i.i1464
-  %cmp.i.i1466 = icmp ugt ptr %add.ptr.i.i1465, %incdec.ptr.i
-  switch i32 %spec.select1890, label %sw.epilog44.i313 [
+  switch i32 %spec.select1890, label %default.unreachable [
     i32 4, label %sw.bb7.i319
     i32 5, label %sw.bb9.i317
     i32 6, label %sw.bb11.i315
   ]
 
 sw.bb7.i319:                                      ; preds = %if.end334.i
+  %46 = load ptr, ptr %base4.i, align 8
+  %47 = load i32, ptr %nextToUpdate.i.i1372, align 4
+  %idx.ext.i.i1464 = zext i32 %47 to i64
+  %add.ptr.i.i1465 = getelementptr inbounds i8, ptr %46, i64 %idx.ext.i.i1464
+  %cmp.i.i1466 = icmp ugt ptr %add.ptr.i.i1465, %incdec.ptr.i
   br i1 %cmp.i.i1466, label %ZSTD_searchMax.exit330.thread, label %if.end.i.i1467
 
 if.end.i.i1467:                                   ; preds = %sw.bb7.i319
@@ -19170,102 +19047,109 @@ for.body.i.i1485:                                 ; preds = %for.body.i.i1485, %
   br i1 %exitcond.not.i1499, label %ZSTD_searchMax.exit330, label %for.body.i.i1485, !llvm.loop !27
 
 sw.bb9.i317:                                      ; preds = %if.end334.i
-  br i1 %cmp.i.i1466, label %ZSTD_searchMax.exit330.thread, label %if.end.i.i1506
+  %55 = load ptr, ptr %base4.i, align 8
+  %56 = load i32, ptr %nextToUpdate.i.i1372, align 4
+  %idx.ext.i.i1503 = zext i32 %56 to i64
+  %add.ptr.i.i1504 = getelementptr inbounds i8, ptr %55, i64 %idx.ext.i.i1503
+  %cmp.i.i1505 = icmp ugt ptr %add.ptr.i.i1504, %incdec.ptr.i
+  br i1 %cmp.i.i1505, label %ZSTD_searchMax.exit330.thread, label %if.end.i.i1506
 
 if.end.i.i1506:                                   ; preds = %sw.bb9.i317
-  %55 = load ptr, ptr %hashTable2.i.i1377, align 8
-  %56 = load ptr, ptr %chainTable.i.i1378, align 8
-  %57 = load i32, ptr %chainLog.i.i1379, align 4
-  %sub.i.i1510 = add i32 %57, -1
+  %57 = load ptr, ptr %hashTable2.i.i1377, align 8
+  %58 = load ptr, ptr %chainTable.i.i1378, align 8
+  %59 = load i32, ptr %chainLog.i.i1379, align 4
+  %sub.i.i1510 = add i32 %59, -1
   %notmask.i.i1511 = shl nsw i32 -1, %sub.i.i1510
   %sub4.i.i1512 = xor i32 %notmask.i.i1511, -1
   %sub.ptr.lhs.cast.i.i1513 = ptrtoint ptr %incdec.ptr.i to i64
-  %sub.ptr.rhs.cast.i.i1514 = ptrtoint ptr %46 to i64
+  %sub.ptr.rhs.cast.i.i1514 = ptrtoint ptr %55 to i64
   %sub.ptr.sub.i.i1515 = sub i64 %sub.ptr.lhs.cast.i.i1513, %sub.ptr.rhs.cast.i.i1514
   %conv.i.i1516 = trunc i64 %sub.ptr.sub.i.i1515 to i32
-  %cmp71.i.i1517 = icmp ult i32 %47, %conv.i.i1516
+  %cmp71.i.i1517 = icmp ult i32 %56, %conv.i.i1516
   br i1 %cmp71.i.i1517, label %for.body.lr.ph.i.i1521, label %ZSTD_searchMax.exit330
 
 for.body.lr.ph.i.i1521:                           ; preds = %if.end.i.i1506
-  %58 = load i32, ptr %hashLog3.i.i1392, align 4
-  %sub.i.i29.i.i1523 = sub i32 64, %58
+  %60 = load i32, ptr %hashLog3.i.i1392, align 4
+  %sub.i.i29.i.i1523 = sub i32 64, %60
   %sh_prom.i.i.i.i1524 = zext nneg i32 %sub.i.i29.i.i1523 to i64
-  %59 = and i64 %sub.ptr.sub.i.i1515, 4294967295
+  %61 = and i64 %sub.ptr.sub.i.i1515, 4294967295
   br label %for.body.us4.i.i1525
 
 for.body.us4.i.i1525:                             ; preds = %for.body.us4.i.i1525, %for.body.lr.ph.i.i1521
-  %indvars.iv.i.i1526 = phi i64 [ %indvars.iv.next.i.i1537, %for.body.us4.i.i1525 ], [ %idx.ext.i.i1464, %for.body.lr.ph.i.i1521 ]
-  %add.ptr.us7.i.i1527 = getelementptr inbounds i8, ptr %46, i64 %indvars.iv.i.i1526
+  %indvars.iv.i.i1526 = phi i64 [ %indvars.iv.next.i.i1537, %for.body.us4.i.i1525 ], [ %idx.ext.i.i1503, %for.body.lr.ph.i.i1521 ]
+  %add.ptr.us7.i.i1527 = getelementptr inbounds i8, ptr %55, i64 %indvars.iv.i.i1526
   %add.ptr.val26.us.i.i1528 = load i64, ptr %add.ptr.us7.i.i1527, align 1
   %mul.i.i28.us.i.i1529 = mul i64 %add.ptr.val26.us.i.i1528, -3523014627271114752
   %shr.i.i30.us.i.i1530 = lshr i64 %mul.i.i28.us.i.i1529, %sh_prom.i.i.i.i1524
-  %arrayidx.us10.i.i1531 = getelementptr inbounds i32, ptr %55, i64 %shr.i.i30.us.i.i1530
-  %60 = load i32, ptr %arrayidx.us10.i.i1531, align 4
-  %61 = trunc i64 %indvars.iv.i.i1526 to i32
-  %and.us11.i.i1532 = and i32 %61, %sub4.i.i1512
+  %arrayidx.us10.i.i1531 = getelementptr inbounds i32, ptr %57, i64 %shr.i.i30.us.i.i1530
+  %62 = load i32, ptr %arrayidx.us10.i.i1531, align 4
+  %63 = trunc i64 %indvars.iv.i.i1526 to i32
+  %and.us11.i.i1532 = and i32 %63, %sub4.i.i1512
   %mul.us12.i.i1533 = shl nuw i32 %and.us11.i.i1532, 1
   %idx.ext9.us13.i.i1534 = zext i32 %mul.us12.i.i1533 to i64
-  %add.ptr10.us14.i.i1535 = getelementptr inbounds i32, ptr %56, i64 %idx.ext9.us13.i.i1534
+  %add.ptr10.us14.i.i1535 = getelementptr inbounds i32, ptr %58, i64 %idx.ext9.us13.i.i1534
   %add.ptr11.us15.i.i1536 = getelementptr inbounds i32, ptr %add.ptr10.us14.i.i1535, i64 1
-  store i32 %61, ptr %arrayidx.us10.i.i1531, align 4
-  store i32 %60, ptr %add.ptr10.us14.i.i1535, align 4
+  store i32 %63, ptr %arrayidx.us10.i.i1531, align 4
+  store i32 %62, ptr %add.ptr10.us14.i.i1535, align 4
   store i32 1, ptr %add.ptr11.us15.i.i1536, align 4
   %indvars.iv.next.i.i1537 = add nuw nsw i64 %indvars.iv.i.i1526, 1
-  %exitcond.not.i1538 = icmp eq i64 %indvars.iv.next.i.i1537, %59
+  %exitcond.not.i1538 = icmp eq i64 %indvars.iv.next.i.i1537, %61
   br i1 %exitcond.not.i1538, label %ZSTD_searchMax.exit330, label %for.body.us4.i.i1525, !llvm.loop !27
 
 sw.bb11.i315:                                     ; preds = %if.end334.i
-  br i1 %cmp.i.i1466, label %ZSTD_searchMax.exit330.thread, label %if.end.i.i1545
+  %64 = load ptr, ptr %base4.i, align 8
+  %65 = load i32, ptr %nextToUpdate.i.i1372, align 4
+  %idx.ext.i.i1542 = zext i32 %65 to i64
+  %add.ptr.i.i1543 = getelementptr inbounds i8, ptr %64, i64 %idx.ext.i.i1542
+  %cmp.i.i1544 = icmp ugt ptr %add.ptr.i.i1543, %incdec.ptr.i
+  br i1 %cmp.i.i1544, label %ZSTD_searchMax.exit330.thread, label %if.end.i.i1545
 
 if.end.i.i1545:                                   ; preds = %sw.bb11.i315
-  %62 = load ptr, ptr %hashTable2.i.i1377, align 8
-  %63 = load ptr, ptr %chainTable.i.i1378, align 8
-  %64 = load i32, ptr %chainLog.i.i1379, align 4
-  %sub.i.i1549 = add i32 %64, -1
+  %66 = load ptr, ptr %hashTable2.i.i1377, align 8
+  %67 = load ptr, ptr %chainTable.i.i1378, align 8
+  %68 = load i32, ptr %chainLog.i.i1379, align 4
+  %sub.i.i1549 = add i32 %68, -1
   %notmask.i.i1550 = shl nsw i32 -1, %sub.i.i1549
   %sub4.i.i1551 = xor i32 %notmask.i.i1550, -1
   %sub.ptr.lhs.cast.i.i1552 = ptrtoint ptr %incdec.ptr.i to i64
-  %sub.ptr.rhs.cast.i.i1553 = ptrtoint ptr %46 to i64
+  %sub.ptr.rhs.cast.i.i1553 = ptrtoint ptr %64 to i64
   %sub.ptr.sub.i.i1554 = sub i64 %sub.ptr.lhs.cast.i.i1552, %sub.ptr.rhs.cast.i.i1553
   %conv.i.i1555 = trunc i64 %sub.ptr.sub.i.i1554 to i32
-  %cmp71.i.i1556 = icmp ult i32 %47, %conv.i.i1555
+  %cmp71.i.i1556 = icmp ult i32 %65, %conv.i.i1555
   br i1 %cmp71.i.i1556, label %for.body.lr.ph.i.i1560, label %ZSTD_searchMax.exit330
 
 for.body.lr.ph.i.i1560:                           ; preds = %if.end.i.i1545
-  %65 = load i32, ptr %hashLog3.i.i1392, align 4
-  %sub.i.i29.i.i1562 = sub i32 64, %65
+  %69 = load i32, ptr %hashLog3.i.i1392, align 4
+  %sub.i.i29.i.i1562 = sub i32 64, %69
   %sh_prom.i.i.i.i1563 = zext nneg i32 %sub.i.i29.i.i1562 to i64
-  %66 = and i64 %sub.ptr.sub.i.i1554, 4294967295
+  %70 = and i64 %sub.ptr.sub.i.i1554, 4294967295
   br label %for.body.us.i.i1564
 
 for.body.us.i.i1564:                              ; preds = %for.body.us.i.i1564, %for.body.lr.ph.i.i1560
-  %indvars.iv21.i.i1565 = phi i64 [ %indvars.iv.next22.i.i1576, %for.body.us.i.i1564 ], [ %idx.ext.i.i1464, %for.body.lr.ph.i.i1560 ]
-  %add.ptr.us.i.i1566 = getelementptr inbounds i8, ptr %46, i64 %indvars.iv21.i.i1565
+  %indvars.iv21.i.i1565 = phi i64 [ %indvars.iv.next22.i.i1576, %for.body.us.i.i1564 ], [ %idx.ext.i.i1542, %for.body.lr.ph.i.i1560 ]
+  %add.ptr.us.i.i1566 = getelementptr inbounds i8, ptr %64, i64 %indvars.iv21.i.i1565
   %add.ptr.val27.us.i.i1567 = load i64, ptr %add.ptr.us.i.i1566, align 1
   %mul.i.i31.us.i.i1568 = mul i64 %add.ptr.val27.us.i.i1567, -3523014627193847808
   %shr.i.i34.us.i.i1569 = lshr i64 %mul.i.i31.us.i.i1568, %sh_prom.i.i.i.i1563
-  %arrayidx.us.i.i1570 = getelementptr inbounds i32, ptr %62, i64 %shr.i.i34.us.i.i1569
-  %67 = load i32, ptr %arrayidx.us.i.i1570, align 4
-  %68 = trunc i64 %indvars.iv21.i.i1565 to i32
-  %and.us.i.i1571 = and i32 %68, %sub4.i.i1551
+  %arrayidx.us.i.i1570 = getelementptr inbounds i32, ptr %66, i64 %shr.i.i34.us.i.i1569
+  %71 = load i32, ptr %arrayidx.us.i.i1570, align 4
+  %72 = trunc i64 %indvars.iv21.i.i1565 to i32
+  %and.us.i.i1571 = and i32 %72, %sub4.i.i1551
   %mul.us.i.i1572 = shl nuw i32 %and.us.i.i1571, 1
   %idx.ext9.us.i.i1573 = zext i32 %mul.us.i.i1572 to i64
-  %add.ptr10.us.i.i1574 = getelementptr inbounds i32, ptr %63, i64 %idx.ext9.us.i.i1573
+  %add.ptr10.us.i.i1574 = getelementptr inbounds i32, ptr %67, i64 %idx.ext9.us.i.i1573
   %add.ptr11.us.i.i1575 = getelementptr inbounds i32, ptr %add.ptr10.us.i.i1574, i64 1
-  store i32 %68, ptr %arrayidx.us.i.i1570, align 4
-  store i32 %67, ptr %add.ptr10.us.i.i1574, align 4
+  store i32 %72, ptr %arrayidx.us.i.i1570, align 4
+  store i32 %71, ptr %add.ptr10.us.i.i1574, align 4
   store i32 1, ptr %add.ptr11.us.i.i1575, align 4
   %indvars.iv.next22.i.i1576 = add nuw nsw i64 %indvars.iv21.i.i1565, 1
-  %exitcond.not.i1577 = icmp eq i64 %indvars.iv.next22.i.i1576, %66
+  %exitcond.not.i1577 = icmp eq i64 %indvars.iv.next22.i.i1576, %70
   br i1 %exitcond.not.i1577, label %ZSTD_searchMax.exit330, label %for.body.us.i.i1564, !llvm.loop !27
-
-sw.epilog44.i313:                                 ; preds = %if.end334.i
-  unreachable
 
 ZSTD_searchMax.exit330.thread:                    ; preds = %sw.bb7.i319, %sw.bb9.i317, %sw.bb11.i315
   %mul345.i2010 = shl i64 %matchLength.i.4, 2
   %conv346.i2011 = trunc i64 %offBase.i.2 to i32
-  %69 = tail call i32 @llvm.ctlz.i32(i32 %conv346.i2011, i1 true), !range !25
+  %73 = tail call i32 @llvm.ctlz.i32(i32 %conv346.i2011, i1 true), !range !25
   br label %land.lhs.true361.i
 
 ZSTD_searchMax.exit330:                           ; preds = %for.body.us.i.i1564, %for.body.us4.i.i1525, %for.body.i.i1485, %if.end.i.i1545, %if.end.i.i1506, %if.end.i.i1467
@@ -19274,33 +19158,33 @@ ZSTD_searchMax.exit330:                           ; preds = %for.body.us.i.i1564
   %call.i.i1558 = call fastcc i64 @ZSTD_DUBT_findBestMatch(ptr noundef %ms, ptr noundef nonnull %incdec.ptr.i, ptr noundef %add.ptr.i, ptr noundef nonnull %ofbCandidate.i, i32 noundef %spec.select1890, i32 noundef 0)
   %mul345.i = shl i64 %matchLength.i.4, 2
   %conv346.i = trunc i64 %offBase.i.2 to i32
-  %70 = tail call i32 @llvm.ctlz.i32(i32 %conv346.i, i1 true), !range !25
+  %74 = tail call i32 @llvm.ctlz.i32(i32 %conv346.i, i1 true), !range !25
   %cmp352.i = icmp ugt i64 %call.i.i1558, 3
   br i1 %cmp352.i, label %land.lhs.true354.i, label %land.lhs.true361.i
 
 land.lhs.true354.i:                               ; preds = %ZSTD_searchMax.exit330
-  %71 = load i64, ptr %ofbCandidate.i, align 8
-  %conv339.i = trunc i64 %71 to i32
-  %72 = tail call i32 @llvm.ctlz.i32(i32 %conv339.i, i1 true), !range !25
-  %sub.i1579 = xor i32 %72, 31
-  %73 = trunc i64 %mul345.i to i32
-  %74 = add nsw i32 %70, -27
-  %conv351.i = add i32 %74, %73
+  %75 = load i64, ptr %ofbCandidate.i, align 8
+  %conv339.i = trunc i64 %75 to i32
+  %76 = tail call i32 @llvm.ctlz.i32(i32 %conv339.i, i1 true), !range !25
+  %sub.i1579 = xor i32 %76, 31
+  %77 = trunc i64 %mul345.i to i32
+  %78 = add nsw i32 %74, -27
+  %conv351.i = add i32 %78, %77
   %retval.i137.0.tr = trunc i64 %call.i.i1558 to i32
-  %75 = shl i32 %retval.i137.0.tr, 2
-  %conv343.i = sub i32 %75, %sub.i1579
+  %79 = shl i32 %retval.i137.0.tr, 2
+  %conv343.i = sub i32 %79, %sub.i1579
   %cmp355.i = icmp sgt i32 %conv343.i, %conv351.i
   br i1 %cmp355.i, label %while.cond227.i.backedge, label %land.lhs.true361.i
 
 while.cond227.i.backedge:                         ; preds = %land.lhs.true354.i, %land.lhs.true494.i
   %start.i.1.be = phi ptr [ %incdec.ptr.i, %land.lhs.true354.i ], [ %incdec.ptr367.i, %land.lhs.true494.i ]
-  %offBase.i.1.be = phi i64 [ %71, %land.lhs.true354.i ], [ %107, %land.lhs.true494.i ]
+  %offBase.i.1.be = phi i64 [ %75, %land.lhs.true354.i ], [ %115, %land.lhs.true494.i ]
   %matchLength.i.3.be = phi i64 [ %call.i.i1558, %land.lhs.true354.i ], [ %call.i.i1743, %land.lhs.true494.i ]
   %cmp228.i = icmp ult ptr %start.i.1.be, %add.ptr1.i
   br i1 %cmp228.i, label %while.body230.i, label %if.end500.i, !llvm.loop !26
 
 land.lhs.true361.i:                               ; preds = %ZSTD_searchMax.exit330.thread, %ZSTD_searchMax.exit330, %land.lhs.true354.i
-  %76 = phi i32 [ %69, %ZSTD_searchMax.exit330.thread ], [ %70, %ZSTD_searchMax.exit330 ], [ %70, %land.lhs.true354.i ]
+  %80 = phi i32 [ %73, %ZSTD_searchMax.exit330.thread ], [ %74, %ZSTD_searchMax.exit330 ], [ %74, %land.lhs.true354.i ]
   %mul345.i2013 = phi i64 [ %mul345.i2010, %ZSTD_searchMax.exit330.thread ], [ %mul345.i, %ZSTD_searchMax.exit330 ], [ %mul345.i, %land.lhs.true354.i ]
   %cmp362.i = icmp ult ptr %incdec.ptr.i, %add.ptr1.i
   br i1 %cmp362.i, label %if.then364.i, label %if.end500.i
@@ -19332,8 +19216,8 @@ if.then.i1621:                                    ; preds = %if.then384.i
   br i1 %tobool.not.i1625, label %while.cond.i1628, label %ZSTD_count.exit1645.thread
 
 ZSTD_count.exit1645.thread:                       ; preds = %if.then.i1621
-  %77 = tail call i64 @llvm.cttz.i64(i64 %xor.i1624, i1 true), !range !16
-  %shr.i.i1627 = lshr i64 %77, 3
+  %81 = tail call i64 @llvm.cttz.i64(i64 %xor.i1624, i1 true), !range !16
+  %shr.i.i1627 = lshr i64 %81, 3
   br label %land.lhs.true406.i
 
 while.cond.i1628:                                 ; preds = %if.then.i1621, %while.body.i1634
@@ -19352,8 +19236,8 @@ while.body.i1634:                                 ; preds = %while.cond.i1628
   br i1 %tobool12.not.i1638, label %while.cond.i1628, label %if.end16.i1639, !llvm.loop !17
 
 if.end16.i1639:                                   ; preds = %while.body.i1634
-  %78 = tail call i64 @llvm.cttz.i64(i64 %xor11.i1637, i1 true), !range !16
-  %shr.i35.i1640 = lshr i64 %78, 3
+  %82 = tail call i64 @llvm.cttz.i64(i64 %xor11.i1637, i1 true), !range !16
+  %shr.i35.i1640 = lshr i64 %82, 3
   %add.ptr18.i1641 = getelementptr inbounds i8, ptr %pIn.addr.0.i1631, i64 %shr.i35.i1640
   br label %ZSTD_count.exit1645
 
@@ -19398,9 +19282,9 @@ if.end47.i1593:                                   ; preds = %if.then44.i1611, %l
   br i1 %cmp48.i1596, label %land.lhs.true50.i1603, label %ZSTD_count.exit1645
 
 land.lhs.true50.i1603:                            ; preds = %if.end47.i1593
-  %79 = load i8, ptr %pMatch.addr.3.i1594, align 1
-  %80 = load i8, ptr %pIn.addr.3.i1595, align 1
-  %cmp53.i1604 = icmp eq i8 %79, %80
+  %83 = load i8, ptr %pMatch.addr.3.i1594, align 1
+  %84 = load i8, ptr %pIn.addr.3.i1595, align 1
+  %cmp53.i1604 = icmp eq i8 %83, %84
   %spec.select.idx.i1605 = zext i1 %cmp53.i1604 to i64
   %spec.select.i1606 = getelementptr inbounds i8, ptr %pIn.addr.3.i1595, i64 %spec.select.idx.i1605
   br label %ZSTD_count.exit1645
@@ -19416,9 +19300,9 @@ ZSTD_count.exit1645:                              ; preds = %if.end47.i1593, %la
 land.lhs.true406.i:                               ; preds = %ZSTD_count.exit1645.thread, %ZSTD_count.exit1645
   %add392.i1885.in = phi i64 [ %shr.i.i1627, %ZSTD_count.exit1645.thread ], [ %sub.ptr.sub.i1644, %ZSTD_count.exit1645 ]
   %add392.i1885 = add nuw i64 %add392.i1885.in, 4
-  %81 = trunc i64 %mul345.i2013 to i32
-  %82 = add nsw i32 %76, -30
-  %conv403.i = add i32 %82, %81
+  %85 = trunc i64 %mul345.i2013 to i32
+  %86 = add nsw i32 %80, -30
+  %conv403.i = add i32 %86, %85
   %add392.i.tr = trunc i64 %add392.i1885 to i32
   %conv395.i = shl i32 %add392.i.tr, 2
   %cmp407.i = icmp sgt i32 %conv395.i, %conv403.i
@@ -19432,154 +19316,161 @@ if.end473.i:                                      ; preds = %if.then364.i, %land
   %offBase.i.4 = phi i64 [ 1, %if.then409.i ], [ %offBase.i.2, %land.lhs.true406.i ], [ %offBase.i.2, %ZSTD_count.exit1645 ], [ %offBase.i.2, %land.lhs.true372.i ], [ 0, %if.then364.i ]
   %matchLength.i.6 = phi i64 [ %add392.i1885, %if.then409.i ], [ %matchLength.i.4, %land.lhs.true406.i ], [ %matchLength.i.4, %ZSTD_count.exit1645 ], [ %matchLength.i.4, %land.lhs.true372.i ], [ %matchLength.i.4, %if.then364.i ]
   store i64 999999999, ptr %ofbCandidate474.i, align 8
-  %83 = load ptr, ptr %base4.i, align 8
-  %84 = load i32, ptr %nextToUpdate.i.i1372, align 4
-  %idx.ext.i.i1649 = zext i32 %84 to i64
-  %add.ptr.i.i1650 = getelementptr inbounds i8, ptr %83, i64 %idx.ext.i.i1649
-  %cmp.i.i1651 = icmp ugt ptr %add.ptr.i.i1650, %incdec.ptr367.i
-  switch i32 %spec.select1890, label %sw.epilog44.i [
+  switch i32 %spec.select1890, label %default.unreachable [
     i32 4, label %sw.bb7.i132
     i32 5, label %sw.bb9.i
     i32 6, label %sw.bb11.i
   ]
 
 sw.bb7.i132:                                      ; preds = %if.end473.i
+  %87 = load ptr, ptr %base4.i, align 8
+  %88 = load i32, ptr %nextToUpdate.i.i1372, align 4
+  %idx.ext.i.i1649 = zext i32 %88 to i64
+  %add.ptr.i.i1650 = getelementptr inbounds i8, ptr %87, i64 %idx.ext.i.i1649
+  %cmp.i.i1651 = icmp ugt ptr %add.ptr.i.i1650, %incdec.ptr367.i
   br i1 %cmp.i.i1651, label %if.end500.i, label %if.end.i.i1652
 
 if.end.i.i1652:                                   ; preds = %sw.bb7.i132
-  %85 = load ptr, ptr %hashTable2.i.i1377, align 8
-  %86 = load ptr, ptr %chainTable.i.i1378, align 8
-  %87 = load i32, ptr %chainLog.i.i1379, align 4
-  %sub.i.i1656 = add i32 %87, -1
+  %89 = load ptr, ptr %hashTable2.i.i1377, align 8
+  %90 = load ptr, ptr %chainTable.i.i1378, align 8
+  %91 = load i32, ptr %chainLog.i.i1379, align 4
+  %sub.i.i1656 = add i32 %91, -1
   %notmask.i.i1657 = shl nsw i32 -1, %sub.i.i1656
   %sub4.i.i1658 = xor i32 %notmask.i.i1657, -1
   %sub.ptr.lhs.cast.i.i1659 = ptrtoint ptr %incdec.ptr367.i to i64
-  %sub.ptr.rhs.cast.i.i1660 = ptrtoint ptr %83 to i64
+  %sub.ptr.rhs.cast.i.i1660 = ptrtoint ptr %87 to i64
   %sub.ptr.sub.i.i1661 = sub i64 %sub.ptr.lhs.cast.i.i1659, %sub.ptr.rhs.cast.i.i1660
   %conv.i.i1662 = trunc i64 %sub.ptr.sub.i.i1661 to i32
-  %cmp71.i.i1663 = icmp ult i32 %84, %conv.i.i1662
+  %cmp71.i.i1663 = icmp ult i32 %88, %conv.i.i1662
   br i1 %cmp71.i.i1663, label %for.body.lr.ph.i.i1667, label %ZSTD_searchMax.exit
 
 for.body.lr.ph.i.i1667:                           ; preds = %if.end.i.i1652
-  %88 = load i32, ptr %hashLog3.i.i1392, align 4
-  %sub.i.i.i.i1669 = sub i32 32, %88
-  %89 = and i64 %sub.ptr.sub.i.i1661, 4294967295
+  %92 = load i32, ptr %hashLog3.i.i1392, align 4
+  %sub.i.i.i.i1669 = sub i32 32, %92
+  %93 = and i64 %sub.ptr.sub.i.i1661, 4294967295
   br label %for.body.i.i1670
 
 for.body.i.i1670:                                 ; preds = %for.body.i.i1670, %for.body.lr.ph.i.i1667
   %indvars.iv24.i.i1671 = phi i64 [ %indvars.iv.next25.i.i1683, %for.body.i.i1670 ], [ %idx.ext.i.i1649, %for.body.lr.ph.i.i1667 ]
-  %add.ptr.i9.i1672 = getelementptr inbounds i8, ptr %83, i64 %indvars.iv24.i.i1671
+  %add.ptr.i9.i1672 = getelementptr inbounds i8, ptr %87, i64 %indvars.iv24.i.i1671
   %add.ptr.val.i.i1673 = load i32, ptr %add.ptr.i9.i1672, align 1
   %mul.i.i.i.i1674 = mul i32 %add.ptr.val.i.i1673, -1640531535
   %shr.i.i.i.i1675 = lshr i32 %mul.i.i.i.i1674, %sub.i.i.i.i1669
   %conv.i.i.i1676 = zext i32 %shr.i.i.i.i1675 to i64
-  %arrayidx.i.i1677 = getelementptr inbounds i32, ptr %85, i64 %conv.i.i.i1676
-  %90 = load i32, ptr %arrayidx.i.i1677, align 4
-  %91 = trunc i64 %indvars.iv24.i.i1671 to i32
-  %and.i.i1678 = and i32 %91, %sub4.i.i1658
+  %arrayidx.i.i1677 = getelementptr inbounds i32, ptr %89, i64 %conv.i.i.i1676
+  %94 = load i32, ptr %arrayidx.i.i1677, align 4
+  %95 = trunc i64 %indvars.iv24.i.i1671 to i32
+  %and.i.i1678 = and i32 %95, %sub4.i.i1658
   %mul.i.i1679 = shl nuw i32 %and.i.i1678, 1
   %idx.ext9.i.i1680 = zext i32 %mul.i.i1679 to i64
-  %add.ptr10.i.i1681 = getelementptr inbounds i32, ptr %86, i64 %idx.ext9.i.i1680
+  %add.ptr10.i.i1681 = getelementptr inbounds i32, ptr %90, i64 %idx.ext9.i.i1680
   %add.ptr11.i.i1682 = getelementptr inbounds i32, ptr %add.ptr10.i.i1681, i64 1
-  store i32 %91, ptr %arrayidx.i.i1677, align 4
-  store i32 %90, ptr %add.ptr10.i.i1681, align 4
+  store i32 %95, ptr %arrayidx.i.i1677, align 4
+  store i32 %94, ptr %add.ptr10.i.i1681, align 4
   store i32 1, ptr %add.ptr11.i.i1682, align 4
   %indvars.iv.next25.i.i1683 = add nuw nsw i64 %indvars.iv24.i.i1671, 1
-  %exitcond.not.i1684 = icmp eq i64 %indvars.iv.next25.i.i1683, %89
+  %exitcond.not.i1684 = icmp eq i64 %indvars.iv.next25.i.i1683, %93
   br i1 %exitcond.not.i1684, label %ZSTD_searchMax.exit, label %for.body.i.i1670, !llvm.loop !27
 
 sw.bb9.i:                                         ; preds = %if.end473.i
-  br i1 %cmp.i.i1651, label %if.end500.i, label %if.end.i.i1691
+  %96 = load ptr, ptr %base4.i, align 8
+  %97 = load i32, ptr %nextToUpdate.i.i1372, align 4
+  %idx.ext.i.i1688 = zext i32 %97 to i64
+  %add.ptr.i.i1689 = getelementptr inbounds i8, ptr %96, i64 %idx.ext.i.i1688
+  %cmp.i.i1690 = icmp ugt ptr %add.ptr.i.i1689, %incdec.ptr367.i
+  br i1 %cmp.i.i1690, label %if.end500.i, label %if.end.i.i1691
 
 if.end.i.i1691:                                   ; preds = %sw.bb9.i
-  %92 = load ptr, ptr %hashTable2.i.i1377, align 8
-  %93 = load ptr, ptr %chainTable.i.i1378, align 8
-  %94 = load i32, ptr %chainLog.i.i1379, align 4
-  %sub.i.i1695 = add i32 %94, -1
+  %98 = load ptr, ptr %hashTable2.i.i1377, align 8
+  %99 = load ptr, ptr %chainTable.i.i1378, align 8
+  %100 = load i32, ptr %chainLog.i.i1379, align 4
+  %sub.i.i1695 = add i32 %100, -1
   %notmask.i.i1696 = shl nsw i32 -1, %sub.i.i1695
   %sub4.i.i1697 = xor i32 %notmask.i.i1696, -1
   %sub.ptr.lhs.cast.i.i1698 = ptrtoint ptr %incdec.ptr367.i to i64
-  %sub.ptr.rhs.cast.i.i1699 = ptrtoint ptr %83 to i64
+  %sub.ptr.rhs.cast.i.i1699 = ptrtoint ptr %96 to i64
   %sub.ptr.sub.i.i1700 = sub i64 %sub.ptr.lhs.cast.i.i1698, %sub.ptr.rhs.cast.i.i1699
   %conv.i.i1701 = trunc i64 %sub.ptr.sub.i.i1700 to i32
-  %cmp71.i.i1702 = icmp ult i32 %84, %conv.i.i1701
+  %cmp71.i.i1702 = icmp ult i32 %97, %conv.i.i1701
   br i1 %cmp71.i.i1702, label %for.body.lr.ph.i.i1706, label %ZSTD_searchMax.exit
 
 for.body.lr.ph.i.i1706:                           ; preds = %if.end.i.i1691
-  %95 = load i32, ptr %hashLog3.i.i1392, align 4
-  %sub.i.i29.i.i1708 = sub i32 64, %95
+  %101 = load i32, ptr %hashLog3.i.i1392, align 4
+  %sub.i.i29.i.i1708 = sub i32 64, %101
   %sh_prom.i.i.i.i1709 = zext nneg i32 %sub.i.i29.i.i1708 to i64
-  %96 = and i64 %sub.ptr.sub.i.i1700, 4294967295
+  %102 = and i64 %sub.ptr.sub.i.i1700, 4294967295
   br label %for.body.us4.i.i1710
 
 for.body.us4.i.i1710:                             ; preds = %for.body.us4.i.i1710, %for.body.lr.ph.i.i1706
-  %indvars.iv.i.i1711 = phi i64 [ %indvars.iv.next.i.i1722, %for.body.us4.i.i1710 ], [ %idx.ext.i.i1649, %for.body.lr.ph.i.i1706 ]
-  %add.ptr.us7.i.i1712 = getelementptr inbounds i8, ptr %83, i64 %indvars.iv.i.i1711
+  %indvars.iv.i.i1711 = phi i64 [ %indvars.iv.next.i.i1722, %for.body.us4.i.i1710 ], [ %idx.ext.i.i1688, %for.body.lr.ph.i.i1706 ]
+  %add.ptr.us7.i.i1712 = getelementptr inbounds i8, ptr %96, i64 %indvars.iv.i.i1711
   %add.ptr.val26.us.i.i1713 = load i64, ptr %add.ptr.us7.i.i1712, align 1
   %mul.i.i28.us.i.i1714 = mul i64 %add.ptr.val26.us.i.i1713, -3523014627271114752
   %shr.i.i30.us.i.i1715 = lshr i64 %mul.i.i28.us.i.i1714, %sh_prom.i.i.i.i1709
-  %arrayidx.us10.i.i1716 = getelementptr inbounds i32, ptr %92, i64 %shr.i.i30.us.i.i1715
-  %97 = load i32, ptr %arrayidx.us10.i.i1716, align 4
-  %98 = trunc i64 %indvars.iv.i.i1711 to i32
-  %and.us11.i.i1717 = and i32 %98, %sub4.i.i1697
+  %arrayidx.us10.i.i1716 = getelementptr inbounds i32, ptr %98, i64 %shr.i.i30.us.i.i1715
+  %103 = load i32, ptr %arrayidx.us10.i.i1716, align 4
+  %104 = trunc i64 %indvars.iv.i.i1711 to i32
+  %and.us11.i.i1717 = and i32 %104, %sub4.i.i1697
   %mul.us12.i.i1718 = shl nuw i32 %and.us11.i.i1717, 1
   %idx.ext9.us13.i.i1719 = zext i32 %mul.us12.i.i1718 to i64
-  %add.ptr10.us14.i.i1720 = getelementptr inbounds i32, ptr %93, i64 %idx.ext9.us13.i.i1719
+  %add.ptr10.us14.i.i1720 = getelementptr inbounds i32, ptr %99, i64 %idx.ext9.us13.i.i1719
   %add.ptr11.us15.i.i1721 = getelementptr inbounds i32, ptr %add.ptr10.us14.i.i1720, i64 1
-  store i32 %98, ptr %arrayidx.us10.i.i1716, align 4
-  store i32 %97, ptr %add.ptr10.us14.i.i1720, align 4
+  store i32 %104, ptr %arrayidx.us10.i.i1716, align 4
+  store i32 %103, ptr %add.ptr10.us14.i.i1720, align 4
   store i32 1, ptr %add.ptr11.us15.i.i1721, align 4
   %indvars.iv.next.i.i1722 = add nuw nsw i64 %indvars.iv.i.i1711, 1
-  %exitcond.not.i1723 = icmp eq i64 %indvars.iv.next.i.i1722, %96
+  %exitcond.not.i1723 = icmp eq i64 %indvars.iv.next.i.i1722, %102
   br i1 %exitcond.not.i1723, label %ZSTD_searchMax.exit, label %for.body.us4.i.i1710, !llvm.loop !27
 
 sw.bb11.i:                                        ; preds = %if.end473.i
-  br i1 %cmp.i.i1651, label %if.end500.i, label %if.end.i.i1730
+  %105 = load ptr, ptr %base4.i, align 8
+  %106 = load i32, ptr %nextToUpdate.i.i1372, align 4
+  %idx.ext.i.i1727 = zext i32 %106 to i64
+  %add.ptr.i.i1728 = getelementptr inbounds i8, ptr %105, i64 %idx.ext.i.i1727
+  %cmp.i.i1729 = icmp ugt ptr %add.ptr.i.i1728, %incdec.ptr367.i
+  br i1 %cmp.i.i1729, label %if.end500.i, label %if.end.i.i1730
 
 if.end.i.i1730:                                   ; preds = %sw.bb11.i
-  %99 = load ptr, ptr %hashTable2.i.i1377, align 8
-  %100 = load ptr, ptr %chainTable.i.i1378, align 8
-  %101 = load i32, ptr %chainLog.i.i1379, align 4
-  %sub.i.i1734 = add i32 %101, -1
+  %107 = load ptr, ptr %hashTable2.i.i1377, align 8
+  %108 = load ptr, ptr %chainTable.i.i1378, align 8
+  %109 = load i32, ptr %chainLog.i.i1379, align 4
+  %sub.i.i1734 = add i32 %109, -1
   %notmask.i.i1735 = shl nsw i32 -1, %sub.i.i1734
   %sub4.i.i1736 = xor i32 %notmask.i.i1735, -1
   %sub.ptr.lhs.cast.i.i1737 = ptrtoint ptr %incdec.ptr367.i to i64
-  %sub.ptr.rhs.cast.i.i1738 = ptrtoint ptr %83 to i64
+  %sub.ptr.rhs.cast.i.i1738 = ptrtoint ptr %105 to i64
   %sub.ptr.sub.i.i1739 = sub i64 %sub.ptr.lhs.cast.i.i1737, %sub.ptr.rhs.cast.i.i1738
   %conv.i.i1740 = trunc i64 %sub.ptr.sub.i.i1739 to i32
-  %cmp71.i.i1741 = icmp ult i32 %84, %conv.i.i1740
+  %cmp71.i.i1741 = icmp ult i32 %106, %conv.i.i1740
   br i1 %cmp71.i.i1741, label %for.body.lr.ph.i.i1745, label %ZSTD_searchMax.exit
 
 for.body.lr.ph.i.i1745:                           ; preds = %if.end.i.i1730
-  %102 = load i32, ptr %hashLog3.i.i1392, align 4
-  %sub.i.i29.i.i1747 = sub i32 64, %102
+  %110 = load i32, ptr %hashLog3.i.i1392, align 4
+  %sub.i.i29.i.i1747 = sub i32 64, %110
   %sh_prom.i.i.i.i1748 = zext nneg i32 %sub.i.i29.i.i1747 to i64
-  %103 = and i64 %sub.ptr.sub.i.i1739, 4294967295
+  %111 = and i64 %sub.ptr.sub.i.i1739, 4294967295
   br label %for.body.us.i.i1749
 
 for.body.us.i.i1749:                              ; preds = %for.body.us.i.i1749, %for.body.lr.ph.i.i1745
-  %indvars.iv21.i.i1750 = phi i64 [ %indvars.iv.next22.i.i1761, %for.body.us.i.i1749 ], [ %idx.ext.i.i1649, %for.body.lr.ph.i.i1745 ]
-  %add.ptr.us.i.i1751 = getelementptr inbounds i8, ptr %83, i64 %indvars.iv21.i.i1750
+  %indvars.iv21.i.i1750 = phi i64 [ %indvars.iv.next22.i.i1761, %for.body.us.i.i1749 ], [ %idx.ext.i.i1727, %for.body.lr.ph.i.i1745 ]
+  %add.ptr.us.i.i1751 = getelementptr inbounds i8, ptr %105, i64 %indvars.iv21.i.i1750
   %add.ptr.val27.us.i.i1752 = load i64, ptr %add.ptr.us.i.i1751, align 1
   %mul.i.i31.us.i.i1753 = mul i64 %add.ptr.val27.us.i.i1752, -3523014627193847808
   %shr.i.i34.us.i.i1754 = lshr i64 %mul.i.i31.us.i.i1753, %sh_prom.i.i.i.i1748
-  %arrayidx.us.i.i1755 = getelementptr inbounds i32, ptr %99, i64 %shr.i.i34.us.i.i1754
-  %104 = load i32, ptr %arrayidx.us.i.i1755, align 4
-  %105 = trunc i64 %indvars.iv21.i.i1750 to i32
-  %and.us.i.i1756 = and i32 %105, %sub4.i.i1736
+  %arrayidx.us.i.i1755 = getelementptr inbounds i32, ptr %107, i64 %shr.i.i34.us.i.i1754
+  %112 = load i32, ptr %arrayidx.us.i.i1755, align 4
+  %113 = trunc i64 %indvars.iv21.i.i1750 to i32
+  %and.us.i.i1756 = and i32 %113, %sub4.i.i1736
   %mul.us.i.i1757 = shl nuw i32 %and.us.i.i1756, 1
   %idx.ext9.us.i.i1758 = zext i32 %mul.us.i.i1757 to i64
-  %add.ptr10.us.i.i1759 = getelementptr inbounds i32, ptr %100, i64 %idx.ext9.us.i.i1758
+  %add.ptr10.us.i.i1759 = getelementptr inbounds i32, ptr %108, i64 %idx.ext9.us.i.i1758
   %add.ptr11.us.i.i1760 = getelementptr inbounds i32, ptr %add.ptr10.us.i.i1759, i64 1
-  store i32 %105, ptr %arrayidx.us.i.i1755, align 4
-  store i32 %104, ptr %add.ptr10.us.i.i1759, align 4
+  store i32 %113, ptr %arrayidx.us.i.i1755, align 4
+  store i32 %112, ptr %add.ptr10.us.i.i1759, align 4
   store i32 1, ptr %add.ptr11.us.i.i1760, align 4
   %indvars.iv.next22.i.i1761 = add nuw nsw i64 %indvars.iv21.i.i1750, 1
-  %exitcond.not.i1762 = icmp eq i64 %indvars.iv.next22.i.i1761, %103
+  %exitcond.not.i1762 = icmp eq i64 %indvars.iv.next22.i.i1761, %111
   br i1 %exitcond.not.i1762, label %ZSTD_searchMax.exit, label %for.body.us.i.i1749, !llvm.loop !27
-
-sw.epilog44.i:                                    ; preds = %if.end473.i
-  unreachable
 
 ZSTD_searchMax.exit:                              ; preds = %for.body.us.i.i1749, %for.body.us4.i.i1710, %for.body.i.i1670, %if.end.i.i1730, %if.end.i.i1691, %if.end.i.i1652
   %conv.i.i1740.sink = phi i32 [ %conv.i.i1662, %if.end.i.i1652 ], [ %conv.i.i1701, %if.end.i.i1691 ], [ %conv.i.i1740, %if.end.i.i1730 ], [ %conv.i.i1662, %for.body.i.i1670 ], [ %conv.i.i1701, %for.body.us4.i.i1710 ], [ %conv.i.i1740, %for.body.us.i.i1749 ]
@@ -19590,18 +19481,18 @@ ZSTD_searchMax.exit:                              ; preds = %for.body.us.i.i1749
 
 land.lhs.true494.i:                               ; preds = %ZSTD_searchMax.exit
   %conv486.i = trunc i64 %offBase.i.4 to i32
-  %106 = tail call i32 @llvm.ctlz.i32(i32 %conv486.i, i1 true), !range !25
-  %107 = load i64, ptr %ofbCandidate474.i, align 8
-  %conv479.i = trunc i64 %107 to i32
-  %108 = tail call i32 @llvm.ctlz.i32(i32 %conv479.i, i1 true), !range !25
-  %sub.i1764 = xor i32 %108, 31
+  %114 = tail call i32 @llvm.ctlz.i32(i32 %conv486.i, i1 true), !range !25
+  %115 = load i64, ptr %ofbCandidate474.i, align 8
+  %conv479.i = trunc i64 %115 to i32
+  %116 = tail call i32 @llvm.ctlz.i32(i32 %conv479.i, i1 true), !range !25
+  %sub.i1764 = xor i32 %116, 31
   %matchLength.i.6.tr = trunc i64 %matchLength.i.6 to i32
-  %109 = shl i32 %matchLength.i.6.tr, 2
-  %110 = add nsw i32 %106, -24
-  %conv491.i = add i32 %110, %109
+  %117 = shl i32 %matchLength.i.6.tr, 2
+  %118 = add nsw i32 %114, -24
+  %conv491.i = add i32 %118, %117
   %retval.i120.0.tr = trunc i64 %call.i.i1743 to i32
-  %111 = shl i32 %retval.i120.0.tr, 2
-  %conv483.i = sub i32 %111, %sub.i1764
+  %119 = shl i32 %retval.i120.0.tr, 2
+  %conv483.i = sub i32 %119, %sub.i1764
   %cmp495.i = icmp sgt i32 %conv483.i, %conv491.i
   br i1 %cmp495.i, label %while.cond227.i.backedge, label %if.end500.i
 
@@ -19627,12 +19518,12 @@ while.cond507.i.preheader:                        ; preds = %if.end500.i
 land.rhs.i:                                       ; preds = %while.cond507.i.preheader, %while.body526.i
   %matchLength.i.91945 = phi i64 [ %inc.i, %while.body526.i ], [ %matchLength.i.8, %while.cond507.i.preheader ]
   %start.i.71944 = phi ptr [ %arrayidx517.i, %while.body526.i ], [ %start.i.6, %while.cond507.i.preheader ]
-  %112 = getelementptr inbounds i8, ptr %start.i.71944, i64 %idx.neg511.i
+  %120 = getelementptr inbounds i8, ptr %start.i.71944, i64 %idx.neg511.i
   %arrayidx517.i = getelementptr inbounds i8, ptr %start.i.71944, i64 -1
-  %113 = load i8, ptr %arrayidx517.i, align 1
-  %arrayidx522.i = getelementptr inbounds i8, ptr %112, i64 -1
-  %114 = load i8, ptr %arrayidx522.i, align 1
-  %cmp524.i = icmp eq i8 %113, %114
+  %121 = load i8, ptr %arrayidx517.i, align 1
+  %arrayidx522.i = getelementptr inbounds i8, ptr %120, i64 -1
+  %122 = load i8, ptr %arrayidx522.i, align 1
+  %cmp524.i = icmp eq i8 %121, %122
   br i1 %cmp524.i, label %while.body526.i, label %if.end576.i
 
 while.body526.i:                                  ; preds = %land.rhs.i
@@ -19646,12 +19537,12 @@ while.body526.i:                                  ; preds = %land.rhs.i
 if.end576.i:                                      ; preds = %land.rhs.i, %while.body526.i, %while.cond507.i.preheader
   %start.i.7.lcssa = phi ptr [ %start.i.6, %while.cond507.i.preheader ], [ %arrayidx517.i, %while.body526.i ], [ %start.i.71944, %land.rhs.i ]
   %matchLength.i.9.lcssa = phi i64 [ %matchLength.i.8, %while.cond507.i.preheader ], [ %inc.i, %while.body526.i ], [ %matchLength.i.91945, %land.rhs.i ]
-  %115 = trunc i64 %offBase.i.6 to i32
-  %conv578.i = add i32 %115, -3
+  %123 = trunc i64 %offBase.i.6 to i32
+  %conv578.i = add i32 %123, -3
   br label %_storeSequence.i
 
 _storeSequence.i:                                 ; preds = %if.end500.i._storeSequence.i_crit_edge, %if.end576.i
-  %conv583.i.pre-phi = phi i32 [ %.pre2008, %if.end500.i._storeSequence.i_crit_edge ], [ %115, %if.end576.i ]
+  %conv583.i.pre-phi = phi i32 [ %.pre2008, %if.end500.i._storeSequence.i_crit_edge ], [ %123, %if.end576.i ]
   %start.i.11 = phi ptr [ %start.i.6, %if.end500.i._storeSequence.i_crit_edge ], [ %start.i.7.lcssa, %if.end576.i ]
   %matchLength.i.13 = phi i64 [ %matchLength.i.8, %if.end500.i._storeSequence.i_crit_edge ], [ %matchLength.i.9.lcssa, %if.end576.i ]
   %offset_2.i.3 = phi i32 [ %offset_2.i.2.ph1964, %if.end500.i._storeSequence.i_crit_edge ], [ %offset_1.i.1.ph1965, %if.end576.i ]
@@ -19660,15 +19551,15 @@ _storeSequence.i:                                 ; preds = %if.end500.i._storeS
   %sub.ptr.sub582.i = sub i64 %sub.ptr.lhs.cast580.i, %sub.ptr.rhs.cast216.i
   %add.ptr1.i608 = getelementptr inbounds i8, ptr %anchor.i.0.ph1966, i64 %sub.ptr.sub582.i
   %cmp.i609.not = icmp ugt ptr %add.ptr1.i608, %add.ptr.i607
-  %116 = load ptr, ptr %lit.i647, align 8
+  %124 = load ptr, ptr %lit.i647, align 8
   br i1 %cmp.i609.not, label %if.else.i610, label %if.then.i646
 
 if.then.i646:                                     ; preds = %_storeSequence.i
   %anchor.i.0.val = load <2 x i64>, ptr %anchor.i.0.ph1966, align 1
-  store <2 x i64> %anchor.i.0.val, ptr %116, align 1
+  store <2 x i64> %anchor.i.0.val, ptr %124, align 1
   %cmp2.i648 = icmp ugt i64 %sub.ptr.sub582.i, 16
-  %117 = load ptr, ptr %lit.i647, align 8
-  %add.ptr.i661 = getelementptr inbounds i8, ptr %117, i64 %sub.ptr.sub582.i
+  %125 = load ptr, ptr %lit.i647, align 8
+  %add.ptr.i661 = getelementptr inbounds i8, ptr %125, i64 %sub.ptr.sub582.i
   br i1 %cmp2.i648, label %if.then3.i650, label %if.end8.i612.thread
 
 if.end8.i612.thread:                              ; preds = %if.then.i646
@@ -19678,14 +19569,14 @@ if.end8.i612.thread:                              ; preds = %if.then.i646
 
 if.then3.i650:                                    ; preds = %if.then.i646
   %add.ptr6.i653 = getelementptr inbounds i8, ptr %anchor.i.0.ph1966, i64 16
-  %add.ptr5.i652 = getelementptr inbounds i8, ptr %117, i64 16
+  %add.ptr5.i652 = getelementptr inbounds i8, ptr %125, i64 16
   %add.ptr6.i653.val = load <2 x i64>, ptr %add.ptr6.i653, align 1
   store <2 x i64> %add.ptr6.i653.val, ptr %add.ptr5.i652, align 1
   %cmp7.i664 = icmp slt i64 %sub.ptr.sub582.i, 33
   br i1 %cmp7.i664, label %if.end8.i612, label %if.end.i665
 
 if.end.i665:                                      ; preds = %if.then3.i650
-  %add.ptr9.i666 = getelementptr inbounds i8, ptr %117, i64 32
+  %add.ptr9.i666 = getelementptr inbounds i8, ptr %125, i64 32
   br label %do.body11.i
 
 do.body11.i:                                      ; preds = %do.body11.i, %if.end.i665
@@ -19709,14 +19600,14 @@ if.else.i610:                                     ; preds = %_storeSequence.i
 
 if.then.i1766:                                    ; preds = %if.else.i610
   %sub.ptr.sub.i1769 = sub i64 %sub.ptr.lhs.cast.i1767, %sub.ptr.rhs.cast216.i
-  %add.ptr.i.i1770 = getelementptr inbounds i8, ptr %116, i64 %sub.ptr.sub.i1769
+  %add.ptr.i.i1770 = getelementptr inbounds i8, ptr %124, i64 %sub.ptr.sub.i1769
   %ip.val.i = load <2 x i64>, ptr %anchor.i.0.ph1966, align 1
-  store <2 x i64> %ip.val.i, ptr %116, align 1
+  store <2 x i64> %ip.val.i, ptr %124, align 1
   %cmp7.i.i = icmp slt i64 %sub.ptr.sub.i1769, 17
   br i1 %cmp7.i.i, label %if.end.i, label %if.end.i.i1771
 
 if.end.i.i1771:                                   ; preds = %if.then.i1766
-  %add.ptr9.i.i = getelementptr inbounds i8, ptr %116, i64 16
+  %add.ptr9.i.i = getelementptr inbounds i8, ptr %124, i64 16
   br label %do.body11.i.i
 
 do.body11.i.i:                                    ; preds = %do.body11.i.i, %if.end.i.i1771
@@ -19734,30 +19625,30 @@ do.body11.i.i:                                    ; preds = %do.body11.i.i, %if.
   br i1 %cmp23.i.i, label %do.body11.i.i, label %if.end.i, !llvm.loop !19
 
 if.end.i:                                         ; preds = %do.body11.i.i, %if.then.i1766, %if.else.i610
-  %op.addr.0.i = phi ptr [ %add.ptr.i.i1770, %if.then.i1766 ], [ %116, %if.else.i610 ], [ %add.ptr.i.i1770, %do.body11.i.i ]
+  %op.addr.0.i = phi ptr [ %add.ptr.i.i1770, %if.then.i1766 ], [ %124, %if.else.i610 ], [ %add.ptr.i.i1770, %do.body11.i.i ]
   %ip.addr.0.i = phi ptr [ %add.ptr.i607, %if.then.i1766 ], [ %anchor.i.0.ph1966, %if.else.i610 ], [ %add.ptr.i607, %do.body11.i.i ]
   %cmp432.i = icmp ult ptr %ip.addr.0.i, %add.ptr1.i608
   br i1 %cmp432.i, label %while.body.preheader.i, label %if.end8.i612
 
 while.body.preheader.i:                           ; preds = %if.end.i
   %ip.addr.036.i = ptrtoint ptr %ip.addr.0.i to i64
-  %118 = sub i64 %iend35.i, %ip.addr.036.i
-  %scevgep.i = getelementptr i8, ptr %ip.addr.0.i, i64 %118
+  %126 = sub i64 %iend35.i, %ip.addr.036.i
+  %scevgep.i = getelementptr i8, ptr %ip.addr.0.i, i64 %126
   br label %while.body.i1772
 
 while.body.i1772:                                 ; preds = %while.body.i1772, %while.body.preheader.i
   %ip.addr.134.i = phi ptr [ %incdec.ptr.i1773, %while.body.i1772 ], [ %ip.addr.0.i, %while.body.preheader.i ]
   %op.addr.133.i = phi ptr [ %incdec.ptr5.i, %while.body.i1772 ], [ %op.addr.0.i, %while.body.preheader.i ]
   %incdec.ptr.i1773 = getelementptr inbounds i8, ptr %ip.addr.134.i, i64 1
-  %119 = load i8, ptr %ip.addr.134.i, align 1
+  %127 = load i8, ptr %ip.addr.134.i, align 1
   %incdec.ptr5.i = getelementptr inbounds i8, ptr %op.addr.133.i, i64 1
-  store i8 %119, ptr %op.addr.133.i, align 1
+  store i8 %127, ptr %op.addr.133.i, align 1
   %exitcond.not.i1774 = icmp eq ptr %incdec.ptr.i1773, %scevgep.i
   br i1 %exitcond.not.i1774, label %if.end8.i612, label %while.body.i1772, !llvm.loop !20
 
 if.end8.i612:                                     ; preds = %do.body11.i, %while.body.i1772, %if.end.i, %if.then3.i650
-  %120 = load ptr, ptr %lit.i647, align 8
-  %add.ptr10.i614 = getelementptr inbounds i8, ptr %120, i64 %sub.ptr.sub582.i
+  %128 = load ptr, ptr %lit.i647, align 8
+  %add.ptr10.i614 = getelementptr inbounds i8, ptr %128, i64 %sub.ptr.sub582.i
   store ptr %add.ptr10.i614, ptr %lit.i647, align 8
   %cmp11.i615 = icmp ugt i64 %sub.ptr.sub582.i, 65535
   %.pre2004 = load ptr, ptr %sequences.i639, align 8
@@ -19765,9 +19656,9 @@ if.end8.i612:                                     ; preds = %do.body11.i, %while
 
 if.then12.i637:                                   ; preds = %if.end8.i612
   store i32 1, ptr %longLengthType.i638, align 8
-  %121 = load ptr, ptr %seqStore, align 8
+  %129 = load ptr, ptr %seqStore, align 8
   %sub.ptr.lhs.cast.i640 = ptrtoint ptr %.pre2004 to i64
-  %sub.ptr.rhs.cast.i641 = ptrtoint ptr %121 to i64
+  %sub.ptr.rhs.cast.i641 = ptrtoint ptr %129 to i64
   %sub.ptr.sub.i642 = sub i64 %sub.ptr.lhs.cast.i640, %sub.ptr.rhs.cast.i641
   %sub.ptr.div.i643 = lshr exact i64 %sub.ptr.sub.i642, 3
   %conv.i644 = trunc i64 %sub.ptr.div.i643 to i32
@@ -19775,12 +19666,12 @@ if.then12.i637:                                   ; preds = %if.end8.i612
   br label %if.end13.i616
 
 if.end13.i616:                                    ; preds = %if.end8.i612.thread, %if.then12.i637, %if.end8.i612
-  %122 = phi ptr [ %.pre, %if.end8.i612.thread ], [ %.pre2004, %if.then12.i637 ], [ %.pre2004, %if.end8.i612 ]
+  %130 = phi ptr [ %.pre, %if.end8.i612.thread ], [ %.pre2004, %if.then12.i637 ], [ %.pre2004, %if.end8.i612 ]
   %conv14.i617 = trunc i64 %sub.ptr.sub582.i to i16
-  %litLength16.i619 = getelementptr inbounds %struct.seqDef_s, ptr %122, i64 0, i32 1
+  %litLength16.i619 = getelementptr inbounds %struct.seqDef_s, ptr %130, i64 0, i32 1
   store i16 %conv14.i617, ptr %litLength16.i619, align 4
-  %123 = load ptr, ptr %sequences.i639, align 8
-  store i32 %conv583.i.pre-phi, ptr %123, align 4
+  %131 = load ptr, ptr %sequences.i639, align 8
+  store i32 %conv583.i.pre-phi, ptr %131, align 4
   %sub20.i621 = add i64 %matchLength.i.13, -3
   %cmp21.i622 = icmp ugt i64 %sub20.i621, 65535
   %.pre2005 = load ptr, ptr %sequences.i639, align 8
@@ -19788,9 +19679,9 @@ if.end13.i616:                                    ; preds = %if.end8.i612.thread
 
 if.then23.i628:                                   ; preds = %if.end13.i616
   store i32 2, ptr %longLengthType.i638, align 8
-  %124 = load ptr, ptr %seqStore, align 8
+  %132 = load ptr, ptr %seqStore, align 8
   %sub.ptr.lhs.cast27.i631 = ptrtoint ptr %.pre2005 to i64
-  %sub.ptr.rhs.cast28.i632 = ptrtoint ptr %124 to i64
+  %sub.ptr.rhs.cast28.i632 = ptrtoint ptr %132 to i64
   %sub.ptr.sub29.i633 = sub i64 %sub.ptr.lhs.cast27.i631, %sub.ptr.rhs.cast28.i632
   %sub.ptr.div30.i634 = lshr exact i64 %sub.ptr.sub29.i633, 3
   %conv31.i635 = trunc i64 %sub.ptr.div30.i634 to i32
@@ -19801,12 +19692,12 @@ ZSTD_storeSeq.exit655:                            ; preds = %if.then23.i628, %if
   %conv34.i623 = trunc i64 %sub20.i621 to i16
   %mlBase37.i625 = getelementptr inbounds %struct.seqDef_s, ptr %.pre2005, i64 0, i32 2
   store i16 %conv34.i623, ptr %mlBase37.i625, align 2
-  %125 = load ptr, ptr %sequences.i639, align 8
-  %incdec.ptr.i627 = getelementptr inbounds %struct.seqDef_s, ptr %125, i64 1
+  %133 = load ptr, ptr %sequences.i639, align 8
+  %incdec.ptr.i627 = getelementptr inbounds %struct.seqDef_s, ptr %133, i64 1
   store ptr %incdec.ptr.i627, ptr %sequences.i639, align 8
   %add.ptr584.i = getelementptr inbounds i8, ptr %start.i.11, i64 %matchLength.i.13
-  %126 = load i32, ptr %lazySkipping.i, align 4
-  %tobool586.i.not = icmp eq i32 %126, 0
+  %134 = load i32, ptr %lazySkipping.i, align 4
+  %tobool586.i.not = icmp eq i32 %134, 0
   br i1 %tobool586.i.not, label %if.end646.i, label %if.end592.i
 
 if.end592.i:                                      ; preds = %ZSTD_storeSeq.exit655
@@ -19845,8 +19736,8 @@ if.then.i1815:                                    ; preds = %while.body666.i
   br i1 %tobool.not.i1819, label %while.cond.i1822, label %if.then2.i1820
 
 if.then2.i1820:                                   ; preds = %if.then.i1815
-  %127 = tail call i64 @llvm.cttz.i64(i64 %xor.i1818, i1 true), !range !16
-  %shr.i.i1821 = lshr i64 %127, 3
+  %135 = tail call i64 @llvm.cttz.i64(i64 %xor.i1818, i1 true), !range !16
+  %shr.i.i1821 = lshr i64 %135, 3
   br label %ZSTD_count.exit1839
 
 while.cond.i1822:                                 ; preds = %if.then.i1815, %while.body.i1828
@@ -19865,8 +19756,8 @@ while.body.i1828:                                 ; preds = %while.cond.i1822
   br i1 %tobool12.not.i1832, label %while.cond.i1822, label %if.end16.i1833, !llvm.loop !17
 
 if.end16.i1833:                                   ; preds = %while.body.i1828
-  %128 = tail call i64 @llvm.cttz.i64(i64 %xor11.i1831, i1 true), !range !16
-  %shr.i35.i1834 = lshr i64 %128, 3
+  %136 = tail call i64 @llvm.cttz.i64(i64 %xor11.i1831, i1 true), !range !16
+  %shr.i35.i1834 = lshr i64 %136, 3
   %add.ptr18.i1835 = getelementptr inbounds i8, ptr %pIn.addr.0.i1825, i64 %shr.i35.i1834
   %sub.ptr.lhs.cast.i1836 = ptrtoint ptr %add.ptr18.i1835 to i64
   %sub.ptr.rhs.cast.i1837 = ptrtoint ptr %add.ptr667.i to i64
@@ -19914,9 +19805,9 @@ if.end47.i1787:                                   ; preds = %if.then44.i1805, %l
   br i1 %cmp48.i1790, label %land.lhs.true50.i1797, label %if.end56.i1791
 
 land.lhs.true50.i1797:                            ; preds = %if.end47.i1787
-  %129 = load i8, ptr %pMatch.addr.3.i1788, align 1
-  %130 = load i8, ptr %pIn.addr.3.i1789, align 1
-  %cmp53.i1798 = icmp eq i8 %129, %130
+  %137 = load i8, ptr %pMatch.addr.3.i1788, align 1
+  %138 = load i8, ptr %pIn.addr.3.i1789, align 1
+  %cmp53.i1798 = icmp eq i8 %137, %138
   %spec.select.idx.i1799 = zext i1 %cmp53.i1798 to i64
   %spec.select.i1800 = getelementptr inbounds i8, ptr %pIn.addr.3.i1789, i64 %spec.select.idx.i1799
   br label %if.end56.i1791
@@ -19935,17 +19826,17 @@ ZSTD_count.exit1839:                              ; preds = %if.then2.i1820, %if
   br i1 %cmp.i551.not, label %if.end13.i558, label %if.then.i588
 
 if.then.i588:                                     ; preds = %ZSTD_count.exit1839
-  %131 = load ptr, ptr %lit.i647, align 8
+  %139 = load ptr, ptr %lit.i647, align 8
   %ip.i.4.val1341 = load <2 x i64>, ptr %ip.i.41956, align 1
-  store <2 x i64> %ip.i.4.val1341, ptr %131, align 1
+  store <2 x i64> %ip.i.4.val1341, ptr %139, align 1
   br label %if.end13.i558
 
 if.end13.i558:                                    ; preds = %ZSTD_count.exit1839, %if.then.i588
-  %132 = load ptr, ptr %sequences.i639, align 8
-  %litLength16.i561 = getelementptr inbounds %struct.seqDef_s, ptr %132, i64 0, i32 1
+  %140 = load ptr, ptr %sequences.i639, align 8
+  %litLength16.i561 = getelementptr inbounds %struct.seqDef_s, ptr %140, i64 0, i32 1
   store i16 0, ptr %litLength16.i561, align 4
-  %133 = load ptr, ptr %sequences.i639, align 8
-  store i32 1, ptr %133, align 4
+  %141 = load ptr, ptr %sequences.i639, align 8
+  store i32 1, ptr %141, align 4
   %sub20.i563 = add i64 %retval.0.i1796, 1
   %cmp21.i564 = icmp ugt i64 %sub20.i563, 65535
   %.pre2006 = load ptr, ptr %sequences.i639, align 8
@@ -19953,9 +19844,9 @@ if.end13.i558:                                    ; preds = %ZSTD_count.exit1839
 
 if.then23.i570:                                   ; preds = %if.end13.i558
   store i32 2, ptr %longLengthType.i638, align 8
-  %134 = load ptr, ptr %seqStore, align 8
+  %142 = load ptr, ptr %seqStore, align 8
   %sub.ptr.lhs.cast27.i573 = ptrtoint ptr %.pre2006 to i64
-  %sub.ptr.rhs.cast28.i574 = ptrtoint ptr %134 to i64
+  %sub.ptr.rhs.cast28.i574 = ptrtoint ptr %142 to i64
   %sub.ptr.sub29.i575 = sub i64 %sub.ptr.lhs.cast27.i573, %sub.ptr.rhs.cast28.i574
   %sub.ptr.div30.i576 = lshr exact i64 %sub.ptr.sub29.i575, 3
   %conv31.i577 = trunc i64 %sub.ptr.div30.i576 to i32
@@ -19966,8 +19857,8 @@ ZSTD_storeSeq.exit597:                            ; preds = %if.then23.i570, %if
   %conv34.i565 = trunc i64 %sub20.i563 to i16
   %mlBase37.i567 = getelementptr inbounds %struct.seqDef_s, ptr %.pre2006, i64 0, i32 2
   store i16 %conv34.i565, ptr %mlBase37.i567, align 2
-  %135 = load ptr, ptr %sequences.i639, align 8
-  %incdec.ptr.i569 = getelementptr inbounds %struct.seqDef_s, ptr %135, i64 1
+  %143 = load ptr, ptr %sequences.i639, align 8
+  %incdec.ptr.i569 = getelementptr inbounds %struct.seqDef_s, ptr %143, i64 1
   store ptr %incdec.ptr.i569, ptr %sequences.i639, align 8
   %add.ptr676.i = getelementptr inbounds i8, ptr %ip.i.41956, i64 %add673.i
   %cmp651.i = icmp ule ptr %add.ptr676.i, %add.ptr1.i
@@ -20127,7 +20018,7 @@ if.end206.i:                                      ; preds = %land.lhs.true154.i,
   %idx.ext.i.i = zext i32 %13 to i64
   %add.ptr.i.i = getelementptr inbounds i8, ptr %12, i64 %idx.ext.i.i
   %cmp.i.i = icmp ugt ptr %add.ptr.i.i, %ip.i.01703
-  switch i32 %spec.select1683, label %sw.epilog151.i419 [
+  switch i32 %spec.select1683, label %if.end206.i.unreachabledefault [
     i32 4, label %sw.bb112.i425
     i32 5, label %sw.bb114.i423
     i32 6, label %sw.bb116.i421
@@ -20265,7 +20156,10 @@ for.body.us.i.i:                                  ; preds = %for.body.us.i.i, %f
   %exitcond.not.i1384 = icmp eq i64 %indvars.iv.next22.i.i, %32
   br i1 %exitcond.not.i1384, label %ZSTD_searchMax.exit524.sink.split, label %for.body.us.i.i, !llvm.loop !27
 
-sw.epilog151.i419:                                ; preds = %if.end206.i
+if.end206.i.unreachabledefault:                   ; preds = %if.end206.i
+  unreachable
+
+default.unreachable:                              ; preds = %if.end473.i, %if.end334.i
   unreachable
 
 ZSTD_searchMax.exit524.sink.split:                ; preds = %for.body.us.i.i, %for.body.us4.i.i, %for.body.i.i, %if.end.i.i1365, %if.end.i.i1342, %if.end.i.i
@@ -20355,18 +20249,18 @@ if.end334.i:                                      ; preds = %while.body230.i, %l
   %offBase.i.3 = phi i64 [ 1, %if.then331.i ], [ %offBase.i.11711, %land.lhs.true328.i ], [ %offBase.i.11711, %if.then302.i ], [ %offBase.i.11711, %land.lhs.true297.i ], [ %offBase.i.11711, %while.body230.i ]
   %matchLength.i.5 = phi i64 [ %add314.i, %if.then331.i ], [ %matchLength.i.31712, %land.lhs.true328.i ], [ %matchLength.i.31712, %if.then302.i ], [ %matchLength.i.31712, %land.lhs.true297.i ], [ %matchLength.i.31712, %while.body230.i ]
   store i64 999999999, ptr %ofbCandidate.i, align 8
-  %42 = load ptr, ptr %base4.i, align 8
-  %43 = load i32, ptr %nextToUpdate.i.i1361, align 4
-  %idx.ext.i.i1388 = zext i32 %43 to i64
-  %add.ptr.i.i1389 = getelementptr inbounds i8, ptr %42, i64 %idx.ext.i.i1388
-  %cmp.i.i1390 = icmp ugt ptr %add.ptr.i.i1389, %incdec.ptr.i
-  switch i32 %spec.select1683, label %sw.epilog151.i225 [
+  switch i32 %spec.select1683, label %default.unreachable [
     i32 4, label %sw.bb112.i231
     i32 5, label %sw.bb114.i229
     i32 6, label %sw.bb116.i227
   ]
 
 sw.bb112.i231:                                    ; preds = %if.end334.i
+  %42 = load ptr, ptr %base4.i, align 8
+  %43 = load i32, ptr %nextToUpdate.i.i1361, align 4
+  %idx.ext.i.i1388 = zext i32 %43 to i64
+  %add.ptr.i.i1389 = getelementptr inbounds i8, ptr %42, i64 %idx.ext.i.i1388
+  %cmp.i.i1390 = icmp ugt ptr %add.ptr.i.i1389, %incdec.ptr.i
   br i1 %cmp.i.i1390, label %ZSTD_searchMax.exit330.thread, label %if.end.i.i1391
 
 if.end.i.i1391:                                   ; preds = %sw.bb112.i231
@@ -20411,99 +20305,106 @@ for.body.i.i1409:                                 ; preds = %for.body.i.i1409, %
   br i1 %exitcond.not.i1423, label %ZSTD_searchMax.exit330, label %for.body.i.i1409, !llvm.loop !27
 
 sw.bb114.i229:                                    ; preds = %if.end334.i
-  br i1 %cmp.i.i1390, label %ZSTD_searchMax.exit330.thread, label %if.end.i.i1430
+  %51 = load ptr, ptr %base4.i, align 8
+  %52 = load i32, ptr %nextToUpdate.i.i1361, align 4
+  %idx.ext.i.i1427 = zext i32 %52 to i64
+  %add.ptr.i.i1428 = getelementptr inbounds i8, ptr %51, i64 %idx.ext.i.i1427
+  %cmp.i.i1429 = icmp ugt ptr %add.ptr.i.i1428, %incdec.ptr.i
+  br i1 %cmp.i.i1429, label %ZSTD_searchMax.exit330.thread, label %if.end.i.i1430
 
 if.end.i.i1430:                                   ; preds = %sw.bb114.i229
-  %51 = load ptr, ptr %hashTable2.i.i1366, align 8
-  %52 = load ptr, ptr %chainTable.i.i1367, align 8
-  %53 = load i32, ptr %chainLog.i.i1368, align 4
-  %sub.i.i1434 = add i32 %53, -1
+  %53 = load ptr, ptr %hashTable2.i.i1366, align 8
+  %54 = load ptr, ptr %chainTable.i.i1367, align 8
+  %55 = load i32, ptr %chainLog.i.i1368, align 4
+  %sub.i.i1434 = add i32 %55, -1
   %notmask.i.i1435 = shl nsw i32 -1, %sub.i.i1434
   %sub4.i.i1436 = xor i32 %notmask.i.i1435, -1
-  %sub.ptr.rhs.cast.i.i1438 = ptrtoint ptr %42 to i64
+  %sub.ptr.rhs.cast.i.i1438 = ptrtoint ptr %51 to i64
   %sub.ptr.sub.i.i1439 = sub i64 %sub.ptr.lhs.cast276.i, %sub.ptr.rhs.cast.i.i1438
   %conv.i.i1440 = trunc i64 %sub.ptr.sub.i.i1439 to i32
-  %cmp71.i.i1441 = icmp ult i32 %43, %conv.i.i1440
+  %cmp71.i.i1441 = icmp ult i32 %52, %conv.i.i1440
   br i1 %cmp71.i.i1441, label %for.body.lr.ph.i.i1445, label %ZSTD_searchMax.exit330
 
 for.body.lr.ph.i.i1445:                           ; preds = %if.end.i.i1430
-  %54 = load i32, ptr %hashLog3.i.i1381, align 4
-  %sub.i.i29.i.i1447 = sub i32 64, %54
+  %56 = load i32, ptr %hashLog3.i.i1381, align 4
+  %sub.i.i29.i.i1447 = sub i32 64, %56
   %sh_prom.i.i.i.i1448 = zext nneg i32 %sub.i.i29.i.i1447 to i64
-  %55 = and i64 %sub.ptr.sub.i.i1439, 4294967295
+  %57 = and i64 %sub.ptr.sub.i.i1439, 4294967295
   br label %for.body.us4.i.i1449
 
 for.body.us4.i.i1449:                             ; preds = %for.body.us4.i.i1449, %for.body.lr.ph.i.i1445
-  %indvars.iv.i.i1450 = phi i64 [ %indvars.iv.next.i.i1461, %for.body.us4.i.i1449 ], [ %idx.ext.i.i1388, %for.body.lr.ph.i.i1445 ]
-  %add.ptr.us7.i.i1451 = getelementptr inbounds i8, ptr %42, i64 %indvars.iv.i.i1450
+  %indvars.iv.i.i1450 = phi i64 [ %indvars.iv.next.i.i1461, %for.body.us4.i.i1449 ], [ %idx.ext.i.i1427, %for.body.lr.ph.i.i1445 ]
+  %add.ptr.us7.i.i1451 = getelementptr inbounds i8, ptr %51, i64 %indvars.iv.i.i1450
   %add.ptr.val26.us.i.i1452 = load i64, ptr %add.ptr.us7.i.i1451, align 1
   %mul.i.i28.us.i.i1453 = mul i64 %add.ptr.val26.us.i.i1452, -3523014627271114752
   %shr.i.i30.us.i.i1454 = lshr i64 %mul.i.i28.us.i.i1453, %sh_prom.i.i.i.i1448
-  %arrayidx.us10.i.i1455 = getelementptr inbounds i32, ptr %51, i64 %shr.i.i30.us.i.i1454
-  %56 = load i32, ptr %arrayidx.us10.i.i1455, align 4
-  %57 = trunc i64 %indvars.iv.i.i1450 to i32
-  %and.us11.i.i1456 = and i32 %57, %sub4.i.i1436
+  %arrayidx.us10.i.i1455 = getelementptr inbounds i32, ptr %53, i64 %shr.i.i30.us.i.i1454
+  %58 = load i32, ptr %arrayidx.us10.i.i1455, align 4
+  %59 = trunc i64 %indvars.iv.i.i1450 to i32
+  %and.us11.i.i1456 = and i32 %59, %sub4.i.i1436
   %mul.us12.i.i1457 = shl nuw i32 %and.us11.i.i1456, 1
   %idx.ext9.us13.i.i1458 = zext i32 %mul.us12.i.i1457 to i64
-  %add.ptr10.us14.i.i1459 = getelementptr inbounds i32, ptr %52, i64 %idx.ext9.us13.i.i1458
+  %add.ptr10.us14.i.i1459 = getelementptr inbounds i32, ptr %54, i64 %idx.ext9.us13.i.i1458
   %add.ptr11.us15.i.i1460 = getelementptr inbounds i32, ptr %add.ptr10.us14.i.i1459, i64 1
-  store i32 %57, ptr %arrayidx.us10.i.i1455, align 4
-  store i32 %56, ptr %add.ptr10.us14.i.i1459, align 4
+  store i32 %59, ptr %arrayidx.us10.i.i1455, align 4
+  store i32 %58, ptr %add.ptr10.us14.i.i1459, align 4
   store i32 1, ptr %add.ptr11.us15.i.i1460, align 4
   %indvars.iv.next.i.i1461 = add nuw nsw i64 %indvars.iv.i.i1450, 1
-  %exitcond.not.i1462 = icmp eq i64 %indvars.iv.next.i.i1461, %55
+  %exitcond.not.i1462 = icmp eq i64 %indvars.iv.next.i.i1461, %57
   br i1 %exitcond.not.i1462, label %ZSTD_searchMax.exit330, label %for.body.us4.i.i1449, !llvm.loop !27
 
 sw.bb116.i227:                                    ; preds = %if.end334.i
-  br i1 %cmp.i.i1390, label %ZSTD_searchMax.exit330.thread, label %if.end.i.i1469
+  %60 = load ptr, ptr %base4.i, align 8
+  %61 = load i32, ptr %nextToUpdate.i.i1361, align 4
+  %idx.ext.i.i1466 = zext i32 %61 to i64
+  %add.ptr.i.i1467 = getelementptr inbounds i8, ptr %60, i64 %idx.ext.i.i1466
+  %cmp.i.i1468 = icmp ugt ptr %add.ptr.i.i1467, %incdec.ptr.i
+  br i1 %cmp.i.i1468, label %ZSTD_searchMax.exit330.thread, label %if.end.i.i1469
 
 if.end.i.i1469:                                   ; preds = %sw.bb116.i227
-  %58 = load ptr, ptr %hashTable2.i.i1366, align 8
-  %59 = load ptr, ptr %chainTable.i.i1367, align 8
-  %60 = load i32, ptr %chainLog.i.i1368, align 4
-  %sub.i.i1473 = add i32 %60, -1
+  %62 = load ptr, ptr %hashTable2.i.i1366, align 8
+  %63 = load ptr, ptr %chainTable.i.i1367, align 8
+  %64 = load i32, ptr %chainLog.i.i1368, align 4
+  %sub.i.i1473 = add i32 %64, -1
   %notmask.i.i1474 = shl nsw i32 -1, %sub.i.i1473
   %sub4.i.i1475 = xor i32 %notmask.i.i1474, -1
-  %sub.ptr.rhs.cast.i.i1477 = ptrtoint ptr %42 to i64
+  %sub.ptr.rhs.cast.i.i1477 = ptrtoint ptr %60 to i64
   %sub.ptr.sub.i.i1478 = sub i64 %sub.ptr.lhs.cast276.i, %sub.ptr.rhs.cast.i.i1477
   %conv.i.i1479 = trunc i64 %sub.ptr.sub.i.i1478 to i32
-  %cmp71.i.i1480 = icmp ult i32 %43, %conv.i.i1479
+  %cmp71.i.i1480 = icmp ult i32 %61, %conv.i.i1479
   br i1 %cmp71.i.i1480, label %for.body.lr.ph.i.i1484, label %ZSTD_searchMax.exit330
 
 for.body.lr.ph.i.i1484:                           ; preds = %if.end.i.i1469
-  %61 = load i32, ptr %hashLog3.i.i1381, align 4
-  %sub.i.i29.i.i1486 = sub i32 64, %61
+  %65 = load i32, ptr %hashLog3.i.i1381, align 4
+  %sub.i.i29.i.i1486 = sub i32 64, %65
   %sh_prom.i.i.i.i1487 = zext nneg i32 %sub.i.i29.i.i1486 to i64
-  %62 = and i64 %sub.ptr.sub.i.i1478, 4294967295
+  %66 = and i64 %sub.ptr.sub.i.i1478, 4294967295
   br label %for.body.us.i.i1488
 
 for.body.us.i.i1488:                              ; preds = %for.body.us.i.i1488, %for.body.lr.ph.i.i1484
-  %indvars.iv21.i.i1489 = phi i64 [ %indvars.iv.next22.i.i1500, %for.body.us.i.i1488 ], [ %idx.ext.i.i1388, %for.body.lr.ph.i.i1484 ]
-  %add.ptr.us.i.i1490 = getelementptr inbounds i8, ptr %42, i64 %indvars.iv21.i.i1489
+  %indvars.iv21.i.i1489 = phi i64 [ %indvars.iv.next22.i.i1500, %for.body.us.i.i1488 ], [ %idx.ext.i.i1466, %for.body.lr.ph.i.i1484 ]
+  %add.ptr.us.i.i1490 = getelementptr inbounds i8, ptr %60, i64 %indvars.iv21.i.i1489
   %add.ptr.val27.us.i.i1491 = load i64, ptr %add.ptr.us.i.i1490, align 1
   %mul.i.i31.us.i.i1492 = mul i64 %add.ptr.val27.us.i.i1491, -3523014627193847808
   %shr.i.i34.us.i.i1493 = lshr i64 %mul.i.i31.us.i.i1492, %sh_prom.i.i.i.i1487
-  %arrayidx.us.i.i1494 = getelementptr inbounds i32, ptr %58, i64 %shr.i.i34.us.i.i1493
-  %63 = load i32, ptr %arrayidx.us.i.i1494, align 4
-  %64 = trunc i64 %indvars.iv21.i.i1489 to i32
-  %and.us.i.i1495 = and i32 %64, %sub4.i.i1475
+  %arrayidx.us.i.i1494 = getelementptr inbounds i32, ptr %62, i64 %shr.i.i34.us.i.i1493
+  %67 = load i32, ptr %arrayidx.us.i.i1494, align 4
+  %68 = trunc i64 %indvars.iv21.i.i1489 to i32
+  %and.us.i.i1495 = and i32 %68, %sub4.i.i1475
   %mul.us.i.i1496 = shl nuw i32 %and.us.i.i1495, 1
   %idx.ext9.us.i.i1497 = zext i32 %mul.us.i.i1496 to i64
-  %add.ptr10.us.i.i1498 = getelementptr inbounds i32, ptr %59, i64 %idx.ext9.us.i.i1497
+  %add.ptr10.us.i.i1498 = getelementptr inbounds i32, ptr %63, i64 %idx.ext9.us.i.i1497
   %add.ptr11.us.i.i1499 = getelementptr inbounds i32, ptr %add.ptr10.us.i.i1498, i64 1
-  store i32 %64, ptr %arrayidx.us.i.i1494, align 4
-  store i32 %63, ptr %add.ptr10.us.i.i1498, align 4
+  store i32 %68, ptr %arrayidx.us.i.i1494, align 4
+  store i32 %67, ptr %add.ptr10.us.i.i1498, align 4
   store i32 1, ptr %add.ptr11.us.i.i1499, align 4
   %indvars.iv.next22.i.i1500 = add nuw nsw i64 %indvars.iv21.i.i1489, 1
-  %exitcond.not.i1501 = icmp eq i64 %indvars.iv.next22.i.i1500, %62
+  %exitcond.not.i1501 = icmp eq i64 %indvars.iv.next22.i.i1500, %66
   br i1 %exitcond.not.i1501, label %ZSTD_searchMax.exit330, label %for.body.us.i.i1488, !llvm.loop !27
-
-sw.epilog151.i225:                                ; preds = %if.end334.i
-  unreachable
 
 ZSTD_searchMax.exit330.thread:                    ; preds = %sw.bb112.i231, %sw.bb114.i229, %sw.bb116.i227
   %conv346.i1793 = trunc i64 %offBase.i.3 to i32
-  %65 = tail call i32 @llvm.ctlz.i32(i32 %conv346.i1793, i1 true), !range !25
+  %69 = tail call i32 @llvm.ctlz.i32(i32 %conv346.i1793, i1 true), !range !25
   br label %land.lhs.true361.i
 
 ZSTD_searchMax.exit330:                           ; preds = %for.body.us.i.i1488, %for.body.us4.i.i1449, %for.body.i.i1409, %if.end.i.i1469, %if.end.i.i1430, %if.end.i.i1391
@@ -20511,34 +20412,34 @@ ZSTD_searchMax.exit330:                           ; preds = %for.body.us.i.i1488
   store i32 %conv.i.i1479.sink, ptr %nextToUpdate.i.i1361, align 4
   %call.i.i1482 = call fastcc i64 @ZSTD_DUBT_findBestMatch(ptr noundef %ms, ptr noundef nonnull %incdec.ptr.i, ptr noundef %add.ptr.i, ptr noundef nonnull %ofbCandidate.i, i32 noundef %spec.select1683, i32 noundef 2)
   %conv346.i = trunc i64 %offBase.i.3 to i32
-  %66 = tail call i32 @llvm.ctlz.i32(i32 %conv346.i, i1 true), !range !25
+  %70 = tail call i32 @llvm.ctlz.i32(i32 %conv346.i, i1 true), !range !25
   %cmp352.i = icmp ugt i64 %call.i.i1482, 3
   br i1 %cmp352.i, label %land.lhs.true354.i, label %land.lhs.true361.i
 
 land.lhs.true354.i:                               ; preds = %ZSTD_searchMax.exit330
-  %67 = load i64, ptr %ofbCandidate.i, align 8
-  %conv339.i = trunc i64 %67 to i32
-  %68 = tail call i32 @llvm.ctlz.i32(i32 %conv339.i, i1 true), !range !25
-  %sub.i1503 = xor i32 %68, 31
+  %71 = load i64, ptr %ofbCandidate.i, align 8
+  %conv339.i = trunc i64 %71 to i32
+  %72 = tail call i32 @llvm.ctlz.i32(i32 %conv339.i, i1 true), !range !25
+  %sub.i1503 = xor i32 %72, 31
   %matchLength.i.5.tr = trunc i64 %matchLength.i.5 to i32
-  %69 = shl i32 %matchLength.i.5.tr, 2
-  %70 = add nsw i32 %66, -27
-  %conv351.i = add i32 %70, %69
+  %73 = shl i32 %matchLength.i.5.tr, 2
+  %74 = add nsw i32 %70, -27
+  %conv351.i = add i32 %74, %73
   %retval.i137.0.tr = trunc i64 %call.i.i1482 to i32
-  %71 = shl i32 %retval.i137.0.tr, 2
-  %conv343.i = sub i32 %71, %sub.i1503
+  %75 = shl i32 %retval.i137.0.tr, 2
+  %conv343.i = sub i32 %75, %sub.i1503
   %cmp355.i = icmp sgt i32 %conv343.i, %conv351.i
   br i1 %cmp355.i, label %while.cond227.i.backedge, label %land.lhs.true361.i
 
 while.cond227.i.backedge:                         ; preds = %land.lhs.true354.i, %land.lhs.true494.i
   %start.i.1.be = phi ptr [ %incdec.ptr.i, %land.lhs.true354.i ], [ %incdec.ptr367.i, %land.lhs.true494.i ]
-  %offBase.i.1.be = phi i64 [ %67, %land.lhs.true354.i ], [ %100, %land.lhs.true494.i ]
+  %offBase.i.1.be = phi i64 [ %71, %land.lhs.true354.i ], [ %108, %land.lhs.true494.i ]
   %matchLength.i.3.be = phi i64 [ %call.i.i1482, %land.lhs.true354.i ], [ %call.i.i1602, %land.lhs.true494.i ]
   %cmp228.i = icmp ult ptr %start.i.1.be, %add.ptr1.i
   br i1 %cmp228.i, label %while.body230.i, label %if.end500.i, !llvm.loop !26
 
 land.lhs.true361.i:                               ; preds = %ZSTD_searchMax.exit330.thread, %ZSTD_searchMax.exit330, %land.lhs.true354.i
-  %72 = phi i32 [ %65, %ZSTD_searchMax.exit330.thread ], [ %66, %ZSTD_searchMax.exit330 ], [ %66, %land.lhs.true354.i ]
+  %76 = phi i32 [ %69, %ZSTD_searchMax.exit330.thread ], [ %70, %ZSTD_searchMax.exit330 ], [ %70, %land.lhs.true354.i ]
   %cmp362.i = icmp ult ptr %incdec.ptr.i, %add.ptr1.i
   br i1 %cmp362.i, label %if.then364.i, label %if.end500.i
 
@@ -20555,8 +20456,8 @@ if.then364.i:                                     ; preds = %land.lhs.true361.i
   %idx.ext428.i = zext i32 %sub419.i to i64
   %add.ptr429.i = getelementptr inbounds i8, ptr %0, i64 %idx.ext428.i
   %cond431.i = select i1 %cmp421.i, ptr %add.ptr426.i, ptr %add.ptr429.i
-  %73 = sub i32 %sub419.i, %1
-  %cmp434.i = icmp ult i32 %73, -3
+  %77 = sub i32 %sub419.i, %1
+  %cmp434.i = icmp ult i32 %77, -3
   br i1 %cmp434.i, label %land.lhs.true436.i, label %if.end473.i
 
 land.lhs.true436.i:                               ; preds = %if.then364.i
@@ -20576,9 +20477,9 @@ if.then441.i:                                     ; preds = %land.lhs.true436.i
 
 land.lhs.true467.i:                               ; preds = %if.then441.i
   %matchLength.i.5.tr1333 = trunc i64 %matchLength.i.5 to i32
-  %74 = shl i32 %matchLength.i.5.tr1333, 2
-  %75 = add nsw i32 %72, -30
-  %conv464.i = add i32 %75, %74
+  %78 = shl i32 %matchLength.i.5.tr1333, 2
+  %79 = add nsw i32 %76, -30
+  %conv464.i = add i32 %79, %78
   %add453.i.tr = trunc i64 %add453.i to i32
   %conv456.i = shl i32 %add453.i.tr, 2
   %cmp468.i = icmp sgt i32 %conv456.i, %conv464.i
@@ -20592,151 +20493,158 @@ if.end473.i:                                      ; preds = %if.then364.i, %land
   %offBase.i.5 = phi i64 [ 1, %if.then470.i ], [ %offBase.i.3, %land.lhs.true467.i ], [ %offBase.i.3, %if.then441.i ], [ %offBase.i.3, %land.lhs.true436.i ], [ %offBase.i.3, %if.then364.i ]
   %matchLength.i.7 = phi i64 [ %add453.i, %if.then470.i ], [ %matchLength.i.5, %land.lhs.true467.i ], [ %matchLength.i.5, %if.then441.i ], [ %matchLength.i.5, %land.lhs.true436.i ], [ %matchLength.i.5, %if.then364.i ]
   store i64 999999999, ptr %ofbCandidate474.i, align 8
-  %76 = load ptr, ptr %base4.i, align 8
-  %77 = load i32, ptr %nextToUpdate.i.i1361, align 4
-  %idx.ext.i.i1508 = zext i32 %77 to i64
-  %add.ptr.i.i1509 = getelementptr inbounds i8, ptr %76, i64 %idx.ext.i.i1508
-  %cmp.i.i1510 = icmp ugt ptr %add.ptr.i.i1509, %incdec.ptr367.i
-  switch i32 %spec.select1683, label %sw.epilog151.i [
+  switch i32 %spec.select1683, label %default.unreachable [
     i32 4, label %sw.bb112.i
     i32 5, label %sw.bb114.i
     i32 6, label %sw.bb116.i
   ]
 
 sw.bb112.i:                                       ; preds = %if.end473.i
+  %80 = load ptr, ptr %base4.i, align 8
+  %81 = load i32, ptr %nextToUpdate.i.i1361, align 4
+  %idx.ext.i.i1508 = zext i32 %81 to i64
+  %add.ptr.i.i1509 = getelementptr inbounds i8, ptr %80, i64 %idx.ext.i.i1508
+  %cmp.i.i1510 = icmp ugt ptr %add.ptr.i.i1509, %incdec.ptr367.i
   br i1 %cmp.i.i1510, label %if.end500.i, label %if.end.i.i1511
 
 if.end.i.i1511:                                   ; preds = %sw.bb112.i
-  %78 = load ptr, ptr %hashTable2.i.i1366, align 8
-  %79 = load ptr, ptr %chainTable.i.i1367, align 8
-  %80 = load i32, ptr %chainLog.i.i1368, align 4
-  %sub.i.i1515 = add i32 %80, -1
+  %82 = load ptr, ptr %hashTable2.i.i1366, align 8
+  %83 = load ptr, ptr %chainTable.i.i1367, align 8
+  %84 = load i32, ptr %chainLog.i.i1368, align 4
+  %sub.i.i1515 = add i32 %84, -1
   %notmask.i.i1516 = shl nsw i32 -1, %sub.i.i1515
   %sub4.i.i1517 = xor i32 %notmask.i.i1516, -1
-  %sub.ptr.rhs.cast.i.i1519 = ptrtoint ptr %76 to i64
+  %sub.ptr.rhs.cast.i.i1519 = ptrtoint ptr %80 to i64
   %sub.ptr.sub.i.i1520 = sub i64 %sub.ptr.lhs.cast415.i, %sub.ptr.rhs.cast.i.i1519
   %conv.i.i1521 = trunc i64 %sub.ptr.sub.i.i1520 to i32
-  %cmp71.i.i1522 = icmp ult i32 %77, %conv.i.i1521
+  %cmp71.i.i1522 = icmp ult i32 %81, %conv.i.i1521
   br i1 %cmp71.i.i1522, label %for.body.lr.ph.i.i1526, label %ZSTD_searchMax.exit
 
 for.body.lr.ph.i.i1526:                           ; preds = %if.end.i.i1511
-  %81 = load i32, ptr %hashLog3.i.i1381, align 4
-  %sub.i.i.i.i1528 = sub i32 32, %81
-  %82 = and i64 %sub.ptr.sub.i.i1520, 4294967295
+  %85 = load i32, ptr %hashLog3.i.i1381, align 4
+  %sub.i.i.i.i1528 = sub i32 32, %85
+  %86 = and i64 %sub.ptr.sub.i.i1520, 4294967295
   br label %for.body.i.i1529
 
 for.body.i.i1529:                                 ; preds = %for.body.i.i1529, %for.body.lr.ph.i.i1526
   %indvars.iv24.i.i1530 = phi i64 [ %indvars.iv.next25.i.i1542, %for.body.i.i1529 ], [ %idx.ext.i.i1508, %for.body.lr.ph.i.i1526 ]
-  %add.ptr.i9.i1531 = getelementptr inbounds i8, ptr %76, i64 %indvars.iv24.i.i1530
+  %add.ptr.i9.i1531 = getelementptr inbounds i8, ptr %80, i64 %indvars.iv24.i.i1530
   %add.ptr.val.i.i1532 = load i32, ptr %add.ptr.i9.i1531, align 1
   %mul.i.i.i.i1533 = mul i32 %add.ptr.val.i.i1532, -1640531535
   %shr.i.i.i.i1534 = lshr i32 %mul.i.i.i.i1533, %sub.i.i.i.i1528
   %conv.i.i.i1535 = zext i32 %shr.i.i.i.i1534 to i64
-  %arrayidx.i.i1536 = getelementptr inbounds i32, ptr %78, i64 %conv.i.i.i1535
-  %83 = load i32, ptr %arrayidx.i.i1536, align 4
-  %84 = trunc i64 %indvars.iv24.i.i1530 to i32
-  %and.i.i1537 = and i32 %84, %sub4.i.i1517
+  %arrayidx.i.i1536 = getelementptr inbounds i32, ptr %82, i64 %conv.i.i.i1535
+  %87 = load i32, ptr %arrayidx.i.i1536, align 4
+  %88 = trunc i64 %indvars.iv24.i.i1530 to i32
+  %and.i.i1537 = and i32 %88, %sub4.i.i1517
   %mul.i.i1538 = shl nuw i32 %and.i.i1537, 1
   %idx.ext9.i.i1539 = zext i32 %mul.i.i1538 to i64
-  %add.ptr10.i.i1540 = getelementptr inbounds i32, ptr %79, i64 %idx.ext9.i.i1539
+  %add.ptr10.i.i1540 = getelementptr inbounds i32, ptr %83, i64 %idx.ext9.i.i1539
   %add.ptr11.i.i1541 = getelementptr inbounds i32, ptr %add.ptr10.i.i1540, i64 1
-  store i32 %84, ptr %arrayidx.i.i1536, align 4
-  store i32 %83, ptr %add.ptr10.i.i1540, align 4
+  store i32 %88, ptr %arrayidx.i.i1536, align 4
+  store i32 %87, ptr %add.ptr10.i.i1540, align 4
   store i32 1, ptr %add.ptr11.i.i1541, align 4
   %indvars.iv.next25.i.i1542 = add nuw nsw i64 %indvars.iv24.i.i1530, 1
-  %exitcond.not.i1543 = icmp eq i64 %indvars.iv.next25.i.i1542, %82
+  %exitcond.not.i1543 = icmp eq i64 %indvars.iv.next25.i.i1542, %86
   br i1 %exitcond.not.i1543, label %ZSTD_searchMax.exit, label %for.body.i.i1529, !llvm.loop !27
 
 sw.bb114.i:                                       ; preds = %if.end473.i
-  br i1 %cmp.i.i1510, label %if.end500.i, label %if.end.i.i1550
+  %89 = load ptr, ptr %base4.i, align 8
+  %90 = load i32, ptr %nextToUpdate.i.i1361, align 4
+  %idx.ext.i.i1547 = zext i32 %90 to i64
+  %add.ptr.i.i1548 = getelementptr inbounds i8, ptr %89, i64 %idx.ext.i.i1547
+  %cmp.i.i1549 = icmp ugt ptr %add.ptr.i.i1548, %incdec.ptr367.i
+  br i1 %cmp.i.i1549, label %if.end500.i, label %if.end.i.i1550
 
 if.end.i.i1550:                                   ; preds = %sw.bb114.i
-  %85 = load ptr, ptr %hashTable2.i.i1366, align 8
-  %86 = load ptr, ptr %chainTable.i.i1367, align 8
-  %87 = load i32, ptr %chainLog.i.i1368, align 4
-  %sub.i.i1554 = add i32 %87, -1
+  %91 = load ptr, ptr %hashTable2.i.i1366, align 8
+  %92 = load ptr, ptr %chainTable.i.i1367, align 8
+  %93 = load i32, ptr %chainLog.i.i1368, align 4
+  %sub.i.i1554 = add i32 %93, -1
   %notmask.i.i1555 = shl nsw i32 -1, %sub.i.i1554
   %sub4.i.i1556 = xor i32 %notmask.i.i1555, -1
-  %sub.ptr.rhs.cast.i.i1558 = ptrtoint ptr %76 to i64
+  %sub.ptr.rhs.cast.i.i1558 = ptrtoint ptr %89 to i64
   %sub.ptr.sub.i.i1559 = sub i64 %sub.ptr.lhs.cast415.i, %sub.ptr.rhs.cast.i.i1558
   %conv.i.i1560 = trunc i64 %sub.ptr.sub.i.i1559 to i32
-  %cmp71.i.i1561 = icmp ult i32 %77, %conv.i.i1560
+  %cmp71.i.i1561 = icmp ult i32 %90, %conv.i.i1560
   br i1 %cmp71.i.i1561, label %for.body.lr.ph.i.i1565, label %ZSTD_searchMax.exit
 
 for.body.lr.ph.i.i1565:                           ; preds = %if.end.i.i1550
-  %88 = load i32, ptr %hashLog3.i.i1381, align 4
-  %sub.i.i29.i.i1567 = sub i32 64, %88
+  %94 = load i32, ptr %hashLog3.i.i1381, align 4
+  %sub.i.i29.i.i1567 = sub i32 64, %94
   %sh_prom.i.i.i.i1568 = zext nneg i32 %sub.i.i29.i.i1567 to i64
-  %89 = and i64 %sub.ptr.sub.i.i1559, 4294967295
+  %95 = and i64 %sub.ptr.sub.i.i1559, 4294967295
   br label %for.body.us4.i.i1569
 
 for.body.us4.i.i1569:                             ; preds = %for.body.us4.i.i1569, %for.body.lr.ph.i.i1565
-  %indvars.iv.i.i1570 = phi i64 [ %indvars.iv.next.i.i1581, %for.body.us4.i.i1569 ], [ %idx.ext.i.i1508, %for.body.lr.ph.i.i1565 ]
-  %add.ptr.us7.i.i1571 = getelementptr inbounds i8, ptr %76, i64 %indvars.iv.i.i1570
+  %indvars.iv.i.i1570 = phi i64 [ %indvars.iv.next.i.i1581, %for.body.us4.i.i1569 ], [ %idx.ext.i.i1547, %for.body.lr.ph.i.i1565 ]
+  %add.ptr.us7.i.i1571 = getelementptr inbounds i8, ptr %89, i64 %indvars.iv.i.i1570
   %add.ptr.val26.us.i.i1572 = load i64, ptr %add.ptr.us7.i.i1571, align 1
   %mul.i.i28.us.i.i1573 = mul i64 %add.ptr.val26.us.i.i1572, -3523014627271114752
   %shr.i.i30.us.i.i1574 = lshr i64 %mul.i.i28.us.i.i1573, %sh_prom.i.i.i.i1568
-  %arrayidx.us10.i.i1575 = getelementptr inbounds i32, ptr %85, i64 %shr.i.i30.us.i.i1574
-  %90 = load i32, ptr %arrayidx.us10.i.i1575, align 4
-  %91 = trunc i64 %indvars.iv.i.i1570 to i32
-  %and.us11.i.i1576 = and i32 %91, %sub4.i.i1556
+  %arrayidx.us10.i.i1575 = getelementptr inbounds i32, ptr %91, i64 %shr.i.i30.us.i.i1574
+  %96 = load i32, ptr %arrayidx.us10.i.i1575, align 4
+  %97 = trunc i64 %indvars.iv.i.i1570 to i32
+  %and.us11.i.i1576 = and i32 %97, %sub4.i.i1556
   %mul.us12.i.i1577 = shl nuw i32 %and.us11.i.i1576, 1
   %idx.ext9.us13.i.i1578 = zext i32 %mul.us12.i.i1577 to i64
-  %add.ptr10.us14.i.i1579 = getelementptr inbounds i32, ptr %86, i64 %idx.ext9.us13.i.i1578
+  %add.ptr10.us14.i.i1579 = getelementptr inbounds i32, ptr %92, i64 %idx.ext9.us13.i.i1578
   %add.ptr11.us15.i.i1580 = getelementptr inbounds i32, ptr %add.ptr10.us14.i.i1579, i64 1
-  store i32 %91, ptr %arrayidx.us10.i.i1575, align 4
-  store i32 %90, ptr %add.ptr10.us14.i.i1579, align 4
+  store i32 %97, ptr %arrayidx.us10.i.i1575, align 4
+  store i32 %96, ptr %add.ptr10.us14.i.i1579, align 4
   store i32 1, ptr %add.ptr11.us15.i.i1580, align 4
   %indvars.iv.next.i.i1581 = add nuw nsw i64 %indvars.iv.i.i1570, 1
-  %exitcond.not.i1582 = icmp eq i64 %indvars.iv.next.i.i1581, %89
+  %exitcond.not.i1582 = icmp eq i64 %indvars.iv.next.i.i1581, %95
   br i1 %exitcond.not.i1582, label %ZSTD_searchMax.exit, label %for.body.us4.i.i1569, !llvm.loop !27
 
 sw.bb116.i:                                       ; preds = %if.end473.i
-  br i1 %cmp.i.i1510, label %if.end500.i, label %if.end.i.i1589
+  %98 = load ptr, ptr %base4.i, align 8
+  %99 = load i32, ptr %nextToUpdate.i.i1361, align 4
+  %idx.ext.i.i1586 = zext i32 %99 to i64
+  %add.ptr.i.i1587 = getelementptr inbounds i8, ptr %98, i64 %idx.ext.i.i1586
+  %cmp.i.i1588 = icmp ugt ptr %add.ptr.i.i1587, %incdec.ptr367.i
+  br i1 %cmp.i.i1588, label %if.end500.i, label %if.end.i.i1589
 
 if.end.i.i1589:                                   ; preds = %sw.bb116.i
-  %92 = load ptr, ptr %hashTable2.i.i1366, align 8
-  %93 = load ptr, ptr %chainTable.i.i1367, align 8
-  %94 = load i32, ptr %chainLog.i.i1368, align 4
-  %sub.i.i1593 = add i32 %94, -1
+  %100 = load ptr, ptr %hashTable2.i.i1366, align 8
+  %101 = load ptr, ptr %chainTable.i.i1367, align 8
+  %102 = load i32, ptr %chainLog.i.i1368, align 4
+  %sub.i.i1593 = add i32 %102, -1
   %notmask.i.i1594 = shl nsw i32 -1, %sub.i.i1593
   %sub4.i.i1595 = xor i32 %notmask.i.i1594, -1
-  %sub.ptr.rhs.cast.i.i1597 = ptrtoint ptr %76 to i64
+  %sub.ptr.rhs.cast.i.i1597 = ptrtoint ptr %98 to i64
   %sub.ptr.sub.i.i1598 = sub i64 %sub.ptr.lhs.cast415.i, %sub.ptr.rhs.cast.i.i1597
   %conv.i.i1599 = trunc i64 %sub.ptr.sub.i.i1598 to i32
-  %cmp71.i.i1600 = icmp ult i32 %77, %conv.i.i1599
+  %cmp71.i.i1600 = icmp ult i32 %99, %conv.i.i1599
   br i1 %cmp71.i.i1600, label %for.body.lr.ph.i.i1604, label %ZSTD_searchMax.exit
 
 for.body.lr.ph.i.i1604:                           ; preds = %if.end.i.i1589
-  %95 = load i32, ptr %hashLog3.i.i1381, align 4
-  %sub.i.i29.i.i1606 = sub i32 64, %95
+  %103 = load i32, ptr %hashLog3.i.i1381, align 4
+  %sub.i.i29.i.i1606 = sub i32 64, %103
   %sh_prom.i.i.i.i1607 = zext nneg i32 %sub.i.i29.i.i1606 to i64
-  %96 = and i64 %sub.ptr.sub.i.i1598, 4294967295
+  %104 = and i64 %sub.ptr.sub.i.i1598, 4294967295
   br label %for.body.us.i.i1608
 
 for.body.us.i.i1608:                              ; preds = %for.body.us.i.i1608, %for.body.lr.ph.i.i1604
-  %indvars.iv21.i.i1609 = phi i64 [ %indvars.iv.next22.i.i1620, %for.body.us.i.i1608 ], [ %idx.ext.i.i1508, %for.body.lr.ph.i.i1604 ]
-  %add.ptr.us.i.i1610 = getelementptr inbounds i8, ptr %76, i64 %indvars.iv21.i.i1609
+  %indvars.iv21.i.i1609 = phi i64 [ %indvars.iv.next22.i.i1620, %for.body.us.i.i1608 ], [ %idx.ext.i.i1586, %for.body.lr.ph.i.i1604 ]
+  %add.ptr.us.i.i1610 = getelementptr inbounds i8, ptr %98, i64 %indvars.iv21.i.i1609
   %add.ptr.val27.us.i.i1611 = load i64, ptr %add.ptr.us.i.i1610, align 1
   %mul.i.i31.us.i.i1612 = mul i64 %add.ptr.val27.us.i.i1611, -3523014627193847808
   %shr.i.i34.us.i.i1613 = lshr i64 %mul.i.i31.us.i.i1612, %sh_prom.i.i.i.i1607
-  %arrayidx.us.i.i1614 = getelementptr inbounds i32, ptr %92, i64 %shr.i.i34.us.i.i1613
-  %97 = load i32, ptr %arrayidx.us.i.i1614, align 4
-  %98 = trunc i64 %indvars.iv21.i.i1609 to i32
-  %and.us.i.i1615 = and i32 %98, %sub4.i.i1595
+  %arrayidx.us.i.i1614 = getelementptr inbounds i32, ptr %100, i64 %shr.i.i34.us.i.i1613
+  %105 = load i32, ptr %arrayidx.us.i.i1614, align 4
+  %106 = trunc i64 %indvars.iv21.i.i1609 to i32
+  %and.us.i.i1615 = and i32 %106, %sub4.i.i1595
   %mul.us.i.i1616 = shl nuw i32 %and.us.i.i1615, 1
   %idx.ext9.us.i.i1617 = zext i32 %mul.us.i.i1616 to i64
-  %add.ptr10.us.i.i1618 = getelementptr inbounds i32, ptr %93, i64 %idx.ext9.us.i.i1617
+  %add.ptr10.us.i.i1618 = getelementptr inbounds i32, ptr %101, i64 %idx.ext9.us.i.i1617
   %add.ptr11.us.i.i1619 = getelementptr inbounds i32, ptr %add.ptr10.us.i.i1618, i64 1
-  store i32 %98, ptr %arrayidx.us.i.i1614, align 4
-  store i32 %97, ptr %add.ptr10.us.i.i1618, align 4
+  store i32 %106, ptr %arrayidx.us.i.i1614, align 4
+  store i32 %105, ptr %add.ptr10.us.i.i1618, align 4
   store i32 1, ptr %add.ptr11.us.i.i1619, align 4
   %indvars.iv.next22.i.i1620 = add nuw nsw i64 %indvars.iv21.i.i1609, 1
-  %exitcond.not.i1621 = icmp eq i64 %indvars.iv.next22.i.i1620, %96
+  %exitcond.not.i1621 = icmp eq i64 %indvars.iv.next22.i.i1620, %104
   br i1 %exitcond.not.i1621, label %ZSTD_searchMax.exit, label %for.body.us.i.i1608, !llvm.loop !27
-
-sw.epilog151.i:                                   ; preds = %if.end473.i
-  unreachable
 
 ZSTD_searchMax.exit:                              ; preds = %for.body.us.i.i1608, %for.body.us4.i.i1569, %for.body.i.i1529, %if.end.i.i1589, %if.end.i.i1550, %if.end.i.i1511
   %conv.i.i1599.sink = phi i32 [ %conv.i.i1521, %if.end.i.i1511 ], [ %conv.i.i1560, %if.end.i.i1550 ], [ %conv.i.i1599, %if.end.i.i1589 ], [ %conv.i.i1521, %for.body.i.i1529 ], [ %conv.i.i1560, %for.body.us4.i.i1569 ], [ %conv.i.i1599, %for.body.us.i.i1608 ]
@@ -20747,18 +20655,18 @@ ZSTD_searchMax.exit:                              ; preds = %for.body.us.i.i1608
 
 land.lhs.true494.i:                               ; preds = %ZSTD_searchMax.exit
   %conv486.i = trunc i64 %offBase.i.5 to i32
-  %99 = tail call i32 @llvm.ctlz.i32(i32 %conv486.i, i1 true), !range !25
-  %100 = load i64, ptr %ofbCandidate474.i, align 8
-  %conv479.i = trunc i64 %100 to i32
-  %101 = tail call i32 @llvm.ctlz.i32(i32 %conv479.i, i1 true), !range !25
-  %sub.i1623 = xor i32 %101, 31
+  %107 = tail call i32 @llvm.ctlz.i32(i32 %conv486.i, i1 true), !range !25
+  %108 = load i64, ptr %ofbCandidate474.i, align 8
+  %conv479.i = trunc i64 %108 to i32
+  %109 = tail call i32 @llvm.ctlz.i32(i32 %conv479.i, i1 true), !range !25
+  %sub.i1623 = xor i32 %109, 31
   %matchLength.i.7.tr = trunc i64 %matchLength.i.7 to i32
-  %102 = shl i32 %matchLength.i.7.tr, 2
-  %103 = add nsw i32 %99, -24
-  %conv491.i = add i32 %103, %102
+  %110 = shl i32 %matchLength.i.7.tr, 2
+  %111 = add nsw i32 %107, -24
+  %conv491.i = add i32 %111, %110
   %retval.i120.0.tr = trunc i64 %call.i.i1602 to i32
-  %104 = shl i32 %retval.i120.0.tr, 2
-  %conv483.i = sub i32 %104, %sub.i1623
+  %112 = shl i32 %retval.i120.0.tr, 2
+  %conv483.i = sub i32 %112, %sub.i1623
   %cmp495.i = icmp sgt i32 %conv483.i, %conv491.i
   br i1 %cmp495.i, label %while.cond227.i.backedge, label %if.end500.i
 
@@ -20775,8 +20683,8 @@ if.end500.i._storeSequence.i_crit_edge:           ; preds = %if.end500.i
 
 if.then531.i:                                     ; preds = %if.end500.i
   %sub.ptr.lhs.cast532.i = ptrtoint ptr %start.i.6 to i64
-  %105 = add i64 %offBase.i.6, %sub.ptr.rhs.cast130.i
-  %reass.sub1760 = sub i64 %sub.ptr.lhs.cast532.i, %105
+  %113 = add i64 %offBase.i.6, %sub.ptr.rhs.cast130.i
+  %reass.sub1760 = sub i64 %sub.ptr.lhs.cast532.i, %113
   %sub536.i = add i64 %reass.sub1760, -4294967293
   %conv537.i = trunc i64 %sub536.i to i32
   %cmp538.i = icmp ugt i32 %1, %conv537.i
@@ -20794,10 +20702,10 @@ land.rhs563.i:                                    ; preds = %if.then531.i, %whil
   %matchLength.i.111730 = phi i64 [ %inc574.i, %while.body571.i ], [ %matchLength.i.8, %if.then531.i ]
   %start.i.91729 = phi ptr [ %arrayidx564.i, %while.body571.i ], [ %start.i.6, %if.then531.i ]
   %arrayidx564.i = getelementptr inbounds i8, ptr %start.i.91729, i64 -1
-  %106 = load i8, ptr %arrayidx564.i, align 1
+  %114 = load i8, ptr %arrayidx564.i, align 1
   %arrayidx566.i = getelementptr inbounds i8, ptr %match.i.01731, i64 -1
-  %107 = load i8, ptr %arrayidx566.i, align 1
-  %cmp568.i = icmp eq i8 %106, %107
+  %115 = load i8, ptr %arrayidx566.i, align 1
+  %cmp568.i = icmp eq i8 %114, %115
   br i1 %cmp568.i, label %while.body571.i, label %if.end576.i
 
 while.body571.i:                                  ; preds = %land.rhs563.i
@@ -20810,12 +20718,12 @@ while.body571.i:                                  ; preds = %land.rhs563.i
 if.end576.i:                                      ; preds = %while.body571.i, %land.rhs563.i, %if.then531.i
   %start.i.9.lcssa = phi ptr [ %start.i.6, %if.then531.i ], [ %start.i.91729, %land.rhs563.i ], [ %arrayidx564.i, %while.body571.i ]
   %matchLength.i.11.lcssa = phi i64 [ %matchLength.i.8, %if.then531.i ], [ %matchLength.i.111730, %land.rhs563.i ], [ %inc574.i, %while.body571.i ]
-  %108 = trunc i64 %offBase.i.6 to i32
-  %conv578.i = add i32 %108, -3
+  %116 = trunc i64 %offBase.i.6 to i32
+  %conv578.i = add i32 %116, -3
   br label %_storeSequence.i
 
 _storeSequence.i:                                 ; preds = %if.end500.i._storeSequence.i_crit_edge, %if.end576.i
-  %conv583.i.pre-phi = phi i32 [ %.pre1791, %if.end500.i._storeSequence.i_crit_edge ], [ %108, %if.end576.i ]
+  %conv583.i.pre-phi = phi i32 [ %.pre1791, %if.end500.i._storeSequence.i_crit_edge ], [ %116, %if.end576.i ]
   %start.i.11 = phi ptr [ %start.i.6, %if.end500.i._storeSequence.i_crit_edge ], [ %start.i.9.lcssa, %if.end576.i ]
   %matchLength.i.13 = phi i64 [ %matchLength.i.8, %if.end500.i._storeSequence.i_crit_edge ], [ %matchLength.i.11.lcssa, %if.end576.i ]
   %offset_2.i.3 = phi i32 [ %offset_2.i.2.ph1750, %if.end500.i._storeSequence.i_crit_edge ], [ %offset_1.i.1.ph1751, %if.end576.i ]
@@ -20824,15 +20732,15 @@ _storeSequence.i:                                 ; preds = %if.end500.i._storeS
   %sub.ptr.sub582.i = sub i64 %sub.ptr.lhs.cast580.i, %sub.ptr.rhs.cast216.i
   %add.ptr1.i608 = getelementptr inbounds i8, ptr %anchor.i.0.ph1752, i64 %sub.ptr.sub582.i
   %cmp.i609.not = icmp ugt ptr %add.ptr1.i608, %add.ptr.i607
-  %109 = load ptr, ptr %lit.i647, align 8
+  %117 = load ptr, ptr %lit.i647, align 8
   br i1 %cmp.i609.not, label %if.else.i610, label %if.then.i646
 
 if.then.i646:                                     ; preds = %_storeSequence.i
   %anchor.i.0.val = load <2 x i64>, ptr %anchor.i.0.ph1752, align 1
-  store <2 x i64> %anchor.i.0.val, ptr %109, align 1
+  store <2 x i64> %anchor.i.0.val, ptr %117, align 1
   %cmp2.i648 = icmp ugt i64 %sub.ptr.sub582.i, 16
-  %110 = load ptr, ptr %lit.i647, align 8
-  %add.ptr.i661 = getelementptr inbounds i8, ptr %110, i64 %sub.ptr.sub582.i
+  %118 = load ptr, ptr %lit.i647, align 8
+  %add.ptr.i661 = getelementptr inbounds i8, ptr %118, i64 %sub.ptr.sub582.i
   br i1 %cmp2.i648, label %if.then3.i650, label %if.end8.i612.thread
 
 if.end8.i612.thread:                              ; preds = %if.then.i646
@@ -20842,14 +20750,14 @@ if.end8.i612.thread:                              ; preds = %if.then.i646
 
 if.then3.i650:                                    ; preds = %if.then.i646
   %add.ptr6.i653 = getelementptr inbounds i8, ptr %anchor.i.0.ph1752, i64 16
-  %add.ptr5.i652 = getelementptr inbounds i8, ptr %110, i64 16
+  %add.ptr5.i652 = getelementptr inbounds i8, ptr %118, i64 16
   %add.ptr6.i653.val = load <2 x i64>, ptr %add.ptr6.i653, align 1
   store <2 x i64> %add.ptr6.i653.val, ptr %add.ptr5.i652, align 1
   %cmp7.i664 = icmp slt i64 %sub.ptr.sub582.i, 33
   br i1 %cmp7.i664, label %if.end8.i612, label %if.end.i665
 
 if.end.i665:                                      ; preds = %if.then3.i650
-  %add.ptr9.i666 = getelementptr inbounds i8, ptr %110, i64 32
+  %add.ptr9.i666 = getelementptr inbounds i8, ptr %118, i64 32
   br label %do.body11.i
 
 do.body11.i:                                      ; preds = %do.body11.i, %if.end.i665
@@ -20873,14 +20781,14 @@ if.else.i610:                                     ; preds = %_storeSequence.i
 
 if.then.i:                                        ; preds = %if.else.i610
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i1625, %sub.ptr.rhs.cast216.i
-  %add.ptr.i.i1627 = getelementptr inbounds i8, ptr %109, i64 %sub.ptr.sub.i
+  %add.ptr.i.i1627 = getelementptr inbounds i8, ptr %117, i64 %sub.ptr.sub.i
   %ip.val.i = load <2 x i64>, ptr %anchor.i.0.ph1752, align 1
-  store <2 x i64> %ip.val.i, ptr %109, align 1
+  store <2 x i64> %ip.val.i, ptr %117, align 1
   %cmp7.i.i = icmp slt i64 %sub.ptr.sub.i, 17
   br i1 %cmp7.i.i, label %if.end.i, label %if.end.i.i1628
 
 if.end.i.i1628:                                   ; preds = %if.then.i
-  %add.ptr9.i.i = getelementptr inbounds i8, ptr %109, i64 16
+  %add.ptr9.i.i = getelementptr inbounds i8, ptr %117, i64 16
   br label %do.body11.i.i
 
 do.body11.i.i:                                    ; preds = %do.body11.i.i, %if.end.i.i1628
@@ -20898,30 +20806,30 @@ do.body11.i.i:                                    ; preds = %do.body11.i.i, %if.
   br i1 %cmp23.i.i, label %do.body11.i.i, label %if.end.i, !llvm.loop !19
 
 if.end.i:                                         ; preds = %do.body11.i.i, %if.then.i, %if.else.i610
-  %op.addr.0.i = phi ptr [ %add.ptr.i.i1627, %if.then.i ], [ %109, %if.else.i610 ], [ %add.ptr.i.i1627, %do.body11.i.i ]
+  %op.addr.0.i = phi ptr [ %add.ptr.i.i1627, %if.then.i ], [ %117, %if.else.i610 ], [ %add.ptr.i.i1627, %do.body11.i.i ]
   %ip.addr.0.i = phi ptr [ %add.ptr.i607, %if.then.i ], [ %anchor.i.0.ph1752, %if.else.i610 ], [ %add.ptr.i607, %do.body11.i.i ]
   %cmp432.i = icmp ult ptr %ip.addr.0.i, %add.ptr1.i608
   br i1 %cmp432.i, label %while.body.preheader.i, label %if.end8.i612
 
 while.body.preheader.i:                           ; preds = %if.end.i
   %ip.addr.036.i = ptrtoint ptr %ip.addr.0.i to i64
-  %111 = sub i64 %iend35.i, %ip.addr.036.i
-  %scevgep.i = getelementptr i8, ptr %ip.addr.0.i, i64 %111
+  %119 = sub i64 %iend35.i, %ip.addr.036.i
+  %scevgep.i = getelementptr i8, ptr %ip.addr.0.i, i64 %119
   br label %while.body.i1629
 
 while.body.i1629:                                 ; preds = %while.body.i1629, %while.body.preheader.i
   %ip.addr.134.i = phi ptr [ %incdec.ptr.i1630, %while.body.i1629 ], [ %ip.addr.0.i, %while.body.preheader.i ]
   %op.addr.133.i = phi ptr [ %incdec.ptr5.i, %while.body.i1629 ], [ %op.addr.0.i, %while.body.preheader.i ]
   %incdec.ptr.i1630 = getelementptr inbounds i8, ptr %ip.addr.134.i, i64 1
-  %112 = load i8, ptr %ip.addr.134.i, align 1
+  %120 = load i8, ptr %ip.addr.134.i, align 1
   %incdec.ptr5.i = getelementptr inbounds i8, ptr %op.addr.133.i, i64 1
-  store i8 %112, ptr %op.addr.133.i, align 1
+  store i8 %120, ptr %op.addr.133.i, align 1
   %exitcond.not.i1631 = icmp eq ptr %incdec.ptr.i1630, %scevgep.i
   br i1 %exitcond.not.i1631, label %if.end8.i612, label %while.body.i1629, !llvm.loop !20
 
 if.end8.i612:                                     ; preds = %do.body11.i, %while.body.i1629, %if.end.i, %if.then3.i650
-  %113 = load ptr, ptr %lit.i647, align 8
-  %add.ptr10.i614 = getelementptr inbounds i8, ptr %113, i64 %sub.ptr.sub582.i
+  %121 = load ptr, ptr %lit.i647, align 8
+  %add.ptr10.i614 = getelementptr inbounds i8, ptr %121, i64 %sub.ptr.sub582.i
   store ptr %add.ptr10.i614, ptr %lit.i647, align 8
   %cmp11.i615 = icmp ugt i64 %sub.ptr.sub582.i, 65535
   %.pre1787 = load ptr, ptr %sequences.i639, align 8
@@ -20929,9 +20837,9 @@ if.end8.i612:                                     ; preds = %do.body11.i, %while
 
 if.then12.i637:                                   ; preds = %if.end8.i612
   store i32 1, ptr %longLengthType.i638, align 8
-  %114 = load ptr, ptr %seqStore, align 8
+  %122 = load ptr, ptr %seqStore, align 8
   %sub.ptr.lhs.cast.i640 = ptrtoint ptr %.pre1787 to i64
-  %sub.ptr.rhs.cast.i641 = ptrtoint ptr %114 to i64
+  %sub.ptr.rhs.cast.i641 = ptrtoint ptr %122 to i64
   %sub.ptr.sub.i642 = sub i64 %sub.ptr.lhs.cast.i640, %sub.ptr.rhs.cast.i641
   %sub.ptr.div.i643 = lshr exact i64 %sub.ptr.sub.i642, 3
   %conv.i644 = trunc i64 %sub.ptr.div.i643 to i32
@@ -20939,12 +20847,12 @@ if.then12.i637:                                   ; preds = %if.end8.i612
   br label %if.end13.i616
 
 if.end13.i616:                                    ; preds = %if.end8.i612.thread, %if.then12.i637, %if.end8.i612
-  %115 = phi ptr [ %.pre, %if.end8.i612.thread ], [ %.pre1787, %if.then12.i637 ], [ %.pre1787, %if.end8.i612 ]
+  %123 = phi ptr [ %.pre, %if.end8.i612.thread ], [ %.pre1787, %if.then12.i637 ], [ %.pre1787, %if.end8.i612 ]
   %conv14.i617 = trunc i64 %sub.ptr.sub582.i to i16
-  %litLength16.i619 = getelementptr inbounds %struct.seqDef_s, ptr %115, i64 0, i32 1
+  %litLength16.i619 = getelementptr inbounds %struct.seqDef_s, ptr %123, i64 0, i32 1
   store i16 %conv14.i617, ptr %litLength16.i619, align 4
-  %116 = load ptr, ptr %sequences.i639, align 8
-  store i32 %conv583.i.pre-phi, ptr %116, align 4
+  %124 = load ptr, ptr %sequences.i639, align 8
+  store i32 %conv583.i.pre-phi, ptr %124, align 4
   %sub20.i621 = add i64 %matchLength.i.13, -3
   %cmp21.i622 = icmp ugt i64 %sub20.i621, 65535
   %.pre1788 = load ptr, ptr %sequences.i639, align 8
@@ -20952,9 +20860,9 @@ if.end13.i616:                                    ; preds = %if.end8.i612.thread
 
 if.then23.i628:                                   ; preds = %if.end13.i616
   store i32 2, ptr %longLengthType.i638, align 8
-  %117 = load ptr, ptr %seqStore, align 8
+  %125 = load ptr, ptr %seqStore, align 8
   %sub.ptr.lhs.cast27.i631 = ptrtoint ptr %.pre1788 to i64
-  %sub.ptr.rhs.cast28.i632 = ptrtoint ptr %117 to i64
+  %sub.ptr.rhs.cast28.i632 = ptrtoint ptr %125 to i64
   %sub.ptr.sub29.i633 = sub i64 %sub.ptr.lhs.cast27.i631, %sub.ptr.rhs.cast28.i632
   %sub.ptr.div30.i634 = lshr exact i64 %sub.ptr.sub29.i633, 3
   %conv31.i635 = trunc i64 %sub.ptr.div30.i634 to i32
@@ -20965,12 +20873,12 @@ ZSTD_storeSeq.exit655:                            ; preds = %if.then23.i628, %if
   %conv34.i623 = trunc i64 %sub20.i621 to i16
   %mlBase37.i625 = getelementptr inbounds %struct.seqDef_s, ptr %.pre1788, i64 0, i32 2
   store i16 %conv34.i623, ptr %mlBase37.i625, align 2
-  %118 = load ptr, ptr %sequences.i639, align 8
-  %incdec.ptr.i627 = getelementptr inbounds %struct.seqDef_s, ptr %118, i64 1
+  %126 = load ptr, ptr %sequences.i639, align 8
+  %incdec.ptr.i627 = getelementptr inbounds %struct.seqDef_s, ptr %126, i64 1
   store ptr %incdec.ptr.i627, ptr %sequences.i639, align 8
   %add.ptr584.i = getelementptr inbounds i8, ptr %start.i.11, i64 %matchLength.i.13
-  %119 = load i32, ptr %lazySkipping.i, align 4
-  %tobool586.i.not = icmp eq i32 %119, 0
+  %127 = load i32, ptr %lazySkipping.i, align 4
+  %tobool586.i.not = icmp eq i32 %127, 0
   br i1 %tobool586.i.not, label %if.end594.i, label %if.end592.i
 
 if.end592.i:                                      ; preds = %ZSTD_storeSeq.exit655
@@ -20993,8 +20901,8 @@ while.body600.i:                                  ; preds = %if.end594.i, %ZSTD_
   %idx.ext614.i = zext i32 %sub606.i to i64
   %cond620.i.v = select i1 %cmp608.i, ptr %invariant.gep, ptr %0
   %cond620.i = getelementptr inbounds i8, ptr %cond620.i.v, i64 %idx.ext614.i
-  %120 = sub i32 %sub606.i, %1
-  %cmp623.i = icmp ult i32 %120, -3
+  %128 = sub i32 %sub606.i, %1
+  %cmp623.i = icmp ult i32 %128, -3
   br i1 %cmp623.i, label %land.lhs.true625.i, label %if.end678.i
 
 land.lhs.true625.i:                               ; preds = %while.body600.i
@@ -21025,8 +20933,8 @@ if.then.i.i:                                      ; preds = %if.then630.i
   br i1 %tobool.not.i.i, label %while.cond.i.i, label %if.then2.i.i
 
 if.then2.i.i:                                     ; preds = %if.then.i.i
-  %121 = tail call i64 @llvm.cttz.i64(i64 %xor.i.i, i1 true), !range !16
-  %shr.i.i.i = lshr i64 %121, 3
+  %129 = tail call i64 @llvm.cttz.i64(i64 %xor.i.i, i1 true), !range !16
+  %shr.i.i.i = lshr i64 %129, 3
   br label %ZSTD_count.exit.i
 
 while.cond.i.i:                                   ; preds = %if.then.i.i, %while.body.i.i
@@ -21045,8 +20953,8 @@ while.body.i.i:                                   ; preds = %while.cond.i.i
   br i1 %tobool12.not.i.i, label %while.cond.i.i, label %if.end16.i.i, !llvm.loop !17
 
 if.end16.i.i:                                     ; preds = %while.body.i.i
-  %122 = tail call i64 @llvm.cttz.i64(i64 %xor11.i.i, i1 true), !range !16
-  %shr.i35.i.i = lshr i64 %122, 3
+  %130 = tail call i64 @llvm.cttz.i64(i64 %xor11.i.i, i1 true), !range !16
+  %shr.i35.i.i = lshr i64 %130, 3
   %add.ptr18.i.i1640 = getelementptr inbounds i8, ptr %pIn.addr.0.i.i, i64 %shr.i35.i.i
   %sub.ptr.lhs.cast.i.i1641 = ptrtoint ptr %add.ptr18.i.i1640 to i64
   %sub.ptr.rhs.cast.i.i1642 = ptrtoint ptr %add.ptr637.i to i64
@@ -21096,9 +21004,9 @@ if.end47.i.i:                                     ; preds = %if.then44.i.i, %lan
   br i1 %cmp48.i.i, label %land.lhs.true50.i.i, label %if.end56.i.i
 
 land.lhs.true50.i.i:                              ; preds = %if.end47.i.i
-  %123 = load i8, ptr %pMatch.addr.3.i.i, align 1
-  %124 = load i8, ptr %pIn.addr.3.i.i, align 1
-  %cmp53.i.i = icmp eq i8 %123, %124
+  %131 = load i8, ptr %pMatch.addr.3.i.i, align 1
+  %132 = load i8, ptr %pIn.addr.3.i.i, align 1
+  %cmp53.i.i = icmp eq i8 %131, %132
   %spec.select.idx.i.i = zext i1 %cmp53.i.i to i64
   %spec.select.i.i = getelementptr inbounds i8, ptr %pIn.addr.3.i.i, i64 %spec.select.idx.i.i
   br label %if.end56.i.i
@@ -21129,8 +21037,8 @@ if.then.i54.i:                                    ; preds = %do.end14.i
   br i1 %tobool.not.i58.i, label %while.cond.i61.i, label %if.then2.i59.i
 
 if.then2.i59.i:                                   ; preds = %if.then.i54.i
-  %125 = tail call i64 @llvm.cttz.i64(i64 %xor.i57.i, i1 true), !range !16
-  %shr.i.i60.i = lshr i64 %125, 3
+  %133 = tail call i64 @llvm.cttz.i64(i64 %xor.i57.i, i1 true), !range !16
+  %shr.i.i60.i = lshr i64 %133, 3
   br label %ZSTD_count.exit78.i
 
 while.cond.i61.i:                                 ; preds = %if.then.i54.i, %while.body.i67.i
@@ -21149,8 +21057,8 @@ while.body.i67.i:                                 ; preds = %while.cond.i61.i
   br i1 %tobool12.not.i71.i, label %while.cond.i61.i, label %if.end16.i72.i, !llvm.loop !17
 
 if.end16.i72.i:                                   ; preds = %while.body.i67.i
-  %126 = tail call i64 @llvm.cttz.i64(i64 %xor11.i70.i, i1 true), !range !16
-  %shr.i35.i73.i = lshr i64 %126, 3
+  %134 = tail call i64 @llvm.cttz.i64(i64 %xor11.i70.i, i1 true), !range !16
+  %shr.i35.i73.i = lshr i64 %134, 3
   %add.ptr18.i74.i = getelementptr inbounds i8, ptr %pIn.addr.0.i64.i, i64 %shr.i35.i73.i
   %sub.ptr.lhs.cast.i75.i = ptrtoint ptr %add.ptr18.i74.i to i64
   %sub.ptr.rhs.cast.i76.i = ptrtoint ptr %add.ptr15.i to i64
@@ -21198,9 +21106,9 @@ if.end47.i26.i:                                   ; preds = %if.then44.i44.i, %l
   br i1 %cmp48.i29.i, label %land.lhs.true50.i36.i, label %if.end56.i30.i
 
 land.lhs.true50.i36.i:                            ; preds = %if.end47.i26.i
-  %127 = load i8, ptr %pMatch.addr.3.i27.i, align 1
-  %128 = load i8, ptr %pIn.addr.3.i28.i, align 1
-  %cmp53.i37.i = icmp eq i8 %127, %128
+  %135 = load i8, ptr %pMatch.addr.3.i27.i, align 1
+  %136 = load i8, ptr %pIn.addr.3.i28.i, align 1
+  %cmp53.i37.i = icmp eq i8 %135, %136
   %spec.select.idx.i38.i = zext i1 %cmp53.i37.i to i64
   %spec.select.i39.i = getelementptr inbounds i8, ptr %pIn.addr.3.i28.i, i64 %spec.select.idx.i38.i
   br label %if.end56.i30.i
@@ -21224,17 +21132,17 @@ ZSTD_count_2segments.exit:                        ; preds = %ZSTD_count.exit.i, 
   br i1 %cmp.i527.not, label %if.end13.i, label %if.then.i535
 
 if.then.i535:                                     ; preds = %ZSTD_count_2segments.exit
-  %129 = load ptr, ptr %lit.i647, align 8
+  %137 = load ptr, ptr %lit.i647, align 8
   %ip.i.2.val1336 = load <2 x i64>, ptr %ip.i.21739, align 1
-  store <2 x i64> %ip.i.2.val1336, ptr %129, align 1
+  store <2 x i64> %ip.i.2.val1336, ptr %137, align 1
   br label %if.end13.i
 
 if.end13.i:                                       ; preds = %ZSTD_count_2segments.exit, %if.then.i535
-  %130 = load ptr, ptr %sequences.i639, align 8
-  %litLength16.i = getelementptr inbounds %struct.seqDef_s, ptr %130, i64 0, i32 1
+  %138 = load ptr, ptr %sequences.i639, align 8
+  %litLength16.i = getelementptr inbounds %struct.seqDef_s, ptr %138, i64 0, i32 1
   store i16 0, ptr %litLength16.i, align 4
-  %131 = load ptr, ptr %sequences.i639, align 8
-  store i32 1, ptr %131, align 4
+  %139 = load ptr, ptr %sequences.i639, align 8
+  store i32 1, ptr %139, align 4
   %sub20.i = add i64 %retval.0.i, 1
   %cmp21.i = icmp ugt i64 %sub20.i, 65535
   %.pre1789 = load ptr, ptr %sequences.i639, align 8
@@ -21242,9 +21150,9 @@ if.end13.i:                                       ; preds = %ZSTD_count_2segment
 
 if.then23.i:                                      ; preds = %if.end13.i
   store i32 2, ptr %longLengthType.i638, align 8
-  %132 = load ptr, ptr %seqStore, align 8
+  %140 = load ptr, ptr %seqStore, align 8
   %sub.ptr.lhs.cast27.i = ptrtoint ptr %.pre1789 to i64
-  %sub.ptr.rhs.cast28.i = ptrtoint ptr %132 to i64
+  %sub.ptr.rhs.cast28.i = ptrtoint ptr %140 to i64
   %sub.ptr.sub29.i = sub i64 %sub.ptr.lhs.cast27.i, %sub.ptr.rhs.cast28.i
   %sub.ptr.div30.i = lshr exact i64 %sub.ptr.sub29.i, 3
   %conv31.i = trunc i64 %sub.ptr.div30.i to i32
@@ -21255,8 +21163,8 @@ ZSTD_storeSeq.exit:                               ; preds = %if.then23.i, %if.en
   %conv34.i = trunc i64 %sub20.i to i16
   %mlBase37.i = getelementptr inbounds %struct.seqDef_s, ptr %.pre1789, i64 0, i32 2
   store i16 %conv34.i, ptr %mlBase37.i, align 2
-  %133 = load ptr, ptr %sequences.i639, align 8
-  %incdec.ptr.i530 = getelementptr inbounds %struct.seqDef_s, ptr %133, i64 1
+  %141 = load ptr, ptr %sequences.i639, align 8
+  %incdec.ptr.i530 = getelementptr inbounds %struct.seqDef_s, ptr %141, i64 1
   store ptr %incdec.ptr.i530, ptr %sequences.i639, align 8
   %add.ptr643.i = getelementptr inbounds i8, ptr %ip.i.21739, i64 %add640.i
   %cmp598.i.not = icmp ugt ptr %add.ptr643.i, %add.ptr1.i
@@ -21390,7 +21298,7 @@ if.then93.i:                                      ; preds = %if.then87.i
 
 if.end110.i:                                      ; preds = %if.then87.i, %while.body.i
   store i64 999999999, ptr %ofbCandidate.i, align 8
-  switch i32 %spec.select1250, label %sw.epilog97.i463 [
+  switch i32 %spec.select1250, label %default.unreachable [
     i32 4, label %sw.bb50.i477
     i32 5, label %sw.bb52.i475
     i32 6, label %sw.bb54.i473
@@ -21408,7 +21316,7 @@ sw.bb54.i473:                                     ; preds = %if.end110.i
   %call55.i474 = call fastcc i64 @ZSTD_HcFindBestMatch_extDict_6(ptr noundef nonnull %ms, ptr noundef %ip.i.01283, ptr noundef %add.ptr.i, ptr noundef nonnull %ofbCandidate.i), !range !14
   br label %if.then114.i
 
-sw.epilog97.i463:                                 ; preds = %if.end110.i
+default.unreachable:                              ; preds = %if.end110.i
   unreachable
 
 if.then114.i:                                     ; preds = %sw.bb50.i477, %sw.bb52.i475, %sw.bb54.i473
@@ -22267,14 +22175,14 @@ if.then93.i:                                      ; preds = %if.then87.i
 
 if.end110.i:                                      ; preds = %if.then87.i, %while.body.i
   store i64 999999999, ptr %ofbCandidate.i, align 8
-  switch i32 %spec.select1288, label %sw.epilog97.i463 [
+  switch i32 %spec.select1288, label %default.unreachable [
     i32 4, label %sw.bb66.i454
     i32 5, label %sw.bb76.i446
     i32 6, label %sw.bb86.i438
   ]
 
 sw.bb66.i454:                                     ; preds = %if.end110.i
-  switch i32 %cond59.i, label %sw.epilog73.i461 [
+  switch i32 %cond59.i, label %default.unreachable [
     i32 4, label %sw.bb67.i459
     i32 5, label %sw.bb69.i457
     i32 6, label %sw.bb71.i455
@@ -22292,11 +22200,8 @@ sw.bb71.i455:                                     ; preds = %sw.bb66.i454
   %call72.i456 = call fastcc i64 @ZSTD_RowFindBestMatch_extDict_4_6(ptr noundef nonnull %ms, ptr noundef %ip.i.01428, ptr noundef %add.ptr.i, ptr noundef nonnull %ofbCandidate.i), !range !14
   br label %if.then114.i
 
-sw.epilog73.i461:                                 ; preds = %sw.bb66.i454
-  unreachable
-
 sw.bb76.i446:                                     ; preds = %if.end110.i
-  switch i32 %cond59.i, label %sw.epilog83.i453 [
+  switch i32 %cond59.i, label %default.unreachable [
     i32 4, label %sw.bb77.i451
     i32 5, label %sw.bb79.i449
     i32 6, label %sw.bb81.i447
@@ -22314,11 +22219,8 @@ sw.bb81.i447:                                     ; preds = %sw.bb76.i446
   %call82.i448 = call fastcc i64 @ZSTD_RowFindBestMatch_extDict_5_6(ptr noundef nonnull %ms, ptr noundef %ip.i.01428, ptr noundef %add.ptr.i, ptr noundef nonnull %ofbCandidate.i), !range !14
   br label %if.then114.i
 
-sw.epilog83.i453:                                 ; preds = %sw.bb76.i446
-  unreachable
-
 sw.bb86.i438:                                     ; preds = %if.end110.i
-  switch i32 %cond59.i, label %sw.epilog93.i445 [
+  switch i32 %cond59.i, label %default.unreachable [
     i32 4, label %sw.bb87.i443
     i32 5, label %sw.bb89.i441
     i32 6, label %sw.bb91.i439
@@ -22336,10 +22238,7 @@ sw.bb91.i439:                                     ; preds = %sw.bb86.i438
   %call92.i440 = call fastcc i64 @ZSTD_RowFindBestMatch_extDict_6_6(ptr noundef nonnull %ms, ptr noundef %ip.i.01428, ptr noundef %add.ptr.i, ptr noundef nonnull %ofbCandidate.i), !range !14
   br label %if.then114.i
 
-sw.epilog93.i445:                                 ; preds = %sw.bb86.i438
-  unreachable
-
-sw.epilog97.i463:                                 ; preds = %if.end110.i
+default.unreachable:                              ; preds = %sw.bb86.i438, %sw.bb76.i446, %sw.bb66.i454, %if.end110.i
   unreachable
 
 if.then114.i:                                     ; preds = %sw.bb67.i459, %sw.bb69.i457, %sw.bb71.i455, %sw.bb77.i451, %sw.bb79.i449, %sw.bb81.i447, %sw.bb87.i443, %sw.bb89.i441, %sw.bb91.i439
@@ -23080,7 +22979,7 @@ if.then93.i:                                      ; preds = %if.then87.i
 if.end110.i:                                      ; preds = %if.then93.i, %if.then87.i, %while.body.i
   %matchLength.i.0 = phi i64 [ %add104.i, %if.then93.i ], [ 0, %if.then87.i ], [ 0, %while.body.i ]
   store i64 999999999, ptr %ofbCandidate.i, align 8
-  switch i32 %spec.select1263, label %sw.epilog97.i463 [
+  switch i32 %spec.select1263, label %if.end110.i.unreachabledefault [
     i32 4, label %sw.bb50.i477
     i32 5, label %sw.bb52.i475
     i32 6, label %sw.bb54.i473
@@ -23098,7 +22997,10 @@ sw.bb54.i473:                                     ; preds = %if.end110.i
   %call55.i474 = call fastcc i64 @ZSTD_HcFindBestMatch_extDict_6(ptr noundef nonnull %ms, ptr noundef %ip.i.01284, ptr noundef %add.ptr.i, ptr noundef nonnull %ofbCandidate.i), !range !14
   br label %ZSTD_searchMax.exit524
 
-sw.epilog97.i463:                                 ; preds = %if.end110.i
+if.end110.i.unreachabledefault:                   ; preds = %if.end110.i
+  unreachable
+
+default.unreachable:                              ; preds = %if.end193.i
   unreachable
 
 ZSTD_searchMax.exit524:                           ; preds = %sw.bb54.i473, %sw.bb52.i475, %sw.bb50.i477
@@ -23196,7 +23098,7 @@ if.end193.i:                                      ; preds = %if.then136.i, %if.t
   %offBase.i.2 = phi i64 [ 1, %if.then189.i ], [ %offBase.i.1, %land.lhs.true.i ], [ %offBase.i.1, %if.then165.i ], [ %offBase.i.1, %if.then160.i ], [ %offBase.i.1, %if.then136.i ], [ 0, %while.body134.i ]
   %matchLength.i.3 = phi i64 [ %add176.i, %if.then189.i ], [ %matchLength.i.2, %land.lhs.true.i ], [ %matchLength.i.2, %if.then165.i ], [ %matchLength.i.2, %if.then160.i ], [ %matchLength.i.2, %if.then136.i ], [ %matchLength.i.2, %while.body134.i ]
   store i64 999999999, ptr %ofbCandidate194.i, align 8
-  switch i32 %spec.select1263, label %sw.epilog97.i270 [
+  switch i32 %spec.select1263, label %default.unreachable [
     i32 4, label %sw.bb50.i284
     i32 5, label %sw.bb52.i282
     i32 6, label %sw.bb54.i280
@@ -23213,9 +23115,6 @@ sw.bb52.i282:                                     ; preds = %if.end193.i
 sw.bb54.i280:                                     ; preds = %if.end193.i
   %call55.i281 = call fastcc i64 @ZSTD_HcFindBestMatch_extDict_6(ptr noundef %ms, ptr noundef nonnull %incdec.ptr.i, ptr noundef %add.ptr.i, ptr noundef nonnull %ofbCandidate194.i), !range !14
   br label %ZSTD_searchMax.exit331
-
-sw.epilog97.i270:                                 ; preds = %if.end193.i
-  unreachable
 
 ZSTD_searchMax.exit331:                           ; preds = %sw.bb54.i280, %sw.bb52.i282, %sw.bb50.i284
   %retval.i138.0 = phi i64 [ %call55.i281, %sw.bb54.i280 ], [ %call53.i283, %sw.bb52.i282 ], [ %call51.i285, %sw.bb50.i284 ]
@@ -24085,14 +23984,14 @@ if.then93.i:                                      ; preds = %if.then87.i
 if.end110.i:                                      ; preds = %if.then93.i, %if.then87.i, %while.body.i
   %matchLength.i.0 = phi i64 [ %add104.i, %if.then93.i ], [ 0, %if.then87.i ], [ 0, %while.body.i ]
   store i64 999999999, ptr %ofbCandidate.i, align 8
-  switch i32 %spec.select1301, label %sw.epilog97.i463 [
+  switch i32 %spec.select1301, label %if.end110.i.unreachabledefault [
     i32 4, label %sw.bb66.i454
     i32 5, label %sw.bb76.i446
     i32 6, label %sw.bb86.i438
   ]
 
 sw.bb66.i454:                                     ; preds = %if.end110.i
-  switch i32 %cond59.i, label %sw.epilog73.i461 [
+  switch i32 %cond59.i, label %sw.bb66.i454.unreachabledefault [
     i32 4, label %sw.bb67.i459
     i32 5, label %sw.bb69.i457
     i32 6, label %sw.bb71.i455
@@ -24110,11 +24009,8 @@ sw.bb71.i455:                                     ; preds = %sw.bb66.i454
   %call72.i456 = call fastcc i64 @ZSTD_RowFindBestMatch_extDict_4_6(ptr noundef nonnull %ms, ptr noundef %ip.i.01429, ptr noundef %add.ptr.i, ptr noundef nonnull %ofbCandidate.i), !range !14
   br label %ZSTD_searchMax.exit524
 
-sw.epilog73.i461:                                 ; preds = %sw.bb66.i454
-  unreachable
-
 sw.bb76.i446:                                     ; preds = %if.end110.i
-  switch i32 %cond59.i, label %sw.epilog83.i453 [
+  switch i32 %cond59.i, label %sw.bb76.i446.unreachabledefault [
     i32 4, label %sw.bb77.i451
     i32 5, label %sw.bb79.i449
     i32 6, label %sw.bb81.i447
@@ -24132,11 +24028,8 @@ sw.bb81.i447:                                     ; preds = %sw.bb76.i446
   %call82.i448 = call fastcc i64 @ZSTD_RowFindBestMatch_extDict_5_6(ptr noundef nonnull %ms, ptr noundef %ip.i.01429, ptr noundef %add.ptr.i, ptr noundef nonnull %ofbCandidate.i), !range !14
   br label %ZSTD_searchMax.exit524
 
-sw.epilog83.i453:                                 ; preds = %sw.bb76.i446
-  unreachable
-
 sw.bb86.i438:                                     ; preds = %if.end110.i
-  switch i32 %cond59.i, label %sw.epilog93.i445 [
+  switch i32 %cond59.i, label %sw.bb86.i438.unreachabledefault [
     i32 4, label %sw.bb87.i443
     i32 5, label %sw.bb89.i441
     i32 6, label %sw.bb91.i439
@@ -24154,10 +24047,19 @@ sw.bb91.i439:                                     ; preds = %sw.bb86.i438
   %call92.i440 = call fastcc i64 @ZSTD_RowFindBestMatch_extDict_6_6(ptr noundef nonnull %ms, ptr noundef %ip.i.01429, ptr noundef %add.ptr.i, ptr noundef nonnull %ofbCandidate.i), !range !14
   br label %ZSTD_searchMax.exit524
 
-sw.epilog93.i445:                                 ; preds = %sw.bb86.i438
+if.end110.i.unreachabledefault:                   ; preds = %if.end110.i
   unreachable
 
-sw.epilog97.i463:                                 ; preds = %if.end110.i
+sw.bb66.i454.unreachabledefault:                  ; preds = %sw.bb66.i454
+  unreachable
+
+sw.bb76.i446.unreachabledefault:                  ; preds = %sw.bb76.i446
+  unreachable
+
+sw.bb86.i438.unreachabledefault:                  ; preds = %sw.bb86.i438
+  unreachable
+
+default.unreachable:                              ; preds = %sw.bb86.i245, %sw.bb76.i253, %sw.bb66.i261, %if.end193.i
   unreachable
 
 ZSTD_searchMax.exit524:                           ; preds = %sw.bb91.i439, %sw.bb89.i441, %sw.bb87.i443, %sw.bb81.i447, %sw.bb79.i449, %sw.bb77.i451, %sw.bb71.i455, %sw.bb69.i457, %sw.bb67.i459
@@ -24255,14 +24157,14 @@ if.end193.i:                                      ; preds = %if.then136.i, %if.t
   %offBase.i.2 = phi i64 [ 1, %if.then189.i ], [ %offBase.i.1, %land.lhs.true.i ], [ %offBase.i.1, %if.then165.i ], [ %offBase.i.1, %if.then160.i ], [ %offBase.i.1, %if.then136.i ], [ 0, %while.body134.i ]
   %matchLength.i.3 = phi i64 [ %add176.i, %if.then189.i ], [ %matchLength.i.2, %land.lhs.true.i ], [ %matchLength.i.2, %if.then165.i ], [ %matchLength.i.2, %if.then160.i ], [ %matchLength.i.2, %if.then136.i ], [ %matchLength.i.2, %while.body134.i ]
   store i64 999999999, ptr %ofbCandidate194.i, align 8
-  switch i32 %spec.select1301, label %sw.epilog97.i270 [
+  switch i32 %spec.select1301, label %default.unreachable [
     i32 4, label %sw.bb66.i261
     i32 5, label %sw.bb76.i253
     i32 6, label %sw.bb86.i245
   ]
 
 sw.bb66.i261:                                     ; preds = %if.end193.i
-  switch i32 %cond59.i, label %sw.epilog73.i268 [
+  switch i32 %cond59.i, label %default.unreachable [
     i32 4, label %sw.bb67.i266
     i32 5, label %sw.bb69.i264
     i32 6, label %sw.bb71.i262
@@ -24280,11 +24182,8 @@ sw.bb71.i262:                                     ; preds = %sw.bb66.i261
   %call72.i263 = call fastcc i64 @ZSTD_RowFindBestMatch_extDict_4_6(ptr noundef %ms, ptr noundef nonnull %incdec.ptr.i, ptr noundef %add.ptr.i, ptr noundef nonnull %ofbCandidate194.i), !range !14
   br label %ZSTD_searchMax.exit331
 
-sw.epilog73.i268:                                 ; preds = %sw.bb66.i261
-  unreachable
-
 sw.bb76.i253:                                     ; preds = %if.end193.i
-  switch i32 %cond59.i, label %sw.epilog83.i260 [
+  switch i32 %cond59.i, label %default.unreachable [
     i32 4, label %sw.bb77.i258
     i32 5, label %sw.bb79.i256
     i32 6, label %sw.bb81.i254
@@ -24302,11 +24201,8 @@ sw.bb81.i254:                                     ; preds = %sw.bb76.i253
   %call82.i255 = call fastcc i64 @ZSTD_RowFindBestMatch_extDict_5_6(ptr noundef %ms, ptr noundef nonnull %incdec.ptr.i, ptr noundef %add.ptr.i, ptr noundef nonnull %ofbCandidate194.i), !range !14
   br label %ZSTD_searchMax.exit331
 
-sw.epilog83.i260:                                 ; preds = %sw.bb76.i253
-  unreachable
-
 sw.bb86.i245:                                     ; preds = %if.end193.i
-  switch i32 %cond59.i, label %sw.epilog93.i252 [
+  switch i32 %cond59.i, label %default.unreachable [
     i32 4, label %sw.bb87.i250
     i32 5, label %sw.bb89.i248
     i32 6, label %sw.bb91.i246
@@ -24323,12 +24219,6 @@ sw.bb89.i248:                                     ; preds = %sw.bb86.i245
 sw.bb91.i246:                                     ; preds = %sw.bb86.i245
   %call92.i247 = call fastcc i64 @ZSTD_RowFindBestMatch_extDict_6_6(ptr noundef %ms, ptr noundef nonnull %incdec.ptr.i, ptr noundef %add.ptr.i, ptr noundef nonnull %ofbCandidate194.i), !range !14
   br label %ZSTD_searchMax.exit331
-
-sw.epilog93.i252:                                 ; preds = %sw.bb86.i245
-  unreachable
-
-sw.epilog97.i270:                                 ; preds = %if.end193.i
-  unreachable
 
 ZSTD_searchMax.exit331:                           ; preds = %sw.bb91.i246, %sw.bb89.i248, %sw.bb87.i250, %sw.bb81.i254, %sw.bb79.i256, %sw.bb77.i258, %sw.bb71.i262, %sw.bb69.i264, %sw.bb67.i266
   %retval.i138.0 = phi i64 [ %call92.i247, %sw.bb91.i246 ], [ %call90.i249, %sw.bb89.i248 ], [ %call88.i251, %sw.bb87.i250 ], [ %call82.i255, %sw.bb81.i254 ], [ %call80.i257, %sw.bb79.i256 ], [ %call78.i259, %sw.bb77.i258 ], [ %call72.i263, %sw.bb71.i262 ], [ %call70.i265, %sw.bb69.i264 ], [ %call68.i267, %sw.bb67.i266 ]
@@ -25081,7 +24971,7 @@ if.then93.i:                                      ; preds = %if.then87.i
 if.end110.i:                                      ; preds = %if.then93.i, %if.then87.i, %while.body.i
   %matchLength.i.0 = phi i64 [ %add104.i, %if.then93.i ], [ 0, %if.then87.i ], [ 0, %while.body.i ]
   store i64 999999999, ptr %ofbCandidate.i, align 8
-  switch i32 %spec.select1275, label %sw.epilog97.i463 [
+  switch i32 %spec.select1275, label %if.end110.i.unreachabledefault [
     i32 4, label %sw.bb50.i477
     i32 5, label %sw.bb52.i475
     i32 6, label %sw.bb54.i473
@@ -25099,7 +24989,10 @@ sw.bb54.i473:                                     ; preds = %if.end110.i
   %call55.i474 = call fastcc i64 @ZSTD_HcFindBestMatch_extDict_6(ptr noundef nonnull %ms, ptr noundef %ip.i.01299, ptr noundef %add.ptr.i, ptr noundef nonnull %ofbCandidate.i), !range !14
   br label %ZSTD_searchMax.exit524
 
-sw.epilog97.i463:                                 ; preds = %if.end110.i
+if.end110.i.unreachabledefault:                   ; preds = %if.end110.i
+  unreachable
+
+default.unreachable:                              ; preds = %if.end290.i, %if.end193.i
   unreachable
 
 ZSTD_searchMax.exit524:                           ; preds = %sw.bb54.i473, %sw.bb52.i475, %sw.bb50.i477
@@ -25194,7 +25087,7 @@ if.end193.i:                                      ; preds = %if.then136.i, %if.t
   %offBase.i.2 = phi i64 [ 1, %if.then189.i ], [ %offBase.i.11308, %land.lhs.true.i ], [ %offBase.i.11308, %if.then165.i ], [ %offBase.i.11308, %if.then160.i ], [ %offBase.i.11308, %if.then136.i ], [ 0, %while.body134.i ]
   %matchLength.i.3 = phi i64 [ %add176.i, %if.then189.i ], [ %matchLength.i.21309, %land.lhs.true.i ], [ %matchLength.i.21309, %if.then165.i ], [ %matchLength.i.21309, %if.then160.i ], [ %matchLength.i.21309, %if.then136.i ], [ %matchLength.i.21309, %while.body134.i ]
   store i64 999999999, ptr %ofbCandidate194.i, align 8
-  switch i32 %spec.select1275, label %sw.epilog97.i270 [
+  switch i32 %spec.select1275, label %default.unreachable [
     i32 4, label %sw.bb50.i284
     i32 5, label %sw.bb52.i282
     i32 6, label %sw.bb54.i280
@@ -25211,9 +25104,6 @@ sw.bb52.i282:                                     ; preds = %if.end193.i
 sw.bb54.i280:                                     ; preds = %if.end193.i
   %call55.i281 = call fastcc i64 @ZSTD_HcFindBestMatch_extDict_6(ptr noundef %ms, ptr noundef nonnull %incdec.ptr.i, ptr noundef %add.ptr.i, ptr noundef nonnull %ofbCandidate194.i), !range !14
   br label %ZSTD_searchMax.exit331
-
-sw.epilog97.i270:                                 ; preds = %if.end193.i
-  unreachable
 
 ZSTD_searchMax.exit331:                           ; preds = %sw.bb54.i280, %sw.bb52.i282, %sw.bb50.i284
   %retval.i138.0 = phi i64 [ %call55.i281, %sw.bb54.i280 ], [ %call53.i283, %sw.bb52.i282 ], [ %call51.i285, %sw.bb50.i284 ]
@@ -25308,7 +25198,7 @@ if.end290.i:                                      ; preds = %if.then228.i, %if.t
   %offBase.i.3 = phi i64 [ 1, %if.then286.i ], [ %offBase.i.2, %land.lhs.true283.i ], [ %offBase.i.2, %if.then257.i ], [ %offBase.i.2, %if.then252.i ], [ %offBase.i.2, %if.then228.i ], [ 0, %if.then224.i ]
   %matchLength.i.4 = phi i64 [ %add269.i, %if.then286.i ], [ %matchLength.i.3, %land.lhs.true283.i ], [ %matchLength.i.3, %if.then257.i ], [ %matchLength.i.3, %if.then252.i ], [ %matchLength.i.3, %if.then228.i ], [ %matchLength.i.3, %if.then224.i ]
   store i64 999999999, ptr %ofbCandidate291.i, align 8
-  switch i32 %spec.select1275, label %sw.epilog97.i [
+  switch i32 %spec.select1275, label %default.unreachable [
     i32 4, label %sw.bb50.i
     i32 5, label %sw.bb52.i
     i32 6, label %sw.bb54.i
@@ -25325,9 +25215,6 @@ sw.bb52.i:                                        ; preds = %if.end290.i
 sw.bb54.i:                                        ; preds = %if.end290.i
   %call55.i = call fastcc i64 @ZSTD_HcFindBestMatch_extDict_6(ptr noundef %ms, ptr noundef nonnull %incdec.ptr225.i, ptr noundef %add.ptr.i, ptr noundef nonnull %ofbCandidate291.i), !range !14
   br label %ZSTD_searchMax.exit
-
-sw.epilog97.i:                                    ; preds = %if.end290.i
-  unreachable
 
 ZSTD_searchMax.exit:                              ; preds = %sw.bb54.i, %sw.bb52.i, %sw.bb50.i
   %retval.i120.0 = phi i64 [ %call55.i, %sw.bb54.i ], [ %call53.i, %sw.bb52.i ], [ %call51.i, %sw.bb50.i ]
@@ -26198,14 +26085,14 @@ if.then93.i:                                      ; preds = %if.then87.i
 if.end110.i:                                      ; preds = %if.then93.i, %if.then87.i, %while.body.i
   %matchLength.i.0 = phi i64 [ %add104.i, %if.then93.i ], [ 0, %if.then87.i ], [ 0, %while.body.i ]
   store i64 999999999, ptr %ofbCandidate.i, align 8
-  switch i32 %spec.select1313, label %sw.epilog97.i463 [
+  switch i32 %spec.select1313, label %if.end110.i.unreachabledefault [
     i32 4, label %sw.bb66.i454
     i32 5, label %sw.bb76.i446
     i32 6, label %sw.bb86.i438
   ]
 
 sw.bb66.i454:                                     ; preds = %if.end110.i
-  switch i32 %cond59.i, label %sw.epilog73.i461 [
+  switch i32 %cond59.i, label %sw.bb66.i454.unreachabledefault [
     i32 4, label %sw.bb67.i459
     i32 5, label %sw.bb69.i457
     i32 6, label %sw.bb71.i455
@@ -26223,11 +26110,8 @@ sw.bb71.i455:                                     ; preds = %sw.bb66.i454
   %call72.i456 = call fastcc i64 @ZSTD_RowFindBestMatch_extDict_4_6(ptr noundef nonnull %ms, ptr noundef %ip.i.01453, ptr noundef %add.ptr.i, ptr noundef nonnull %ofbCandidate.i), !range !14
   br label %ZSTD_searchMax.exit524
 
-sw.epilog73.i461:                                 ; preds = %sw.bb66.i454
-  unreachable
-
 sw.bb76.i446:                                     ; preds = %if.end110.i
-  switch i32 %cond59.i, label %sw.epilog83.i453 [
+  switch i32 %cond59.i, label %sw.bb76.i446.unreachabledefault [
     i32 4, label %sw.bb77.i451
     i32 5, label %sw.bb79.i449
     i32 6, label %sw.bb81.i447
@@ -26245,11 +26129,8 @@ sw.bb81.i447:                                     ; preds = %sw.bb76.i446
   %call82.i448 = call fastcc i64 @ZSTD_RowFindBestMatch_extDict_5_6(ptr noundef nonnull %ms, ptr noundef %ip.i.01453, ptr noundef %add.ptr.i, ptr noundef nonnull %ofbCandidate.i), !range !14
   br label %ZSTD_searchMax.exit524
 
-sw.epilog83.i453:                                 ; preds = %sw.bb76.i446
-  unreachable
-
 sw.bb86.i438:                                     ; preds = %if.end110.i
-  switch i32 %cond59.i, label %sw.epilog93.i445 [
+  switch i32 %cond59.i, label %sw.bb86.i438.unreachabledefault [
     i32 4, label %sw.bb87.i443
     i32 5, label %sw.bb89.i441
     i32 6, label %sw.bb91.i439
@@ -26267,10 +26148,19 @@ sw.bb91.i439:                                     ; preds = %sw.bb86.i438
   %call92.i440 = call fastcc i64 @ZSTD_RowFindBestMatch_extDict_6_6(ptr noundef nonnull %ms, ptr noundef %ip.i.01453, ptr noundef %add.ptr.i, ptr noundef nonnull %ofbCandidate.i), !range !14
   br label %ZSTD_searchMax.exit524
 
-sw.epilog93.i445:                                 ; preds = %sw.bb86.i438
+if.end110.i.unreachabledefault:                   ; preds = %if.end110.i
   unreachable
 
-sw.epilog97.i463:                                 ; preds = %if.end110.i
+sw.bb66.i454.unreachabledefault:                  ; preds = %sw.bb66.i454
+  unreachable
+
+sw.bb76.i446.unreachabledefault:                  ; preds = %sw.bb76.i446
+  unreachable
+
+sw.bb86.i438.unreachabledefault:                  ; preds = %sw.bb86.i438
+  unreachable
+
+default.unreachable:                              ; preds = %sw.bb86.i, %sw.bb76.i, %sw.bb66.i, %if.end290.i, %sw.bb86.i245, %sw.bb76.i253, %sw.bb66.i261, %if.end193.i
   unreachable
 
 ZSTD_searchMax.exit524:                           ; preds = %sw.bb91.i439, %sw.bb89.i441, %sw.bb87.i443, %sw.bb81.i447, %sw.bb79.i449, %sw.bb77.i451, %sw.bb71.i455, %sw.bb69.i457, %sw.bb67.i459
@@ -26365,14 +26255,14 @@ if.end193.i:                                      ; preds = %if.then136.i, %if.t
   %offBase.i.2 = phi i64 [ 1, %if.then189.i ], [ %offBase.i.11462, %land.lhs.true.i ], [ %offBase.i.11462, %if.then165.i ], [ %offBase.i.11462, %if.then160.i ], [ %offBase.i.11462, %if.then136.i ], [ 0, %while.body134.i ]
   %matchLength.i.3 = phi i64 [ %add176.i, %if.then189.i ], [ %matchLength.i.21463, %land.lhs.true.i ], [ %matchLength.i.21463, %if.then165.i ], [ %matchLength.i.21463, %if.then160.i ], [ %matchLength.i.21463, %if.then136.i ], [ %matchLength.i.21463, %while.body134.i ]
   store i64 999999999, ptr %ofbCandidate194.i, align 8
-  switch i32 %spec.select1313, label %sw.epilog97.i270 [
+  switch i32 %spec.select1313, label %default.unreachable [
     i32 4, label %sw.bb66.i261
     i32 5, label %sw.bb76.i253
     i32 6, label %sw.bb86.i245
   ]
 
 sw.bb66.i261:                                     ; preds = %if.end193.i
-  switch i32 %cond59.i, label %sw.epilog73.i268 [
+  switch i32 %cond59.i, label %default.unreachable [
     i32 4, label %sw.bb67.i266
     i32 5, label %sw.bb69.i264
     i32 6, label %sw.bb71.i262
@@ -26390,11 +26280,8 @@ sw.bb71.i262:                                     ; preds = %sw.bb66.i261
   %call72.i263 = call fastcc i64 @ZSTD_RowFindBestMatch_extDict_4_6(ptr noundef %ms, ptr noundef nonnull %incdec.ptr.i, ptr noundef %add.ptr.i, ptr noundef nonnull %ofbCandidate194.i), !range !14
   br label %ZSTD_searchMax.exit331
 
-sw.epilog73.i268:                                 ; preds = %sw.bb66.i261
-  unreachable
-
 sw.bb76.i253:                                     ; preds = %if.end193.i
-  switch i32 %cond59.i, label %sw.epilog83.i260 [
+  switch i32 %cond59.i, label %default.unreachable [
     i32 4, label %sw.bb77.i258
     i32 5, label %sw.bb79.i256
     i32 6, label %sw.bb81.i254
@@ -26412,11 +26299,8 @@ sw.bb81.i254:                                     ; preds = %sw.bb76.i253
   %call82.i255 = call fastcc i64 @ZSTD_RowFindBestMatch_extDict_5_6(ptr noundef %ms, ptr noundef nonnull %incdec.ptr.i, ptr noundef %add.ptr.i, ptr noundef nonnull %ofbCandidate194.i), !range !14
   br label %ZSTD_searchMax.exit331
 
-sw.epilog83.i260:                                 ; preds = %sw.bb76.i253
-  unreachable
-
 sw.bb86.i245:                                     ; preds = %if.end193.i
-  switch i32 %cond59.i, label %sw.epilog93.i252 [
+  switch i32 %cond59.i, label %default.unreachable [
     i32 4, label %sw.bb87.i250
     i32 5, label %sw.bb89.i248
     i32 6, label %sw.bb91.i246
@@ -26433,12 +26317,6 @@ sw.bb89.i248:                                     ; preds = %sw.bb86.i245
 sw.bb91.i246:                                     ; preds = %sw.bb86.i245
   %call92.i247 = call fastcc i64 @ZSTD_RowFindBestMatch_extDict_6_6(ptr noundef %ms, ptr noundef nonnull %incdec.ptr.i, ptr noundef %add.ptr.i, ptr noundef nonnull %ofbCandidate194.i), !range !14
   br label %ZSTD_searchMax.exit331
-
-sw.epilog93.i252:                                 ; preds = %sw.bb86.i245
-  unreachable
-
-sw.epilog97.i270:                                 ; preds = %if.end193.i
-  unreachable
 
 ZSTD_searchMax.exit331:                           ; preds = %sw.bb91.i246, %sw.bb89.i248, %sw.bb87.i250, %sw.bb81.i254, %sw.bb79.i256, %sw.bb77.i258, %sw.bb71.i262, %sw.bb69.i264, %sw.bb67.i266
   %retval.i138.0 = phi i64 [ %call92.i247, %sw.bb91.i246 ], [ %call90.i249, %sw.bb89.i248 ], [ %call88.i251, %sw.bb87.i250 ], [ %call82.i255, %sw.bb81.i254 ], [ %call80.i257, %sw.bb79.i256 ], [ %call78.i259, %sw.bb77.i258 ], [ %call72.i263, %sw.bb71.i262 ], [ %call70.i265, %sw.bb69.i264 ], [ %call68.i267, %sw.bb67.i266 ]
@@ -26533,14 +26411,14 @@ if.end290.i:                                      ; preds = %if.then228.i, %if.t
   %offBase.i.3 = phi i64 [ 1, %if.then286.i ], [ %offBase.i.2, %land.lhs.true283.i ], [ %offBase.i.2, %if.then257.i ], [ %offBase.i.2, %if.then252.i ], [ %offBase.i.2, %if.then228.i ], [ 0, %if.then224.i ]
   %matchLength.i.4 = phi i64 [ %add269.i, %if.then286.i ], [ %matchLength.i.3, %land.lhs.true283.i ], [ %matchLength.i.3, %if.then257.i ], [ %matchLength.i.3, %if.then252.i ], [ %matchLength.i.3, %if.then228.i ], [ %matchLength.i.3, %if.then224.i ]
   store i64 999999999, ptr %ofbCandidate291.i, align 8
-  switch i32 %spec.select1313, label %sw.epilog97.i [
+  switch i32 %spec.select1313, label %default.unreachable [
     i32 4, label %sw.bb66.i
     i32 5, label %sw.bb76.i
     i32 6, label %sw.bb86.i
   ]
 
 sw.bb66.i:                                        ; preds = %if.end290.i
-  switch i32 %cond59.i, label %sw.epilog73.i [
+  switch i32 %cond59.i, label %default.unreachable [
     i32 4, label %sw.bb67.i
     i32 5, label %sw.bb69.i
     i32 6, label %sw.bb71.i
@@ -26558,11 +26436,8 @@ sw.bb71.i:                                        ; preds = %sw.bb66.i
   %call72.i = call fastcc i64 @ZSTD_RowFindBestMatch_extDict_4_6(ptr noundef %ms, ptr noundef nonnull %incdec.ptr225.i, ptr noundef %add.ptr.i, ptr noundef nonnull %ofbCandidate291.i), !range !14
   br label %ZSTD_searchMax.exit
 
-sw.epilog73.i:                                    ; preds = %sw.bb66.i
-  unreachable
-
 sw.bb76.i:                                        ; preds = %if.end290.i
-  switch i32 %cond59.i, label %sw.epilog83.i [
+  switch i32 %cond59.i, label %default.unreachable [
     i32 4, label %sw.bb77.i
     i32 5, label %sw.bb79.i
     i32 6, label %sw.bb81.i
@@ -26580,11 +26455,8 @@ sw.bb81.i:                                        ; preds = %sw.bb76.i
   %call82.i = call fastcc i64 @ZSTD_RowFindBestMatch_extDict_5_6(ptr noundef %ms, ptr noundef nonnull %incdec.ptr225.i, ptr noundef %add.ptr.i, ptr noundef nonnull %ofbCandidate291.i), !range !14
   br label %ZSTD_searchMax.exit
 
-sw.epilog83.i:                                    ; preds = %sw.bb76.i
-  unreachable
-
 sw.bb86.i:                                        ; preds = %if.end290.i
-  switch i32 %cond59.i, label %sw.epilog93.i [
+  switch i32 %cond59.i, label %default.unreachable [
     i32 4, label %sw.bb87.i
     i32 5, label %sw.bb89.i
     i32 6, label %sw.bb91.i
@@ -26601,12 +26473,6 @@ sw.bb89.i:                                        ; preds = %sw.bb86.i
 sw.bb91.i:                                        ; preds = %sw.bb86.i
   %call92.i = call fastcc i64 @ZSTD_RowFindBestMatch_extDict_6_6(ptr noundef %ms, ptr noundef nonnull %incdec.ptr225.i, ptr noundef %add.ptr.i, ptr noundef nonnull %ofbCandidate291.i), !range !14
   br label %ZSTD_searchMax.exit
-
-sw.epilog93.i:                                    ; preds = %sw.bb86.i
-  unreachable
-
-sw.epilog97.i:                                    ; preds = %if.end290.i
-  unreachable
 
 ZSTD_searchMax.exit:                              ; preds = %sw.bb91.i, %sw.bb89.i, %sw.bb87.i, %sw.bb81.i, %sw.bb79.i, %sw.bb77.i, %sw.bb71.i, %sw.bb69.i, %sw.bb67.i
   %retval.i120.0 = phi i64 [ %call92.i, %sw.bb91.i ], [ %call90.i131, %sw.bb89.i ], [ %call88.i, %sw.bb87.i ], [ %call82.i, %sw.bb81.i ], [ %call80.i, %sw.bb79.i ], [ %call78.i, %sw.bb77.i ], [ %call72.i, %sw.bb71.i ], [ %call70.i, %sw.bb69.i ], [ %call68.i, %sw.bb67.i ]
@@ -27369,7 +27235,7 @@ if.end110.i:                                      ; preds = %if.then93.i, %if.th
   %idx.ext.i.i = zext i32 %11 to i64
   %add.ptr.i.i = getelementptr inbounds i8, ptr %10, i64 %idx.ext.i.i
   %cmp.i.i = icmp ugt ptr %add.ptr.i.i, %ip.i.01588
-  switch i32 %spec.select1564, label %sw.epilog97.i463 [
+  switch i32 %spec.select1564, label %if.end110.i.unreachabledefault [
     i32 4, label %sw.bb58.i469
     i32 5, label %sw.bb60.i467
     i32 6, label %sw.bb62.i465
@@ -27507,7 +27373,10 @@ for.body.us.i.i:                                  ; preds = %for.body.us.i.i, %f
   %exitcond.not.i1245 = icmp eq i64 %indvars.iv.next22.i.i, %30
   br i1 %exitcond.not.i1245, label %ZSTD_searchMax.exit524.sink.split, label %for.body.us.i.i, !llvm.loop !27
 
-sw.epilog97.i463:                                 ; preds = %if.end110.i
+if.end110.i.unreachabledefault:                   ; preds = %if.end110.i
+  unreachable
+
+default.unreachable:                              ; preds = %if.end290.i, %if.end193.i
   unreachable
 
 ZSTD_searchMax.exit524.sink.split:                ; preds = %for.body.us.i.i, %for.body.us4.i.i, %for.body.i.i, %if.end.i.i1226, %if.end.i.i1203, %if.end.i.i
@@ -27608,18 +27477,18 @@ if.end193.i:                                      ; preds = %if.then136.i, %if.t
   %offBase.i.2 = phi i64 [ 1, %if.then189.i ], [ %offBase.i.11597, %land.lhs.true.i ], [ %offBase.i.11597, %if.then165.i ], [ %offBase.i.11597, %if.then160.i ], [ %offBase.i.11597, %if.then136.i ], [ 0, %while.body134.i ]
   %matchLength.i.3 = phi i64 [ %add176.i, %if.then189.i ], [ %matchLength.i.21598, %land.lhs.true.i ], [ %matchLength.i.21598, %if.then165.i ], [ %matchLength.i.21598, %if.then160.i ], [ %matchLength.i.21598, %if.then136.i ], [ %matchLength.i.21598, %while.body134.i ]
   store i64 999999999, ptr %ofbCandidate194.i, align 8
-  %40 = load ptr, ptr %base4.i, align 8
-  %41 = load i32, ptr %nextToUpdate.i.i1222, align 4
-  %idx.ext.i.i1255 = zext i32 %41 to i64
-  %add.ptr.i.i1256 = getelementptr inbounds i8, ptr %40, i64 %idx.ext.i.i1255
-  %cmp.i.i1257 = icmp ugt ptr %add.ptr.i.i1256, %incdec.ptr.i
-  switch i32 %spec.select1564, label %sw.epilog97.i270 [
+  switch i32 %spec.select1564, label %default.unreachable [
     i32 4, label %sw.bb58.i276
     i32 5, label %sw.bb60.i274
     i32 6, label %sw.bb62.i272
   ]
 
 sw.bb58.i276:                                     ; preds = %if.end193.i
+  %40 = load ptr, ptr %base4.i, align 8
+  %41 = load i32, ptr %nextToUpdate.i.i1222, align 4
+  %idx.ext.i.i1255 = zext i32 %41 to i64
+  %add.ptr.i.i1256 = getelementptr inbounds i8, ptr %40, i64 %idx.ext.i.i1255
+  %cmp.i.i1257 = icmp ugt ptr %add.ptr.i.i1256, %incdec.ptr.i
   br i1 %cmp.i.i1257, label %ZSTD_searchMax.exit331.thread, label %if.end.i.i1258
 
 if.end.i.i1258:                                   ; preds = %sw.bb58.i276
@@ -27665,102 +27534,109 @@ for.body.i.i1276:                                 ; preds = %for.body.i.i1276, %
   br i1 %exitcond.not.i1290, label %ZSTD_searchMax.exit331, label %for.body.i.i1276, !llvm.loop !27
 
 sw.bb60.i274:                                     ; preds = %if.end193.i
-  br i1 %cmp.i.i1257, label %ZSTD_searchMax.exit331.thread, label %if.end.i.i1297
+  %49 = load ptr, ptr %base4.i, align 8
+  %50 = load i32, ptr %nextToUpdate.i.i1222, align 4
+  %idx.ext.i.i1294 = zext i32 %50 to i64
+  %add.ptr.i.i1295 = getelementptr inbounds i8, ptr %49, i64 %idx.ext.i.i1294
+  %cmp.i.i1296 = icmp ugt ptr %add.ptr.i.i1295, %incdec.ptr.i
+  br i1 %cmp.i.i1296, label %ZSTD_searchMax.exit331.thread, label %if.end.i.i1297
 
 if.end.i.i1297:                                   ; preds = %sw.bb60.i274
-  %49 = load ptr, ptr %hashTable2.i.i1227, align 8
-  %50 = load ptr, ptr %chainTable.i.i1228, align 8
-  %51 = load i32, ptr %chainLog.i.i1229, align 4
-  %sub.i.i1301 = add i32 %51, -1
+  %51 = load ptr, ptr %hashTable2.i.i1227, align 8
+  %52 = load ptr, ptr %chainTable.i.i1228, align 8
+  %53 = load i32, ptr %chainLog.i.i1229, align 4
+  %sub.i.i1301 = add i32 %53, -1
   %notmask.i.i1302 = shl nsw i32 -1, %sub.i.i1301
   %sub4.i.i1303 = xor i32 %notmask.i.i1302, -1
   %sub.ptr.lhs.cast.i.i1304 = ptrtoint ptr %incdec.ptr.i to i64
-  %sub.ptr.rhs.cast.i.i1305 = ptrtoint ptr %40 to i64
+  %sub.ptr.rhs.cast.i.i1305 = ptrtoint ptr %49 to i64
   %sub.ptr.sub.i.i1306 = sub i64 %sub.ptr.lhs.cast.i.i1304, %sub.ptr.rhs.cast.i.i1305
   %conv.i.i1307 = trunc i64 %sub.ptr.sub.i.i1306 to i32
-  %cmp71.i.i1308 = icmp ult i32 %41, %conv.i.i1307
+  %cmp71.i.i1308 = icmp ult i32 %50, %conv.i.i1307
   br i1 %cmp71.i.i1308, label %for.body.lr.ph.i.i1312, label %ZSTD_searchMax.exit331
 
 for.body.lr.ph.i.i1312:                           ; preds = %if.end.i.i1297
-  %52 = load i32, ptr %hashLog3.i.i1242, align 4
-  %sub.i.i29.i.i1314 = sub i32 64, %52
+  %54 = load i32, ptr %hashLog3.i.i1242, align 4
+  %sub.i.i29.i.i1314 = sub i32 64, %54
   %sh_prom.i.i.i.i1315 = zext nneg i32 %sub.i.i29.i.i1314 to i64
-  %53 = and i64 %sub.ptr.sub.i.i1306, 4294967295
+  %55 = and i64 %sub.ptr.sub.i.i1306, 4294967295
   br label %for.body.us4.i.i1316
 
 for.body.us4.i.i1316:                             ; preds = %for.body.us4.i.i1316, %for.body.lr.ph.i.i1312
-  %indvars.iv.i.i1317 = phi i64 [ %indvars.iv.next.i.i1328, %for.body.us4.i.i1316 ], [ %idx.ext.i.i1255, %for.body.lr.ph.i.i1312 ]
-  %add.ptr.us7.i.i1318 = getelementptr inbounds i8, ptr %40, i64 %indvars.iv.i.i1317
+  %indvars.iv.i.i1317 = phi i64 [ %indvars.iv.next.i.i1328, %for.body.us4.i.i1316 ], [ %idx.ext.i.i1294, %for.body.lr.ph.i.i1312 ]
+  %add.ptr.us7.i.i1318 = getelementptr inbounds i8, ptr %49, i64 %indvars.iv.i.i1317
   %add.ptr.val26.us.i.i1319 = load i64, ptr %add.ptr.us7.i.i1318, align 1
   %mul.i.i28.us.i.i1320 = mul i64 %add.ptr.val26.us.i.i1319, -3523014627271114752
   %shr.i.i30.us.i.i1321 = lshr i64 %mul.i.i28.us.i.i1320, %sh_prom.i.i.i.i1315
-  %arrayidx.us10.i.i1322 = getelementptr inbounds i32, ptr %49, i64 %shr.i.i30.us.i.i1321
-  %54 = load i32, ptr %arrayidx.us10.i.i1322, align 4
-  %55 = trunc i64 %indvars.iv.i.i1317 to i32
-  %and.us11.i.i1323 = and i32 %55, %sub4.i.i1303
+  %arrayidx.us10.i.i1322 = getelementptr inbounds i32, ptr %51, i64 %shr.i.i30.us.i.i1321
+  %56 = load i32, ptr %arrayidx.us10.i.i1322, align 4
+  %57 = trunc i64 %indvars.iv.i.i1317 to i32
+  %and.us11.i.i1323 = and i32 %57, %sub4.i.i1303
   %mul.us12.i.i1324 = shl nuw i32 %and.us11.i.i1323, 1
   %idx.ext9.us13.i.i1325 = zext i32 %mul.us12.i.i1324 to i64
-  %add.ptr10.us14.i.i1326 = getelementptr inbounds i32, ptr %50, i64 %idx.ext9.us13.i.i1325
+  %add.ptr10.us14.i.i1326 = getelementptr inbounds i32, ptr %52, i64 %idx.ext9.us13.i.i1325
   %add.ptr11.us15.i.i1327 = getelementptr inbounds i32, ptr %add.ptr10.us14.i.i1326, i64 1
-  store i32 %55, ptr %arrayidx.us10.i.i1322, align 4
-  store i32 %54, ptr %add.ptr10.us14.i.i1326, align 4
+  store i32 %57, ptr %arrayidx.us10.i.i1322, align 4
+  store i32 %56, ptr %add.ptr10.us14.i.i1326, align 4
   store i32 1, ptr %add.ptr11.us15.i.i1327, align 4
   %indvars.iv.next.i.i1328 = add nuw nsw i64 %indvars.iv.i.i1317, 1
-  %exitcond.not.i1329 = icmp eq i64 %indvars.iv.next.i.i1328, %53
+  %exitcond.not.i1329 = icmp eq i64 %indvars.iv.next.i.i1328, %55
   br i1 %exitcond.not.i1329, label %ZSTD_searchMax.exit331, label %for.body.us4.i.i1316, !llvm.loop !27
 
 sw.bb62.i272:                                     ; preds = %if.end193.i
-  br i1 %cmp.i.i1257, label %ZSTD_searchMax.exit331.thread, label %if.end.i.i1336
+  %58 = load ptr, ptr %base4.i, align 8
+  %59 = load i32, ptr %nextToUpdate.i.i1222, align 4
+  %idx.ext.i.i1333 = zext i32 %59 to i64
+  %add.ptr.i.i1334 = getelementptr inbounds i8, ptr %58, i64 %idx.ext.i.i1333
+  %cmp.i.i1335 = icmp ugt ptr %add.ptr.i.i1334, %incdec.ptr.i
+  br i1 %cmp.i.i1335, label %ZSTD_searchMax.exit331.thread, label %if.end.i.i1336
 
 if.end.i.i1336:                                   ; preds = %sw.bb62.i272
-  %56 = load ptr, ptr %hashTable2.i.i1227, align 8
-  %57 = load ptr, ptr %chainTable.i.i1228, align 8
-  %58 = load i32, ptr %chainLog.i.i1229, align 4
-  %sub.i.i1340 = add i32 %58, -1
+  %60 = load ptr, ptr %hashTable2.i.i1227, align 8
+  %61 = load ptr, ptr %chainTable.i.i1228, align 8
+  %62 = load i32, ptr %chainLog.i.i1229, align 4
+  %sub.i.i1340 = add i32 %62, -1
   %notmask.i.i1341 = shl nsw i32 -1, %sub.i.i1340
   %sub4.i.i1342 = xor i32 %notmask.i.i1341, -1
   %sub.ptr.lhs.cast.i.i1343 = ptrtoint ptr %incdec.ptr.i to i64
-  %sub.ptr.rhs.cast.i.i1344 = ptrtoint ptr %40 to i64
+  %sub.ptr.rhs.cast.i.i1344 = ptrtoint ptr %58 to i64
   %sub.ptr.sub.i.i1345 = sub i64 %sub.ptr.lhs.cast.i.i1343, %sub.ptr.rhs.cast.i.i1344
   %conv.i.i1346 = trunc i64 %sub.ptr.sub.i.i1345 to i32
-  %cmp71.i.i1347 = icmp ult i32 %41, %conv.i.i1346
+  %cmp71.i.i1347 = icmp ult i32 %59, %conv.i.i1346
   br i1 %cmp71.i.i1347, label %for.body.lr.ph.i.i1351, label %ZSTD_searchMax.exit331
 
 for.body.lr.ph.i.i1351:                           ; preds = %if.end.i.i1336
-  %59 = load i32, ptr %hashLog3.i.i1242, align 4
-  %sub.i.i29.i.i1353 = sub i32 64, %59
+  %63 = load i32, ptr %hashLog3.i.i1242, align 4
+  %sub.i.i29.i.i1353 = sub i32 64, %63
   %sh_prom.i.i.i.i1354 = zext nneg i32 %sub.i.i29.i.i1353 to i64
-  %60 = and i64 %sub.ptr.sub.i.i1345, 4294967295
+  %64 = and i64 %sub.ptr.sub.i.i1345, 4294967295
   br label %for.body.us.i.i1355
 
 for.body.us.i.i1355:                              ; preds = %for.body.us.i.i1355, %for.body.lr.ph.i.i1351
-  %indvars.iv21.i.i1356 = phi i64 [ %indvars.iv.next22.i.i1367, %for.body.us.i.i1355 ], [ %idx.ext.i.i1255, %for.body.lr.ph.i.i1351 ]
-  %add.ptr.us.i.i1357 = getelementptr inbounds i8, ptr %40, i64 %indvars.iv21.i.i1356
+  %indvars.iv21.i.i1356 = phi i64 [ %indvars.iv.next22.i.i1367, %for.body.us.i.i1355 ], [ %idx.ext.i.i1333, %for.body.lr.ph.i.i1351 ]
+  %add.ptr.us.i.i1357 = getelementptr inbounds i8, ptr %58, i64 %indvars.iv21.i.i1356
   %add.ptr.val27.us.i.i1358 = load i64, ptr %add.ptr.us.i.i1357, align 1
   %mul.i.i31.us.i.i1359 = mul i64 %add.ptr.val27.us.i.i1358, -3523014627193847808
   %shr.i.i34.us.i.i1360 = lshr i64 %mul.i.i31.us.i.i1359, %sh_prom.i.i.i.i1354
-  %arrayidx.us.i.i1361 = getelementptr inbounds i32, ptr %56, i64 %shr.i.i34.us.i.i1360
-  %61 = load i32, ptr %arrayidx.us.i.i1361, align 4
-  %62 = trunc i64 %indvars.iv21.i.i1356 to i32
-  %and.us.i.i1362 = and i32 %62, %sub4.i.i1342
+  %arrayidx.us.i.i1361 = getelementptr inbounds i32, ptr %60, i64 %shr.i.i34.us.i.i1360
+  %65 = load i32, ptr %arrayidx.us.i.i1361, align 4
+  %66 = trunc i64 %indvars.iv21.i.i1356 to i32
+  %and.us.i.i1362 = and i32 %66, %sub4.i.i1342
   %mul.us.i.i1363 = shl nuw i32 %and.us.i.i1362, 1
   %idx.ext9.us.i.i1364 = zext i32 %mul.us.i.i1363 to i64
-  %add.ptr10.us.i.i1365 = getelementptr inbounds i32, ptr %57, i64 %idx.ext9.us.i.i1364
+  %add.ptr10.us.i.i1365 = getelementptr inbounds i32, ptr %61, i64 %idx.ext9.us.i.i1364
   %add.ptr11.us.i.i1366 = getelementptr inbounds i32, ptr %add.ptr10.us.i.i1365, i64 1
-  store i32 %62, ptr %arrayidx.us.i.i1361, align 4
-  store i32 %61, ptr %add.ptr10.us.i.i1365, align 4
+  store i32 %66, ptr %arrayidx.us.i.i1361, align 4
+  store i32 %65, ptr %add.ptr10.us.i.i1365, align 4
   store i32 1, ptr %add.ptr11.us.i.i1366, align 4
   %indvars.iv.next22.i.i1367 = add nuw nsw i64 %indvars.iv21.i.i1356, 1
-  %exitcond.not.i1368 = icmp eq i64 %indvars.iv.next22.i.i1367, %60
+  %exitcond.not.i1368 = icmp eq i64 %indvars.iv.next22.i.i1367, %64
   br i1 %exitcond.not.i1368, label %ZSTD_searchMax.exit331, label %for.body.us.i.i1355, !llvm.loop !27
-
-sw.epilog97.i270:                                 ; preds = %if.end193.i
-  unreachable
 
 ZSTD_searchMax.exit331.thread:                    ; preds = %sw.bb58.i276, %sw.bb60.i274, %sw.bb62.i272
   %mul205.i1679 = shl i64 %matchLength.i.3, 2
   %conv206.i1680 = trunc i64 %offBase.i.2 to i32
-  %63 = tail call i32 @llvm.ctlz.i32(i32 %conv206.i1680, i1 true), !range !25
+  %67 = tail call i32 @llvm.ctlz.i32(i32 %conv206.i1680, i1 true), !range !25
   br label %land.lhs.true221.i
 
 ZSTD_searchMax.exit331:                           ; preds = %for.body.us.i.i1355, %for.body.us4.i.i1316, %for.body.i.i1276, %if.end.i.i1336, %if.end.i.i1297, %if.end.i.i1258
@@ -27769,34 +27645,34 @@ ZSTD_searchMax.exit331:                           ; preds = %for.body.us.i.i1355
   %call.i.i1349 = call fastcc i64 @ZSTD_DUBT_findBestMatch(ptr noundef %ms, ptr noundef nonnull %incdec.ptr.i, ptr noundef %add.ptr.i, ptr noundef nonnull %ofbCandidate194.i, i32 noundef %spec.select1564, i32 noundef 1)
   %mul205.i = shl i64 %matchLength.i.3, 2
   %conv206.i = trunc i64 %offBase.i.2 to i32
-  %64 = tail call i32 @llvm.ctlz.i32(i32 %conv206.i, i1 true), !range !25
+  %68 = tail call i32 @llvm.ctlz.i32(i32 %conv206.i, i1 true), !range !25
   %cmp212.i = icmp ugt i64 %call.i.i1349, 3
   br i1 %cmp212.i, label %land.lhs.true214.i, label %land.lhs.true221.i
 
 land.lhs.true214.i:                               ; preds = %ZSTD_searchMax.exit331
-  %65 = load i64, ptr %ofbCandidate194.i, align 8
-  %conv199.i = trunc i64 %65 to i32
-  %66 = tail call i32 @llvm.ctlz.i32(i32 %conv199.i, i1 true), !range !25
-  %sub.i1370 = xor i32 %66, 31
-  %67 = trunc i64 %mul205.i to i32
-  %68 = add nsw i32 %64, -27
-  %conv211.i = add i32 %68, %67
+  %69 = load i64, ptr %ofbCandidate194.i, align 8
+  %conv199.i = trunc i64 %69 to i32
+  %70 = tail call i32 @llvm.ctlz.i32(i32 %conv199.i, i1 true), !range !25
+  %sub.i1370 = xor i32 %70, 31
+  %71 = trunc i64 %mul205.i to i32
+  %72 = add nsw i32 %68, -27
+  %conv211.i = add i32 %72, %71
   %retval.i138.0.tr = trunc i64 %call.i.i1349 to i32
-  %69 = shl i32 %retval.i138.0.tr, 2
-  %conv203.i = sub i32 %69, %sub.i1370
+  %73 = shl i32 %retval.i138.0.tr, 2
+  %conv203.i = sub i32 %73, %sub.i1370
   %cmp215.i = icmp sgt i32 %conv203.i, %conv211.i
   br i1 %cmp215.i, label %while.cond131.i.backedge, label %land.lhs.true221.i
 
 while.cond131.i.backedge:                         ; preds = %land.lhs.true214.i, %land.lhs.true311.i
   %curr.i.0.be = phi i32 [ %inc.i, %land.lhs.true214.i ], [ %inc226.i, %land.lhs.true311.i ]
   %start.i.1.be = phi ptr [ %incdec.ptr.i, %land.lhs.true214.i ], [ %incdec.ptr225.i, %land.lhs.true311.i ]
-  %offBase.i.1.be = phi i64 [ %65, %land.lhs.true214.i ], [ %98, %land.lhs.true311.i ]
+  %offBase.i.1.be = phi i64 [ %69, %land.lhs.true214.i ], [ %106, %land.lhs.true311.i ]
   %matchLength.i.2.be = phi i64 [ %call.i.i1349, %land.lhs.true214.i ], [ %call.i.i1475, %land.lhs.true311.i ]
   %cmp132.i = icmp ult ptr %start.i.1.be, %add.ptr1.i
   br i1 %cmp132.i, label %while.body134.i, label %if.end317.i, !llvm.loop !32
 
 land.lhs.true221.i:                               ; preds = %ZSTD_searchMax.exit331.thread, %ZSTD_searchMax.exit331, %land.lhs.true214.i
-  %70 = phi i32 [ %63, %ZSTD_searchMax.exit331.thread ], [ %64, %ZSTD_searchMax.exit331 ], [ %64, %land.lhs.true214.i ]
+  %74 = phi i32 [ %67, %ZSTD_searchMax.exit331.thread ], [ %68, %ZSTD_searchMax.exit331 ], [ %68, %land.lhs.true214.i ]
   %mul205.i1682 = phi i64 [ %mul205.i1679, %ZSTD_searchMax.exit331.thread ], [ %mul205.i, %ZSTD_searchMax.exit331 ], [ %mul205.i, %land.lhs.true214.i ]
   %cmp222.i = icmp ult ptr %incdec.ptr.i, %add.ptr1.i
   br i1 %cmp222.i, label %if.then224.i, label %if.end317.i
@@ -27814,8 +27690,8 @@ if.then228.i:                                     ; preds = %if.then224.i
   %cmp.i1374 = icmp ugt i32 %sub.i1373, %shl.i
   %sub1.i1375 = sub i32 %inc226.i, %shl.i
   %cmp2.not.i1376 = icmp eq i32 %ms.val1194, 0
-  %71 = select i1 %cmp2.not.i1376, i1 %cmp.i1374, i1 false
-  %cond6.i1377 = select i1 %71, i32 %sub1.i1375, i32 %ms.val1193
+  %75 = select i1 %cmp2.not.i1376, i1 %cmp.i1374, i1 false
+  %cond6.i1377 = select i1 %75, i32 %sub1.i1375, i32 %ms.val1193
   %sub232.i = sub i32 %inc226.i, %offset_1.i.0.ph1637
   %cmp234.i = icmp ult i32 %sub232.i, %1
   %cond239.i = select i1 %cmp234.i, ptr %2, ptr %0
@@ -27844,9 +27720,9 @@ if.then257.i:                                     ; preds = %if.then252.i
   br i1 %cmp281.i, label %land.lhs.true283.i, label %if.end290.i
 
 land.lhs.true283.i:                               ; preds = %if.then257.i
-  %72 = trunc i64 %mul205.i1682 to i32
-  %73 = add nsw i32 %70, -30
-  %conv280.i = add i32 %73, %72
+  %76 = trunc i64 %mul205.i1682 to i32
+  %77 = add nsw i32 %74, -30
+  %conv280.i = add i32 %77, %76
   %add269.i.tr = trunc i64 %add269.i to i32
   %conv272.i = shl i32 %add269.i.tr, 2
   %cmp284.i = icmp sgt i32 %conv272.i, %conv280.i
@@ -27860,154 +27736,161 @@ if.end290.i:                                      ; preds = %if.then228.i, %if.t
   %offBase.i.3 = phi i64 [ 1, %if.then286.i ], [ %offBase.i.2, %land.lhs.true283.i ], [ %offBase.i.2, %if.then257.i ], [ %offBase.i.2, %if.then252.i ], [ %offBase.i.2, %if.then228.i ], [ 0, %if.then224.i ]
   %matchLength.i.4 = phi i64 [ %add269.i, %if.then286.i ], [ %matchLength.i.3, %land.lhs.true283.i ], [ %matchLength.i.3, %if.then257.i ], [ %matchLength.i.3, %if.then252.i ], [ %matchLength.i.3, %if.then228.i ], [ %matchLength.i.3, %if.then224.i ]
   store i64 999999999, ptr %ofbCandidate291.i, align 8
-  %74 = load ptr, ptr %base4.i, align 8
-  %75 = load i32, ptr %nextToUpdate.i.i1222, align 4
-  %idx.ext.i.i1381 = zext i32 %75 to i64
-  %add.ptr.i.i1382 = getelementptr inbounds i8, ptr %74, i64 %idx.ext.i.i1381
-  %cmp.i.i1383 = icmp ugt ptr %add.ptr.i.i1382, %incdec.ptr225.i
-  switch i32 %spec.select1564, label %sw.epilog97.i [
+  switch i32 %spec.select1564, label %default.unreachable [
     i32 4, label %sw.bb58.i
     i32 5, label %sw.bb60.i
     i32 6, label %sw.bb62.i
   ]
 
 sw.bb58.i:                                        ; preds = %if.end290.i
+  %78 = load ptr, ptr %base4.i, align 8
+  %79 = load i32, ptr %nextToUpdate.i.i1222, align 4
+  %idx.ext.i.i1381 = zext i32 %79 to i64
+  %add.ptr.i.i1382 = getelementptr inbounds i8, ptr %78, i64 %idx.ext.i.i1381
+  %cmp.i.i1383 = icmp ugt ptr %add.ptr.i.i1382, %incdec.ptr225.i
   br i1 %cmp.i.i1383, label %if.end317.i, label %if.end.i.i1384
 
 if.end.i.i1384:                                   ; preds = %sw.bb58.i
-  %76 = load ptr, ptr %hashTable2.i.i1227, align 8
-  %77 = load ptr, ptr %chainTable.i.i1228, align 8
-  %78 = load i32, ptr %chainLog.i.i1229, align 4
-  %sub.i.i1388 = add i32 %78, -1
+  %80 = load ptr, ptr %hashTable2.i.i1227, align 8
+  %81 = load ptr, ptr %chainTable.i.i1228, align 8
+  %82 = load i32, ptr %chainLog.i.i1229, align 4
+  %sub.i.i1388 = add i32 %82, -1
   %notmask.i.i1389 = shl nsw i32 -1, %sub.i.i1388
   %sub4.i.i1390 = xor i32 %notmask.i.i1389, -1
   %sub.ptr.lhs.cast.i.i1391 = ptrtoint ptr %incdec.ptr225.i to i64
-  %sub.ptr.rhs.cast.i.i1392 = ptrtoint ptr %74 to i64
+  %sub.ptr.rhs.cast.i.i1392 = ptrtoint ptr %78 to i64
   %sub.ptr.sub.i.i1393 = sub i64 %sub.ptr.lhs.cast.i.i1391, %sub.ptr.rhs.cast.i.i1392
   %conv.i.i1394 = trunc i64 %sub.ptr.sub.i.i1393 to i32
-  %cmp71.i.i1395 = icmp ult i32 %75, %conv.i.i1394
+  %cmp71.i.i1395 = icmp ult i32 %79, %conv.i.i1394
   br i1 %cmp71.i.i1395, label %for.body.lr.ph.i.i1399, label %ZSTD_searchMax.exit
 
 for.body.lr.ph.i.i1399:                           ; preds = %if.end.i.i1384
-  %79 = load i32, ptr %hashLog3.i.i1242, align 4
-  %sub.i.i.i.i1401 = sub i32 32, %79
-  %80 = and i64 %sub.ptr.sub.i.i1393, 4294967295
+  %83 = load i32, ptr %hashLog3.i.i1242, align 4
+  %sub.i.i.i.i1401 = sub i32 32, %83
+  %84 = and i64 %sub.ptr.sub.i.i1393, 4294967295
   br label %for.body.i.i1402
 
 for.body.i.i1402:                                 ; preds = %for.body.i.i1402, %for.body.lr.ph.i.i1399
   %indvars.iv24.i.i1403 = phi i64 [ %indvars.iv.next25.i.i1415, %for.body.i.i1402 ], [ %idx.ext.i.i1381, %for.body.lr.ph.i.i1399 ]
-  %add.ptr.i9.i1404 = getelementptr inbounds i8, ptr %74, i64 %indvars.iv24.i.i1403
+  %add.ptr.i9.i1404 = getelementptr inbounds i8, ptr %78, i64 %indvars.iv24.i.i1403
   %add.ptr.val.i.i1405 = load i32, ptr %add.ptr.i9.i1404, align 1
   %mul.i.i.i.i1406 = mul i32 %add.ptr.val.i.i1405, -1640531535
   %shr.i.i.i.i1407 = lshr i32 %mul.i.i.i.i1406, %sub.i.i.i.i1401
   %conv.i.i.i1408 = zext i32 %shr.i.i.i.i1407 to i64
-  %arrayidx.i.i1409 = getelementptr inbounds i32, ptr %76, i64 %conv.i.i.i1408
-  %81 = load i32, ptr %arrayidx.i.i1409, align 4
-  %82 = trunc i64 %indvars.iv24.i.i1403 to i32
-  %and.i.i1410 = and i32 %82, %sub4.i.i1390
+  %arrayidx.i.i1409 = getelementptr inbounds i32, ptr %80, i64 %conv.i.i.i1408
+  %85 = load i32, ptr %arrayidx.i.i1409, align 4
+  %86 = trunc i64 %indvars.iv24.i.i1403 to i32
+  %and.i.i1410 = and i32 %86, %sub4.i.i1390
   %mul.i.i1411 = shl nuw i32 %and.i.i1410, 1
   %idx.ext9.i.i1412 = zext i32 %mul.i.i1411 to i64
-  %add.ptr10.i.i1413 = getelementptr inbounds i32, ptr %77, i64 %idx.ext9.i.i1412
+  %add.ptr10.i.i1413 = getelementptr inbounds i32, ptr %81, i64 %idx.ext9.i.i1412
   %add.ptr11.i.i1414 = getelementptr inbounds i32, ptr %add.ptr10.i.i1413, i64 1
-  store i32 %82, ptr %arrayidx.i.i1409, align 4
-  store i32 %81, ptr %add.ptr10.i.i1413, align 4
+  store i32 %86, ptr %arrayidx.i.i1409, align 4
+  store i32 %85, ptr %add.ptr10.i.i1413, align 4
   store i32 1, ptr %add.ptr11.i.i1414, align 4
   %indvars.iv.next25.i.i1415 = add nuw nsw i64 %indvars.iv24.i.i1403, 1
-  %exitcond.not.i1416 = icmp eq i64 %indvars.iv.next25.i.i1415, %80
+  %exitcond.not.i1416 = icmp eq i64 %indvars.iv.next25.i.i1415, %84
   br i1 %exitcond.not.i1416, label %ZSTD_searchMax.exit, label %for.body.i.i1402, !llvm.loop !27
 
 sw.bb60.i:                                        ; preds = %if.end290.i
-  br i1 %cmp.i.i1383, label %if.end317.i, label %if.end.i.i1423
+  %87 = load ptr, ptr %base4.i, align 8
+  %88 = load i32, ptr %nextToUpdate.i.i1222, align 4
+  %idx.ext.i.i1420 = zext i32 %88 to i64
+  %add.ptr.i.i1421 = getelementptr inbounds i8, ptr %87, i64 %idx.ext.i.i1420
+  %cmp.i.i1422 = icmp ugt ptr %add.ptr.i.i1421, %incdec.ptr225.i
+  br i1 %cmp.i.i1422, label %if.end317.i, label %if.end.i.i1423
 
 if.end.i.i1423:                                   ; preds = %sw.bb60.i
-  %83 = load ptr, ptr %hashTable2.i.i1227, align 8
-  %84 = load ptr, ptr %chainTable.i.i1228, align 8
-  %85 = load i32, ptr %chainLog.i.i1229, align 4
-  %sub.i.i1427 = add i32 %85, -1
+  %89 = load ptr, ptr %hashTable2.i.i1227, align 8
+  %90 = load ptr, ptr %chainTable.i.i1228, align 8
+  %91 = load i32, ptr %chainLog.i.i1229, align 4
+  %sub.i.i1427 = add i32 %91, -1
   %notmask.i.i1428 = shl nsw i32 -1, %sub.i.i1427
   %sub4.i.i1429 = xor i32 %notmask.i.i1428, -1
   %sub.ptr.lhs.cast.i.i1430 = ptrtoint ptr %incdec.ptr225.i to i64
-  %sub.ptr.rhs.cast.i.i1431 = ptrtoint ptr %74 to i64
+  %sub.ptr.rhs.cast.i.i1431 = ptrtoint ptr %87 to i64
   %sub.ptr.sub.i.i1432 = sub i64 %sub.ptr.lhs.cast.i.i1430, %sub.ptr.rhs.cast.i.i1431
   %conv.i.i1433 = trunc i64 %sub.ptr.sub.i.i1432 to i32
-  %cmp71.i.i1434 = icmp ult i32 %75, %conv.i.i1433
+  %cmp71.i.i1434 = icmp ult i32 %88, %conv.i.i1433
   br i1 %cmp71.i.i1434, label %for.body.lr.ph.i.i1438, label %ZSTD_searchMax.exit
 
 for.body.lr.ph.i.i1438:                           ; preds = %if.end.i.i1423
-  %86 = load i32, ptr %hashLog3.i.i1242, align 4
-  %sub.i.i29.i.i1440 = sub i32 64, %86
+  %92 = load i32, ptr %hashLog3.i.i1242, align 4
+  %sub.i.i29.i.i1440 = sub i32 64, %92
   %sh_prom.i.i.i.i1441 = zext nneg i32 %sub.i.i29.i.i1440 to i64
-  %87 = and i64 %sub.ptr.sub.i.i1432, 4294967295
+  %93 = and i64 %sub.ptr.sub.i.i1432, 4294967295
   br label %for.body.us4.i.i1442
 
 for.body.us4.i.i1442:                             ; preds = %for.body.us4.i.i1442, %for.body.lr.ph.i.i1438
-  %indvars.iv.i.i1443 = phi i64 [ %indvars.iv.next.i.i1454, %for.body.us4.i.i1442 ], [ %idx.ext.i.i1381, %for.body.lr.ph.i.i1438 ]
-  %add.ptr.us7.i.i1444 = getelementptr inbounds i8, ptr %74, i64 %indvars.iv.i.i1443
+  %indvars.iv.i.i1443 = phi i64 [ %indvars.iv.next.i.i1454, %for.body.us4.i.i1442 ], [ %idx.ext.i.i1420, %for.body.lr.ph.i.i1438 ]
+  %add.ptr.us7.i.i1444 = getelementptr inbounds i8, ptr %87, i64 %indvars.iv.i.i1443
   %add.ptr.val26.us.i.i1445 = load i64, ptr %add.ptr.us7.i.i1444, align 1
   %mul.i.i28.us.i.i1446 = mul i64 %add.ptr.val26.us.i.i1445, -3523014627271114752
   %shr.i.i30.us.i.i1447 = lshr i64 %mul.i.i28.us.i.i1446, %sh_prom.i.i.i.i1441
-  %arrayidx.us10.i.i1448 = getelementptr inbounds i32, ptr %83, i64 %shr.i.i30.us.i.i1447
-  %88 = load i32, ptr %arrayidx.us10.i.i1448, align 4
-  %89 = trunc i64 %indvars.iv.i.i1443 to i32
-  %and.us11.i.i1449 = and i32 %89, %sub4.i.i1429
+  %arrayidx.us10.i.i1448 = getelementptr inbounds i32, ptr %89, i64 %shr.i.i30.us.i.i1447
+  %94 = load i32, ptr %arrayidx.us10.i.i1448, align 4
+  %95 = trunc i64 %indvars.iv.i.i1443 to i32
+  %and.us11.i.i1449 = and i32 %95, %sub4.i.i1429
   %mul.us12.i.i1450 = shl nuw i32 %and.us11.i.i1449, 1
   %idx.ext9.us13.i.i1451 = zext i32 %mul.us12.i.i1450 to i64
-  %add.ptr10.us14.i.i1452 = getelementptr inbounds i32, ptr %84, i64 %idx.ext9.us13.i.i1451
+  %add.ptr10.us14.i.i1452 = getelementptr inbounds i32, ptr %90, i64 %idx.ext9.us13.i.i1451
   %add.ptr11.us15.i.i1453 = getelementptr inbounds i32, ptr %add.ptr10.us14.i.i1452, i64 1
-  store i32 %89, ptr %arrayidx.us10.i.i1448, align 4
-  store i32 %88, ptr %add.ptr10.us14.i.i1452, align 4
+  store i32 %95, ptr %arrayidx.us10.i.i1448, align 4
+  store i32 %94, ptr %add.ptr10.us14.i.i1452, align 4
   store i32 1, ptr %add.ptr11.us15.i.i1453, align 4
   %indvars.iv.next.i.i1454 = add nuw nsw i64 %indvars.iv.i.i1443, 1
-  %exitcond.not.i1455 = icmp eq i64 %indvars.iv.next.i.i1454, %87
+  %exitcond.not.i1455 = icmp eq i64 %indvars.iv.next.i.i1454, %93
   br i1 %exitcond.not.i1455, label %ZSTD_searchMax.exit, label %for.body.us4.i.i1442, !llvm.loop !27
 
 sw.bb62.i:                                        ; preds = %if.end290.i
-  br i1 %cmp.i.i1383, label %if.end317.i, label %if.end.i.i1462
+  %96 = load ptr, ptr %base4.i, align 8
+  %97 = load i32, ptr %nextToUpdate.i.i1222, align 4
+  %idx.ext.i.i1459 = zext i32 %97 to i64
+  %add.ptr.i.i1460 = getelementptr inbounds i8, ptr %96, i64 %idx.ext.i.i1459
+  %cmp.i.i1461 = icmp ugt ptr %add.ptr.i.i1460, %incdec.ptr225.i
+  br i1 %cmp.i.i1461, label %if.end317.i, label %if.end.i.i1462
 
 if.end.i.i1462:                                   ; preds = %sw.bb62.i
-  %90 = load ptr, ptr %hashTable2.i.i1227, align 8
-  %91 = load ptr, ptr %chainTable.i.i1228, align 8
-  %92 = load i32, ptr %chainLog.i.i1229, align 4
-  %sub.i.i1466 = add i32 %92, -1
+  %98 = load ptr, ptr %hashTable2.i.i1227, align 8
+  %99 = load ptr, ptr %chainTable.i.i1228, align 8
+  %100 = load i32, ptr %chainLog.i.i1229, align 4
+  %sub.i.i1466 = add i32 %100, -1
   %notmask.i.i1467 = shl nsw i32 -1, %sub.i.i1466
   %sub4.i.i1468 = xor i32 %notmask.i.i1467, -1
   %sub.ptr.lhs.cast.i.i1469 = ptrtoint ptr %incdec.ptr225.i to i64
-  %sub.ptr.rhs.cast.i.i1470 = ptrtoint ptr %74 to i64
+  %sub.ptr.rhs.cast.i.i1470 = ptrtoint ptr %96 to i64
   %sub.ptr.sub.i.i1471 = sub i64 %sub.ptr.lhs.cast.i.i1469, %sub.ptr.rhs.cast.i.i1470
   %conv.i.i1472 = trunc i64 %sub.ptr.sub.i.i1471 to i32
-  %cmp71.i.i1473 = icmp ult i32 %75, %conv.i.i1472
+  %cmp71.i.i1473 = icmp ult i32 %97, %conv.i.i1472
   br i1 %cmp71.i.i1473, label %for.body.lr.ph.i.i1477, label %ZSTD_searchMax.exit
 
 for.body.lr.ph.i.i1477:                           ; preds = %if.end.i.i1462
-  %93 = load i32, ptr %hashLog3.i.i1242, align 4
-  %sub.i.i29.i.i1479 = sub i32 64, %93
+  %101 = load i32, ptr %hashLog3.i.i1242, align 4
+  %sub.i.i29.i.i1479 = sub i32 64, %101
   %sh_prom.i.i.i.i1480 = zext nneg i32 %sub.i.i29.i.i1479 to i64
-  %94 = and i64 %sub.ptr.sub.i.i1471, 4294967295
+  %102 = and i64 %sub.ptr.sub.i.i1471, 4294967295
   br label %for.body.us.i.i1481
 
 for.body.us.i.i1481:                              ; preds = %for.body.us.i.i1481, %for.body.lr.ph.i.i1477
-  %indvars.iv21.i.i1482 = phi i64 [ %indvars.iv.next22.i.i1493, %for.body.us.i.i1481 ], [ %idx.ext.i.i1381, %for.body.lr.ph.i.i1477 ]
-  %add.ptr.us.i.i1483 = getelementptr inbounds i8, ptr %74, i64 %indvars.iv21.i.i1482
+  %indvars.iv21.i.i1482 = phi i64 [ %indvars.iv.next22.i.i1493, %for.body.us.i.i1481 ], [ %idx.ext.i.i1459, %for.body.lr.ph.i.i1477 ]
+  %add.ptr.us.i.i1483 = getelementptr inbounds i8, ptr %96, i64 %indvars.iv21.i.i1482
   %add.ptr.val27.us.i.i1484 = load i64, ptr %add.ptr.us.i.i1483, align 1
   %mul.i.i31.us.i.i1485 = mul i64 %add.ptr.val27.us.i.i1484, -3523014627193847808
   %shr.i.i34.us.i.i1486 = lshr i64 %mul.i.i31.us.i.i1485, %sh_prom.i.i.i.i1480
-  %arrayidx.us.i.i1487 = getelementptr inbounds i32, ptr %90, i64 %shr.i.i34.us.i.i1486
-  %95 = load i32, ptr %arrayidx.us.i.i1487, align 4
-  %96 = trunc i64 %indvars.iv21.i.i1482 to i32
-  %and.us.i.i1488 = and i32 %96, %sub4.i.i1468
+  %arrayidx.us.i.i1487 = getelementptr inbounds i32, ptr %98, i64 %shr.i.i34.us.i.i1486
+  %103 = load i32, ptr %arrayidx.us.i.i1487, align 4
+  %104 = trunc i64 %indvars.iv21.i.i1482 to i32
+  %and.us.i.i1488 = and i32 %104, %sub4.i.i1468
   %mul.us.i.i1489 = shl nuw i32 %and.us.i.i1488, 1
   %idx.ext9.us.i.i1490 = zext i32 %mul.us.i.i1489 to i64
-  %add.ptr10.us.i.i1491 = getelementptr inbounds i32, ptr %91, i64 %idx.ext9.us.i.i1490
+  %add.ptr10.us.i.i1491 = getelementptr inbounds i32, ptr %99, i64 %idx.ext9.us.i.i1490
   %add.ptr11.us.i.i1492 = getelementptr inbounds i32, ptr %add.ptr10.us.i.i1491, i64 1
-  store i32 %96, ptr %arrayidx.us.i.i1487, align 4
-  store i32 %95, ptr %add.ptr10.us.i.i1491, align 4
+  store i32 %104, ptr %arrayidx.us.i.i1487, align 4
+  store i32 %103, ptr %add.ptr10.us.i.i1491, align 4
   store i32 1, ptr %add.ptr11.us.i.i1492, align 4
   %indvars.iv.next22.i.i1493 = add nuw nsw i64 %indvars.iv21.i.i1482, 1
-  %exitcond.not.i1494 = icmp eq i64 %indvars.iv.next22.i.i1493, %94
+  %exitcond.not.i1494 = icmp eq i64 %indvars.iv.next22.i.i1493, %102
   br i1 %exitcond.not.i1494, label %ZSTD_searchMax.exit, label %for.body.us.i.i1481, !llvm.loop !27
-
-sw.epilog97.i:                                    ; preds = %if.end290.i
-  unreachable
 
 ZSTD_searchMax.exit:                              ; preds = %for.body.us.i.i1481, %for.body.us4.i.i1442, %for.body.i.i1402, %if.end.i.i1462, %if.end.i.i1423, %if.end.i.i1384
   %conv.i.i1472.sink = phi i32 [ %conv.i.i1394, %if.end.i.i1384 ], [ %conv.i.i1433, %if.end.i.i1423 ], [ %conv.i.i1472, %if.end.i.i1462 ], [ %conv.i.i1394, %for.body.i.i1402 ], [ %conv.i.i1433, %for.body.us4.i.i1442 ], [ %conv.i.i1472, %for.body.us.i.i1481 ]
@@ -28018,18 +27901,18 @@ ZSTD_searchMax.exit:                              ; preds = %for.body.us.i.i1481
 
 land.lhs.true311.i:                               ; preds = %ZSTD_searchMax.exit
   %conv303.i = trunc i64 %offBase.i.3 to i32
-  %97 = tail call i32 @llvm.ctlz.i32(i32 %conv303.i, i1 true), !range !25
-  %98 = load i64, ptr %ofbCandidate291.i, align 8
-  %conv296.i = trunc i64 %98 to i32
-  %99 = tail call i32 @llvm.ctlz.i32(i32 %conv296.i, i1 true), !range !25
-  %sub.i1496 = xor i32 %99, 31
+  %105 = tail call i32 @llvm.ctlz.i32(i32 %conv303.i, i1 true), !range !25
+  %106 = load i64, ptr %ofbCandidate291.i, align 8
+  %conv296.i = trunc i64 %106 to i32
+  %107 = tail call i32 @llvm.ctlz.i32(i32 %conv296.i, i1 true), !range !25
+  %sub.i1496 = xor i32 %107, 31
   %matchLength.i.4.tr = trunc i64 %matchLength.i.4 to i32
-  %100 = shl i32 %matchLength.i.4.tr, 2
-  %101 = add nsw i32 %97, -24
-  %conv308.i = add i32 %101, %100
+  %108 = shl i32 %matchLength.i.4.tr, 2
+  %109 = add nsw i32 %105, -24
+  %conv308.i = add i32 %109, %108
   %retval.i120.0.tr = trunc i64 %call.i.i1475 to i32
-  %102 = shl i32 %retval.i120.0.tr, 2
-  %conv300.i = sub i32 %102, %sub.i1496
+  %110 = shl i32 %retval.i120.0.tr, 2
+  %conv300.i = sub i32 %110, %sub.i1496
   %cmp312.i = icmp sgt i32 %conv300.i, %conv308.i
   br i1 %cmp312.i, label %while.cond131.i.backedge, label %if.end317.i
 
@@ -28046,8 +27929,8 @@ if.end317.i._storeSequence.i_crit_edge:           ; preds = %if.end317.i
 
 if.then320.i:                                     ; preds = %if.end317.i
   %sub.ptr.lhs.cast321.i = ptrtoint ptr %start.i.4 to i64
-  %103 = add i64 %offBase.i.4, %sub.ptr.rhs.cast.i
-  %reass.sub = sub i64 %sub.ptr.lhs.cast321.i, %103
+  %111 = add i64 %offBase.i.4, %sub.ptr.rhs.cast.i
+  %reass.sub = sub i64 %sub.ptr.lhs.cast321.i, %111
   %sub325.i = add i64 %reass.sub, 3
   %conv326.i = trunc i64 %sub325.i to i32
   %cmp327.i = icmp ugt i32 %1, %conv326.i
@@ -28065,10 +27948,10 @@ land.rhs.i:                                       ; preds = %if.then320.i, %whil
   %matchLength.i.61616 = phi i64 [ %inc358.i, %while.body355.i ], [ %matchLength.i.5, %if.then320.i ]
   %start.i.51615 = phi ptr [ %arrayidx349.i, %while.body355.i ], [ %start.i.4, %if.then320.i ]
   %arrayidx349.i = getelementptr inbounds i8, ptr %start.i.51615, i64 -1
-  %104 = load i8, ptr %arrayidx349.i, align 1
+  %112 = load i8, ptr %arrayidx349.i, align 1
   %arrayidx351.i = getelementptr inbounds i8, ptr %match.i.01617, i64 -1
-  %105 = load i8, ptr %arrayidx351.i, align 1
-  %cmp353.i = icmp eq i8 %104, %105
+  %113 = load i8, ptr %arrayidx351.i, align 1
+  %cmp353.i = icmp eq i8 %112, %113
   br i1 %cmp353.i, label %while.body355.i, label %while.end359.i
 
 while.body355.i:                                  ; preds = %land.rhs.i
@@ -28081,12 +27964,12 @@ while.body355.i:                                  ; preds = %land.rhs.i
 while.end359.i:                                   ; preds = %land.rhs.i, %while.body355.i, %if.then320.i
   %start.i.5.lcssa = phi ptr [ %start.i.4, %if.then320.i ], [ %arrayidx349.i, %while.body355.i ], [ %start.i.51615, %land.rhs.i ]
   %matchLength.i.6.lcssa = phi i64 [ %matchLength.i.5, %if.then320.i ], [ %inc358.i, %while.body355.i ], [ %matchLength.i.61616, %land.rhs.i ]
-  %106 = trunc i64 %offBase.i.4 to i32
-  %conv361.i = add i32 %106, -3
+  %114 = trunc i64 %offBase.i.4 to i32
+  %conv361.i = add i32 %114, -3
   br label %_storeSequence.i
 
 _storeSequence.i:                                 ; preds = %if.end317.i._storeSequence.i_crit_edge, %while.end359.i
-  %conv366.i.pre-phi = phi i32 [ %.pre1677, %if.end317.i._storeSequence.i_crit_edge ], [ %106, %while.end359.i ]
+  %conv366.i.pre-phi = phi i32 [ %.pre1677, %if.end317.i._storeSequence.i_crit_edge ], [ %114, %while.end359.i ]
   %start.i.6 = phi ptr [ %start.i.4, %if.end317.i._storeSequence.i_crit_edge ], [ %start.i.5.lcssa, %while.end359.i ]
   %matchLength.i.7 = phi i64 [ %matchLength.i.5, %if.end317.i._storeSequence.i_crit_edge ], [ %matchLength.i.6.lcssa, %while.end359.i ]
   %offset_2.i.1 = phi i32 [ %offset_2.i.0.ph1636, %if.end317.i._storeSequence.i_crit_edge ], [ %offset_1.i.0.ph1637, %while.end359.i ]
@@ -28095,15 +27978,15 @@ _storeSequence.i:                                 ; preds = %if.end317.i._storeS
   %sub.ptr.sub365.i = sub i64 %sub.ptr.lhs.cast363.i, %sub.ptr.rhs.cast120.i
   %add.ptr1.i549 = getelementptr inbounds i8, ptr %anchor.i.0.ph1638, i64 %sub.ptr.sub365.i
   %cmp.i550.not = icmp ugt ptr %add.ptr1.i549, %add.ptr.i548
-  %107 = load ptr, ptr %lit.i588, align 8
+  %115 = load ptr, ptr %lit.i588, align 8
   br i1 %cmp.i550.not, label %if.else.i551, label %if.then.i587
 
 if.then.i587:                                     ; preds = %_storeSequence.i
   %anchor.i.0.val = load <2 x i64>, ptr %anchor.i.0.ph1638, align 1
-  store <2 x i64> %anchor.i.0.val, ptr %107, align 1
+  store <2 x i64> %anchor.i.0.val, ptr %115, align 1
   %cmp2.i589 = icmp ugt i64 %sub.ptr.sub365.i, 16
-  %108 = load ptr, ptr %lit.i588, align 8
-  %add.ptr.i602 = getelementptr inbounds i8, ptr %108, i64 %sub.ptr.sub365.i
+  %116 = load ptr, ptr %lit.i588, align 8
+  %add.ptr.i602 = getelementptr inbounds i8, ptr %116, i64 %sub.ptr.sub365.i
   br i1 %cmp2.i589, label %if.then3.i591, label %if.end8.i553.thread
 
 if.end8.i553.thread:                              ; preds = %if.then.i587
@@ -28113,14 +27996,14 @@ if.end8.i553.thread:                              ; preds = %if.then.i587
 
 if.then3.i591:                                    ; preds = %if.then.i587
   %add.ptr6.i594 = getelementptr inbounds i8, ptr %anchor.i.0.ph1638, i64 16
-  %add.ptr5.i593 = getelementptr inbounds i8, ptr %108, i64 16
+  %add.ptr5.i593 = getelementptr inbounds i8, ptr %116, i64 16
   %add.ptr6.i594.val = load <2 x i64>, ptr %add.ptr6.i594, align 1
   store <2 x i64> %add.ptr6.i594.val, ptr %add.ptr5.i593, align 1
   %cmp7.i = icmp slt i64 %sub.ptr.sub365.i, 33
   br i1 %cmp7.i, label %if.end8.i553, label %if.end.i605
 
 if.end.i605:                                      ; preds = %if.then3.i591
-  %add.ptr9.i606 = getelementptr inbounds i8, ptr %108, i64 32
+  %add.ptr9.i606 = getelementptr inbounds i8, ptr %116, i64 32
   br label %do.body11.i
 
 do.body11.i:                                      ; preds = %do.body11.i, %if.end.i605
@@ -28144,14 +28027,14 @@ if.else.i551:                                     ; preds = %_storeSequence.i
 
 if.then.i:                                        ; preds = %if.else.i551
   %sub.ptr.sub.i1500 = sub i64 %sub.ptr.lhs.cast.i1498, %sub.ptr.rhs.cast120.i
-  %add.ptr.i.i1501 = getelementptr inbounds i8, ptr %107, i64 %sub.ptr.sub.i1500
+  %add.ptr.i.i1501 = getelementptr inbounds i8, ptr %115, i64 %sub.ptr.sub.i1500
   %ip.val.i = load <2 x i64>, ptr %anchor.i.0.ph1638, align 1
-  store <2 x i64> %ip.val.i, ptr %107, align 1
+  store <2 x i64> %ip.val.i, ptr %115, align 1
   %cmp7.i.i = icmp slt i64 %sub.ptr.sub.i1500, 17
   br i1 %cmp7.i.i, label %if.end.i, label %if.end.i.i1502
 
 if.end.i.i1502:                                   ; preds = %if.then.i
-  %add.ptr9.i.i = getelementptr inbounds i8, ptr %107, i64 16
+  %add.ptr9.i.i = getelementptr inbounds i8, ptr %115, i64 16
   br label %do.body11.i.i
 
 do.body11.i.i:                                    ; preds = %do.body11.i.i, %if.end.i.i1502
@@ -28169,30 +28052,30 @@ do.body11.i.i:                                    ; preds = %do.body11.i.i, %if.
   br i1 %cmp23.i.i, label %do.body11.i.i, label %if.end.i, !llvm.loop !19
 
 if.end.i:                                         ; preds = %do.body11.i.i, %if.then.i, %if.else.i551
-  %op.addr.0.i = phi ptr [ %add.ptr.i.i1501, %if.then.i ], [ %107, %if.else.i551 ], [ %add.ptr.i.i1501, %do.body11.i.i ]
+  %op.addr.0.i = phi ptr [ %add.ptr.i.i1501, %if.then.i ], [ %115, %if.else.i551 ], [ %add.ptr.i.i1501, %do.body11.i.i ]
   %ip.addr.0.i = phi ptr [ %add.ptr.i548, %if.then.i ], [ %anchor.i.0.ph1638, %if.else.i551 ], [ %add.ptr.i548, %do.body11.i.i ]
   %cmp432.i = icmp ult ptr %ip.addr.0.i, %add.ptr1.i549
   br i1 %cmp432.i, label %while.body.preheader.i, label %if.end8.i553
 
 while.body.preheader.i:                           ; preds = %if.end.i
   %ip.addr.036.i = ptrtoint ptr %ip.addr.0.i to i64
-  %109 = sub i64 %iend35.i, %ip.addr.036.i
-  %scevgep.i = getelementptr i8, ptr %ip.addr.0.i, i64 %109
+  %117 = sub i64 %iend35.i, %ip.addr.036.i
+  %scevgep.i = getelementptr i8, ptr %ip.addr.0.i, i64 %117
   br label %while.body.i1503
 
 while.body.i1503:                                 ; preds = %while.body.i1503, %while.body.preheader.i
   %ip.addr.134.i = phi ptr [ %incdec.ptr.i1504, %while.body.i1503 ], [ %ip.addr.0.i, %while.body.preheader.i ]
   %op.addr.133.i = phi ptr [ %incdec.ptr5.i, %while.body.i1503 ], [ %op.addr.0.i, %while.body.preheader.i ]
   %incdec.ptr.i1504 = getelementptr inbounds i8, ptr %ip.addr.134.i, i64 1
-  %110 = load i8, ptr %ip.addr.134.i, align 1
+  %118 = load i8, ptr %ip.addr.134.i, align 1
   %incdec.ptr5.i = getelementptr inbounds i8, ptr %op.addr.133.i, i64 1
-  store i8 %110, ptr %op.addr.133.i, align 1
+  store i8 %118, ptr %op.addr.133.i, align 1
   %exitcond.not.i1505 = icmp eq ptr %incdec.ptr.i1504, %scevgep.i
   br i1 %exitcond.not.i1505, label %if.end8.i553, label %while.body.i1503, !llvm.loop !20
 
 if.end8.i553:                                     ; preds = %do.body11.i, %while.body.i1503, %if.end.i, %if.then3.i591
-  %111 = load ptr, ptr %lit.i588, align 8
-  %add.ptr10.i555 = getelementptr inbounds i8, ptr %111, i64 %sub.ptr.sub365.i
+  %119 = load ptr, ptr %lit.i588, align 8
+  %add.ptr10.i555 = getelementptr inbounds i8, ptr %119, i64 %sub.ptr.sub365.i
   store ptr %add.ptr10.i555, ptr %lit.i588, align 8
   %cmp11.i556 = icmp ugt i64 %sub.ptr.sub365.i, 65535
   %.pre1674 = load ptr, ptr %sequences.i580, align 8
@@ -28200,9 +28083,9 @@ if.end8.i553:                                     ; preds = %do.body11.i, %while
 
 if.then12.i578:                                   ; preds = %if.end8.i553
   store i32 1, ptr %longLengthType.i579, align 8
-  %112 = load ptr, ptr %seqStore, align 8
+  %120 = load ptr, ptr %seqStore, align 8
   %sub.ptr.lhs.cast.i581 = ptrtoint ptr %.pre1674 to i64
-  %sub.ptr.rhs.cast.i582 = ptrtoint ptr %112 to i64
+  %sub.ptr.rhs.cast.i582 = ptrtoint ptr %120 to i64
   %sub.ptr.sub.i583 = sub i64 %sub.ptr.lhs.cast.i581, %sub.ptr.rhs.cast.i582
   %sub.ptr.div.i584 = lshr exact i64 %sub.ptr.sub.i583, 3
   %conv.i585 = trunc i64 %sub.ptr.div.i584 to i32
@@ -28210,12 +28093,12 @@ if.then12.i578:                                   ; preds = %if.end8.i553
   br label %if.end13.i557
 
 if.end13.i557:                                    ; preds = %if.end8.i553.thread, %if.then12.i578, %if.end8.i553
-  %113 = phi ptr [ %.pre, %if.end8.i553.thread ], [ %.pre1674, %if.then12.i578 ], [ %.pre1674, %if.end8.i553 ]
+  %121 = phi ptr [ %.pre, %if.end8.i553.thread ], [ %.pre1674, %if.then12.i578 ], [ %.pre1674, %if.end8.i553 ]
   %conv14.i558 = trunc i64 %sub.ptr.sub365.i to i16
-  %litLength16.i560 = getelementptr inbounds %struct.seqDef_s, ptr %113, i64 0, i32 1
+  %litLength16.i560 = getelementptr inbounds %struct.seqDef_s, ptr %121, i64 0, i32 1
   store i16 %conv14.i558, ptr %litLength16.i560, align 4
-  %114 = load ptr, ptr %sequences.i580, align 8
-  store i32 %conv366.i.pre-phi, ptr %114, align 4
+  %122 = load ptr, ptr %sequences.i580, align 8
+  store i32 %conv366.i.pre-phi, ptr %122, align 4
   %sub20.i562 = add i64 %matchLength.i.7, -3
   %cmp21.i563 = icmp ugt i64 %sub20.i562, 65535
   %.pre1675 = load ptr, ptr %sequences.i580, align 8
@@ -28223,9 +28106,9 @@ if.end13.i557:                                    ; preds = %if.end8.i553.thread
 
 if.then23.i569:                                   ; preds = %if.end13.i557
   store i32 2, ptr %longLengthType.i579, align 8
-  %115 = load ptr, ptr %seqStore, align 8
+  %123 = load ptr, ptr %seqStore, align 8
   %sub.ptr.lhs.cast27.i572 = ptrtoint ptr %.pre1675 to i64
-  %sub.ptr.rhs.cast28.i573 = ptrtoint ptr %115 to i64
+  %sub.ptr.rhs.cast28.i573 = ptrtoint ptr %123 to i64
   %sub.ptr.sub29.i574 = sub i64 %sub.ptr.lhs.cast27.i572, %sub.ptr.rhs.cast28.i573
   %sub.ptr.div30.i575 = lshr exact i64 %sub.ptr.sub29.i574, 3
   %conv31.i576 = trunc i64 %sub.ptr.div30.i575 to i32
@@ -28236,12 +28119,12 @@ ZSTD_storeSeq.exit596:                            ; preds = %if.then23.i569, %if
   %conv34.i564 = trunc i64 %sub20.i562 to i16
   %mlBase37.i566 = getelementptr inbounds %struct.seqDef_s, ptr %.pre1675, i64 0, i32 2
   store i16 %conv34.i564, ptr %mlBase37.i566, align 2
-  %116 = load ptr, ptr %sequences.i580, align 8
-  %incdec.ptr.i568 = getelementptr inbounds %struct.seqDef_s, ptr %116, i64 1
+  %124 = load ptr, ptr %sequences.i580, align 8
+  %incdec.ptr.i568 = getelementptr inbounds %struct.seqDef_s, ptr %124, i64 1
   store ptr %incdec.ptr.i568, ptr %sequences.i580, align 8
   %add.ptr367.i = getelementptr inbounds i8, ptr %start.i.6, i64 %matchLength.i.7
-  %117 = load i32, ptr %lazySkipping.i, align 4
-  %tobool369.i.not = icmp eq i32 %117, 0
+  %125 = load i32, ptr %lazySkipping.i, align 4
+  %tobool369.i.not = icmp eq i32 %125, 0
   br i1 %tobool369.i.not, label %if.end377.i, label %if.end375.i
 
 if.end375.i:                                      ; preds = %ZSTD_storeSeq.exit596
@@ -28265,8 +28148,8 @@ while.body381.i:                                  ; preds = %if.end377.i, %ZSTD_
   %cmp.i1508 = icmp ugt i32 %sub.i1507, %shl.i
   %sub1.i1509 = sub i32 %conv385.i, %shl.i
   %cmp2.not.i1510 = icmp eq i32 %ms.val1196, 0
-  %118 = select i1 %cmp2.not.i1510, i1 %cmp.i1508, i1 false
-  %cond6.i1511 = select i1 %118, i32 %sub1.i1509, i32 %ms.val1195
+  %126 = select i1 %cmp2.not.i1510, i1 %cmp.i1508, i1 false
+  %cond6.i1511 = select i1 %126, i32 %sub1.i1509, i32 %ms.val1195
   %sub389.i = sub i32 %conv385.i, %offset_2.i.21623
   %cmp391.i = icmp ult i32 %sub389.i, %1
   %cond396.i = select i1 %cmp391.i, ptr %2, ptr %0
@@ -28307,8 +28190,8 @@ if.then.i.i:                                      ; preds = %if.then414.i
   br i1 %tobool.not.i.i, label %while.cond.i.i, label %if.then2.i.i
 
 if.then2.i.i:                                     ; preds = %if.then.i.i
-  %119 = tail call i64 @llvm.cttz.i64(i64 %xor.i.i, i1 true), !range !16
-  %shr.i.i.i = lshr i64 %119, 3
+  %127 = tail call i64 @llvm.cttz.i64(i64 %xor.i.i, i1 true), !range !16
+  %shr.i.i.i = lshr i64 %127, 3
   br label %ZSTD_count.exit.i
 
 while.cond.i.i:                                   ; preds = %if.then.i.i, %while.body.i.i
@@ -28327,8 +28210,8 @@ while.body.i.i:                                   ; preds = %while.cond.i.i
   br i1 %tobool12.not.i.i, label %while.cond.i.i, label %if.end16.i.i, !llvm.loop !17
 
 if.end16.i.i:                                     ; preds = %while.body.i.i
-  %120 = tail call i64 @llvm.cttz.i64(i64 %xor11.i.i, i1 true), !range !16
-  %shr.i35.i.i = lshr i64 %120, 3
+  %128 = tail call i64 @llvm.cttz.i64(i64 %xor11.i.i, i1 true), !range !16
+  %shr.i35.i.i = lshr i64 %128, 3
   %add.ptr18.i.i1521 = getelementptr inbounds i8, ptr %pIn.addr.0.i.i, i64 %shr.i35.i.i
   %sub.ptr.lhs.cast.i.i1522 = ptrtoint ptr %add.ptr18.i.i1521 to i64
   %sub.ptr.rhs.cast.i.i1523 = ptrtoint ptr %add.ptr422.i to i64
@@ -28378,9 +28261,9 @@ if.end47.i.i:                                     ; preds = %if.then44.i.i, %lan
   br i1 %cmp48.i.i, label %land.lhs.true50.i.i, label %if.end56.i.i
 
 land.lhs.true50.i.i:                              ; preds = %if.end47.i.i
-  %121 = load i8, ptr %pMatch.addr.3.i.i, align 1
-  %122 = load i8, ptr %pIn.addr.3.i.i, align 1
-  %cmp53.i.i = icmp eq i8 %121, %122
+  %129 = load i8, ptr %pMatch.addr.3.i.i, align 1
+  %130 = load i8, ptr %pIn.addr.3.i.i, align 1
+  %cmp53.i.i = icmp eq i8 %129, %130
   %spec.select.idx.i.i = zext i1 %cmp53.i.i to i64
   %spec.select.i.i = getelementptr inbounds i8, ptr %pIn.addr.3.i.i, i64 %spec.select.idx.i.i
   br label %if.end56.i.i
@@ -28411,8 +28294,8 @@ if.then.i54.i:                                    ; preds = %do.end14.i
   br i1 %tobool.not.i58.i, label %while.cond.i61.i, label %if.then2.i59.i
 
 if.then2.i59.i:                                   ; preds = %if.then.i54.i
-  %123 = tail call i64 @llvm.cttz.i64(i64 %xor.i57.i, i1 true), !range !16
-  %shr.i.i60.i = lshr i64 %123, 3
+  %131 = tail call i64 @llvm.cttz.i64(i64 %xor.i57.i, i1 true), !range !16
+  %shr.i.i60.i = lshr i64 %131, 3
   br label %ZSTD_count.exit78.i
 
 while.cond.i61.i:                                 ; preds = %if.then.i54.i, %while.body.i67.i
@@ -28431,8 +28314,8 @@ while.body.i67.i:                                 ; preds = %while.cond.i61.i
   br i1 %tobool12.not.i71.i, label %while.cond.i61.i, label %if.end16.i72.i, !llvm.loop !17
 
 if.end16.i72.i:                                   ; preds = %while.body.i67.i
-  %124 = tail call i64 @llvm.cttz.i64(i64 %xor11.i70.i, i1 true), !range !16
-  %shr.i35.i73.i = lshr i64 %124, 3
+  %132 = tail call i64 @llvm.cttz.i64(i64 %xor11.i70.i, i1 true), !range !16
+  %shr.i35.i73.i = lshr i64 %132, 3
   %add.ptr18.i74.i = getelementptr inbounds i8, ptr %pIn.addr.0.i64.i, i64 %shr.i35.i73.i
   %sub.ptr.lhs.cast.i75.i = ptrtoint ptr %add.ptr18.i74.i to i64
   %sub.ptr.rhs.cast.i76.i = ptrtoint ptr %add.ptr15.i to i64
@@ -28480,9 +28363,9 @@ if.end47.i26.i:                                   ; preds = %if.then44.i44.i, %l
   br i1 %cmp48.i29.i, label %land.lhs.true50.i36.i, label %if.end56.i30.i
 
 land.lhs.true50.i36.i:                            ; preds = %if.end47.i26.i
-  %125 = load i8, ptr %pMatch.addr.3.i27.i, align 1
-  %126 = load i8, ptr %pIn.addr.3.i28.i, align 1
-  %cmp53.i37.i = icmp eq i8 %125, %126
+  %133 = load i8, ptr %pMatch.addr.3.i27.i, align 1
+  %134 = load i8, ptr %pIn.addr.3.i28.i, align 1
+  %cmp53.i37.i = icmp eq i8 %133, %134
   %spec.select.idx.i38.i = zext i1 %cmp53.i37.i to i64
   %spec.select.i39.i = getelementptr inbounds i8, ptr %pIn.addr.3.i28.i, i64 %spec.select.idx.i38.i
   br label %if.end56.i30.i
@@ -28506,17 +28389,17 @@ ZSTD_count_2segments.exit:                        ; preds = %ZSTD_count.exit.i, 
   br i1 %cmp.i527.not, label %if.end13.i, label %if.then.i535
 
 if.then.i535:                                     ; preds = %ZSTD_count_2segments.exit
-  %127 = load ptr, ptr %lit.i588, align 8
+  %135 = load ptr, ptr %lit.i588, align 8
   %ip.i.2.val1189 = load <2 x i64>, ptr %ip.i.21625, align 1
-  store <2 x i64> %ip.i.2.val1189, ptr %127, align 1
+  store <2 x i64> %ip.i.2.val1189, ptr %135, align 1
   br label %if.end13.i
 
 if.end13.i:                                       ; preds = %ZSTD_count_2segments.exit, %if.then.i535
-  %128 = load ptr, ptr %sequences.i580, align 8
-  %litLength16.i = getelementptr inbounds %struct.seqDef_s, ptr %128, i64 0, i32 1
+  %136 = load ptr, ptr %sequences.i580, align 8
+  %litLength16.i = getelementptr inbounds %struct.seqDef_s, ptr %136, i64 0, i32 1
   store i16 0, ptr %litLength16.i, align 4
-  %129 = load ptr, ptr %sequences.i580, align 8
-  store i32 1, ptr %129, align 4
+  %137 = load ptr, ptr %sequences.i580, align 8
+  store i32 1, ptr %137, align 4
   %sub20.i = add i64 %retval.0.i, 1
   %cmp21.i = icmp ugt i64 %sub20.i, 65535
   %.pre1676 = load ptr, ptr %sequences.i580, align 8
@@ -28524,9 +28407,9 @@ if.end13.i:                                       ; preds = %ZSTD_count_2segment
 
 if.then23.i:                                      ; preds = %if.end13.i
   store i32 2, ptr %longLengthType.i579, align 8
-  %130 = load ptr, ptr %seqStore, align 8
+  %138 = load ptr, ptr %seqStore, align 8
   %sub.ptr.lhs.cast27.i = ptrtoint ptr %.pre1676 to i64
-  %sub.ptr.rhs.cast28.i = ptrtoint ptr %130 to i64
+  %sub.ptr.rhs.cast28.i = ptrtoint ptr %138 to i64
   %sub.ptr.sub29.i = sub i64 %sub.ptr.lhs.cast27.i, %sub.ptr.rhs.cast28.i
   %sub.ptr.div30.i = lshr exact i64 %sub.ptr.sub29.i, 3
   %conv31.i = trunc i64 %sub.ptr.div30.i to i32
@@ -28537,8 +28420,8 @@ ZSTD_storeSeq.exit:                               ; preds = %if.then23.i, %if.en
   %conv34.i = trunc i64 %sub20.i to i16
   %mlBase37.i = getelementptr inbounds %struct.seqDef_s, ptr %.pre1676, i64 0, i32 2
   store i16 %conv34.i, ptr %mlBase37.i, align 2
-  %131 = load ptr, ptr %sequences.i580, align 8
-  %incdec.ptr.i530 = getelementptr inbounds %struct.seqDef_s, ptr %131, i64 1
+  %139 = load ptr, ptr %sequences.i580, align 8
+  %incdec.ptr.i530 = getelementptr inbounds %struct.seqDef_s, ptr %139, i64 1
   store ptr %incdec.ptr.i530, ptr %sequences.i580, align 8
   %add.ptr428.i = getelementptr inbounds i8, ptr %ip.i.21625, i64 %add425.i
   %cmp379.i.not = icmp ugt ptr %add.ptr428.i, %add.ptr1.i

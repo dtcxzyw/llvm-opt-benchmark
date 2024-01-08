@@ -9670,22 +9670,18 @@ if.end8.sink.split.i.i.i.i35:                     ; preds = %_ZN9__gnu_cxx27__ex
 
 if.else:                                          ; preds = %if.then
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %os)
-  %34 = icmp ult i32 %type, 3
-  br i1 %34, label %switch.lookup, label %sw.epilog
+  %34 = sext i32 %type to i64
+  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table._ZN19OpenColorIO_v2_4dev12_GLOBAL__N_123ValidateDynamicPropertyINS_25DynamicPropertyDoubleImplEEEvSt10shared_ptrINS_2OpEERS3_IT_ENS_19DynamicPropertyTypeE, i64 0, i64 %34
+  %switch.load = load ptr, ptr %switch.gep, align 8
+  %35 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %switch.load)
+          to label %sw.epilog unwind label %lpad
 
-lpad:                                             ; preds = %switch.lookup, %invoke.cont24, %sw.epilog
-  %35 = landingpad { ptr, i32 }
+lpad:                                             ; preds = %if.else, %invoke.cont24, %sw.epilog
+  %36 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
-switch.lookup:                                    ; preds = %if.else
-  %36 = zext nneg i32 %type to i64
-  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table._ZN19OpenColorIO_v2_4dev12_GLOBAL__N_123ValidateDynamicPropertyINS_25DynamicPropertyDoubleImplEEEvSt10shared_ptrINS_2OpEERS3_IT_ENS_19DynamicPropertyTypeE, i64 0, i64 %36
-  %switch.load = load ptr, ptr %switch.gep, align 8
-  %37 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %switch.load)
-          to label %sw.epilog unwind label %lpad
-
-sw.epilog:                                        ; preds = %if.else, %switch.lookup
+sw.epilog:                                        ; preds = %if.else
   %call25 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull @.str.38)
           to label %invoke.cont24 unwind label %lpad
 
@@ -9703,13 +9699,13 @@ invoke.cont29:                                    ; preds = %invoke.cont27
   br label %if.end30
 
 lpad28:                                           ; preds = %invoke.cont27
-  %38 = landingpad { ptr, i32 }
+  %37 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp26) #22
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad28, %lpad
-  %.pn = phi { ptr, i32 } [ %38, %lpad28 ], [ %35, %lpad ]
+  %.pn = phi { ptr, i32 } [ %37, %lpad28 ], [ %36, %lpad ]
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %os) #22
   resume { ptr, i32 } %.pn
 

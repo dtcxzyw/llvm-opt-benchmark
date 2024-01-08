@@ -37922,7 +37922,7 @@ if.end28:                                         ; preds = %if.end23
   %cmp.i18 = icmp eq i32 %call2.i17, 1
   %..i = sext i1 %cmp.i18 to i32
   %retval.0.i19 = select i1 %call4.i, i32 1, i32 %..i
-  switch i32 %retval.0.i19, label %return [
+  switch i32 %retval.0.i19, label %default.unreachable [
     i32 -1, label %sw.bb
     i32 1, label %sw.bb29
     i32 0, label %sw.bb30
@@ -37941,8 +37941,11 @@ sw.bb30:                                          ; preds = %if.end28
   tail call void @exit(i32 noundef 114) #24
   unreachable
 
-return:                                           ; preds = %if.end28, %sw.bb, %sw.bb29, %if.end23, %while.end, %_ZN3smt10theory_lra3imp18can_propagate_coreEv.exit, %_ZN3smt10theory_lra3imp13propagate_nlaEv.exit, %_ZN3smt10theory_lra3imp46get_infeasibility_explanation_and_set_conflictEv.exit
-  %retval.0 = phi i1 [ true, %_ZN3smt10theory_lra3imp46get_infeasibility_explanation_and_set_conflictEv.exit ], [ true, %_ZN3smt10theory_lra3imp13propagate_nlaEv.exit ], [ false, %_ZN3smt10theory_lra3imp18can_propagate_coreEv.exit ], [ true, %while.end ], [ true, %if.end23 ], [ true, %sw.bb29 ], [ true, %sw.bb ], [ true, %if.end28 ]
+default.unreachable:                              ; preds = %if.end28
+  unreachable
+
+return:                                           ; preds = %sw.bb, %sw.bb29, %if.end23, %while.end, %_ZN3smt10theory_lra3imp18can_propagate_coreEv.exit, %_ZN3smt10theory_lra3imp13propagate_nlaEv.exit, %_ZN3smt10theory_lra3imp46get_infeasibility_explanation_and_set_conflictEv.exit
+  %retval.0 = phi i1 [ true, %_ZN3smt10theory_lra3imp46get_infeasibility_explanation_and_set_conflictEv.exit ], [ true, %_ZN3smt10theory_lra3imp13propagate_nlaEv.exit ], [ false, %_ZN3smt10theory_lra3imp18can_propagate_coreEv.exit ], [ true, %while.end ], [ true, %if.end23 ], [ true, %sw.bb29 ], [ true, %sw.bb ]
   ret i1 %retval.0
 }
 

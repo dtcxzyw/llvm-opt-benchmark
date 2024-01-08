@@ -1132,8 +1132,8 @@ sw.bb15:                                          ; preds = %sw.bb7
   %retval.0.i29 = select i1 %cmp.inv.i, i32 %..i28, i32 -1
   br label %return
 
-return:                                           ; preds = %_ZN4node12_GLOBAL__N_117compare_ipv4_ipv6ERKNS_13SocketAddressES3_.exit25, %entry, %sw.bb, %sw.bb7, %if.end.i17, %sw.bb9, %if.else.i, %if.end.i, %sw.bb5, %sw.bb15, %sw.bb3
-  %retval.0 = phi i32 [ %retval.0.i29, %sw.bb15 ], [ %retval.0.i, %sw.bb3 ], [ -2, %sw.bb5 ], [ -1, %if.end.i ], [ %..i10, %if.else.i ], [ -2, %sw.bb9 ], [ %spec.select, %_ZN4node12_GLOBAL__N_117compare_ipv4_ipv6ERKNS_13SocketAddressES3_.exit25 ], [ 1, %if.end.i17 ], [ -2, %sw.bb7 ], [ -2, %sw.bb ], [ -2, %entry ]
+return:                                           ; preds = %_ZN4node12_GLOBAL__N_117compare_ipv4_ipv6ERKNS_13SocketAddressES3_.exit25, %if.end.i17, %sw.bb9, %if.else.i, %if.end.i, %sw.bb5, %entry, %sw.bb, %sw.bb7, %sw.bb15, %sw.bb3
+  %retval.0 = phi i32 [ %retval.0.i29, %sw.bb15 ], [ %retval.0.i, %sw.bb3 ], [ -2, %sw.bb7 ], [ -2, %sw.bb ], [ -2, %entry ], [ -2, %sw.bb5 ], [ -1, %if.end.i ], [ %..i10, %if.else.i ], [ -2, %sw.bb9 ], [ %spec.select, %_ZN4node12_GLOBAL__N_117compare_ipv4_ipv6ERKNS_13SocketAddressES3_.exit25 ], [ 1, %if.end.i17 ]
   ret i32 %retval.0
 }
 
@@ -2264,7 +2264,7 @@ if.then.i.i.i:                                    ; preds = %if.else.i
 _ZNKSt6vectorIN2v85LocalINS0_5ValueEEESaIS3_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %if.else.i
   %sub.ptr.div.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i, 3
   %.sroa.speculated.i.i.i = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i, i64 1)
-  %add.i.i.i = add i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i.i.i.i
+  %add.i.i.i = add nsw i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i.i.i.i
   %cmp7.i.i.i = icmp ult i64 %add.i.i.i, %sub.ptr.div.i.i.i.i
   %12 = call i64 @llvm.umin.i64(i64 %add.i.i.i, i64 1152921504606846975)
   %cond.i.i.i = select i1 %cmp7.i.i.i, i64 1152921504606846975, i64 %12

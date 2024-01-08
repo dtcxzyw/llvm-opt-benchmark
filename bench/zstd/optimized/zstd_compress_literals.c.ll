@@ -5,7 +5,7 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %struct.ZSTD_hufCTables_t = type { [257 x i64], i32 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define i64 @ZSTD_noCompressLiterals(ptr nocapture noundef writeonly %dst, i64 noundef %dstCapacity, ptr nocapture noundef readonly %src, i64 noundef %srcSize) local_unnamed_addr #0 {
 entry:
   %cmp = icmp ugt i64 %srcSize, 31
@@ -19,7 +19,7 @@ entry:
   br i1 %cmp7, label %return, label %do.end17
 
 do.end17:                                         ; preds = %entry
-  switch i32 %add3, label %sw.epilog [
+  switch i32 %add3, label %default.unreachable16 [
     i32 1, label %sw.bb
     i32 2, label %sw.bb20
     i32 3, label %sw.bb24
@@ -45,7 +45,10 @@ sw.bb24:                                          ; preds = %do.end17
   store i32 %conv27, ptr %dst, align 1
   br label %sw.epilog
 
-sw.epilog:                                        ; preds = %do.end17, %sw.bb24, %sw.bb20, %sw.bb
+default.unreachable16:                            ; preds = %do.end17
+  unreachable
+
+sw.epilog:                                        ; preds = %sw.bb24, %sw.bb20, %sw.bb
   %add.ptr = getelementptr inbounds i8, ptr %dst, i64 %conv5
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr, ptr align 1 %src, i64 %srcSize, i1 false)
   br label %return
@@ -59,14 +62,14 @@ return:                                           ; preds = %entry, %sw.epilog
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define i64 @ZSTD_compressRleLiteralsBlock(ptr nocapture noundef writeonly %dst, i64 %dstCapacity, ptr nocapture noundef readonly %src, i64 noundef %srcSize) local_unnamed_addr #2 {
+define i64 @ZSTD_compressRleLiteralsBlock(ptr nocapture noundef writeonly %dst, i64 %dstCapacity, ptr nocapture noundef readonly %src, i64 noundef %srcSize) local_unnamed_addr #0 {
 entry:
   %cmp = icmp ugt i64 %srcSize, 31
   %add = select i1 %cmp, i32 2, i32 1
   %cmp1 = icmp ugt i64 %srcSize, 4095
   %conv2 = zext i1 %cmp1 to i32
   %add3 = add nuw nsw i32 %add, %conv2
-  switch i32 %add3, label %sw.epilog [
+  switch i32 %add3, label %default.unreachable12 [
     i32 1, label %sw.bb
     i32 2, label %sw.bb6
     i32 3, label %sw.bb10
@@ -93,7 +96,10 @@ sw.bb10:                                          ; preds = %entry
   store i32 %conv13, ptr %dst, align 1
   br label %sw.epilog
 
-sw.epilog:                                        ; preds = %entry, %sw.bb10, %sw.bb6, %sw.bb
+default.unreachable12:                            ; preds = %entry
+  unreachable
+
+sw.epilog:                                        ; preds = %sw.bb10, %sw.bb6, %sw.bb
   %3 = load i8, ptr %src, align 1
   %idxprom = zext nneg i32 %add3 to i64
   %arrayidx14 = getelementptr inbounds i8, ptr %dst, i64 %idxprom
@@ -104,7 +110,7 @@ sw.epilog:                                        ; preds = %entry, %sw.bb10, %s
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @ZSTD_compressLiterals(ptr noundef %dst, i64 noundef %dstCapacity, ptr noundef %src, i64 noundef %srcSize, ptr noundef %entropyWorkspace, i64 noundef %entropyWorkspaceSize, ptr nocapture noundef readonly %prevHuf, ptr noundef %nextHuf, i32 noundef %strategy, i32 noundef %disableLiteralCompression, i32 noundef %suspectUncompressible, i32 noundef %bmi2) local_unnamed_addr #3 {
+define i64 @ZSTD_compressLiterals(ptr noundef %dst, i64 noundef %dstCapacity, ptr noundef %src, i64 noundef %srcSize, ptr noundef %entropyWorkspace, i64 noundef %entropyWorkspaceSize, ptr nocapture noundef readonly %prevHuf, ptr noundef %nextHuf, i32 noundef %strategy, i32 noundef %disableLiteralCompression, i32 noundef %suspectUncompressible, i32 noundef %bmi2) local_unnamed_addr #2 {
 entry:
   %repeat = alloca i32, align 4
   %cmp = icmp ugt i64 %srcSize, 1023
@@ -129,7 +135,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp7.i, label %return, label %do.end17.i
 
 do.end17.i:                                       ; preds = %if.then
-  switch i32 %add3.i, label %sw.epilog.i [
+  switch i32 %add3.i, label %default.unreachable123 [
     i32 1, label %sw.bb.i
     i32 2, label %sw.bb20.i
     i32 3, label %sw.bb24.i
@@ -155,7 +161,10 @@ sw.bb24.i:                                        ; preds = %do.end17.i
   store i32 %conv27.i, ptr %dst, align 1
   br label %sw.epilog.i
 
-sw.epilog.i:                                      ; preds = %sw.bb24.i, %sw.bb20.i, %sw.bb.i, %do.end17.i
+default.unreachable123:                           ; preds = %if.end90, %do.end17.i102, %do.end17.i73, %do.end17.i
+  unreachable
+
+sw.epilog.i:                                      ; preds = %sw.bb24.i, %sw.bb20.i, %sw.bb.i
   %add.ptr.i = getelementptr inbounds i8, ptr %dst, i64 %conv5.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i, ptr align 1 %src, i64 %srcSize, i1 false)
   br label %return
@@ -184,7 +193,7 @@ if.then12:                                        ; preds = %if.end
   br i1 %cmp7.i72, label %return, label %do.end17.i73
 
 do.end17.i73:                                     ; preds = %if.then12
-  switch i32 %add3.i69, label %sw.epilog.i77 [
+  switch i32 %add3.i69, label %default.unreachable123 [
     i32 1, label %sw.bb.i83
     i32 2, label %sw.bb20.i80
     i32 3, label %sw.bb24.i74
@@ -210,7 +219,7 @@ sw.bb24.i74:                                      ; preds = %do.end17.i73
   store i32 %conv27.i76, ptr %dst, align 1
   br label %sw.epilog.i77
 
-sw.epilog.i77:                                    ; preds = %sw.bb24.i74, %sw.bb20.i80, %sw.bb.i83, %do.end17.i73
+sw.epilog.i77:                                    ; preds = %sw.bb24.i74, %sw.bb20.i80, %sw.bb.i83
   %add.ptr.i78 = getelementptr inbounds i8, ptr %dst, i64 %conv5.i70
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i78, ptr align 1 %src, i64 %srcSize, i1 false)
   br label %return
@@ -240,64 +249,64 @@ do.end29:                                         ; preds = %do.body15
   %cond52 = select i1 %narrow, ptr @HUF_compress1X_repeat, ptr @HUF_compress4X_repeat
   %add.ptr = getelementptr inbounds i8, ptr %dst, i64 %add3
   %sub = sub i64 %dstCapacity, %add3
-  %call53 = call i64 %cond52(ptr noundef nonnull %add.ptr, i64 noundef %sub, ptr noundef %src, i64 noundef %srcSize, i32 noundef 255, i32 noundef 11, ptr noundef %entropyWorkspace, i64 noundef %entropyWorkspaceSize, ptr noundef nonnull %nextHuf, ptr noundef nonnull %repeat, i32 noundef %or44) #6, !callees !4
+  %call53 = call i64 %cond52(ptr noundef nonnull %add.ptr, i64 noundef %sub, ptr noundef %src, i64 noundef %srcSize, i32 noundef 255, i32 noundef 11, ptr noundef %entropyWorkspace, i64 noundef %entropyWorkspaceSize, ptr noundef nonnull %nextHuf, ptr noundef nonnull %repeat, i32 noundef %or44) #5, !callees !4
   %6 = load i32, ptr %repeat, align 4
   %cmp56.not = icmp eq i32 %6, 0
   %hType.0 = select i1 %cmp56.not, i32 2, i32 3
-  %sub.i88 = add i32 %strategy, -1
-  %cond.i89 = select i1 %cmp38, i32 %sub.i88, i32 6
-  %sh_prom.i90 = zext nneg i32 %cond.i89 to i64
-  %shr.i = lshr i64 %srcSize, %sh_prom.i90
-  %add.i91.neg = add i64 %srcSize, -2
-  %sub65 = sub i64 %add.i91.neg, %shr.i
+  %sub.i89 = add i32 %strategy, -1
+  %cond.i90 = select i1 %cmp38, i32 %sub.i89, i32 6
+  %sh_prom.i91 = zext nneg i32 %cond.i90 to i64
+  %shr.i = lshr i64 %srcSize, %sh_prom.i91
+  %add.i92.neg = add i64 %srcSize, -2
+  %sub65 = sub i64 %add.i92.neg, %shr.i
   %cmp66.not = icmp ult i64 %call53, %sub65
   %7 = add i64 %call53, -1
   %8 = icmp ult i64 %7, -120
-  %or.cond120 = select i1 %8, i1 %cmp66.not, i1 false
-  br i1 %or.cond120, label %if.end73, label %if.then71
+  %or.cond122 = select i1 %8, i1 %cmp66.not, i1 false
+  br i1 %or.cond122, label %if.end73, label %if.then71
 
 if.then71:                                        ; preds = %do.end29
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(2064) %nextHuf, ptr noundef nonnull align 8 dereferenceable(2064) %prevHuf, i64 2064, i1 false)
-  %cmp.i93 = icmp ugt i64 %srcSize, 31
-  %add.i94 = select i1 %cmp.i93, i32 2, i32 1
-  %cmp1.i95 = icmp ugt i64 %srcSize, 4095
-  %conv2.i96 = zext i1 %cmp1.i95 to i32
-  %add3.i97 = add nuw nsw i32 %add.i94, %conv2.i96
-  %conv5.i98 = zext nneg i32 %add3.i97 to i64
-  %add6.i99 = add i64 %conv5.i98, %srcSize
-  %cmp7.i100 = icmp ugt i64 %add6.i99, %dstCapacity
-  br i1 %cmp7.i100, label %return, label %do.end17.i101
+  %cmp.i94 = icmp ugt i64 %srcSize, 31
+  %add.i95 = select i1 %cmp.i94, i32 2, i32 1
+  %cmp1.i96 = icmp ugt i64 %srcSize, 4095
+  %conv2.i97 = zext i1 %cmp1.i96 to i32
+  %add3.i98 = add nuw nsw i32 %add.i95, %conv2.i97
+  %conv5.i99 = zext nneg i32 %add3.i98 to i64
+  %add6.i100 = add i64 %conv5.i99, %srcSize
+  %cmp7.i101 = icmp ugt i64 %add6.i100, %dstCapacity
+  br i1 %cmp7.i101, label %return, label %do.end17.i102
 
-do.end17.i101:                                    ; preds = %if.then71
-  switch i32 %add3.i97, label %sw.epilog.i105 [
-    i32 1, label %sw.bb.i111
-    i32 2, label %sw.bb20.i108
-    i32 3, label %sw.bb24.i102
+do.end17.i102:                                    ; preds = %if.then71
+  switch i32 %add3.i98, label %default.unreachable123 [
+    i32 1, label %sw.bb.i112
+    i32 2, label %sw.bb20.i109
+    i32 3, label %sw.bb24.i103
   ]
 
-sw.bb.i111:                                       ; preds = %do.end17.i101
-  %srcSize.tr15.i112 = trunc i64 %srcSize to i8
-  %conv19.i113 = shl i8 %srcSize.tr15.i112, 3
-  store i8 %conv19.i113, ptr %dst, align 1
-  br label %sw.epilog.i105
+sw.bb.i112:                                       ; preds = %do.end17.i102
+  %srcSize.tr15.i113 = trunc i64 %srcSize to i8
+  %conv19.i114 = shl i8 %srcSize.tr15.i113, 3
+  store i8 %conv19.i114, ptr %dst, align 1
+  br label %sw.epilog.i106
 
-sw.bb20.i108:                                     ; preds = %do.end17.i101
-  %srcSize.tr14.i109 = trunc i64 %srcSize to i16
-  %9 = shl i16 %srcSize.tr14.i109, 4
-  %conv23.i110 = or disjoint i16 %9, 4
-  store i16 %conv23.i110, ptr %dst, align 1
-  br label %sw.epilog.i105
+sw.bb20.i109:                                     ; preds = %do.end17.i102
+  %srcSize.tr14.i110 = trunc i64 %srcSize to i16
+  %9 = shl i16 %srcSize.tr14.i110, 4
+  %conv23.i111 = or disjoint i16 %9, 4
+  store i16 %conv23.i111, ptr %dst, align 1
+  br label %sw.epilog.i106
 
-sw.bb24.i102:                                     ; preds = %do.end17.i101
-  %srcSize.tr.i103 = trunc i64 %srcSize to i32
-  %10 = shl i32 %srcSize.tr.i103, 4
-  %conv27.i104 = or disjoint i32 %10, 12
-  store i32 %conv27.i104, ptr %dst, align 1
-  br label %sw.epilog.i105
+sw.bb24.i103:                                     ; preds = %do.end17.i102
+  %srcSize.tr.i104 = trunc i64 %srcSize to i32
+  %10 = shl i32 %srcSize.tr.i104, 4
+  %conv27.i105 = or disjoint i32 %10, 12
+  store i32 %conv27.i105, ptr %dst, align 1
+  br label %sw.epilog.i106
 
-sw.epilog.i105:                                   ; preds = %sw.bb24.i102, %sw.bb20.i108, %sw.bb.i111, %do.end17.i101
-  %add.ptr.i106 = getelementptr inbounds i8, ptr %dst, i64 %conv5.i98
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i106, ptr align 1 %src, i64 %srcSize, i1 false)
+sw.epilog.i106:                                   ; preds = %sw.bb24.i103, %sw.bb20.i109, %sw.bb.i112
+  %add.ptr.i107 = getelementptr inbounds i8, ptr %dst, i64 %conv5.i99
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i107, ptr align 1 %src, i64 %srcSize, i1 false)
   br label %return
 
 if.end73:                                         ; preds = %do.end29
@@ -339,7 +348,7 @@ if.then88:                                        ; preds = %if.end85
   br label %if.end90
 
 if.end90:                                         ; preds = %if.then88, %if.end85
-  switch i64 %add3, label %do.end122 [
+  switch i64 %add3, label %default.unreachable123 [
     i64 3, label %sw.bb
     i64 4, label %sw.bb102
     i64 5, label %sw.bb111
@@ -355,10 +364,10 @@ sw.bb:                                            ; preds = %if.end90
   %conv99 = trunc i64 %call53 to i32
   %shl100 = shl i32 %conv99, 14
   %add101 = add i32 %add98, %shl100
-  %conv.i116 = trunc i32 %add101 to i16
-  store i16 %conv.i116, ptr %dst, align 1
-  %shr.i117 = lshr i32 %add101, 16
-  %conv1.i = trunc i32 %shr.i117 to i8
+  %conv.i118 = trunc i32 %add101 to i16
+  store i16 %conv.i118, ptr %dst, align 1
+  %shr.i119 = lshr i32 %add101, 16
+  %conv1.i = trunc i32 %shr.i119 to i8
   %arrayidx.i = getelementptr inbounds i8, ptr %dst, i64 2
   store i8 %conv1.i, ptr %arrayidx.i, align 1
   br label %do.end122
@@ -389,29 +398,28 @@ sw.bb111:                                         ; preds = %if.end90
   store i8 %conv120, ptr %arrayidx, align 1
   br label %do.end122
 
-do.end122:                                        ; preds = %if.end90, %sw.bb111, %sw.bb102, %sw.bb
+do.end122:                                        ; preds = %sw.bb111, %sw.bb102, %sw.bb
   %add123 = add i64 %call53, %add3
   br label %return
 
-return:                                           ; preds = %sw.epilog.i105, %if.then71, %sw.epilog.i77, %if.then12, %sw.epilog.i, %if.then, %do.body15, %do.end122, %if.then82
-  %retval.0 = phi i64 [ %call83, %if.then82 ], [ %add123, %do.end122 ], [ -70, %do.body15 ], [ %add6.i, %sw.epilog.i ], [ -70, %if.then ], [ %add6.i71, %sw.epilog.i77 ], [ -70, %if.then12 ], [ %add6.i99, %sw.epilog.i105 ], [ -70, %if.then71 ]
+return:                                           ; preds = %sw.epilog.i106, %if.then71, %sw.epilog.i77, %if.then12, %sw.epilog.i, %if.then, %do.body15, %do.end122, %if.then82
+  %retval.0 = phi i64 [ %call83, %if.then82 ], [ %add123, %do.end122 ], [ -70, %do.body15 ], [ %add6.i, %sw.epilog.i ], [ -70, %if.then ], [ %add6.i71, %sw.epilog.i77 ], [ -70, %if.then12 ], [ %add6.i100, %sw.epilog.i106 ], [ -70, %if.then71 ]
   ret i64 %retval.0
 }
 
-declare i64 @HUF_compress1X_repeat(ptr noundef, i64 noundef, ptr noundef, i64 noundef, i32 noundef, i32 noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
+declare i64 @HUF_compress1X_repeat(ptr noundef, i64 noundef, ptr noundef, i64 noundef, i32 noundef, i32 noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare i64 @HUF_compress4X_repeat(ptr noundef, i64 noundef, ptr noundef, i64 noundef, i32 noundef, i32 noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
+declare i64 @HUF_compress4X_repeat(ptr noundef, i64 noundef, ptr noundef, i64 noundef, i32 noundef, i32 noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #5
+declare i32 @llvm.smin.i32(i32, i32) #4
 
-attributes #0 = { mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #6 = { nounwind }
+attributes #2 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #5 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

@@ -68,13 +68,13 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.50 = private unnamed_addr constant [41 x i8] c"check private key: expected: %d, got: %d\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local nonnull ptr @test_get_options() local_unnamed_addr #0 {
+define dso_local noundef nonnull ptr @test_get_options() local_unnamed_addr #0 {
 entry:
   ret ptr @test_get_options.test_options
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @setup_tests() local_unnamed_addr #1 {
+define dso_local noundef i32 @setup_tests() local_unnamed_addr #1 {
 entry:
   %call = tail call i32 @test_skip_common_options() #5
   %tobool.not = icmp eq i32 %call, 0
@@ -217,7 +217,7 @@ return:                                           ; preds = %entry, %for.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_x509_check_cert_pkey() #1 {
+define internal noundef i32 @test_x509_check_cert_pkey() #1 {
 entry:
   %0 = load ptr, ptr @t, align 8
   %call = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(5) @.str.38) #6
@@ -234,7 +234,6 @@ if.else4:                                         ; preds = %if.else
   br label %failed
 
 if.end5:                                          ; preds = %if.else, %entry
-  %type.0 = phi i32 [ 1, %entry ], [ 2, %if.else ]
   %1 = load ptr, ptr @e, align 8
   %call6 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(3) @.str.41) #6
   %cmp7 = icmp eq i32 %call6, 0
@@ -272,10 +271,7 @@ if.end24:                                         ; preds = %if.end19
   br i1 %tobool28.not, label %failed, label %if.end30
 
 if.end30:                                         ; preds = %if.end24
-  switch i32 %type.0, label %sw.epilog [
-    i32 1, label %sw.bb
-    i32 2, label %sw.bb36
-  ]
+  br i1 %cmp, label %sw.bb, label %sw.bb36
 
 sw.bb:                                            ; preds = %if.end30
   %call31 = tail call ptr @PEM_read_bio_X509(ptr noundef %call26, ptr noundef null, ptr noundef null, ptr noundef null) #5
@@ -303,10 +299,10 @@ if.end40:                                         ; preds = %sw.bb36
   %call41 = tail call i32 @X509_REQ_check_private_key(ptr noundef nonnull %call37, ptr noundef %call20) #5
   br label %sw.epilog
 
-sw.epilog:                                        ; preds = %if.end30, %if.end40, %if.end34
-  %x509.0 = phi ptr [ null, %if.end30 ], [ null, %if.end40 ], [ %call31, %if.end34 ]
-  %x509_req.0 = phi ptr [ null, %if.end30 ], [ %call37, %if.end40 ], [ null, %if.end34 ]
-  %result.0 = phi i32 [ 0, %if.end30 ], [ %call41, %if.end40 ], [ %call35, %if.end34 ]
+sw.epilog:                                        ; preds = %if.end40, %if.end34
+  %x509.0 = phi ptr [ null, %if.end40 ], [ %call31, %if.end34 ]
+  %x509_req.0 = phi ptr [ %call37, %if.end40 ], [ null, %if.end34 ]
+  %result.0 = phi i32 [ %call41, %if.end40 ], [ %call35, %if.end34 ]
   %call42 = tail call i32 @test_int_eq(ptr noundef nonnull @.str.20, i32 noundef 95, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.37, i32 noundef %result.0, i32 noundef %expected.0) #5
   %tobool43.not = icmp eq i32 %call42, 0
   br i1 %tobool43.not, label %if.then44, label %failed

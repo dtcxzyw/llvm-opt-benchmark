@@ -765,10 +765,8 @@ while.body:                                       ; preds = %while.body.lr.ph, %
           to label %invoke.cont17 unwind label %lpad16.loopexit.loopexit
 
 invoke.cont17:                                    ; preds = %while.body
-  switch i32 %mode.0137, label %sw.epilog [
-    i32 0, label %sw.bb
-    i32 1, label %sw.bb30
-  ]
+  %switch = icmp eq i32 %mode.0137, 0
+  br i1 %switch, label %sw.bb, label %sw.bb30
 
 lpad:                                             ; preds = %if.end7
   %6 = landingpad { ptr, i32 }
@@ -882,7 +880,6 @@ invoke.cont47:                                    ; preds = %if.then44
   %22 = load i32, ptr %fLength.i, align 4
   %cond.i72 = select i1 %cmp.i.i69, i32 %22, i32 %shr.i.i70
   %cmp49 = icmp sle i32 %cond.i72, %inc
-  %spec.select = zext i1 %cmp49 to i32
   br label %sw.epilog
 
 if.end53:                                         ; preds = %invoke.cont31
@@ -920,8 +917,8 @@ if.end66:                                         ; preds = %invoke.cont61, %inv
   %tobool.not.i = icmp eq i32 %and.i, 0
   %and5.i = and i32 %conv1.i, 2
   %tobool6.not.i = icmp eq i32 %and5.i, 0
-  %spec.select150 = select i1 %tobool6.not.i, ptr %.pre, ptr %fBuffer.i.i.i
-  %retval.0.i93 = select i1 %tobool.not.i, ptr %spec.select150, ptr null
+  %spec.select = select i1 %tobool6.not.i, ptr %.pre, ptr %fBuffer.i.i.i
+  %retval.0.i93 = select i1 %tobool.not.i, ptr %spec.select, ptr null
   %call70 = invoke signext i8 @uprv_isInvariantUString_75(ptr noundef %retval.0.i93, i32 noundef %len.0)
           to label %invoke.cont69 unwind label %lpad16.loopexit.loopexit.split-lp
 
@@ -1019,17 +1016,17 @@ invoke.cont102:                                   ; preds = %if.then99
   %40 = load i32, ptr %fLength.i, align 4
   %cond.i119 = select i1 %cmp.i.i116, i32 %40, i32 %shr.i.i117
   %cmp104.not.not = icmp sle i32 %cond.i119, %call
-  %spec.select57 = zext i1 %cmp104.not.not to i32
   br label %sw.epilog
 
 if.else:                                          ; preds = %invoke.cont96
   %dec107 = add nsw i32 %cursor.0136, -1
   br label %sw.epilog
 
-sw.epilog:                                        ; preds = %invoke.cont102, %invoke.cont47, %if.else, %invoke.cont34, %invoke.cont40, %sw.bb, %invoke.cont21, %invoke.cont17
-  %cursor.2 = phi i32 [ %cursor.0136, %invoke.cont17 ], [ %cursor.0136, %invoke.cont40 ], [ %cursor.0136, %invoke.cont34 ], [ %dec107, %if.else ], [ %cursor.0136, %invoke.cont21 ], [ %cursor.0136, %sw.bb ], [ %cursor.0136, %invoke.cont47 ], [ %cursor.0136, %invoke.cont102 ]
-  %mode.1 = phi i32 [ %mode.0137, %invoke.cont17 ], [ 1, %invoke.cont40 ], [ 1, %invoke.cont34 ], [ 0, %if.else ], [ 0, %invoke.cont21 ], [ 0, %sw.bb ], [ %spec.select, %invoke.cont47 ], [ %spec.select57, %invoke.cont102 ]
-  %openPos.1 = phi i32 [ %openPos.0138, %invoke.cont17 ], [ %openPos.0138, %invoke.cont40 ], [ %openPos.0138, %invoke.cont34 ], [ %openPos.0138, %if.else ], [ %cursor.0136, %invoke.cont21 ], [ %openPos.0138, %sw.bb ], [ %openPos.0138, %invoke.cont47 ], [ %openPos.0138, %invoke.cont102 ]
+sw.epilog:                                        ; preds = %invoke.cont102, %invoke.cont47, %if.else, %invoke.cont34, %invoke.cont40, %sw.bb, %invoke.cont21
+  %cursor.2 = phi i32 [ %cursor.0136, %invoke.cont40 ], [ %cursor.0136, %invoke.cont34 ], [ %dec107, %if.else ], [ %cursor.0136, %invoke.cont21 ], [ %cursor.0136, %sw.bb ], [ %cursor.0136, %invoke.cont47 ], [ %cursor.0136, %invoke.cont102 ]
+  %mode.1.shrunk = phi i1 [ true, %invoke.cont40 ], [ true, %invoke.cont34 ], [ false, %if.else ], [ false, %invoke.cont21 ], [ false, %sw.bb ], [ %cmp49, %invoke.cont47 ], [ %cmp104.not.not, %invoke.cont102 ]
+  %openPos.1 = phi i32 [ %openPos.0138, %invoke.cont40 ], [ %openPos.0138, %invoke.cont34 ], [ %openPos.0138, %if.else ], [ %cursor.0136, %invoke.cont21 ], [ %openPos.0138, %sw.bb ], [ %openPos.0138, %invoke.cont47 ], [ %openPos.0138, %invoke.cont102 ]
+  %mode.1 = zext i1 %mode.1.shrunk to i32
   %cmp109 = icmp ult i32 %call.i59, 65536
   %cond = select i1 %cmp109, i32 1, i32 2
   %add = add nsw i32 %cursor.2, %cond

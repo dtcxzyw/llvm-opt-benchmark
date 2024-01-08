@@ -124,15 +124,14 @@ if.then25:                                        ; preds = %if.end21
   br label %if.then150
 
 for.body:                                         ; preds = %for.cond.preheader, %for.inc
-  %iter.0108 = phi i32 [ 1, %for.cond.preheader ], [ %inc, %for.inc ]
-  %provauthkey.0107 = phi ptr [ null, %for.cond.preheader ], [ %provauthkey.2, %for.inc ]
-  %tmp_prov.0106 = phi ptr [ null, %for.cond.preheader ], [ %tmp_prov.187, %for.inc ]
-  %kem.0105 = phi ptr [ null, %for.cond.preheader ], [ %kem.185, %for.inc ]
-  %cmp.i = icmp eq ptr %kem.0105, null
+  %iter.0103 = phi i32 [ 1, %for.cond.preheader ], [ %inc, %for.inc ]
+  %provauthkey.0102 = phi ptr [ null, %for.cond.preheader ], [ %provauthkey.2, %for.inc ]
+  %kem.0101 = phi ptr [ null, %for.cond.preheader ], [ %kem.185, %for.inc ]
+  %cmp.i = icmp eq ptr %kem.0101, null
   br i1 %cmp.i, label %EVP_KEM_free.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %for.body
-  %refcnt.i = getelementptr inbounds %struct.evp_kem_st, ptr %kem.0105, i64 0, i32 4
+  %refcnt.i = getelementptr inbounds %struct.evp_kem_st, ptr %kem.0101, i64 0, i32 4
   %6 = atomicrmw sub ptr %refcnt.i, i32 1 monotonic, align 4
   %cmp.i.i = icmp eq i32 %6, 1
   br i1 %cmp.i.i, label %CRYPTO_DOWN_REF.exit.thread.i, label %CRYPTO_DOWN_REF.exit.i
@@ -146,22 +145,20 @@ CRYPTO_DOWN_REF.exit.i:                           ; preds = %if.end.i
   br i1 %cmp1.i, label %EVP_KEM_free.exit, label %if.end3.i
 
 if.end3.i:                                        ; preds = %CRYPTO_DOWN_REF.exit.i, %CRYPTO_DOWN_REF.exit.thread.i
-  %type_name.i = getelementptr inbounds %struct.evp_kem_st, ptr %kem.0105, i64 0, i32 1
+  %type_name.i = getelementptr inbounds %struct.evp_kem_st, ptr %kem.0101, i64 0, i32 1
   %7 = load ptr, ptr %type_name.i, align 8
   call void @CRYPTO_free(ptr noundef %7, ptr noundef nonnull @.str, i32 noundef 431) #4
-  %prov.i = getelementptr inbounds %struct.evp_kem_st, ptr %kem.0105, i64 0, i32 3
+  %prov.i = getelementptr inbounds %struct.evp_kem_st, ptr %kem.0101, i64 0, i32 3
   %8 = load ptr, ptr %prov.i, align 8
   call void @ossl_provider_free(ptr noundef %8) #4
-  call void @CRYPTO_free(ptr noundef nonnull %kem.0105, ptr noundef nonnull @.str, i32 noundef 434) #4
+  call void @CRYPTO_free(ptr noundef nonnull %kem.0101, ptr noundef nonnull @.str, i32 noundef 434) #4
   br label %EVP_KEM_free.exit
 
 EVP_KEM_free.exit:                                ; preds = %for.body, %CRYPTO_DOWN_REF.exit.i, %if.end3.i
   %9 = load ptr, ptr %tmp_keymgmt, align 8
   call void @EVP_KEYMGMT_free(ptr noundef %9) #4
-  switch i32 %iter.0108, label %sw.epilog [
-    i32 1, label %sw.bb
-    i32 2, label %sw.bb37
-  ]
+  %switch = icmp eq i32 %iter.0103, 1
+  br i1 %switch, label %sw.bb, label %sw.bb37
 
 sw.bb:                                            ; preds = %EVP_KEM_free.exit
   %10 = load ptr, ptr %libctx, align 8
@@ -189,16 +186,13 @@ if.then44:                                        ; preds = %sw.bb37
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 150, ptr noundef null) #4
   br label %if.then150
 
-sw.epilog:                                        ; preds = %EVP_KEM_free.exit
-  br i1 %cmp.i, label %for.inc, label %if.end49
-
-if.end49:                                         ; preds = %if.then34, %sw.bb37, %sw.epilog
-  %tmp_prov.186 = phi ptr [ %tmp_prov.0106, %sw.epilog ], [ %12, %if.then34 ], [ %call39, %sw.bb37 ]
-  %kem.184 = phi ptr [ %kem.0105, %sw.epilog ], [ %call.i, %if.then34 ], [ %call.i80, %sw.bb37 ]
+if.end49:                                         ; preds = %sw.bb37, %if.then34
+  %kem.1.ph = phi ptr [ %call.i, %if.then34 ], [ %call.i80, %sw.bb37 ]
+  %tmp_prov.1.ph = phi ptr [ %12, %if.then34 ], [ %call39, %sw.bb37 ]
   %15 = load ptr, ptr %keymgmt22, align 8
   %call51 = call ptr @EVP_KEYMGMT_get0_name(ptr noundef %15) #4
   %16 = load ptr, ptr %propquery40, align 8
-  %call53 = call ptr @evp_keymgmt_fetch_from_prov(ptr noundef %tmp_prov.186, ptr noundef %call51, ptr noundef %16) #4
+  %call53 = call ptr @evp_keymgmt_fetch_from_prov(ptr noundef %tmp_prov.1.ph, ptr noundef %call51, ptr noundef %16) #4
   store ptr %call53, ptr %tmp_keymgmt, align 8
   %cmp54.not = icmp eq ptr %call53, null
   br i1 %cmp54.not, label %if.then78, label %if.then56
@@ -220,31 +214,30 @@ if.then66:                                        ; preds = %if.then56
   br i1 %cmp70, label %if.then72, label %if.end75
 
 if.then72:                                        ; preds = %if.then66
-  call void @EVP_KEM_free(ptr noundef nonnull %kem.184)
+  call void @EVP_KEM_free(ptr noundef nonnull %kem.1.ph)
   call void @ERR_new() #4
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 135, ptr noundef nonnull @__func__.evp_kem_init) #4
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 134, ptr noundef null) #4
   br label %if.then150
 
 if.end75:                                         ; preds = %if.then56, %if.then66
-  %provauthkey.1.ph = phi ptr [ %provauthkey.0107, %if.then56 ], [ %call69, %if.then66 ]
+  %provauthkey.1.ph = phi ptr [ %provauthkey.0102, %if.then56 ], [ %call69, %if.then66 ]
   %.pr = load ptr, ptr %tmp_keymgmt, align 8
   %cmp76 = icmp eq ptr %.pr, null
   br i1 %cmp76, label %if.then78, label %for.inc
 
 if.then78:                                        ; preds = %if.end49, %if.end75
-  %provauthkey.196 = phi ptr [ %provauthkey.1.ph, %if.end75 ], [ %provauthkey.0107, %if.end49 ]
-  %provkey.195 = phi ptr [ %call60, %if.end75 ], [ null, %if.end49 ]
+  %provauthkey.192 = phi ptr [ %provauthkey.1.ph, %if.end75 ], [ %provauthkey.0102, %if.end49 ]
+  %provkey.191 = phi ptr [ %call60, %if.end75 ], [ null, %if.end49 ]
   call void @EVP_KEYMGMT_free(ptr noundef %call53) #4
   br label %for.inc
 
-for.inc:                                          ; preds = %sw.bb, %if.end75, %if.then78, %sw.epilog
-  %tmp_prov.187 = phi ptr [ %tmp_prov.0106, %sw.epilog ], [ %tmp_prov.186, %if.then78 ], [ %tmp_prov.186, %if.end75 ], [ %tmp_prov.0106, %sw.bb ]
-  %kem.185 = phi ptr [ null, %sw.epilog ], [ %kem.184, %if.then78 ], [ %kem.184, %if.end75 ], [ null, %sw.bb ]
-  %provkey.2 = phi ptr [ null, %sw.epilog ], [ %provkey.195, %if.then78 ], [ %call60, %if.end75 ], [ null, %sw.bb ]
-  %provauthkey.2 = phi ptr [ %provauthkey.0107, %sw.epilog ], [ %provauthkey.196, %if.then78 ], [ %provauthkey.1.ph, %if.end75 ], [ %provauthkey.0107, %sw.bb ]
-  %inc = add nuw nsw i32 %iter.0108, 1
-  %cmp27 = icmp ult i32 %iter.0108, 2
+for.inc:                                          ; preds = %sw.bb, %if.end75, %if.then78
+  %kem.185 = phi ptr [ %kem.1.ph, %if.then78 ], [ %kem.1.ph, %if.end75 ], [ null, %sw.bb ]
+  %provkey.2 = phi ptr [ %provkey.191, %if.then78 ], [ %call60, %if.end75 ], [ null, %sw.bb ]
+  %provauthkey.2 = phi ptr [ %provauthkey.192, %if.then78 ], [ %provauthkey.1.ph, %if.end75 ], [ %provauthkey.0102, %sw.bb ]
+  %inc = add nuw nsw i32 %iter.0103, 1
+  %cmp27 = icmp ult i32 %iter.0103, 2
   %cmp29 = icmp eq ptr %provkey.2, null
   %22 = and i1 %cmp29, %cmp27
   br i1 %22, label %for.body, label %for.end, !llvm.loop !5
@@ -548,7 +541,7 @@ declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_a
 declare void @ossl_provider_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define i32 @EVP_KEM_up_ref(ptr nocapture noundef %kem) #2 {
+define noundef i32 @EVP_KEM_up_ref(ptr nocapture noundef %kem) #2 {
 entry:
   %refcnt = getelementptr inbounds %struct.evp_kem_st, ptr %kem, i64 0, i32 4
   %0 = atomicrmw add ptr %refcnt, i32 1 monotonic, align 4

@@ -1140,7 +1140,7 @@ while.end:                                        ; preds = %if.end, %qobject_re
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @qdict_rename_keys(ptr noundef %qdict, ptr nocapture noundef readonly %renames, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @qdict_rename_keys(ptr noundef %qdict, ptr nocapture noundef readonly %renames, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %renames, align 8
   %tobool.not18 = icmp eq ptr %0, null
@@ -1223,7 +1223,7 @@ if.else.i.i:                                      ; preds = %for.body.i
   unreachable
 
 qobject_type.exit.i:                              ; preds = %for.body.i
-  switch i32 %.val.i, label %sw.default.i [
+  switch i32 %.val.i, label %default.unreachable.i [
     i32 1, label %for.inc.i
     i32 3, label %for.inc.i
     i32 2, label %qobject_check_type.exit.i
@@ -1241,8 +1241,7 @@ qobject_check_type.exit23.i:                      ; preds = %qobject_type.exit.i
   %cond.i = select i1 %call10.i, ptr @.str.22, ptr @.str.23
   br label %sw.epilog.i
 
-sw.default.i:                                     ; preds = %qobject_type.exit.i
-  tail call void @abort() #8
+default.unreachable.i:                            ; preds = %qobject_type.exit.i
   unreachable
 
 sw.epilog.i:                                      ; preds = %qobject_check_type.exit23.i, %qobject_check_type.exit.i
@@ -1434,9 +1433,6 @@ declare i32 @qemu_strtoi64(ptr noundef, ptr noundef, i32 noundef, ptr noundef) l
 declare ptr @qnum_to_string(ptr noundef) local_unnamed_addr #1
 
 declare zeroext i1 @qbool_get_bool(ptr noundef) local_unnamed_addr #1
-
-; Function Attrs: noreturn nounwind
-declare void @abort() local_unnamed_addr #3
 
 declare ptr @qdict_clone_shallow(ptr noundef) local_unnamed_addr #1
 

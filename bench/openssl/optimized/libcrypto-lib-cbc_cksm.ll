@@ -10,31 +10,31 @@ entry:
   %0 = load i32, ptr %ivec, align 1
   %incdec.ptr8 = getelementptr inbounds i8, ptr %ivec, i64 4
   %1 = load i32, ptr %incdec.ptr8, align 1
-  %cmp69 = icmp sgt i64 %length, 0
-  br i1 %cmp69, label %for.body.lr.ph, label %for.end
+  %cmp71 = icmp sgt i64 %length, 0
+  br i1 %cmp71, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %entry
   %arrayidx94 = getelementptr inbounds [2 x i32], ptr %tin, i64 0, i64 1
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %if.end
-  %in.addr.073 = phi ptr [ %in, %for.body.lr.ph ], [ %in.addr.8, %if.end ]
-  %l.072 = phi i64 [ %length, %for.body.lr.ph ], [ %sub, %if.end ]
-  %tout1.071 = phi i32 [ %1, %for.body.lr.ph ], [ %12, %if.end ]
-  %tout0.070 = phi i32 [ %0, %for.body.lr.ph ], [ %11, %if.end ]
-  %cmp27 = icmp ugt i64 %l.072, 7
+  %in.addr.075 = phi ptr [ %in, %for.body.lr.ph ], [ %in.addr.8, %if.end ]
+  %l.074 = phi i64 [ %length, %for.body.lr.ph ], [ %sub, %if.end ]
+  %tout1.073 = phi i32 [ %1, %for.body.lr.ph ], [ %12, %if.end ]
+  %tout0.072 = phi i32 [ %0, %for.body.lr.ph ], [ %11, %if.end ]
+  %cmp27 = icmp ugt i64 %l.074, 7
   br i1 %cmp27, label %if.then, label %if.else
 
 if.then:                                          ; preds = %for.body
-  %2 = load i32, ptr %in.addr.073, align 1
-  %incdec.ptr39 = getelementptr inbounds i8, ptr %in.addr.073, i64 4
+  %2 = load i32, ptr %in.addr.075, align 1
+  %incdec.ptr39 = getelementptr inbounds i8, ptr %in.addr.075, i64 4
   %3 = load i32, ptr %incdec.ptr39, align 1
-  %incdec.ptr53 = getelementptr inbounds i8, ptr %in.addr.073, i64 8
+  %incdec.ptr53 = getelementptr inbounds i8, ptr %in.addr.075, i64 8
   br label %if.end
 
 if.else:                                          ; preds = %for.body
-  %add.ptr = getelementptr inbounds i8, ptr %in.addr.073, i64 %l.072
-  switch i64 %l.072, label %if.end [
+  %add.ptr = getelementptr inbounds i8, ptr %in.addr.075, i64 %l.074
+  switch i64 %l.074, label %default.unreachable [
     i64 1, label %sw.bb88
     i64 7, label %sw.bb60
     i64 6, label %sw.bb65
@@ -111,19 +111,22 @@ sw.bb88:                                          ; preds = %if.else, %sw.bb83
   %or91 = or i32 %tin0.2, %conv90
   br label %if.end
 
-if.end:                                           ; preds = %if.else, %sw.bb88, %if.then
-  %tin0.3 = phi i32 [ %2, %if.then ], [ 0, %if.else ], [ %or91, %sw.bb88 ]
-  %tin1.7 = phi i32 [ %3, %if.then ], [ 0, %if.else ], [ %tin1.6, %sw.bb88 ]
-  %in.addr.8 = phi ptr [ %incdec.ptr53, %if.then ], [ %add.ptr, %if.else ], [ %incdec.ptr89, %sw.bb88 ]
-  %xor = xor i32 %tin0.3, %tout0.070
+default.unreachable:                              ; preds = %if.else
+  unreachable
+
+if.end:                                           ; preds = %sw.bb88, %if.then
+  %tin0.3 = phi i32 [ %2, %if.then ], [ %or91, %sw.bb88 ]
+  %tin1.7 = phi i32 [ %3, %if.then ], [ %tin1.6, %sw.bb88 ]
+  %in.addr.8 = phi ptr [ %incdec.ptr53, %if.then ], [ %incdec.ptr89, %sw.bb88 ]
+  %xor = xor i32 %tin0.3, %tout0.072
   store i32 %xor, ptr %tin, align 4
-  %xor93 = xor i32 %tin1.7, %tout1.071
+  %xor93 = xor i32 %tin1.7, %tout1.073
   store i32 %xor93, ptr %arrayidx94, align 4
   call void @DES_encrypt1(ptr noundef nonnull %tin, ptr noundef %schedule, i32 noundef 1) #3
   %11 = load i32, ptr %tin, align 4
   %12 = load i32, ptr %arrayidx94, align 4
-  %sub = add nsw i64 %l.072, -8
-  %cmp = icmp sgt i64 %l.072, 8
+  %sub = add nsw i64 %l.074, -8
+  %cmp = icmp sgt i64 %l.074, 8
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !4
 
 for.end:                                          ; preds = %if.end, %entry

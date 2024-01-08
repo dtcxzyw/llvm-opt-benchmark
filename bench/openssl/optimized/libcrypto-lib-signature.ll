@@ -63,7 +63,7 @@ declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_a
 declare void @ossl_provider_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define i32 @EVP_SIGNATURE_up_ref(ptr nocapture noundef %signature) #2 {
+define noundef i32 @EVP_SIGNATURE_up_ref(ptr nocapture noundef %signature) #2 {
 entry:
   %refcnt = getelementptr inbounds %struct.evp_signature_st, ptr %signature, i64 0, i32 4
   %0 = atomicrmw add ptr %refcnt, i32 1 monotonic, align 4
@@ -848,14 +848,13 @@ if.then25:                                        ; preds = %if.end20
   br label %err
 
 for.body:                                         ; preds = %for.cond.preheader, %for.inc
-  %iter.0119 = phi i32 [ 1, %for.cond.preheader ], [ %inc, %for.inc ]
-  %tmp_prov.0118 = phi ptr [ null, %for.cond.preheader ], [ %tmp_prov.1106, %for.inc ]
-  %signature.0117 = phi ptr [ null, %for.cond.preheader ], [ %signature.1104, %for.inc ]
-  %cmp.i = icmp eq ptr %signature.0117, null
+  %iter.0103 = phi i32 [ 1, %for.cond.preheader ], [ %inc, %for.inc ]
+  %signature.0102 = phi ptr [ null, %for.cond.preheader ], [ %signature.193, %for.inc ]
+  %cmp.i = icmp eq ptr %signature.0102, null
   br i1 %cmp.i, label %EVP_SIGNATURE_free.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %for.body
-  %refcnt.i = getelementptr inbounds %struct.evp_signature_st, ptr %signature.0117, i64 0, i32 4
+  %refcnt.i = getelementptr inbounds %struct.evp_signature_st, ptr %signature.0102, i64 0, i32 4
   %3 = atomicrmw sub ptr %refcnt.i, i32 1 monotonic, align 4
   %cmp.i.i = icmp eq i32 %3, 1
   br i1 %cmp.i.i, label %CRYPTO_DOWN_REF.exit.thread.i, label %CRYPTO_DOWN_REF.exit.i
@@ -869,22 +868,20 @@ CRYPTO_DOWN_REF.exit.i:                           ; preds = %if.end.i
   br i1 %cmp1.i, label %EVP_SIGNATURE_free.exit, label %if.end3.i
 
 if.end3.i:                                        ; preds = %CRYPTO_DOWN_REF.exit.i, %CRYPTO_DOWN_REF.exit.thread.i
-  %type_name.i = getelementptr inbounds %struct.evp_signature_st, ptr %signature.0117, i64 0, i32 1
+  %type_name.i = getelementptr inbounds %struct.evp_signature_st, ptr %signature.0102, i64 0, i32 1
   %4 = load ptr, ptr %type_name.i, align 8
   call void @CRYPTO_free(ptr noundef %4, ptr noundef nonnull @.str, i32 noundef 285) #4
-  %prov.i = getelementptr inbounds %struct.evp_signature_st, ptr %signature.0117, i64 0, i32 3
+  %prov.i = getelementptr inbounds %struct.evp_signature_st, ptr %signature.0102, i64 0, i32 3
   %5 = load ptr, ptr %prov.i, align 8
   call void @ossl_provider_free(ptr noundef %5) #4
-  call void @CRYPTO_free(ptr noundef nonnull %signature.0117, ptr noundef nonnull @.str, i32 noundef 288) #4
+  call void @CRYPTO_free(ptr noundef nonnull %signature.0102, ptr noundef nonnull @.str, i32 noundef 288) #4
   br label %EVP_SIGNATURE_free.exit
 
 EVP_SIGNATURE_free.exit:                          ; preds = %for.body, %CRYPTO_DOWN_REF.exit.i, %if.end3.i
   %6 = load ptr, ptr %tmp_keymgmt, align 8
   call void @EVP_KEYMGMT_free(ptr noundef %6) #4
-  switch i32 %iter.0119, label %sw.epilog [
-    i32 1, label %sw.bb
-    i32 2, label %sw.bb38
-  ]
+  %switch = icmp eq i32 %iter.0103, 1
+  br i1 %switch, label %sw.bb, label %sw.bb38
 
 sw.bb:                                            ; preds = %EVP_SIGNATURE_free.exit
   %7 = load ptr, ptr %libctx, align 8
@@ -906,16 +903,13 @@ sw.bb38:                                          ; preds = %EVP_SIGNATURE_free.
   %cmp43 = icmp eq ptr %call.i88, null
   br i1 %cmp43, label %legacy, label %if.end50
 
-sw.epilog:                                        ; preds = %EVP_SIGNATURE_free.exit
-  br i1 %cmp.i, label %for.inc, label %if.end50
-
-if.end50:                                         ; preds = %if.then35, %sw.bb38, %sw.epilog
-  %tmp_prov.1105 = phi ptr [ %tmp_prov.0118, %sw.epilog ], [ %9, %if.then35 ], [ %call40, %sw.bb38 ]
-  %signature.1103 = phi ptr [ %signature.0117, %sw.epilog ], [ %call.i, %if.then35 ], [ %call.i88, %sw.bb38 ]
+if.end50:                                         ; preds = %sw.bb38, %if.then35
+  %signature.1.ph = phi ptr [ %call.i, %if.then35 ], [ %call.i88, %sw.bb38 ]
+  %tmp_prov.1.ph = phi ptr [ %9, %if.then35 ], [ %call40, %sw.bb38 ]
   %12 = load ptr, ptr %keymgmt, align 8
   %call52 = call ptr @EVP_KEYMGMT_get0_name(ptr noundef %12) #4
   %13 = load ptr, ptr %propquery41, align 8
-  %call54 = call ptr @evp_keymgmt_fetch_from_prov(ptr noundef %tmp_prov.1105, ptr noundef %call52, ptr noundef %13) #4
+  %call54 = call ptr @evp_keymgmt_fetch_from_prov(ptr noundef %tmp_prov.1.ph, ptr noundef %call52, ptr noundef %13) #4
   store ptr %call54, ptr %tmp_keymgmt, align 8
   %cmp55.not = icmp eq ptr %call54, null
   br i1 %cmp55.not, label %if.then65, label %if.end62
@@ -930,16 +924,15 @@ if.end62:                                         ; preds = %if.end50
   br i1 %cmp63, label %if.then65, label %for.inc
 
 if.then65:                                        ; preds = %if.end50, %if.end62
-  %provkey.1113 = phi ptr [ %call61, %if.end62 ], [ null, %if.end50 ]
+  %provkey.198 = phi ptr [ %call61, %if.end62 ], [ null, %if.end50 ]
   call void @EVP_KEYMGMT_free(ptr noundef %call54) #4
   br label %for.inc
 
-for.inc:                                          ; preds = %sw.bb, %if.end62, %if.then65, %sw.epilog
-  %tmp_prov.1106 = phi ptr [ %tmp_prov.0118, %sw.epilog ], [ %tmp_prov.1105, %if.then65 ], [ %tmp_prov.1105, %if.end62 ], [ %tmp_prov.0118, %sw.bb ]
-  %signature.1104 = phi ptr [ null, %sw.epilog ], [ %signature.1103, %if.then65 ], [ %signature.1103, %if.end62 ], [ null, %sw.bb ]
-  %provkey.2 = phi ptr [ null, %sw.epilog ], [ %provkey.1113, %if.then65 ], [ %call61, %if.end62 ], [ null, %sw.bb ]
-  %inc = add nuw nsw i32 %iter.0119, 1
-  %cmp28 = icmp ult i32 %iter.0119, 2
+for.inc:                                          ; preds = %sw.bb, %if.end62, %if.then65
+  %signature.193 = phi ptr [ %signature.1.ph, %if.then65 ], [ %signature.1.ph, %if.end62 ], [ null, %sw.bb ]
+  %provkey.2 = phi ptr [ %provkey.198, %if.then65 ], [ %call61, %if.end62 ], [ null, %sw.bb ]
+  %inc = add nuw nsw i32 %iter.0103, 1
+  %cmp28 = icmp ult i32 %iter.0103, 2
   %cmp30 = icmp eq ptr %provkey.2, null
   %17 = select i1 %cmp28, i1 %cmp30, i1 false
   br i1 %17, label %for.body, label %for.end, !llvm.loop !6
@@ -948,44 +941,20 @@ for.end:                                          ; preds = %for.inc
   br i1 %cmp30, label %if.then69, label %if.end70
 
 if.then69:                                        ; preds = %for.end
-  %cmp.i89 = icmp eq ptr %signature.1104, null
-  br i1 %cmp.i89, label %legacy, label %if.end.i90
-
-if.end.i90:                                       ; preds = %if.then69
-  %refcnt.i91 = getelementptr inbounds %struct.evp_signature_st, ptr %signature.1104, i64 0, i32 4
-  %18 = atomicrmw sub ptr %refcnt.i91, i32 1 monotonic, align 4
-  %cmp.i.i92 = icmp eq i32 %18, 1
-  br i1 %cmp.i.i92, label %CRYPTO_DOWN_REF.exit.thread.i98, label %CRYPTO_DOWN_REF.exit.i93
-
-CRYPTO_DOWN_REF.exit.thread.i98:                  ; preds = %if.end.i90
-  fence acquire
-  br label %if.end3.i95
-
-CRYPTO_DOWN_REF.exit.i93:                         ; preds = %if.end.i90
-  %cmp1.i94 = icmp sgt i32 %18, 1
-  br i1 %cmp1.i94, label %legacy, label %if.end3.i95
-
-if.end3.i95:                                      ; preds = %CRYPTO_DOWN_REF.exit.i93, %CRYPTO_DOWN_REF.exit.thread.i98
-  %type_name.i96 = getelementptr inbounds %struct.evp_signature_st, ptr %signature.1104, i64 0, i32 1
-  %19 = load ptr, ptr %type_name.i96, align 8
-  call void @CRYPTO_free(ptr noundef %19, ptr noundef nonnull @.str, i32 noundef 285) #4
-  %prov.i97 = getelementptr inbounds %struct.evp_signature_st, ptr %signature.1104, i64 0, i32 3
-  %20 = load ptr, ptr %prov.i97, align 8
-  call void @ossl_provider_free(ptr noundef %20) #4
-  call void @CRYPTO_free(ptr noundef nonnull %signature.1104, ptr noundef nonnull @.str, i32 noundef 288) #4
+  call void @EVP_SIGNATURE_free(ptr noundef %signature.193)
   br label %legacy
 
 if.end70:                                         ; preds = %for.end
   %call71 = call i32 @ERR_pop_to_mark() #4
   %op = getelementptr inbounds %struct.evp_pkey_ctx_st, ptr %ctx, i64 0, i32 5
-  store ptr %signature.1104, ptr %op, align 8
-  %newctx = getelementptr inbounds %struct.evp_signature_st, ptr %signature.1104, i64 0, i32 5
-  %21 = load ptr, ptr %newctx, align 8
-  %prov = getelementptr inbounds %struct.evp_signature_st, ptr %signature.1104, i64 0, i32 3
-  %22 = load ptr, ptr %prov, align 8
-  %call73 = call ptr @ossl_provider_ctx(ptr noundef %22) #4
-  %23 = load ptr, ptr %propquery41, align 8
-  %call75 = call ptr %21(ptr noundef %call73, ptr noundef %23) #4
+  store ptr %signature.193, ptr %op, align 8
+  %newctx = getelementptr inbounds %struct.evp_signature_st, ptr %signature.193, i64 0, i32 5
+  %18 = load ptr, ptr %newctx, align 8
+  %prov = getelementptr inbounds %struct.evp_signature_st, ptr %signature.193, i64 0, i32 3
+  %19 = load ptr, ptr %prov, align 8
+  %call73 = call ptr @ossl_provider_ctx(ptr noundef %19) #4
+  %20 = load ptr, ptr %propquery41, align 8
+  %call75 = call ptr %18(ptr noundef %call73, ptr noundef %20) #4
   %algctx = getelementptr inbounds %struct.evp_pkey_ctx_st, ptr %ctx, i64 0, i32 5, i32 0, i32 1
   store ptr %call75, ptr %algctx, align 8
   %cmp79 = icmp eq ptr %call75, null
@@ -1005,9 +974,9 @@ if.end82:                                         ; preds = %if.end70
   ]
 
 sw.bb83:                                          ; preds = %if.end82
-  %sign_init = getelementptr inbounds %struct.evp_signature_st, ptr %signature.1104, i64 0, i32 6
-  %24 = load ptr, ptr %sign_init, align 8
-  %cmp84 = icmp eq ptr %24, null
+  %sign_init = getelementptr inbounds %struct.evp_signature_st, ptr %signature.193, i64 0, i32 6
+  %21 = load ptr, ptr %sign_init, align 8
+  %cmp84 = icmp eq ptr %21, null
   br i1 %cmp84, label %if.then86, label %sw.epilog110
 
 if.then86:                                        ; preds = %sw.bb83
@@ -1017,9 +986,9 @@ if.then86:                                        ; preds = %sw.bb83
   br label %err
 
 sw.bb92:                                          ; preds = %if.end82
-  %verify_init = getelementptr inbounds %struct.evp_signature_st, ptr %signature.1104, i64 0, i32 8
-  %25 = load ptr, ptr %verify_init, align 8
-  %cmp93 = icmp eq ptr %25, null
+  %verify_init = getelementptr inbounds %struct.evp_signature_st, ptr %signature.193, i64 0, i32 8
+  %22 = load ptr, ptr %verify_init, align 8
+  %cmp93 = icmp eq ptr %22, null
   br i1 %cmp93, label %if.then95, label %sw.epilog110
 
 if.then95:                                        ; preds = %sw.bb92
@@ -1029,9 +998,9 @@ if.then95:                                        ; preds = %sw.bb92
   br label %err
 
 sw.bb101:                                         ; preds = %if.end82
-  %verify_recover_init = getelementptr inbounds %struct.evp_signature_st, ptr %signature.1104, i64 0, i32 10
-  %26 = load ptr, ptr %verify_recover_init, align 8
-  %cmp102 = icmp eq ptr %26, null
+  %verify_recover_init = getelementptr inbounds %struct.evp_signature_st, ptr %signature.193, i64 0, i32 10
+  %23 = load ptr, ptr %verify_recover_init, align 8
+  %cmp102 = icmp eq ptr %23, null
   br i1 %cmp102, label %if.then104, label %sw.epilog110
 
 if.then104:                                       ; preds = %sw.bb101
@@ -1047,27 +1016,27 @@ sw.default:                                       ; preds = %if.end82
   br label %err
 
 sw.epilog110:                                     ; preds = %sw.bb101, %sw.bb92, %sw.bb83
-  %.sink = phi ptr [ %24, %sw.bb83 ], [ %25, %sw.bb92 ], [ %26, %sw.bb101 ]
+  %.sink = phi ptr [ %21, %sw.bb83 ], [ %22, %sw.bb92 ], [ %23, %sw.bb101 ]
   %call109 = call i32 %.sink(ptr noundef nonnull %call75, ptr noundef nonnull %provkey.2, ptr noundef %params) #4
   %cmp111 = icmp slt i32 %call109, 1
   br i1 %cmp111, label %if.then113, label %if.then181
 
 if.then113:                                       ; preds = %sw.epilog110
-  %freectx = getelementptr inbounds %struct.evp_signature_st, ptr %signature.1104, i64 0, i32 20
-  %27 = load ptr, ptr %freectx, align 8
-  %28 = load ptr, ptr %algctx, align 8
-  call void %27(ptr noundef %28) #4
+  %freectx = getelementptr inbounds %struct.evp_signature_st, ptr %signature.193, i64 0, i32 20
+  %24 = load ptr, ptr %freectx, align 8
+  %25 = load ptr, ptr %algctx, align 8
+  call void %24(ptr noundef %25) #4
   store ptr null, ptr %algctx, align 8
   br label %err
 
-legacy:                                           ; preds = %sw.bb38, %if.end3.i95, %CRYPTO_DOWN_REF.exit.i93, %if.then69, %if.end
+legacy:                                           ; preds = %sw.bb38, %if.end, %if.then69
   %call119 = call i32 @ERR_pop_to_mark() #4
-  %29 = load ptr, ptr %tmp_keymgmt, align 8
-  call void @EVP_KEYMGMT_free(ptr noundef %29) #4
+  %26 = load ptr, ptr %tmp_keymgmt, align 8
+  call void @EVP_KEYMGMT_free(ptr noundef %26) #4
   store ptr null, ptr %tmp_keymgmt, align 8
   %pmeth = getelementptr inbounds %struct.evp_pkey_ctx_st, ptr %ctx, i64 0, i32 12
-  %30 = load ptr, ptr %pmeth, align 8
-  %cmp120 = icmp eq ptr %30, null
+  %27 = load ptr, ptr %pmeth, align 8
+  %cmp120 = icmp eq ptr %27, null
   br i1 %cmp120, label %if.then141, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %legacy
@@ -1078,21 +1047,21 @@ lor.lhs.false:                                    ; preds = %legacy
   ]
 
 land.lhs.true:                                    ; preds = %lor.lhs.false
-  %sign = getelementptr inbounds %struct.evp_pkey_method_st, ptr %30, i64 0, i32 10
-  %31 = load ptr, ptr %sign, align 8
-  %cmp125 = icmp eq ptr %31, null
+  %sign = getelementptr inbounds %struct.evp_pkey_method_st, ptr %27, i64 0, i32 10
+  %28 = load ptr, ptr %sign, align 8
+  %cmp125 = icmp eq ptr %28, null
   br i1 %cmp125, label %if.then141, label %sw.bb143
 
 land.lhs.true130:                                 ; preds = %lor.lhs.false
-  %verify = getelementptr inbounds %struct.evp_pkey_method_st, ptr %30, i64 0, i32 12
-  %32 = load ptr, ptr %verify, align 8
-  %cmp132 = icmp eq ptr %32, null
+  %verify = getelementptr inbounds %struct.evp_pkey_method_st, ptr %27, i64 0, i32 12
+  %29 = load ptr, ptr %verify, align 8
+  %cmp132 = icmp eq ptr %29, null
   br i1 %cmp132, label %if.then141, label %sw.bb153
 
 land.lhs.true137:                                 ; preds = %lor.lhs.false
-  %verify_recover = getelementptr inbounds %struct.evp_pkey_method_st, ptr %30, i64 0, i32 14
-  %33 = load ptr, ptr %verify_recover, align 8
-  %cmp139 = icmp eq ptr %33, null
+  %verify_recover = getelementptr inbounds %struct.evp_pkey_method_st, ptr %27, i64 0, i32 14
+  %30 = load ptr, ptr %verify_recover, align 8
+  %cmp139 = icmp eq ptr %30, null
   br i1 %cmp139, label %if.then141, label %sw.bb163
 
 if.then141:                                       ; preds = %land.lhs.true137, %land.lhs.true130, %land.lhs.true, %legacy
@@ -1102,21 +1071,21 @@ if.then141:                                       ; preds = %land.lhs.true137, %
   br label %return
 
 sw.bb143:                                         ; preds = %land.lhs.true
-  %sign_init145 = getelementptr inbounds %struct.evp_pkey_method_st, ptr %30, i64 0, i32 9
-  %34 = load ptr, ptr %sign_init145, align 8
-  %cmp146 = icmp eq ptr %34, null
+  %sign_init145 = getelementptr inbounds %struct.evp_pkey_method_st, ptr %27, i64 0, i32 9
+  %31 = load ptr, ptr %sign_init145, align 8
+  %cmp146 = icmp eq ptr %31, null
   br i1 %cmp146, label %return, label %sw.epilog174
 
 sw.bb153:                                         ; preds = %land.lhs.true130
-  %verify_init155 = getelementptr inbounds %struct.evp_pkey_method_st, ptr %30, i64 0, i32 11
-  %35 = load ptr, ptr %verify_init155, align 8
-  %cmp156 = icmp eq ptr %35, null
+  %verify_init155 = getelementptr inbounds %struct.evp_pkey_method_st, ptr %27, i64 0, i32 11
+  %32 = load ptr, ptr %verify_init155, align 8
+  %cmp156 = icmp eq ptr %32, null
   br i1 %cmp156, label %return, label %sw.epilog174
 
 sw.bb163:                                         ; preds = %land.lhs.true137
-  %verify_recover_init165 = getelementptr inbounds %struct.evp_pkey_method_st, ptr %30, i64 0, i32 13
-  %36 = load ptr, ptr %verify_recover_init165, align 8
-  %cmp166 = icmp eq ptr %36, null
+  %verify_recover_init165 = getelementptr inbounds %struct.evp_pkey_method_st, ptr %27, i64 0, i32 13
+  %33 = load ptr, ptr %verify_recover_init165, align 8
+  %cmp166 = icmp eq ptr %33, null
   br i1 %cmp166, label %return, label %sw.epilog174
 
 sw.default173:                                    ; preds = %lor.lhs.false
@@ -1126,23 +1095,23 @@ sw.default173:                                    ; preds = %lor.lhs.false
   br label %err
 
 sw.epilog174:                                     ; preds = %sw.bb163, %sw.bb153, %sw.bb143
-  %.sink120 = phi ptr [ %34, %sw.bb143 ], [ %35, %sw.bb153 ], [ %36, %sw.bb163 ]
-  %call172 = call i32 %.sink120(ptr noundef nonnull %ctx) #4
+  %.sink104 = phi ptr [ %31, %sw.bb143 ], [ %32, %sw.bb153 ], [ %33, %sw.bb163 ]
+  %call172 = call i32 %.sink104(ptr noundef nonnull %ctx) #4
   %cmp175 = icmp slt i32 %call172, 1
   br i1 %cmp175, label %err, label %if.then181
 
 if.then181:                                       ; preds = %sw.epilog110, %sw.epilog174
   %call182 = call i32 @evp_pkey_ctx_use_cached_data(ptr noundef nonnull %ctx) #4
-  %37 = load ptr, ptr %tmp_keymgmt, align 8
-  call void @EVP_KEYMGMT_free(ptr noundef %37) #4
+  %34 = load ptr, ptr %tmp_keymgmt, align 8
+  call void @EVP_KEYMGMT_free(ptr noundef %34) #4
   br label %return
 
 err:                                              ; preds = %sw.epilog174, %sw.default173, %if.then113, %sw.default, %if.then104, %if.then95, %if.then86, %if.then81, %if.then25, %if.then18, %if.then6
   %ret.4 = phi i32 [ 0, %sw.default173 ], [ %call172, %sw.epilog174 ], [ 0, %if.then6 ], [ 0, %if.then25 ], [ 0, %if.then81 ], [ 0, %sw.default ], [ -2, %if.then104 ], [ %call109, %if.then113 ], [ -2, %if.then95 ], [ -2, %if.then86 ], [ 0, %if.then18 ]
   call void @evp_pkey_ctx_free_old_ops(ptr noundef nonnull %ctx) #4
   store i32 0, ptr %ctx, align 8
-  %38 = load ptr, ptr %tmp_keymgmt, align 8
-  call void @EVP_KEYMGMT_free(ptr noundef %38) #4
+  %35 = load ptr, ptr %tmp_keymgmt, align 8
+  call void @EVP_KEYMGMT_free(ptr noundef %35) #4
   br label %return
 
 return:                                           ; preds = %sw.bb163, %sw.bb153, %sw.bb143, %err, %if.then181, %if.then141, %if.then

@@ -9106,7 +9106,7 @@ luaO_str2d.exit.i58:                              ; preds = %while.cond.i.i52
 if.then:                                          ; preds = %luaO_str2d.exit.thread9.i64, %luaO_str2d.exit.i58, %land.lhs.true.if.then_crit_edge
   %18 = phi double [ %.pre, %land.lhs.true.if.then_crit_edge ], [ %num.0.i47, %luaO_str2d.exit.i58 ], [ %num.0.i47, %luaO_str2d.exit.thread9.i64 ]
   %19 = load double, ptr %retval.0.i.ph, align 8
-  switch i32 %op, label %if.end34 [
+  switch i32 %op, label %default.unreachable [
     i32 5, label %sw.bb
     i32 6, label %sw.bb5
     i32 7, label %sw.bb9
@@ -9240,6 +9240,9 @@ luaV_tonumber.exit99:                             ; preds = %if.then33, %if.then
   call void (ptr, ptr, ...) @luaG_runerror(ptr noundef nonnull %L, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.42, ptr noundef %32)
   unreachable
 
+default.unreachable:                              ; preds = %if.then
+  unreachable
+
 if.end34.sink.split:                              ; preds = %sw.bb28, %sw.bb23, %sw.bb17, %sw.bb13, %sw.bb9, %sw.bb5, %sw.bb
   %add.sink = phi double [ %add, %sw.bb ], [ %sub, %sw.bb5 ], [ %mul, %sw.bb9 ], [ %div, %sw.bb13 ], [ %21, %sw.bb17 ], [ %call25, %sw.bb23 ], [ %fneg, %sw.bb28 ]
   store double %add.sink, ptr %ra, align 8
@@ -9247,7 +9250,7 @@ if.end34.sink.split:                              ; preds = %sw.bb28, %sw.bb23, 
   store i32 3, ptr %tt, align 8
   br label %if.end34
 
-if.end34:                                         ; preds = %if.end34.sink.split, %if.else, %if.then
+if.end34:                                         ; preds = %if.end34.sink.split, %if.else
   ret void
 }
 
@@ -27180,7 +27183,7 @@ luaX_next.exit:                                   ; preds = %if.then.i22, %if.el
   store i32 5, ptr %e2.i, align 8
   %u.i = getelementptr inbounds %struct.expdesc, ptr %e2.i, i64 0, i32 1
   store double 0.000000e+00, ptr %u.i, align 8
-  switch i32 %retval.0.i.ph, label %luaX_next.exit.unreachabledefault [
+  switch i32 %retval.0.i.ph, label %default.unreachable [
     i32 0, label %sw.bb.i
     i32 1, label %sw.bb2.i23
     i32 2, label %sw.bb3.i
@@ -27485,7 +27488,7 @@ sw.bb3.i:                                         ; preds = %luaX_next.exit
   call fastcc void @codearith(ptr noundef %5, i32 noundef 20, ptr noundef %v, ptr noundef nonnull %e2.i)
   br label %luaK_prefix.exit
 
-luaX_next.exit.unreachabledefault:                ; preds = %luaX_next.exit
+default.unreachable:                              ; preds = %luaX_next.exit
   unreachable
 
 luaK_prefix.exit:                                 ; preds = %patchtestreg.exit.i48.i.i, %if.end.i, %removevalues.exit.i.i, %sw.bb3.i

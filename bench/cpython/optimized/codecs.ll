@@ -977,7 +977,7 @@ return:                                           ; preds = %if.then3, %if.then8
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @_PyCodecRegistry_Init() unnamed_addr #0 {
+define internal fastcc noundef i32 @_PyCodecRegistry_Init() unnamed_addr #0 {
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %1 = load ptr, ptr %0, align 8
@@ -1455,7 +1455,7 @@ declare ptr @PyErr_Format(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 declare i32 @PyDict_SetItem(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @PyCodec_KnownEncoding(ptr noundef %encoding) local_unnamed_addr #0 {
+define dso_local noundef i32 @PyCodec_KnownEncoding(ptr noundef %encoding) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @_PyCodec_Lookup(ptr noundef %encoding)
   %tobool.not = icmp eq ptr %call, null
@@ -1792,7 +1792,7 @@ codec_getstreamcodec.exit:                        ; preds = %entry, %if.end5.i, 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @PyCodec_Encode(ptr noundef %object, ptr noundef %encoding, ptr noundef %errors) local_unnamed_addr #0 {
+define dso_local noundef ptr @PyCodec_Encode(ptr noundef %object, ptr noundef %encoding, ptr noundef %errors) local_unnamed_addr #0 {
 entry:
   %call.i.i = tail call ptr @_PyCodec_Lookup(ptr noundef %encoding)
   %cmp.i.i = icmp eq ptr %call.i.i, null
@@ -1836,7 +1836,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @_PyCodec_EncodeInternal(ptr noundef %object, ptr noundef %encoder, ptr noundef %encoding, ptr noundef %errors) unnamed_addr #0 {
+define internal fastcc noundef ptr @_PyCodec_EncodeInternal(ptr noundef %object, ptr noundef %encoder, ptr noundef %encoding, ptr noundef %errors) unnamed_addr #0 {
 entry:
   %cmp.not.i = icmp eq ptr %errors, null
   %conv1.i = select i1 %cmp.not.i, i64 1, i64 2
@@ -2023,7 +2023,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @PyCodec_Decode(ptr noundef %object, ptr noundef %encoding, ptr noundef %errors) local_unnamed_addr #0 {
+define dso_local noundef ptr @PyCodec_Decode(ptr noundef %object, ptr noundef %encoding, ptr noundef %errors) local_unnamed_addr #0 {
 entry:
   %call.i.i = tail call ptr @_PyCodec_Lookup(ptr noundef %encoding)
   %cmp.i.i = icmp eq ptr %call.i.i, null
@@ -2067,7 +2067,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @_PyCodec_DecodeInternal(ptr noundef %object, ptr noundef %decoder, ptr noundef %encoding, ptr noundef %errors) unnamed_addr #0 {
+define internal fastcc noundef ptr @_PyCodec_DecodeInternal(ptr noundef %object, ptr noundef %decoder, ptr noundef %encoding, ptr noundef %errors) unnamed_addr #0 {
 entry:
   %cmp.not.i = icmp eq ptr %errors, null
   %conv1.i = select i1 %cmp.not.i, i64 1, i64 2
@@ -2359,7 +2359,7 @@ declare i32 @PyObject_GetOptionalAttr(ptr noundef, ptr noundef, ptr noundef) loc
 declare i32 @PyObject_IsTrue(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @_PyCodec_EncodeText(ptr noundef %object, ptr noundef %encoding, ptr noundef %errors) local_unnamed_addr #0 {
+define hidden noundef ptr @_PyCodec_EncodeText(ptr noundef %object, ptr noundef %encoding, ptr noundef %errors) local_unnamed_addr #0 {
 entry:
   %call.i.i = tail call ptr @_PyCodec_LookupTextEncoding(ptr noundef %encoding, ptr noundef nonnull @.str.23)
   %cmp.i.i = icmp eq ptr %call.i.i, null
@@ -2403,7 +2403,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @_PyCodec_DecodeText(ptr noundef %object, ptr noundef %encoding, ptr noundef %errors) local_unnamed_addr #0 {
+define hidden noundef ptr @_PyCodec_DecodeText(ptr noundef %object, ptr noundef %encoding, ptr noundef %errors) local_unnamed_addr #0 {
 entry:
   %call.i.i = tail call ptr @_PyCodec_LookupTextEncoding(ptr noundef %encoding, ptr noundef nonnull @.str.24)
   %cmp.i.i = icmp eq ptr %call.i.i, null
@@ -2531,7 +2531,7 @@ return:                                           ; preds = %if.end8, %if.end, %
 declare i32 @PyDict_GetItemStringRef(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noalias ptr @PyCodec_StrictErrors(ptr noundef %exc) local_unnamed_addr #0 {
+define dso_local noalias noundef ptr @PyCodec_StrictErrors(ptr noundef %exc) local_unnamed_addr #0 {
 entry:
   %0 = getelementptr i8, ptr %exc, i64 8
   %exc.val3 = load ptr, ptr %0, align 8
@@ -4261,7 +4261,7 @@ declare ptr @PyTuple_New(i64 noundef) local_unnamed_addr #1
 declare i32 @PyType_IsSubtype(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noalias ptr @strict_errors(ptr nocapture readnone %self, ptr noundef %exc) #0 {
+define internal noalias noundef ptr @strict_errors(ptr nocapture readnone %self, ptr noundef %exc) #0 {
 entry:
   %0 = getelementptr i8, ptr %exc, i64 8
   %exc.val3.i = load ptr, ptr %0, align 8
@@ -4493,8 +4493,8 @@ if.end35.i:                                       ; preds = %if.end29.i
   %call36.i = call ptr @PyBytes_AsString(ptr noundef nonnull %call32.i) #9
   %17 = load i64, ptr %start.i, align 8
   %18 = load i64, ptr %end.i, align 8
-  %cmp37147.i = icmp slt i64 %17, %18
-  br i1 %cmp37147.i, label %for.body.lr.ph.i, label %for.end.i
+  %cmp37148.i = icmp slt i64 %17, %18
+  br i1 %cmp37148.i, label %for.body.lr.ph.i, label %for.end.i
 
 for.body.lr.ph.i:                                 ; preds = %if.end35.i
   %state.i.i = getelementptr inbounds %struct.PyASCIIObject, ptr %call8.i, i64 0, i32 3
@@ -4503,8 +4503,8 @@ for.body.lr.ph.i:                                 ; preds = %if.end35.i
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.lr.ph.i
-  %outp.0149.i = phi ptr [ %call36.i, %for.body.lr.ph.i ], [ %outp.1.i, %for.inc.i ]
-  %i.0148.i = phi i64 [ %17, %for.body.lr.ph.i ], [ %inc.i, %for.inc.i ]
+  %outp.0150.i = phi ptr [ %call36.i, %for.body.lr.ph.i ], [ %outp.1.i, %for.inc.i ]
+  %i.0149.i = phi i64 [ %17, %for.body.lr.ph.i ], [ %inc.i, %for.inc.i ]
   %bf.load.i.i = load i32, ptr %state.i.i, align 8
   %bf.lshr.i.i = lshr i32 %bf.load.i.i, 2
   %bf.clear.i.i = and i32 %bf.lshr.i.i, 7
@@ -4530,7 +4530,7 @@ if.end.i.i.i:                                     ; preds = %if.then.i.i
 
 PyUnicode_DATA.exit.i.i:                          ; preds = %if.end.i.i.i, %if.then.i.i.i
   %retval.0.i.i.i = phi ptr [ %retval.0.i.i.i.i, %if.then.i.i.i ], [ %op.val3.i.i.i, %if.end.i.i.i ]
-  %arrayidx.i.i = getelementptr i8, ptr %retval.0.i.i.i, i64 %i.0148.i
+  %arrayidx.i.i = getelementptr i8, ptr %retval.0.i.i.i, i64 %i.0149.i
   %21 = load i8, ptr %arrayidx.i.i, align 1
   %conv.i.i = zext i8 %21 to i32
   br label %PyUnicode_READ_CHAR.exit.i
@@ -4550,7 +4550,7 @@ if.end.i15.i.i:                                   ; preds = %if.then3.i.i
 
 PyUnicode_DATA.exit17.i.i:                        ; preds = %if.end.i15.i.i, %if.then.i9.i.i
   %retval.0.i14.i.i = phi ptr [ %retval.0.i.i13.i.i, %if.then.i9.i.i ], [ %op.val3.i16.i.i, %if.end.i15.i.i ]
-  %arrayidx5.i.i = getelementptr i16, ptr %retval.0.i14.i.i, i64 %i.0148.i
+  %arrayidx5.i.i = getelementptr i16, ptr %retval.0.i14.i.i, i64 %i.0149.i
   %23 = load i16, ptr %arrayidx5.i.i, align 2
   %conv6.i.i = zext i16 %23 to i32
   br label %PyUnicode_READ_CHAR.exit.i
@@ -4570,7 +4570,7 @@ if.end.i26.i.i:                                   ; preds = %if.end7.i.i
 
 PyUnicode_DATA.exit28.i.i:                        ; preds = %if.end.i26.i.i, %if.then.i20.i.i
   %retval.0.i25.i.i = phi ptr [ %retval.0.i.i24.i.i, %if.then.i20.i.i ], [ %op.val3.i27.i.i, %if.end.i26.i.i ]
-  %arrayidx9.i.i = getelementptr i32, ptr %retval.0.i25.i.i, i64 %i.0148.i
+  %arrayidx9.i.i = getelementptr i32, ptr %retval.0.i25.i.i, i64 %i.0149.i
   %25 = load i32, ptr %arrayidx9.i.i, align 4
   br label %PyUnicode_READ_CHAR.exit.i
 
@@ -4615,7 +4615,7 @@ if.then1.i287.i:                                  ; preds = %if.end.i284.i
   br label %PyCodec_SurrogatePassErrors.exit
 
 if.end44.i:                                       ; preds = %PyUnicode_READ_CHAR.exit.i
-  switch i32 %call20.i, label %for.inc.i [
+  switch i32 %call20.i, label %default.unreachable.i [
     i32 0, label %sw.bb.i
     i32 2, label %sw.bb54.i
     i32 1, label %sw.bb60.i
@@ -4624,72 +4624,75 @@ if.end44.i:                                       ; preds = %PyUnicode_READ_CHAR
   ]
 
 sw.bb.i:                                          ; preds = %if.end44.i
-  %incdec.ptr.i = getelementptr i8, ptr %outp.0149.i, i64 1
-  store i8 -19, ptr %outp.0149.i, align 1
+  %incdec.ptr.i = getelementptr i8, ptr %outp.0150.i, i64 1
+  store i8 -19, ptr %outp.0150.i, align 1
   %shr46.i = lshr i32 %retval.0.i.i, 6
   %31 = trunc i32 %shr46.i to i8
   %32 = and i8 %31, 63
   %conv48.i = or disjoint i8 %32, -128
-  %incdec.ptr49.i = getelementptr i8, ptr %outp.0149.i, i64 2
+  %incdec.ptr49.i = getelementptr i8, ptr %outp.0150.i, i64 2
   store i8 %conv48.i, ptr %incdec.ptr.i, align 1
   %33 = trunc i32 %retval.0.i.i to i8
   %34 = and i8 %33, 63
   %conv52.i = or disjoint i8 %34, -128
-  %incdec.ptr53.i = getelementptr i8, ptr %outp.0149.i, i64 3
+  %incdec.ptr53.i = getelementptr i8, ptr %outp.0150.i, i64 3
   store i8 %conv52.i, ptr %incdec.ptr49.i, align 1
   br label %for.inc.i
 
 sw.bb54.i:                                        ; preds = %if.end44.i
   %conv55.i = trunc i32 %retval.0.i.i to i8
-  %incdec.ptr56.i = getelementptr i8, ptr %outp.0149.i, i64 1
-  store i8 %conv55.i, ptr %outp.0149.i, align 1
+  %incdec.ptr56.i = getelementptr i8, ptr %outp.0150.i, i64 1
+  store i8 %conv55.i, ptr %outp.0150.i, align 1
   %shr57.i = lshr i32 %retval.0.i.i, 8
   %conv58.i = trunc i32 %shr57.i to i8
-  %incdec.ptr59.i = getelementptr i8, ptr %outp.0149.i, i64 2
+  %incdec.ptr59.i = getelementptr i8, ptr %outp.0150.i, i64 2
   store i8 %conv58.i, ptr %incdec.ptr56.i, align 1
   br label %for.inc.i
 
 sw.bb60.i:                                        ; preds = %if.end44.i
   %shr61.i = lshr i32 %retval.0.i.i, 8
   %conv62.i = trunc i32 %shr61.i to i8
-  %incdec.ptr63.i = getelementptr i8, ptr %outp.0149.i, i64 1
-  store i8 %conv62.i, ptr %outp.0149.i, align 1
+  %incdec.ptr63.i = getelementptr i8, ptr %outp.0150.i, i64 1
+  store i8 %conv62.i, ptr %outp.0150.i, align 1
   %conv64.i = trunc i32 %retval.0.i.i to i8
-  %incdec.ptr65.i = getelementptr i8, ptr %outp.0149.i, i64 2
+  %incdec.ptr65.i = getelementptr i8, ptr %outp.0150.i, i64 2
   store i8 %conv64.i, ptr %incdec.ptr63.i, align 1
   br label %for.inc.i
 
 sw.bb66.i:                                        ; preds = %if.end44.i
   %conv67.i = trunc i32 %retval.0.i.i to i8
-  %incdec.ptr68.i = getelementptr i8, ptr %outp.0149.i, i64 1
-  store i8 %conv67.i, ptr %outp.0149.i, align 1
+  %incdec.ptr68.i = getelementptr i8, ptr %outp.0150.i, i64 1
+  store i8 %conv67.i, ptr %outp.0150.i, align 1
   %shr69.i = lshr i32 %retval.0.i.i, 8
   %conv70.i = trunc i32 %shr69.i to i8
-  %incdec.ptr71.i = getelementptr i8, ptr %outp.0149.i, i64 2
+  %incdec.ptr71.i = getelementptr i8, ptr %outp.0150.i, i64 2
   store i8 %conv70.i, ptr %incdec.ptr68.i, align 1
-  %incdec.ptr74.i = getelementptr i8, ptr %outp.0149.i, i64 3
+  %incdec.ptr74.i = getelementptr i8, ptr %outp.0150.i, i64 3
   store i8 0, ptr %incdec.ptr71.i, align 1
-  %incdec.ptr77.i = getelementptr i8, ptr %outp.0149.i, i64 4
+  %incdec.ptr77.i = getelementptr i8, ptr %outp.0150.i, i64 4
   store i8 0, ptr %incdec.ptr74.i, align 1
   br label %for.inc.i
 
 sw.bb78.i:                                        ; preds = %if.end44.i
-  %incdec.ptr81.i = getelementptr i8, ptr %outp.0149.i, i64 1
-  store i8 0, ptr %outp.0149.i, align 1
-  %incdec.ptr84.i = getelementptr i8, ptr %outp.0149.i, i64 2
+  %incdec.ptr81.i = getelementptr i8, ptr %outp.0150.i, i64 1
+  store i8 0, ptr %outp.0150.i, align 1
+  %incdec.ptr84.i = getelementptr i8, ptr %outp.0150.i, i64 2
   store i8 0, ptr %incdec.ptr81.i, align 1
   %shr85.i = lshr i32 %retval.0.i.i, 8
   %conv86.i = trunc i32 %shr85.i to i8
-  %incdec.ptr87.i = getelementptr i8, ptr %outp.0149.i, i64 3
+  %incdec.ptr87.i = getelementptr i8, ptr %outp.0150.i, i64 3
   store i8 %conv86.i, ptr %incdec.ptr84.i, align 1
   %conv88.i = trunc i32 %retval.0.i.i to i8
-  %incdec.ptr89.i = getelementptr i8, ptr %outp.0149.i, i64 4
+  %incdec.ptr89.i = getelementptr i8, ptr %outp.0150.i, i64 4
   store i8 %conv88.i, ptr %incdec.ptr87.i, align 1
   br label %for.inc.i
 
-for.inc.i:                                        ; preds = %sw.bb78.i, %sw.bb66.i, %sw.bb60.i, %sw.bb54.i, %sw.bb.i, %if.end44.i
-  %outp.1.i = phi ptr [ %outp.0149.i, %if.end44.i ], [ %incdec.ptr89.i, %sw.bb78.i ], [ %incdec.ptr77.i, %sw.bb66.i ], [ %incdec.ptr65.i, %sw.bb60.i ], [ %incdec.ptr59.i, %sw.bb54.i ], [ %incdec.ptr53.i, %sw.bb.i ]
-  %inc.i = add nsw i64 %i.0148.i, 1
+default.unreachable.i:                            ; preds = %if.end44.i
+  unreachable
+
+for.inc.i:                                        ; preds = %sw.bb78.i, %sw.bb66.i, %sw.bb60.i, %sw.bb54.i, %sw.bb.i
+  %outp.1.i = phi ptr [ %incdec.ptr89.i, %sw.bb78.i ], [ %incdec.ptr77.i, %sw.bb66.i ], [ %incdec.ptr65.i, %sw.bb60.i ], [ %incdec.ptr59.i, %sw.bb54.i ], [ %incdec.ptr53.i, %sw.bb.i ]
+  %inc.i = add nsw i64 %i.0149.i, 1
   %35 = load i64, ptr %end.i, align 8
   %cmp37.i = icmp slt i64 %inc.i, %35
   br i1 %cmp37.i, label %for.body.i, label %for.end.i, !llvm.loop !20

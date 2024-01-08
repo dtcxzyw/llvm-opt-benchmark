@@ -107,7 +107,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @do_qemu_init_ac97_register_types() #0 {
 entry:
-  tail call void @register_module_init(ptr noundef nonnull @ac97_register_types, i32 noundef 3) #8
+  tail call void @register_module_init(ptr noundef nonnull @ac97_register_types, i32 noundef 3) #7
   ret void
 }
 
@@ -116,8 +116,8 @@ declare void @register_module_init(ptr noundef, i32 noundef) local_unnamed_addr 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @ac97_register_types() #0 {
 entry:
-  %call = tail call ptr @type_register_static(ptr noundef nonnull @ac97_info) #8
-  tail call void @deprecated_register_soundhw(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 0, ptr noundef nonnull @.str.2) #8
+  %call = tail call ptr @type_register_static(ptr noundef nonnull @ac97_info) #7
+  tail call void @deprecated_register_soundhw(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 0, ptr noundef nonnull @.str.2) #7
   ret void
 }
 
@@ -128,8 +128,8 @@ declare void @deprecated_register_soundhw(ptr noundef, ptr noundef, i32 noundef,
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @ac97_class_init(ptr noundef %klass, ptr nocapture readnone %data) #0 {
 entry:
-  %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #8
-  %call.i11 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.7, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE_CLASS) #8
+  %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #7
+  %call.i11 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.7, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE_CLASS) #7
   %realize = getelementptr inbounds %struct.PCIDeviceClass, ptr %call.i11, i64 0, i32 1
   store ptr @ac97_realize, ptr %realize, align 8
   %exit = getelementptr inbounds %struct.PCIDeviceClass, ptr %call.i11, i64 0, i32 2
@@ -150,7 +150,7 @@ entry:
   store ptr @.str.1, ptr %desc, align 8
   %vmsd = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 10
   store ptr @vmstate_ac97, ptr %vmsd, align 8
-  tail call void @device_class_set_props(ptr noundef %call.i, ptr noundef nonnull @ac97_properties) #8
+  tail call void @device_class_set_props(ptr noundef %call.i, ptr noundef nonnull @ac97_properties) #7
   %reset = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 7
   store ptr @ac97_on_reset, ptr %reset, align 8
   ret void
@@ -159,11 +159,11 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @ac97_realize(ptr noundef %dev, ptr noundef %errp) #0 {
 entry:
-  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.10, i32 noundef 89, ptr noundef nonnull @.str.2) #8
+  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.10, i32 noundef 89, ptr noundef nonnull @.str.2) #7
   %config = getelementptr inbounds %struct.PCIDevice, ptr %call.i, i64 0, i32 3
   %0 = load ptr, ptr %config, align 8
   %card = getelementptr inbounds %struct.AC97LinkState, ptr %call.i, i64 0, i32 1
-  %call2 = tail call zeroext i1 @AUD_register_card(ptr noundef nonnull @.str, ptr noundef nonnull %card, ptr noundef %errp) #8
+  %call2 = tail call zeroext i1 @AUD_register_card(ptr noundef nonnull @.str, ptr noundef nonnull %card, ptr noundef %errp) #7
   br i1 %call2, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
@@ -178,13 +178,13 @@ if.end:                                           ; preds = %entry
   %arrayidx16 = getelementptr i8, ptr %0, i64 61
   store i8 1, ptr %arrayidx16, align 1
   %io_nam = getelementptr inbounds %struct.AC97LinkState, ptr %call.i, i64 0, i32 14
-  tail call void @memory_region_init_io(ptr noundef nonnull %io_nam, ptr noundef nonnull %call.i, ptr noundef nonnull @ac97_io_nam_ops, ptr noundef nonnull %call.i, ptr noundef nonnull @.str.8, i64 noundef 1024) #8
+  tail call void @memory_region_init_io(ptr noundef nonnull %io_nam, ptr noundef nonnull %call.i, ptr noundef nonnull @ac97_io_nam_ops, ptr noundef nonnull %call.i, ptr noundef nonnull @.str.8, i64 noundef 1024) #7
   %io_nabm = getelementptr inbounds %struct.AC97LinkState, ptr %call.i, i64 0, i32 15
-  tail call void @memory_region_init_io(ptr noundef nonnull %io_nabm, ptr noundef nonnull %call.i, ptr noundef nonnull @ac97_io_nabm_ops, ptr noundef nonnull %call.i, ptr noundef nonnull @.str.9, i64 noundef 256) #8
-  tail call void @pci_register_bar(ptr noundef nonnull %call.i, i32 noundef 0, i8 noundef zeroext 1, ptr noundef nonnull %io_nam) #8
-  tail call void @pci_register_bar(ptr noundef nonnull %call.i, i32 noundef 1, i8 noundef zeroext 1, ptr noundef nonnull %io_nabm) #8
-  %call.i27 = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %call.i, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #8
-  %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i27, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.10, i32 noundef 89, ptr noundef nonnull @.str.2) #8
+  tail call void @memory_region_init_io(ptr noundef nonnull %io_nabm, ptr noundef nonnull %call.i, ptr noundef nonnull @ac97_io_nabm_ops, ptr noundef nonnull %call.i, ptr noundef nonnull @.str.9, i64 noundef 256) #7
+  tail call void @pci_register_bar(ptr noundef nonnull %call.i, i32 noundef 0, i8 noundef zeroext 1, ptr noundef nonnull %io_nam) #7
+  tail call void @pci_register_bar(ptr noundef nonnull %call.i, i32 noundef 1, i8 noundef zeroext 1, ptr noundef nonnull %io_nabm) #7
+  %call.i27 = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %call.i, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #7
+  %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i27, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.10, i32 noundef 89, ptr noundef nonnull @.str.2) #7
   %bm_regs.i = getelementptr inbounds %struct.AC97LinkState, ptr %call.i.i, i64 0, i32 6
   tail call fastcc void @reset_bm_regs(ptr noundef %call.i.i, ptr noundef nonnull %bm_regs.i)
   %arrayidx2.i = getelementptr %struct.AC97LinkState, ptr %call.i.i, i64 0, i32 6, i64 1
@@ -201,18 +201,18 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @ac97_exit(ptr noundef %dev) #0 {
 entry:
-  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.10, i32 noundef 89, ptr noundef nonnull @.str.2) #8
+  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.10, i32 noundef 89, ptr noundef nonnull @.str.2) #7
   %card = getelementptr inbounds %struct.AC97LinkState, ptr %call.i, i64 0, i32 1
   %voice_pi = getelementptr inbounds %struct.AC97LinkState, ptr %call.i, i64 0, i32 8
   %0 = load ptr, ptr %voice_pi, align 8
-  tail call void @AUD_close_in(ptr noundef nonnull %card, ptr noundef %0) #8
+  tail call void @AUD_close_in(ptr noundef nonnull %card, ptr noundef %0) #7
   %voice_po = getelementptr inbounds %struct.AC97LinkState, ptr %call.i, i64 0, i32 9
   %1 = load ptr, ptr %voice_po, align 16
-  tail call void @AUD_close_out(ptr noundef nonnull %card, ptr noundef %1) #8
+  tail call void @AUD_close_out(ptr noundef nonnull %card, ptr noundef %1) #7
   %voice_mc = getelementptr inbounds %struct.AC97LinkState, ptr %call.i, i64 0, i32 10
   %2 = load ptr, ptr %voice_mc, align 8
-  tail call void @AUD_close_in(ptr noundef nonnull %card, ptr noundef %2) #8
-  tail call void @AUD_remove_card(ptr noundef nonnull %card) #8
+  tail call void @AUD_close_in(ptr noundef nonnull %card, ptr noundef %2) #7
+  tail call void @AUD_remove_card(ptr noundef nonnull %card) #7
   ret void
 }
 
@@ -221,7 +221,7 @@ declare void @device_class_set_props(ptr noundef, ptr noundef) local_unnamed_add
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @ac97_on_reset(ptr noundef %dev) #0 {
 entry:
-  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.10, i32 noundef 89, ptr noundef nonnull @.str.2) #8
+  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.10, i32 noundef 89, ptr noundef nonnull @.str.2) #7
   %bm_regs = getelementptr inbounds %struct.AC97LinkState, ptr %call.i, i64 0, i32 6
   tail call fastcc void @reset_bm_regs(ptr noundef %call.i, ptr noundef nonnull %bm_regs)
   %arrayidx2 = getelementptr %struct.AC97LinkState, ptr %call.i, i64 0, i32 6, i64 1
@@ -428,7 +428,7 @@ sw.bb.i.i:                                        ; preds = %sw.bb4.i
   %conv8.i.i.i = trunc i16 %div7.i.i.i to i8
   %voice_po.i.i.i = getelementptr inbounds %struct.AC97LinkState, ptr %opaque, i64 0, i32 9
   %14 = load ptr, ptr %voice_po.i.i.i, align 16
-  tail call void @AUD_set_volume_out(ptr noundef %14, i32 noundef %or.i.i.i, i8 noundef zeroext %conv3.i14.i.i, i8 noundef zeroext %conv8.i.i.i) #8
+  tail call void @AUD_set_volume_out(ptr noundef %14, i32 noundef %or.i.i.i, i8 noundef zeroext %conv3.i14.i.i, i8 noundef zeroext %conv8.i.i.i) #7
   br label %sw.epilog
 
 sw.bb1.i.i:                                       ; preds = %sw.bb4.i
@@ -474,7 +474,7 @@ sw.bb1.i.i:                                       ; preds = %sw.bb4.i
   %conv8.i48.i.i = trunc i16 %div7.i47.i.i to i8
   %voice_po.i49.i.i = getelementptr inbounds %struct.AC97LinkState, ptr %opaque, i64 0, i32 9
   %21 = load ptr, ptr %voice_po.i49.i.i, align 16
-  tail call void @AUD_set_volume_out(ptr noundef %21, i32 noundef %or.i38.i.i, i8 noundef zeroext %conv3.i43.i.i, i8 noundef zeroext %conv8.i48.i.i) #8
+  tail call void @AUD_set_volume_out(ptr noundef %21, i32 noundef %or.i38.i.i, i8 noundef zeroext %conv3.i43.i.i, i8 noundef zeroext %conv8.i48.i.i) #7
   br label %sw.epilog
 
 sw.bb4.i.i:                                       ; preds = %sw.bb4.i
@@ -494,7 +494,7 @@ sw.bb4.i.i:                                       ; preds = %sw.bb4.i
   %div12.i.i57.i.i = mul nuw i8 %and9.i.i56.i.i, 17
   %voice_pi.i.i.i = getelementptr inbounds %struct.AC97LinkState, ptr %opaque, i64 0, i32 8
   %25 = load ptr, ptr %voice_pi.i.i.i, align 8
-  tail call void @AUD_set_volume_in(ptr noundef %25, i32 noundef %shr.i.i.i.i, i8 noundef zeroext %div12.i.i57.i.i, i8 noundef zeroext %narrow.i.i.i) #8
+  tail call void @AUD_set_volume_in(ptr noundef %25, i32 noundef %shr.i.i.i.i, i8 noundef zeroext %div12.i.i57.i.i, i8 noundef zeroext %narrow.i.i.i) #7
   br label %sw.epilog
 
 sw.bb5.i:                                         ; preds = %sw.bb4
@@ -719,7 +719,7 @@ entry:
   %conv8.i.i = xor i8 %6, -1
   %voice_po.i.i = getelementptr inbounds %struct.AC97LinkState, ptr %s, i64 0, i32 9
   %7 = load ptr, ptr %voice_po.i.i, align 16
-  tail call void @AUD_set_volume_out(ptr noundef %7, i32 noundef 1, i8 noundef zeroext %conv3.i14.i, i8 noundef zeroext %conv8.i.i) #8
+  tail call void @AUD_set_volume_out(ptr noundef %7, i32 noundef 1, i8 noundef zeroext %conv3.i14.i, i8 noundef zeroext %conv8.i.i) #7
   store i8 8, ptr %arrayidx.i3.i.i, align 1
   store i8 -120, ptr %arrayidx7.i5.i.i, align 1
   %8 = load i8, ptr %arrayidx.i.i76, align 1
@@ -741,14 +741,14 @@ entry:
   %div7.i47.i = udiv i16 %mul6.i46.i, 255
   %conv8.i48.i = trunc i16 %div7.i47.i to i8
   %12 = load ptr, ptr %voice_po.i.i, align 16
-  tail call void @AUD_set_volume_out(ptr noundef %12, i32 noundef 1, i8 noundef zeroext %conv3.i43.i, i8 noundef zeroext %conv8.i48.i) #8
+  tail call void @AUD_set_volume_out(ptr noundef %12, i32 noundef 1, i8 noundef zeroext %conv3.i43.i, i8 noundef zeroext %conv8.i48.i) #7
   %arrayidx.i51.i = getelementptr %struct.AC97LinkState, ptr %s, i64 0, i32 7, i64 28
   store i8 8, ptr %arrayidx.i51.i, align 1
   %arrayidx10.i53.i = getelementptr %struct.AC97LinkState, ptr %s, i64 0, i32 7, i64 29
   store i8 -120, ptr %arrayidx10.i53.i, align 1
   %voice_pi.i.i = getelementptr inbounds %struct.AC97LinkState, ptr %s, i64 0, i32 8
   %13 = load ptr, ptr %voice_pi.i.i, align 8
-  tail call void @AUD_set_volume_in(ptr noundef %13, i32 noundef 1, i8 noundef zeroext -120, i8 noundef zeroext -120) #8
+  tail call void @AUD_set_volume_in(ptr noundef %13, i32 noundef 1, i8 noundef zeroext -120, i8 noundef zeroext -120) #7
   call fastcc void @reset_voices(ptr noundef %s, ptr noundef nonnull %active)
   ret void
 }
@@ -771,7 +771,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   store i32 0, ptr %arrayidx, align 4
-  switch i32 %index, label %if.end [
+  switch i32 %index, label %default.unreachable [
     i32 0, label %sw.bb
     i32 1, label %sw.bb3
     i32 2, label %sw.bb7
@@ -781,7 +781,7 @@ sw.bb:                                            ; preds = %if.then
   %card = getelementptr inbounds %struct.AC97LinkState, ptr %s, i64 0, i32 1
   %voice_pi = getelementptr inbounds %struct.AC97LinkState, ptr %s, i64 0, i32 8
   %0 = load ptr, ptr %voice_pi, align 8
-  %call = call ptr @AUD_open_in(ptr noundef nonnull %card, ptr noundef %0, ptr noundef nonnull @.str.11, ptr noundef nonnull %s, ptr noundef nonnull @pi_callback, ptr noundef nonnull %as) #8
+  %call = call ptr @AUD_open_in(ptr noundef nonnull %card, ptr noundef %0, ptr noundef nonnull @.str.11, ptr noundef nonnull %s, ptr noundef nonnull @pi_callback, ptr noundef nonnull %as) #7
   store ptr %call, ptr %voice_pi, align 8
   br label %if.end
 
@@ -789,7 +789,7 @@ sw.bb3:                                           ; preds = %if.then
   %card4 = getelementptr inbounds %struct.AC97LinkState, ptr %s, i64 0, i32 1
   %voice_po = getelementptr inbounds %struct.AC97LinkState, ptr %s, i64 0, i32 9
   %1 = load ptr, ptr %voice_po, align 16
-  %call5 = call ptr @AUD_open_out(ptr noundef nonnull %card4, ptr noundef %1, ptr noundef nonnull @.str.12, ptr noundef nonnull %s, ptr noundef nonnull @po_callback, ptr noundef nonnull %as) #8
+  %call5 = call ptr @AUD_open_out(ptr noundef nonnull %card4, ptr noundef %1, ptr noundef nonnull @.str.12, ptr noundef nonnull %s, ptr noundef nonnull @po_callback, ptr noundef nonnull %as) #7
   store ptr %call5, ptr %voice_po, align 16
   br label %if.end
 
@@ -797,13 +797,13 @@ sw.bb7:                                           ; preds = %if.then
   %card8 = getelementptr inbounds %struct.AC97LinkState, ptr %s, i64 0, i32 1
   %voice_mc = getelementptr inbounds %struct.AC97LinkState, ptr %s, i64 0, i32 10
   %2 = load ptr, ptr %voice_mc, align 8
-  %call9 = call ptr @AUD_open_in(ptr noundef nonnull %card8, ptr noundef %2, ptr noundef nonnull @.str.13, ptr noundef nonnull %s, ptr noundef nonnull @mc_callback, ptr noundef nonnull %as) #8
+  %call9 = call ptr @AUD_open_in(ptr noundef nonnull %card8, ptr noundef %2, ptr noundef nonnull @.str.13, ptr noundef nonnull %s, ptr noundef nonnull @mc_callback, ptr noundef nonnull %as) #7
   store ptr %call9, ptr %voice_mc, align 8
   br label %if.end
 
 if.else:                                          ; preds = %entry
   store i32 %freq, ptr %arrayidx, align 4
-  switch i32 %index, label %if.end [
+  switch i32 %index, label %default.unreachable [
     i32 0, label %sw.bb14
     i32 1, label %sw.bb18
     i32 2, label %sw.bb22
@@ -813,7 +813,7 @@ sw.bb14:                                          ; preds = %if.else
   %card15 = getelementptr inbounds %struct.AC97LinkState, ptr %s, i64 0, i32 1
   %voice_pi16 = getelementptr inbounds %struct.AC97LinkState, ptr %s, i64 0, i32 8
   %3 = load ptr, ptr %voice_pi16, align 8
-  tail call void @AUD_close_in(ptr noundef nonnull %card15, ptr noundef %3) #8
+  tail call void @AUD_close_in(ptr noundef nonnull %card15, ptr noundef %3) #7
   store ptr null, ptr %voice_pi16, align 8
   br label %if.end
 
@@ -821,7 +821,7 @@ sw.bb18:                                          ; preds = %if.else
   %card19 = getelementptr inbounds %struct.AC97LinkState, ptr %s, i64 0, i32 1
   %voice_po20 = getelementptr inbounds %struct.AC97LinkState, ptr %s, i64 0, i32 9
   %4 = load ptr, ptr %voice_po20, align 16
-  tail call void @AUD_close_out(ptr noundef nonnull %card19, ptr noundef %4) #8
+  tail call void @AUD_close_out(ptr noundef nonnull %card19, ptr noundef %4) #7
   store ptr null, ptr %voice_po20, align 16
   br label %if.end
 
@@ -829,11 +829,14 @@ sw.bb22:                                          ; preds = %if.else
   %card23 = getelementptr inbounds %struct.AC97LinkState, ptr %s, i64 0, i32 1
   %voice_mc24 = getelementptr inbounds %struct.AC97LinkState, ptr %s, i64 0, i32 10
   %5 = load ptr, ptr %voice_mc24, align 8
-  tail call void @AUD_close_in(ptr noundef nonnull %card23, ptr noundef %5) #8
+  tail call void @AUD_close_in(ptr noundef nonnull %card23, ptr noundef %5) #7
   store ptr null, ptr %voice_mc24, align 8
   br label %if.end
 
-if.end:                                           ; preds = %if.else, %sw.bb14, %sw.bb18, %sw.bb22, %if.then, %sw.bb, %sw.bb3, %sw.bb7
+default.unreachable:                              ; preds = %if.else, %if.then
+  unreachable
+
+if.end:                                           ; preds = %sw.bb14, %sw.bb18, %sw.bb22, %sw.bb, %sw.bb3, %sw.bb7
   ret void
 }
 
@@ -871,11 +874,11 @@ entry:
   br i1 %cmp.i.not, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %call.i = call ptr @AUD_open_in(ptr noundef nonnull %card15.i, ptr noundef %2, ptr noundef nonnull @.str.11, ptr noundef nonnull %s, ptr noundef nonnull @pi_callback, ptr noundef nonnull %as.i) #8
+  %call.i = call ptr @AUD_open_in(ptr noundef nonnull %card15.i, ptr noundef %2, ptr noundef nonnull @.str.11, ptr noundef nonnull %s, ptr noundef nonnull @pi_callback, ptr noundef nonnull %as.i) #7
   br label %open_voice.exit
 
 if.else.i:                                        ; preds = %entry
-  tail call void @AUD_close_in(ptr noundef nonnull %card15.i, ptr noundef %2) #8
+  tail call void @AUD_close_in(ptr noundef nonnull %card15.i, ptr noundef %2) #7
   br label %open_voice.exit
 
 open_voice.exit:                                  ; preds = %if.then.i, %if.else.i
@@ -884,7 +887,7 @@ open_voice.exit:                                  ; preds = %if.then.i, %if.else
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %as.i)
   %3 = load i8, ptr %active, align 1
   %conv1 = zext i8 %3 to i32
-  call void @AUD_set_active_in(ptr noundef %call.i.sink, i32 noundef %conv1) #8
+  call void @AUD_set_active_in(ptr noundef %call.i.sink, i32 noundef %conv1) #7
   %arrayidx.i15 = getelementptr %struct.AC97LinkState, ptr %s, i64 0, i32 7, i64 44
   %4 = load i8, ptr %arrayidx.i15, align 1
   %conv3.i16 = zext i8 %4 to i32
@@ -910,11 +913,11 @@ open_voice.exit:                                  ; preds = %if.then.i, %if.else
   br i1 %cmp.i25.not, label %if.else.i27, label %if.then.i28
 
 if.then.i28:                                      ; preds = %open_voice.exit
-  %call5.i = call ptr @AUD_open_out(ptr noundef nonnull %card19.i, ptr noundef %6, ptr noundef nonnull @.str.12, ptr noundef nonnull %s, ptr noundef nonnull @po_callback, ptr noundef nonnull %as.i21) #8
+  %call5.i = call ptr @AUD_open_out(ptr noundef nonnull %card19.i, ptr noundef %6, ptr noundef nonnull @.str.12, ptr noundef nonnull %s, ptr noundef nonnull @po_callback, ptr noundef nonnull %as.i21) #7
   br label %open_voice.exit29
 
 if.else.i27:                                      ; preds = %open_voice.exit
-  call void @AUD_close_out(ptr noundef nonnull %card19.i, ptr noundef %6) #8
+  call void @AUD_close_out(ptr noundef nonnull %card19.i, ptr noundef %6) #7
   br label %open_voice.exit29
 
 open_voice.exit29:                                ; preds = %if.then.i28, %if.else.i27
@@ -924,7 +927,7 @@ open_voice.exit29:                                ; preds = %if.then.i28, %if.el
   %arrayidx4 = getelementptr i8, ptr %active, i64 1
   %7 = load i8, ptr %arrayidx4, align 1
   %conv5 = zext i8 %7 to i32
-  call void @AUD_set_active_out(ptr noundef %call5.i.sink, i32 noundef %conv5) #8
+  call void @AUD_set_active_out(ptr noundef %call5.i.sink, i32 noundef %conv5) #7
   %arrayidx.i31 = getelementptr %struct.AC97LinkState, ptr %s, i64 0, i32 7, i64 52
   %8 = load i8, ptr %arrayidx.i31, align 1
   %conv3.i32 = zext i8 %8 to i32
@@ -950,11 +953,11 @@ open_voice.exit29:                                ; preds = %if.then.i28, %if.el
   br i1 %cmp.i41.not, label %if.else.i43, label %if.then.i44
 
 if.then.i44:                                      ; preds = %open_voice.exit29
-  %call9.i = call ptr @AUD_open_in(ptr noundef nonnull %card23.i, ptr noundef %10, ptr noundef nonnull @.str.13, ptr noundef nonnull %s, ptr noundef nonnull @mc_callback, ptr noundef nonnull %as.i37) #8
+  %call9.i = call ptr @AUD_open_in(ptr noundef nonnull %card23.i, ptr noundef %10, ptr noundef nonnull @.str.13, ptr noundef nonnull %s, ptr noundef nonnull @mc_callback, ptr noundef nonnull %as.i37) #7
   br label %open_voice.exit45
 
 if.else.i43:                                      ; preds = %open_voice.exit29
-  call void @AUD_close_in(ptr noundef nonnull %card23.i, ptr noundef %10) #8
+  call void @AUD_close_in(ptr noundef nonnull %card23.i, ptr noundef %10) #7
   br label %open_voice.exit45
 
 open_voice.exit45:                                ; preds = %if.then.i44, %if.else.i43
@@ -964,7 +967,7 @@ open_voice.exit45:                                ; preds = %if.then.i44, %if.el
   %arrayidx8 = getelementptr i8, ptr %active, i64 2
   %11 = load i8, ptr %arrayidx8, align 1
   %conv9 = zext i8 %11 to i32
-  call void @AUD_set_active_in(ptr noundef %call9.i.sink, i32 noundef %conv9) #8
+  call void @AUD_set_active_in(ptr noundef %call9.i.sink, i32 noundef %conv9) #7
   ret void
 }
 
@@ -1021,7 +1024,7 @@ entry:
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  tail call void (ptr, ptr, ...) @AUD_log(ptr noundef nonnull @.str, ptr noundef nonnull @.str.14, i32 noundef %index, i32 noundef %0) #8
+  tail call void (ptr, ptr, ...) @AUD_log(ptr noundef nonnull @.str, ptr noundef nonnull @.str.14, i32 noundef %index, i32 noundef %0) #7
   br label %while.end
 
 if.end:                                           ; preds = %entry
@@ -1032,8 +1035,8 @@ if.end:                                           ; preds = %entry
   br i1 %tobool6.not, label %while.cond.preheader, label %if.then7
 
 while.cond.preheader:                             ; preds = %if.end
-  %tobool14148 = icmp ugt i32 %elapsed, 1
-  br i1 %tobool14148, label %while.body.lr.ph, label %while.end
+  %tobool14144 = icmp ugt i32 %elapsed, 1
+  br i1 %tobool14144, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %while.cond.preheader
   %bd_valid = getelementptr %struct.AC97LinkState, ptr %s, i64 0, i32 6, i64 %idxprom, i32 7
@@ -1043,6 +1046,7 @@ while.body.lr.ph:                                 ; preds = %while.cond.preheade
   %arrayidx3.i = getelementptr inbounds [8 x i8], ptr %b.i, i64 0, i64 4
   %ctl_len.i = getelementptr %struct.AC97LinkState, ptr %s, i64 0, i32 6, i64 %idxprom, i32 8, i32 1
   %picb.i = getelementptr %struct.AC97LinkState, ptr %s, i64 0, i32 6, i64 %idxprom, i32 4
+  %switch = icmp eq i32 %index, 1
   %cmp.i = icmp eq i32 %index, 2
   %voice_mc.i = getelementptr inbounds %struct.AC97LinkState, ptr %s, i64 0, i32 10
   %voice_pi.i = getelementptr inbounds %struct.AC97LinkState, ptr %s, i64 0, i32 8
@@ -1131,7 +1135,7 @@ while.body17.i:                                   ; preds = %if.end24.i, %while.
   %temp.022.i = phi i32 [ %7, %while.body.i ], [ %sub.i, %if.end24.i ]
   %8 = load ptr, ptr %voice_po.i, align 16
   %conv20.i = sext i32 %temp.022.i to i64
-  %call.i = tail call i64 @AUD_write(ptr noundef %8, ptr noundef nonnull %silence18.i, i64 noundef %conv20.i) #8
+  %call.i = tail call i64 @AUD_write(ptr noundef %8, ptr noundef nonnull %silence18.i, i64 noundef %conv20.i) #7
   %conv21.i = trunc i64 %call.i to i32
   %tobool22.not.i = icmp eq i32 %conv21.i, 0
   br i1 %tobool22.not.i, label %while.end, label %if.end24.i
@@ -1143,7 +1147,7 @@ if.end24.i:                                       ; preds = %while.body17.i
   br i1 %tobool16.not.i, label %while.cond.loopexit.i, label %while.body17.i, !llvm.loop !8
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end87
-  %elapsed.addr.0150 = phi i32 [ %elapsed, %while.body.lr.ph ], [ %elapsed.addr.1140, %if.end87 ]
+  %elapsed.addr.0146 = phi i32 [ %elapsed, %while.body.lr.ph ], [ %elapsed.addr.1, %if.end87 ]
   %9 = load i32, ptr %bd_valid, align 4
   %tobool16.not = icmp eq i32 %9, 0
   br i1 %tobool16.not, label %if.then17, label %while.body.if.end18_crit_edge
@@ -1160,9 +1164,9 @@ if.then17:                                        ; preds = %while.body
   %mul.i = shl nuw nsw i32 %conv.i, 3
   %add.i = add i32 %mul.i, %10
   %conv1.i = zext i32 %add.i to i64
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !9
   fence seq_cst
-  %call.i.i.i.i.i = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i.i, i64 noundef %conv1.i, i32 1, ptr noundef nonnull %b.i, i64 noundef 8, i1 noundef zeroext false) #8
+  %call.i.i.i.i.i = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i.i, i64 noundef %conv1.i, i32 1, ptr noundef nonnull %b.i, i64 noundef 8, i1 noundef zeroext false) #7
   store i32 1, ptr %bd_valid, align 4
   %12 = load i32, ptr %b.i, align 4
   %and.i57 = and i32 %12, -4
@@ -1206,9 +1210,9 @@ if.end28:                                         ; preds = %if.then20
   %mul.i61 = shl nuw nsw i32 %conv.i60, 3
   %add.i62 = add i32 %mul.i61, %23
   %conv1.i63 = zext i32 %add.i62 to i64
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !9
   fence seq_cst
-  %call.i.i.i.i.i65 = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i.i, i64 noundef %conv1.i63, i32 1, ptr noundef nonnull %b.i58, i64 noundef 8, i1 noundef zeroext false) #8
+  %call.i.i.i.i.i65 = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i.i, i64 noundef %conv1.i63, i32 1, ptr noundef nonnull %b.i58, i64 noundef 8, i1 noundef zeroext false) #7
   store i32 1, ptr %bd_valid, align 4
   %24 = load i32, ptr %b.i58, align 4
   %and.i67 = and i32 %24, -4
@@ -1222,17 +1226,13 @@ if.end28:                                         ; preds = %if.then20
   br label %while.end
 
 if.end38:                                         ; preds = %if.end18
-  switch i32 %index, label %if.end87 [
-    i32 1, label %while.cond.preheader.i
-    i32 0, label %while.cond.preheader.i94
-    i32 2, label %while.cond.preheader.i94
-  ]
+  br i1 %switch, label %while.cond.preheader.i, label %while.cond.preheader.i94
 
 while.cond.preheader.i:                           ; preds = %if.end38
   call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %tmpbuf.i)
   %conv.i75 = zext i16 %14 to i32
   %shl.i = shl nuw nsw i32 %conv.i75, 1
-  %cond.i = call i32 @llvm.umin.i32(i32 %shl.i, i32 %elapsed.addr.0150)
+  %cond.i = call i32 @llvm.umin.i32(i32 %shl.i, i32 %elapsed.addr.0146)
   %26 = load i32, ptr %bd.i, align 4
   br label %while.body.i79
 
@@ -1243,11 +1243,11 @@ while.body.i79:                                   ; preds = %if.end21.i, %while.
   %27 = call i32 @llvm.umin.i32(i32 %temp.033.i, i32 4096)
   %conv13.i = zext i32 %addr.034.i to i64
   %conv14.i = zext nneg i32 %27 to i64
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !9
   fence seq_cst
-  %call.i.i.i.i.i80 = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i.i, i64 noundef %conv13.i, i32 1, ptr noundef nonnull %tmpbuf.i, i64 noundef %conv14.i, i1 noundef zeroext false) #8
+  %call.i.i.i.i.i80 = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i.i, i64 noundef %conv13.i, i32 1, ptr noundef nonnull %tmpbuf.i, i64 noundef %conv14.i, i1 noundef zeroext false) #7
   %28 = load ptr, ptr %voice_po.i78, align 16
-  %call17.i = call i64 @AUD_write(ptr noundef %28, ptr noundef nonnull %tmpbuf.i, i64 noundef %conv14.i) #8
+  %call17.i = call i64 @AUD_write(ptr noundef %28, ptr noundef nonnull %tmpbuf.i, i64 noundef %conv14.i) #7
   %conv18.i = trunc i64 %call17.i to i32
   %tobool19.not.i = icmp eq i32 %conv18.i, 0
   br i1 %tobool19.not.i, label %write_audio.exit, label %if.end21.i
@@ -1280,16 +1280,16 @@ write_audio.exit:                                 ; preds = %while.body.i79, %wr
   %written.030.i = phi i32 [ %add22.i, %write_audio.exit.sink.split ], [ %written.032.i, %while.body.i79 ]
   %addr.028.i = phi i32 [ %add.i82, %write_audio.exit.sink.split ], [ %addr.034.i, %while.body.i79 ]
   store i32 %addr.028.i, ptr %bd.i, align 4
-  %.pre158 = load i16, ptr %picb.i, align 4
+  %.pre155 = load i16, ptr %picb.i, align 4
   call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %tmpbuf.i)
   br label %sw.epilog53
 
-while.cond.preheader.i94:                         ; preds = %if.end38, %if.end38
+while.cond.preheader.i94:                         ; preds = %if.end38
   call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %tmpbuf.i87)
   %cond.i92 = load ptr, ptr %cond.in.i, align 8
   %conv.i90 = zext i16 %14 to i32
   %shl.i91 = shl nuw nsw i32 %conv.i90, 1
-  %cond8.i = call i32 @llvm.umin.i32(i32 %shl.i91, i32 %elapsed.addr.0150)
+  %cond8.i = call i32 @llvm.umin.i32(i32 %shl.i91, i32 %elapsed.addr.0146)
   %30 = load i32, ptr %bd.i, align 4
   br label %while.body.i96
 
@@ -1299,7 +1299,7 @@ while.body.i96:                                   ; preds = %if.end24.i101, %whi
   %nread.027.i = phi i32 [ 0, %while.cond.preheader.i94 ], [ %add29.i, %if.end24.i101 ]
   %31 = call i32 @llvm.umin.i32(i32 %temp.028.i, i32 4096)
   %conv20.i97 = zext nneg i32 %31 to i64
-  %call.i98 = call i64 @AUD_read(ptr noundef %cond.i92, ptr noundef nonnull %tmpbuf.i87, i64 noundef %conv20.i97) #8
+  %call.i98 = call i64 @AUD_read(ptr noundef %cond.i92, ptr noundef nonnull %tmpbuf.i87, i64 noundef %conv20.i97) #7
   %conv21.i99 = trunc i64 %call.i98 to i32
   %tobool22.not.i100 = icmp eq i32 %conv21.i99, 0
   br i1 %tobool22.not.i100, label %read_audio.exit, label %if.end24.i101
@@ -1308,9 +1308,9 @@ if.end24.i101:                                    ; preds = %while.body.i96
   %conv25.i = zext i32 %addr.029.i to i64
   %sext.i = shl i64 %call.i98, 32
   %conv27.i = ashr exact i64 %sext.i, 32
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !9
   fence seq_cst
-  %call.i.i.i.i.i102 = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i.i, i64 noundef %conv25.i, i32 1, ptr noundef nonnull %tmpbuf.i87, i64 noundef %conv27.i, i1 noundef zeroext true) #8
+  %call.i.i.i.i.i102 = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i.i, i64 noundef %conv25.i, i32 1, ptr noundef nonnull %tmpbuf.i87, i64 noundef %conv27.i, i1 noundef zeroext true) #7
   %sub.i103 = sub i32 %temp.028.i, %conv21.i99
   %add.i104 = add i32 %addr.029.i, %conv21.i99
   %add29.i = add i32 %nread.027.i, %conv21.i99
@@ -1322,20 +1322,20 @@ read_audio.exit:                                  ; preds = %if.end24.i101, %whi
   %nread.026.i = phi i32 [ %add29.i, %if.end24.i101 ], [ %nread.027.i, %while.body.i96 ]
   %addr.024.i = phi i32 [ %add.i104, %if.end24.i101 ], [ %addr.029.i, %while.body.i96 ]
   store i32 %addr.024.i, ptr %bd.i, align 4
-  %.pre157 = load i16, ptr %picb.i, align 4
+  %.pre154 = load i16, ptr %picb.i, align 4
   call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %tmpbuf.i87)
   br label %sw.epilog53
 
 sw.epilog53:                                      ; preds = %read_audio.exit, %write_audio.exit
   %nread.026.i.sink = phi i32 [ %nread.026.i, %read_audio.exit ], [ %written.030.i, %write_audio.exit ]
-  %.pre157.sink = phi i16 [ %.pre157, %read_audio.exit ], [ %.pre158, %write_audio.exit ]
+  %.pre154.sink = phi i16 [ %.pre154, %read_audio.exit ], [ %.pre155, %write_audio.exit ]
   %stop.5 = phi i32 [ %stop.3, %read_audio.exit ], [ %stop.1, %write_audio.exit ]
   %shr48 = lshr i32 %nread.026.i.sink, 1
   %32 = trunc i32 %shr48 to i16
-  %conv52 = sub i16 %.pre157.sink, %32
-  %elapsed.addr.1 = sub i32 %elapsed.addr.0150, %nread.026.i.sink
+  %conv52 = sub i16 %.pre154.sink, %32
+  %elapsed.addr.1 = sub i32 %elapsed.addr.0146, %nread.026.i.sink
   store i16 %conv52, ptr %picb.i, align 4
-  %tobool55.not = icmp eq i16 %.pre157.sink, %32
+  %tobool55.not = icmp eq i16 %.pre154.sink, %32
   br i1 %tobool55.not, label %if.then56, label %if.end87
 
 if.then56:                                        ; preds = %sw.epilog53
@@ -1370,9 +1370,9 @@ if.else:                                          ; preds = %if.then56
   %mul.i111 = shl nuw nsw i32 %conv.i110, 3
   %add.i112 = add i32 %mul.i111, %43
   %conv1.i113 = zext i32 %add.i112 to i64
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !9
   fence seq_cst
-  %call.i.i.i.i.i115 = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i.i, i64 noundef %conv1.i113, i32 1, ptr noundef nonnull %b.i108, i64 noundef 8, i1 noundef zeroext false) #8
+  %call.i.i.i.i.i115 = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i.i, i64 noundef %conv1.i113, i32 1, ptr noundef nonnull %b.i108, i64 noundef 8, i1 noundef zeroext false) #7
   store i32 1, ptr %bd_valid, align 4
   %44 = load i32, ptr %b.i108, align 4
   %and.i117 = and i32 %44, -4
@@ -1411,7 +1411,7 @@ if.end25.thread.i:                                ; preds = %if.then.i125
   %49 = load i32, ptr %glob_sta.i, align 4
   %and37.i = and i32 %49, %not.i
   store i32 %and37.i, ptr %glob_sta.i, align 4
-  call void @pci_set_irq(ptr noundef nonnull %s, i32 noundef 0) #8
+  call void @pci_set_irq(ptr noundef nonnull %s, i32 noundef 0) #7
   br label %if.end87
 
 if.else.i126:                                     ; preds = %if.then.i125
@@ -1452,13 +1452,12 @@ if.then27.i129:                                   ; preds = %if.end20.i, %if.end
   %56 = load i32, ptr %glob_sta.i, align 4
   %or.i135 = or i32 %56, %55
   store i32 %or.i135, ptr %glob_sta.i, align 4
-  call void @pci_set_irq(ptr noundef nonnull %s, i32 noundef 1) #8
+  call void @pci_set_irq(ptr noundef nonnull %s, i32 noundef 1) #7
   br label %if.end87
 
-if.end87:                                         ; preds = %if.end38, %if.then27.i129, %if.end20.i, %if.end25.thread.i, %if.end20.thread.i, %sw.epilog53
-  %elapsed.addr.1140 = phi i32 [ %elapsed.addr.1, %sw.epilog53 ], [ %elapsed.addr.1, %if.end20.thread.i ], [ %elapsed.addr.1, %if.end25.thread.i ], [ %elapsed.addr.1, %if.end20.i ], [ %elapsed.addr.1, %if.then27.i129 ], [ %elapsed.addr.0150, %if.end38 ]
-  %stop.7 = phi i32 [ %stop.5, %sw.epilog53 ], [ %stop.6, %if.end20.thread.i ], [ %stop.6, %if.end25.thread.i ], [ %stop.6, %if.end20.i ], [ %stop.6, %if.then27.i129 ], [ 0, %if.end38 ]
-  %tobool14 = icmp ugt i32 %elapsed.addr.1140, 1
+if.end87:                                         ; preds = %if.then27.i129, %if.end20.i, %if.end25.thread.i, %if.end20.thread.i, %sw.epilog53
+  %stop.7 = phi i32 [ %stop.5, %sw.epilog53 ], [ %stop.6, %if.end20.thread.i ], [ %stop.6, %if.end25.thread.i ], [ %stop.6, %if.end20.i ], [ %stop.6, %if.then27.i129 ]
+  %tobool14 = icmp ugt i32 %elapsed.addr.1, 1
   %tobool15.not = icmp eq i32 %stop.7, 0
   %57 = and i1 %tobool14, %tobool15.not
   br i1 %57, label %while.body, label %while.end, !llvm.loop !12
@@ -1477,8 +1476,8 @@ declare i64 @AUD_read(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr 
 
 declare void @pci_set_irq(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nofree nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define internal i64 @nabm_read(ptr nocapture noundef %opaque, i64 noundef %addr, i32 noundef %size) #4 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
+define internal i64 @nabm_read(ptr nocapture noundef %opaque, i64 noundef %addr, i32 noundef %size) #2 {
 entry:
   %conv = zext i32 %size to i64
   %div = udiv i64 %addr, %conv
@@ -1739,9 +1738,9 @@ if.then.i:                                        ; preds = %land.lhs.true.i
   %add.i.i = add i32 %7, %mul.i.i
   %conv1.i.i = zext i32 %add.i.i to i64
   %bus_master_as.i.i.i.i.i = getelementptr inbounds %struct.PCIDevice, ptr %opaque, i64 0, i32 12
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !9
   fence seq_cst
-  %call.i.i.i.i.i.i = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i.i.i, i64 noundef %conv1.i.i, i32 1, ptr noundef nonnull %b.i.i, i64 noundef 8, i1 noundef zeroext false) #8
+  %call.i.i.i.i.i.i = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i.i.i, i64 noundef %conv1.i.i, i32 1, ptr noundef nonnull %b.i.i, i64 noundef 8, i1 noundef zeroext false) #7
   %bd_valid.i.i = getelementptr %struct.AC97LinkState, ptr %opaque, i64 0, i32 6, i64 %idxprom.i, i32 7
   store i32 1, ptr %bd_valid.i.i, align 4
   %8 = load i32, ptr %b.i.i, align 4
@@ -1796,23 +1795,23 @@ if.then31.i:                                      ; preds = %if.else.i
 sw.bb.i.i:                                        ; preds = %if.then31.i
   %voice_pi.i.i = getelementptr inbounds %struct.AC97LinkState, ptr %opaque, i64 0, i32 8
   %12 = load ptr, ptr %voice_pi.i.i, align 8
-  tail call void @AUD_set_active_in(ptr noundef %12, i32 noundef 0) #8
+  tail call void @AUD_set_active_in(ptr noundef %12, i32 noundef 0) #7
   br label %voice_set_active.exit.i
 
 sw.bb1.i.i:                                       ; preds = %if.then31.i
   %voice_po.i.i = getelementptr inbounds %struct.AC97LinkState, ptr %opaque, i64 0, i32 9
   %13 = load ptr, ptr %voice_po.i.i, align 16
-  tail call void @AUD_set_active_out(ptr noundef %13, i32 noundef 0) #8
+  tail call void @AUD_set_active_out(ptr noundef %13, i32 noundef 0) #7
   br label %voice_set_active.exit.i
 
 sw.bb2.i.i:                                       ; preds = %if.then31.i
   %voice_mc.i.i = getelementptr inbounds %struct.AC97LinkState, ptr %opaque, i64 0, i32 10
   %14 = load ptr, ptr %voice_mc.i.i, align 8
-  tail call void @AUD_set_active_in(ptr noundef %14, i32 noundef 0) #8
+  tail call void @AUD_set_active_in(ptr noundef %14, i32 noundef 0) #7
   br label %voice_set_active.exit.i
 
 sw.default.i.i:                                   ; preds = %if.then31.i
-  tail call void (ptr, ptr, ...) @AUD_log(ptr noundef nonnull @.str, ptr noundef nonnull @.str.15, i32 noundef %shr17.i) #8
+  tail call void (ptr, ptr, ...) @AUD_log(ptr noundef nonnull @.str, ptr noundef nonnull @.str.15, i32 noundef %shr17.i) #7
   br label %voice_set_active.exit.i
 
 voice_set_active.exit.i:                          ; preds = %sw.default.i.i, %sw.bb2.i.i, %sw.bb1.i.i, %sw.bb.i.i
@@ -1837,9 +1836,9 @@ if.else37.i:                                      ; preds = %if.else.i
   %add.i45.i = add i32 %20, %mul.i44.i
   %conv1.i46.i = zext i32 %add.i45.i to i64
   %bus_master_as.i.i.i.i47.i = getelementptr inbounds %struct.PCIDevice, ptr %opaque, i64 0, i32 12
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !9
   fence seq_cst
-  %call.i.i.i.i.i48.i = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i.i47.i, i64 noundef %conv1.i46.i, i32 1, ptr noundef nonnull %b.i41.i, i64 noundef 8, i1 noundef zeroext false) #8
+  %call.i.i.i.i.i48.i = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i.i47.i, i64 noundef %conv1.i46.i, i32 1, ptr noundef nonnull %b.i41.i, i64 noundef 8, i1 noundef zeroext false) #7
   %bd_valid.i49.i = getelementptr %struct.AC97LinkState, ptr %opaque, i64 0, i32 6, i64 %idxprom19.i, i32 7
   store i32 1, ptr %bd_valid.i49.i, align 4
   %21 = load i32, ptr %b.i41.i, align 4
@@ -1867,23 +1866,23 @@ if.else37.i:                                      ; preds = %if.else.i
 sw.bb.i60.i:                                      ; preds = %if.else37.i
   %voice_pi.i61.i = getelementptr inbounds %struct.AC97LinkState, ptr %opaque, i64 0, i32 8
   %25 = load ptr, ptr %voice_pi.i61.i, align 8
-  call void @AUD_set_active_in(ptr noundef %25, i32 noundef 1) #8
+  call void @AUD_set_active_in(ptr noundef %25, i32 noundef 1) #7
   br label %sw.epilog
 
 sw.bb1.i58.i:                                     ; preds = %if.else37.i
   %voice_po.i59.i = getelementptr inbounds %struct.AC97LinkState, ptr %opaque, i64 0, i32 9
   %26 = load ptr, ptr %voice_po.i59.i, align 16
-  call void @AUD_set_active_out(ptr noundef %26, i32 noundef 1) #8
+  call void @AUD_set_active_out(ptr noundef %26, i32 noundef 1) #7
   br label %sw.epilog
 
 sw.bb2.i56.i:                                     ; preds = %if.else37.i
   %voice_mc.i57.i = getelementptr inbounds %struct.AC97LinkState, ptr %opaque, i64 0, i32 10
   %27 = load ptr, ptr %voice_mc.i57.i, align 8
-  call void @AUD_set_active_in(ptr noundef %27, i32 noundef 1) #8
+  call void @AUD_set_active_in(ptr noundef %27, i32 noundef 1) #7
   br label %sw.epilog
 
 sw.default.i62.i:                                 ; preds = %if.else37.i
-  call void (ptr, ptr, ...) @AUD_log(ptr noundef nonnull @.str, ptr noundef nonnull @.str.15, i32 noundef %shr17.i) #8
+  call void (ptr, ptr, ...) @AUD_log(ptr noundef nonnull @.str, ptr noundef nonnull @.str.15, i32 noundef %shr17.i) #7
   br label %sw.epilog
 
 sw.bb59.i:                                        ; preds = %sw.bb, %sw.bb, %sw.bb
@@ -1923,7 +1922,7 @@ if.end25.thread.i.i:                              ; preds = %if.then.i.i
   %33 = load i32, ptr %glob_sta36.i.i, align 4
   %and37.i.i = and i32 %33, %not.i.i
   store i32 %and37.i.i, ptr %glob_sta36.i.i, align 4
-  tail call void @pci_set_irq(ptr noundef nonnull %opaque, i32 noundef 0) #8
+  tail call void @pci_set_irq(ptr noundef nonnull %opaque, i32 noundef 0) #7
   br label %sw.epilog
 
 if.else.i.i:                                      ; preds = %if.then.i.i
@@ -1968,7 +1967,7 @@ if.then27.i.i:                                    ; preds = %if.end20.i.i, %if.e
   %40 = load i32, ptr %glob_sta.i.i, align 4
   %or.i.i = or i32 %40, %39
   store i32 %or.i.i, ptr %glob_sta.i.i, align 4
-  tail call void @pci_set_irq(ptr noundef nonnull %opaque, i32 noundef 1) #8
+  tail call void @pci_set_irq(ptr noundef nonnull %opaque, i32 noundef 1) #7
   br label %sw.epilog
 
 sw.bb4:                                           ; preds = %if.end
@@ -2017,7 +2016,7 @@ if.end25.thread.i.i39:                            ; preds = %if.then.i.i17
   %46 = load i32, ptr %glob_sta36.i.i43, align 4
   %and37.i.i44 = and i32 %46, %not.i.i42
   store i32 %and37.i.i44, ptr %glob_sta36.i.i43, align 4
-  tail call void @pci_set_irq(ptr noundef nonnull %opaque, i32 noundef 0) #8
+  tail call void @pci_set_irq(ptr noundef nonnull %opaque, i32 noundef 0) #7
   br label %sw.epilog
 
 if.else.i.i19:                                    ; preds = %if.then.i.i17
@@ -2062,7 +2061,7 @@ if.then27.i.i33:                                  ; preds = %if.end20.i.i37, %if
   %53 = load i32, ptr %glob_sta.i.i35, align 4
   %or.i.i36 = or i32 %53, %52
   store i32 %or.i.i36, ptr %glob_sta.i.i35, align 4
-  tail call void @pci_set_irq(ptr noundef nonnull %opaque, i32 noundef 1) #8
+  tail call void @pci_set_irq(ptr noundef nonnull %opaque, i32 noundef 1) #7
   br label %sw.epilog
 
 sw.bb7:                                           ; preds = %if.end
@@ -2142,7 +2141,7 @@ if.then.i:                                        ; preds = %entry
   %3 = load i32, ptr %glob_sta36.i, align 4
   %and37.i = and i32 %3, %not.i
   store i32 %and37.i, ptr %glob_sta36.i, align 4
-  tail call void @pci_set_irq(ptr noundef %s, i32 noundef 0) #8
+  tail call void @pci_set_irq(ptr noundef %s, i32 noundef 0) #7
   br label %update_sr.exit
 
 update_sr.exit:                                   ; preds = %if.end20.thread.i, %if.then.i
@@ -2171,23 +2170,23 @@ update_sr.exit:                                   ; preds = %if.end20.thread.i, 
 sw.bb.i:                                          ; preds = %update_sr.exit
   %voice_pi.i = getelementptr inbounds %struct.AC97LinkState, ptr %s, i64 0, i32 8
   %6 = load ptr, ptr %voice_pi.i, align 8
-  tail call void @AUD_set_active_in(ptr noundef %6, i32 noundef 0) #8
+  tail call void @AUD_set_active_in(ptr noundef %6, i32 noundef 0) #7
   br label %voice_set_active.exit
 
 sw.bb1.i:                                         ; preds = %update_sr.exit
   %voice_po.i = getelementptr inbounds %struct.AC97LinkState, ptr %s, i64 0, i32 9
   %7 = load ptr, ptr %voice_po.i, align 16
-  tail call void @AUD_set_active_out(ptr noundef %7, i32 noundef 0) #8
+  tail call void @AUD_set_active_out(ptr noundef %7, i32 noundef 0) #7
   br label %voice_set_active.exit
 
 sw.bb2.i:                                         ; preds = %update_sr.exit
   %voice_mc.i = getelementptr inbounds %struct.AC97LinkState, ptr %s, i64 0, i32 10
   %8 = load ptr, ptr %voice_mc.i, align 8
-  tail call void @AUD_set_active_in(ptr noundef %8, i32 noundef 0) #8
+  tail call void @AUD_set_active_in(ptr noundef %8, i32 noundef 0) #7
   br label %voice_set_active.exit
 
 sw.default.i:                                     ; preds = %update_sr.exit
-  tail call void (ptr, ptr, ...) @AUD_log(ptr noundef nonnull @.str, ptr noundef nonnull @.str.15, i32 noundef %conv3) #8
+  tail call void (ptr, ptr, ...) @AUD_log(ptr noundef nonnull @.str, ptr noundef nonnull @.str.15, i32 noundef %conv3) #7
   br label %voice_set_active.exit
 
 voice_set_active.exit:                            ; preds = %sw.bb.i, %sw.bb1.i, %sw.bb2.i, %sw.default.i
@@ -2199,7 +2198,7 @@ voice_set_active.exit:                            ; preds = %sw.bb.i, %sw.bb1.i,
 declare void @AUD_remove_card(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @ac97_post_load(ptr noundef %opaque, i32 %version_id) #0 {
+define internal noundef i32 @ac97_post_load(ptr noundef %opaque, i32 %version_id) #0 {
 entry:
   %active = alloca [3 x i8], align 1
   %arrayidx.i = getelementptr %struct.AC97LinkState, ptr %opaque, i64 0, i32 7, i64 26
@@ -2258,7 +2257,7 @@ entry:
   %conv8.i.i = trunc i16 %div7.i.i to i8
   %voice_po.i.i = getelementptr inbounds %struct.AC97LinkState, ptr %opaque, i64 0, i32 9
   %9 = load ptr, ptr %voice_po.i.i, align 16
-  tail call void @AUD_set_volume_out(ptr noundef %9, i32 noundef %or.i.i, i8 noundef zeroext %conv3.i14.i, i8 noundef zeroext %conv8.i.i) #8
+  tail call void @AUD_set_volume_out(ptr noundef %9, i32 noundef %or.i.i, i8 noundef zeroext %conv3.i14.i, i8 noundef zeroext %conv8.i.i) #7
   %10 = load i8, ptr %arrayidx.i3.i.i, align 1
   %conv3.i25 = zext i8 %10 to i16
   %11 = load i8, ptr %arrayidx7.i5.i.i, align 1
@@ -2301,7 +2300,7 @@ entry:
   %div7.i47.i = udiv i16 %mul6.i46.i, 255
   %conv8.i48.i = trunc i16 %div7.i47.i to i8
   %17 = load ptr, ptr %voice_po.i.i, align 16
-  tail call void @AUD_set_volume_out(ptr noundef %17, i32 noundef %or.i38.i, i8 noundef zeroext %conv3.i43.i, i8 noundef zeroext %conv8.i48.i) #8
+  tail call void @AUD_set_volume_out(ptr noundef %17, i32 noundef %or.i38.i, i8 noundef zeroext %conv3.i43.i, i8 noundef zeroext %conv8.i48.i) #7
   %arrayidx.i31 = getelementptr %struct.AC97LinkState, ptr %opaque, i64 0, i32 7, i64 28
   %18 = load i16, ptr %arrayidx.i31, align 1
   %arrayidx7.i33 = getelementptr %struct.AC97LinkState, ptr %opaque, i64 0, i32 7, i64 29
@@ -2318,7 +2317,7 @@ entry:
   %div12.i.i57.i = mul nuw i8 %and9.i.i56.i, 17
   %voice_pi.i.i = getelementptr inbounds %struct.AC97LinkState, ptr %opaque, i64 0, i32 8
   %21 = load ptr, ptr %voice_pi.i.i, align 8
-  tail call void @AUD_set_volume_in(ptr noundef %21, i32 noundef %shr.i.i.i, i8 noundef zeroext %div12.i.i57.i, i8 noundef zeroext %narrow.i.i) #8
+  tail call void @AUD_set_volume_in(ptr noundef %21, i32 noundef %shr.i.i.i, i8 noundef zeroext %div12.i.i57.i, i8 noundef zeroext %narrow.i.i) #7
   %cr = getelementptr inbounds %struct.AC97LinkState, ptr %opaque, i64 0, i32 6, i64 0, i32 6
   %22 = load i8, ptr %cr, align 1
   %23 = and i8 %22, 1
@@ -2342,33 +2341,32 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal zeroext i1 @is_version_2(ptr nocapture readnone %opaque, i32 noundef %version_id) #5 {
+define internal noundef zeroext i1 @is_version_2(ptr nocapture readnone %opaque, i32 noundef %version_id) #4 {
 entry:
   %cmp = icmp eq i32 %version_id, 2
   ret i1 %cmp
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.fshl.i32(i32, i32, i32) #6
+declare i32 @llvm.fshl.i32(i32, i32, i32) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #6
+declare i32 @llvm.umin.i32(i32, i32) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #4 = { mustprogress nofree nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #7 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #8 = { nounwind }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #6 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #7 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

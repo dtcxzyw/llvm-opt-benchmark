@@ -670,9 +670,9 @@ entry:
   %_M_finish.i.i7.i = getelementptr inbounds %"class.Assimp::FBX::FBXExportProperty", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(128) %call5.i.i.i.i1.i.i7, i8 0, i64 128, i1 false)
   store ptr %add.ptr.i.i.i, ptr %_M_finish.i.i7.i, align 8
+  %d1.i = getelementptr inbounds %class.aiMatrix4x4t, ptr %vm, i64 0, i32 12
   %c1.i = getelementptr inbounds %class.aiMatrix4x4t, ptr %vm, i64 0, i32 8
   %b1.i = getelementptr inbounds %class.aiMatrix4x4t, ptr %vm, i64 0, i32 4
-  %d1.i = getelementptr inbounds %class.aiMatrix4x4t, ptr %vm, i64 0, i32 12
   br label %for.cond3.preheader
 
 for.cond3.preheader:                              ; preds = %entry, %for.inc11
@@ -684,10 +684,11 @@ for.cond3.preheader:                              ; preds = %entry, %for.inc11
 if.end.i:                                         ; preds = %for.cond3.preheader, %_ZNK12aiMatrix4x4tIfEixEj.exit
   %indvars.iv = phi i64 [ 0, %for.cond3.preheader ], [ %indvars.iv.next, %_ZNK12aiMatrix4x4tIfEixEj.exit ]
   %1 = trunc i64 %indvars.iv to i32
-  switch i32 %1, label %_ZNK12aiMatrix4x4tIfEixEj.exit [
-    i32 3, label %sw.bb4.i
+  switch i32 %1, label %default.unreachable.i [
+    i32 0, label %_ZNK12aiMatrix4x4tIfEixEj.exit
     i32 1, label %sw.bb2.i
     i32 2, label %sw.bb3.i
+    i32 3, label %sw.bb4.i
   ]
 
 sw.bb2.i:                                         ; preds = %if.end.i
@@ -698,6 +699,9 @@ sw.bb3.i:                                         ; preds = %if.end.i
 
 sw.bb4.i:                                         ; preds = %if.end.i
   br label %_ZNK12aiMatrix4x4tIfEixEj.exit
+
+default.unreachable.i:                            ; preds = %if.end.i
+  unreachable
 
 _ZNK12aiMatrix4x4tIfEixEj.exit:                   ; preds = %if.end.i, %sw.bb2.i, %sw.bb3.i, %sw.bb4.i
   %retval.0.i = phi ptr [ %d1.i, %sw.bb4.i ], [ %c1.i, %sw.bb3.i ], [ %b1.i, %sw.bb2.i ], [ %vm, %if.end.i ]

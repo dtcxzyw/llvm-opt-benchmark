@@ -48,7 +48,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @atexit_handler_done = internal unnamed_addr global i32 0, align 4
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @main(i32 noundef %argc, ptr nocapture noundef readonly %argv) local_unnamed_addr #0 {
+define dso_local noundef i32 @main(i32 noundef %argc, ptr nocapture noundef readonly %argv) local_unnamed_addr #0 {
 entry:
   %ssllib.i = alloca ptr, align 8
   %cryptolib.i = alloca ptr, align 8
@@ -95,6 +95,7 @@ if.else19:                                        ; preds = %if.else15
 
 if.end25:                                         ; preds = %if.else15, %if.else11, %if.else7, %if.else, %if.end
   %.sink = phi i32 [ 0, %if.end ], [ 1, %if.else ], [ 2, %if.else7 ], [ 3, %if.else11 ], [ 4, %if.else15 ]
+  %switch.i = phi i1 [ false, %if.end ], [ true, %if.else ], [ false, %if.else7 ], [ false, %if.else11 ], [ false, %if.else15 ]
   store i32 %.sink, ptr @test_type, align 4
   %arrayidx26 = getelementptr inbounds ptr, ptr %argv, i64 2
   %5 = load ptr, ptr %arrayidx26, align 8
@@ -121,15 +122,9 @@ if.end33:                                         ; preds = %if.end25
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %symbols.i)
   store ptr null, ptr %ssllib.i, align 8
   store ptr null, ptr %cryptolib.i, align 8
-  switch i32 %.sink, label %if.then36.i [
-    i32 2, label %sw.bb.i
-    i32 3, label %sw.bb.i
-    i32 4, label %sw.bb.i
-    i32 0, label %sw.bb.i
-    i32 1, label %sw.bb4.i
-  ]
+  br i1 %switch.i, label %sw.bb4.i, label %sw.bb.i
 
-sw.bb.i:                                          ; preds = %if.end33, %if.end33, %if.end33, %if.end33
+sw.bb.i:                                          ; preds = %if.end33
   %call.i = call i32 @sd_load(ptr noundef nonnull %5, ptr noundef nonnull %cryptolib.i, i32 noundef 257) #9
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %if.then.i, label %if.end.i
@@ -216,7 +211,7 @@ if.end31.i:                                       ; preds = %if.end24.if.end31_c
   %or.cond1.i = icmp ult i32 %28, -3
   br i1 %or.cond1.i, label %if.then36.i, label %if.end59.i
 
-if.then36.i:                                      ; preds = %if.end33, %if.end31.i
+if.then36.i:                                      ; preds = %if.end31.i
   %29 = load ptr, ptr %ssllib.i, align 8
   %call38.i = call i32 @sd_sym(ptr noundef %29, ptr noundef nonnull @.str.13, ptr noundef nonnull %symbols.i) #9
   %tobool39.not.i = icmp eq i32 %call38.i, 0
@@ -415,16 +410,16 @@ if.end142.i:                                      ; preds = %if.then137.i
 
 end.i:                                            ; preds = %if.end142.i, %if.then140.i, %if.then131.i, %if.then124.i, %if.then117.i, %if.then105.i, %if.then99.i, %if.then85.i, %if.then79.i, %if.then56.i, %if.then47.i, %if.then28.i, %if.then22.i, %if.then15.i, %if.then7.i, %if.then.i
   %result.0.ph.i = phi i32 [ 1, %if.end142.i ], [ 0, %if.then.i ], [ 0, %if.then7.i ], [ 0, %if.then15.i ], [ 0, %if.then22.i ], [ 0, %if.then28.i ], [ 0, %if.then47.i ], [ 0, %if.then79.i ], [ 0, %if.then105.i ], [ 0, %if.then117.i ], [ 0, %if.then131.i ], [ 0, %if.then140.i ], [ 0, %if.then124.i ], [ 0, %if.then99.i ], [ 0, %if.then85.i ], [ 0, %if.then56.i ]
-  %.pr8.i = load ptr, ptr %cryptolib.i, align 8
-  %cmp144.not.i = icmp eq ptr %.pr8.i, null
+  %.pr7.i = load ptr, ptr %cryptolib.i, align 8
+  %cmp144.not.i = icmp eq ptr %.pr7.i, null
   br i1 %cmp144.not.i, label %if.end147.i, label %if.then145.i
 
 if.then145.i:                                     ; preds = %end.i
-  %call146.i = call i32 @sd_close(ptr noundef nonnull %.pr8.i) #9
+  %call146.i = call i32 @sd_close(ptr noundef nonnull %.pr7.i) #9
   br label %if.end147.i
 
 if.end147.i:                                      ; preds = %if.then145.i, %end.i, %if.end133.i
-  %result.011.i = phi i32 [ %result.0.ph.i, %if.then145.i ], [ %result.0.ph.i, %end.i ], [ 1, %if.end133.i ]
+  %result.010.i = phi i32 [ %result.0.ph.i, %if.then145.i ], [ %result.0.ph.i, %end.i ], [ 1, %if.end133.i ]
   %73 = load ptr, ptr %ssllib.i, align 8
   %cmp148.not.i = icmp eq ptr %73, null
   br i1 %cmp148.not.i, label %test_lib.exit, label %if.then149.i
@@ -437,7 +432,7 @@ test_lib.exit:                                    ; preds = %if.end147.i, %if.th
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ssllib.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %cryptolib.i)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %symbols.i)
-  %tobool.not = icmp eq i32 %result.011.i, 0
+  %tobool.not = icmp eq i32 %result.010.i, 0
   %. = zext i1 %tobool.not to i32
   br label %return
 

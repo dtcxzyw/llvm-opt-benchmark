@@ -255,7 +255,6 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.200 = private unnamed_addr constant [6 x i8] c"33;1m\00", align 1
 @.str.201 = private unnamed_addr constant [6 x i8] c"31;1m\00", align 1
 @.str.202 = private unnamed_addr constant [6 x i8] c"32;1m\00", align 1
-@.str.203 = private unnamed_addr constant [3 x i8] c"0m\00", align 1
 @.str.204 = private unnamed_addr constant [5 x i8] c"db0:\00", align 1
 @.str.205 = private unnamed_addr constant [13 x i8] c"CLUSTER INFO\00", align 1
 @.str.206 = private unnamed_addr constant [20 x i8] c"cluster_known_nodes\00", align 1
@@ -17144,19 +17143,11 @@ entry:
 
 if.then:                                          ; preds = %entry
   %call = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.198)
-  %switch.tableidx = add i32 %level, -1
-  %1 = icmp ult i32 %switch.tableidx, 4
-  br i1 %1, label %switch.lookup, label %if.then13
-
-switch.lookup:                                    ; preds = %if.then
-  %2 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table.clusterManagerLog, i64 0, i64 %2
+  %switch.tableidx = add nsw i32 %level, -1
+  %1 = sext i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table.clusterManagerLog, i64 0, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
-  br label %if.then13
-
-if.then13:                                        ; preds = %if.then, %switch.lookup
-  %.str.203.sink = phi ptr [ %switch.load, %switch.lookup ], [ @.str.203, %if.then ]
-  %call8 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) %.str.203.sink)
+  %call7 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) %switch.load)
   call void @llvm.va_start(ptr nonnull %ap)
   %call10 = call i32 @vprintf(ptr noundef %fmt, ptr noundef nonnull %ap)
   call void @llvm.va_end(ptr nonnull %ap)
@@ -17169,7 +17160,7 @@ if.end15.critedge:                                ; preds = %entry
   call void @llvm.va_end(ptr nonnull %ap)
   br label %if.end15
 
-if.end15:                                         ; preds = %if.end15.critedge, %if.then13
+if.end15:                                         ; preds = %if.end15.critedge, %if.then
   ret void
 }
 

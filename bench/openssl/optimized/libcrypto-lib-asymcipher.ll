@@ -100,14 +100,13 @@ if.then25:                                        ; preds = %if.end20
   br label %if.then138
 
 for.body:                                         ; preds = %for.cond.preheader, %for.inc
-  %iter.0101 = phi i32 [ 1, %for.cond.preheader ], [ %inc, %for.inc ]
-  %tmp_prov.0100 = phi ptr [ null, %for.cond.preheader ], [ %tmp_prov.184, %for.inc ]
-  %cipher.099 = phi ptr [ null, %for.cond.preheader ], [ %cipher.182, %for.inc ]
-  %cmp.i = icmp eq ptr %cipher.099, null
+  %iter.085 = phi i32 [ 1, %for.cond.preheader ], [ %inc, %for.inc ]
+  %cipher.084 = phi ptr [ null, %for.cond.preheader ], [ %cipher.171, %for.inc ]
+  %cmp.i = icmp eq ptr %cipher.084, null
   br i1 %cmp.i, label %EVP_ASYM_CIPHER_free.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %for.body
-  %refcnt.i = getelementptr inbounds %struct.evp_asym_cipher_st, ptr %cipher.099, i64 0, i32 4
+  %refcnt.i = getelementptr inbounds %struct.evp_asym_cipher_st, ptr %cipher.084, i64 0, i32 4
   %3 = atomicrmw sub ptr %refcnt.i, i32 1 monotonic, align 4
   %cmp.i.i = icmp eq i32 %3, 1
   br i1 %cmp.i.i, label %CRYPTO_DOWN_REF.exit.thread.i, label %CRYPTO_DOWN_REF.exit.i
@@ -121,22 +120,20 @@ CRYPTO_DOWN_REF.exit.i:                           ; preds = %if.end.i
   br i1 %cmp1.i, label %EVP_ASYM_CIPHER_free.exit, label %if.end3.i
 
 if.end3.i:                                        ; preds = %CRYPTO_DOWN_REF.exit.i, %CRYPTO_DOWN_REF.exit.thread.i
-  %type_name.i = getelementptr inbounds %struct.evp_asym_cipher_st, ptr %cipher.099, i64 0, i32 1
+  %type_name.i = getelementptr inbounds %struct.evp_asym_cipher_st, ptr %cipher.084, i64 0, i32 1
   %4 = load ptr, ptr %type_name.i, align 8
   call void @CRYPTO_free(ptr noundef %4, ptr noundef nonnull @.str, i32 noundef 463) #4
-  %prov.i = getelementptr inbounds %struct.evp_asym_cipher_st, ptr %cipher.099, i64 0, i32 3
+  %prov.i = getelementptr inbounds %struct.evp_asym_cipher_st, ptr %cipher.084, i64 0, i32 3
   %5 = load ptr, ptr %prov.i, align 8
   call void @ossl_provider_free(ptr noundef %5) #4
-  call void @CRYPTO_free(ptr noundef nonnull %cipher.099, ptr noundef nonnull @.str, i32 noundef 466) #4
+  call void @CRYPTO_free(ptr noundef nonnull %cipher.084, ptr noundef nonnull @.str, i32 noundef 466) #4
   br label %EVP_ASYM_CIPHER_free.exit
 
 EVP_ASYM_CIPHER_free.exit:                        ; preds = %for.body, %CRYPTO_DOWN_REF.exit.i, %if.end3.i
   %6 = load ptr, ptr %tmp_keymgmt, align 8
   call void @EVP_KEYMGMT_free(ptr noundef %6) #4
-  switch i32 %iter.0101, label %sw.epilog [
-    i32 1, label %sw.bb
-    i32 2, label %sw.bb38
-  ]
+  %switch = icmp eq i32 %iter.085, 1
+  br i1 %switch, label %sw.bb, label %sw.bb38
 
 sw.bb:                                            ; preds = %EVP_ASYM_CIPHER_free.exit
   %7 = load ptr, ptr %libctx, align 8
@@ -158,16 +155,13 @@ sw.bb38:                                          ; preds = %EVP_ASYM_CIPHER_fre
   %cmp43 = icmp eq ptr %call.i66, null
   br i1 %cmp43, label %legacy, label %if.end50
 
-sw.epilog:                                        ; preds = %EVP_ASYM_CIPHER_free.exit
-  br i1 %cmp.i, label %for.inc, label %if.end50
-
-if.end50:                                         ; preds = %if.then35, %sw.bb38, %sw.epilog
-  %tmp_prov.183 = phi ptr [ %tmp_prov.0100, %sw.epilog ], [ %9, %if.then35 ], [ %call40, %sw.bb38 ]
-  %cipher.181 = phi ptr [ %cipher.099, %sw.epilog ], [ %call.i, %if.then35 ], [ %call.i66, %sw.bb38 ]
+if.end50:                                         ; preds = %sw.bb38, %if.then35
+  %cipher.1.ph = phi ptr [ %call.i, %if.then35 ], [ %call.i66, %sw.bb38 ]
+  %tmp_prov.1.ph = phi ptr [ %9, %if.then35 ], [ %call40, %sw.bb38 ]
   %12 = load ptr, ptr %keymgmt, align 8
   %call52 = call ptr @EVP_KEYMGMT_get0_name(ptr noundef %12) #4
   %13 = load ptr, ptr %propquery41, align 8
-  %call54 = call ptr @evp_keymgmt_fetch_from_prov(ptr noundef %tmp_prov.183, ptr noundef %call52, ptr noundef %13) #4
+  %call54 = call ptr @evp_keymgmt_fetch_from_prov(ptr noundef %tmp_prov.1.ph, ptr noundef %call52, ptr noundef %13) #4
   store ptr %call54, ptr %tmp_keymgmt, align 8
   %cmp55.not = icmp eq ptr %call54, null
   br i1 %cmp55.not, label %if.then65, label %if.end62
@@ -182,16 +176,15 @@ if.end62:                                         ; preds = %if.end50
   br i1 %cmp63, label %if.then65, label %for.inc
 
 if.then65:                                        ; preds = %if.end50, %if.end62
-  %provkey.191 = phi ptr [ %call61, %if.end62 ], [ null, %if.end50 ]
+  %provkey.176 = phi ptr [ %call61, %if.end62 ], [ null, %if.end50 ]
   call void @EVP_KEYMGMT_free(ptr noundef %call54) #4
   br label %for.inc
 
-for.inc:                                          ; preds = %sw.bb, %if.end62, %if.then65, %sw.epilog
-  %tmp_prov.184 = phi ptr [ %tmp_prov.0100, %sw.epilog ], [ %tmp_prov.183, %if.then65 ], [ %tmp_prov.183, %if.end62 ], [ %tmp_prov.0100, %sw.bb ]
-  %cipher.182 = phi ptr [ null, %sw.epilog ], [ %cipher.181, %if.then65 ], [ %cipher.181, %if.end62 ], [ null, %sw.bb ]
-  %provkey.2 = phi ptr [ null, %sw.epilog ], [ %provkey.191, %if.then65 ], [ %call61, %if.end62 ], [ null, %sw.bb ]
-  %inc = add nuw nsw i32 %iter.0101, 1
-  %cmp28 = icmp ult i32 %iter.0101, 2
+for.inc:                                          ; preds = %sw.bb, %if.end62, %if.then65
+  %cipher.171 = phi ptr [ %cipher.1.ph, %if.then65 ], [ %cipher.1.ph, %if.end62 ], [ null, %sw.bb ]
+  %provkey.2 = phi ptr [ %provkey.176, %if.then65 ], [ %call61, %if.end62 ], [ null, %sw.bb ]
+  %inc = add nuw nsw i32 %iter.085, 1
+  %cmp28 = icmp ult i32 %iter.085, 2
   %cmp30 = icmp eq ptr %provkey.2, null
   %17 = select i1 %cmp28, i1 %cmp30, i1 false
   br i1 %17, label %for.body, label %for.end, !llvm.loop !4
@@ -200,43 +193,19 @@ for.end:                                          ; preds = %for.inc
   br i1 %cmp30, label %if.then69, label %if.end70
 
 if.then69:                                        ; preds = %for.end
-  %cmp.i67 = icmp eq ptr %cipher.182, null
-  br i1 %cmp.i67, label %legacy, label %if.end.i68
-
-if.end.i68:                                       ; preds = %if.then69
-  %refcnt.i69 = getelementptr inbounds %struct.evp_asym_cipher_st, ptr %cipher.182, i64 0, i32 4
-  %18 = atomicrmw sub ptr %refcnt.i69, i32 1 monotonic, align 4
-  %cmp.i.i70 = icmp eq i32 %18, 1
-  br i1 %cmp.i.i70, label %CRYPTO_DOWN_REF.exit.thread.i76, label %CRYPTO_DOWN_REF.exit.i71
-
-CRYPTO_DOWN_REF.exit.thread.i76:                  ; preds = %if.end.i68
-  fence acquire
-  br label %if.end3.i73
-
-CRYPTO_DOWN_REF.exit.i71:                         ; preds = %if.end.i68
-  %cmp1.i72 = icmp sgt i32 %18, 1
-  br i1 %cmp1.i72, label %legacy, label %if.end3.i73
-
-if.end3.i73:                                      ; preds = %CRYPTO_DOWN_REF.exit.i71, %CRYPTO_DOWN_REF.exit.thread.i76
-  %type_name.i74 = getelementptr inbounds %struct.evp_asym_cipher_st, ptr %cipher.182, i64 0, i32 1
-  %19 = load ptr, ptr %type_name.i74, align 8
-  call void @CRYPTO_free(ptr noundef %19, ptr noundef nonnull @.str, i32 noundef 463) #4
-  %prov.i75 = getelementptr inbounds %struct.evp_asym_cipher_st, ptr %cipher.182, i64 0, i32 3
-  %20 = load ptr, ptr %prov.i75, align 8
-  call void @ossl_provider_free(ptr noundef %20) #4
-  call void @CRYPTO_free(ptr noundef nonnull %cipher.182, ptr noundef nonnull @.str, i32 noundef 466) #4
+  call void @EVP_ASYM_CIPHER_free(ptr noundef %cipher.171)
   br label %legacy
 
 if.end70:                                         ; preds = %for.end
   %call71 = call i32 @ERR_pop_to_mark() #4
   %op = getelementptr inbounds %struct.evp_pkey_ctx_st, ptr %ctx, i64 0, i32 5
-  store ptr %cipher.182, ptr %op, align 8
-  %newctx = getelementptr inbounds %struct.evp_asym_cipher_st, ptr %cipher.182, i64 0, i32 5
-  %21 = load ptr, ptr %newctx, align 8
-  %prov = getelementptr inbounds %struct.evp_asym_cipher_st, ptr %cipher.182, i64 0, i32 3
-  %22 = load ptr, ptr %prov, align 8
-  %call73 = call ptr @ossl_provider_ctx(ptr noundef %22) #4
-  %call74 = call ptr %21(ptr noundef %call73) #4
+  store ptr %cipher.171, ptr %op, align 8
+  %newctx = getelementptr inbounds %struct.evp_asym_cipher_st, ptr %cipher.171, i64 0, i32 5
+  %18 = load ptr, ptr %newctx, align 8
+  %prov = getelementptr inbounds %struct.evp_asym_cipher_st, ptr %cipher.171, i64 0, i32 3
+  %19 = load ptr, ptr %prov, align 8
+  %call73 = call ptr @ossl_provider_ctx(ptr noundef %19) #4
+  %call74 = call ptr %18(ptr noundef %call73) #4
   %algctx = getelementptr inbounds %struct.evp_pkey_ctx_st, ptr %ctx, i64 0, i32 5, i32 0, i32 1
   store ptr %call74, ptr %algctx, align 8
   %cmp78 = icmp eq ptr %call74, null
@@ -255,9 +224,9 @@ if.end81:                                         ; preds = %if.end70
   ]
 
 sw.bb82:                                          ; preds = %if.end81
-  %encrypt_init = getelementptr inbounds %struct.evp_asym_cipher_st, ptr %cipher.182, i64 0, i32 6
-  %23 = load ptr, ptr %encrypt_init, align 8
-  %cmp83 = icmp eq ptr %23, null
+  %encrypt_init = getelementptr inbounds %struct.evp_asym_cipher_st, ptr %cipher.171, i64 0, i32 6
+  %20 = load ptr, ptr %encrypt_init, align 8
+  %cmp83 = icmp eq ptr %20, null
   br i1 %cmp83, label %if.then85, label %sw.epilog100
 
 if.then85:                                        ; preds = %sw.bb82
@@ -267,9 +236,9 @@ if.then85:                                        ; preds = %sw.bb82
   br label %if.then138
 
 sw.bb91:                                          ; preds = %if.end81
-  %decrypt_init = getelementptr inbounds %struct.evp_asym_cipher_st, ptr %cipher.182, i64 0, i32 8
-  %24 = load ptr, ptr %decrypt_init, align 8
-  %cmp92 = icmp eq ptr %24, null
+  %decrypt_init = getelementptr inbounds %struct.evp_asym_cipher_st, ptr %cipher.171, i64 0, i32 8
+  %21 = load ptr, ptr %decrypt_init, align 8
+  %cmp92 = icmp eq ptr %21, null
   br i1 %cmp92, label %if.then94, label %sw.epilog100
 
 if.then94:                                        ; preds = %sw.bb91
@@ -285,30 +254,30 @@ sw.default:                                       ; preds = %if.end81
   br label %if.then138
 
 sw.epilog100:                                     ; preds = %sw.bb91, %sw.bb82
-  %.sink = phi ptr [ %23, %sw.bb82 ], [ %24, %sw.bb91 ]
+  %.sink = phi ptr [ %20, %sw.bb82 ], [ %21, %sw.bb91 ]
   %call99 = call i32 %.sink(ptr noundef nonnull %call74, ptr noundef nonnull %provkey.2, ptr noundef %params) #4
   %cmp101 = icmp slt i32 %call99, 1
   br i1 %cmp101, label %if.then138, label %if.end104
 
 if.end104:                                        ; preds = %sw.epilog100
-  %25 = load ptr, ptr %tmp_keymgmt, align 8
-  call void @EVP_KEYMGMT_free(ptr noundef %25) #4
+  %22 = load ptr, ptr %tmp_keymgmt, align 8
+  call void @EVP_KEYMGMT_free(ptr noundef %22) #4
   br label %return
 
-legacy:                                           ; preds = %sw.bb38, %if.end3.i73, %CRYPTO_DOWN_REF.exit.i71, %if.then69, %if.end
+legacy:                                           ; preds = %sw.bb38, %if.end, %if.then69
   %call105 = call i32 @ERR_pop_to_mark() #4
-  %26 = load ptr, ptr %tmp_keymgmt, align 8
-  call void @EVP_KEYMGMT_free(ptr noundef %26) #4
+  %23 = load ptr, ptr %tmp_keymgmt, align 8
+  call void @EVP_KEYMGMT_free(ptr noundef %23) #4
   store ptr null, ptr %tmp_keymgmt, align 8
   %pmeth = getelementptr inbounds %struct.evp_pkey_ctx_st, ptr %ctx, i64 0, i32 12
-  %27 = load ptr, ptr %pmeth, align 8
-  %cmp106 = icmp eq ptr %27, null
+  %24 = load ptr, ptr %pmeth, align 8
+  %cmp106 = icmp eq ptr %24, null
   br i1 %cmp106, label %if.then111, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %legacy
-  %encrypt = getelementptr inbounds %struct.evp_pkey_method_st, ptr %27, i64 0, i32 20
-  %28 = load ptr, ptr %encrypt, align 8
-  %cmp109 = icmp eq ptr %28, null
+  %encrypt = getelementptr inbounds %struct.evp_pkey_method_st, ptr %24, i64 0, i32 20
+  %25 = load ptr, ptr %encrypt, align 8
+  %cmp109 = icmp eq ptr %25, null
   br i1 %cmp109, label %if.then111, label %if.end112
 
 if.then111:                                       ; preds = %lor.lhs.false, %legacy
@@ -318,22 +287,22 @@ if.then111:                                       ; preds = %lor.lhs.false, %leg
   br label %return
 
 if.end112:                                        ; preds = %lor.lhs.false
-  %29 = load i32, ptr %ctx, align 8
-  switch i32 %29, label %sw.default134 [
+  %26 = load i32, ptr %ctx, align 8
+  switch i32 %26, label %sw.default134 [
     i32 512, label %sw.bb114
     i32 1024, label %sw.bb124
   ]
 
 sw.bb114:                                         ; preds = %if.end112
-  %encrypt_init116 = getelementptr inbounds %struct.evp_pkey_method_st, ptr %27, i64 0, i32 19
-  %30 = load ptr, ptr %encrypt_init116, align 8
-  %cmp117 = icmp eq ptr %30, null
+  %encrypt_init116 = getelementptr inbounds %struct.evp_pkey_method_st, ptr %24, i64 0, i32 19
+  %27 = load ptr, ptr %encrypt_init116, align 8
+  %cmp117 = icmp eq ptr %27, null
   br i1 %cmp117, label %return, label %err
 
 sw.bb124:                                         ; preds = %if.end112
-  %decrypt_init126 = getelementptr inbounds %struct.evp_pkey_method_st, ptr %27, i64 0, i32 21
-  %31 = load ptr, ptr %decrypt_init126, align 8
-  %cmp127 = icmp eq ptr %31, null
+  %decrypt_init126 = getelementptr inbounds %struct.evp_pkey_method_st, ptr %24, i64 0, i32 21
+  %28 = load ptr, ptr %decrypt_init126, align 8
+  %cmp127 = icmp eq ptr %28, null
   br i1 %cmp127, label %return, label %err
 
 sw.default134:                                    ; preds = %if.end112
@@ -343,25 +312,25 @@ sw.default134:                                    ; preds = %if.end112
   br label %if.then138
 
 err:                                              ; preds = %sw.bb124, %sw.bb114
-  %.sink102 = phi ptr [ %30, %sw.bb114 ], [ %31, %sw.bb124 ]
-  %call123 = call i32 %.sink102(ptr noundef nonnull %ctx) #4
+  %.sink86 = phi ptr [ %27, %sw.bb114 ], [ %28, %sw.bb124 ]
+  %call123 = call i32 %.sink86(ptr noundef nonnull %ctx) #4
   %cmp136 = icmp slt i32 %call123, 1
   br i1 %cmp136, label %if.then138, label %if.end140
 
 if.then138:                                       ; preds = %if.then18, %if.then85, %sw.epilog100, %if.then94, %sw.default, %if.then80, %if.then25, %if.then6, %sw.default134, %err
-  %ret.195 = phi i32 [ %call123, %err ], [ 0, %if.then18 ], [ -2, %if.then85 ], [ %call99, %sw.epilog100 ], [ -2, %if.then94 ], [ 0, %sw.default ], [ 0, %if.then80 ], [ 0, %if.then25 ], [ 0, %if.then6 ], [ -1, %sw.default134 ]
+  %ret.180 = phi i32 [ %call123, %err ], [ 0, %if.then18 ], [ -2, %if.then85 ], [ %call99, %sw.epilog100 ], [ -2, %if.then94 ], [ 0, %sw.default ], [ 0, %if.then80 ], [ 0, %if.then25 ], [ 0, %if.then6 ], [ -1, %sw.default134 ]
   call void @evp_pkey_ctx_free_old_ops(ptr noundef nonnull %ctx) #4
   store i32 0, ptr %ctx, align 8
   br label %if.end140
 
 if.end140:                                        ; preds = %if.then138, %err
-  %ret.194 = phi i32 [ %ret.195, %if.then138 ], [ %call123, %err ]
-  %32 = load ptr, ptr %tmp_keymgmt, align 8
-  call void @EVP_KEYMGMT_free(ptr noundef %32) #4
+  %ret.179 = phi i32 [ %ret.180, %if.then138 ], [ %call123, %err ]
+  %29 = load ptr, ptr %tmp_keymgmt, align 8
+  call void @EVP_KEYMGMT_free(ptr noundef %29) #4
   br label %return
 
 return:                                           ; preds = %sw.bb124, %sw.bb114, %if.end140, %if.then111, %if.end104, %if.then
-  %retval.0 = phi i32 [ -2, %if.then ], [ -2, %if.then111 ], [ %ret.194, %if.end140 ], [ 1, %if.end104 ], [ 1, %sw.bb114 ], [ 1, %sw.bb124 ]
+  %retval.0 = phi i32 [ -2, %if.then ], [ -2, %if.then111 ], [ %ret.179, %if.end140 ], [ 1, %if.end104 ], [ 1, %sw.bb114 ], [ 1, %sw.bb124 ]
   ret i32 %retval.0
 }
 
@@ -635,7 +604,7 @@ return:                                           ; preds = %if.end32, %if.then3
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @evp_pkey_decrypt_alloc(ptr noundef %ctx, ptr nocapture noundef %outp, ptr noundef %outlenp, i64 noundef %expected_outlen, ptr noundef %in, i64 noundef %inlen) local_unnamed_addr #0 {
+define noundef i32 @evp_pkey_decrypt_alloc(ptr noundef %ctx, ptr nocapture noundef %outp, ptr noundef %outlenp, i64 noundef %expected_outlen, ptr noundef %in, i64 noundef %inlen) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @EVP_PKEY_decrypt(ptr noundef %ctx, ptr noundef null, ptr noundef %outlenp, ptr noundef %in, i64 noundef %inlen)
   %cmp = icmp slt i32 %call, 1
@@ -722,7 +691,7 @@ declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_a
 declare void @ossl_provider_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define i32 @EVP_ASYM_CIPHER_up_ref(ptr nocapture noundef %cipher) #2 {
+define noundef i32 @EVP_ASYM_CIPHER_up_ref(ptr nocapture noundef %cipher) #2 {
 entry:
   %refcnt = getelementptr inbounds %struct.evp_asym_cipher_st, ptr %cipher, i64 0, i32 4
   %0 = atomicrmw add ptr %refcnt, i32 1 monotonic, align 4

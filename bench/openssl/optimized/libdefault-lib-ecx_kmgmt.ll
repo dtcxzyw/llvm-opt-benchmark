@@ -1132,7 +1132,7 @@ if.then30:                                        ; preds = %if.end26
 
 land.rhs32:                                       ; preds = %if.end26.thread, %if.then30
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %pub.i)
-  switch i32 %type, label %ecx_key_pairwise_check.exit [
+  switch i32 %type, label %default.unreachable.i [
     i32 0, label %sw.bb.i
     i32 1, label %sw.bb1.i
     i32 2, label %sw.bb4.i
@@ -1171,6 +1171,9 @@ sw.bb7.i:                                         ; preds = %land.rhs32
   %tobool13.not.i = icmp eq i32 %call12.i, 0
   br i1 %tobool13.not.i, label %ecx_key_pairwise_check.exit, label %sw.epilog.i
 
+default.unreachable.i:                            ; preds = %land.rhs32
+  unreachable
+
 sw.epilog.i:                                      ; preds = %sw.bb7.i, %sw.bb4.i, %sw.bb1.i, %sw.bb.i
   %pubkey.i = getelementptr inbounds %struct.ecx_key_st, ptr %keydata, i64 0, i32 3
   %11 = load i64, ptr %keylen1, align 8
@@ -1179,8 +1182,8 @@ sw.epilog.i:                                      ; preds = %sw.bb7.i, %sw.bb4.i
   %conv.i = zext i1 %cmp.i to i32
   br label %ecx_key_pairwise_check.exit
 
-ecx_key_pairwise_check.exit:                      ; preds = %land.rhs32, %sw.bb4.i, %sw.bb7.i, %sw.epilog.i
-  %retval.0.i = phi i32 [ %conv.i, %sw.epilog.i ], [ 0, %sw.bb4.i ], [ 0, %sw.bb7.i ], [ 0, %land.rhs32 ]
+ecx_key_pairwise_check.exit:                      ; preds = %sw.bb4.i, %sw.bb7.i, %sw.epilog.i
+  %retval.0.i = phi i32 [ %conv.i, %sw.epilog.i ], [ 0, %sw.bb4.i ], [ 0, %sw.bb7.i ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %pub.i)
   br label %return
 

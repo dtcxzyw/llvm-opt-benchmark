@@ -581,7 +581,7 @@ invoke.cont10:                                    ; preds = %_ZN11ast_manager7in
           to label %invoke.cont17 unwind label %lpad12, !range !6
 
 invoke.cont17:                                    ; preds = %invoke.cont10
-  switch i32 %call18, label %cleanup [
+  switch i32 %call18, label %default.unreachable63 [
     i32 -1, label %sw.bb
     i32 1, label %sw.bb22
     i32 0, label %sw.bb30
@@ -649,9 +649,12 @@ if.end33:                                         ; preds = %sw.bb30
   store i32 %rem, ptr %idx, align 4
   br label %cleanup
 
-cleanup:                                          ; preds = %invoke.cont17, %if.end33, %_ZN6vectorIPN3euf5enodeELb0EjE6shrinkEj.exit, %_ZN6vectorIPN3euf5enodeELb0EjE6shrinkEj.exit34, %if.then32, %if.end28, %if.end
-  %retval.1 = phi i32 [ 0, %if.then32 ], [ 1, %if.end28 ], [ 1, %if.end ], [ %retval.059, %_ZN6vectorIPN3euf5enodeELb0EjE6shrinkEj.exit34 ], [ %retval.059, %_ZN6vectorIPN3euf5enodeELb0EjE6shrinkEj.exit ], [ %retval.059, %if.end33 ], [ %retval.059, %invoke.cont17 ]
-  %cond = phi i1 [ false, %if.then32 ], [ false, %if.end28 ], [ false, %if.end ], [ true, %_ZN6vectorIPN3euf5enodeELb0EjE6shrinkEj.exit34 ], [ true, %_ZN6vectorIPN3euf5enodeELb0EjE6shrinkEj.exit ], [ true, %if.end33 ], [ true, %invoke.cont17 ]
+default.unreachable63:                            ; preds = %invoke.cont17
+  unreachable
+
+cleanup:                                          ; preds = %if.end33, %_ZN6vectorIPN3euf5enodeELb0EjE6shrinkEj.exit, %_ZN6vectorIPN3euf5enodeELb0EjE6shrinkEj.exit34, %if.then32, %if.end28, %if.end
+  %retval.1 = phi i32 [ 0, %if.then32 ], [ 1, %if.end28 ], [ 1, %if.end ], [ %retval.059, %_ZN6vectorIPN3euf5enodeELb0EjE6shrinkEj.exit34 ], [ %retval.059, %_ZN6vectorIPN3euf5enodeELb0EjE6shrinkEj.exit ], [ %retval.059, %if.end33 ]
+  %cond = phi i1 [ false, %if.then32 ], [ false, %if.end28 ], [ false, %if.end ], [ true, %_ZN6vectorIPN3euf5enodeELb0EjE6shrinkEj.exit34 ], [ true, %_ZN6vectorIPN3euf5enodeELb0EjE6shrinkEj.exit ], [ true, %if.end33 ]
   br i1 %tobool.not.i.i5.i, label %_ZN7obj_refI4expr11ast_managerED2Ev.exit.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %cleanup

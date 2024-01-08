@@ -62,7 +62,7 @@ declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_a
 declare void @ossl_provider_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define i32 @EVP_KEYEXCH_up_ref(ptr nocapture noundef %exchange) #2 {
+define noundef i32 @EVP_KEYEXCH_up_ref(ptr nocapture noundef %exchange) #2 {
 entry:
   %refcnt = getelementptr inbounds %struct.evp_keyexch_st, ptr %exchange, i64 0, i32 4
   %0 = atomicrmw add ptr %refcnt, i32 1 monotonic, align 4
@@ -431,14 +431,13 @@ if.then37:                                        ; preds = %if.end32
   br label %err
 
 for.body:                                         ; preds = %for.cond.preheader, %for.inc
-  %iter.089 = phi i32 [ 1, %for.cond.preheader ], [ %inc, %for.inc ]
-  %tmp_prov.088 = phi ptr [ null, %for.cond.preheader ], [ %tmp_prov.176, %for.inc ]
-  %exchange.087 = phi ptr [ null, %for.cond.preheader ], [ %exchange.174, %for.inc ]
-  %cmp.i = icmp eq ptr %exchange.087, null
+  %iter.084 = phi i32 [ 1, %for.cond.preheader ], [ %inc, %for.inc ]
+  %exchange.083 = phi ptr [ null, %for.cond.preheader ], [ %exchange.174, %for.inc ]
+  %cmp.i = icmp eq ptr %exchange.083, null
   br i1 %cmp.i, label %EVP_KEYEXCH_free.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %for.body
-  %refcnt.i = getelementptr inbounds %struct.evp_keyexch_st, ptr %exchange.087, i64 0, i32 4
+  %refcnt.i = getelementptr inbounds %struct.evp_keyexch_st, ptr %exchange.083, i64 0, i32 4
   %6 = atomicrmw sub ptr %refcnt.i, i32 1 monotonic, align 4
   %cmp.i.i = icmp eq i32 %6, 1
   br i1 %cmp.i.i, label %CRYPTO_DOWN_REF.exit.thread.i, label %CRYPTO_DOWN_REF.exit.i
@@ -452,22 +451,20 @@ CRYPTO_DOWN_REF.exit.i:                           ; preds = %if.end.i
   br i1 %cmp1.i, label %EVP_KEYEXCH_free.exit, label %if.end3.i
 
 if.end3.i:                                        ; preds = %CRYPTO_DOWN_REF.exit.i, %CRYPTO_DOWN_REF.exit.thread.i
-  %type_name.i = getelementptr inbounds %struct.evp_keyexch_st, ptr %exchange.087, i64 0, i32 1
+  %type_name.i = getelementptr inbounds %struct.evp_keyexch_st, ptr %exchange.083, i64 0, i32 1
   %7 = load ptr, ptr %type_name.i, align 8
   call void @CRYPTO_free(ptr noundef %7, ptr noundef nonnull @.str, i32 noundef 151) #4
-  %prov.i = getelementptr inbounds %struct.evp_keyexch_st, ptr %exchange.087, i64 0, i32 3
+  %prov.i = getelementptr inbounds %struct.evp_keyexch_st, ptr %exchange.083, i64 0, i32 3
   %8 = load ptr, ptr %prov.i, align 8
   call void @ossl_provider_free(ptr noundef %8) #4
-  call void @CRYPTO_free(ptr noundef nonnull %exchange.087, ptr noundef nonnull @.str, i32 noundef 154) #4
+  call void @CRYPTO_free(ptr noundef nonnull %exchange.083, ptr noundef nonnull @.str, i32 noundef 154) #4
   br label %EVP_KEYEXCH_free.exit
 
 EVP_KEYEXCH_free.exit:                            ; preds = %for.body, %CRYPTO_DOWN_REF.exit.i, %if.end3.i
   %9 = load ptr, ptr %tmp_keymgmt, align 8
   call void @EVP_KEYMGMT_free(ptr noundef %9) #4
-  switch i32 %iter.089, label %sw.epilog [
-    i32 1, label %sw.bb
-    i32 2, label %sw.bb50
-  ]
+  %switch = icmp eq i32 %iter.084, 1
+  br i1 %switch, label %sw.bb, label %sw.bb50
 
 sw.bb:                                            ; preds = %EVP_KEYEXCH_free.exit
   %10 = load ptr, ptr %libctx, align 8
@@ -489,16 +486,13 @@ sw.bb50:                                          ; preds = %EVP_KEYEXCH_free.ex
   %cmp55 = icmp eq ptr %call.i58, null
   br i1 %cmp55, label %legacy, label %if.end62
 
-sw.epilog:                                        ; preds = %EVP_KEYEXCH_free.exit
-  br i1 %cmp.i, label %for.inc, label %if.end62
-
-if.end62:                                         ; preds = %if.then47, %sw.bb50, %sw.epilog
-  %tmp_prov.175 = phi ptr [ %tmp_prov.088, %sw.epilog ], [ %12, %if.then47 ], [ %call52, %sw.bb50 ]
-  %exchange.173 = phi ptr [ %exchange.087, %sw.epilog ], [ %call.i, %if.then47 ], [ %call.i58, %sw.bb50 ]
+if.end62:                                         ; preds = %sw.bb50, %if.then47
+  %exchange.1.ph = phi ptr [ %call.i, %if.then47 ], [ %call.i58, %sw.bb50 ]
+  %tmp_prov.1.ph = phi ptr [ %12, %if.then47 ], [ %call52, %sw.bb50 ]
   %15 = load ptr, ptr %keymgmt, align 8
   %call64 = call ptr @EVP_KEYMGMT_get0_name(ptr noundef %15) #4
   %16 = load ptr, ptr %propquery53, align 8
-  %call66 = call ptr @evp_keymgmt_fetch_from_prov(ptr noundef %tmp_prov.175, ptr noundef %call64, ptr noundef %16) #4
+  %call66 = call ptr @evp_keymgmt_fetch_from_prov(ptr noundef %tmp_prov.1.ph, ptr noundef %call64, ptr noundef %16) #4
   store ptr %call66, ptr %tmp_keymgmt, align 8
   %cmp67.not = icmp eq ptr %call66, null
   br i1 %cmp67.not, label %if.then77, label %if.end74
@@ -513,16 +507,15 @@ if.end74:                                         ; preds = %if.end62
   br i1 %cmp75, label %if.then77, label %for.inc
 
 if.then77:                                        ; preds = %if.end62, %if.end74
-  %provkey.183 = phi ptr [ %call73, %if.end74 ], [ null, %if.end62 ]
+  %provkey.179 = phi ptr [ %call73, %if.end74 ], [ null, %if.end62 ]
   call void @EVP_KEYMGMT_free(ptr noundef %call66) #4
   br label %for.inc
 
-for.inc:                                          ; preds = %sw.bb, %if.end74, %if.then77, %sw.epilog
-  %tmp_prov.176 = phi ptr [ %tmp_prov.088, %sw.epilog ], [ %tmp_prov.175, %if.then77 ], [ %tmp_prov.175, %if.end74 ], [ %tmp_prov.088, %sw.bb ]
-  %exchange.174 = phi ptr [ null, %sw.epilog ], [ %exchange.173, %if.then77 ], [ %exchange.173, %if.end74 ], [ null, %sw.bb ]
-  %provkey.2 = phi ptr [ null, %sw.epilog ], [ %provkey.183, %if.then77 ], [ %call73, %if.end74 ], [ null, %sw.bb ]
-  %inc = add nuw nsw i32 %iter.089, 1
-  %cmp40 = icmp ult i32 %iter.089, 2
+for.inc:                                          ; preds = %sw.bb, %if.end74, %if.then77
+  %exchange.174 = phi ptr [ %exchange.1.ph, %if.then77 ], [ %exchange.1.ph, %if.end74 ], [ null, %sw.bb ]
+  %provkey.2 = phi ptr [ %provkey.179, %if.then77 ], [ %call73, %if.end74 ], [ null, %sw.bb ]
+  %inc = add nuw nsw i32 %iter.084, 1
+  %cmp40 = icmp ult i32 %iter.084, 2
   %cmp42 = icmp eq ptr %provkey.2, null
   %20 = select i1 %cmp40, i1 %cmp42, i1 false
   br i1 %20, label %for.body, label %for.end, !llvm.loop !6
