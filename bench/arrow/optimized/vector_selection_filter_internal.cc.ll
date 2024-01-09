@@ -938,15 +938,15 @@ if.end42.i38.i:                                   ; preds = %if.end.i27.i
   %ret.0.copyload.i.i.i40.i = load i64, ptr %bit_counter.sroa.0.2106.i, align 1
   %add.ptr58.i42.i = getelementptr inbounds i8, ptr %bit_counter.sroa.0.2106.i, i64 8
   %ret.0.copyload.i.i20.i43.i = load i64, ptr %add.ptr58.i42.i, align 1
-  %retval.0.i.i44.i = tail call noundef i64 @llvm.fshr.i64(i64 %ret.0.copyload.i.i20.i43.i, i64 %ret.0.copyload.i.i.i40.i, i64 %rem.i.i)
   %ret.0.copyload.i.i21.i46.i = load i64, ptr %bit_counter.sroa.12.2104.i, align 1
   %add.ptr65.i47.i = getelementptr inbounds i8, ptr %bit_counter.sroa.12.2104.i, i64 8
   %ret.0.copyload.i.i22.i48.i = load i64, ptr %add.ptr65.i47.i, align 1
-  %retval.0.i23.i49.i = tail call noundef i64 @llvm.fshr.i64(i64 %ret.0.copyload.i.i22.i48.i, i64 %ret.0.copyload.i.i21.i46.i, i64 %rem.i.i)
-  %and.i24.i.i = and i64 %retval.0.i23.i49.i, %retval.0.i.i44.i
-  %34 = tail call noundef i64 @llvm.ctpop.i64(i64 %and.i24.i.i), !range !4
+  %34 = and i64 %ret.0.copyload.i.i22.i48.i, %ret.0.copyload.i.i20.i43.i
+  %35 = and i64 %ret.0.copyload.i.i21.i46.i, %ret.0.copyload.i.i.i40.i
+  %and.i24.i.i = tail call i64 @llvm.fshr.i64(i64 %34, i64 %35, i64 %rem.i.i)
+  %36 = tail call noundef i64 @llvm.ctpop.i64(i64 %and.i24.i.i), !range !4
   %sub77.i54.i = add nsw i64 %bit_counter.sroa.26.2105.i, -64
-  %conv80.i55.i = trunc i64 %34 to i16
+  %conv80.i55.i = trunc i64 %36 to i16
   br label %_ZN5arrow8internal21BinaryBitBlockCounter8NextWordINS0_6detail11BitBlockAndEEENS0_13BitBlockCountEv.exit.i
 
 _ZN5arrow8internal21BinaryBitBlockCounter8NextWordINS0_6detail11BitBlockAndEEENS0_13BitBlockCountEv.exit.i: ; preds = %if.end42.i38.i, %for.end.i70.i, %while.body15.i
@@ -973,60 +973,60 @@ while.end9:                                       ; preds = %entry
   store i64 0, ptr %output_size.i, align 8
   %_M_manager.i.i.i = getelementptr inbounds %"class.std::_Function_base", ptr %ref.tmp.i, i64 0, i32 1
   %_M_invoker.i.i = getelementptr inbounds %"class.std::function", ptr %ref.tmp.i, i64 0, i32 1
-  %35 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
-  store i64 0, ptr %35, align 8
-  %36 = ptrtoint ptr %output_size.i to i64
-  store i64 %36, ptr %ref.tmp.i, align 8
+  %37 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
+  store i64 0, ptr %37, align 8
+  %38 = ptrtoint ptr %output_size.i to i64
+  store i64 %38, ptr %ref.tmp.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFbllbEZN5arrow7compute8internal12_GLOBAL__N_122GetREEFilterOutputSizeERKNS1_9ArraySpanENS2_13FilterOptions21NullSelectionBehaviorEE3$_0E9_M_invokeERKSt9_Any_dataOlSF_Ob", ptr %_M_invoker.i.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFbllbEZN5arrow7compute8internal12_GLOBAL__N_122GetREEFilterOutputSizeERKNS1_9ArraySpanENS2_13FilterOptions21NullSelectionBehaviorEE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation", ptr %_M_manager.i.i.i, align 8
   invoke void @_ZN5arrow7compute8internal34VisitPlainxREEFilterOutputSegmentsERKNS_9ArraySpanEbNS0_13FilterOptions21NullSelectionBehaviorERKSt8functionIFbllbEE(ptr noundef nonnull align 8 dereferenceable(128) %filter, i1 noundef zeroext true, i32 noundef %null_selection, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %while.end9
-  %37 = load ptr, ptr %_M_manager.i.i.i, align 8
-  %tobool.not.i.i.i = icmp eq ptr %37, null
+  %39 = load ptr, ptr %_M_manager.i.i.i, align 8
+  %tobool.not.i.i.i = icmp eq ptr %39, null
   br i1 %tobool.not.i.i.i, label %_ZN5arrow7compute8internal12_GLOBAL__N_122GetREEFilterOutputSizeERKNS_9ArraySpanENS0_13FilterOptions21NullSelectionBehaviorE.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont.i
-  %call.i.i.i = invoke noundef zeroext i1 %37(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, i32 noundef 3)
+  %call.i.i.i = invoke noundef zeroext i1 %39(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, i32 noundef 3)
           to label %_ZN5arrow7compute8internal12_GLOBAL__N_122GetREEFilterOutputSizeERKNS_9ArraySpanENS0_13FilterOptions21NullSelectionBehaviorE.exit unwind label %terminate.lpad.i.i.i
 
 terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i
-  %38 = landingpad { ptr, i32 }
+  %40 = landingpad { ptr, i32 }
           catch ptr null
-  %39 = extractvalue { ptr, i32 } %38, 0
-  call void @__clang_call_terminate(ptr %39) #19
+  %41 = extractvalue { ptr, i32 } %40, 0
+  call void @__clang_call_terminate(ptr %41) #19
   unreachable
 
 lpad.i:                                           ; preds = %while.end9
-  %40 = landingpad { ptr, i32 }
+  %42 = landingpad { ptr, i32 }
           cleanup
-  %41 = load ptr, ptr %_M_manager.i.i.i, align 8
-  %tobool.not.i.i4.i = icmp eq ptr %41, null
+  %43 = load ptr, ptr %_M_manager.i.i.i, align 8
+  %tobool.not.i.i4.i = icmp eq ptr %43, null
   br i1 %tobool.not.i.i4.i, label %_ZNSt8functionIFbllbEED2Ev.exit8.i, label %if.then.i.i5.i
 
 if.then.i.i5.i:                                   ; preds = %lpad.i
-  %call.i.i6.i = invoke noundef zeroext i1 %41(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, i32 noundef 3)
+  %call.i.i6.i = invoke noundef zeroext i1 %43(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, i32 noundef 3)
           to label %_ZNSt8functionIFbllbEED2Ev.exit8.i unwind label %terminate.lpad.i.i7.i
 
 terminate.lpad.i.i7.i:                            ; preds = %if.then.i.i5.i
-  %42 = landingpad { ptr, i32 }
+  %44 = landingpad { ptr, i32 }
           catch ptr null
-  %43 = extractvalue { ptr, i32 } %42, 0
-  call void @__clang_call_terminate(ptr %43) #19
+  %45 = extractvalue { ptr, i32 } %44, 0
+  call void @__clang_call_terminate(ptr %45) #19
   unreachable
 
 _ZNSt8functionIFbllbEED2Ev.exit8.i:               ; preds = %if.then.i.i5.i, %lpad.i
-  resume { ptr, i32 } %40
+  resume { ptr, i32 } %42
 
 _ZN5arrow7compute8internal12_GLOBAL__N_122GetREEFilterOutputSizeERKNS_9ArraySpanENS0_13FilterOptions21NullSelectionBehaviorE.exit: ; preds = %invoke.cont.i, %if.then.i.i.i
-  %44 = load i64, ptr %output_size.i, align 8
+  %46 = load i64, ptr %output_size.i, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %output_size.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
   br label %return
 
 return:                                           ; preds = %_ZN5arrow8internal21BinaryBitBlockCounter8NextWordINS0_6detail11BitBlockAndEEENS0_13BitBlockCountEv.exit.i, %_ZN5arrow8internal21BinaryBitBlockCounter8NextWordINS0_6detail11BitBlockAndEEENS0_13BitBlockCountEv.exit.us.i, %_ZN5arrow8internal21BinaryBitBlockCounter8NextWordINS0_6detail13BitBlockOrNotEEENS0_13BitBlockCountEv.exit.i, %if.else25.i, %while.cond.preheader.i, %while.cond12.preheader.i, %_ZN5arrow7compute8internal12_GLOBAL__N_122GetREEFilterOutputSizeERKNS_9ArraySpanENS0_13FilterOptions21NullSelectionBehaviorE.exit
-  %retval.0 = phi i64 [ %44, %_ZN5arrow7compute8internal12_GLOBAL__N_122GetREEFilterOutputSizeERKNS_9ArraySpanENS0_13FilterOptions21NullSelectionBehaviorE.exit ], [ %call31.i, %if.else25.i ], [ 0, %while.cond.preheader.i ], [ 0, %while.cond12.preheader.i ], [ %add.i, %_ZN5arrow8internal21BinaryBitBlockCounter8NextWordINS0_6detail13BitBlockOrNotEEENS0_13BitBlockCountEv.exit.i ], [ %add20.us.i, %_ZN5arrow8internal21BinaryBitBlockCounter8NextWordINS0_6detail11BitBlockAndEEENS0_13BitBlockCountEv.exit.us.i ], [ %add20.i, %_ZN5arrow8internal21BinaryBitBlockCounter8NextWordINS0_6detail11BitBlockAndEEENS0_13BitBlockCountEv.exit.i ]
+  %retval.0 = phi i64 [ %46, %_ZN5arrow7compute8internal12_GLOBAL__N_122GetREEFilterOutputSizeERKNS_9ArraySpanENS0_13FilterOptions21NullSelectionBehaviorE.exit ], [ %call31.i, %if.else25.i ], [ 0, %while.cond.preheader.i ], [ 0, %while.cond12.preheader.i ], [ %add.i, %_ZN5arrow8internal21BinaryBitBlockCounter8NextWordINS0_6detail13BitBlockOrNotEEENS0_13BitBlockCountEv.exit.i ], [ %add20.us.i, %_ZN5arrow8internal21BinaryBitBlockCounter8NextWordINS0_6detail11BitBlockAndEEENS0_13BitBlockCountEv.exit.us.i ], [ %add20.i, %_ZN5arrow8internal21BinaryBitBlockCounter8NextWordINS0_6detail11BitBlockAndEEENS0_13BitBlockCountEv.exit.i ]
   ret i64 %retval.0
 }
 
