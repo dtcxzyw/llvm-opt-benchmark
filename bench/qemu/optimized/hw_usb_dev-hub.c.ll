@@ -833,27 +833,16 @@ sw.bb132:                                         ; preds = %if.end97
 if.then135:                                       ; preds = %sw.bb132
   %wPortStatus.i184 = getelementptr %struct.USBHubState, ptr %dev, i64 0, i32 5, i64 %idxprom99, i32 1
   %81 = load i16, ptr %wPortStatus.i184, align 8
-  %and6.i192 = and i16 %81, 1
-  %.v = xor i16 %and6.i192, -257
-  %82 = and i16 %81, %.v
-  %and6.i202 = and i16 %81, 2
-  %tobool.not.i203.not = icmp eq i16 %and6.i202, 0
-  %and5.i205 = and i16 %82, -259
-  %spec.select = select i1 %tobool.not.i203.not, i16 %82, i16 %and5.i205
-  %83 = and i16 %81, 259
-  %and6.i212 = and i16 %spec.select, 4
-  %84 = or disjoint i16 %83, %and6.i212
-  %.not = icmp eq i16 %84, 0
-  br i1 %.not, label %86, label %85
+  %82 = and i16 %81, 263
+  %.not = icmp eq i16 %82, 0
+  br i1 %.not, label %84, label %83
 
-85:                                               ; preds = %if.then135
-  %tobool.not.i213.not = icmp eq i16 %and6.i212, 0
-  %and5.i215 = and i16 %spec.select, -261
-  %spec.select233 = select i1 %tobool.not.i213.not, i16 %spec.select, i16 %and5.i215
+83:                                               ; preds = %if.then135
+  %spec.select233 = and i16 %81, -264
   store i16 %spec.select233, ptr %wPortStatus.i184, align 8
-  br label %86
+  br label %84
 
-86:                                               ; preds = %if.then135, %85
+84:                                               ; preds = %if.then135, %83
   %wPortChange140 = getelementptr %struct.USBHubState, ptr %dev, i64 0, i32 5, i64 %idxprom99, i32 2
   store i16 0, ptr %wPortChange140, align 2
   br label %fail
@@ -861,14 +850,14 @@ if.then135:                                       ; preds = %sw.bb132
 sw.bb144:                                         ; preds = %if.end
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %data, ptr noundef nonnull align 1 dereferenceable(7) @qemu_hub_hub_descriptor, i64 7, i1 false)
   %num_ports146 = getelementptr inbounds %struct.USBHubState, ptr %dev, i64 0, i32 2
-  %87 = load i32, ptr %num_ports146, align 8
-  %conv147 = trunc i32 %87 to i8
+  %85 = load i32, ptr %num_ports146, align 8
+  %conv147 = trunc i32 %85 to i8
   %arrayidx148 = getelementptr i8, ptr %data, i64 2
   store i8 %conv147, ptr %arrayidx148, align 1
   %port_power149 = getelementptr inbounds %struct.USBHubState, ptr %dev, i64 0, i32 3
-  %88 = load i8, ptr %port_power149, align 4
-  %89 = and i8 %88, 1
-  %tobool150.not = icmp eq i8 %89, 0
+  %86 = load i8, ptr %port_power149, align 4
+  %87 = and i8 %86, 1
+  %tobool150.not = icmp eq i8 %87, 0
   br i1 %tobool150.not, label %if.end160, label %if.then151
 
 if.then151:                                       ; preds = %sw.bb144
@@ -877,50 +866,50 @@ if.then151:                                       ; preds = %sw.bb144
   br label %if.end160
 
 if.end160:                                        ; preds = %if.then151, %sw.bb144
-  %90 = load i32, ptr %num_ports146, align 8
-  %sub164 = add i32 %90, 8
+  %88 = load i32, ptr %num_ports146, align 8
+  %sub164 = add i32 %88, 8
   %div94 = lshr i32 %sub164, 3
   %add165 = add nuw nsw i32 %div94, 7
-  %cmp166221.not = icmp ugt i32 %90, -9
+  %cmp166221.not = icmp ugt i32 %88, -9
   br i1 %cmp166221.not, label %for.end, label %for.body.preheader
 
 for.body.preheader:                               ; preds = %if.end160
   %scevgep = getelementptr i8, ptr %data, i64 7
-  %91 = add nsw i32 %div94, -1
-  %92 = zext i32 %91 to i64
-  %93 = add nuw nsw i64 %92, 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep, i8 0, i64 %93, i1 false)
-  %94 = add nuw nsw i32 %div94, 7
+  %89 = add nsw i32 %div94, -1
+  %90 = zext i32 %89 to i64
+  %91 = add nuw nsw i64 %90, 1
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep, i8 0, i64 %91, i1 false)
+  %92 = add nuw nsw i32 %div94, 7
   %.pre = load i32, ptr %num_ports146, align 8
   br label %for.end
 
 for.end:                                          ; preds = %for.body.preheader, %if.end160
-  %95 = phi i32 [ %90, %if.end160 ], [ %.pre, %for.body.preheader ]
-  %n145.0.lcssa = phi i32 [ 7, %if.end160 ], [ %94, %for.body.preheader ]
+  %93 = phi i32 [ %88, %if.end160 ], [ %.pre, %for.body.preheader ]
+  %n145.0.lcssa = phi i32 [ 7, %if.end160 ], [ %92, %for.body.preheader ]
   %var_hub_size.0.lcssa = phi i32 [ 0, %if.end160 ], [ %div94, %for.body.preheader ]
-  %sub173 = add i32 %95, 7
+  %sub173 = add i32 %93, 7
   %div17495 = lshr i32 %sub173, 3
   %add175 = add nuw nsw i32 %div17495, %add165
   %cmp177225 = icmp ult i32 %n145.0.lcssa, %add175
   br i1 %cmp177225, label %for.body179.preheader, label %for.end185
 
 for.body179.preheader:                            ; preds = %for.end
-  %96 = zext nneg i32 %n145.0.lcssa to i64
-  %scevgep230 = getelementptr i8, ptr %data, i64 %96
-  %97 = add nuw nsw i32 %div94, %div17495
-  %98 = add nuw nsw i32 %97, 6
-  %99 = sub nsw i32 %98, %n145.0.lcssa
-  %100 = zext i32 %99 to i64
-  %101 = add nuw nsw i64 %100, 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep230, i8 -1, i64 %101, i1 false)
-  %102 = add nuw nsw i32 %var_hub_size.0.lcssa, %div94
-  %103 = add nuw nsw i32 %102, %div17495
-  %104 = add nuw nsw i32 %103, 7
-  %105 = sub nsw i32 %104, %n145.0.lcssa
+  %94 = zext nneg i32 %n145.0.lcssa to i64
+  %scevgep230 = getelementptr i8, ptr %data, i64 %94
+  %95 = add nuw nsw i32 %div94, %div17495
+  %96 = add nuw nsw i32 %95, 6
+  %97 = sub nsw i32 %96, %n145.0.lcssa
+  %98 = zext i32 %97 to i64
+  %99 = add nuw nsw i64 %98, 1
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep230, i8 -1, i64 %99, i1 false)
+  %100 = add nuw nsw i32 %var_hub_size.0.lcssa, %div94
+  %101 = add nuw nsw i32 %100, %div17495
+  %102 = add nuw nsw i32 %101, 7
+  %103 = sub nsw i32 %102, %n145.0.lcssa
   br label %for.end185
 
 for.end185:                                       ; preds = %for.body179.preheader, %for.end
-  %var_hub_size.1.lcssa = phi i32 [ %var_hub_size.0.lcssa, %for.end ], [ %105, %for.body179.preheader ]
+  %var_hub_size.1.lcssa = phi i32 [ %var_hub_size.0.lcssa, %for.end ], [ %103, %for.body179.preheader ]
   %add187 = add nsw i32 %var_hub_size.1.lcssa, 7
   %actual_length189 = getelementptr inbounds %struct.USBPacket, ptr %p, i64 0, i32 9
   store i32 %add187, ptr %actual_length189, align 8
@@ -928,7 +917,7 @@ for.end185:                                       ; preds = %for.body179.prehead
   store i8 %conv191, ptr %data, align 1
   br label %sw.epilog194
 
-fail:                                             ; preds = %if.end, %if.end97, %86, %sw.bb132, %trace_usb_hub_clear_port_feature.exit, %if.end60, %trace_usb_hub_set_port_feature.exit, %sw.bb40, %sw.bb13, %sw.bb
+fail:                                             ; preds = %if.end, %if.end97, %84, %sw.bb132, %trace_usb_hub_clear_port_feature.exit, %if.end60, %trace_usb_hub_set_port_feature.exit, %sw.bb40, %sw.bb13, %sw.bb
   %status = getelementptr inbounds %struct.USBPacket, ptr %p, i64 0, i32 8
   store i32 -3, ptr %status, align 4
   br label %sw.epilog194
