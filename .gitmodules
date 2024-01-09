@@ -214,3 +214,6 @@
 [submodule "bench/luajit/LuaJIT"]
 	path = bench/luajit/LuaJIT
 	url = git@github.com:LuaJIT/LuaJIT.git
+[submodule "bench/chibicc/chibicc"]
+	path = bench/chibicc/chibicc
+	url = git@github.com:rui314/chibicc.git
