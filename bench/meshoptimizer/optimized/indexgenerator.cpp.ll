@@ -607,7 +607,7 @@ if.end:                                           ; preds = %invoke.cont, %entry
   %2 = phi i64 [ 1, %invoke.cont ], [ 0, %entry ]
   %vertices.addr.0 = phi ptr [ %call.i30, %invoke.cont ], [ %vertices, %entry ]
   %3 = add i64 %vertex_size, -4
-  %4 = tail call i64 @llvm.fshl.i64(i64 %vertex_size, i64 %3, i64 62)
+  %4 = tail call i64 @llvm.fshl.i64(i64 %3, i64 %3, i64 62)
   %cmp8.not.i75 = icmp eq i64 %vertex_count, 0
   switch i64 %4, label %sw.default [
     i64 0, label %sw.bb

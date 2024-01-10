@@ -34192,7 +34192,7 @@ invoke.cont164:                                   ; preds = %.noexc257
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i253)
   %74 = load i32, ptr %n_layer, align 8
   %75 = add i32 %74, -24
-  %76 = call i32 @llvm.fshl.i32(i32 %74, i32 %75, i32 31)
+  %76 = call i32 @llvm.fshl.i32(i32 %75, i32 %75, i32 31)
   %77 = icmp ult i32 %76, 10
   br i1 %77, label %switch.lookup, label %sw.epilog253.sink.split
 
@@ -81386,6 +81386,9 @@ __cxx_global_var_init.170.exit:                   ; preds = %_ZN16llm_offload_tr
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #37
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.fshl.i32(i32, i32, i32) #38
+
 declare float @exp2f(float) local_unnamed_addr
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
@@ -81396,9 +81399,6 @@ declare i32 @llvm.abs.i32(i32, i1 immarg) #38
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @fputc(i32 noundef, ptr nocapture noundef) local_unnamed_addr #1
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.fshl.i32(i32, i32, i32) #38
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.abs.i64(i64, i1 immarg) #38

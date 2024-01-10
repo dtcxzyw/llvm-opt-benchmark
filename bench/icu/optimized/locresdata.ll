@@ -764,7 +764,7 @@ terminate.lpad:                                   ; preds = %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define i32 @uloc_getCharacterOrientation_75(ptr noundef %localeId, ptr noundef %status) local_unnamed_addr #1 {
+define noundef i32 @uloc_getCharacterOrientation_75(ptr noundef %localeId, ptr noundef %status) local_unnamed_addr #1 {
 entry:
   %call = tail call fastcc noundef i32 @_ZL26_uloc_getOrientationHelperPKcS0_P10UErrorCode(ptr noundef %localeId, ptr noundef nonnull @.str.3, ptr noundef %status), !range !4
   ret i32 %call
@@ -817,7 +817,7 @@ if.then12:                                        ; preds = %invoke.cont8
   %6 = load i16, ptr %call9, align 2
   %conv = zext i16 %6 to i32
   %7 = add nsw i32 %conv, -98
-  %8 = call i32 @llvm.fshl.i32(i32 %conv, i32 %7, i32 31)
+  %8 = call i32 @llvm.fshl.i32(i32 %7, i32 %7, i32 31)
   %9 = icmp ult i32 %8, 10
   br i1 %9, label %switch.hole_check, label %sw.default
 
@@ -865,7 +865,7 @@ if.end17:                                         ; preds = %if.end16, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define i32 @uloc_getLineOrientation_75(ptr noundef %localeId, ptr noundef %status) local_unnamed_addr #1 {
+define noundef i32 @uloc_getLineOrientation_75(ptr noundef %localeId, ptr noundef %status) local_unnamed_addr #1 {
 entry:
   %call = tail call fastcc noundef i32 @_ZL26_uloc_getOrientationHelperPKcS0_P10UErrorCode(ptr noundef %localeId, ptr noundef nonnull @.str.4, ptr noundef %status), !range !4
   ret i32 %call

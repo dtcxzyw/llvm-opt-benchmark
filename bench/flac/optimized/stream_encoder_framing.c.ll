@@ -870,7 +870,7 @@ if.end76:                                         ; preds = %sw.epilog72
   %bits_per_sample = getelementptr inbounds %struct.FLAC__FrameHeader, ptr %header, i64 0, i32 4
   %12 = load i32, ptr %bits_per_sample, align 8
   %13 = add i32 %12, -8
-  %14 = tail call i32 @llvm.fshl.i32(i32 %12, i32 %13, i32 30)
+  %14 = tail call i32 @llvm.fshl.i32(i32 %13, i32 %13, i32 30)
   %15 = icmp ult i32 %14, 7
   br i1 %15, label %switch.lookup, label %sw.epilog84
 
@@ -1015,7 +1015,7 @@ declare i32 @FLAC__bitwriter_write_unary_unsigned(ptr noundef, i32 noundef) loca
 declare i32 @FLAC__bitwriter_write_raw_int64(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden i32 @FLAC__subframe_add_fixed(ptr nocapture noundef readonly %subframe, i32 noundef %residual_samples, i32 noundef %subframe_bps, i32 noundef %wasted_bits, ptr noundef %bw) local_unnamed_addr #0 {
+define hidden noundef i32 @FLAC__subframe_add_fixed(ptr nocapture noundef readonly %subframe, i32 noundef %residual_samples, i32 noundef %subframe_bps, i32 noundef %wasted_bits, ptr noundef %bw) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr @FLAC__SUBFRAME_TYPE_FIXED_BYTE_ALIGNED_MASK, align 4
   %order = getelementptr inbounds %struct.FLAC__Subframe_Fixed, ptr %subframe, i64 0, i32 1
@@ -1113,7 +1113,7 @@ return:                                           ; preds = %for.body, %sw.bb.i,
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @add_residual_partitioned_rice_(ptr noundef %bw, ptr noundef %residual, i32 noundef %residual_samples, i32 noundef %predictor_order, ptr nocapture noundef readonly %rice_parameters, ptr nocapture noundef readonly %raw_bits, i32 noundef %partition_order, i32 noundef %is_extended) unnamed_addr #0 {
+define internal fastcc noundef i32 @add_residual_partitioned_rice_(ptr noundef %bw, ptr noundef %residual, i32 noundef %residual_samples, i32 noundef %predictor_order, ptr nocapture noundef readonly %rice_parameters, ptr nocapture noundef readonly %raw_bits, i32 noundef %partition_order, i32 noundef %is_extended) unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq i32 %is_extended, 0
   %0 = load i32, ptr @FLAC__ENTROPY_CODING_METHOD_PARTITIONED_RICE2_PARAMETER_LEN, align 4
@@ -1259,7 +1259,7 @@ return:                                           ; preds = %if.end84, %if.end63
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden i32 @FLAC__subframe_add_lpc(ptr nocapture noundef readonly %subframe, i32 noundef %residual_samples, i32 noundef %subframe_bps, i32 noundef %wasted_bits, ptr noundef %bw) local_unnamed_addr #0 {
+define hidden noundef i32 @FLAC__subframe_add_lpc(ptr nocapture noundef readonly %subframe, i32 noundef %residual_samples, i32 noundef %subframe_bps, i32 noundef %wasted_bits, ptr noundef %bw) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr @FLAC__SUBFRAME_TYPE_LPC_BYTE_ALIGNED_MASK, align 4
   %order = getelementptr inbounds %struct.FLAC__Subframe_LPC, ptr %subframe, i64 0, i32 1
@@ -1398,7 +1398,7 @@ return:                                           ; preds = %for.body, %for.body
 declare i32 @FLAC__bitwriter_write_raw_int32(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden i32 @FLAC__subframe_add_verbatim(ptr nocapture noundef readonly %subframe, i32 noundef %samples, i32 noundef %subframe_bps, i32 noundef %wasted_bits, ptr noundef %bw) local_unnamed_addr #0 {
+define hidden noundef i32 @FLAC__subframe_add_verbatim(ptr nocapture noundef readonly %subframe, i32 noundef %samples, i32 noundef %subframe_bps, i32 noundef %wasted_bits, ptr noundef %bw) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr @FLAC__SUBFRAME_TYPE_VERBATIM_BYTE_ALIGNED_MASK, align 4
   %tobool.not = icmp ne i32 %wasted_bits, 0

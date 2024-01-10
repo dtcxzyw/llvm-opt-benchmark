@@ -1246,7 +1246,7 @@ e100_write_reg4.exit.i:                           ; preds = %if.then.i47
 
 if.end.i38:                                       ; preds = %e100_write_reg4.exit.i, %sw.bb5
   %34 = add i32 %conv6, -4
-  %35 = tail call i32 @llvm.fshl.i32(i32 %conv6, i32 %34, i32 30)
+  %35 = tail call i32 @llvm.fshl.i32(i32 %34, i32 %34, i32 30)
   switch i32 %35, label %sw.default.i46 [
     i32 0, label %sw.epilog
     i32 1, label %sw.bb2.i
@@ -1567,7 +1567,7 @@ if.else.i:                                        ; preds = %entry
 e100_read_reg4.exit:                              ; preds = %entry
   %arrayidx.val.i = load i32, ptr %arrayidx.i, align 1
   %conv = and i32 %arrayidx.val.i, 3
-  switch i32 %conv, label %entry.unreachabledefault [
+  switch i32 %conv, label %default.unreachable [
     i32 0, label %sw.bb
     i32 1, label %sw.bb3
     i32 2, label %sw.bb9
@@ -1691,7 +1691,7 @@ nic_selective_reset.exit:                         ; preds = %for.end.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(64) %mdimem.i, ptr noundef nonnull align 16 dereferenceable(64) @eepro100_mdi_default, i64 64, i1 false)
   br label %sw.epilog
 
-entry.unreachabledefault:                         ; preds = %e100_read_reg4.exit
+default.unreachable:                              ; preds = %e100_read_reg4.exit
   unreachable
 
 sw.default:                                       ; preds = %e100_read_reg4.exit
@@ -1957,7 +1957,7 @@ if.end:                                           ; preds = %for.cond
   %3 = load i32, ptr %link, align 4
   store i32 %3, ptr %cu_offset, align 8
   %4 = and i16 %2, 7
-  switch i16 %4, label %if.end.unreachabledefault [
+  switch i16 %4, label %default.unreachable80 [
     i16 0, label %sw.epilog
     i16 1, label %sw.bb31
     i16 2, label %sw.bb35
@@ -2186,7 +2186,7 @@ sw.bb55:                                          ; preds = %if.end
   store i16 0, ptr %tx.i, align 8
   br label %sw.epilog
 
-if.end.unreachabledefault:                        ; preds = %if.end
+default.unreachable80:                            ; preds = %if.end
   unreachable
 
 sw.default:                                       ; preds = %if.end
@@ -2712,17 +2712,17 @@ declare void @qemu_del_nic(ptr noundef) local_unnamed_addr #1
 
 declare void @device_add_bootindex_property(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.fshl.i32(i32, i32, i32) #7
+
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #7
+declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.fshl.i32(i32, i32, i32) #8
+declare i16 @llvm.umin.i16(i16, i16) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.umin.i16(i16, i16) #8
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #8
+declare i64 @llvm.umin.i64(i64, i64) #7
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #9
@@ -2740,8 +2740,8 @@ attributes #3 = { mustprogress nofree nounwind willreturn memory(argmem: read) "
 attributes #4 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { allocsize(1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { nofree nounwind }
-attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #8 = { nofree nounwind }
 attributes #9 = { nofree nounwind willreturn memory(argmem: read) }
 attributes #10 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #11 = { nounwind }

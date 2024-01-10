@@ -19617,7 +19617,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %0 = add i32 %BitWidth, -16
-  %1 = tail call i32 @llvm.fshl.i32(i32 %BitWidth, i32 %0, i32 28)
+  %1 = tail call i32 @llvm.fshl.i32(i32 %0, i32 %0, i32 28)
   switch i32 %1, label %sw.default [
     i32 0, label %sw.bb
     i32 1, label %sw.bb1
@@ -22137,13 +22137,13 @@ declare void @_ZNK4llvh5APInt7ProfileERNS_16FoldingSetNodeIDE(ptr noundef nonnul
 declare void @llvm.assume(i1 noundef) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.fshl.i32(i32, i32, i32) #20
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.abs.i32(i32, i1 immarg) #20
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #21
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.fshl.i32(i32, i32, i32) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #20
