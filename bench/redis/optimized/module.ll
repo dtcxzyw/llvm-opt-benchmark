@@ -10369,8 +10369,8 @@ declare void @listTypeDelete(ptr noundef, ptr noundef) local_unnamed_addr #1
 define dso_local i32 @moduleZsetAddFlagsToCoreFlags(i32 noundef %flags) local_unnamed_addr #22 {
 entry:
   %trunc = trunc i32 %flags to i3
-  %rev = tail call i3 @llvm.bitreverse.i3(i3 %trunc)
-  %mask = and i3 %rev, -2
+  %0 = and i3 %trunc, 3
+  %mask = tail call i3 @llvm.bitreverse.i3(i3 %0)
   %retflags.1 = zext i3 %mask to i32
   %and6 = lshr i32 %flags, 2
   %retflags.2 = and i32 %and6, 24
@@ -10455,15 +10455,15 @@ if.end12:                                         ; preds = %if.end8
 if.end12.thread:                                  ; preds = %if.end8
   %6 = load i32, ptr %flagsptr, align 4
   %trunc.i = trunc i32 %6 to i3
-  %rev.i = tail call i3 @llvm.bitreverse.i3(i3 %trunc.i)
-  %mask.i = and i3 %rev.i, -2
+  %7 = and i3 %trunc.i, 3
+  %mask.i = tail call i3 @llvm.bitreverse.i3(i3 %7)
   %retflags.1.i = zext i3 %mask.i to i32
   %and6.i = lshr i32 %6, 2
   %retflags.2.i = and i32 %and6.i, 24
   %retflags.3.i = or disjoint i32 %retflags.2.i, %retflags.1.i
   %ptr16 = getelementptr inbounds %struct.redisObject, ptr %ele, i64 0, i32 2
-  %7 = load ptr, ptr %ptr16, align 8
-  %call1417 = call i32 @zsetAdd(ptr noundef nonnull %4, double noundef %score, ptr noundef %7, i32 noundef %retflags.3.i, ptr noundef nonnull %out_flags, ptr noundef null) #32
+  %8 = load ptr, ptr %ptr16, align 8
+  %call1417 = call i32 @zsetAdd(ptr noundef nonnull %4, double noundef %score, ptr noundef %8, i32 noundef %retflags.3.i, ptr noundef nonnull %out_flags, ptr noundef null) #32
   %cmp1518 = icmp eq i32 %call1417, 0
   br i1 %cmp1518, label %if.then18, label %if.then23
 
@@ -10476,11 +10476,11 @@ if.end19:                                         ; preds = %if.end12, %if.then1
   br label %return
 
 if.then23:                                        ; preds = %if.end12.thread
-  %8 = load i32, ptr %out_flags, align 4
-  %retflags.1.i12 = and i32 %8, 12
-  %and6.i13 = shl i32 %8, 4
-  %9 = and i32 %and6.i13, 16
-  %retflags.2.i14 = or disjoint i32 %9, %retflags.1.i12
+  %9 = load i32, ptr %out_flags, align 4
+  %retflags.1.i12 = and i32 %9, 12
+  %and6.i13 = shl i32 %9, 4
+  %10 = and i32 %and6.i13, 16
+  %retflags.2.i14 = or disjoint i32 %10, %retflags.1.i12
   store i32 %retflags.2.i14, ptr %flagsptr, align 4
   br label %return
 
@@ -10558,15 +10558,16 @@ if.end12:                                         ; preds = %if.end8
 if.end12.thread:                                  ; preds = %if.end8
   %6 = load i32, ptr %flagsptr, align 4
   %trunc.i = trunc i32 %6 to i3
-  %rev.i = tail call i3 @llvm.bitreverse.i3(i3 %trunc.i)
-  %retflags.1.i = zext i3 %rev.i to i32
+  %7 = and i3 %trunc.i, 3
+  %mask.i = tail call i3 @llvm.bitreverse.i3(i3 %7)
+  %retflags.1.i = zext i3 %mask.i to i32
   %and6.i = lshr i32 %6, 2
   %retflags.2.i = and i32 %and6.i, 24
   %retflags.3.i = or disjoint i32 %retflags.2.i, %retflags.1.i
-  %7 = or i32 %retflags.3.i, 1
+  %8 = or disjoint i32 %retflags.3.i, 1
   %ptr17 = getelementptr inbounds %struct.redisObject, ptr %ele, i64 0, i32 2
-  %8 = load ptr, ptr %ptr17, align 8
-  %call1418 = call i32 @zsetAdd(ptr noundef nonnull %4, double noundef %score, ptr noundef %8, i32 noundef %7, ptr noundef nonnull %out_flags, ptr noundef %newscore) #32
+  %9 = load ptr, ptr %ptr17, align 8
+  %call1418 = call i32 @zsetAdd(ptr noundef nonnull %4, double noundef %score, ptr noundef %9, i32 noundef %8, ptr noundef nonnull %out_flags, ptr noundef %newscore) #32
   %cmp1519 = icmp eq i32 %call1418, 0
   br i1 %cmp1519, label %if.then18, label %if.then23
 
@@ -10579,11 +10580,11 @@ if.end19:                                         ; preds = %if.end12, %if.then1
   br label %return
 
 if.then23:                                        ; preds = %if.end12.thread
-  %9 = load i32, ptr %out_flags, align 4
-  %retflags.1.i13 = and i32 %9, 12
-  %and6.i14 = shl i32 %9, 4
-  %10 = and i32 %and6.i14, 16
-  %retflags.2.i15 = or disjoint i32 %10, %retflags.1.i13
+  %10 = load i32, ptr %out_flags, align 4
+  %retflags.1.i13 = and i32 %10, 12
+  %and6.i14 = shl i32 %10, 4
+  %11 = and i32 %and6.i14, 16
+  %retflags.2.i15 = or disjoint i32 %11, %retflags.1.i13
   store i32 %retflags.2.i15, ptr %flagsptr, align 4
   br label %return
 
