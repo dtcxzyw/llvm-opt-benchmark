@@ -217,3 +217,6 @@
 [submodule "bench/chibicc/chibicc"]
 	path = bench/chibicc/chibicc
 	url = git@github.com:rui314/chibicc.git
+[submodule "bench/mold/mold"]
+	path = bench/mold/mold
+	url = git@github.com:rui314/mold.git
