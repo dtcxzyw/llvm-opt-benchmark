@@ -6401,15 +6401,15 @@ if.then.i:                                        ; preds = %while.body.i
   %add.ptr7.i = getelementptr inbounds i16, ptr %arrayidx44.phi.trans.insert.i, i64 12
   %v4.0.copyload.i = load i64, ptr %add.ptr7.i, align 2
   %or.i = tail call i64 @llvm.fshl.i64(i64 %v1.0.copyload.i, i64 %v1.0.copyload.i, i64 56)
-  %or13.i = tail call i64 @llvm.fshl.i64(i64 %v2.0.copyload.i, i64 %v2.0.copyload.i, i64 56)
-  %or19.i = tail call i64 @llvm.fshl.i64(i64 %v3.0.copyload.i, i64 %v3.0.copyload.i, i64 56)
-  %or25.i = tail call i64 @llvm.fshl.i64(i64 %v4.0.copyload.i, i64 %or.i, i64 56)
-  %0 = or i64 %or13.i, %or19.i
-  %1 = or i64 %0, %or25.i
-  %or29.i = or i64 %1, %or.i
+  %0 = or i64 %v3.0.copyload.i, %v2.0.copyload.i
+  %1 = or i64 %v2.0.copyload.i, %v4.0.copyload.i
+  %2 = or i64 %1, %v3.0.copyload.i
+  %3 = or i64 %0, %or.i
+  %4 = tail call i64 @llvm.fshl.i64(i64 %2, i64 %3, i64 56)
+  %or29.i = or i64 %4, %or.i
   %and.i = and i64 %or29.i, -71777214294589696
   %cmp30.i = icmp eq i64 %and.i, 0
-  %2 = trunc i64 %v1.0.copyload.i to i16
+  %5 = trunc i64 %v1.0.copyload.i to i16
   br i1 %cmp30.i, label %while.cond33.preheader.i, label %cond.end48.i
 
 while.cond33.preheader.i:                         ; preds = %if.then.i
@@ -6420,8 +6420,8 @@ cond.end.i:                                       ; preds = %while.cond33.prehea
   %latin_output.addr.140.i = phi ptr [ %incdec.ptr.i, %cond.end.i ], [ %latin_output.addr.044.i, %while.cond33.preheader.i ]
   %pos.139.i = phi i64 [ %inc.i, %cond.end.i ], [ %pos.043.i, %while.cond33.preheader.i ]
   %arrayidx.i = getelementptr inbounds i16, ptr %buf, i64 %pos.139.i
-  %3 = load i16, ptr %arrayidx.i, align 2
-  %or.i.i = lshr i16 %3, 8
+  %6 = load i16, ptr %arrayidx.i, align 2
+  %or.i.i = lshr i16 %6, 8
   %cond.i = trunc i16 %or.i.i to i8
   %incdec.ptr.i = getelementptr inbounds i8, ptr %latin_output.addr.140.i, i64 1
   store i8 %cond.i, ptr %latin_output.addr.140.i, align 1
@@ -6430,8 +6430,8 @@ cond.end.i:                                       ; preds = %while.cond33.prehea
   br i1 %exitcond.not.i, label %while.cond.backedge.i, label %cond.end.i, !llvm.loop !60
 
 cond.end48.i:                                     ; preds = %if.then.i, %while.body.cond.end48_crit_edge.i
-  %4 = phi i16 [ %.pre.i, %while.body.cond.end48_crit_edge.i ], [ %2, %if.then.i ]
-  %or.i35.i = tail call noundef i16 @llvm.bswap.i16(i16 %4)
+  %7 = phi i16 [ %.pre.i, %while.body.cond.end48_crit_edge.i ], [ %5, %if.then.i ]
+  %or.i35.i = tail call noundef i16 @llvm.bswap.i16(i16 %7)
   %cmp52.i = icmp ult i16 %or.i35.i, 256
   br i1 %cmp52.i, label %if.then53.i, label %_ZN7simdutf6scalar12_GLOBAL__N_115utf16_to_latin119convert_with_errorsILNS_10endiannessE1EEENS_6resultEPKDsmPc.exit
 
@@ -30961,15 +30961,15 @@ if.then.i15:                                      ; preds = %while.body.i13
   %add.ptr7.i = getelementptr inbounds i16, ptr %arrayidx44.phi.trans.insert.i, i64 12
   %v4.0.copyload.i = load i64, ptr %add.ptr7.i, align 2
   %or.i = tail call i64 @llvm.fshl.i64(i64 %v1.0.copyload.i, i64 %v1.0.copyload.i, i64 56)
-  %or13.i = tail call i64 @llvm.fshl.i64(i64 %v2.0.copyload.i, i64 %v2.0.copyload.i, i64 56)
-  %or19.i = tail call i64 @llvm.fshl.i64(i64 %v3.0.copyload.i, i64 %v3.0.copyload.i, i64 56)
-  %or25.i = tail call i64 @llvm.fshl.i64(i64 %v4.0.copyload.i, i64 %or.i, i64 56)
-  %12 = or i64 %or13.i, %or19.i
-  %13 = or i64 %12, %or25.i
-  %or29.i = or i64 %13, %or.i
+  %12 = or i64 %v3.0.copyload.i, %v2.0.copyload.i
+  %13 = or i64 %v2.0.copyload.i, %v4.0.copyload.i
+  %14 = or i64 %13, %v3.0.copyload.i
+  %15 = or i64 %12, %or.i
+  %16 = tail call i64 @llvm.fshl.i64(i64 %14, i64 %15, i64 56)
+  %or29.i = or i64 %16, %or.i
   %and.i = and i64 %or29.i, -71777214294589696
   %cmp30.i = icmp eq i64 %and.i, 0
-  %14 = trunc i64 %v1.0.copyload.i to i16
+  %17 = trunc i64 %v1.0.copyload.i to i16
   br i1 %cmp30.i, label %while.cond33.preheader.i, label %cond.end48.i
 
 while.cond33.preheader.i:                         ; preds = %if.then.i15
@@ -30980,8 +30980,8 @@ cond.end.i19:                                     ; preds = %while.cond33.prehea
   %latin_output.addr.140.i = phi ptr [ %incdec.ptr.i22, %cond.end.i19 ], [ %latin_output.addr.044.i, %while.cond33.preheader.i ]
   %pos.139.i = phi i64 [ %inc.i, %cond.end.i19 ], [ %pos.043.i, %while.cond33.preheader.i ]
   %arrayidx.i20 = getelementptr inbounds i16, ptr %add.ptr, i64 %pos.139.i
-  %15 = load i16, ptr %arrayidx.i20, align 2
-  %or.i.i21 = lshr i16 %15, 8
+  %18 = load i16, ptr %arrayidx.i20, align 2
+  %or.i.i21 = lshr i16 %18, 8
   %cond.i = trunc i16 %or.i.i21 to i8
   %incdec.ptr.i22 = getelementptr inbounds i8, ptr %latin_output.addr.140.i, i64 1
   store i8 %cond.i, ptr %latin_output.addr.140.i, align 1
@@ -30990,8 +30990,8 @@ cond.end.i19:                                     ; preds = %while.cond33.prehea
   br i1 %exitcond.not.i23, label %while.cond.backedge.i, label %cond.end.i19, !llvm.loop !60
 
 cond.end48.i:                                     ; preds = %if.then.i15, %while.body.cond.end48_crit_edge.i
-  %16 = phi i16 [ %.pre.i, %while.body.cond.end48_crit_edge.i ], [ %14, %if.then.i15 ]
-  %or.i35.i = tail call noundef i16 @llvm.bswap.i16(i16 %16)
+  %19 = phi i16 [ %.pre.i, %while.body.cond.end48_crit_edge.i ], [ %17, %if.then.i15 ]
+  %or.i35.i = tail call noundef i16 @llvm.bswap.i16(i16 %19)
   %cmp52.i = icmp ult i16 %or.i35.i, 256
   br i1 %cmp52.i, label %if.then53.i, label %if.then11
 
@@ -45030,15 +45030,15 @@ if.then.i15:                                      ; preds = %while.body.i13
   %add.ptr7.i = getelementptr inbounds i16, ptr %arrayidx44.phi.trans.insert.i, i64 12
   %v4.0.copyload.i = load i64, ptr %add.ptr7.i, align 2
   %or.i = tail call i64 @llvm.fshl.i64(i64 %v1.0.copyload.i, i64 %v1.0.copyload.i, i64 56)
-  %or13.i = tail call i64 @llvm.fshl.i64(i64 %v2.0.copyload.i, i64 %v2.0.copyload.i, i64 56)
-  %or19.i = tail call i64 @llvm.fshl.i64(i64 %v3.0.copyload.i, i64 %v3.0.copyload.i, i64 56)
-  %or25.i = tail call i64 @llvm.fshl.i64(i64 %v4.0.copyload.i, i64 %or.i, i64 56)
-  %6 = or i64 %or13.i, %or19.i
-  %7 = or i64 %6, %or25.i
-  %or29.i = or i64 %7, %or.i
+  %6 = or i64 %v3.0.copyload.i, %v2.0.copyload.i
+  %7 = or i64 %v2.0.copyload.i, %v4.0.copyload.i
+  %8 = or i64 %7, %v3.0.copyload.i
+  %9 = or i64 %6, %or.i
+  %10 = tail call i64 @llvm.fshl.i64(i64 %8, i64 %9, i64 56)
+  %or29.i = or i64 %10, %or.i
   %and.i = and i64 %or29.i, -71777214294589696
   %cmp30.i = icmp eq i64 %and.i, 0
-  %8 = trunc i64 %v1.0.copyload.i to i16
+  %11 = trunc i64 %v1.0.copyload.i to i16
   br i1 %cmp30.i, label %while.cond33.preheader.i, label %cond.end48.i
 
 while.cond33.preheader.i:                         ; preds = %if.then.i15
@@ -45049,8 +45049,8 @@ cond.end.i19:                                     ; preds = %while.cond33.prehea
   %latin_output.addr.140.i = phi ptr [ %incdec.ptr.i22, %cond.end.i19 ], [ %latin_output.addr.044.i, %while.cond33.preheader.i ]
   %pos.139.i = phi i64 [ %inc.i, %cond.end.i19 ], [ %pos.043.i, %while.cond33.preheader.i ]
   %arrayidx.i20 = getelementptr inbounds i16, ptr %add.ptr, i64 %pos.139.i
-  %9 = load i16, ptr %arrayidx.i20, align 2
-  %or.i.i21 = lshr i16 %9, 8
+  %12 = load i16, ptr %arrayidx.i20, align 2
+  %or.i.i21 = lshr i16 %12, 8
   %cond.i = trunc i16 %or.i.i21 to i8
   %incdec.ptr.i22 = getelementptr inbounds i8, ptr %latin_output.addr.140.i, i64 1
   store i8 %cond.i, ptr %latin_output.addr.140.i, align 1
@@ -45059,8 +45059,8 @@ cond.end.i19:                                     ; preds = %while.cond33.prehea
   br i1 %exitcond.not.i23, label %while.cond.backedge.i, label %cond.end.i19, !llvm.loop !60
 
 cond.end48.i:                                     ; preds = %if.then.i15, %while.body.cond.end48_crit_edge.i
-  %10 = phi i16 [ %.pre.i, %while.body.cond.end48_crit_edge.i ], [ %8, %if.then.i15 ]
-  %or.i35.i = tail call noundef i16 @llvm.bswap.i16(i16 %10)
+  %13 = phi i16 [ %.pre.i, %while.body.cond.end48_crit_edge.i ], [ %11, %if.then.i15 ]
+  %or.i35.i = tail call noundef i16 @llvm.bswap.i16(i16 %13)
   %cmp52.i = icmp ult i16 %or.i35.i, 256
   br i1 %cmp52.i, label %if.then53.i, label %if.then11
 

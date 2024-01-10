@@ -101,7 +101,7 @@ if.end:                                           ; preds = %if.then, %entry
   %prev_addr.0 = phi i64 [ %3, %if.then ], [ 0, %entry ]
   %4 = lshr i8 %0, 3
   %5 = and i8 %4, 3
-  switch i8 %5, label %if.end.unreachabledefault [
+  switch i8 %5, label %default.unreachable13 [
     i8 0, label %sw.epilog
     i8 1, label %sw.bb10
     i8 2, label %sw.bb17
@@ -129,7 +129,7 @@ sw.bb20:                                          ; preds = %if.end
   %or2.i = or disjoint i64 %or.i, 3
   br label %sw.epilog
 
-if.end.unreachabledefault:                        ; preds = %if.end
+default.unreachable13:                            ; preds = %if.end
   unreachable
 
 sw.epilog:                                        ; preds = %sw.bb10, %if.end, %sw.bb20, %sw.bb17
@@ -313,14 +313,14 @@ if.then68:                                        ; preds = %if.end28
   %and58.le = lshr i8 %12, 2
   %shr59.le = and i8 %and58.le, 1
   %trunc = trunc i8 %12 to i3
-  %rev = tail call i3 @llvm.bitreverse.i3(i3 %trunc)
-  %mask = and i3 %rev, -2
+  %14 = and i3 %trunc, 3
+  %mask = tail call i3 @llvm.bitreverse.i3(i3 %14)
   %or43.le = zext i3 %mask to i8
   %or51.le = or disjoint i8 %shr.le, %or43.le
   %or60.le = or disjoint i8 %or51.le, %shr59.le
   %mseccfg = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 104
-  %14 = load i64, ptr %mseccfg, align 8
-  %and69 = and i64 %14, 1
+  %15 = load i64, ptr %mseccfg, align 8
+  %and69 = and i64 %15, 1
   %tobool70.not = icmp eq i64 %and69, 0
   br i1 %tobool70.not, label %if.then71, label %if.else85
 
@@ -334,58 +334,58 @@ if.then71.if.then76_crit_edge:                    ; preds = %if.then71
   br label %if.then76
 
 lor.lhs.false:                                    ; preds = %if.then71
-  %15 = load i64, ptr %mseccfg, align 8
-  %16 = and i64 %15, 4
-  %tobool.not.i64 = icmp eq i64 %16, 0
+  %16 = load i64, ptr %mseccfg, align 8
+  %17 = and i64 %16, 4
+  %tobool.not.i64 = icmp eq i64 %17, 0
   br i1 %tobool.not.i64, label %pmp_is_locked.exit, label %if.end109
 
 pmp_is_locked.exit:                               ; preds = %lor.lhs.false
-  %17 = load i8, ptr %cfg_reg, align 8
-  %tobool75.not = icmp sgt i8 %17, -1
+  %18 = load i8, ptr %cfg_reg, align 8
+  %tobool75.not = icmp sgt i8 %18, -1
   br i1 %tobool75.not, label %if.end109, label %if.then76
 
 if.then76:                                        ; preds = %if.then71.if.then76_crit_edge, %pmp_is_locked.exit
-  %18 = phi i8 [ %.pre, %if.then71.if.then76_crit_edge ], [ %17, %pmp_is_locked.exit ]
-  %19 = and i8 %18, 7
-  %and83 = zext nneg i8 %19 to i32
+  %19 = phi i8 [ %.pre, %if.then71.if.then76_crit_edge ], [ %18, %pmp_is_locked.exit ]
+  %20 = and i8 %19, 7
+  %and83 = zext nneg i8 %20 to i32
   br label %if.end109.sink.split
 
 if.else85:                                        ; preds = %if.then68
   %cmp86 = icmp eq i64 %mode, 3
-  br i1 %cmp86, label %switch.lookup, label %switch.lookup100
+  br i1 %cmp86, label %switch.lookup, label %switch.lookup101
 
 switch.lookup:                                    ; preds = %if.else85
-  %20 = zext nneg i8 %or60.le to i64
-  %switch.gep = getelementptr inbounds [16 x i32], ptr @switch.table.pmp_hart_has_privs, i64 0, i64 %20
+  %21 = zext nneg i8 %or60.le to i64
+  %switch.gep = getelementptr inbounds [16 x i32], ptr @switch.table.pmp_hart_has_privs, i64 0, i64 %21
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %if.end109.sink.split
 
-switch.lookup100:                                 ; preds = %if.else85
-  %21 = zext nneg i8 %or60.le to i64
-  %switch.gep101 = getelementptr inbounds [16 x i32], ptr @switch.table.pmp_hart_has_privs.2, i64 0, i64 %21
-  %switch.load102 = load i32, ptr %switch.gep101, align 4
+switch.lookup101:                                 ; preds = %if.else85
+  %22 = zext nneg i8 %or60.le to i64
+  %switch.gep102 = getelementptr inbounds [16 x i32], ptr @switch.table.pmp_hart_has_privs.2, i64 0, i64 %22
+  %switch.load103 = load i32, ptr %switch.gep102, align 4
   br label %if.end109.sink.split
 
-if.end109.sink.split:                             ; preds = %switch.lookup100, %switch.lookup, %if.then76
-  %.sink = phi i32 [ %and83, %if.then76 ], [ %switch.load, %switch.lookup ], [ %switch.load102, %switch.lookup100 ]
+if.end109.sink.split:                             ; preds = %switch.lookup101, %switch.lookup, %if.then76
+  %.sink = phi i32 [ %and83, %if.then76 ], [ %switch.load, %switch.lookup ], [ %switch.load103, %switch.lookup101 ]
   store i32 %.sink, ptr %allowed_privs, align 4
   br label %if.end109
 
 if.end109:                                        ; preds = %if.end109.sink.split, %lor.lhs.false, %pmp_is_locked.exit
-  %22 = phi i32 [ 7, %lor.lhs.false ], [ 7, %pmp_is_locked.exit ], [ %.sink, %if.end109.sink.split ]
-  %and110 = and i32 %22, %privs
+  %23 = phi i32 [ 7, %lor.lhs.false ], [ 7, %pmp_is_locked.exit ], [ %.sink, %if.end109.sink.split ]
+  %and110 = and i32 %23, %privs
   %cmp111 = icmp eq i32 %and110, %privs
   br label %return
 
 for.end:                                          ; preds = %for.cond
   %mseccfg.i67 = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 104
-  %23 = load i64, ptr %mseccfg.i67, align 8
-  %24 = and i64 %23, 2
-  %tobool.not.i68 = icmp eq i64 %24, 0
+  %24 = load i64, ptr %mseccfg.i67, align 8
+  %25 = and i64 %24, 2
+  %tobool.not.i68 = icmp eq i64 %25, 0
   br i1 %tobool.not.i68, label %if.else.i71, label %pmp_hart_has_privs_default.exit86
 
 if.else.i71:                                      ; preds = %for.end
-  %and2.i72 = and i64 %23, 1
+  %and2.i72 = and i64 %24, 1
   %tobool4.not.i73 = icmp eq i64 %and2.i72, 0
   br i1 %tobool4.not.i73, label %if.end12.i80, label %if.then5.i74
 
@@ -399,9 +399,9 @@ if.then5.i74:                                     ; preds = %if.else.i71
 
 if.end12.i80:                                     ; preds = %if.else.i71
   %pmp.i81 = getelementptr i8, ptr %env, i64 8977
-  %25 = load i8, ptr %pmp.i81, align 1
-  %26 = and i8 %25, 1
-  %tobool13.not10.i82 = icmp eq i8 %26, 0
+  %26 = load i8, ptr %pmp.i81, align 1
+  %27 = and i8 %26, 1
+  %tobool13.not10.i82 = icmp eq i8 %27, 0
   %cmp14.i83 = icmp eq i64 %mode, 3
   %or.cond.i84 = or i1 %cmp14.i83, %tobool13.not10.i82
   %..i85 = select i1 %or.cond.i84, i32 7, i32 0
@@ -578,7 +578,7 @@ if.end.i43.i:                                     ; preds = %if.then.i.i12, %if.
   %prev_addr.0.i.i = phi i64 [ %24, %if.then.i.i12 ], [ 0, %if.then57.i ]
   %25 = lshr i8 %val.addr.0.i, 3
   %26 = and i8 %25, 3
-  switch i8 %26, label %if.end.unreachabledefault.i.i [
+  switch i8 %26, label %default.unreachable [
     i8 0, label %pmp_update_rule_addr.exit.i
     i8 1, label %sw.bb10.i.i
     i8 2, label %sw.bb17.i.i
@@ -606,7 +606,7 @@ sw.bb20.i.i:                                      ; preds = %if.end.i43.i
   %or2.i.i.i = or disjoint i64 %or.i.i.i, 3
   br label %pmp_update_rule_addr.exit.i
 
-if.end.unreachabledefault.i.i:                    ; preds = %if.end.i43.i
+default.unreachable:                              ; preds = %if.end.i43.i
   unreachable
 
 pmp_update_rule_addr.exit.i:                      ; preds = %sw.bb20.i.i, %sw.bb17.i.i, %sw.bb10.i.i, %if.end.i43.i
@@ -874,7 +874,7 @@ if.end.i23:                                       ; preds = %if.then.i, %if.then
   %prev_addr.0.i = phi i64 [ %18, %if.then.i ], [ 0, %if.then26 ]
   %19 = lshr i8 %16, 3
   %20 = and i8 %19, 3
-  switch i8 %20, label %if.end.unreachabledefault.i [
+  switch i8 %20, label %default.unreachable [
     i8 0, label %pmp_update_rule_addr.exit
     i8 1, label %sw.bb10.i
     i8 2, label %sw.bb17.i
@@ -902,7 +902,7 @@ sw.bb20.i:                                        ; preds = %if.end.i23
   %or2.i.i = or disjoint i64 %or.i.i, 3
   br label %pmp_update_rule_addr.exit
 
-if.end.unreachabledefault.i:                      ; preds = %if.end.i23
+default.unreachable:                              ; preds = %if.then33, %if.end.i23
   unreachable
 
 pmp_update_rule_addr.exit:                        ; preds = %if.end.i23, %sw.bb10.i, %sw.bb17.i, %sw.bb20.i
@@ -922,7 +922,7 @@ if.then33:                                        ; preds = %pmp_update_rule_add
   %22 = load i64, ptr %arrayidx.i27, align 16
   %23 = lshr i8 %21, 3
   %24 = and i8 %23, 3
-  switch i8 %24, label %if.end.unreachabledefault.i53 [
+  switch i8 %24, label %default.unreachable [
     i8 0, label %pmp_update_rule_addr.exit54
     i8 1, label %sw.bb10.i47
     i8 2, label %sw.bb17.i44
@@ -950,9 +950,6 @@ sw.bb20.i34:                                      ; preds = %if.then33
   %or.i.i38 = or i64 %shl.i.i35, %add.i.i36
   %or2.i.i39 = or disjoint i64 %or.i.i38, 3
   br label %pmp_update_rule_addr.exit54
-
-if.end.unreachabledefault.i53:                    ; preds = %if.then33
-  unreachable
 
 pmp_update_rule_addr.exit54:                      ; preds = %if.then33, %sw.bb10.i47, %sw.bb17.i44, %sw.bb20.i34
   %sa.0.i40 = phi i64 [ %and.i.i37, %sw.bb20.i34 ], [ %shl18.i45, %sw.bb17.i44 ], [ 0, %if.then33 ], [ %spec.select.i51, %sw.bb10.i47 ]

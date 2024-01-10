@@ -5793,8 +5793,8 @@ if.end70.i.i.i:                                   ; preds = %if.end61.i.i.i
   call void @llvm.memset.p0.i64(ptr nonnull align 16 %buffer.i71.i.i, i8 0, i64 %conv75.i.i.i, i1 false)
   %type.i.i.i = getelementptr inbounds %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %85, i64 %indvars.iv182.i.i.i, i32 3
   %bf.load.i.i.i = load i8, ptr %type.i.i.i, align 2
-  %rev.i.i.i = tail call i8 @llvm.bitreverse.i8(i8 %bf.load.i.i.i)
-  %mask.i.i.i = and i8 %rev.i.i.i, -64
+  %88 = and i8 %bf.load.i.i.i, 3
+  %mask.i.i.i = tail call i8 @llvm.bitreverse.i8(i8 %88)
   store i8 %mask.i.i.i, ptr %buffer.i71.i.i, align 16
   %call85.i.i.i = call i64 @fwrite(ptr noundef nonnull %buffer.i71.i.i, i64 noundef 1, i64 noundef %conv75.i.i.i, ptr noundef %call.i20) #28
   %cmp87.not.i.i.i = icmp eq i64 %call85.i.i.i, %conv75.i.i.i
@@ -5805,12 +5805,12 @@ if.end90.i.i.i:                                   ; preds = %if.end70.i.i.i
   br i1 %cmp5.not.i127.i.i.i, label %pack_uint32_.exit140.i.i.i, label %for.body.preheader.i128.i.i.i
 
 for.body.preheader.i128.i.i.i:                    ; preds = %if.end90.i.i.i
-  %88 = load i8, ptr %num_indices.i.i.i, align 1
+  %89 = load i8, ptr %num_indices.i.i.i, align 1
   br label %for.body.i131.i.i.i
 
 for.body.i131.i.i.i:                              ; preds = %for.body.i131.i.i.i, %for.body.preheader.i128.i.i.i
   %i.08.i132.i.i.i = phi i32 [ %inc.i138.i.i.i, %for.body.i131.i.i.i ], [ 0, %for.body.preheader.i128.i.i.i ]
-  %val.addr.07.i133.i.i.i = phi i8 [ 0, %for.body.i131.i.i.i ], [ %88, %for.body.preheader.i128.i.i.i ]
+  %val.addr.07.i133.i.i.i = phi i8 [ 0, %for.body.i131.i.i.i ], [ %89, %for.body.preheader.i128.i.i.i ]
   %b.addr.06.i134.i.i.i = phi ptr [ %incdec.ptr.i136.i.i.i, %for.body.i131.i.i.i ], [ %add.ptr.i130.i.i.i, %for.body.preheader.i128.i.i.i ]
   %incdec.ptr.i136.i.i.i = getelementptr inbounds i8, ptr %b.addr.06.i134.i.i.i, i64 -1
   store i8 %val.addr.07.i133.i.i.i, ptr %incdec.ptr.i136.i.i.i, align 1
@@ -5824,8 +5824,8 @@ pack_uint32_.exit140.i.i.i:                       ; preds = %for.body.i131.i.i.i
   br i1 %cmp98.not.i.i.i, label %for.cond102.preheader.i.i.i, label %write_metadata_block_data_cuesheet_cb_.exit.i.i
 
 for.cond102.preheader.i.i.i:                      ; preds = %pack_uint32_.exit140.i.i.i
-  %89 = load i8, ptr %num_indices.i.i.i, align 1
-  %cmp105171.not.i.i.i = icmp eq i8 %89, 0
+  %90 = load i8, ptr %num_indices.i.i.i, align 1
+  %cmp105171.not.i.i.i = icmp eq i8 %90, 0
   br i1 %cmp105171.not.i.i.i, label %for.inc144.i.i.i, label %for.body107.lr.ph.i.i.i
 
 for.body107.lr.ph.i.i.i:                          ; preds = %for.cond102.preheader.i.i.i
@@ -5834,24 +5834,24 @@ for.body107.lr.ph.i.i.i:                          ; preds = %for.cond102.prehead
 
 for.cond102.i.i.i:                                ; preds = %if.end132.i.i.i
   %indvars.iv.next.i93.i.i = add nuw nsw i64 %indvars.iv.i92.i.i, 1
-  %90 = load i8, ptr %num_indices.i.i.i, align 1
-  %91 = zext i8 %90 to i64
-  %cmp105.i.i.i = icmp ult i64 %indvars.iv.next.i93.i.i, %91
+  %91 = load i8, ptr %num_indices.i.i.i, align 1
+  %92 = zext i8 %91 to i64
+  %cmp105.i.i.i = icmp ult i64 %indvars.iv.next.i93.i.i, %92
   br i1 %cmp105.i.i.i, label %for.body107.i.i.i, label %for.inc144.i.i.i, !llvm.loop !30
 
 for.body107.i.i.i:                                ; preds = %for.cond102.i.i.i, %for.body107.lr.ph.i.i.i
   %indvars.iv.i92.i.i = phi i64 [ 0, %for.body107.lr.ph.i.i.i ], [ %indvars.iv.next.i93.i.i, %for.cond102.i.i.i ]
-  %92 = load ptr, ptr %indices.i.i.i, align 8
+  %93 = load ptr, ptr %indices.i.i.i, align 8
   br i1 %cmp5.not.i141.i.i.i, label %pack_uint64_.exit154.i.i.i, label %for.body.preheader.i142.i.i.i
 
 for.body.preheader.i142.i.i.i:                    ; preds = %for.body107.i.i.i
-  %add.ptr109.i.i.i = getelementptr inbounds %struct.FLAC__StreamMetadata_CueSheet_Index, ptr %92, i64 %indvars.iv.i92.i.i
-  %93 = load i64, ptr %add.ptr109.i.i.i, align 8
+  %add.ptr109.i.i.i = getelementptr inbounds %struct.FLAC__StreamMetadata_CueSheet_Index, ptr %93, i64 %indvars.iv.i92.i.i
+  %94 = load i64, ptr %add.ptr109.i.i.i, align 8
   br label %for.body.i145.i.i.i
 
 for.body.i145.i.i.i:                              ; preds = %for.body.i145.i.i.i, %for.body.preheader.i142.i.i.i
   %i.08.i146.i.i.i = phi i32 [ %inc.i152.i.i.i, %for.body.i145.i.i.i ], [ 0, %for.body.preheader.i142.i.i.i ]
-  %val.addr.07.i147.i.i.i = phi i64 [ %shr.i151.i.i.i, %for.body.i145.i.i.i ], [ %93, %for.body.preheader.i142.i.i.i ]
+  %val.addr.07.i147.i.i.i = phi i64 [ %shr.i151.i.i.i, %for.body.i145.i.i.i ], [ %94, %for.body.preheader.i142.i.i.i ]
   %b.addr.06.i148.i.i.i = phi ptr [ %incdec.ptr.i150.i.i.i, %for.body.i145.i.i.i ], [ %add.ptr.i144.i.i.i, %for.body.preheader.i142.i.i.i ]
   %conv.i149.i.i.i = trunc i64 %val.addr.07.i147.i.i.i to i8
   %incdec.ptr.i150.i.i.i = getelementptr inbounds i8, ptr %b.addr.06.i148.i.i.i, i64 -1
@@ -5870,13 +5870,13 @@ if.end120.i.i.i:                                  ; preds = %pack_uint64_.exit15
   br i1 %cmp5.not.i155.i.i.i, label %pack_uint32_.exit168.i.i.i, label %for.body.preheader.i156.i.i.i
 
 for.body.preheader.i156.i.i.i:                    ; preds = %if.end120.i.i.i
-  %number122.i.i.i = getelementptr inbounds %struct.FLAC__StreamMetadata_CueSheet_Index, ptr %92, i64 %indvars.iv.i92.i.i, i32 1
-  %94 = load i8, ptr %number122.i.i.i, align 8
+  %number122.i.i.i = getelementptr inbounds %struct.FLAC__StreamMetadata_CueSheet_Index, ptr %93, i64 %indvars.iv.i92.i.i, i32 1
+  %95 = load i8, ptr %number122.i.i.i, align 8
   br label %for.body.i159.i.i.i
 
 for.body.i159.i.i.i:                              ; preds = %for.body.i159.i.i.i, %for.body.preheader.i156.i.i.i
   %i.08.i160.i.i.i = phi i32 [ %inc.i166.i.i.i, %for.body.i159.i.i.i ], [ 0, %for.body.preheader.i156.i.i.i ]
-  %val.addr.07.i161.i.i.i = phi i8 [ 0, %for.body.i159.i.i.i ], [ %94, %for.body.preheader.i156.i.i.i ]
+  %val.addr.07.i161.i.i.i = phi i8 [ 0, %for.body.i159.i.i.i ], [ %95, %for.body.preheader.i156.i.i.i ]
   %b.addr.06.i162.i.i.i = phi ptr [ %incdec.ptr.i164.i.i.i, %for.body.i159.i.i.i ], [ %add.ptr.i158.i.i.i, %for.body.preheader.i156.i.i.i ]
   %incdec.ptr.i164.i.i.i = getelementptr inbounds i8, ptr %b.addr.06.i162.i.i.i, i64 -1
   store i8 %val.addr.07.i161.i.i.i, ptr %incdec.ptr.i164.i.i.i, align 1
@@ -5897,9 +5897,9 @@ if.end132.i.i.i:                                  ; preds = %pack_uint32_.exit16
 
 for.inc144.i.i.i:                                 ; preds = %for.cond102.i.i.i, %for.cond102.preheader.i.i.i
   %indvars.iv.next183.i.i.i = add nuw nsw i64 %indvars.iv182.i.i.i, 1
-  %95 = load i32, ptr %num_tracks.i.i.i, align 4
-  %96 = zext i32 %95 to i64
-  %cmp39.i.i.i = icmp ult i64 %indvars.iv.next183.i.i.i, %96
+  %96 = load i32, ptr %num_tracks.i.i.i, align 4
+  %97 = zext i32 %96 to i64
+  %cmp39.i.i.i = icmp ult i64 %indvars.iv.next183.i.i.i, %97
   br i1 %cmp39.i.i.i, label %for.body.i91.i.i, label %write_metadata_block_data_cuesheet_cb_.exit.i.i, !llvm.loop !31
 
 write_metadata_block_data_cuesheet_cb_.exit.i.i:  ; preds = %for.inc144.i.i.i, %pack_uint32_.exit140.i.i.i, %if.end70.i.i.i, %if.end61.i.i.i, %pack_uint32_.exit126.i.i.i, %pack_uint64_.exit112.i.i.i, %if.end132.i.i.i, %pack_uint32_.exit168.i.i.i, %pack_uint64_.exit154.i.i.i, %for.cond.preheader.i89.i.i, %pack_uint32_.exit.i88.i.i, %if.end19.i.i.i, %pack_uint64_.exit.i87.i.i, %sw.bb14.i.i
@@ -5913,12 +5913,12 @@ sw.bb17.i.i:                                      ; preds = %if.end5.i.i
 
 for.body.preheader.i.i97.i.i:                     ; preds = %sw.bb17.i.i
   %data18.i.i = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %37, i64 0, i32 3
-  %97 = load i32, ptr %data18.i.i, align 8
+  %98 = load i32, ptr %data18.i.i, align 8
   br label %for.body.i.i100.i.i
 
 for.body.i.i100.i.i:                              ; preds = %for.body.i.i100.i.i, %for.body.preheader.i.i97.i.i
   %i.08.i.i101.i.i = phi i32 [ %inc.i.i107.i.i, %for.body.i.i100.i.i ], [ 0, %for.body.preheader.i.i97.i.i ]
-  %val.addr.07.i.i102.i.i = phi i32 [ %shr.i.i106.i.i, %for.body.i.i100.i.i ], [ %97, %for.body.preheader.i.i97.i.i ]
+  %val.addr.07.i.i102.i.i = phi i32 [ %shr.i.i106.i.i, %for.body.i.i100.i.i ], [ %98, %for.body.preheader.i.i97.i.i ]
   %b.addr.06.i.i103.i.i = phi ptr [ %incdec.ptr.i.i105.i.i, %for.body.i.i100.i.i ], [ %add.ptr.i.i99.i.i, %for.body.preheader.i.i97.i.i ]
   %conv.i.i104.i.i = trunc i32 %val.addr.07.i.i102.i.i to i8
   %incdec.ptr.i.i105.i.i = getelementptr inbounds i8, ptr %b.addr.06.i.i103.i.i, i64 -1
@@ -5935,8 +5935,8 @@ pack_uint32_.exit.i109.i.i:                       ; preds = %for.body.i.i100.i.i
 
 if.end.i113.i.i:                                  ; preds = %pack_uint32_.exit.i109.i.i
   %mime_type.i.i.i = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %37, i64 0, i32 3, i32 0, i32 0, i64 8
-  %98 = load ptr, ptr %mime_type.i.i.i, align 8
-  %call5.i.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %98) #30
+  %99 = load ptr, ptr %mime_type.i.i.i, align 8
+  %call5.i.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %99) #30
   br i1 %cmp5.not.i69.i.i.i, label %pack_uint32_.exit82.i.i.i, label %for.body.preheader.i70.i.i.i
 
 for.body.preheader.i70.i.i.i:                     ; preds = %if.end.i113.i.i
@@ -5961,15 +5961,15 @@ pack_uint32_.exit82.i.i.i:                        ; preds = %for.body.i73.i.i.i,
   br i1 %cmp12.not.i.i.i, label %if.end15.i.i.i, label %write_metadata_block_data_picture_cb_.exit.i.i
 
 if.end15.i.i.i:                                   ; preds = %pack_uint32_.exit82.i.i.i
-  %99 = load ptr, ptr %mime_type.i.i.i, align 8
-  %call17.i.i.i = tail call i64 @fwrite(ptr noundef %99, i64 noundef 1, i64 noundef %call5.i.i.i, ptr noundef %call.i20) #28
+  %100 = load ptr, ptr %mime_type.i.i.i, align 8
+  %call17.i.i.i = tail call i64 @fwrite(ptr noundef %100, i64 noundef 1, i64 noundef %call5.i.i.i, ptr noundef %call.i20) #28
   %cmp18.not.i.i.i = icmp eq i64 %call17.i.i.i, %call5.i.i.i
   br i1 %cmp18.not.i.i.i, label %if.end21.i.i.i, label %write_metadata_block_data_picture_cb_.exit.i.i
 
 if.end21.i.i.i:                                   ; preds = %if.end15.i.i.i
   %description.i.i.i = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %37, i64 0, i32 3, i32 0, i32 0, i64 16
-  %100 = load ptr, ptr %description.i.i.i, align 8
-  %call23.i.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %100) #30
+  %101 = load ptr, ptr %description.i.i.i, align 8
+  %call23.i.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %101) #30
   br i1 %cmp5.not.i83.i.i.i, label %pack_uint32_.exit96.i.i.i, label %for.body.preheader.i84.i.i.i
 
 for.body.preheader.i84.i.i.i:                     ; preds = %if.end21.i.i.i
@@ -5994,8 +5994,8 @@ pack_uint32_.exit96.i.i.i:                        ; preds = %for.body.i87.i.i.i,
   br i1 %cmp30.not.i.i.i, label %if.end33.i.i.i, label %write_metadata_block_data_picture_cb_.exit.i.i
 
 if.end33.i.i.i:                                   ; preds = %pack_uint32_.exit96.i.i.i
-  %101 = load ptr, ptr %description.i.i.i, align 8
-  %call35.i.i.i = tail call i64 @fwrite(ptr noundef %101, i64 noundef 1, i64 noundef %call23.i.i.i, ptr noundef %call.i20) #28
+  %102 = load ptr, ptr %description.i.i.i, align 8
+  %call35.i.i.i = tail call i64 @fwrite(ptr noundef %102, i64 noundef 1, i64 noundef %call23.i.i.i, ptr noundef %call.i20) #28
   %cmp36.not.i115.i.i = icmp eq i64 %call35.i.i.i, %call23.i.i.i
   br i1 %cmp36.not.i115.i.i, label %if.end39.i116.i.i, label %write_metadata_block_data_picture_cb_.exit.i.i
 
@@ -6004,12 +6004,12 @@ if.end39.i116.i.i:                                ; preds = %if.end33.i.i.i
 
 for.body.preheader.i98.i.i.i:                     ; preds = %if.end39.i116.i.i
   %width.i.i.i = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %37, i64 0, i32 3, i32 0, i32 0, i64 24
-  %102 = load i32, ptr %width.i.i.i, align 8
+  %103 = load i32, ptr %width.i.i.i, align 8
   br label %for.body.i101.i.i.i
 
 for.body.i101.i.i.i:                              ; preds = %for.body.i101.i.i.i, %for.body.preheader.i98.i.i.i
   %i.08.i102.i.i.i = phi i32 [ %inc.i108.i.i.i, %for.body.i101.i.i.i ], [ 0, %for.body.preheader.i98.i.i.i ]
-  %val.addr.07.i103.i.i.i = phi i32 [ %shr.i107.i.i.i, %for.body.i101.i.i.i ], [ %102, %for.body.preheader.i98.i.i.i ]
+  %val.addr.07.i103.i.i.i = phi i32 [ %shr.i107.i.i.i, %for.body.i101.i.i.i ], [ %103, %for.body.preheader.i98.i.i.i ]
   %b.addr.06.i104.i.i.i = phi ptr [ %incdec.ptr.i106.i.i.i, %for.body.i101.i.i.i ], [ %add.ptr.i100.i.i.i, %for.body.preheader.i98.i.i.i ]
   %conv.i105.i.i.i = trunc i32 %val.addr.07.i103.i.i.i to i8
   %incdec.ptr.i106.i.i.i = getelementptr inbounds i8, ptr %b.addr.06.i104.i.i.i, i64 -1
@@ -6029,12 +6029,12 @@ if.end49.i.i.i:                                   ; preds = %pack_uint32_.exit11
 
 for.body.preheader.i112.i.i.i:                    ; preds = %if.end49.i.i.i
   %height.i.i.i = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %37, i64 0, i32 3, i32 0, i32 0, i64 28
-  %103 = load i32, ptr %height.i.i.i, align 4
+  %104 = load i32, ptr %height.i.i.i, align 4
   br label %for.body.i115.i.i.i
 
 for.body.i115.i.i.i:                              ; preds = %for.body.i115.i.i.i, %for.body.preheader.i112.i.i.i
   %i.08.i116.i.i.i = phi i32 [ %inc.i122.i.i.i, %for.body.i115.i.i.i ], [ 0, %for.body.preheader.i112.i.i.i ]
-  %val.addr.07.i117.i.i.i = phi i32 [ %shr.i121.i.i.i, %for.body.i115.i.i.i ], [ %103, %for.body.preheader.i112.i.i.i ]
+  %val.addr.07.i117.i.i.i = phi i32 [ %shr.i121.i.i.i, %for.body.i115.i.i.i ], [ %104, %for.body.preheader.i112.i.i.i ]
   %b.addr.06.i118.i.i.i = phi ptr [ %incdec.ptr.i120.i.i.i, %for.body.i115.i.i.i ], [ %add.ptr.i114.i.i.i, %for.body.preheader.i112.i.i.i ]
   %conv.i119.i.i.i = trunc i32 %val.addr.07.i117.i.i.i to i8
   %incdec.ptr.i120.i.i.i = getelementptr inbounds i8, ptr %b.addr.06.i118.i.i.i, i64 -1
@@ -6054,12 +6054,12 @@ if.end59.i.i.i:                                   ; preds = %pack_uint32_.exit12
 
 for.body.preheader.i126.i.i.i:                    ; preds = %if.end59.i.i.i
   %depth.i.i.i = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %37, i64 0, i32 3, i32 0, i32 0, i64 32
-  %104 = load i32, ptr %depth.i.i.i, align 8
+  %105 = load i32, ptr %depth.i.i.i, align 8
   br label %for.body.i129.i.i.i
 
 for.body.i129.i.i.i:                              ; preds = %for.body.i129.i.i.i, %for.body.preheader.i126.i.i.i
   %i.08.i130.i.i.i = phi i32 [ %inc.i136.i.i.i, %for.body.i129.i.i.i ], [ 0, %for.body.preheader.i126.i.i.i ]
-  %val.addr.07.i131.i.i.i = phi i32 [ %shr.i135.i.i.i, %for.body.i129.i.i.i ], [ %104, %for.body.preheader.i126.i.i.i ]
+  %val.addr.07.i131.i.i.i = phi i32 [ %shr.i135.i.i.i, %for.body.i129.i.i.i ], [ %105, %for.body.preheader.i126.i.i.i ]
   %b.addr.06.i132.i.i.i = phi ptr [ %incdec.ptr.i134.i.i.i, %for.body.i129.i.i.i ], [ %add.ptr.i128.i.i.i, %for.body.preheader.i126.i.i.i ]
   %conv.i133.i.i.i = trunc i32 %val.addr.07.i131.i.i.i to i8
   %incdec.ptr.i134.i.i.i = getelementptr inbounds i8, ptr %b.addr.06.i132.i.i.i, i64 -1
@@ -6079,12 +6079,12 @@ if.end69.i.i.i:                                   ; preds = %pack_uint32_.exit13
 
 for.body.preheader.i140.i.i.i:                    ; preds = %if.end69.i.i.i
   %colors.i.i.i = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %37, i64 0, i32 3, i32 0, i32 0, i64 36
-  %105 = load i32, ptr %colors.i.i.i, align 4
+  %106 = load i32, ptr %colors.i.i.i, align 4
   br label %for.body.i143.i.i.i
 
 for.body.i143.i.i.i:                              ; preds = %for.body.i143.i.i.i, %for.body.preheader.i140.i.i.i
   %i.08.i144.i.i.i = phi i32 [ %inc.i150.i.i.i, %for.body.i143.i.i.i ], [ 0, %for.body.preheader.i140.i.i.i ]
-  %val.addr.07.i145.i.i.i = phi i32 [ %shr.i149.i.i.i, %for.body.i143.i.i.i ], [ %105, %for.body.preheader.i140.i.i.i ]
+  %val.addr.07.i145.i.i.i = phi i32 [ %shr.i149.i.i.i, %for.body.i143.i.i.i ], [ %106, %for.body.preheader.i140.i.i.i ]
   %b.addr.06.i146.i.i.i = phi ptr [ %incdec.ptr.i148.i.i.i, %for.body.i143.i.i.i ], [ %add.ptr.i142.i.i.i, %for.body.preheader.i140.i.i.i ]
   %conv.i147.i.i.i = trunc i32 %val.addr.07.i145.i.i.i to i8
   %incdec.ptr.i148.i.i.i = getelementptr inbounds i8, ptr %b.addr.06.i146.i.i.i, i64 -1
@@ -6104,12 +6104,12 @@ if.end79.i.i.i:                                   ; preds = %pack_uint32_.exit15
   br i1 %cmp5.not.i153.i.i.i, label %pack_uint32_.exit166.i.i.i, label %for.body.preheader.i154.i.i.i
 
 for.body.preheader.i154.i.i.i:                    ; preds = %if.end79.i.i.i
-  %106 = load i32, ptr %data_length.i.i.i, align 8
+  %107 = load i32, ptr %data_length.i.i.i, align 8
   br label %for.body.i157.i.i.i
 
 for.body.i157.i.i.i:                              ; preds = %for.body.i157.i.i.i, %for.body.preheader.i154.i.i.i
   %i.08.i158.i.i.i = phi i32 [ %inc.i164.i.i.i, %for.body.i157.i.i.i ], [ 0, %for.body.preheader.i154.i.i.i ]
-  %val.addr.07.i159.i.i.i = phi i32 [ %shr.i163.i.i.i, %for.body.i157.i.i.i ], [ %106, %for.body.preheader.i154.i.i.i ]
+  %val.addr.07.i159.i.i.i = phi i32 [ %shr.i163.i.i.i, %for.body.i157.i.i.i ], [ %107, %for.body.preheader.i154.i.i.i ]
   %b.addr.06.i160.i.i.i = phi ptr [ %incdec.ptr.i162.i.i.i, %for.body.i157.i.i.i ], [ %add.ptr.i156.i.i.i, %for.body.preheader.i154.i.i.i ]
   %conv.i161.i.i.i = trunc i32 %val.addr.07.i159.i.i.i to i8
   %incdec.ptr.i162.i.i.i = getelementptr inbounds i8, ptr %b.addr.06.i160.i.i.i, i64 -1
@@ -6126,12 +6126,12 @@ pack_uint32_.exit166.i.i.i:                       ; preds = %for.body.i157.i.i.i
 
 if.end89.i.i.i:                                   ; preds = %pack_uint32_.exit166.i.i.i
   %data.i117.i.i = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %37, i64 0, i32 3, i32 0, i32 0, i64 48
-  %107 = load ptr, ptr %data.i117.i.i, align 8
-  %108 = load i32, ptr %data_length.i.i.i, align 8
-  %conv91.i.i.i = zext i32 %108 to i64
-  %call92.i.i.i = tail call i64 @fwrite(ptr noundef %107, i64 noundef 1, i64 noundef %conv91.i.i.i, ptr noundef %call.i20) #28
+  %108 = load ptr, ptr %data.i117.i.i, align 8
   %109 = load i32, ptr %data_length.i.i.i, align 8
-  %conv94.i.i.i = zext i32 %109 to i64
+  %conv91.i.i.i = zext i32 %109 to i64
+  %call92.i.i.i = tail call i64 @fwrite(ptr noundef %108, i64 noundef 1, i64 noundef %conv91.i.i.i, ptr noundef %call.i20) #28
+  %110 = load i32, ptr %data_length.i.i.i, align 8
+  %conv94.i.i.i = zext i32 %110 to i64
   %cmp95.not.i.i.i = icmp eq i64 %call92.i.i.i, %conv94.i.i.i
   %..i118.i.i = zext i1 %cmp95.not.i.i.i to i32
   br label %write_metadata_block_data_picture_cb_.exit.i.i
@@ -6144,9 +6144,9 @@ write_metadata_block_data_picture_cb_.exit.i.i:   ; preds = %if.end89.i.i.i, %pa
 sw.default.i.i:                                   ; preds = %if.end5.i.i
   %data20.i.i = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %37, i64 0, i32 3
   %length21.i.i = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %37, i64 0, i32 2
-  %110 = load i32, ptr %length21.i.i, align 8
+  %111 = load i32, ptr %length21.i.i, align 8
   %data20.val.i.i = load ptr, ptr %data20.i.i, align 8
-  %conv.i120.i.i = zext i32 %110 to i64
+  %conv.i120.i.i = zext i32 %111 to i64
   %call.i121.i.i = tail call i64 @fwrite(ptr noundef %data20.val.i.i, i64 noundef 1, i64 noundef %conv.i120.i.i, ptr noundef %call.i20) #28
   %cmp.not.i122.i.i = icmp eq i64 %call.i121.i.i, %conv.i120.i.i
   %..i123.i.i = zext i1 %cmp.not.i122.i.i to i32
@@ -6172,8 +6172,8 @@ if.else:                                          ; preds = %if.end11
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %tempfile.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %tempfilename.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %status.i23)
-  %111 = load ptr, ptr %chain, align 8
-  %call.i24 = tail call noalias ptr @fopen64(ptr noundef %111, ptr noundef nonnull @.str.30)
+  %112 = load ptr, ptr %chain, align 8
+  %call.i24 = tail call noalias ptr @fopen64(ptr noundef %112, ptr noundef nonnull @.str.30)
   %cmp.i25 = icmp eq ptr %call.i24, null
   br i1 %cmp.i25, label %if.then.i53, label %if.end.i26
 
@@ -6183,8 +6183,8 @@ if.then.i53:                                      ; preds = %if.else
   br label %chain_rewrite_file_.exit.thread
 
 if.end.i26:                                       ; preds = %if.else
-  %112 = load ptr, ptr %chain, align 8
-  %call.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %112) #30
+  %113 = load ptr, ptr %chain, align 8
+  %call.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %113) #30
   %add2.i.i = add i64 %call.i.i, 15
   %spec.select.i.i.i = tail call i64 @llvm.umax.i64(i64 %add2.i.i, i64 1)
   %call.i.i.i27 = tail call noalias noundef ptr @malloc(i64 noundef %spec.select.i.i.i) #31
@@ -6193,7 +6193,7 @@ if.end.i26:                                       ; preds = %if.else
   br i1 %cmp4.i.i, label %err.thread.i, label %if.end.i.i28
 
 if.end.i.i28:                                     ; preds = %if.end.i26
-  tail call void (ptr, i64, ptr, ...) @local_snprintf(ptr noundef nonnull %call.i.i.i27, i64 noundef %add2.i.i, ptr noundef nonnull @.str.33, ptr noundef %112, ptr noundef nonnull @.str.32)
+  tail call void (ptr, i64, ptr, ...) @local_snprintf(ptr noundef nonnull %call.i.i.i27, i64 noundef %add2.i.i, ptr noundef nonnull @.str.33, ptr noundef %113, ptr noundef nonnull @.str.32)
   %call25.i.i = tail call noalias ptr @fopen64(ptr noundef nonnull %call.i.i.i27, ptr noundef nonnull @.str.35)
   store ptr %call25.i.i, ptr %tempfile.i, align 8
   %cmp26.i.i = icmp eq ptr %call25.i.i, null
@@ -6207,9 +6207,9 @@ err.thread.i:                                     ; preds = %if.end.i.i28, %if.e
 
 if.end7.i:                                        ; preds = %if.end.i.i28
   %first_offset.i = getelementptr inbounds %struct.FLAC__Metadata_Chain, ptr %chain, i64 0, i32 6
-  %113 = load i64, ptr %first_offset.i, align 8
+  %114 = load i64, ptr %first_offset.i, align 8
   call void @llvm.lifetime.start.p0(i64 8192, ptr nonnull %buffer.i.i)
-  %cmp9.i.i = icmp sgt i64 %113, 0
+  %cmp9.i.i = icmp sgt i64 %114, 0
   br i1 %cmp9.i.i, label %while.body.i.i, label %if.end13.i
 
 while.cond.i.i:                                   ; preds = %if.end.i25.i
@@ -6218,7 +6218,7 @@ while.cond.i.i:                                   ; preds = %if.end.i25.i
   br i1 %cmp.i.i, label %while.body.i.i, label %if.end13.i, !llvm.loop !18
 
 while.body.i.i:                                   ; preds = %if.end7.i, %while.cond.i.i
-  %bytes.addr.010.i.i = phi i64 [ %sub.i.i, %while.cond.i.i ], [ %113, %if.end7.i ]
+  %bytes.addr.010.i.i = phi i64 [ %sub.i.i, %while.cond.i.i ], [ %114, %if.end7.i ]
   %cond.i.i = tail call i64 @llvm.umin.i64(i64 %bytes.addr.010.i.i, i64 8192)
   %call.i22.i = call i64 @fread(ptr noundef nonnull %buffer.i.i, i64 noundef 1, i64 noundef %cond.i.i, ptr noundef nonnull %call.i24)
   %cmp2.not.i.i = icmp eq i64 %call.i22.i, %cond.i.i
@@ -6245,7 +6245,7 @@ if.end13.i:                                       ; preds = %while.cond.i.i, %if
   br i1 %tobool14.not12.i, label %for.end.i, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %if.end13.i
-  %114 = load i32, ptr @FLAC__STREAM_METADATA_LENGTH_LEN, align 4
+  %115 = load i32, ptr @FLAC__STREAM_METADATA_LENGTH_LEN, align 4
   %add.ptr.i.i.i.i29 = getelementptr inbounds i8, ptr %buffer.i.i.i22, i64 4
   br label %for.body.i
 
@@ -6257,11 +6257,11 @@ for.cond.i:                                       ; preds = %if.end20.i
 
 for.body.i:                                       ; preds = %for.cond.i, %for.body.lr.ph.i
   %node.013.i = phi ptr [ %node.011.i, %for.body.lr.ph.i ], [ %node.0.i, %for.cond.i ]
-  %115 = load ptr, ptr %node.013.i, align 8
+  %116 = load ptr, ptr %node.013.i, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %buffer.i.i.i22)
-  %length.i.i.i30 = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %115, i64 0, i32 2
-  %116 = load i32, ptr %length.i.i.i30, align 8
-  %.highbits.i.i.i31 = lshr i32 %116, %114
+  %length.i.i.i30 = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %116, i64 0, i32 2
+  %117 = load i32, ptr %length.i.i.i30, align 8
+  %.highbits.i.i.i31 = lshr i32 %117, %115
   %cmp.not.i.i.i32 = icmp eq i32 %.highbits.i.i.i31, 0
   br i1 %cmp.not.i.i.i32, label %if.end.i.i.i35, label %write_metadata_block_header_cb_.exit.thread.i.i33
 
@@ -6270,19 +6270,19 @@ write_metadata_block_header_cb_.exit.thread.i.i33: ; preds = %for.body.i
   br label %err.i
 
 if.end.i.i.i35:                                   ; preds = %for.body.i
-  %is_last.i.i.i36 = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %115, i64 0, i32 1
-  %117 = load i32, ptr %is_last.i.i.i36, align 4
-  %tobool.not.i.i.i37 = icmp eq i32 %117, 0
+  %is_last.i.i.i36 = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %116, i64 0, i32 1
+  %118 = load i32, ptr %is_last.i.i.i36, align 4
+  %tobool.not.i.i.i37 = icmp eq i32 %118, 0
   %cond.i.i.i38 = select i1 %tobool.not.i.i.i37, i32 0, i32 128
-  %118 = load i32, ptr %115, align 8
-  %or.i.i.i39 = or i32 %cond.i.i.i38, %118
+  %119 = load i32, ptr %116, align 8
+  %or.i.i.i39 = or i32 %cond.i.i.i38, %119
   %conv2.i.i.i40 = trunc i32 %or.i.i.i39 to i8
   store i8 %conv2.i.i.i40, ptr %buffer.i.i.i22, align 1
   br label %for.body.i.i.i.i41
 
 for.body.i.i.i.i41:                               ; preds = %for.body.i.i.i.i41, %if.end.i.i.i35
   %i.08.i.i.i.i42 = phi i32 [ %inc.i.i.i.i48, %for.body.i.i.i.i41 ], [ 0, %if.end.i.i.i35 ]
-  %val.addr.07.i.i.i.i43 = phi i32 [ %shr.i.i.i.i47, %for.body.i.i.i.i41 ], [ %116, %if.end.i.i.i35 ]
+  %val.addr.07.i.i.i.i43 = phi i32 [ %shr.i.i.i.i47, %for.body.i.i.i.i41 ], [ %117, %if.end.i.i.i35 ]
   %b.addr.06.i.i.i.i44 = phi ptr [ %incdec.ptr.i.i.i.i46, %for.body.i.i.i.i41 ], [ %add.ptr.i.i.i.i29, %if.end.i.i.i35 ]
   %conv.i.i.i.i45 = trunc i32 %val.addr.07.i.i.i.i43 to i8
   %incdec.ptr.i.i.i.i46 = getelementptr inbounds i8, ptr %b.addr.06.i.i.i.i44, i64 -1
@@ -6299,20 +6299,20 @@ write_metadata_block_header_cb_.exit.i.i50:       ; preds = %for.body.i.i.i.i41
   br i1 %cmp5.not.i.not.i.i51, label %if.end20.i, label %err.i
 
 if.end20.i:                                       ; preds = %write_metadata_block_header_cb_.exit.i.i50
-  %119 = load ptr, ptr %node.013.i, align 8
-  %call22.i = call fastcc i32 @write_metadata_block_data_(ptr noundef nonnull %call25.i.i, ptr noundef nonnull %status.i23, ptr noundef %119), !range !4
+  %120 = load ptr, ptr %node.013.i, align 8
+  %call22.i = call fastcc i32 @write_metadata_block_data_(ptr noundef nonnull %call25.i.i, ptr noundef nonnull %status.i23, ptr noundef %120), !range !4
   %tobool23.not.i = icmp eq i32 %call22.i, 0
   br i1 %tobool23.not.i, label %if.then24.i, label %for.cond.i
 
 if.then24.i:                                      ; preds = %if.end20.i
-  %120 = load i32, ptr %status.i23, align 4
-  %. = tail call i32 @llvm.umin.i32(i32 %120, i32 12)
+  %121 = load i32, ptr %status.i23, align 4
+  %. = tail call i32 @llvm.umin.i32(i32 %121, i32 12)
   br label %err.i
 
 for.end.i:                                        ; preds = %for.cond.i, %if.end13.i
   %last_offset.i = getelementptr inbounds %struct.FLAC__Metadata_Chain, ptr %chain, i64 0, i32 7
-  %121 = load i64, ptr %last_offset.i, align 8
-  %call28.i = tail call i32 @fseeko64(ptr noundef nonnull %call.i24, i64 noundef %121, i32 noundef 0)
+  %122 = load i64, ptr %last_offset.i, align 8
+  %call28.i = tail call i32 @fseeko64(ptr noundef nonnull %call.i24, i64 noundef %122, i32 noundef 0)
   %cmp29.not.i = icmp eq i32 %call28.i, 0
   br i1 %cmp29.not.i, label %if.end32.i, label %err.i
 
@@ -6374,8 +6374,8 @@ chain_rewrite_file_.exit.thread:                  ; preds = %if.then.i53, %if.en
 chain_rewrite_file_.exit:                         ; preds = %if.end10.i.i, %if.end32.i
   call void @llvm.lifetime.end.p0(i64 8192, ptr nonnull %buffer.i70.i)
   %call39.i = tail call i32 @fclose(ptr noundef nonnull %call.i24)
-  %122 = load ptr, ptr %chain, align 8
-  %call41.i = call fastcc i32 @transport_tempfile_(ptr noundef %122, ptr noundef nonnull %tempfile.i, ptr noundef nonnull %tempfilename.i, ptr noundef nonnull %status.i23), !range !4
+  %123 = load ptr, ptr %chain, align 8
+  %call41.i = call fastcc i32 @transport_tempfile_(ptr noundef %123, ptr noundef nonnull %tempfile.i, ptr noundef nonnull %tempfilename.i, ptr noundef nonnull %status.i23), !range !4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %tempfile.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %tempfilename.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %status.i23)
@@ -6384,21 +6384,21 @@ chain_rewrite_file_.exit:                         ; preds = %if.end10.i.i, %if.e
 
 if.end21:                                         ; preds = %chain_rewrite_file_.exit
   store i64 %call, ptr %initial_length, align 8
-  %123 = load i64, ptr %first_offset.i, align 8
-  store i64 %123, ptr %last_offset.i, align 8
+  %124 = load i64, ptr %first_offset.i, align 8
+  store i64 %124, ptr %last_offset.i, align 8
   %node.063 = load ptr, ptr %head.i, align 8
   %tobool23.not64 = icmp eq ptr %node.063, null
   br i1 %tobool23.not64, label %if.end26, label %for.body
 
 for.body:                                         ; preds = %if.end21, %for.body
-  %124 = phi i64 [ %add25, %for.body ], [ %123, %if.end21 ]
+  %125 = phi i64 [ %add25, %for.body ], [ %124, %if.end21 ]
   %node.065 = phi ptr [ %node.0, %for.body ], [ %node.063, %if.end21 ]
-  %125 = load ptr, ptr %node.065, align 8
-  %length = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %125, i64 0, i32 2
-  %126 = load i32, ptr %length, align 8
-  %add = add i32 %126, 4
+  %126 = load ptr, ptr %node.065, align 8
+  %length = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %126, i64 0, i32 2
+  %127 = load i32, ptr %length, align 8
+  %add = add i32 %127, 4
   %conv = zext i32 %add to i64
-  %add25 = add nsw i64 %124, %conv
+  %add25 = add nsw i64 %125, %conv
   store i64 %add25, ptr %last_offset.i, align 8
   %next = getelementptr inbounds %struct.FLAC__Metadata_Node, ptr %node.065, i64 0, i32 2
   %node.0 = load ptr, ptr %next, align 8
@@ -6409,8 +6409,8 @@ if.end26:                                         ; preds = %for.body, %if.end21
   br i1 %tobool7.not, label %return, label %if.then28
 
 if.then28:                                        ; preds = %chain_rewrite_metadata_in_place_.exit, %if.end26
-  %127 = load ptr, ptr %chain, align 8
-  call fastcc void @set_file_stats_(ptr noundef %127, ptr noundef nonnull %stats)
+  %128 = load ptr, ptr %chain, align 8
+  call fastcc void @set_file_stats_(ptr noundef %128, ptr noundef nonnull %stats)
   br label %return
 
 return:                                           ; preds = %chain_rewrite_file_.exit.thread, %chain_rewrite_metadata_in_place_.exit.thread, %chain_rewrite_metadata_in_place_.exit, %if.end26, %if.then28, %chain_rewrite_file_.exit, %if.end3, %if.then1, %if.then
@@ -10458,8 +10458,8 @@ if.end70.i.i:                                     ; preds = %if.end61.i.i
   call void @llvm.memset.p0.i64(ptr nonnull align 16 %buffer.i71.i, i8 0, i64 %conv75.i.i, i1 false)
   %type.i.i = getelementptr inbounds %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %65, i64 %indvars.iv182.i.i, i32 3
   %bf.load.i.i = load i8, ptr %type.i.i, align 2
-  %rev.i.i = tail call i8 @llvm.bitreverse.i8(i8 %bf.load.i.i)
-  %mask.i.i = and i8 %rev.i.i, -64
+  %68 = and i8 %bf.load.i.i, 3
+  %mask.i.i = tail call i8 @llvm.bitreverse.i8(i8 %68)
   store i8 %mask.i.i, ptr %buffer.i71.i, align 16
   %call85.i.i = call i64 @fwrite(ptr noundef nonnull %buffer.i71.i, i64 noundef 1, i64 noundef %conv75.i.i, ptr noundef %file) #28
   %cmp87.not.i.i = icmp eq i64 %call85.i.i, %conv75.i.i
@@ -10470,12 +10470,12 @@ if.end90.i.i:                                     ; preds = %if.end70.i.i
   br i1 %cmp5.not.i127.i.i, label %pack_uint32_.exit140.i.i, label %for.body.preheader.i128.i.i
 
 for.body.preheader.i128.i.i:                      ; preds = %if.end90.i.i
-  %68 = load i8, ptr %num_indices.i.i, align 1
+  %69 = load i8, ptr %num_indices.i.i, align 1
   br label %for.body.i131.i.i
 
 for.body.i131.i.i:                                ; preds = %for.body.i131.i.i, %for.body.preheader.i128.i.i
   %i.08.i132.i.i = phi i32 [ %inc.i138.i.i, %for.body.i131.i.i ], [ 0, %for.body.preheader.i128.i.i ]
-  %val.addr.07.i133.i.i = phi i8 [ 0, %for.body.i131.i.i ], [ %68, %for.body.preheader.i128.i.i ]
+  %val.addr.07.i133.i.i = phi i8 [ 0, %for.body.i131.i.i ], [ %69, %for.body.preheader.i128.i.i ]
   %b.addr.06.i134.i.i = phi ptr [ %incdec.ptr.i136.i.i, %for.body.i131.i.i ], [ %add.ptr.i130.i.i, %for.body.preheader.i128.i.i ]
   %incdec.ptr.i136.i.i = getelementptr inbounds i8, ptr %b.addr.06.i134.i.i, i64 -1
   store i8 %val.addr.07.i133.i.i, ptr %incdec.ptr.i136.i.i, align 1
@@ -10489,8 +10489,8 @@ pack_uint32_.exit140.i.i:                         ; preds = %for.body.i131.i.i, 
   br i1 %cmp98.not.i.i, label %for.cond102.preheader.i.i, label %write_metadata_block_data_cuesheet_cb_.exit.i
 
 for.cond102.preheader.i.i:                        ; preds = %pack_uint32_.exit140.i.i
-  %69 = load i8, ptr %num_indices.i.i, align 1
-  %cmp105171.not.i.i = icmp eq i8 %69, 0
+  %70 = load i8, ptr %num_indices.i.i, align 1
+  %cmp105171.not.i.i = icmp eq i8 %70, 0
   br i1 %cmp105171.not.i.i, label %for.inc144.i.i, label %for.body107.lr.ph.i.i
 
 for.body107.lr.ph.i.i:                            ; preds = %for.cond102.preheader.i.i
@@ -10499,24 +10499,24 @@ for.body107.lr.ph.i.i:                            ; preds = %for.cond102.prehead
 
 for.cond102.i.i:                                  ; preds = %if.end132.i.i
   %indvars.iv.next.i93.i = add nuw nsw i64 %indvars.iv.i92.i, 1
-  %70 = load i8, ptr %num_indices.i.i, align 1
-  %71 = zext i8 %70 to i64
-  %cmp105.i.i = icmp ult i64 %indvars.iv.next.i93.i, %71
+  %71 = load i8, ptr %num_indices.i.i, align 1
+  %72 = zext i8 %71 to i64
+  %cmp105.i.i = icmp ult i64 %indvars.iv.next.i93.i, %72
   br i1 %cmp105.i.i, label %for.body107.i.i, label %for.inc144.i.i, !llvm.loop !30
 
 for.body107.i.i:                                  ; preds = %for.cond102.i.i, %for.body107.lr.ph.i.i
   %indvars.iv.i92.i = phi i64 [ 0, %for.body107.lr.ph.i.i ], [ %indvars.iv.next.i93.i, %for.cond102.i.i ]
-  %72 = load ptr, ptr %indices.i.i, align 8
+  %73 = load ptr, ptr %indices.i.i, align 8
   br i1 %cmp5.not.i141.i.i, label %pack_uint64_.exit154.i.i, label %for.body.preheader.i142.i.i
 
 for.body.preheader.i142.i.i:                      ; preds = %for.body107.i.i
-  %add.ptr109.i.i = getelementptr inbounds %struct.FLAC__StreamMetadata_CueSheet_Index, ptr %72, i64 %indvars.iv.i92.i
-  %73 = load i64, ptr %add.ptr109.i.i, align 8
+  %add.ptr109.i.i = getelementptr inbounds %struct.FLAC__StreamMetadata_CueSheet_Index, ptr %73, i64 %indvars.iv.i92.i
+  %74 = load i64, ptr %add.ptr109.i.i, align 8
   br label %for.body.i145.i.i
 
 for.body.i145.i.i:                                ; preds = %for.body.i145.i.i, %for.body.preheader.i142.i.i
   %i.08.i146.i.i = phi i32 [ %inc.i152.i.i, %for.body.i145.i.i ], [ 0, %for.body.preheader.i142.i.i ]
-  %val.addr.07.i147.i.i = phi i64 [ %shr.i151.i.i, %for.body.i145.i.i ], [ %73, %for.body.preheader.i142.i.i ]
+  %val.addr.07.i147.i.i = phi i64 [ %shr.i151.i.i, %for.body.i145.i.i ], [ %74, %for.body.preheader.i142.i.i ]
   %b.addr.06.i148.i.i = phi ptr [ %incdec.ptr.i150.i.i, %for.body.i145.i.i ], [ %add.ptr.i144.i.i, %for.body.preheader.i142.i.i ]
   %conv.i149.i.i = trunc i64 %val.addr.07.i147.i.i to i8
   %incdec.ptr.i150.i.i = getelementptr inbounds i8, ptr %b.addr.06.i148.i.i, i64 -1
@@ -10535,13 +10535,13 @@ if.end120.i.i:                                    ; preds = %pack_uint64_.exit15
   br i1 %cmp5.not.i155.i.i, label %pack_uint32_.exit168.i.i, label %for.body.preheader.i156.i.i
 
 for.body.preheader.i156.i.i:                      ; preds = %if.end120.i.i
-  %number122.i.i = getelementptr inbounds %struct.FLAC__StreamMetadata_CueSheet_Index, ptr %72, i64 %indvars.iv.i92.i, i32 1
-  %74 = load i8, ptr %number122.i.i, align 8
+  %number122.i.i = getelementptr inbounds %struct.FLAC__StreamMetadata_CueSheet_Index, ptr %73, i64 %indvars.iv.i92.i, i32 1
+  %75 = load i8, ptr %number122.i.i, align 8
   br label %for.body.i159.i.i
 
 for.body.i159.i.i:                                ; preds = %for.body.i159.i.i, %for.body.preheader.i156.i.i
   %i.08.i160.i.i = phi i32 [ %inc.i166.i.i, %for.body.i159.i.i ], [ 0, %for.body.preheader.i156.i.i ]
-  %val.addr.07.i161.i.i = phi i8 [ 0, %for.body.i159.i.i ], [ %74, %for.body.preheader.i156.i.i ]
+  %val.addr.07.i161.i.i = phi i8 [ 0, %for.body.i159.i.i ], [ %75, %for.body.preheader.i156.i.i ]
   %b.addr.06.i162.i.i = phi ptr [ %incdec.ptr.i164.i.i, %for.body.i159.i.i ], [ %add.ptr.i158.i.i, %for.body.preheader.i156.i.i ]
   %incdec.ptr.i164.i.i = getelementptr inbounds i8, ptr %b.addr.06.i162.i.i, i64 -1
   store i8 %val.addr.07.i161.i.i, ptr %incdec.ptr.i164.i.i, align 1
@@ -10562,9 +10562,9 @@ if.end132.i.i:                                    ; preds = %pack_uint32_.exit16
 
 for.inc144.i.i:                                   ; preds = %for.cond102.i.i, %for.cond102.preheader.i.i
   %indvars.iv.next183.i.i = add nuw nsw i64 %indvars.iv182.i.i, 1
-  %75 = load i32, ptr %num_tracks.i.i, align 4
-  %76 = zext i32 %75 to i64
-  %cmp39.i.i = icmp ult i64 %indvars.iv.next183.i.i, %76
+  %76 = load i32, ptr %num_tracks.i.i, align 4
+  %77 = zext i32 %76 to i64
+  %cmp39.i.i = icmp ult i64 %indvars.iv.next183.i.i, %77
   br i1 %cmp39.i.i, label %for.body.i91.i, label %write_metadata_block_data_cuesheet_cb_.exit.i, !llvm.loop !31
 
 write_metadata_block_data_cuesheet_cb_.exit.i:    ; preds = %for.inc144.i.i, %pack_uint32_.exit140.i.i, %if.end70.i.i, %if.end61.i.i, %pack_uint32_.exit126.i.i, %pack_uint64_.exit112.i.i, %if.end132.i.i, %pack_uint32_.exit168.i.i, %pack_uint64_.exit154.i.i, %for.cond.preheader.i89.i, %pack_uint32_.exit.i88.i, %if.end19.i.i, %pack_uint64_.exit.i87.i, %sw.bb14.i
@@ -10574,9 +10574,9 @@ write_metadata_block_data_cuesheet_cb_.exit.i:    ; preds = %for.inc144.i.i, %pa
 
 sw.bb17.i:                                        ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %buffer.i95.i)
-  %77 = load i32, ptr @FLAC__STREAM_METADATA_PICTURE_TYPE_LEN, align 4
-  %div61.i.i = lshr i32 %77, 3
-  %cmp5.not.i.i96.i = icmp ult i32 %77, 8
+  %78 = load i32, ptr @FLAC__STREAM_METADATA_PICTURE_TYPE_LEN, align 4
+  %div61.i.i = lshr i32 %78, 3
+  %cmp5.not.i.i96.i = icmp ult i32 %78, 8
   br i1 %cmp5.not.i.i96.i, label %entry.pack_uint32_.exit_crit_edge.i.i, label %for.body.preheader.i.i97.i
 
 entry.pack_uint32_.exit_crit_edge.i.i:            ; preds = %sw.bb17.i
@@ -10585,14 +10585,14 @@ entry.pack_uint32_.exit_crit_edge.i.i:            ; preds = %sw.bb17.i
 
 for.body.preheader.i.i97.i:                       ; preds = %sw.bb17.i
   %data18.i = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %block, i64 0, i32 3
-  %78 = load i32, ptr %data18.i, align 8
+  %79 = load i32, ptr %data18.i, align 8
   %idx.ext.i.i98.i = zext nneg i32 %div61.i.i to i64
   %add.ptr.i.i99.i = getelementptr inbounds i8, ptr %buffer.i95.i, i64 %idx.ext.i.i98.i
   br label %for.body.i.i100.i
 
 for.body.i.i100.i:                                ; preds = %for.body.i.i100.i, %for.body.preheader.i.i97.i
   %i.08.i.i101.i = phi i32 [ %inc.i.i107.i, %for.body.i.i100.i ], [ 0, %for.body.preheader.i.i97.i ]
-  %val.addr.07.i.i102.i = phi i32 [ %shr.i.i106.i, %for.body.i.i100.i ], [ %78, %for.body.preheader.i.i97.i ]
+  %val.addr.07.i.i102.i = phi i32 [ %shr.i.i106.i, %for.body.i.i100.i ], [ %79, %for.body.preheader.i.i97.i ]
   %b.addr.06.i.i103.i = phi ptr [ %incdec.ptr.i.i105.i, %for.body.i.i100.i ], [ %add.ptr.i.i99.i, %for.body.preheader.i.i97.i ]
   %conv.i.i104.i = trunc i32 %val.addr.07.i.i102.i to i8
   %incdec.ptr.i.i105.i = getelementptr inbounds i8, ptr %b.addr.06.i.i103.i, i64 -1
@@ -10609,12 +10609,12 @@ pack_uint32_.exit.i109.i:                         ; preds = %for.body.i.i100.i, 
   br i1 %cmp.not.i111.i, label %if.end.i113.i, label %write_metadata_block_data_picture_cb_.exit.i
 
 if.end.i113.i:                                    ; preds = %pack_uint32_.exit.i109.i
-  %79 = load i32, ptr @FLAC__STREAM_METADATA_PICTURE_MIME_TYPE_LENGTH_LEN, align 4
-  %div462.i.i = lshr i32 %79, 3
+  %80 = load i32, ptr @FLAC__STREAM_METADATA_PICTURE_MIME_TYPE_LENGTH_LEN, align 4
+  %div462.i.i = lshr i32 %80, 3
   %mime_type.i.i = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %block, i64 0, i32 3, i32 0, i32 0, i64 8
-  %80 = load ptr, ptr %mime_type.i.i, align 8
-  %call5.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %80) #30
-  %cmp5.not.i69.i.i = icmp ult i32 %79, 8
+  %81 = load ptr, ptr %mime_type.i.i, align 8
+  %call5.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %81) #30
+  %cmp5.not.i69.i.i = icmp ult i32 %80, 8
   br i1 %cmp5.not.i69.i.i, label %if.end.pack_uint32_.exit82_crit_edge.i.i, label %for.body.preheader.i70.i.i
 
 if.end.pack_uint32_.exit82_crit_edge.i.i:         ; preds = %if.end.i113.i
@@ -10646,18 +10646,18 @@ pack_uint32_.exit82.i.i:                          ; preds = %for.body.i73.i.i, %
   br i1 %cmp12.not.i.i, label %if.end15.i.i, label %write_metadata_block_data_picture_cb_.exit.i
 
 if.end15.i.i:                                     ; preds = %pack_uint32_.exit82.i.i
-  %81 = load ptr, ptr %mime_type.i.i, align 8
-  %call17.i.i = tail call i64 @fwrite(ptr noundef %81, i64 noundef 1, i64 noundef %call5.i.i, ptr noundef %file) #28
+  %82 = load ptr, ptr %mime_type.i.i, align 8
+  %call17.i.i = tail call i64 @fwrite(ptr noundef %82, i64 noundef 1, i64 noundef %call5.i.i, ptr noundef %file) #28
   %cmp18.not.i.i = icmp eq i64 %call17.i.i, %call5.i.i
   br i1 %cmp18.not.i.i, label %if.end21.i.i, label %write_metadata_block_data_picture_cb_.exit.i
 
 if.end21.i.i:                                     ; preds = %if.end15.i.i
-  %82 = load i32, ptr @FLAC__STREAM_METADATA_PICTURE_DESCRIPTION_LENGTH_LEN, align 4
-  %div2263.i.i = lshr i32 %82, 3
+  %83 = load i32, ptr @FLAC__STREAM_METADATA_PICTURE_DESCRIPTION_LENGTH_LEN, align 4
+  %div2263.i.i = lshr i32 %83, 3
   %description.i.i = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %block, i64 0, i32 3, i32 0, i32 0, i64 16
-  %83 = load ptr, ptr %description.i.i, align 8
-  %call23.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %83) #30
-  %cmp5.not.i83.i.i = icmp ult i32 %82, 8
+  %84 = load ptr, ptr %description.i.i, align 8
+  %call23.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %84) #30
+  %cmp5.not.i83.i.i = icmp ult i32 %83, 8
   br i1 %cmp5.not.i83.i.i, label %if.end21.pack_uint32_.exit96_crit_edge.i.i, label %for.body.preheader.i84.i.i
 
 if.end21.pack_uint32_.exit96_crit_edge.i.i:       ; preds = %if.end21.i.i
@@ -10689,15 +10689,15 @@ pack_uint32_.exit96.i.i:                          ; preds = %for.body.i87.i.i, %
   br i1 %cmp30.not.i.i, label %if.end33.i.i, label %write_metadata_block_data_picture_cb_.exit.i
 
 if.end33.i.i:                                     ; preds = %pack_uint32_.exit96.i.i
-  %84 = load ptr, ptr %description.i.i, align 8
-  %call35.i.i = tail call i64 @fwrite(ptr noundef %84, i64 noundef 1, i64 noundef %call23.i.i, ptr noundef %file) #28
+  %85 = load ptr, ptr %description.i.i, align 8
+  %call35.i.i = tail call i64 @fwrite(ptr noundef %85, i64 noundef 1, i64 noundef %call23.i.i, ptr noundef %file) #28
   %cmp36.not.i115.i = icmp eq i64 %call35.i.i, %call23.i.i
   br i1 %cmp36.not.i115.i, label %if.end39.i116.i, label %write_metadata_block_data_picture_cb_.exit.i
 
 if.end39.i116.i:                                  ; preds = %if.end33.i.i
-  %85 = load i32, ptr @FLAC__STREAM_METADATA_PICTURE_WIDTH_LEN, align 4
-  %div4064.i.i = lshr i32 %85, 3
-  %cmp5.not.i97.i.i = icmp ult i32 %85, 8
+  %86 = load i32, ptr @FLAC__STREAM_METADATA_PICTURE_WIDTH_LEN, align 4
+  %div4064.i.i = lshr i32 %86, 3
+  %cmp5.not.i97.i.i = icmp ult i32 %86, 8
   br i1 %cmp5.not.i97.i.i, label %if.end39.pack_uint32_.exit110_crit_edge.i.i, label %for.body.preheader.i98.i.i
 
 if.end39.pack_uint32_.exit110_crit_edge.i.i:      ; preds = %if.end39.i116.i
@@ -10706,14 +10706,14 @@ if.end39.pack_uint32_.exit110_crit_edge.i.i:      ; preds = %if.end39.i116.i
 
 for.body.preheader.i98.i.i:                       ; preds = %if.end39.i116.i
   %width.i.i = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %block, i64 0, i32 3, i32 0, i32 0, i64 24
-  %86 = load i32, ptr %width.i.i, align 8
+  %87 = load i32, ptr %width.i.i, align 8
   %idx.ext.i99.i.i = zext nneg i32 %div4064.i.i to i64
   %add.ptr.i100.i.i = getelementptr inbounds i8, ptr %buffer.i95.i, i64 %idx.ext.i99.i.i
   br label %for.body.i101.i.i
 
 for.body.i101.i.i:                                ; preds = %for.body.i101.i.i, %for.body.preheader.i98.i.i
   %i.08.i102.i.i = phi i32 [ %inc.i108.i.i, %for.body.i101.i.i ], [ 0, %for.body.preheader.i98.i.i ]
-  %val.addr.07.i103.i.i = phi i32 [ %shr.i107.i.i, %for.body.i101.i.i ], [ %86, %for.body.preheader.i98.i.i ]
+  %val.addr.07.i103.i.i = phi i32 [ %shr.i107.i.i, %for.body.i101.i.i ], [ %87, %for.body.preheader.i98.i.i ]
   %b.addr.06.i104.i.i = phi ptr [ %incdec.ptr.i106.i.i, %for.body.i101.i.i ], [ %add.ptr.i100.i.i, %for.body.preheader.i98.i.i ]
   %conv.i105.i.i = trunc i32 %val.addr.07.i103.i.i to i8
   %incdec.ptr.i106.i.i = getelementptr inbounds i8, ptr %b.addr.06.i104.i.i, i64 -1
@@ -10730,9 +10730,9 @@ pack_uint32_.exit110.i.i:                         ; preds = %for.body.i101.i.i, 
   br i1 %cmp46.not.i.i, label %if.end49.i.i, label %write_metadata_block_data_picture_cb_.exit.i
 
 if.end49.i.i:                                     ; preds = %pack_uint32_.exit110.i.i
-  %87 = load i32, ptr @FLAC__STREAM_METADATA_PICTURE_HEIGHT_LEN, align 4
-  %div5065.i.i = lshr i32 %87, 3
-  %cmp5.not.i111.i.i = icmp ult i32 %87, 8
+  %88 = load i32, ptr @FLAC__STREAM_METADATA_PICTURE_HEIGHT_LEN, align 4
+  %div5065.i.i = lshr i32 %88, 3
+  %cmp5.not.i111.i.i = icmp ult i32 %88, 8
   br i1 %cmp5.not.i111.i.i, label %if.end49.pack_uint32_.exit124_crit_edge.i.i, label %for.body.preheader.i112.i.i
 
 if.end49.pack_uint32_.exit124_crit_edge.i.i:      ; preds = %if.end49.i.i
@@ -10741,14 +10741,14 @@ if.end49.pack_uint32_.exit124_crit_edge.i.i:      ; preds = %if.end49.i.i
 
 for.body.preheader.i112.i.i:                      ; preds = %if.end49.i.i
   %height.i.i = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %block, i64 0, i32 3, i32 0, i32 0, i64 28
-  %88 = load i32, ptr %height.i.i, align 4
+  %89 = load i32, ptr %height.i.i, align 4
   %idx.ext.i113.i.i = zext nneg i32 %div5065.i.i to i64
   %add.ptr.i114.i.i = getelementptr inbounds i8, ptr %buffer.i95.i, i64 %idx.ext.i113.i.i
   br label %for.body.i115.i.i
 
 for.body.i115.i.i:                                ; preds = %for.body.i115.i.i, %for.body.preheader.i112.i.i
   %i.08.i116.i.i = phi i32 [ %inc.i122.i.i, %for.body.i115.i.i ], [ 0, %for.body.preheader.i112.i.i ]
-  %val.addr.07.i117.i.i = phi i32 [ %shr.i121.i.i, %for.body.i115.i.i ], [ %88, %for.body.preheader.i112.i.i ]
+  %val.addr.07.i117.i.i = phi i32 [ %shr.i121.i.i, %for.body.i115.i.i ], [ %89, %for.body.preheader.i112.i.i ]
   %b.addr.06.i118.i.i = phi ptr [ %incdec.ptr.i120.i.i, %for.body.i115.i.i ], [ %add.ptr.i114.i.i, %for.body.preheader.i112.i.i ]
   %conv.i119.i.i = trunc i32 %val.addr.07.i117.i.i to i8
   %incdec.ptr.i120.i.i = getelementptr inbounds i8, ptr %b.addr.06.i118.i.i, i64 -1
@@ -10765,9 +10765,9 @@ pack_uint32_.exit124.i.i:                         ; preds = %for.body.i115.i.i, 
   br i1 %cmp56.not.i.i, label %if.end59.i.i, label %write_metadata_block_data_picture_cb_.exit.i
 
 if.end59.i.i:                                     ; preds = %pack_uint32_.exit124.i.i
-  %89 = load i32, ptr @FLAC__STREAM_METADATA_PICTURE_DEPTH_LEN, align 4
-  %div6066.i.i = lshr i32 %89, 3
-  %cmp5.not.i125.i.i = icmp ult i32 %89, 8
+  %90 = load i32, ptr @FLAC__STREAM_METADATA_PICTURE_DEPTH_LEN, align 4
+  %div6066.i.i = lshr i32 %90, 3
+  %cmp5.not.i125.i.i = icmp ult i32 %90, 8
   br i1 %cmp5.not.i125.i.i, label %if.end59.pack_uint32_.exit138_crit_edge.i.i, label %for.body.preheader.i126.i.i
 
 if.end59.pack_uint32_.exit138_crit_edge.i.i:      ; preds = %if.end59.i.i
@@ -10776,14 +10776,14 @@ if.end59.pack_uint32_.exit138_crit_edge.i.i:      ; preds = %if.end59.i.i
 
 for.body.preheader.i126.i.i:                      ; preds = %if.end59.i.i
   %depth.i.i = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %block, i64 0, i32 3, i32 0, i32 0, i64 32
-  %90 = load i32, ptr %depth.i.i, align 8
+  %91 = load i32, ptr %depth.i.i, align 8
   %idx.ext.i127.i.i = zext nneg i32 %div6066.i.i to i64
   %add.ptr.i128.i.i = getelementptr inbounds i8, ptr %buffer.i95.i, i64 %idx.ext.i127.i.i
   br label %for.body.i129.i.i
 
 for.body.i129.i.i:                                ; preds = %for.body.i129.i.i, %for.body.preheader.i126.i.i
   %i.08.i130.i.i = phi i32 [ %inc.i136.i.i, %for.body.i129.i.i ], [ 0, %for.body.preheader.i126.i.i ]
-  %val.addr.07.i131.i.i = phi i32 [ %shr.i135.i.i, %for.body.i129.i.i ], [ %90, %for.body.preheader.i126.i.i ]
+  %val.addr.07.i131.i.i = phi i32 [ %shr.i135.i.i, %for.body.i129.i.i ], [ %91, %for.body.preheader.i126.i.i ]
   %b.addr.06.i132.i.i = phi ptr [ %incdec.ptr.i134.i.i, %for.body.i129.i.i ], [ %add.ptr.i128.i.i, %for.body.preheader.i126.i.i ]
   %conv.i133.i.i = trunc i32 %val.addr.07.i131.i.i to i8
   %incdec.ptr.i134.i.i = getelementptr inbounds i8, ptr %b.addr.06.i132.i.i, i64 -1
@@ -10800,9 +10800,9 @@ pack_uint32_.exit138.i.i:                         ; preds = %for.body.i129.i.i, 
   br i1 %cmp66.not.i.i, label %if.end69.i.i, label %write_metadata_block_data_picture_cb_.exit.i
 
 if.end69.i.i:                                     ; preds = %pack_uint32_.exit138.i.i
-  %91 = load i32, ptr @FLAC__STREAM_METADATA_PICTURE_COLORS_LEN, align 4
-  %div7067.i.i = lshr i32 %91, 3
-  %cmp5.not.i139.i.i = icmp ult i32 %91, 8
+  %92 = load i32, ptr @FLAC__STREAM_METADATA_PICTURE_COLORS_LEN, align 4
+  %div7067.i.i = lshr i32 %92, 3
+  %cmp5.not.i139.i.i = icmp ult i32 %92, 8
   br i1 %cmp5.not.i139.i.i, label %if.end69.pack_uint32_.exit152_crit_edge.i.i, label %for.body.preheader.i140.i.i
 
 if.end69.pack_uint32_.exit152_crit_edge.i.i:      ; preds = %if.end69.i.i
@@ -10811,14 +10811,14 @@ if.end69.pack_uint32_.exit152_crit_edge.i.i:      ; preds = %if.end69.i.i
 
 for.body.preheader.i140.i.i:                      ; preds = %if.end69.i.i
   %colors.i.i = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %block, i64 0, i32 3, i32 0, i32 0, i64 36
-  %92 = load i32, ptr %colors.i.i, align 4
+  %93 = load i32, ptr %colors.i.i, align 4
   %idx.ext.i141.i.i = zext nneg i32 %div7067.i.i to i64
   %add.ptr.i142.i.i = getelementptr inbounds i8, ptr %buffer.i95.i, i64 %idx.ext.i141.i.i
   br label %for.body.i143.i.i
 
 for.body.i143.i.i:                                ; preds = %for.body.i143.i.i, %for.body.preheader.i140.i.i
   %i.08.i144.i.i = phi i32 [ %inc.i150.i.i, %for.body.i143.i.i ], [ 0, %for.body.preheader.i140.i.i ]
-  %val.addr.07.i145.i.i = phi i32 [ %shr.i149.i.i, %for.body.i143.i.i ], [ %92, %for.body.preheader.i140.i.i ]
+  %val.addr.07.i145.i.i = phi i32 [ %shr.i149.i.i, %for.body.i143.i.i ], [ %93, %for.body.preheader.i140.i.i ]
   %b.addr.06.i146.i.i = phi ptr [ %incdec.ptr.i148.i.i, %for.body.i143.i.i ], [ %add.ptr.i142.i.i, %for.body.preheader.i140.i.i ]
   %conv.i147.i.i = trunc i32 %val.addr.07.i145.i.i to i8
   %incdec.ptr.i148.i.i = getelementptr inbounds i8, ptr %b.addr.06.i146.i.i, i64 -1
@@ -10835,10 +10835,10 @@ pack_uint32_.exit152.i.i:                         ; preds = %for.body.i143.i.i, 
   br i1 %cmp76.not.i.i, label %if.end79.i.i, label %write_metadata_block_data_picture_cb_.exit.i
 
 if.end79.i.i:                                     ; preds = %pack_uint32_.exit152.i.i
-  %93 = load i32, ptr @FLAC__STREAM_METADATA_PICTURE_DATA_LENGTH_LEN, align 4
-  %div8068.i.i = lshr i32 %93, 3
+  %94 = load i32, ptr @FLAC__STREAM_METADATA_PICTURE_DATA_LENGTH_LEN, align 4
+  %div8068.i.i = lshr i32 %94, 3
   %data_length.i.i = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %block, i64 0, i32 3, i32 0, i32 0, i64 40
-  %cmp5.not.i153.i.i = icmp ult i32 %93, 8
+  %cmp5.not.i153.i.i = icmp ult i32 %94, 8
   br i1 %cmp5.not.i153.i.i, label %if.end79.pack_uint32_.exit166_crit_edge.i.i, label %for.body.preheader.i154.i.i
 
 if.end79.pack_uint32_.exit166_crit_edge.i.i:      ; preds = %if.end79.i.i
@@ -10846,14 +10846,14 @@ if.end79.pack_uint32_.exit166_crit_edge.i.i:      ; preds = %if.end79.i.i
   br label %pack_uint32_.exit166.i.i
 
 for.body.preheader.i154.i.i:                      ; preds = %if.end79.i.i
-  %94 = load i32, ptr %data_length.i.i, align 8
+  %95 = load i32, ptr %data_length.i.i, align 8
   %idx.ext.i155.i.i = zext nneg i32 %div8068.i.i to i64
   %add.ptr.i156.i.i = getelementptr inbounds i8, ptr %buffer.i95.i, i64 %idx.ext.i155.i.i
   br label %for.body.i157.i.i
 
 for.body.i157.i.i:                                ; preds = %for.body.i157.i.i, %for.body.preheader.i154.i.i
   %i.08.i158.i.i = phi i32 [ %inc.i164.i.i, %for.body.i157.i.i ], [ 0, %for.body.preheader.i154.i.i ]
-  %val.addr.07.i159.i.i = phi i32 [ %shr.i163.i.i, %for.body.i157.i.i ], [ %94, %for.body.preheader.i154.i.i ]
+  %val.addr.07.i159.i.i = phi i32 [ %shr.i163.i.i, %for.body.i157.i.i ], [ %95, %for.body.preheader.i154.i.i ]
   %b.addr.06.i160.i.i = phi ptr [ %incdec.ptr.i162.i.i, %for.body.i157.i.i ], [ %add.ptr.i156.i.i, %for.body.preheader.i154.i.i ]
   %conv.i161.i.i = trunc i32 %val.addr.07.i159.i.i to i8
   %incdec.ptr.i162.i.i = getelementptr inbounds i8, ptr %b.addr.06.i160.i.i, i64 -1
@@ -10871,12 +10871,12 @@ pack_uint32_.exit166.i.i:                         ; preds = %for.body.i157.i.i, 
 
 if.end89.i.i:                                     ; preds = %pack_uint32_.exit166.i.i
   %data.i117.i = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %block, i64 0, i32 3, i32 0, i32 0, i64 48
-  %95 = load ptr, ptr %data.i117.i, align 8
-  %96 = load i32, ptr %data_length.i.i, align 8
-  %conv91.i.i = zext i32 %96 to i64
-  %call92.i.i = tail call i64 @fwrite(ptr noundef %95, i64 noundef 1, i64 noundef %conv91.i.i, ptr noundef %file) #28
+  %96 = load ptr, ptr %data.i117.i, align 8
   %97 = load i32, ptr %data_length.i.i, align 8
-  %conv94.i.i = zext i32 %97 to i64
+  %conv91.i.i = zext i32 %97 to i64
+  %call92.i.i = tail call i64 @fwrite(ptr noundef %96, i64 noundef 1, i64 noundef %conv91.i.i, ptr noundef %file) #28
+  %98 = load i32, ptr %data_length.i.i, align 8
+  %conv94.i.i = zext i32 %98 to i64
   %cmp95.not.i.i = icmp eq i64 %call92.i.i, %conv94.i.i
   %..i118.i = zext i1 %cmp95.not.i.i to i32
   br label %write_metadata_block_data_picture_cb_.exit.i
@@ -10889,9 +10889,9 @@ write_metadata_block_data_picture_cb_.exit.i:     ; preds = %if.end89.i.i, %pack
 sw.default.i:                                     ; preds = %entry
   %data20.i = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %block, i64 0, i32 3
   %length21.i = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %block, i64 0, i32 2
-  %98 = load i32, ptr %length21.i, align 8
+  %99 = load i32, ptr %length21.i, align 8
   %data20.val.i = load ptr, ptr %data20.i, align 8
-  %conv.i120.i = zext i32 %98 to i64
+  %conv.i120.i = zext i32 %99 to i64
   %call.i121.i = tail call i64 @fwrite(ptr noundef %data20.val.i, i64 noundef 1, i64 noundef %conv.i120.i, ptr noundef %file) #28
   %cmp.not.i122.i = icmp eq i64 %call.i121.i, %conv.i120.i
   %..i123.i = zext i1 %cmp.not.i122.i to i32
@@ -11683,8 +11683,8 @@ if.end70.i:                                       ; preds = %if.end61.i
   call void @llvm.memset.p0.i64(ptr nonnull align 16 %buffer.i71, i8 0, i64 %conv75.i, i1 false)
   %type.i = getelementptr inbounds %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %65, i64 %indvars.iv182.i, i32 3
   %bf.load.i = load i8, ptr %type.i, align 2
-  %rev.i = call i8 @llvm.bitreverse.i8(i8 %bf.load.i)
-  %mask.i = and i8 %rev.i, -64
+  %68 = and i8 %bf.load.i, 3
+  %mask.i = call i8 @llvm.bitreverse.i8(i8 %68)
   store i8 %mask.i, ptr %buffer.i71, align 16
   %call85.i = call i64 %write_cb(ptr noundef nonnull %buffer.i71, i64 noundef 1, i64 noundef %conv75.i, ptr noundef %handle) #28
   %cmp87.not.i = icmp eq i64 %call85.i, %conv75.i
@@ -11695,12 +11695,12 @@ if.end90.i:                                       ; preds = %if.end70.i
   br i1 %cmp5.not.i127.i, label %pack_uint32_.exit140.i, label %for.body.preheader.i128.i
 
 for.body.preheader.i128.i:                        ; preds = %if.end90.i
-  %68 = load i8, ptr %num_indices.i, align 1
+  %69 = load i8, ptr %num_indices.i, align 1
   br label %for.body.i131.i
 
 for.body.i131.i:                                  ; preds = %for.body.i131.i, %for.body.preheader.i128.i
   %i.08.i132.i = phi i32 [ %inc.i138.i, %for.body.i131.i ], [ 0, %for.body.preheader.i128.i ]
-  %val.addr.07.i133.i = phi i8 [ 0, %for.body.i131.i ], [ %68, %for.body.preheader.i128.i ]
+  %val.addr.07.i133.i = phi i8 [ 0, %for.body.i131.i ], [ %69, %for.body.preheader.i128.i ]
   %b.addr.06.i134.i = phi ptr [ %incdec.ptr.i136.i, %for.body.i131.i ], [ %add.ptr.i130.i, %for.body.preheader.i128.i ]
   %incdec.ptr.i136.i = getelementptr inbounds i8, ptr %b.addr.06.i134.i, i64 -1
   store i8 %val.addr.07.i133.i, ptr %incdec.ptr.i136.i, align 1
@@ -11714,8 +11714,8 @@ pack_uint32_.exit140.i:                           ; preds = %for.body.i131.i, %i
   br i1 %cmp98.not.i, label %for.cond102.preheader.i, label %write_metadata_block_data_cuesheet_cb_.exit
 
 for.cond102.preheader.i:                          ; preds = %pack_uint32_.exit140.i
-  %69 = load i8, ptr %num_indices.i, align 1
-  %cmp105171.not.i = icmp eq i8 %69, 0
+  %70 = load i8, ptr %num_indices.i, align 1
+  %cmp105171.not.i = icmp eq i8 %70, 0
   br i1 %cmp105171.not.i, label %for.inc144.i, label %for.body107.lr.ph.i
 
 for.body107.lr.ph.i:                              ; preds = %for.cond102.preheader.i
@@ -11724,24 +11724,24 @@ for.body107.lr.ph.i:                              ; preds = %for.cond102.prehead
 
 for.cond102.i:                                    ; preds = %if.end132.i
   %indvars.iv.next.i93 = add nuw nsw i64 %indvars.iv.i92, 1
-  %70 = load i8, ptr %num_indices.i, align 1
-  %71 = zext i8 %70 to i64
-  %cmp105.i = icmp ult i64 %indvars.iv.next.i93, %71
+  %71 = load i8, ptr %num_indices.i, align 1
+  %72 = zext i8 %71 to i64
+  %cmp105.i = icmp ult i64 %indvars.iv.next.i93, %72
   br i1 %cmp105.i, label %for.body107.i, label %for.inc144.i, !llvm.loop !30
 
 for.body107.i:                                    ; preds = %for.cond102.i, %for.body107.lr.ph.i
   %indvars.iv.i92 = phi i64 [ 0, %for.body107.lr.ph.i ], [ %indvars.iv.next.i93, %for.cond102.i ]
-  %72 = load ptr, ptr %indices.i, align 8
+  %73 = load ptr, ptr %indices.i, align 8
   br i1 %cmp5.not.i141.i, label %pack_uint64_.exit154.i, label %for.body.preheader.i142.i
 
 for.body.preheader.i142.i:                        ; preds = %for.body107.i
-  %add.ptr109.i = getelementptr inbounds %struct.FLAC__StreamMetadata_CueSheet_Index, ptr %72, i64 %indvars.iv.i92
-  %73 = load i64, ptr %add.ptr109.i, align 8
+  %add.ptr109.i = getelementptr inbounds %struct.FLAC__StreamMetadata_CueSheet_Index, ptr %73, i64 %indvars.iv.i92
+  %74 = load i64, ptr %add.ptr109.i, align 8
   br label %for.body.i145.i
 
 for.body.i145.i:                                  ; preds = %for.body.i145.i, %for.body.preheader.i142.i
   %i.08.i146.i = phi i32 [ %inc.i152.i, %for.body.i145.i ], [ 0, %for.body.preheader.i142.i ]
-  %val.addr.07.i147.i = phi i64 [ %shr.i151.i, %for.body.i145.i ], [ %73, %for.body.preheader.i142.i ]
+  %val.addr.07.i147.i = phi i64 [ %shr.i151.i, %for.body.i145.i ], [ %74, %for.body.preheader.i142.i ]
   %b.addr.06.i148.i = phi ptr [ %incdec.ptr.i150.i, %for.body.i145.i ], [ %add.ptr.i144.i, %for.body.preheader.i142.i ]
   %conv.i149.i = trunc i64 %val.addr.07.i147.i to i8
   %incdec.ptr.i150.i = getelementptr inbounds i8, ptr %b.addr.06.i148.i, i64 -1
@@ -11760,13 +11760,13 @@ if.end120.i:                                      ; preds = %pack_uint64_.exit15
   br i1 %cmp5.not.i155.i, label %pack_uint32_.exit168.i, label %for.body.preheader.i156.i
 
 for.body.preheader.i156.i:                        ; preds = %if.end120.i
-  %number122.i = getelementptr inbounds %struct.FLAC__StreamMetadata_CueSheet_Index, ptr %72, i64 %indvars.iv.i92, i32 1
-  %74 = load i8, ptr %number122.i, align 8
+  %number122.i = getelementptr inbounds %struct.FLAC__StreamMetadata_CueSheet_Index, ptr %73, i64 %indvars.iv.i92, i32 1
+  %75 = load i8, ptr %number122.i, align 8
   br label %for.body.i159.i
 
 for.body.i159.i:                                  ; preds = %for.body.i159.i, %for.body.preheader.i156.i
   %i.08.i160.i = phi i32 [ %inc.i166.i, %for.body.i159.i ], [ 0, %for.body.preheader.i156.i ]
-  %val.addr.07.i161.i = phi i8 [ 0, %for.body.i159.i ], [ %74, %for.body.preheader.i156.i ]
+  %val.addr.07.i161.i = phi i8 [ 0, %for.body.i159.i ], [ %75, %for.body.preheader.i156.i ]
   %b.addr.06.i162.i = phi ptr [ %incdec.ptr.i164.i, %for.body.i159.i ], [ %add.ptr.i158.i, %for.body.preheader.i156.i ]
   %incdec.ptr.i164.i = getelementptr inbounds i8, ptr %b.addr.06.i162.i, i64 -1
   store i8 %val.addr.07.i161.i, ptr %incdec.ptr.i164.i, align 1
@@ -11787,9 +11787,9 @@ if.end132.i:                                      ; preds = %pack_uint32_.exit16
 
 for.inc144.i:                                     ; preds = %for.cond102.i, %for.cond102.preheader.i
   %indvars.iv.next183.i = add nuw nsw i64 %indvars.iv182.i, 1
-  %75 = load i32, ptr %num_tracks.i, align 4
-  %76 = zext i32 %75 to i64
-  %cmp39.i = icmp ult i64 %indvars.iv.next183.i, %76
+  %76 = load i32, ptr %num_tracks.i, align 4
+  %77 = zext i32 %76 to i64
+  %cmp39.i = icmp ult i64 %indvars.iv.next183.i, %77
   br i1 %cmp39.i, label %for.body.i91, label %write_metadata_block_data_cuesheet_cb_.exit, !llvm.loop !31
 
 write_metadata_block_data_cuesheet_cb_.exit:      ; preds = %pack_uint64_.exit112.i, %pack_uint32_.exit126.i, %if.end61.i, %if.end70.i, %pack_uint32_.exit140.i, %for.inc144.i, %pack_uint64_.exit154.i, %pack_uint32_.exit168.i, %if.end132.i, %sw.bb14, %pack_uint64_.exit.i87, %if.end19.i, %pack_uint32_.exit.i88, %for.cond.preheader.i89
@@ -11799,9 +11799,9 @@ write_metadata_block_data_cuesheet_cb_.exit:      ; preds = %pack_uint64_.exit11
 
 sw.bb17:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %buffer.i95)
-  %77 = load i32, ptr @FLAC__STREAM_METADATA_PICTURE_TYPE_LEN, align 4
-  %div61.i = lshr i32 %77, 3
-  %cmp5.not.i.i96 = icmp ult i32 %77, 8
+  %78 = load i32, ptr @FLAC__STREAM_METADATA_PICTURE_TYPE_LEN, align 4
+  %div61.i = lshr i32 %78, 3
+  %cmp5.not.i.i96 = icmp ult i32 %78, 8
   br i1 %cmp5.not.i.i96, label %entry.pack_uint32_.exit_crit_edge.i, label %for.body.preheader.i.i97
 
 entry.pack_uint32_.exit_crit_edge.i:              ; preds = %sw.bb17
@@ -11810,14 +11810,14 @@ entry.pack_uint32_.exit_crit_edge.i:              ; preds = %sw.bb17
 
 for.body.preheader.i.i97:                         ; preds = %sw.bb17
   %data18 = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %block, i64 0, i32 3
-  %78 = load i32, ptr %data18, align 8
+  %79 = load i32, ptr %data18, align 8
   %idx.ext.i.i98 = zext nneg i32 %div61.i to i64
   %add.ptr.i.i99 = getelementptr inbounds i8, ptr %buffer.i95, i64 %idx.ext.i.i98
   br label %for.body.i.i100
 
 for.body.i.i100:                                  ; preds = %for.body.i.i100, %for.body.preheader.i.i97
   %i.08.i.i101 = phi i32 [ %inc.i.i107, %for.body.i.i100 ], [ 0, %for.body.preheader.i.i97 ]
-  %val.addr.07.i.i102 = phi i32 [ %shr.i.i106, %for.body.i.i100 ], [ %78, %for.body.preheader.i.i97 ]
+  %val.addr.07.i.i102 = phi i32 [ %shr.i.i106, %for.body.i.i100 ], [ %79, %for.body.preheader.i.i97 ]
   %b.addr.06.i.i103 = phi ptr [ %incdec.ptr.i.i105, %for.body.i.i100 ], [ %add.ptr.i.i99, %for.body.preheader.i.i97 ]
   %conv.i.i104 = trunc i32 %val.addr.07.i.i102 to i8
   %incdec.ptr.i.i105 = getelementptr inbounds i8, ptr %b.addr.06.i.i103, i64 -1
@@ -11834,12 +11834,12 @@ pack_uint32_.exit.i109:                           ; preds = %for.body.i.i100, %e
   br i1 %cmp.not.i111, label %if.end.i113, label %write_metadata_block_data_picture_cb_.exit
 
 if.end.i113:                                      ; preds = %pack_uint32_.exit.i109
-  %79 = load i32, ptr @FLAC__STREAM_METADATA_PICTURE_MIME_TYPE_LENGTH_LEN, align 4
-  %div462.i = lshr i32 %79, 3
+  %80 = load i32, ptr @FLAC__STREAM_METADATA_PICTURE_MIME_TYPE_LENGTH_LEN, align 4
+  %div462.i = lshr i32 %80, 3
   %mime_type.i = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %block, i64 0, i32 3, i32 0, i32 0, i64 8
-  %80 = load ptr, ptr %mime_type.i, align 8
-  %call5.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %80) #30
-  %cmp5.not.i69.i = icmp ult i32 %79, 8
+  %81 = load ptr, ptr %mime_type.i, align 8
+  %call5.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %81) #30
+  %cmp5.not.i69.i = icmp ult i32 %80, 8
   br i1 %cmp5.not.i69.i, label %if.end.pack_uint32_.exit82_crit_edge.i, label %for.body.preheader.i70.i
 
 if.end.pack_uint32_.exit82_crit_edge.i:           ; preds = %if.end.i113
@@ -11871,18 +11871,18 @@ pack_uint32_.exit82.i:                            ; preds = %for.body.i73.i, %if
   br i1 %cmp12.not.i, label %if.end15.i, label %write_metadata_block_data_picture_cb_.exit
 
 if.end15.i:                                       ; preds = %pack_uint32_.exit82.i
-  %81 = load ptr, ptr %mime_type.i, align 8
-  %call17.i = call i64 %write_cb(ptr noundef %81, i64 noundef 1, i64 noundef %call5.i, ptr noundef %handle) #28
+  %82 = load ptr, ptr %mime_type.i, align 8
+  %call17.i = call i64 %write_cb(ptr noundef %82, i64 noundef 1, i64 noundef %call5.i, ptr noundef %handle) #28
   %cmp18.not.i = icmp eq i64 %call17.i, %call5.i
   br i1 %cmp18.not.i, label %if.end21.i, label %write_metadata_block_data_picture_cb_.exit
 
 if.end21.i:                                       ; preds = %if.end15.i
-  %82 = load i32, ptr @FLAC__STREAM_METADATA_PICTURE_DESCRIPTION_LENGTH_LEN, align 4
-  %div2263.i = lshr i32 %82, 3
+  %83 = load i32, ptr @FLAC__STREAM_METADATA_PICTURE_DESCRIPTION_LENGTH_LEN, align 4
+  %div2263.i = lshr i32 %83, 3
   %description.i = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %block, i64 0, i32 3, i32 0, i32 0, i64 16
-  %83 = load ptr, ptr %description.i, align 8
-  %call23.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %83) #30
-  %cmp5.not.i83.i = icmp ult i32 %82, 8
+  %84 = load ptr, ptr %description.i, align 8
+  %call23.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %84) #30
+  %cmp5.not.i83.i = icmp ult i32 %83, 8
   br i1 %cmp5.not.i83.i, label %if.end21.pack_uint32_.exit96_crit_edge.i, label %for.body.preheader.i84.i
 
 if.end21.pack_uint32_.exit96_crit_edge.i:         ; preds = %if.end21.i
@@ -11914,15 +11914,15 @@ pack_uint32_.exit96.i:                            ; preds = %for.body.i87.i, %if
   br i1 %cmp30.not.i, label %if.end33.i, label %write_metadata_block_data_picture_cb_.exit
 
 if.end33.i:                                       ; preds = %pack_uint32_.exit96.i
-  %84 = load ptr, ptr %description.i, align 8
-  %call35.i = call i64 %write_cb(ptr noundef %84, i64 noundef 1, i64 noundef %call23.i, ptr noundef %handle) #28
+  %85 = load ptr, ptr %description.i, align 8
+  %call35.i = call i64 %write_cb(ptr noundef %85, i64 noundef 1, i64 noundef %call23.i, ptr noundef %handle) #28
   %cmp36.not.i115 = icmp eq i64 %call35.i, %call23.i
   br i1 %cmp36.not.i115, label %if.end39.i116, label %write_metadata_block_data_picture_cb_.exit
 
 if.end39.i116:                                    ; preds = %if.end33.i
-  %85 = load i32, ptr @FLAC__STREAM_METADATA_PICTURE_WIDTH_LEN, align 4
-  %div4064.i = lshr i32 %85, 3
-  %cmp5.not.i97.i = icmp ult i32 %85, 8
+  %86 = load i32, ptr @FLAC__STREAM_METADATA_PICTURE_WIDTH_LEN, align 4
+  %div4064.i = lshr i32 %86, 3
+  %cmp5.not.i97.i = icmp ult i32 %86, 8
   br i1 %cmp5.not.i97.i, label %if.end39.pack_uint32_.exit110_crit_edge.i, label %for.body.preheader.i98.i
 
 if.end39.pack_uint32_.exit110_crit_edge.i:        ; preds = %if.end39.i116
@@ -11931,14 +11931,14 @@ if.end39.pack_uint32_.exit110_crit_edge.i:        ; preds = %if.end39.i116
 
 for.body.preheader.i98.i:                         ; preds = %if.end39.i116
   %width.i = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %block, i64 0, i32 3, i32 0, i32 0, i64 24
-  %86 = load i32, ptr %width.i, align 8
+  %87 = load i32, ptr %width.i, align 8
   %idx.ext.i99.i = zext nneg i32 %div4064.i to i64
   %add.ptr.i100.i = getelementptr inbounds i8, ptr %buffer.i95, i64 %idx.ext.i99.i
   br label %for.body.i101.i
 
 for.body.i101.i:                                  ; preds = %for.body.i101.i, %for.body.preheader.i98.i
   %i.08.i102.i = phi i32 [ %inc.i108.i, %for.body.i101.i ], [ 0, %for.body.preheader.i98.i ]
-  %val.addr.07.i103.i = phi i32 [ %shr.i107.i, %for.body.i101.i ], [ %86, %for.body.preheader.i98.i ]
+  %val.addr.07.i103.i = phi i32 [ %shr.i107.i, %for.body.i101.i ], [ %87, %for.body.preheader.i98.i ]
   %b.addr.06.i104.i = phi ptr [ %incdec.ptr.i106.i, %for.body.i101.i ], [ %add.ptr.i100.i, %for.body.preheader.i98.i ]
   %conv.i105.i = trunc i32 %val.addr.07.i103.i to i8
   %incdec.ptr.i106.i = getelementptr inbounds i8, ptr %b.addr.06.i104.i, i64 -1
@@ -11955,9 +11955,9 @@ pack_uint32_.exit110.i:                           ; preds = %for.body.i101.i, %i
   br i1 %cmp46.not.i, label %if.end49.i, label %write_metadata_block_data_picture_cb_.exit
 
 if.end49.i:                                       ; preds = %pack_uint32_.exit110.i
-  %87 = load i32, ptr @FLAC__STREAM_METADATA_PICTURE_HEIGHT_LEN, align 4
-  %div5065.i = lshr i32 %87, 3
-  %cmp5.not.i111.i = icmp ult i32 %87, 8
+  %88 = load i32, ptr @FLAC__STREAM_METADATA_PICTURE_HEIGHT_LEN, align 4
+  %div5065.i = lshr i32 %88, 3
+  %cmp5.not.i111.i = icmp ult i32 %88, 8
   br i1 %cmp5.not.i111.i, label %if.end49.pack_uint32_.exit124_crit_edge.i, label %for.body.preheader.i112.i
 
 if.end49.pack_uint32_.exit124_crit_edge.i:        ; preds = %if.end49.i
@@ -11966,14 +11966,14 @@ if.end49.pack_uint32_.exit124_crit_edge.i:        ; preds = %if.end49.i
 
 for.body.preheader.i112.i:                        ; preds = %if.end49.i
   %height.i = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %block, i64 0, i32 3, i32 0, i32 0, i64 28
-  %88 = load i32, ptr %height.i, align 4
+  %89 = load i32, ptr %height.i, align 4
   %idx.ext.i113.i = zext nneg i32 %div5065.i to i64
   %add.ptr.i114.i = getelementptr inbounds i8, ptr %buffer.i95, i64 %idx.ext.i113.i
   br label %for.body.i115.i
 
 for.body.i115.i:                                  ; preds = %for.body.i115.i, %for.body.preheader.i112.i
   %i.08.i116.i = phi i32 [ %inc.i122.i, %for.body.i115.i ], [ 0, %for.body.preheader.i112.i ]
-  %val.addr.07.i117.i = phi i32 [ %shr.i121.i, %for.body.i115.i ], [ %88, %for.body.preheader.i112.i ]
+  %val.addr.07.i117.i = phi i32 [ %shr.i121.i, %for.body.i115.i ], [ %89, %for.body.preheader.i112.i ]
   %b.addr.06.i118.i = phi ptr [ %incdec.ptr.i120.i, %for.body.i115.i ], [ %add.ptr.i114.i, %for.body.preheader.i112.i ]
   %conv.i119.i = trunc i32 %val.addr.07.i117.i to i8
   %incdec.ptr.i120.i = getelementptr inbounds i8, ptr %b.addr.06.i118.i, i64 -1
@@ -11990,9 +11990,9 @@ pack_uint32_.exit124.i:                           ; preds = %for.body.i115.i, %i
   br i1 %cmp56.not.i, label %if.end59.i, label %write_metadata_block_data_picture_cb_.exit
 
 if.end59.i:                                       ; preds = %pack_uint32_.exit124.i
-  %89 = load i32, ptr @FLAC__STREAM_METADATA_PICTURE_DEPTH_LEN, align 4
-  %div6066.i = lshr i32 %89, 3
-  %cmp5.not.i125.i = icmp ult i32 %89, 8
+  %90 = load i32, ptr @FLAC__STREAM_METADATA_PICTURE_DEPTH_LEN, align 4
+  %div6066.i = lshr i32 %90, 3
+  %cmp5.not.i125.i = icmp ult i32 %90, 8
   br i1 %cmp5.not.i125.i, label %if.end59.pack_uint32_.exit138_crit_edge.i, label %for.body.preheader.i126.i
 
 if.end59.pack_uint32_.exit138_crit_edge.i:        ; preds = %if.end59.i
@@ -12001,14 +12001,14 @@ if.end59.pack_uint32_.exit138_crit_edge.i:        ; preds = %if.end59.i
 
 for.body.preheader.i126.i:                        ; preds = %if.end59.i
   %depth.i = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %block, i64 0, i32 3, i32 0, i32 0, i64 32
-  %90 = load i32, ptr %depth.i, align 8
+  %91 = load i32, ptr %depth.i, align 8
   %idx.ext.i127.i = zext nneg i32 %div6066.i to i64
   %add.ptr.i128.i = getelementptr inbounds i8, ptr %buffer.i95, i64 %idx.ext.i127.i
   br label %for.body.i129.i
 
 for.body.i129.i:                                  ; preds = %for.body.i129.i, %for.body.preheader.i126.i
   %i.08.i130.i = phi i32 [ %inc.i136.i, %for.body.i129.i ], [ 0, %for.body.preheader.i126.i ]
-  %val.addr.07.i131.i = phi i32 [ %shr.i135.i, %for.body.i129.i ], [ %90, %for.body.preheader.i126.i ]
+  %val.addr.07.i131.i = phi i32 [ %shr.i135.i, %for.body.i129.i ], [ %91, %for.body.preheader.i126.i ]
   %b.addr.06.i132.i = phi ptr [ %incdec.ptr.i134.i, %for.body.i129.i ], [ %add.ptr.i128.i, %for.body.preheader.i126.i ]
   %conv.i133.i = trunc i32 %val.addr.07.i131.i to i8
   %incdec.ptr.i134.i = getelementptr inbounds i8, ptr %b.addr.06.i132.i, i64 -1
@@ -12025,9 +12025,9 @@ pack_uint32_.exit138.i:                           ; preds = %for.body.i129.i, %i
   br i1 %cmp66.not.i, label %if.end69.i, label %write_metadata_block_data_picture_cb_.exit
 
 if.end69.i:                                       ; preds = %pack_uint32_.exit138.i
-  %91 = load i32, ptr @FLAC__STREAM_METADATA_PICTURE_COLORS_LEN, align 4
-  %div7067.i = lshr i32 %91, 3
-  %cmp5.not.i139.i = icmp ult i32 %91, 8
+  %92 = load i32, ptr @FLAC__STREAM_METADATA_PICTURE_COLORS_LEN, align 4
+  %div7067.i = lshr i32 %92, 3
+  %cmp5.not.i139.i = icmp ult i32 %92, 8
   br i1 %cmp5.not.i139.i, label %if.end69.pack_uint32_.exit152_crit_edge.i, label %for.body.preheader.i140.i
 
 if.end69.pack_uint32_.exit152_crit_edge.i:        ; preds = %if.end69.i
@@ -12036,14 +12036,14 @@ if.end69.pack_uint32_.exit152_crit_edge.i:        ; preds = %if.end69.i
 
 for.body.preheader.i140.i:                        ; preds = %if.end69.i
   %colors.i = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %block, i64 0, i32 3, i32 0, i32 0, i64 36
-  %92 = load i32, ptr %colors.i, align 4
+  %93 = load i32, ptr %colors.i, align 4
   %idx.ext.i141.i = zext nneg i32 %div7067.i to i64
   %add.ptr.i142.i = getelementptr inbounds i8, ptr %buffer.i95, i64 %idx.ext.i141.i
   br label %for.body.i143.i
 
 for.body.i143.i:                                  ; preds = %for.body.i143.i, %for.body.preheader.i140.i
   %i.08.i144.i = phi i32 [ %inc.i150.i, %for.body.i143.i ], [ 0, %for.body.preheader.i140.i ]
-  %val.addr.07.i145.i = phi i32 [ %shr.i149.i, %for.body.i143.i ], [ %92, %for.body.preheader.i140.i ]
+  %val.addr.07.i145.i = phi i32 [ %shr.i149.i, %for.body.i143.i ], [ %93, %for.body.preheader.i140.i ]
   %b.addr.06.i146.i = phi ptr [ %incdec.ptr.i148.i, %for.body.i143.i ], [ %add.ptr.i142.i, %for.body.preheader.i140.i ]
   %conv.i147.i = trunc i32 %val.addr.07.i145.i to i8
   %incdec.ptr.i148.i = getelementptr inbounds i8, ptr %b.addr.06.i146.i, i64 -1
@@ -12060,10 +12060,10 @@ pack_uint32_.exit152.i:                           ; preds = %for.body.i143.i, %i
   br i1 %cmp76.not.i, label %if.end79.i, label %write_metadata_block_data_picture_cb_.exit
 
 if.end79.i:                                       ; preds = %pack_uint32_.exit152.i
-  %93 = load i32, ptr @FLAC__STREAM_METADATA_PICTURE_DATA_LENGTH_LEN, align 4
-  %div8068.i = lshr i32 %93, 3
+  %94 = load i32, ptr @FLAC__STREAM_METADATA_PICTURE_DATA_LENGTH_LEN, align 4
+  %div8068.i = lshr i32 %94, 3
   %data_length.i = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %block, i64 0, i32 3, i32 0, i32 0, i64 40
-  %cmp5.not.i153.i = icmp ult i32 %93, 8
+  %cmp5.not.i153.i = icmp ult i32 %94, 8
   br i1 %cmp5.not.i153.i, label %if.end79.pack_uint32_.exit166_crit_edge.i, label %for.body.preheader.i154.i
 
 if.end79.pack_uint32_.exit166_crit_edge.i:        ; preds = %if.end79.i
@@ -12071,14 +12071,14 @@ if.end79.pack_uint32_.exit166_crit_edge.i:        ; preds = %if.end79.i
   br label %pack_uint32_.exit166.i
 
 for.body.preheader.i154.i:                        ; preds = %if.end79.i
-  %94 = load i32, ptr %data_length.i, align 8
+  %95 = load i32, ptr %data_length.i, align 8
   %idx.ext.i155.i = zext nneg i32 %div8068.i to i64
   %add.ptr.i156.i = getelementptr inbounds i8, ptr %buffer.i95, i64 %idx.ext.i155.i
   br label %for.body.i157.i
 
 for.body.i157.i:                                  ; preds = %for.body.i157.i, %for.body.preheader.i154.i
   %i.08.i158.i = phi i32 [ %inc.i164.i, %for.body.i157.i ], [ 0, %for.body.preheader.i154.i ]
-  %val.addr.07.i159.i = phi i32 [ %shr.i163.i, %for.body.i157.i ], [ %94, %for.body.preheader.i154.i ]
+  %val.addr.07.i159.i = phi i32 [ %shr.i163.i, %for.body.i157.i ], [ %95, %for.body.preheader.i154.i ]
   %b.addr.06.i160.i = phi ptr [ %incdec.ptr.i162.i, %for.body.i157.i ], [ %add.ptr.i156.i, %for.body.preheader.i154.i ]
   %conv.i161.i = trunc i32 %val.addr.07.i159.i to i8
   %incdec.ptr.i162.i = getelementptr inbounds i8, ptr %b.addr.06.i160.i, i64 -1
@@ -12096,12 +12096,12 @@ pack_uint32_.exit166.i:                           ; preds = %for.body.i157.i, %i
 
 if.end89.i:                                       ; preds = %pack_uint32_.exit166.i
   %data.i117 = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %block, i64 0, i32 3, i32 0, i32 0, i64 48
-  %95 = load ptr, ptr %data.i117, align 8
-  %96 = load i32, ptr %data_length.i, align 8
-  %conv91.i = zext i32 %96 to i64
-  %call92.i = call i64 %write_cb(ptr noundef %95, i64 noundef 1, i64 noundef %conv91.i, ptr noundef %handle) #28
+  %96 = load ptr, ptr %data.i117, align 8
   %97 = load i32, ptr %data_length.i, align 8
-  %conv94.i = zext i32 %97 to i64
+  %conv91.i = zext i32 %97 to i64
+  %call92.i = call i64 %write_cb(ptr noundef %96, i64 noundef 1, i64 noundef %conv91.i, ptr noundef %handle) #28
+  %98 = load i32, ptr %data_length.i, align 8
+  %conv94.i = zext i32 %98 to i64
   %cmp95.not.i = icmp eq i64 %call92.i, %conv94.i
   %..i118 = zext i1 %cmp95.not.i to i32
   br label %write_metadata_block_data_picture_cb_.exit
@@ -12114,9 +12114,9 @@ write_metadata_block_data_picture_cb_.exit:       ; preds = %pack_uint32_.exit.i
 sw.default:                                       ; preds = %entry
   %data20 = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %block, i64 0, i32 3
   %length21 = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %block, i64 0, i32 2
-  %98 = load i32, ptr %length21, align 8
+  %99 = load i32, ptr %length21, align 8
   %data20.val = load ptr, ptr %data20, align 8
-  %conv.i120 = zext i32 %98 to i64
+  %conv.i120 = zext i32 %99 to i64
   %call.i121 = tail call i64 %write_cb(ptr noundef %data20.val, i64 noundef 1, i64 noundef %conv.i120, ptr noundef %handle) #28
   %cmp.not.i122 = icmp eq i64 %call.i121, %conv.i120
   %..i123 = zext i1 %cmp.not.i122 to i32
