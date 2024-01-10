@@ -472,7 +472,7 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 trace_sifive_gpio_write.exit:                     ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
   %7 = add i64 %offset, -4
-  %8 = tail call i64 @llvm.fshl.i64(i64 %offset, i64 %7, i64 62)
+  %8 = tail call i64 @llvm.fshl.i64(i64 %7, i64 %7, i64 62)
   switch i64 %8, label %do.body [
     i64 0, label %sw.bb
     i64 1, label %sw.bb1

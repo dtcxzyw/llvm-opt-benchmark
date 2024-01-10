@@ -11490,8 +11490,8 @@ if.then.i:                                        ; preds = %do.end
 
 do.end.i:                                         ; preds = %do.end
   %and4.i = and i32 %10, %not.i
-  %11 = call i32 @llvm.fshl.i32(i32 %and4.i, i32 %and4.i, i32 2)
-  %12 = xor i32 %11, 2
+  %11 = xor i32 %and4.i, -2147483648
+  %12 = call i32 @llvm.fshl.i32(i32 %11, i32 %11, i32 2)
   switch i32 %12, label %return [
     i32 0, label %sw.epilog
     i32 1, label %cond.end

@@ -51677,7 +51677,7 @@ sw.bb.i:                                          ; preds = %if.then.i
   %bitsPerSample.i = getelementptr inbounds %struct.ma_wav, ptr %pWav, i64 0, i32 6, i32 9
   %5 = load i16, ptr %bitsPerSample.i, align 2
   %6 = add i16 %5, -8
-  %7 = tail call i16 @llvm.fshl.i16(i16 %5, i16 %6, i16 13)
+  %7 = tail call i16 @llvm.fshl.i16(i16 %6, i16 %6, i16 13)
   %8 = icmp ult i16 %7, 4
   br i1 %8, label %switch.lookup, label %if.end48.sink.split.i
 
@@ -51907,7 +51907,7 @@ sw.bb.i:                                          ; preds = %if.then.i
   %bitsPerSample.i = getelementptr inbounds %struct.ma_wav, ptr %pWav, i64 0, i32 6, i32 9
   %5 = load i16, ptr %bitsPerSample.i, align 2
   %6 = add i16 %5, -8
-  %7 = tail call i16 @llvm.fshl.i16(i16 %5, i16 %6, i16 13)
+  %7 = tail call i16 @llvm.fshl.i16(i16 %6, i16 %6, i16 13)
   %8 = icmp ult i16 %7, 4
   br i1 %8, label %switch.lookup, label %if.end48.sink.split.i
 
@@ -52122,7 +52122,7 @@ sw.bb.i:                                          ; preds = %if.then.i
   %bitsPerSample.i = getelementptr inbounds %struct.ma_wav, ptr %pWav, i64 0, i32 6, i32 9
   %6 = load i16, ptr %bitsPerSample.i, align 2
   %7 = add i16 %6, -8
-  %8 = call i16 @llvm.fshl.i16(i16 %6, i16 %7, i16 13)
+  %8 = call i16 @llvm.fshl.i16(i16 %7, i16 %7, i16 13)
   %9 = icmp ult i16 %8, 4
   br i1 %9, label %switch.lookup, label %if.end48.sink.split.i
 
@@ -52332,7 +52332,7 @@ sw.bb.i:                                          ; preds = %if.then.i
   %bitsPerSample.i = getelementptr inbounds %struct.ma_wav, ptr %pWav, i64 0, i32 6, i32 9
   %5 = load i16, ptr %bitsPerSample.i, align 2
   %6 = add i16 %5, -8
-  %7 = tail call i16 @llvm.fshl.i16(i16 %5, i16 %6, i16 13)
+  %7 = tail call i16 @llvm.fshl.i16(i16 %6, i16 %6, i16 13)
   %8 = icmp ult i16 %7, 4
   br i1 %8, label %switch.lookup, label %if.end48.sink.split.i
 
@@ -127409,7 +127409,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
 for.end.i:                                        ; preds = %for.body.i, %entry
   %h1.0.lcssa.i = phi i32 [ 42, %entry ], [ %add.i, %for.body.i ]
   %and.i = and i32 %conv, 3
-  switch i32 %and.i, label %for.end.unreachabledefault.i [
+  switch i32 %and.i, label %default.unreachable [
     i32 3, label %sw.bb.i
     i32 2, label %sw.bb10.i
     i32 1, label %sw.bb15.i
@@ -127445,7 +127445,7 @@ sw.bb15.i:                                        ; preds = %sw.bb10.i, %for.end
   %xor22.i = xor i32 %mul21.i, %h1.0.lcssa.i
   br label %ma_hash_32.exit
 
-for.end.unreachabledefault.i:                     ; preds = %for.end.i
+default.unreachable:                              ; preds = %for.end.i
   unreachable
 
 ma_hash_32.exit:                                  ; preds = %for.end.i, %sw.bb15.i
@@ -151134,6 +151134,9 @@ declare i64 @llvm.smax.i64(i64, i64) #75
 declare i32 @llvm.umin.i32(i32, i32) #75
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i16 @llvm.fshl.i16(i16, i16, i16) #75
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #75
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
@@ -151153,9 +151156,6 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #76
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #75
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.fshl.i16(i16, i16, i16) #75
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i8 @llvm.umax.i8(i8, i8) #75

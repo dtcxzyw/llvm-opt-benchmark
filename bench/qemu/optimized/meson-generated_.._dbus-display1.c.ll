@@ -842,13 +842,13 @@ target triple = "x86_64-unknown-linux-gnu"
 @__func__._qemu_dbus_display1_chardev_skeleton_handle_set_property = private unnamed_addr constant [57 x i8] c"_qemu_dbus_display1_chardev_skeleton_handle_set_property\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local nonnull ptr @qemu_dbus_display1_vm_interface_info() local_unnamed_addr #0 {
+define dso_local noundef nonnull ptr @qemu_dbus_display1_vm_interface_info() local_unnamed_addr #0 {
 entry:
   ret ptr @_qemu_dbus_display1_vm_interface_info
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qemu_dbus_display1_vm_override_properties(ptr noundef %klass, i32 noundef %property_id_begin) local_unnamed_addr #1 {
+define dso_local noundef i32 @qemu_dbus_display1_vm_override_properties(ptr noundef %klass, i32 noundef %property_id_begin) local_unnamed_addr #1 {
 entry:
   %inc = add i32 %property_id_begin, 1
   tail call void @g_object_class_override_property(ptr noundef %klass, i32 noundef %property_id_begin, ptr noundef nonnull @.str) #12
@@ -1411,13 +1411,13 @@ qemu_dbus_display1_vm_get_type.exit:              ; preds = %entry, %land.rhs.i,
 declare ptr @g_object_new(i64 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local nonnull ptr @qemu_dbus_display1_console_interface_info() local_unnamed_addr #0 {
+define dso_local noundef nonnull ptr @qemu_dbus_display1_console_interface_info() local_unnamed_addr #0 {
 entry:
   ret ptr @_qemu_dbus_display1_console_interface_info
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qemu_dbus_display1_console_override_properties(ptr noundef %klass, i32 noundef %property_id_begin) local_unnamed_addr #1 {
+define dso_local noundef i32 @qemu_dbus_display1_console_override_properties(ptr noundef %klass, i32 noundef %property_id_begin) local_unnamed_addr #1 {
 entry:
   %inc = add i32 %property_id_begin, 1
   tail call void @g_object_class_override_property(ptr noundef %klass, i32 noundef %property_id_begin, ptr noundef nonnull @.str.12) #12
@@ -2220,13 +2220,13 @@ qemu_dbus_display1_console_get_type.exit:         ; preds = %entry, %land.rhs.i,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local nonnull ptr @qemu_dbus_display1_keyboard_interface_info() local_unnamed_addr #0 {
+define dso_local noundef nonnull ptr @qemu_dbus_display1_keyboard_interface_info() local_unnamed_addr #0 {
 entry:
   ret ptr @_qemu_dbus_display1_keyboard_interface_info
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qemu_dbus_display1_keyboard_override_properties(ptr noundef %klass, i32 noundef returned %property_id_begin) local_unnamed_addr #1 {
+define dso_local noundef i32 @qemu_dbus_display1_keyboard_override_properties(ptr noundef %klass, i32 noundef returned %property_id_begin) local_unnamed_addr #1 {
 entry:
   tail call void @g_object_class_override_property(ptr noundef %klass, i32 noundef %property_id_begin, ptr noundef nonnull @.str.25) #12
   ret i32 %property_id_begin
@@ -2712,13 +2712,13 @@ qemu_dbus_display1_keyboard_get_type.exit:        ; preds = %entry, %land.rhs.i,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local nonnull ptr @qemu_dbus_display1_mouse_interface_info() local_unnamed_addr #0 {
+define dso_local noundef nonnull ptr @qemu_dbus_display1_mouse_interface_info() local_unnamed_addr #0 {
 entry:
   ret ptr @_qemu_dbus_display1_mouse_interface_info
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qemu_dbus_display1_mouse_override_properties(ptr noundef %klass, i32 noundef returned %property_id_begin) local_unnamed_addr #1 {
+define dso_local noundef i32 @qemu_dbus_display1_mouse_override_properties(ptr noundef %klass, i32 noundef returned %property_id_begin) local_unnamed_addr #1 {
 entry:
   tail call void @g_object_class_override_property(ptr noundef %klass, i32 noundef %property_id_begin, ptr noundef nonnull @.str.31) #12
   ret i32 %property_id_begin
@@ -3326,13 +3326,13 @@ qemu_dbus_display1_mouse_get_type.exit:           ; preds = %entry, %land.rhs.i,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local nonnull ptr @qemu_dbus_display1_multi_touch_interface_info() local_unnamed_addr #0 {
+define dso_local noundef nonnull ptr @qemu_dbus_display1_multi_touch_interface_info() local_unnamed_addr #0 {
 entry:
   ret ptr @_qemu_dbus_display1_multi_touch_interface_info
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qemu_dbus_display1_multi_touch_override_properties(ptr noundef %klass, i32 noundef returned %property_id_begin) local_unnamed_addr #1 {
+define dso_local noundef i32 @qemu_dbus_display1_multi_touch_override_properties(ptr noundef %klass, i32 noundef returned %property_id_begin) local_unnamed_addr #1 {
 entry:
   tail call void @g_object_class_override_property(ptr noundef %klass, i32 noundef %property_id_begin, ptr noundef nonnull @.str.38) #12
   ret i32 %property_id_begin
@@ -3757,13 +3757,13 @@ qemu_dbus_display1_multi_touch_get_type.exit:     ; preds = %entry, %land.rhs.i,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local nonnull ptr @qemu_dbus_display1_listener_interface_info() local_unnamed_addr #0 {
+define dso_local noundef nonnull ptr @qemu_dbus_display1_listener_interface_info() local_unnamed_addr #0 {
 entry:
   ret ptr @_qemu_dbus_display1_listener_interface_info
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qemu_dbus_display1_listener_override_properties(ptr noundef %klass, i32 noundef returned %property_id_begin) local_unnamed_addr #1 {
+define dso_local noundef i32 @qemu_dbus_display1_listener_override_properties(ptr noundef %klass, i32 noundef returned %property_id_begin) local_unnamed_addr #1 {
 entry:
   tail call void @g_object_class_override_property(ptr noundef %klass, i32 noundef %property_id_begin, ptr noundef nonnull @.str.3) #12
   ret i32 %property_id_begin
@@ -4566,13 +4566,13 @@ qemu_dbus_display1_listener_get_type.exit:        ; preds = %entry, %land.rhs.i,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local nonnull ptr @qemu_dbus_display1_listener_win32_map_interface_info() local_unnamed_addr #0 {
+define dso_local noundef nonnull ptr @qemu_dbus_display1_listener_win32_map_interface_info() local_unnamed_addr #0 {
 entry:
   ret ptr @_qemu_dbus_display1_listener_win32_map_interface_info
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local i32 @qemu_dbus_display1_listener_win32_map_override_properties(ptr nocapture noundef readnone %klass, i32 noundef %property_id_begin) local_unnamed_addr #0 {
+define dso_local noundef i32 @qemu_dbus_display1_listener_win32_map_override_properties(ptr nocapture noundef readnone %klass, i32 noundef %property_id_begin) local_unnamed_addr #0 {
 entry:
   %sub = add i32 %property_id_begin, -1
   ret i32 %sub
@@ -5019,13 +5019,13 @@ qemu_dbus_display1_listener_win32_map_get_type.exit: ; preds = %entry, %land.rhs
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local nonnull ptr @qemu_dbus_display1_listener_win32_d3d11_interface_info() local_unnamed_addr #0 {
+define dso_local noundef nonnull ptr @qemu_dbus_display1_listener_win32_d3d11_interface_info() local_unnamed_addr #0 {
 entry:
   ret ptr @_qemu_dbus_display1_listener_win32_d3d11_interface_info
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local i32 @qemu_dbus_display1_listener_win32_d3d11_override_properties(ptr nocapture noundef readnone %klass, i32 noundef %property_id_begin) local_unnamed_addr #0 {
+define dso_local noundef i32 @qemu_dbus_display1_listener_win32_d3d11_override_properties(ptr nocapture noundef readnone %klass, i32 noundef %property_id_begin) local_unnamed_addr #0 {
 entry:
   %sub = add i32 %property_id_begin, -1
   ret i32 %sub
@@ -5472,13 +5472,13 @@ qemu_dbus_display1_listener_win32_d3d11_get_type.exit: ; preds = %entry, %land.r
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local nonnull ptr @qemu_dbus_display1_clipboard_interface_info() local_unnamed_addr #0 {
+define dso_local noundef nonnull ptr @qemu_dbus_display1_clipboard_interface_info() local_unnamed_addr #0 {
 entry:
   ret ptr @_qemu_dbus_display1_clipboard_interface_info
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qemu_dbus_display1_clipboard_override_properties(ptr noundef %klass, i32 noundef returned %property_id_begin) local_unnamed_addr #1 {
+define dso_local noundef i32 @qemu_dbus_display1_clipboard_override_properties(ptr noundef %klass, i32 noundef returned %property_id_begin) local_unnamed_addr #1 {
 entry:
   tail call void @g_object_class_override_property(ptr noundef %klass, i32 noundef %property_id_begin, ptr noundef nonnull @.str.3) #12
   ret i32 %property_id_begin
@@ -6158,13 +6158,13 @@ qemu_dbus_display1_clipboard_get_type.exit:       ; preds = %entry, %land.rhs.i,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local nonnull ptr @qemu_dbus_display1_audio_interface_info() local_unnamed_addr #0 {
+define dso_local noundef nonnull ptr @qemu_dbus_display1_audio_interface_info() local_unnamed_addr #0 {
 entry:
   ret ptr @_qemu_dbus_display1_audio_interface_info
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qemu_dbus_display1_audio_override_properties(ptr noundef %klass, i32 noundef returned %property_id_begin) local_unnamed_addr #1 {
+define dso_local noundef i32 @qemu_dbus_display1_audio_override_properties(ptr noundef %klass, i32 noundef returned %property_id_begin) local_unnamed_addr #1 {
 entry:
   tail call void @g_object_class_override_property(ptr noundef %klass, i32 noundef %property_id_begin, ptr noundef nonnull @.str.3) #12
   ret i32 %property_id_begin
@@ -6662,13 +6662,13 @@ qemu_dbus_display1_audio_get_type.exit:           ; preds = %entry, %land.rhs.i,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local nonnull ptr @qemu_dbus_display1_audio_out_listener_interface_info() local_unnamed_addr #0 {
+define dso_local noundef nonnull ptr @qemu_dbus_display1_audio_out_listener_interface_info() local_unnamed_addr #0 {
 entry:
   ret ptr @_qemu_dbus_display1_audio_out_listener_interface_info
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qemu_dbus_display1_audio_out_listener_override_properties(ptr noundef %klass, i32 noundef returned %property_id_begin) local_unnamed_addr #1 {
+define dso_local noundef i32 @qemu_dbus_display1_audio_out_listener_override_properties(ptr noundef %klass, i32 noundef returned %property_id_begin) local_unnamed_addr #1 {
 entry:
   tail call void @g_object_class_override_property(ptr noundef %klass, i32 noundef %property_id_begin, ptr noundef nonnull @.str.3) #12
   ret i32 %property_id_begin
@@ -7352,13 +7352,13 @@ qemu_dbus_display1_audio_out_listener_get_type.exit: ; preds = %entry, %land.rhs
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local nonnull ptr @qemu_dbus_display1_audio_in_listener_interface_info() local_unnamed_addr #0 {
+define dso_local noundef nonnull ptr @qemu_dbus_display1_audio_in_listener_interface_info() local_unnamed_addr #0 {
 entry:
   ret ptr @_qemu_dbus_display1_audio_in_listener_interface_info
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qemu_dbus_display1_audio_in_listener_override_properties(ptr noundef %klass, i32 noundef returned %property_id_begin) local_unnamed_addr #1 {
+define dso_local noundef i32 @qemu_dbus_display1_audio_in_listener_override_properties(ptr noundef %klass, i32 noundef returned %property_id_begin) local_unnamed_addr #1 {
 entry:
   tail call void @g_object_class_override_property(ptr noundef %klass, i32 noundef %property_id_begin, ptr noundef nonnull @.str.3) #12
   ret i32 %property_id_begin
@@ -8042,13 +8042,13 @@ qemu_dbus_display1_audio_in_listener_get_type.exit: ; preds = %entry, %land.rhs.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local nonnull ptr @qemu_dbus_display1_chardev_interface_info() local_unnamed_addr #0 {
+define dso_local noundef nonnull ptr @qemu_dbus_display1_chardev_interface_info() local_unnamed_addr #0 {
 entry:
   ret ptr @_qemu_dbus_display1_chardev_interface_info
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qemu_dbus_display1_chardev_override_properties(ptr noundef %klass, i32 noundef %property_id_begin) local_unnamed_addr #1 {
+define dso_local noundef i32 @qemu_dbus_display1_chardev_override_properties(ptr noundef %klass, i32 noundef %property_id_begin) local_unnamed_addr #1 {
 entry:
   %inc = add i32 %property_id_begin, 1
   tail call void @g_object_class_override_property(ptr noundef %klass, i32 noundef %property_id_begin, ptr noundef nonnull @.str) #12
@@ -9609,7 +9609,7 @@ if.end:                                           ; preds = %if.then, %land.lhs.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal nonnull ptr @qemu_dbus_display1_vm_skeleton_dbus_interface_get_info(ptr nocapture readnone %skeleton) #0 {
+define internal noundef nonnull ptr @qemu_dbus_display1_vm_skeleton_dbus_interface_get_info(ptr nocapture readnone %skeleton) #0 {
 entry:
   ret ptr @_qemu_dbus_display1_vm_interface_info
 }
@@ -9700,7 +9700,7 @@ if.end11:                                         ; preds = %if.end11.critedge, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal nonnull ptr @qemu_dbus_display1_vm_skeleton_dbus_interface_get_vtable(ptr nocapture readnone %skeleton) #0 {
+define internal noundef nonnull ptr @qemu_dbus_display1_vm_skeleton_dbus_interface_get_vtable(ptr nocapture readnone %skeleton) #0 {
 entry:
   ret ptr @_qemu_dbus_display1_vm_skeleton_vtable
 }
@@ -9744,7 +9744,7 @@ if.else:                                          ; preds = %entry
 
 do.end:                                           ; preds = %entry
   %2 = add i64 %0, -16
-  %3 = tail call i64 @llvm.fshl.i64(i64 %0, i64 %2, i64 62)
+  %3 = tail call i64 @llvm.fshl.i64(i64 %2, i64 %2, i64 62)
   switch i64 %3, label %sw.default [
     i64 1, label %sw.bb
     i64 0, label %sw.bb5
@@ -9931,7 +9931,7 @@ declare void @g_source_set_priority(ptr noundef, i32 noundef) local_unnamed_addr
 declare void @g_source_set_callback(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @_qemu_dbus_display1_vm_emit_changed(ptr noundef %user_data) #1 {
+define internal noundef i32 @_qemu_dbus_display1_vm_emit_changed(ptr noundef %user_data) #1 {
 entry:
   %builder = alloca %struct._GVariantBuilder, align 8
   %invalidated_builder = alloca %struct._GVariantBuilder, align 8
@@ -10255,7 +10255,7 @@ for.end:                                          ; preds = %for.body, %if.end47
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @_qemu_dbus_display1_vm_skeleton_handle_set_property(ptr nocapture readnone %connection, ptr nocapture readnone %sender, ptr nocapture readnone %object_path, ptr nocapture readnone %interface_name, ptr noundef %property_name, ptr noundef %variant, ptr noundef %error, ptr noundef %user_data) #1 {
+define internal noundef i32 @_qemu_dbus_display1_vm_skeleton_handle_set_property(ptr nocapture readnone %connection, ptr nocapture readnone %sender, ptr nocapture readnone %object_path, ptr nocapture readnone %interface_name, ptr noundef %property_name, ptr noundef %variant, ptr noundef %error, ptr noundef %user_data) #1 {
 entry:
   %value = alloca %struct._GValue, align 8
   %call = tail call i64 @qemu_dbus_display1_vm_skeleton_get_type() #13
@@ -11295,7 +11295,7 @@ if.end:                                           ; preds = %if.then, %land.lhs.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal nonnull ptr @qemu_dbus_display1_console_skeleton_dbus_interface_get_info(ptr nocapture readnone %skeleton) #0 {
+define internal noundef nonnull ptr @qemu_dbus_display1_console_skeleton_dbus_interface_get_info(ptr nocapture readnone %skeleton) #0 {
 entry:
   ret ptr @_qemu_dbus_display1_console_interface_info
 }
@@ -11386,13 +11386,13 @@ if.end11:                                         ; preds = %if.end11.critedge, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal nonnull ptr @qemu_dbus_display1_console_skeleton_dbus_interface_get_vtable(ptr nocapture readnone %skeleton) #0 {
+define internal noundef nonnull ptr @qemu_dbus_display1_console_skeleton_dbus_interface_get_vtable(ptr nocapture readnone %skeleton) #0 {
 entry:
   ret ptr @_qemu_dbus_display1_console_skeleton_vtable
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @_qemu_dbus_display1_console_emit_changed(ptr noundef %user_data) #1 {
+define internal noundef i32 @_qemu_dbus_display1_console_emit_changed(ptr noundef %user_data) #1 {
 entry:
   %builder = alloca %struct._GVariantBuilder, align 8
   %invalidated_builder = alloca %struct._GVariantBuilder, align 8
@@ -11682,7 +11682,7 @@ for.end:                                          ; preds = %for.body, %if.end47
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @_qemu_dbus_display1_console_skeleton_handle_set_property(ptr nocapture readnone %connection, ptr nocapture readnone %sender, ptr nocapture readnone %object_path, ptr nocapture readnone %interface_name, ptr noundef %property_name, ptr noundef %variant, ptr noundef %error, ptr noundef %user_data) #1 {
+define internal noundef i32 @_qemu_dbus_display1_console_skeleton_handle_set_property(ptr nocapture readnone %connection, ptr nocapture readnone %sender, ptr nocapture readnone %object_path, ptr nocapture readnone %interface_name, ptr noundef %property_name, ptr noundef %variant, ptr noundef %error, ptr noundef %user_data) #1 {
 entry:
   %value = alloca %struct._GValue, align 8
   %call = tail call i64 @qemu_dbus_display1_console_skeleton_get_type() #13
@@ -12496,7 +12496,7 @@ if.end:                                           ; preds = %if.then, %land.lhs.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal nonnull ptr @qemu_dbus_display1_keyboard_skeleton_dbus_interface_get_info(ptr nocapture readnone %skeleton) #0 {
+define internal noundef nonnull ptr @qemu_dbus_display1_keyboard_skeleton_dbus_interface_get_info(ptr nocapture readnone %skeleton) #0 {
 entry:
   ret ptr @_qemu_dbus_display1_keyboard_interface_info
 }
@@ -12565,13 +12565,13 @@ if.end11:                                         ; preds = %if.end11.critedge, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal nonnull ptr @qemu_dbus_display1_keyboard_skeleton_dbus_interface_get_vtable(ptr nocapture readnone %skeleton) #0 {
+define internal noundef nonnull ptr @qemu_dbus_display1_keyboard_skeleton_dbus_interface_get_vtable(ptr nocapture readnone %skeleton) #0 {
 entry:
   ret ptr @_qemu_dbus_display1_keyboard_skeleton_vtable
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @_qemu_dbus_display1_keyboard_emit_changed(ptr noundef %user_data) #1 {
+define internal noundef i32 @_qemu_dbus_display1_keyboard_emit_changed(ptr noundef %user_data) #1 {
 entry:
   %builder = alloca %struct._GVariantBuilder, align 8
   %invalidated_builder = alloca %struct._GVariantBuilder, align 8
@@ -12861,7 +12861,7 @@ for.end:                                          ; preds = %for.body, %if.end47
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @_qemu_dbus_display1_keyboard_skeleton_handle_set_property(ptr nocapture readnone %connection, ptr nocapture readnone %sender, ptr nocapture readnone %object_path, ptr nocapture readnone %interface_name, ptr noundef %property_name, ptr noundef %variant, ptr noundef %error, ptr noundef %user_data) #1 {
+define internal noundef i32 @_qemu_dbus_display1_keyboard_skeleton_handle_set_property(ptr nocapture readnone %connection, ptr nocapture readnone %sender, ptr nocapture readnone %object_path, ptr nocapture readnone %interface_name, ptr noundef %property_name, ptr noundef %variant, ptr noundef %error, ptr noundef %user_data) #1 {
 entry:
   %value = alloca %struct._GValue, align 8
   %call = tail call i64 @qemu_dbus_display1_keyboard_skeleton_get_type() #13
@@ -13565,7 +13565,7 @@ if.end:                                           ; preds = %if.then, %land.lhs.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal nonnull ptr @qemu_dbus_display1_mouse_skeleton_dbus_interface_get_info(ptr nocapture readnone %skeleton) #0 {
+define internal noundef nonnull ptr @qemu_dbus_display1_mouse_skeleton_dbus_interface_get_info(ptr nocapture readnone %skeleton) #0 {
 entry:
   ret ptr @_qemu_dbus_display1_mouse_interface_info
 }
@@ -13634,13 +13634,13 @@ if.end11:                                         ; preds = %if.end11.critedge, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal nonnull ptr @qemu_dbus_display1_mouse_skeleton_dbus_interface_get_vtable(ptr nocapture readnone %skeleton) #0 {
+define internal noundef nonnull ptr @qemu_dbus_display1_mouse_skeleton_dbus_interface_get_vtable(ptr nocapture readnone %skeleton) #0 {
 entry:
   ret ptr @_qemu_dbus_display1_mouse_skeleton_vtable
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @_qemu_dbus_display1_mouse_emit_changed(ptr noundef %user_data) #1 {
+define internal noundef i32 @_qemu_dbus_display1_mouse_emit_changed(ptr noundef %user_data) #1 {
 entry:
   %builder = alloca %struct._GVariantBuilder, align 8
   %invalidated_builder = alloca %struct._GVariantBuilder, align 8
@@ -13930,7 +13930,7 @@ for.end:                                          ; preds = %for.body, %if.end47
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @_qemu_dbus_display1_mouse_skeleton_handle_set_property(ptr nocapture readnone %connection, ptr nocapture readnone %sender, ptr nocapture readnone %object_path, ptr nocapture readnone %interface_name, ptr noundef %property_name, ptr noundef %variant, ptr noundef %error, ptr noundef %user_data) #1 {
+define internal noundef i32 @_qemu_dbus_display1_mouse_skeleton_handle_set_property(ptr nocapture readnone %connection, ptr nocapture readnone %sender, ptr nocapture readnone %object_path, ptr nocapture readnone %interface_name, ptr noundef %property_name, ptr noundef %variant, ptr noundef %error, ptr noundef %user_data) #1 {
 entry:
   %value = alloca %struct._GValue, align 8
   %call = tail call i64 @qemu_dbus_display1_mouse_skeleton_get_type() #13
@@ -14634,7 +14634,7 @@ if.end:                                           ; preds = %if.then, %land.lhs.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal nonnull ptr @qemu_dbus_display1_multi_touch_skeleton_dbus_interface_get_info(ptr nocapture readnone %skeleton) #0 {
+define internal noundef nonnull ptr @qemu_dbus_display1_multi_touch_skeleton_dbus_interface_get_info(ptr nocapture readnone %skeleton) #0 {
 entry:
   ret ptr @_qemu_dbus_display1_multi_touch_interface_info
 }
@@ -14703,13 +14703,13 @@ if.end11:                                         ; preds = %if.end11.critedge, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal nonnull ptr @qemu_dbus_display1_multi_touch_skeleton_dbus_interface_get_vtable(ptr nocapture readnone %skeleton) #0 {
+define internal noundef nonnull ptr @qemu_dbus_display1_multi_touch_skeleton_dbus_interface_get_vtable(ptr nocapture readnone %skeleton) #0 {
 entry:
   ret ptr @_qemu_dbus_display1_multi_touch_skeleton_vtable
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @_qemu_dbus_display1_multi_touch_emit_changed(ptr noundef %user_data) #1 {
+define internal noundef i32 @_qemu_dbus_display1_multi_touch_emit_changed(ptr noundef %user_data) #1 {
 entry:
   %builder = alloca %struct._GVariantBuilder, align 8
   %invalidated_builder = alloca %struct._GVariantBuilder, align 8
@@ -14999,7 +14999,7 @@ for.end:                                          ; preds = %for.body, %if.end47
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @_qemu_dbus_display1_multi_touch_skeleton_handle_set_property(ptr nocapture readnone %connection, ptr nocapture readnone %sender, ptr nocapture readnone %object_path, ptr nocapture readnone %interface_name, ptr noundef %property_name, ptr noundef %variant, ptr noundef %error, ptr noundef %user_data) #1 {
+define internal noundef i32 @_qemu_dbus_display1_multi_touch_skeleton_handle_set_property(ptr nocapture readnone %connection, ptr nocapture readnone %sender, ptr nocapture readnone %object_path, ptr nocapture readnone %interface_name, ptr noundef %property_name, ptr noundef %variant, ptr noundef %error, ptr noundef %user_data) #1 {
 entry:
   %value = alloca %struct._GValue, align 8
   %call = tail call i64 @qemu_dbus_display1_multi_touch_skeleton_get_type() #13
@@ -15710,7 +15710,7 @@ if.end:                                           ; preds = %if.then, %land.lhs.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal nonnull ptr @qemu_dbus_display1_listener_skeleton_dbus_interface_get_info(ptr nocapture readnone %skeleton) #0 {
+define internal noundef nonnull ptr @qemu_dbus_display1_listener_skeleton_dbus_interface_get_info(ptr nocapture readnone %skeleton) #0 {
 entry:
   ret ptr @_qemu_dbus_display1_listener_interface_info
 }
@@ -15779,13 +15779,13 @@ if.end11:                                         ; preds = %if.end11.critedge, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal nonnull ptr @qemu_dbus_display1_listener_skeleton_dbus_interface_get_vtable(ptr nocapture readnone %skeleton) #0 {
+define internal noundef nonnull ptr @qemu_dbus_display1_listener_skeleton_dbus_interface_get_vtable(ptr nocapture readnone %skeleton) #0 {
 entry:
   ret ptr @_qemu_dbus_display1_listener_skeleton_vtable
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @_qemu_dbus_display1_listener_emit_changed(ptr noundef %user_data) #1 {
+define internal noundef i32 @_qemu_dbus_display1_listener_emit_changed(ptr noundef %user_data) #1 {
 entry:
   %builder = alloca %struct._GVariantBuilder, align 8
   %invalidated_builder = alloca %struct._GVariantBuilder, align 8
@@ -16075,7 +16075,7 @@ for.end:                                          ; preds = %for.body, %if.end47
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @_qemu_dbus_display1_listener_skeleton_handle_set_property(ptr nocapture readnone %connection, ptr nocapture readnone %sender, ptr nocapture readnone %object_path, ptr nocapture readnone %interface_name, ptr noundef %property_name, ptr noundef %variant, ptr noundef %error, ptr noundef %user_data) #1 {
+define internal noundef i32 @_qemu_dbus_display1_listener_skeleton_handle_set_property(ptr nocapture readnone %connection, ptr nocapture readnone %sender, ptr nocapture readnone %object_path, ptr nocapture readnone %interface_name, ptr noundef %property_name, ptr noundef %variant, ptr noundef %error, ptr noundef %user_data) #1 {
 entry:
   %value = alloca %struct._GValue, align 8
   %call = tail call i64 @qemu_dbus_display1_listener_skeleton_get_type() #13
@@ -16492,7 +16492,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal nonnull ptr @qemu_dbus_display1_listener_win32_map_skeleton_dbus_interface_get_info(ptr nocapture readnone %skeleton) #0 {
+define internal noundef nonnull ptr @qemu_dbus_display1_listener_win32_map_skeleton_dbus_interface_get_info(ptr nocapture readnone %skeleton) #0 {
 entry:
   ret ptr @_qemu_dbus_display1_listener_win32_map_interface_info
 }
@@ -16516,7 +16516,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal nonnull ptr @qemu_dbus_display1_listener_win32_map_skeleton_dbus_interface_get_vtable(ptr nocapture readnone %skeleton) #0 {
+define internal noundef nonnull ptr @qemu_dbus_display1_listener_win32_map_skeleton_dbus_interface_get_vtable(ptr nocapture readnone %skeleton) #0 {
 entry:
   ret ptr @_qemu_dbus_display1_listener_win32_map_skeleton_vtable
 }
@@ -16703,7 +16703,7 @@ if.end13:                                         ; preds = %if.else7, %if.then5
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @_qemu_dbus_display1_listener_win32_map_skeleton_handle_set_property(ptr nocapture readnone %connection, ptr nocapture readnone %sender, ptr nocapture readnone %object_path, ptr nocapture readnone %interface_name, ptr noundef %property_name, ptr noundef %variant, ptr noundef %error, ptr noundef %user_data) #1 {
+define internal noundef i32 @_qemu_dbus_display1_listener_win32_map_skeleton_handle_set_property(ptr nocapture readnone %connection, ptr nocapture readnone %sender, ptr nocapture readnone %object_path, ptr nocapture readnone %interface_name, ptr noundef %property_name, ptr noundef %variant, ptr noundef %error, ptr noundef %user_data) #1 {
 entry:
   %value = alloca %struct._GValue, align 8
   %call = tail call i64 @qemu_dbus_display1_listener_win32_map_skeleton_get_type() #13
@@ -17102,7 +17102,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal nonnull ptr @qemu_dbus_display1_listener_win32_d3d11_skeleton_dbus_interface_get_info(ptr nocapture readnone %skeleton) #0 {
+define internal noundef nonnull ptr @qemu_dbus_display1_listener_win32_d3d11_skeleton_dbus_interface_get_info(ptr nocapture readnone %skeleton) #0 {
 entry:
   ret ptr @_qemu_dbus_display1_listener_win32_d3d11_interface_info
 }
@@ -17126,7 +17126,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal nonnull ptr @qemu_dbus_display1_listener_win32_d3d11_skeleton_dbus_interface_get_vtable(ptr nocapture readnone %skeleton) #0 {
+define internal noundef nonnull ptr @qemu_dbus_display1_listener_win32_d3d11_skeleton_dbus_interface_get_vtable(ptr nocapture readnone %skeleton) #0 {
 entry:
   ret ptr @_qemu_dbus_display1_listener_win32_d3d11_skeleton_vtable
 }
@@ -17313,7 +17313,7 @@ if.end13:                                         ; preds = %if.else7, %if.then5
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @_qemu_dbus_display1_listener_win32_d3d11_skeleton_handle_set_property(ptr nocapture readnone %connection, ptr nocapture readnone %sender, ptr nocapture readnone %object_path, ptr nocapture readnone %interface_name, ptr noundef %property_name, ptr noundef %variant, ptr noundef %error, ptr noundef %user_data) #1 {
+define internal noundef i32 @_qemu_dbus_display1_listener_win32_d3d11_skeleton_handle_set_property(ptr nocapture readnone %connection, ptr nocapture readnone %sender, ptr nocapture readnone %object_path, ptr nocapture readnone %interface_name, ptr noundef %property_name, ptr noundef %variant, ptr noundef %error, ptr noundef %user_data) #1 {
 entry:
   %value = alloca %struct._GValue, align 8
   %call = tail call i64 @qemu_dbus_display1_listener_win32_d3d11_skeleton_get_type() #13
@@ -18006,7 +18006,7 @@ if.end:                                           ; preds = %if.then, %land.lhs.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal nonnull ptr @qemu_dbus_display1_clipboard_skeleton_dbus_interface_get_info(ptr nocapture readnone %skeleton) #0 {
+define internal noundef nonnull ptr @qemu_dbus_display1_clipboard_skeleton_dbus_interface_get_info(ptr nocapture readnone %skeleton) #0 {
 entry:
   ret ptr @_qemu_dbus_display1_clipboard_interface_info
 }
@@ -18075,13 +18075,13 @@ if.end11:                                         ; preds = %if.end11.critedge, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal nonnull ptr @qemu_dbus_display1_clipboard_skeleton_dbus_interface_get_vtable(ptr nocapture readnone %skeleton) #0 {
+define internal noundef nonnull ptr @qemu_dbus_display1_clipboard_skeleton_dbus_interface_get_vtable(ptr nocapture readnone %skeleton) #0 {
 entry:
   ret ptr @_qemu_dbus_display1_clipboard_skeleton_vtable
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @_qemu_dbus_display1_clipboard_emit_changed(ptr noundef %user_data) #1 {
+define internal noundef i32 @_qemu_dbus_display1_clipboard_emit_changed(ptr noundef %user_data) #1 {
 entry:
   %builder = alloca %struct._GVariantBuilder, align 8
   %invalidated_builder = alloca %struct._GVariantBuilder, align 8
@@ -18371,7 +18371,7 @@ for.end:                                          ; preds = %for.body, %if.end47
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @_qemu_dbus_display1_clipboard_skeleton_handle_set_property(ptr nocapture readnone %connection, ptr nocapture readnone %sender, ptr nocapture readnone %object_path, ptr nocapture readnone %interface_name, ptr noundef %property_name, ptr noundef %variant, ptr noundef %error, ptr noundef %user_data) #1 {
+define internal noundef i32 @_qemu_dbus_display1_clipboard_skeleton_handle_set_property(ptr nocapture readnone %connection, ptr nocapture readnone %sender, ptr nocapture readnone %object_path, ptr nocapture readnone %interface_name, ptr noundef %property_name, ptr noundef %variant, ptr noundef %error, ptr noundef %user_data) #1 {
 entry:
   %value = alloca %struct._GValue, align 8
   %call = tail call i64 @qemu_dbus_display1_clipboard_skeleton_get_type() #13
@@ -19082,7 +19082,7 @@ if.end:                                           ; preds = %if.then, %land.lhs.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal nonnull ptr @qemu_dbus_display1_audio_skeleton_dbus_interface_get_info(ptr nocapture readnone %skeleton) #0 {
+define internal noundef nonnull ptr @qemu_dbus_display1_audio_skeleton_dbus_interface_get_info(ptr nocapture readnone %skeleton) #0 {
 entry:
   ret ptr @_qemu_dbus_display1_audio_interface_info
 }
@@ -19151,13 +19151,13 @@ if.end11:                                         ; preds = %if.end11.critedge, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal nonnull ptr @qemu_dbus_display1_audio_skeleton_dbus_interface_get_vtable(ptr nocapture readnone %skeleton) #0 {
+define internal noundef nonnull ptr @qemu_dbus_display1_audio_skeleton_dbus_interface_get_vtable(ptr nocapture readnone %skeleton) #0 {
 entry:
   ret ptr @_qemu_dbus_display1_audio_skeleton_vtable
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @_qemu_dbus_display1_audio_emit_changed(ptr noundef %user_data) #1 {
+define internal noundef i32 @_qemu_dbus_display1_audio_emit_changed(ptr noundef %user_data) #1 {
 entry:
   %builder = alloca %struct._GVariantBuilder, align 8
   %invalidated_builder = alloca %struct._GVariantBuilder, align 8
@@ -19447,7 +19447,7 @@ for.end:                                          ; preds = %for.body, %if.end47
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @_qemu_dbus_display1_audio_skeleton_handle_set_property(ptr nocapture readnone %connection, ptr nocapture readnone %sender, ptr nocapture readnone %object_path, ptr nocapture readnone %interface_name, ptr noundef %property_name, ptr noundef %variant, ptr noundef %error, ptr noundef %user_data) #1 {
+define internal noundef i32 @_qemu_dbus_display1_audio_skeleton_handle_set_property(ptr nocapture readnone %connection, ptr nocapture readnone %sender, ptr nocapture readnone %object_path, ptr nocapture readnone %interface_name, ptr noundef %property_name, ptr noundef %variant, ptr noundef %error, ptr noundef %user_data) #1 {
 entry:
   %value = alloca %struct._GValue, align 8
   %call = tail call i64 @qemu_dbus_display1_audio_skeleton_get_type() #13
@@ -20158,7 +20158,7 @@ if.end:                                           ; preds = %if.then, %land.lhs.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal nonnull ptr @qemu_dbus_display1_audio_out_listener_skeleton_dbus_interface_get_info(ptr nocapture readnone %skeleton) #0 {
+define internal noundef nonnull ptr @qemu_dbus_display1_audio_out_listener_skeleton_dbus_interface_get_info(ptr nocapture readnone %skeleton) #0 {
 entry:
   ret ptr @_qemu_dbus_display1_audio_out_listener_interface_info
 }
@@ -20227,13 +20227,13 @@ if.end11:                                         ; preds = %if.end11.critedge, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal nonnull ptr @qemu_dbus_display1_audio_out_listener_skeleton_dbus_interface_get_vtable(ptr nocapture readnone %skeleton) #0 {
+define internal noundef nonnull ptr @qemu_dbus_display1_audio_out_listener_skeleton_dbus_interface_get_vtable(ptr nocapture readnone %skeleton) #0 {
 entry:
   ret ptr @_qemu_dbus_display1_audio_out_listener_skeleton_vtable
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @_qemu_dbus_display1_audio_out_listener_emit_changed(ptr noundef %user_data) #1 {
+define internal noundef i32 @_qemu_dbus_display1_audio_out_listener_emit_changed(ptr noundef %user_data) #1 {
 entry:
   %builder = alloca %struct._GVariantBuilder, align 8
   %invalidated_builder = alloca %struct._GVariantBuilder, align 8
@@ -20523,7 +20523,7 @@ for.end:                                          ; preds = %for.body, %if.end47
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @_qemu_dbus_display1_audio_out_listener_skeleton_handle_set_property(ptr nocapture readnone %connection, ptr nocapture readnone %sender, ptr nocapture readnone %object_path, ptr nocapture readnone %interface_name, ptr noundef %property_name, ptr noundef %variant, ptr noundef %error, ptr noundef %user_data) #1 {
+define internal noundef i32 @_qemu_dbus_display1_audio_out_listener_skeleton_handle_set_property(ptr nocapture readnone %connection, ptr nocapture readnone %sender, ptr nocapture readnone %object_path, ptr nocapture readnone %interface_name, ptr noundef %property_name, ptr noundef %variant, ptr noundef %error, ptr noundef %user_data) #1 {
 entry:
   %value = alloca %struct._GValue, align 8
   %call = tail call i64 @qemu_dbus_display1_audio_out_listener_skeleton_get_type() #13
@@ -21234,7 +21234,7 @@ if.end:                                           ; preds = %if.then, %land.lhs.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal nonnull ptr @qemu_dbus_display1_audio_in_listener_skeleton_dbus_interface_get_info(ptr nocapture readnone %skeleton) #0 {
+define internal noundef nonnull ptr @qemu_dbus_display1_audio_in_listener_skeleton_dbus_interface_get_info(ptr nocapture readnone %skeleton) #0 {
 entry:
   ret ptr @_qemu_dbus_display1_audio_in_listener_interface_info
 }
@@ -21303,13 +21303,13 @@ if.end11:                                         ; preds = %if.end11.critedge, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal nonnull ptr @qemu_dbus_display1_audio_in_listener_skeleton_dbus_interface_get_vtable(ptr nocapture readnone %skeleton) #0 {
+define internal noundef nonnull ptr @qemu_dbus_display1_audio_in_listener_skeleton_dbus_interface_get_vtable(ptr nocapture readnone %skeleton) #0 {
 entry:
   ret ptr @_qemu_dbus_display1_audio_in_listener_skeleton_vtable
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @_qemu_dbus_display1_audio_in_listener_emit_changed(ptr noundef %user_data) #1 {
+define internal noundef i32 @_qemu_dbus_display1_audio_in_listener_emit_changed(ptr noundef %user_data) #1 {
 entry:
   %builder = alloca %struct._GVariantBuilder, align 8
   %invalidated_builder = alloca %struct._GVariantBuilder, align 8
@@ -21599,7 +21599,7 @@ for.end:                                          ; preds = %for.body, %if.end47
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @_qemu_dbus_display1_audio_in_listener_skeleton_handle_set_property(ptr nocapture readnone %connection, ptr nocapture readnone %sender, ptr nocapture readnone %object_path, ptr nocapture readnone %interface_name, ptr noundef %property_name, ptr noundef %variant, ptr noundef %error, ptr noundef %user_data) #1 {
+define internal noundef i32 @_qemu_dbus_display1_audio_in_listener_skeleton_handle_set_property(ptr nocapture readnone %connection, ptr nocapture readnone %sender, ptr nocapture readnone %object_path, ptr nocapture readnone %interface_name, ptr noundef %property_name, ptr noundef %variant, ptr noundef %error, ptr noundef %user_data) #1 {
 entry:
   %value = alloca %struct._GValue, align 8
   %call = tail call i64 @qemu_dbus_display1_audio_in_listener_skeleton_get_type() #13
@@ -22490,7 +22490,7 @@ if.end:                                           ; preds = %if.then, %land.lhs.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal nonnull ptr @qemu_dbus_display1_chardev_skeleton_dbus_interface_get_info(ptr nocapture readnone %skeleton) #0 {
+define internal noundef nonnull ptr @qemu_dbus_display1_chardev_skeleton_dbus_interface_get_info(ptr nocapture readnone %skeleton) #0 {
 entry:
   ret ptr @_qemu_dbus_display1_chardev_interface_info
 }
@@ -22581,13 +22581,13 @@ if.end11:                                         ; preds = %if.end11.critedge, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal nonnull ptr @qemu_dbus_display1_chardev_skeleton_dbus_interface_get_vtable(ptr nocapture readnone %skeleton) #0 {
+define internal noundef nonnull ptr @qemu_dbus_display1_chardev_skeleton_dbus_interface_get_vtable(ptr nocapture readnone %skeleton) #0 {
 entry:
   ret ptr @_qemu_dbus_display1_chardev_skeleton_vtable
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @_qemu_dbus_display1_chardev_emit_changed(ptr noundef %user_data) #1 {
+define internal noundef i32 @_qemu_dbus_display1_chardev_emit_changed(ptr noundef %user_data) #1 {
 entry:
   %builder = alloca %struct._GVariantBuilder, align 8
   %invalidated_builder = alloca %struct._GVariantBuilder, align 8
@@ -22877,7 +22877,7 @@ for.end:                                          ; preds = %for.body, %if.end47
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @_qemu_dbus_display1_chardev_skeleton_handle_set_property(ptr nocapture readnone %connection, ptr nocapture readnone %sender, ptr nocapture readnone %object_path, ptr nocapture readnone %interface_name, ptr noundef %property_name, ptr noundef %variant, ptr noundef %error, ptr noundef %user_data) #1 {
+define internal noundef i32 @_qemu_dbus_display1_chardev_skeleton_handle_set_property(ptr nocapture readnone %connection, ptr nocapture readnone %sender, ptr nocapture readnone %object_path, ptr nocapture readnone %interface_name, ptr noundef %property_name, ptr noundef %variant, ptr noundef %error, ptr noundef %user_data) #1 {
 entry:
   %value = alloca %struct._GValue, align 8
   %call = tail call i64 @qemu_dbus_display1_chardev_skeleton_get_type() #13

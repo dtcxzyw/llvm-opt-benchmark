@@ -142,7 +142,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noalias ptr @qmp_query_rocker(ptr noundef %name, ptr noundef %errp) local_unnamed_addr #3 {
+define dso_local noalias noundef ptr @qmp_query_rocker(ptr noundef %name, ptr noundef %errp) local_unnamed_addr #3 {
 entry:
   %r.04.i = load ptr, ptr @rockers, align 8
   %tobool.not5.i = icmp eq ptr %r.04.i, null
@@ -195,7 +195,7 @@ declare noalias ptr @g_malloc0_n(i64 noundef, i64 noundef) local_unnamed_addr #5
 declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @qmp_query_rocker_ports(ptr noundef %name, ptr noundef %errp) local_unnamed_addr #3 {
+define dso_local noundef ptr @qmp_query_rocker_ports(ptr noundef %name, ptr noundef %errp) local_unnamed_addr #3 {
 entry:
   %r.04.i = load ptr, ptr @rockers, align 8
   %tobool.not5.i = icmp eq ptr %r.04.i, null
@@ -263,7 +263,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @rocker_event_link_changed(ptr noundef %r, i32 noundef %pport, i1 noundef zeroext %link_up) local_unnamed_addr #3 {
+define dso_local noundef i32 @rocker_event_link_changed(ptr noundef %r, i32 noundef %pport, i1 noundef zeroext %link_up) local_unnamed_addr #3 {
 entry:
   %iov.i.i61 = alloca %struct.iovec, align 8
   %value.addr.i62 = alloca i8, align 1
@@ -443,7 +443,7 @@ declare i32 @desc_set_buf(ptr noundef, i64 noundef) local_unnamed_addr #4
 declare zeroext i1 @desc_ring_post_desc(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @rocker_event_mac_vlan_seen(ptr noundef %r, i32 noundef %pport, ptr noundef %addr, i16 noundef zeroext %vlan_id) local_unnamed_addr #3 {
+define dso_local noundef i32 @rocker_event_mac_vlan_seen(ptr noundef %r, i32 noundef %pport, ptr noundef %addr, i16 noundef zeroext %vlan_id) local_unnamed_addr #3 {
 entry:
   %iov.i.i70 = alloca %struct.iovec, align 8
   %value.addr.i71 = alloca i16, align 2
@@ -657,7 +657,7 @@ declare zeroext i1 @fp_port_from_pport(i32 noundef, ptr noundef) local_unnamed_a
 declare zeroext i8 @fp_port_get_learning(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @rx_produce(ptr noundef %world, i32 noundef %pport, ptr noundef %iov, i32 noundef %iovcnt, i8 noundef zeroext %copy_to_cpu) local_unnamed_addr #3 {
+define dso_local noundef i32 @rx_produce(ptr noundef %world, i32 noundef %pport, ptr noundef %iov, i32 noundef %iovcnt, i8 noundef zeroext %copy_to_cpu) local_unnamed_addr #3 {
 entry:
   %iov.i.i108 = alloca %struct.iovec, align 8
   %value.addr.i109 = alloca i16, align 2
@@ -2479,8 +2479,8 @@ if.then.i:                                        ; preds = %sw.bb
   %2 = trunc i64 %addr to i32
   %3 = lshr i32 %2, 5
   %conv.i = and i32 %3, 127
-  %conv2.i = and i32 %2, 28
-  %4 = tail call i32 @llvm.fshl.i32(i32 %2, i32 %conv2.i, i32 30)
+  %conv2.i = and i32 %2, 31
+  %4 = tail call i32 @llvm.fshl.i32(i32 %conv2.i, i32 %conv2.i, i32 30)
   switch i32 %4, label %rocker_io_readl.exit [
     i32 0, label %sw.bb.i
     i32 1, label %sw.bb5.i
@@ -2855,8 +2855,8 @@ if.then.i:                                        ; preds = %sw.bb
   %2 = trunc i64 %addr to i32
   %3 = lshr i32 %2, 5
   %conv.i = and i32 %3, 127
-  %conv2.i = and i32 %2, 28
-  %4 = tail call i32 @llvm.fshl.i32(i32 %2, i32 %conv2.i, i32 30)
+  %conv2.i = and i32 %2, 31
+  %4 = tail call i32 @llvm.fshl.i32(i32 %conv2.i, i32 %conv2.i, i32 30)
   switch i32 %4, label %sw.epilog [
     i32 0, label %sw.bb.i
     i32 1, label %sw.bb4.i
@@ -3300,11 +3300,11 @@ declare void @fp_port_reset(ptr noundef) local_unnamed_addr #4
 
 declare void @desc_ring_reset(ptr noundef) local_unnamed_addr #4
 
-; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #9
-
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.fshl.i32(i32, i32, i32) #10
+declare i32 @llvm.fshl.i32(i32, i32, i32) #9
+
+; Function Attrs: nofree nounwind willreturn memory(argmem: read)
+declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11
@@ -3321,8 +3321,8 @@ attributes #5 = { allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true"
 attributes #6 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #9 = { nofree nounwind willreturn memory(argmem: read) }
-attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #10 = { nofree nounwind willreturn memory(argmem: read) }
 attributes #11 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #12 = { nounwind willreturn memory(read) }
 attributes #13 = { nounwind }

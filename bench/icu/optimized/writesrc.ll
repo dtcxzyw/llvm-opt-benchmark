@@ -579,7 +579,7 @@ entry:
 declare void @llvm.trap() #8
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noalias ptr @usrc_create(ptr noundef %path, ptr noundef %filename, i32 noundef %copyrightYear, ptr noundef %generator) local_unnamed_addr #0 {
+define noalias noundef ptr @usrc_create(ptr noundef %path, ptr noundef %filename, i32 noundef %copyrightYear, ptr noundef %generator) local_unnamed_addr #0 {
 entry:
   %buffer.i9 = alloca [1024 x i8], align 16
   %t.i = alloca i64, align 8
@@ -693,7 +693,7 @@ if.end:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noalias ptr @usrc_createTextData(ptr noundef %path, ptr noundef %filename, i32 noundef %copyrightYear, ptr noundef %generator) local_unnamed_addr #0 {
+define noalias noundef ptr @usrc_createTextData(ptr noundef %path, ptr noundef %filename, i32 noundef %copyrightYear, ptr noundef %generator) local_unnamed_addr #0 {
 entry:
   %buffer.i9 = alloca [1024 x i8], align 16
   %t.i = alloca i64, align 8
@@ -787,7 +787,7 @@ declare i64 @strftime(ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_
 define void @usrc_writeArray(ptr nocapture noundef %f, ptr noundef readonly %prefix, ptr nocapture noundef readonly %p, i32 noundef %width, i32 noundef %length, ptr nocapture noundef readonly %indent, ptr noundef readonly %postfix) local_unnamed_addr #9 {
 entry:
   %0 = add i32 %width, -8
-  %1 = tail call i32 @llvm.fshl.i32(i32 %width, i32 %0, i32 29)
+  %1 = tail call i32 @llvm.fshl.i32(i32 %0, i32 %0, i32 29)
   switch i32 %1, label %sw.default [
     i32 0, label %sw.epilog
     i32 1, label %sw.bb1
