@@ -39,7 +39,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.8 = private unnamed_addr constant [10 x i8] c"metatable\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define i32 @luaopen_string_buffer(ptr noundef %L) local_unnamed_addr #0 {
+define noundef i32 @luaopen_string_buffer(ptr noundef %L) local_unnamed_addr #0 {
 entry:
   tail call void @lj_lib_register(ptr noundef %L, ptr noundef null, ptr noundef nonnull @lj_lib_init_buffer_method, ptr noundef nonnull @lj_lib_cf_buffer_method) #5
   tail call void @lua_getfield(ptr noundef %L, i32 noundef -1, ptr noundef nonnull @.str) #5
@@ -55,7 +55,7 @@ declare void @lua_getfield(ptr noundef, i32 noundef, ptr noundef) local_unnamed_
 declare void @lua_setfield(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lj_cf_buffer_method_free(ptr noundef %L) #0 {
+define internal noundef i32 @lj_cf_buffer_method_free(ptr noundef %L) #0 {
 entry:
   %base.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 7
   %0 = load ptr, ptr %base.i, align 8
@@ -127,7 +127,7 @@ lj_bufx_free.exit:                                ; preds = %if.then.i, %buffer_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lj_cf_buffer_method_reset(ptr noundef %L) #0 {
+define internal noundef i32 @lj_cf_buffer_method_reset(ptr noundef %L) #0 {
 entry:
   %base.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 7
   %0 = load ptr, ptr %base.i, align 8
@@ -189,7 +189,7 @@ lj_bufx_reset.exit:                               ; preds = %buffer_tobuf.exit.l
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lj_cf_buffer_method_skip(ptr noundef %L) #0 {
+define internal noundef i32 @lj_cf_buffer_method_skip(ptr noundef %L) #0 {
 entry:
   %base.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 7
   %0 = load ptr, ptr %base.i, align 8
@@ -258,7 +258,7 @@ if.end11:                                         ; preds = %if.else, %if.else8,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lj_cf_buffer_method_set(ptr noundef %L) #0 {
+define internal noundef i32 @lj_cf_buffer_method_set(ptr noundef %L) #0 {
 entry:
   %p = alloca ptr, align 8
   %base.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 7
@@ -401,7 +401,7 @@ if.end22:                                         ; preds = %if.then20, %land.lh
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lj_cf_buffer_method_put(ptr noundef %L) #0 {
+define internal noundef i32 @lj_cf_buffer_method_put(ptr noundef %L) #0 {
 entry:
   %base.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 7
   %0 = load ptr, ptr %base.i, align 8
@@ -489,7 +489,7 @@ land.lhs.true:                                    ; preds = %if.else11
   br i1 %cmp19, label %if.then21, label %if.else34
 
 if.then21:                                        ; preds = %land.lhs.true
-  %cmp24 = icmp eq ptr %15, %4
+  %cmp24 = icmp eq i64 %and17, %and.i51
   br i1 %cmp24, label %if.then26, label %if.end
 
 if.then26:                                        ; preds = %if.then21
@@ -584,7 +584,7 @@ if.end71:                                         ; preds = %if.then69, %for.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lj_cf_buffer_method_putf(ptr noundef %L) #0 {
+define internal noundef i32 @lj_cf_buffer_method_putf(ptr noundef %L) #0 {
 entry:
   %base.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 7
   %0 = load ptr, ptr %base.i, align 8
@@ -783,7 +783,7 @@ if.end39:                                         ; preds = %if.then37, %if.end2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lj_cf_buffer_method_putcdata(ptr noundef %L) #0 {
+define internal noundef i32 @lj_cf_buffer_method_putcdata(ptr noundef %L) #0 {
 entry:
   %p = alloca ptr, align 8
   %base.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 7
@@ -856,7 +856,7 @@ if.else:                                          ; preds = %buffer_tobuf.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lj_cf_buffer_method_reserve(ptr noundef %L) #0 {
+define internal noundef i32 @lj_cf_buffer_method_reserve(ptr noundef %L) #0 {
 entry:
   %base.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 7
   %0 = load ptr, ptr %base.i, align 8
@@ -959,7 +959,7 @@ do.end:                                           ; preds = %do.body, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lj_cf_buffer_method_commit(ptr noundef %L) #0 {
+define internal noundef i32 @lj_cf_buffer_method_commit(ptr noundef %L) #0 {
 entry:
   %base.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 7
   %0 = load ptr, ptr %base.i, align 8
@@ -1015,7 +1015,7 @@ if.end:                                           ; preds = %buffer_tobuf.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lj_cf_buffer_method_ref(ptr noundef %L) #0 {
+define internal noundef i32 @lj_cf_buffer_method_ref(ptr noundef %L) #0 {
 entry:
   %base.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 7
   %0 = load ptr, ptr %base.i, align 8
@@ -1096,7 +1096,7 @@ do.end:                                           ; preds = %buffer_tobuf.exit, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lj_cf_buffer_method_encode(ptr noundef %L) #0 {
+define internal noundef i32 @lj_cf_buffer_method_encode(ptr noundef %L) #0 {
 entry:
   %base.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 7
   %0 = load ptr, ptr %base.i, align 8
@@ -1156,7 +1156,7 @@ if.end:                                           ; preds = %if.then, %buffer_to
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lj_cf_buffer_method_decode(ptr noundef %L) #0 {
+define internal noundef i32 @lj_cf_buffer_method_decode(ptr noundef %L) #0 {
 entry:
   %base.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 7
   %0 = load ptr, ptr %base.i, align 8
@@ -1220,7 +1220,7 @@ if.end:                                           ; preds = %if.then, %buffer_to
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lj_cf_buffer_method___gc(ptr noundef %L) #0 {
+define internal noundef i32 @lj_cf_buffer_method___gc(ptr noundef %L) #0 {
 entry:
   %base.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 7
   %0 = load ptr, ptr %base.i, align 8
@@ -1289,7 +1289,7 @@ lj_bufx_free.exit:                                ; preds = %if.then.i, %buffer_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lj_cf_buffer_method___tostring(ptr noundef %L) #0 {
+define internal noundef i32 @lj_cf_buffer_method___tostring(ptr noundef %L) #0 {
 entry:
   %base.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 7
   %0 = load ptr, ptr %base.i, align 8
@@ -1350,7 +1350,7 @@ if.end:                                           ; preds = %if.then, %buffer_to
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lj_cf_buffer_method___len(ptr noundef %L) #0 {
+define internal noundef i32 @lj_cf_buffer_method___len(ptr noundef %L) #0 {
 entry:
   %base.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 7
   %0 = load ptr, ptr %base.i, align 8
@@ -1436,7 +1436,7 @@ declare hidden ptr @lj_serialize_put(ptr noundef, ptr noundef) local_unnamed_add
 declare hidden ptr @lj_serialize_get(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lj_cf_buffer_new(ptr noundef %L) #0 {
+define internal noundef i32 @lj_cf_buffer_new(ptr noundef %L) #0 {
 entry:
   %base = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 7
   %0 = load ptr, ptr %base, align 8
@@ -1573,7 +1573,7 @@ if.end67:                                         ; preds = %if.then65, %if.end5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lj_cf_buffer_encode(ptr noundef %L) #0 {
+define internal noundef i32 @lj_cf_buffer_encode(ptr noundef %L) #0 {
 entry:
   %call = tail call ptr @lj_lib_checkany(ptr noundef %L, i32 noundef 1) #5
   %top = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 8
@@ -1603,7 +1603,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lj_cf_buffer_decode(ptr noundef %L) #0 {
+define internal noundef i32 @lj_cf_buffer_decode(ptr noundef %L) #0 {
 entry:
   %call = tail call ptr @lj_lib_checkstrx(ptr noundef %L, i32 noundef 1) #5
   %top = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 8

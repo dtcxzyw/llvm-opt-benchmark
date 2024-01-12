@@ -4018,7 +4018,7 @@ _ZNK7obj_mapIK4sortPN7datalog7context11sort_domainEE8containsEPS1_.exit: ; preds
   ret i1 %retval.0.i.i.i
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind memory(read, inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, inaccessiblemem: write) uwtable
 define hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN7datalog7context15get_sort_domainEP4sort(ptr nocapture noundef nonnull readonly align 8 dereferenceable(3556) %this, ptr noundef readonly %s) local_unnamed_addr #9 align 2 {
 entry:
   %m_sorts = getelementptr inbounds %"class.datalog::context", ptr %this, i64 0, i32 19
@@ -4087,7 +4087,7 @@ _ZN7obj_mapIK4sortPN7datalog7context11sort_domainEE4findEPS1_.exit: ; preds = %i
   ret ptr %7
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind memory(read, inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, inaccessiblemem: write) uwtable
 define hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZNK7datalog7context15get_sort_domainEP4sort(ptr nocapture noundef nonnull readonly align 8 dereferenceable(3556) %this, ptr noundef readonly %s) local_unnamed_addr #9 align 2 {
 entry:
   %m_sorts = getelementptr inbounds %"class.datalog::context", ptr %this, i64 0, i32 19
@@ -6709,8 +6709,6 @@ for.body.i:                                       ; preds = %for.inc16.i, %for.b
   %arrayidx.i.i = getelementptr inbounds %"class.datalog::rule", ptr %old_rule.1, i64 0, i32 8, i64 %indvars.iv21.i
   %23 = load ptr, ptr %arrayidx.i.i, align 8
   %24 = ptrtoint ptr %23 to i64
-  %and.i.i = and i64 %24, -8
-  %25 = inttoptr i64 %and.i.i to ptr
   br label %for.body9.i
 
 for.cond6.i:                                      ; preds = %for.body9.i
@@ -6721,11 +6719,10 @@ for.cond6.i:                                      ; preds = %for.body9.i
 for.body9.i:                                      ; preds = %for.cond6.i, %for.body.i
   %indvars.iv.i = phi i64 [ 0, %for.body.i ], [ %indvars.iv.next.i, %for.cond6.i ]
   %arrayidx.i12.i = getelementptr inbounds %"class.datalog::rule", ptr %10, i64 0, i32 8, i64 %indvars.iv.i
-  %26 = load ptr, ptr %arrayidx.i12.i, align 8
-  %27 = ptrtoint ptr %26 to i64
-  %and.i13.i = and i64 %27, -8
-  %28 = inttoptr i64 %and.i13.i to ptr
-  %cmp11.i = icmp eq ptr %28, %25
+  %25 = load ptr, ptr %arrayidx.i12.i, align 8
+  %26 = ptrtoint ptr %25 to i64
+  %27 = xor i64 %26, %24
+  %cmp11.i = icmp ult i64 %27, 8
   br i1 %cmp11.i, label %for.inc16.i, label %for.cond6.i
 
 for.inc16.i:                                      ; preds = %for.body9.i
@@ -6751,12 +6748,12 @@ invoke.cont82:                                    ; preds = %invoke.cont79
           to label %invoke.cont84 unwind label %lpad78
 
 invoke.cont84:                                    ; preds = %invoke.cont82
-  %29 = load ptr, ptr %r, align 8
-  invoke void @_ZNK7datalog4rule7displayERNS_7contextERSob(ptr noundef nonnull align 8 dereferenceable(80) %29, ptr noundef nonnull align 8 dereferenceable(3556) %this, ptr noundef nonnull align 8 dereferenceable(8) %add.ptr77, i1 noundef zeroext false)
+  %28 = load ptr, ptr %r, align 8
+  invoke void @_ZNK7datalog4rule7displayERNS_7contextERSob(ptr noundef nonnull align 8 dereferenceable(80) %28, ptr noundef nonnull align 8 dereferenceable(3556) %this, ptr noundef nonnull align 8 dereferenceable(8) %add.ptr77, i1 noundef zeroext false)
           to label %invoke.cont89 unwind label %lpad78
 
 invoke.cont89:                                    ; preds = %invoke.cont84
-  invoke void @_ZN7datalog8rule_set8del_ruleEPNS_4ruleE(ptr noundef nonnull align 8 dereferenceable(248) %m_rule_set, ptr noundef nonnull %29)
+  invoke void @_ZN7datalog8rule_set8del_ruleEPNS_4ruleE(ptr noundef nonnull align 8 dereferenceable(248) %m_rule_set, ptr noundef nonnull %28)
           to label %invoke.cont93 unwind label %lpad78
 
 invoke.cont93:                                    ; preds = %invoke.cont89
@@ -6772,24 +6769,24 @@ invoke.cont97:                                    ; preds = %invoke.cont93
           to label %unreachable unwind label %ehcleanup102
 
 lpad78:                                           ; preds = %invoke.cont89, %invoke.cont84, %invoke.cont82, %invoke.cont79, %invoke.cont76
-  %30 = landingpad { ptr, i32 }
+  %29 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup106
 
 ehcleanup102:                                     ; preds = %invoke.cont97
-  %31 = landingpad { ptr, i32 }
+  %30 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp95) #25
   br label %ehcleanup106
 
 cleanup.action104:                                ; preds = %invoke.cont93
-  %32 = landingpad { ptr, i32 }
+  %31 = landingpad { ptr, i32 }
           cleanup
   call void @__cxa_free_exception(ptr %exception94) #25
   br label %ehcleanup106
 
 ehcleanup106:                                     ; preds = %ehcleanup102, %cleanup.action104, %lpad78
-  %.pn.pn = phi { ptr, i32 } [ %32, %cleanup.action104 ], [ %31, %ehcleanup102 ], [ %30, %lpad78 ]
+  %.pn.pn = phi { ptr, i32 } [ %31, %cleanup.action104 ], [ %30, %ehcleanup102 ], [ %29, %lpad78 ]
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %strm75) #25
   br label %ehcleanup111
 
@@ -6802,20 +6799,20 @@ if.end107.if.end110_crit_edge:                    ; preds = %if.end107
   br label %if.end110
 
 if.end110:                                        ; preds = %_ZN7obj_refIN7datalog4ruleENS0_12rule_managerEEC2EPS1_RS2_.exit, %if.end107.if.end110_crit_edge, %for.end
-  %33 = phi ptr [ %.pre, %if.end107.if.end110_crit_edge ], [ %10, %for.end ], [ %10, %_ZN7obj_refIN7datalog4ruleENS0_12rule_managerEEC2EPS1_RS2_.exit ]
-  %tobool.not.i.i39 = icmp eq ptr %33, null
+  %32 = phi ptr [ %.pre, %if.end107.if.end110_crit_edge ], [ %10, %for.end ], [ %10, %_ZN7obj_refIN7datalog4ruleENS0_12rule_managerEEC2EPS1_RS2_.exit ]
+  %tobool.not.i.i39 = icmp eq ptr %32, null
   br i1 %tobool.not.i.i39, label %_ZN7obj_refIN7datalog4ruleENS0_12rule_managerEED2Ev.exit, label %if.then.i.i40
 
 if.then.i.i40:                                    ; preds = %if.end110
-  %34 = load ptr, ptr %m_manager.i, align 8
-  invoke void @_ZN7datalog12rule_manager7dec_refEPNS_4ruleE(ptr noundef nonnull align 8 dereferenceable(1368) %34, ptr noundef nonnull %33)
+  %33 = load ptr, ptr %m_manager.i, align 8
+  invoke void @_ZN7datalog12rule_manager7dec_refEPNS_4ruleE(ptr noundef nonnull align 8 dereferenceable(1368) %33, ptr noundef nonnull %32)
           to label %_ZN7obj_refIN7datalog4ruleENS0_12rule_managerEED2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then.i.i40
-  %35 = landingpad { ptr, i32 }
+  %34 = landingpad { ptr, i32 }
           catch ptr null
-  %36 = extractvalue { ptr, i32 } %35, 0
-  tail call void @__clang_call_terminate(ptr %36) #27
+  %35 = extractvalue { ptr, i32 } %34, 0
+  tail call void @__clang_call_terminate(ptr %35) #27
   unreachable
 
 _ZN7obj_refIN7datalog4ruleENS0_12rule_managerEED2Ev.exit: ; preds = %if.end110, %if.then.i.i40
@@ -6901,8 +6898,6 @@ for.body:                                         ; preds = %for.body.preheader,
   %arrayidx.i = getelementptr inbounds %"class.datalog::rule", ptr %stronger_rule, i64 0, i32 8, i64 %indvars.iv21
   %4 = load ptr, ptr %arrayidx.i, align 8
   %5 = ptrtoint ptr %4 to i64
-  %and.i = and i64 %5, -8
-  %6 = inttoptr i64 %and.i to ptr
   br label %for.body9
 
 for.cond6:                                        ; preds = %for.body9
@@ -6913,11 +6908,10 @@ for.cond6:                                        ; preds = %for.body9
 for.body9:                                        ; preds = %for.body, %for.cond6
   %indvars.iv = phi i64 [ 0, %for.body ], [ %indvars.iv.next, %for.cond6 ]
   %arrayidx.i12 = getelementptr inbounds %"class.datalog::rule", ptr %weaker_rule, i64 0, i32 8, i64 %indvars.iv
-  %7 = load ptr, ptr %arrayidx.i12, align 8
-  %8 = ptrtoint ptr %7 to i64
-  %and.i13 = and i64 %8, -8
-  %9 = inttoptr i64 %and.i13 to ptr
-  %cmp11 = icmp eq ptr %9, %6
+  %6 = load ptr, ptr %arrayidx.i12, align 8
+  %7 = ptrtoint ptr %6 to i64
+  %8 = xor i64 %7, %5
+  %cmp11 = icmp ult i64 %8, 8
   br i1 %cmp11, label %for.inc16, label %for.cond6
 
 for.inc16:                                        ; preds = %for.body9
@@ -20886,7 +20880,7 @@ attributes #5 = { mustprogress noreturn uwtable "frame-pointer"="all" "min-legal
 attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #7 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree nosync nounwind memory(read, inaccessiblemem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nofree norecurse nosync nounwind memory(read, inaccessiblemem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #12 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

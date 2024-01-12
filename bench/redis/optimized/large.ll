@@ -530,7 +530,7 @@ return:                                           ; preds = %if.end.i56, %sz_s2u
 declare ptr @arena_extent_alloc_large(ptr noundef, ptr noundef, i64 noundef, i64 noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden zeroext i1 @large_ralloc_no_move(ptr noundef %tsdn, ptr noundef %edata, i64 noundef %usize_min, i64 noundef %usize_max, i1 noundef zeroext %zero) local_unnamed_addr #0 {
+define hidden noundef zeroext i1 @large_ralloc_no_move(ptr noundef %tsdn, ptr noundef %edata, i64 noundef %usize_min, i64 noundef %usize_max, i1 noundef zeroext %zero) local_unnamed_addr #0 {
 entry:
   %deferred_work_generated.i = alloca i8, align 1
   %edata.val = load i64, ptr %edata, align 8
@@ -1555,7 +1555,7 @@ entry:
   %1 = inttoptr i64 %0 to ptr
   %alloc_tctx1 = getelementptr inbounds %struct.prof_info_s, ptr %prof_info, i64 0, i32 1
   store ptr %1, ptr %alloc_tctx1, align 8
-  %cmp = icmp ugt ptr %1, inttoptr (i64 1 to ptr)
+  %cmp = icmp ugt i64 %0, 1
   br i1 %cmp, label %if.then, label %if.end5
 
 if.then:                                          ; preds = %entry

@@ -2834,7 +2834,7 @@ _ZN3tbb6detail2d219concurrent_hash_mapIjN7openvdb5v11_02io5Queue6StatusENS0_2d11
   %node_list.i = getelementptr inbounds %"struct.tbb::detail::d2::hash_map_base<tbb::detail::d1::tbb_allocator<std::pair<const unsigned int, openvdb::v11_0::io::Queue::Status>>, tbb::detail::d1::spin_rw_mutex>::bucket", ptr %8, i64 0, i32 1
   %9 = load atomic i64, ptr %node_list.i monotonic, align 8
   %atomic-temp.i.0.i.i = inttoptr i64 %9 to ptr
-  %cmp.i4.i = icmp ugt ptr %atomic-temp.i.0.i.i, inttoptr (i64 63 to ptr)
+  %cmp.i4.i = icmp ugt i64 %9, 63
   br i1 %cmp.i4.i, label %land.rhs.lr.ph.i, label %invoke.cont4
 
 land.rhs.lr.ph.i:                                 ; preds = %_ZN3tbb6detail2d219concurrent_hash_mapIjN7openvdb5v11_02io5Queue6StatusENS0_2d116tbb_hash_compareIjEENS8_13tbb_allocatorISt4pairIKjS7_EEEE15bucket_accessorC2EPSG_mb.exit
@@ -2894,8 +2894,7 @@ for.end.i.i:                                      ; preds = %for.cond.i.i
   %atomic-temp.i.0.i.i.i.i = inttoptr i64 %18 to ptr
   %node_list.i.i = getelementptr inbounds %"struct.tbb::detail::d2::hash_map_base<tbb::detail::d1::tbb_allocator<std::pair<const unsigned int, openvdb::v11_0::io::Queue::Status>>, tbb::detail::d1::spin_rw_mutex>::bucket", ptr %atomic-temp.i.0.i.i.i.i, i64 %sub.i.i.i, i32 1
   %19 = load atomic i64, ptr %node_list.i.i acquire, align 8
-  %atomic-temp.i.0.i.i.i = inttoptr i64 %19 to ptr
-  %cmp.i.i.i18 = icmp eq ptr %atomic-temp.i.0.i.i.i, inttoptr (i64 3 to ptr)
+  %cmp.i.i.i18 = icmp eq i64 %19, 3
   %spec.select = select i1 %cmp.i.i.i18, i32 1, i32 2
   br label %cleanup
 
@@ -3117,8 +3116,7 @@ entry:
   store ptr %arrayidx4.i, ptr %my_b, align 8
   %node_list = getelementptr inbounds %"struct.tbb::detail::d2::hash_map_base<tbb::detail::d1::tbb_allocator<std::pair<const unsigned int, openvdb::v11_0::io::Queue::Status>>, tbb::detail::d1::spin_rw_mutex>::bucket", ptr %atomic-temp.i.0.i.i, i64 %sub.i, i32 1
   %2 = load atomic i64, ptr %node_list acquire, align 8
-  %atomic-temp.i.0.i = inttoptr i64 %2 to ptr
-  %cmp.i = icmp eq ptr %atomic-temp.i.0.i, inttoptr (i64 3 to ptr)
+  %cmp.i = icmp eq i64 %2, 3
   %.pre12 = load ptr, ptr %my_b, align 8
   br i1 %cmp.i, label %land.lhs.true, label %if.else
 
@@ -3140,8 +3138,7 @@ if.then:                                          ; preds = %cond.end.i
   store i8 1, ptr %m_is_writer.i, align 8
   %node_list8 = getelementptr inbounds %"struct.tbb::detail::d2::hash_map_base<tbb::detail::d1::tbb_allocator<std::pair<const unsigned int, openvdb::v11_0::io::Queue::Status>>, tbb::detail::d1::spin_rw_mutex>::bucket", ptr %.pre, i64 0, i32 1
   %6 = load atomic i64, ptr %node_list8 monotonic, align 8
-  %atomic-temp.i.0.i4 = inttoptr i64 %6 to ptr
-  %cmp.i5 = icmp eq ptr %atomic-temp.i.0.i4, inttoptr (i64 3 to ptr)
+  %cmp.i5 = icmp eq i64 %6, 3
   br i1 %cmp.i5, label %if.then11, label %if.end15
 
 if.then11:                                        ; preds = %if.then
@@ -3277,8 +3274,7 @@ entry:
   %arrayidx4.i.i = getelementptr inbounds %"struct.tbb::detail::d2::hash_map_base<tbb::detail::d1::tbb_allocator<std::pair<const unsigned int, openvdb::v11_0::io::Queue::Status>>, tbb::detail::d1::spin_rw_mutex>::bucket", ptr %atomic-temp.i.0.i.i.i, i64 %sub.i.i
   %node_list.i = getelementptr inbounds %"struct.tbb::detail::d2::hash_map_base<tbb::detail::d1::tbb_allocator<std::pair<const unsigned int, openvdb::v11_0::io::Queue::Status>>, tbb::detail::d1::spin_rw_mutex>::bucket", ptr %atomic-temp.i.0.i.i.i, i64 %sub.i.i, i32 1
   %3 = load atomic i64, ptr %node_list.i acquire, align 8
-  %atomic-temp.i.0.i.i42 = inttoptr i64 %3 to ptr
-  %cmp.i.i = icmp eq ptr %atomic-temp.i.0.i.i42, inttoptr (i64 3 to ptr)
+  %cmp.i.i = icmp eq i64 %3, 3
   br i1 %cmp.i.i, label %land.lhs.true.i, label %for.cond.i2.i.i.preheader
 
 for.cond.i2.i.i.preheader:                        ; preds = %cond.end.i.i, %land.lhs.true.i, %entry
@@ -3287,8 +3283,8 @@ for.cond.i2.i.i.preheader:                        ; preds = %cond.end.i.i, %land
 land.lhs.true.i:                                  ; preds = %entry
   %4 = load atomic i64, ptr %arrayidx4.i.i monotonic, align 8
   %and.i.i3.i = and i64 %4, -3
-  %tobool.not.i.i.i43 = icmp eq i64 %and.i.i3.i, 0
-  br i1 %tobool.not.i.i.i43, label %cond.end.i.i, label %for.cond.i2.i.i.preheader
+  %tobool.not.i.i.i42 = icmp eq i64 %and.i.i3.i, 0
+  br i1 %tobool.not.i.i.i42, label %cond.end.i.i, label %for.cond.i2.i.i.preheader
 
 cond.end.i.i:                                     ; preds = %land.lhs.true.i
   %5 = cmpxchg ptr %arrayidx4.i.i, i64 %4, i64 1 seq_cst seq_cst, align 8
@@ -3297,8 +3293,7 @@ cond.end.i.i:                                     ; preds = %land.lhs.true.i
 
 if.then.i:                                        ; preds = %cond.end.i.i
   %7 = load atomic i64, ptr %node_list.i monotonic, align 8
-  %atomic-temp.i.0.i4.i = inttoptr i64 %7 to ptr
-  %cmp.i5.i = icmp eq ptr %atomic-temp.i.0.i4.i, inttoptr (i64 3 to ptr)
+  %cmp.i5.i = icmp eq i64 %7, 3
   br i1 %cmp.i5.i, label %if.then11.i, label %_ZN3tbb6detail2d219concurrent_hash_mapIjN7openvdb5v11_02io5Queue6StatusENS0_2d116tbb_hash_compareIjEENS8_13tbb_allocatorISt4pairIKjS7_EEEE15bucket_accessorC2EPSG_mb.exit
 
 if.then11.i:                                      ; preds = %if.then.i
@@ -3363,20 +3358,24 @@ _ZN3tbb6detail2d219concurrent_hash_mapIjN7openvdb5v11_02io5Queue6StatusENS0_2d11
   %shl2 = shl nuw i64 %sub, 1
   %or = or disjoint i64 %shl2, 1
   %13 = load atomic i64, ptr %node_list.i acquire, align 8
-  %atomic-temp.i.0.i36 = inttoptr i64 %13 to ptr
-  %cmp.i3237 = icmp ugt ptr %atomic-temp.i.0.i36, inttoptr (i64 63 to ptr)
-  br i1 %cmp.i3237, label %invoke.cont8, label %if.then.i.i25
+  %cmp.i3237 = icmp ugt i64 %13, 63
+  br i1 %cmp.i3237, label %invoke.cont8.lr.ph, label %if.then.i.i25
 
 restart.loopexit:                                 ; preds = %invoke.cont15
   %14 = load atomic i64, ptr %node_list.i acquire, align 8
-  %atomic-temp.i.0.i = inttoptr i64 %14 to ptr
-  %cmp.i32 = icmp ugt ptr %atomic-temp.i.0.i, inttoptr (i64 63 to ptr)
-  br i1 %cmp.i32, label %invoke.cont8.backedge, label %if.then.i.i.i28
+  %cmp.i32 = icmp ugt i64 %14, 63
+  br i1 %cmp.i32, label %invoke.cont8.lr.ph, label %if.then.i.i.i28
 
-invoke.cont8:                                     ; preds = %_ZN3tbb6detail2d219concurrent_hash_mapIjN7openvdb5v11_02io5Queue6StatusENS0_2d116tbb_hash_compareIjEENS8_13tbb_allocatorISt4pairIKjS7_EEEE15bucket_accessorC2EPSG_mb.exit, %invoke.cont8.backedge
-  %b_old.sroa.10.2 = phi i8 [ %b_old.sroa.10.2.be, %invoke.cont8.backedge ], [ %b_old.sroa.10.0, %_ZN3tbb6detail2d219concurrent_hash_mapIjN7openvdb5v11_02io5Queue6StatusENS0_2d116tbb_hash_compareIjEENS8_13tbb_allocatorISt4pairIKjS7_EEEE15bucket_accessorC2EPSG_mb.exit ]
-  %prev.034 = phi ptr [ %prev.034.be, %invoke.cont8.backedge ], [ null, %_ZN3tbb6detail2d219concurrent_hash_mapIjN7openvdb5v11_02io5Queue6StatusENS0_2d116tbb_hash_compareIjEENS8_13tbb_allocatorISt4pairIKjS7_EEEE15bucket_accessorC2EPSG_mb.exit ]
-  %curr.033 = phi ptr [ %curr.033.be, %invoke.cont8.backedge ], [ %atomic-temp.i.0.i36, %_ZN3tbb6detail2d219concurrent_hash_mapIjN7openvdb5v11_02io5Queue6StatusENS0_2d116tbb_hash_compareIjEENS8_13tbb_allocatorISt4pairIKjS7_EEEE15bucket_accessorC2EPSG_mb.exit ]
+invoke.cont8.lr.ph:                               ; preds = %_ZN3tbb6detail2d219concurrent_hash_mapIjN7openvdb5v11_02io5Queue6StatusENS0_2d116tbb_hash_compareIjEENS8_13tbb_allocatorISt4pairIKjS7_EEEE15bucket_accessorC2EPSG_mb.exit, %restart.loopexit
+  %b_old.sroa.10.1 = phi i8 [ 1, %restart.loopexit ], [ %b_old.sroa.10.0, %_ZN3tbb6detail2d219concurrent_hash_mapIjN7openvdb5v11_02io5Queue6StatusENS0_2d116tbb_hash_compareIjEENS8_13tbb_allocatorISt4pairIKjS7_EEEE15bucket_accessorC2EPSG_mb.exit ]
+  %atomic-temp.i.0.i38.in = phi i64 [ %14, %restart.loopexit ], [ %13, %_ZN3tbb6detail2d219concurrent_hash_mapIjN7openvdb5v11_02io5Queue6StatusENS0_2d116tbb_hash_compareIjEENS8_13tbb_allocatorISt4pairIKjS7_EEEE15bucket_accessorC2EPSG_mb.exit ]
+  %atomic-temp.i.0.i38 = inttoptr i64 %atomic-temp.i.0.i38.in to ptr
+  br label %invoke.cont8
+
+invoke.cont8:                                     ; preds = %invoke.cont8.lr.ph, %if.end32
+  %b_old.sroa.10.2 = phi i8 [ %b_old.sroa.10.1, %invoke.cont8.lr.ph ], [ %b_old.sroa.10.4, %if.end32 ]
+  %prev.034 = phi ptr [ null, %invoke.cont8.lr.ph ], [ %prev.1, %if.end32 ]
+  %curr.033 = phi ptr [ %atomic-temp.i.0.i38, %invoke.cont8.lr.ph ], [ %curr.1, %if.end32 ]
   %15 = getelementptr inbounds %"class.tbb::detail::d2::concurrent_hash_map<unsigned int, openvdb::v11_0::io::Queue::Status>::node", ptr %curr.033, i64 0, i32 1
   %16 = load i32, ptr %15, align 4
   %conv.i.i = zext i32 %16 to i64
@@ -3433,13 +3432,7 @@ if.end32:                                         ; preds = %if.else30, %if.end2
   %curr.1 = phi ptr [ %19, %if.end28 ], [ %23, %if.else30 ]
   %prev.1 = phi ptr [ %prev.034, %if.end28 ], [ %curr.033, %if.else30 ]
   %cmp.i = icmp ugt ptr %curr.1, inttoptr (i64 63 to ptr)
-  br i1 %cmp.i, label %invoke.cont8.backedge, label %if.then.i.i25
-
-invoke.cont8.backedge:                            ; preds = %if.end32, %restart.loopexit
-  %b_old.sroa.10.2.be = phi i8 [ %b_old.sroa.10.4, %if.end32 ], [ 1, %restart.loopexit ]
-  %prev.034.be = phi ptr [ %prev.1, %if.end32 ], [ null, %restart.loopexit ]
-  %curr.033.be = phi ptr [ %curr.1, %if.end32 ], [ %atomic-temp.i.0.i, %restart.loopexit ]
-  br label %invoke.cont8, !llvm.loop !22
+  br i1 %cmp.i, label %invoke.cont8, label %if.then.i.i25, !llvm.loop !22
 
 if.then.i.i25:                                    ; preds = %if.end32, %_ZN3tbb6detail2d219concurrent_hash_mapIjN7openvdb5v11_02io5Queue6StatusENS0_2d116tbb_hash_compareIjEENS8_13tbb_allocatorISt4pairIKjS7_EEEE15bucket_accessorC2EPSG_mb.exit
   %b_old.sroa.10.5 = phi i8 [ %b_old.sroa.10.0, %_ZN3tbb6detail2d219concurrent_hash_mapIjN7openvdb5v11_02io5Queue6StatusENS0_2d116tbb_hash_compareIjEENS8_13tbb_allocatorISt4pairIKjS7_EEEE15bucket_accessorC2EPSG_mb.exit ], [ %b_old.sroa.10.4, %if.end32 ]
@@ -3667,8 +3660,8 @@ while.end:                                        ; preds = %while.body
   br i1 %cmp4, label %if.then, label %if.else
 
 while.end.thread:                                 ; preds = %_ZN3tbb6detail2d219concurrent_hash_mapIjN7openvdb5v11_02io5Queue6StatusENS0_2d116tbb_hash_compareIjEENS8_13tbb_allocatorISt4pairIKjS7_EEEE15bucket_accessorC2EPSG_mb.exit
-  %cmp463 = icmp eq i64 %10, 0
-  br i1 %cmp463, label %if.then, label %if.then10
+  %cmp464 = icmp eq i64 %10, 0
+  br i1 %cmp464, label %if.then, label %if.then10
 
 if.then:                                          ; preds = %while.end.thread, %while.end
   %14 = load atomic i64, ptr %my_mask acquire, align 8
@@ -3706,8 +3699,7 @@ for.end.i.i:                                      ; preds = %for.cond.i.i
   %atomic-temp.i.0.i.i.i.i = inttoptr i64 %18 to ptr
   %node_list.i.i = getelementptr inbounds %"struct.tbb::detail::d2::hash_map_base<tbb::detail::d1::tbb_allocator<std::pair<const unsigned int, openvdb::v11_0::io::Queue::Status>>, tbb::detail::d1::spin_rw_mutex>::bucket", ptr %atomic-temp.i.0.i.i.i.i, i64 %sub.i.i.i, i32 1
   %19 = load atomic i64, ptr %node_list.i.i acquire, align 8
-  %atomic-temp.i.0.i.i.i = inttoptr i64 %19 to ptr
-  %cmp.i.i.i = icmp eq ptr %atomic-temp.i.0.i.i.i, inttoptr (i64 3 to ptr)
+  %cmp.i.i.i = icmp eq i64 %19, 3
   br i1 %cmp.i.i.i, label %if.end, label %cleanup
 
 if.end:                                           ; preds = %if.then.i, %for.end.i.i, %if.then
@@ -3774,7 +3766,7 @@ if.else.i.i.i35:                                  ; preds = %if.then.i.i30
   br label %_ZN3tbb6detail2d219concurrent_hash_mapIjN7openvdb5v11_02io5Queue6StatusENS0_2d116tbb_hash_compareIjEENS8_13tbb_allocatorISt4pairIKjS7_EEEE15bucket_accessorD2Ev.exit36
 
 _ZN3tbb6detail2d219concurrent_hash_mapIjN7openvdb5v11_02io5Queue6StatusENS0_2d116tbb_hash_compareIjEENS8_13tbb_allocatorISt4pairIKjS7_EEEE15bucket_accessorD2Ev.exit36: ; preds = %cleanup, %if.then.i.i.i33, %if.else.i.i.i35
-  switch i32 %cleanup.dest.slot.0, label %unreachable [
+  switch i32 %cleanup.dest.slot.0, label %default.unreachable61 [
     i32 3, label %do.body
     i32 1, label %return
     i32 2, label %do.end
@@ -3825,7 +3817,7 @@ return:                                           ; preds = %_ZN3tbb6detail2d219
   %retval.2 = phi i1 [ true, %_ZN3tbb6detail2d219concurrent_hash_mapIjN7openvdb5v11_02io5Queue6StatusENS0_2d116tbb_hash_compareIjEENS8_13tbb_allocatorISt4pairIKjS7_EEEE14const_accessor7releaseEv.exit49 ], [ false, %_ZN3tbb6detail2d219concurrent_hash_mapIjN7openvdb5v11_02io5Queue6StatusENS0_2d116tbb_hash_compareIjEENS8_13tbb_allocatorISt4pairIKjS7_EEEE15bucket_accessorD2Ev.exit36 ]
   ret i1 %retval.2
 
-unreachable:                                      ; preds = %_ZN3tbb6detail2d219concurrent_hash_mapIjN7openvdb5v11_02io5Queue6StatusENS0_2d116tbb_hash_compareIjEENS8_13tbb_allocatorISt4pairIKjS7_EEEE15bucket_accessorD2Ev.exit36
+default.unreachable61:                            ; preds = %_ZN3tbb6detail2d219concurrent_hash_mapIjN7openvdb5v11_02io5Queue6StatusENS0_2d116tbb_hash_compareIjEENS8_13tbb_allocatorISt4pairIKjS7_EEEE15bucket_accessorD2Ev.exit36
   unreachable
 }
 
@@ -3914,13 +3906,13 @@ entry:
   %my_size.i = getelementptr inbounds %"class.tbb::detail::d2::hash_map_base", ptr %this, i64 0, i32 2
   %tobool36.not = icmp eq ptr %result, null
   %frombool.i = zext i1 %write to i8
-  %m_is_writer.i89 = getelementptr inbounds %"class.tbb::detail::d1::rw_scoped_lock", ptr %result, i64 0, i32 1
+  %m_is_writer.i88 = getelementptr inbounds %"class.tbb::detail::d1::rw_scoped_lock", ptr %result, i64 0, i32 1
   br label %restart
 
-restart:                                          ; preds = %_ZN3tbb6detail2d219concurrent_hash_mapIjN7openvdb5v11_02io5Queue6StatusENS0_2d116tbb_hash_compareIjEENS8_13tbb_allocatorISt4pairIKjS7_EEEE15bucket_accessorD2Ev.exit109, %entry
-  %m.0 = phi i64 [ %1, %entry ], [ %m.3, %_ZN3tbb6detail2d219concurrent_hash_mapIjN7openvdb5v11_02io5Queue6StatusENS0_2d116tbb_hash_compareIjEENS8_13tbb_allocatorISt4pairIKjS7_EEEE15bucket_accessorD2Ev.exit109 ]
-  %tmp_n.addr.0 = phi ptr [ %tmp_n, %entry ], [ %tmp_n.addr.3, %_ZN3tbb6detail2d219concurrent_hash_mapIjN7openvdb5v11_02io5Queue6StatusENS0_2d116tbb_hash_compareIjEENS8_13tbb_allocatorISt4pairIKjS7_EEEE15bucket_accessorD2Ev.exit109 ]
-  %grow_segment.0 = phi i64 [ 0, %entry ], [ %grow_segment.2, %_ZN3tbb6detail2d219concurrent_hash_mapIjN7openvdb5v11_02io5Queue6StatusENS0_2d116tbb_hash_compareIjEENS8_13tbb_allocatorISt4pairIKjS7_EEEE15bucket_accessorD2Ev.exit109 ]
+restart:                                          ; preds = %_ZN3tbb6detail2d219concurrent_hash_mapIjN7openvdb5v11_02io5Queue6StatusENS0_2d116tbb_hash_compareIjEENS8_13tbb_allocatorISt4pairIKjS7_EEEE15bucket_accessorD2Ev.exit108, %entry
+  %m.0 = phi i64 [ %1, %entry ], [ %m.3, %_ZN3tbb6detail2d219concurrent_hash_mapIjN7openvdb5v11_02io5Queue6StatusENS0_2d116tbb_hash_compareIjEENS8_13tbb_allocatorISt4pairIKjS7_EEEE15bucket_accessorD2Ev.exit108 ]
+  %tmp_n.addr.0 = phi ptr [ %tmp_n, %entry ], [ %tmp_n.addr.3, %_ZN3tbb6detail2d219concurrent_hash_mapIjN7openvdb5v11_02io5Queue6StatusENS0_2d116tbb_hash_compareIjEENS8_13tbb_allocatorISt4pairIKjS7_EEEE15bucket_accessorD2Ev.exit108 ]
+  %grow_segment.0 = phi i64 [ 0, %entry ], [ %grow_segment.2, %_ZN3tbb6detail2d219concurrent_hash_mapIjN7openvdb5v11_02io5Queue6StatusENS0_2d116tbb_hash_compareIjEENS8_13tbb_allocatorISt4pairIKjS7_EEEE15bucket_accessorD2Ev.exit108 ]
   %and = and i64 %m.0, %conv.i.i
   store ptr null, ptr %b, align 8
   store i8 0, ptr %m_is_writer.i.i, align 8
@@ -3958,7 +3950,7 @@ _ZN3tbb6detail2d219concurrent_hash_mapIjN7openvdb5v11_02io5Queue6StatusENS0_2d11
   %node_list.i = getelementptr inbounds %"struct.tbb::detail::d2::hash_map_base<tbb::detail::d1::tbb_allocator<std::pair<const unsigned int, openvdb::v11_0::io::Queue::Status>>, tbb::detail::d1::spin_rw_mutex>::bucket", ptr %8, i64 0, i32 1
   %9 = load atomic i64, ptr %node_list.i monotonic, align 8
   %atomic-temp.i.0.i.i = inttoptr i64 %9 to ptr
-  %cmp.i4.i = icmp ugt ptr %atomic-temp.i.0.i.i, inttoptr (i64 63 to ptr)
+  %cmp.i4.i = icmp ugt i64 %9, 63
   br i1 %cmp.i4.i, label %land.rhs.lr.ph.i, label %invoke.cont
 
 land.rhs.lr.ph.i:                                 ; preds = %_ZN3tbb6detail2d219concurrent_hash_mapIjN7openvdb5v11_02io5Queue6StatusENS0_2d116tbb_hash_compareIjEENS8_13tbb_allocatorISt4pairIKjS7_EEEE15bucket_accessorC2EPSG_mb.exit
@@ -3991,17 +3983,17 @@ if.then6:                                         ; preds = %if.then
           to label %if.end unwind label %lpad.loopexit.split-lp
 
 lpad.loopexit:                                    ; preds = %if.end.i
-  %lpad.loopexit130 = landingpad { ptr, i32 }
+  %lpad.loopexit129 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad.loopexit.split-lp:                           ; preds = %if.then6
-  %lpad.loopexit.split-lp131 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp130 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp, %lpad.loopexit
-  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit130, %lpad.loopexit ], [ %lpad.loopexit.split-lp131, %lpad.loopexit.split-lp ]
+  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit129, %lpad.loopexit ], [ %lpad.loopexit.split-lp130, %lpad.loopexit.split-lp ]
   %14 = load ptr, ptr %b, align 8
   %tobool.not.i.i24 = icmp eq ptr %14, null
   br i1 %tobool.not.i.i24, label %common.resume, label %if.then.i.i25
@@ -4025,14 +4017,14 @@ if.end:                                           ; preds = %if.then6, %if.then
   %tmp_n.addr.1 = phi ptr [ %tmp_n.addr.0, %if.then ], [ %call2.i23, %if.then6 ]
   %19 = load i8, ptr %m_is_writer.i.i, align 8
   %20 = and i8 %19, 1
-  %tobool.i.not152 = icmp eq i8 %20, 0
-  br i1 %tobool.i.not152, label %if.end.i, label %while.end
+  %tobool.i.not151 = icmp eq i8 %20, 0
+  br i1 %tobool.i.not151, label %if.end.i, label %while.end
 
 while.cond:                                       ; preds = %invoke.cont13
   br i1 %tobool.not.i46, label %if.end.i, label %while.end, !llvm.loop !28
 
 if.end.i:                                         ; preds = %if.end, %while.cond
-  %n.0153 = phi ptr [ %n.0.lcssa.i37, %while.cond ], [ null, %if.end ]
+  %n.0152 = phi ptr [ %n.0.lcssa.i37, %while.cond ], [ null, %if.end ]
   store i8 1, ptr %m_is_writer.i.i, align 8
   %21 = load ptr, ptr %b, align 8
   %call.i3132 = invoke noundef zeroext i1 @_ZN3tbb6detail2d113spin_rw_mutex7upgradeEv(ptr noundef nonnull align 8 dereferenceable(8) %21)
@@ -4046,7 +4038,7 @@ while.body:                                       ; preds = %invoke.cont10
   %node_list.i34 = getelementptr inbounds %"struct.tbb::detail::d2::hash_map_base<tbb::detail::d1::tbb_allocator<std::pair<const unsigned int, openvdb::v11_0::io::Queue::Status>>, tbb::detail::d1::spin_rw_mutex>::bucket", ptr %22, i64 0, i32 1
   %23 = load atomic i64, ptr %node_list.i34 monotonic, align 8
   %atomic-temp.i.0.i.i35 = inttoptr i64 %23 to ptr
-  %cmp.i4.i36 = icmp ugt ptr %atomic-temp.i.0.i.i35, inttoptr (i64 63 to ptr)
+  %cmp.i4.i36 = icmp ugt i64 %23, 63
   br i1 %cmp.i4.i36, label %land.rhs.lr.ph.i38, label %invoke.cont13
 
 land.rhs.lr.ph.i38:                               ; preds = %while.body
@@ -4083,7 +4075,7 @@ if.then.i:                                        ; preds = %if.then16
   br label %exists
 
 while.end:                                        ; preds = %invoke.cont10, %while.cond, %if.end
-  %n.0.lcssa = phi ptr [ null, %if.end ], [ %n.0.lcssa.i37, %while.cond ], [ %n.0153, %invoke.cont10 ]
+  %n.0.lcssa = phi ptr [ null, %if.end ], [ %n.0.lcssa.i37, %while.cond ], [ %n.0152, %invoke.cont10 ]
   %32 = load atomic i64, ptr %my_mask acquire, align 8
   %cmp.not.i = icmp eq i64 %m.0, %32
   br i1 %cmp.not.i, label %if.end31, label %if.then.i61
@@ -4119,8 +4111,7 @@ for.end.i.i:                                      ; preds = %for.cond.i.i
   %atomic-temp.i.0.i.i.i.i = inttoptr i64 %36 to ptr
   %node_list.i.i = getelementptr inbounds %"struct.tbb::detail::d2::hash_map_base<tbb::detail::d1::tbb_allocator<std::pair<const unsigned int, openvdb::v11_0::io::Queue::Status>>, tbb::detail::d1::spin_rw_mutex>::bucket", ptr %atomic-temp.i.0.i.i.i.i, i64 %sub.i.i.i, i32 1
   %37 = load atomic i64, ptr %node_list.i.i acquire, align 8
-  %atomic-temp.i.0.i.i.i = inttoptr i64 %37 to ptr
-  %cmp.i.i.i64 = icmp eq ptr %atomic-temp.i.0.i.i.i, inttoptr (i64 3 to ptr)
+  %cmp.i.i.i64 = icmp eq i64 %37, 3
   br i1 %cmp.i.i.i64, label %if.end31, label %cleanup
 
 if.end31:                                         ; preds = %if.then.i61, %for.end.i.i, %while.end
@@ -4130,34 +4121,34 @@ if.end31:                                         ; preds = %if.then.i61, %for.e
   %40 = add i64 %39, 1
   %node_list.i.i67 = getelementptr inbounds %"struct.tbb::detail::d2::hash_map_base<tbb::detail::d1::tbb_allocator<std::pair<const unsigned int, openvdb::v11_0::io::Queue::Status>>, tbb::detail::d1::spin_rw_mutex>::bucket", ptr %38, i64 0, i32 1
   %41 = load atomic i64, ptr %node_list.i.i67 monotonic, align 8
-  %atomic-temp.i.0.i.i.i68 = inttoptr i64 %41 to ptr
-  store ptr %atomic-temp.i.0.i.i.i68, ptr %tmp_n.addr.1, align 8
+  %atomic-temp.i.0.i.i.i = inttoptr i64 %41 to ptr
+  store ptr %atomic-temp.i.0.i.i.i, ptr %tmp_n.addr.1, align 8
   %42 = ptrtoint ptr %tmp_n.addr.1 to i64
   store atomic i64 %42, ptr %node_list.i.i67 monotonic, align 8
-  %cmp.not.i69 = icmp ult i64 %40, %m.1.ph
-  br i1 %cmp.not.i69, label %exists, label %if.then.i70
+  %cmp.not.i68 = icmp ult i64 %40, %m.1.ph
+  br i1 %cmp.not.i68, label %exists, label %if.then.i69
 
-if.then.i70:                                      ; preds = %if.end31
+if.then.i69:                                      ; preds = %if.end31
   %add.i = add i64 %m.1.ph, 1
   %43 = call noundef i64 @llvm.ctlz.i64(i64 %add.i, i1 true), !range !18
   %xor.i.i.i = xor i64 %43, 63
   %arrayidx.i = getelementptr inbounds %"class.tbb::detail::d2::hash_map_base", ptr %this, i64 0, i32 4, i64 %xor.i.i.i
   %44 = load atomic i64, ptr %arrayidx.i acquire, align 8
-  %tobool.not.i71 = icmp eq i64 %44, 0
-  br i1 %tobool.not.i71, label %land.lhs.true.i, label %exists
+  %tobool.not.i70 = icmp eq i64 %44, 0
+  br i1 %tobool.not.i70, label %land.lhs.true.i, label %exists
 
-land.lhs.true.i:                                  ; preds = %if.then.i70
+land.lhs.true.i:                                  ; preds = %if.then.i69
   %45 = cmpxchg ptr %arrayidx.i, i64 0, i64 2 seq_cst seq_cst, align 8
   %46 = extractvalue { i64, i1 } %45, 1
   %spec.select.i = select i1 %46, i64 %xor.i.i.i, i64 0
   br label %exists
 
-exists:                                           ; preds = %land.rhs.i, %land.lhs.true.i, %if.then.i70, %if.end31, %if.then16, %if.then.i, %invoke.cont
-  %m.2 = phi i64 [ %m.0, %invoke.cont ], [ %m.0, %if.then.i ], [ %m.0, %if.then16 ], [ %m.1.ph, %if.end31 ], [ %m.1.ph, %if.then.i70 ], [ %m.1.ph, %land.lhs.true.i ], [ %m.0, %land.rhs.i ]
-  %return_value.0 = phi i8 [ 0, %invoke.cont ], [ 0, %if.then.i ], [ 0, %if.then16 ], [ 1, %if.end31 ], [ 1, %if.then.i70 ], [ 1, %land.lhs.true.i ], [ 0, %land.rhs.i ]
-  %tmp_n.addr.2 = phi ptr [ %tmp_n.addr.0, %invoke.cont ], [ %tmp_n.addr.1, %if.then.i ], [ %tmp_n.addr.1, %if.then16 ], [ null, %if.end31 ], [ null, %if.then.i70 ], [ null, %land.lhs.true.i ], [ %tmp_n.addr.0, %land.rhs.i ]
-  %grow_segment.1 = phi i64 [ %grow_segment.0, %invoke.cont ], [ %grow_segment.0, %if.then.i ], [ %grow_segment.0, %if.then16 ], [ 0, %if.end31 ], [ 0, %if.then.i70 ], [ %spec.select.i, %land.lhs.true.i ], [ %grow_segment.0, %land.rhs.i ]
-  %n.1 = phi ptr [ %n.0.lcssa.i, %invoke.cont ], [ %n.0.lcssa.i37, %if.then.i ], [ %n.0.lcssa.i37, %if.then16 ], [ %tmp_n.addr.1, %if.end31 ], [ %tmp_n.addr.1, %if.then.i70 ], [ %tmp_n.addr.1, %land.lhs.true.i ], [ %n.05.i, %land.rhs.i ]
+exists:                                           ; preds = %land.rhs.i, %land.lhs.true.i, %if.then.i69, %if.end31, %if.then16, %if.then.i, %invoke.cont
+  %m.2 = phi i64 [ %m.0, %invoke.cont ], [ %m.0, %if.then.i ], [ %m.0, %if.then16 ], [ %m.1.ph, %if.end31 ], [ %m.1.ph, %if.then.i69 ], [ %m.1.ph, %land.lhs.true.i ], [ %m.0, %land.rhs.i ]
+  %return_value.0 = phi i8 [ 0, %invoke.cont ], [ 0, %if.then.i ], [ 0, %if.then16 ], [ 1, %if.end31 ], [ 1, %if.then.i69 ], [ 1, %land.lhs.true.i ], [ 0, %land.rhs.i ]
+  %tmp_n.addr.2 = phi ptr [ %tmp_n.addr.0, %invoke.cont ], [ %tmp_n.addr.1, %if.then.i ], [ %tmp_n.addr.1, %if.then16 ], [ null, %if.end31 ], [ null, %if.then.i69 ], [ null, %land.lhs.true.i ], [ %tmp_n.addr.0, %land.rhs.i ]
+  %grow_segment.1 = phi i64 [ %grow_segment.0, %invoke.cont ], [ %grow_segment.0, %if.then.i ], [ %grow_segment.0, %if.then16 ], [ 0, %if.end31 ], [ 0, %if.then.i69 ], [ %spec.select.i, %land.lhs.true.i ], [ %grow_segment.0, %land.rhs.i ]
+  %n.1 = phi ptr [ %n.0.lcssa.i, %invoke.cont ], [ %n.0.lcssa.i37, %if.then.i ], [ %n.0.lcssa.i37, %if.then16 ], [ %tmp_n.addr.1, %if.end31 ], [ %tmp_n.addr.1, %if.then.i69 ], [ %tmp_n.addr.1, %land.lhs.true.i ], [ %n.05.i, %land.rhs.i ]
   br i1 %tobool36.not, label %cleanup, label %if.end38
 
 if.end38:                                         ; preds = %exists
@@ -4167,8 +4158,8 @@ if.end38:                                         ; preds = %exists
 
 cond.true.i:                                      ; preds = %if.end38
   %and.i.i = and i64 %47, -3
-  %tobool.not.i.i76 = icmp eq i64 %and.i.i, 0
-  br i1 %tobool.not.i.i76, label %cond.end.i, label %if.then42
+  %tobool.not.i.i75 = icmp eq i64 %and.i.i, 0
+  br i1 %tobool.not.i.i75, label %cond.end.i, label %if.then42
 
 cond.false.i:                                     ; preds = %if.end38
   %and.i5.i = and i64 %47, 3
@@ -4192,7 +4183,7 @@ cond.end.i:                                       ; preds = %cond.true.i
 
 invoke.cont40:                                    ; preds = %seqcst.i14.i.i, %cond.end.i
   store ptr %mutex, ptr %result, align 8
-  store i8 %frombool.i, ptr %m_is_writer.i89, align 8
+  store i8 %frombool.i, ptr %m_is_writer.i88, align 8
   br label %cleanup
 
 if.then42:                                        ; preds = %cond.end.i, %cond.true.i, %if.end.i.i, %cond.false.i
@@ -4202,39 +4193,39 @@ if.then42:                                        ; preds = %cond.end.i, %cond.t
 for.cond:                                         ; preds = %_ZN3tbb6detail2d014atomic_backoff13bounded_pauseEv.exit, %if.then42
   %backoff.sroa.0.0 = phi i32 [ 2, %if.then42 ], [ %mul.i, %_ZN3tbb6detail2d014atomic_backoff13bounded_pauseEv.exit ]
   %52 = load atomic i64, ptr %mutex monotonic, align 8
-  br i1 %write, label %cond.true.i90, label %cond.false.i79
+  br i1 %write, label %cond.true.i89, label %cond.false.i78
 
-cond.true.i90:                                    ; preds = %for.cond
-  %and.i.i91 = and i64 %52, -3
-  %tobool.not.i.i92 = icmp eq i64 %and.i.i91, 0
-  br i1 %tobool.not.i.i92, label %cond.end.i93, label %if.end49
+cond.true.i89:                                    ; preds = %for.cond
+  %and.i.i90 = and i64 %52, -3
+  %tobool.not.i.i91 = icmp eq i64 %and.i.i90, 0
+  br i1 %tobool.not.i.i91, label %cond.end.i92, label %if.end49
 
-cond.false.i79:                                   ; preds = %for.cond
-  %and.i5.i80 = and i64 %52, 3
-  %tobool.not.i6.i81 = icmp eq i64 %and.i5.i80, 0
-  br i1 %tobool.not.i6.i81, label %seqcst.i14.i.i84, label %if.end49
+cond.false.i78:                                   ; preds = %for.cond
+  %and.i5.i79 = and i64 %52, 3
+  %tobool.not.i6.i80 = icmp eq i64 %and.i5.i79, 0
+  br i1 %tobool.not.i6.i80, label %seqcst.i14.i.i83, label %if.end49
 
-seqcst.i14.i.i84:                                 ; preds = %cond.false.i79
+seqcst.i14.i.i83:                                 ; preds = %cond.false.i78
   %53 = atomicrmw add ptr %mutex, i64 4 seq_cst, align 8
-  %and4.i.i85 = and i64 %53, 1
-  %tobool5.not.i.i86 = icmp eq i64 %and4.i.i85, 0
-  br i1 %tobool5.not.i.i86, label %invoke.cont46, label %if.end.i.i87
+  %and4.i.i84 = and i64 %53, 1
+  %tobool5.not.i.i85 = icmp eq i64 %and4.i.i84, 0
+  br i1 %tobool5.not.i.i85, label %invoke.cont46, label %if.end.i.i86
 
-if.end.i.i87:                                     ; preds = %seqcst.i14.i.i84
+if.end.i.i86:                                     ; preds = %seqcst.i14.i.i83
   %54 = atomicrmw sub ptr %mutex, i64 4 seq_cst, align 8
   br label %if.end49
 
-cond.end.i93:                                     ; preds = %cond.true.i90
+cond.end.i92:                                     ; preds = %cond.true.i89
   %55 = cmpxchg ptr %mutex, i64 %52, i64 1 seq_cst seq_cst, align 8
   %56 = extractvalue { i64, i1 } %55, 1
   br i1 %56, label %invoke.cont46, label %if.end49
 
-invoke.cont46:                                    ; preds = %seqcst.i14.i.i84, %cond.end.i93
+invoke.cont46:                                    ; preds = %seqcst.i14.i.i83, %cond.end.i92
   store ptr %mutex, ptr %result, align 8
-  store i8 %frombool.i, ptr %m_is_writer.i89, align 8
+  store i8 %frombool.i, ptr %m_is_writer.i88, align 8
   br label %cleanup
 
-if.end49:                                         ; preds = %cond.end.i93, %cond.true.i90, %if.end.i.i87, %cond.false.i79
+if.end49:                                         ; preds = %cond.end.i92, %cond.true.i89, %if.end.i.i86, %cond.false.i78
   %cmp1.i.i = icmp sgt i32 %backoff.sroa.0.0, 0
   br i1 %cmp1.i.i, label %while.body.i.i, label %_ZN3tbb6detail2d014atomic_backoff13bounded_pauseEv.exit
 
@@ -4242,12 +4233,12 @@ while.body.i.i:                                   ; preds = %if.end49, %while.bo
   %delay.addr.02.i.i = phi i32 [ %dec.i.i, %while.body.i.i ], [ %backoff.sroa.0.0, %if.end49 ]
   %dec.i.i = add nsw i32 %delay.addr.02.i.i, -1
   call void @llvm.x86.sse2.pause()
-  %cmp.i.i96 = icmp ugt i32 %delay.addr.02.i.i, 1
-  br i1 %cmp.i.i96, label %while.body.i.i, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i, !llvm.loop !12
+  %cmp.i.i95 = icmp ugt i32 %delay.addr.02.i.i, 1
+  br i1 %cmp.i.i95, label %while.body.i.i, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i, !llvm.loop !12
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i:       ; preds = %while.body.i.i
-  %cmp.i97 = icmp slt i32 %backoff.sroa.0.0, 16
-  br i1 %cmp.i97, label %_ZN3tbb6detail2d014atomic_backoff13bounded_pauseEv.exit, label %if.then51
+  %cmp.i96 = icmp slt i32 %backoff.sroa.0.0, 16
+  br i1 %cmp.i96, label %_ZN3tbb6detail2d014atomic_backoff13bounded_pauseEv.exit, label %if.then51
 
 _ZN3tbb6detail2d014atomic_backoff13bounded_pauseEv.exit: ; preds = %if.end49, %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i
   %mul.i = shl nsw i32 %backoff.sroa.0.0, 1
@@ -4258,10 +4249,10 @@ if.then51:                                        ; preds = %_ZN3tbb6detail2d0L1
   store ptr null, ptr %b, align 8
   %58 = load i8, ptr %m_is_writer.i.i, align 8
   %59 = and i8 %58, 1
-  %tobool.not.i99 = icmp eq i8 %59, 0
-  br i1 %tobool.not.i99, label %if.else.i, label %if.then.i100
+  %tobool.not.i98 = icmp eq i8 %59, 0
+  br i1 %tobool.not.i98, label %if.else.i, label %if.then.i99
 
-if.then.i100:                                     ; preds = %if.then51
+if.then.i99:                                      ; preds = %if.then51
   %60 = atomicrmw and ptr %57, i64 -4 seq_cst, align 8
   br label %invoke.cont52
 
@@ -4269,7 +4260,7 @@ if.else.i:                                        ; preds = %if.then51
   %61 = atomicrmw sub ptr %57, i64 4 seq_cst, align 8
   br label %invoke.cont52
 
-invoke.cont52:                                    ; preds = %if.else.i, %if.then.i100
+invoke.cont52:                                    ; preds = %if.else.i, %if.then.i99
   %call.i.i = call noundef i32 @sched_yield() #20
   %62 = load atomic i64, ptr %my_mask acquire, align 8
   br label %cleanup
@@ -4282,48 +4273,48 @@ cleanup:                                          ; preds = %invoke.cont46, %inv
   %n.2 = phi ptr [ %n.1, %exists ], [ %n.1, %invoke.cont40 ], [ %n.1, %invoke.cont46 ], [ %n.1, %invoke.cont52 ], [ %n.0.lcssa, %for.end.i.i ]
   %cleanup.dest.slot.0 = phi i32 [ 6, %exists ], [ 0, %invoke.cont40 ], [ 0, %invoke.cont46 ], [ 2, %invoke.cont52 ], [ 2, %for.end.i.i ]
   %63 = load ptr, ptr %b, align 8
-  %tobool.not.i.i102 = icmp eq ptr %63, null
-  br i1 %tobool.not.i.i102, label %_ZN3tbb6detail2d219concurrent_hash_mapIjN7openvdb5v11_02io5Queue6StatusENS0_2d116tbb_hash_compareIjEENS8_13tbb_allocatorISt4pairIKjS7_EEEE15bucket_accessorD2Ev.exit109, label %if.then.i.i103
+  %tobool.not.i.i101 = icmp eq ptr %63, null
+  br i1 %tobool.not.i.i101, label %_ZN3tbb6detail2d219concurrent_hash_mapIjN7openvdb5v11_02io5Queue6StatusENS0_2d116tbb_hash_compareIjEENS8_13tbb_allocatorISt4pairIKjS7_EEEE15bucket_accessorD2Ev.exit108, label %if.then.i.i102
 
-if.then.i.i103:                                   ; preds = %cleanup
+if.then.i.i102:                                   ; preds = %cleanup
   store ptr null, ptr %b, align 8
   %64 = load i8, ptr %m_is_writer.i.i, align 8
   %65 = and i8 %64, 1
-  %tobool.not.i.i.i105 = icmp eq i8 %65, 0
-  br i1 %tobool.not.i.i.i105, label %if.else.i.i.i108, label %if.then.i.i.i106
+  %tobool.not.i.i.i104 = icmp eq i8 %65, 0
+  br i1 %tobool.not.i.i.i104, label %if.else.i.i.i107, label %if.then.i.i.i105
 
-if.then.i.i.i106:                                 ; preds = %if.then.i.i103
+if.then.i.i.i105:                                 ; preds = %if.then.i.i102
   %66 = atomicrmw and ptr %63, i64 -4 seq_cst, align 8
-  br label %_ZN3tbb6detail2d219concurrent_hash_mapIjN7openvdb5v11_02io5Queue6StatusENS0_2d116tbb_hash_compareIjEENS8_13tbb_allocatorISt4pairIKjS7_EEEE15bucket_accessorD2Ev.exit109
+  br label %_ZN3tbb6detail2d219concurrent_hash_mapIjN7openvdb5v11_02io5Queue6StatusENS0_2d116tbb_hash_compareIjEENS8_13tbb_allocatorISt4pairIKjS7_EEEE15bucket_accessorD2Ev.exit108
 
-if.else.i.i.i108:                                 ; preds = %if.then.i.i103
+if.else.i.i.i107:                                 ; preds = %if.then.i.i102
   %67 = atomicrmw sub ptr %63, i64 4 seq_cst, align 8
-  br label %_ZN3tbb6detail2d219concurrent_hash_mapIjN7openvdb5v11_02io5Queue6StatusENS0_2d116tbb_hash_compareIjEENS8_13tbb_allocatorISt4pairIKjS7_EEEE15bucket_accessorD2Ev.exit109
+  br label %_ZN3tbb6detail2d219concurrent_hash_mapIjN7openvdb5v11_02io5Queue6StatusENS0_2d116tbb_hash_compareIjEENS8_13tbb_allocatorISt4pairIKjS7_EEEE15bucket_accessorD2Ev.exit108
 
-_ZN3tbb6detail2d219concurrent_hash_mapIjN7openvdb5v11_02io5Queue6StatusENS0_2d116tbb_hash_compareIjEENS8_13tbb_allocatorISt4pairIKjS7_EEEE15bucket_accessorD2Ev.exit109: ; preds = %cleanup, %if.then.i.i.i106, %if.else.i.i.i108
+_ZN3tbb6detail2d219concurrent_hash_mapIjN7openvdb5v11_02io5Queue6StatusENS0_2d116tbb_hash_compareIjEENS8_13tbb_allocatorISt4pairIKjS7_EEEE15bucket_accessorD2Ev.exit108: ; preds = %cleanup, %if.then.i.i.i105, %if.else.i.i.i107
   switch i32 %cleanup.dest.slot.0, label %unreachable [
     i32 0, label %cleanup.cont
     i32 2, label %restart
     i32 6, label %check_growth
   ]
 
-cleanup.cont:                                     ; preds = %_ZN3tbb6detail2d219concurrent_hash_mapIjN7openvdb5v11_02io5Queue6StatusENS0_2d116tbb_hash_compareIjEENS8_13tbb_allocatorISt4pairIKjS7_EEEE15bucket_accessorD2Ev.exit109
+cleanup.cont:                                     ; preds = %_ZN3tbb6detail2d219concurrent_hash_mapIjN7openvdb5v11_02io5Queue6StatusENS0_2d116tbb_hash_compareIjEENS8_13tbb_allocatorISt4pairIKjS7_EEEE15bucket_accessorD2Ev.exit108
   %my_node = getelementptr inbounds %"class.tbb::detail::d2::concurrent_hash_map<unsigned int, openvdb::v11_0::io::Queue::Status>::const_accessor", ptr %result, i64 0, i32 1
   store ptr %n.2, ptr %my_node, align 8
   %my_hash = getelementptr inbounds %"class.tbb::detail::d2::concurrent_hash_map<unsigned int, openvdb::v11_0::io::Queue::Status>::const_accessor", ptr %result, i64 0, i32 2
   store i64 %conv.i.i, ptr %my_hash, align 8
   br label %check_growth
 
-check_growth:                                     ; preds = %_ZN3tbb6detail2d219concurrent_hash_mapIjN7openvdb5v11_02io5Queue6StatusENS0_2d116tbb_hash_compareIjEENS8_13tbb_allocatorISt4pairIKjS7_EEEE15bucket_accessorD2Ev.exit109, %cleanup.cont
+check_growth:                                     ; preds = %_ZN3tbb6detail2d219concurrent_hash_mapIjN7openvdb5v11_02io5Queue6StatusENS0_2d116tbb_hash_compareIjEENS8_13tbb_allocatorISt4pairIKjS7_EEEE15bucket_accessorD2Ev.exit108, %cleanup.cont
   %tobool57.not = icmp eq i64 %grow_segment.2, 0
   br i1 %tobool57.not, label %if.end59, label %if.then58
 
 if.then58:                                        ; preds = %check_growth
-  %cmp.i110 = icmp ugt i64 %grow_segment.2, 7
-  br i1 %cmp.i110, label %if.then.i114, label %if.else.i111
+  %cmp.i109 = icmp ugt i64 %grow_segment.2, 7
+  br i1 %cmp.i109, label %if.then.i113, label %if.else.i110
 
-if.then.i114:                                     ; preds = %if.then58
-  %shl.i.i115 = shl nuw i64 1, %grow_segment.2
+if.then.i113:                                     ; preds = %if.then58
+  %shl.i.i114 = shl nuw i64 1, %grow_segment.2
   %mul.i.i.i.i.i = shl i64 16, %grow_segment.2
   %call.i.i.i1.i.i = invoke noundef ptr @_ZN3tbb6detail2r115allocate_memoryEm(i64 noundef %mul.i.i.i.i.i)
           to label %for.body.i.i.i unwind label %_ZN3tbb6detail2d010raii_guardIZNS0_2d213hash_map_baseINS0_2d113tbb_allocatorISt4pairIKjN7openvdb5v11_02io5Queue6StatusEEEENS5_13spin_rw_mutexEE14enable_segmentEmbEUlvE0_ED2Ev.exit7.i.i
@@ -4334,40 +4325,40 @@ common.resume.i:                                  ; preds = %_ZN3tbb6detail2d010
   store atomic i64 0, ptr %arrayidx.i.i6.i12.i monotonic, align 8
   br label %common.resume
 
-_ZN3tbb6detail2d010raii_guardIZNS0_2d213hash_map_baseINS0_2d113tbb_allocatorISt4pairIKjN7openvdb5v11_02io5Queue6StatusEEEENS5_13spin_rw_mutexEE14enable_segmentEmbEUlvE0_ED2Ev.exit7.i.i: ; preds = %if.then.i114
+_ZN3tbb6detail2d010raii_guardIZNS0_2d213hash_map_baseINS0_2d113tbb_allocatorISt4pairIKjN7openvdb5v11_02io5Queue6StatusEEEENS5_13spin_rw_mutexEE14enable_segmentEmbEUlvE0_ED2Ev.exit7.i.i: ; preds = %if.then.i113
   %68 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume.i
 
-for.body.i.i.i:                                   ; preds = %if.then.i114, %for.body.i.i.i
-  %i.04.i.i.i = phi i64 [ %inc.i.i.i, %for.body.i.i.i ], [ 0, %if.then.i114 ]
+for.body.i.i.i:                                   ; preds = %if.then.i113, %for.body.i.i.i
+  %i.04.i.i.i = phi i64 [ %inc.i.i.i, %for.body.i.i.i ], [ 0, %if.then.i113 ]
   %add.ptr.i.i.i = getelementptr inbounds %"struct.tbb::detail::d2::hash_map_base<tbb::detail::d1::tbb_allocator<std::pair<const unsigned int, openvdb::v11_0::io::Queue::Status>>, tbb::detail::d1::spin_rw_mutex>::bucket", ptr %call.i.i.i1.i.i, i64 %i.04.i.i.i
   store i64 0, ptr %add.ptr.i.i.i, align 8
   %node_list.i.i.i.i.i.i = getelementptr inbounds %"struct.tbb::detail::d2::hash_map_base<tbb::detail::d1::tbb_allocator<std::pair<const unsigned int, openvdb::v11_0::io::Queue::Status>>, tbb::detail::d1::spin_rw_mutex>::bucket", ptr %call.i.i.i1.i.i, i64 %i.04.i.i.i, i32 1
   store ptr inttoptr (i64 3 to ptr), ptr %node_list.i.i.i.i.i.i, align 8
   %inc.i.i.i = add nuw i64 %i.04.i.i.i, 1
-  %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, %shl.i.i115
+  %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, %shl.i.i114
   br i1 %exitcond.not.i.i.i, label %_ZN3tbb6detail2d213hash_map_baseINS0_2d113tbb_allocatorISt4pairIKjN7openvdb5v11_02io5Queue6StatusEEEENS3_13spin_rw_mutexEE12init_bucketsEPNSF_6bucketEmb.exit.i, label %for.body.i.i.i, !llvm.loop !30
 
 _ZN3tbb6detail2d213hash_map_baseINS0_2d113tbb_allocatorISt4pairIKjN7openvdb5v11_02io5Queue6StatusEEEENS3_13spin_rw_mutexEE12init_bucketsEPNSF_6bucketEmb.exit.i: ; preds = %for.body.i.i.i
-  %arrayidx.i116 = getelementptr inbounds %"class.tbb::detail::d2::hash_map_base", ptr %this, i64 0, i32 4, i64 %grow_segment.2
+  %arrayidx.i115 = getelementptr inbounds %"class.tbb::detail::d2::hash_map_base", ptr %this, i64 0, i32 4, i64 %grow_segment.2
   %69 = ptrtoint ptr %call.i.i.i1.i.i to i64
-  store atomic i64 %69, ptr %arrayidx.i116 release, align 8
+  store atomic i64 %69, ptr %arrayidx.i115 release, align 8
   %shl.i = shl i64 2, %grow_segment.2
   %70 = add i64 %shl.i, -1
   br label %_ZN3tbb6detail2d213hash_map_baseINS0_2d113tbb_allocatorISt4pairIKjN7openvdb5v11_02io5Queue6StatusEEEENS3_13spin_rw_mutexEE14enable_segmentEmb.exit
 
-if.else.i111:                                     ; preds = %if.then58
+if.else.i110:                                     ; preds = %if.then58
   %call.i.i.i1.i11.i = invoke noundef ptr @_ZN3tbb6detail2r115allocate_memoryEm(i64 noundef 4064)
           to label %for.body.i.i15.i unwind label %_ZN3tbb6detail2d010raii_guardIZNS0_2d213hash_map_baseINS0_2d113tbb_allocatorISt4pairIKjN7openvdb5v11_02io5Queue6StatusEEEENS5_13spin_rw_mutexEE14enable_segmentEmbEUlvE2_ED2Ev.exit7.i.i
 
-_ZN3tbb6detail2d010raii_guardIZNS0_2d213hash_map_baseINS0_2d113tbb_allocatorISt4pairIKjN7openvdb5v11_02io5Queue6StatusEEEENS5_13spin_rw_mutexEE14enable_segmentEmbEUlvE2_ED2Ev.exit7.i.i: ; preds = %if.else.i111
+_ZN3tbb6detail2d010raii_guardIZNS0_2d213hash_map_baseINS0_2d113tbb_allocatorISt4pairIKjN7openvdb5v11_02io5Queue6StatusEEEENS5_13spin_rw_mutexEE14enable_segmentEmbEUlvE2_ED2Ev.exit7.i.i: ; preds = %if.else.i110
   %71 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume.i
 
-for.body.i.i15.i:                                 ; preds = %if.else.i111, %for.body.i.i15.i
-  %i.04.i.i16.i = phi i64 [ %inc.i.i19.i, %for.body.i.i15.i ], [ 0, %if.else.i111 ]
+for.body.i.i15.i:                                 ; preds = %if.else.i110, %for.body.i.i15.i
+  %i.04.i.i16.i = phi i64 [ %inc.i.i19.i, %for.body.i.i15.i ], [ 0, %if.else.i110 ]
   %add.ptr.i.i17.i = getelementptr inbounds %"struct.tbb::detail::d2::hash_map_base<tbb::detail::d1::tbb_allocator<std::pair<const unsigned int, openvdb::v11_0::io::Queue::Status>>, tbb::detail::d1::spin_rw_mutex>::bucket", ptr %call.i.i.i1.i11.i, i64 %i.04.i.i16.i
   store i64 0, ptr %add.ptr.i.i17.i, align 8
   %node_list.i.i.i.i.i18.i = getelementptr inbounds %"struct.tbb::detail::d2::hash_map_base<tbb::detail::d1::tbb_allocator<std::pair<const unsigned int, openvdb::v11_0::io::Queue::Status>>, tbb::detail::d1::spin_rw_mutex>::bucket", ptr %call.i.i.i1.i11.i, i64 %i.04.i.i16.i, i32 1
@@ -4409,7 +4400,7 @@ if.end62:                                         ; preds = %if.then61, %if.end5
   %tobool63 = icmp ne i8 %73, 0
   ret i1 %tobool63
 
-unreachable:                                      ; preds = %_ZN3tbb6detail2d219concurrent_hash_mapIjN7openvdb5v11_02io5Queue6StatusENS0_2d116tbb_hash_compareIjEENS8_13tbb_allocatorISt4pairIKjS7_EEEE15bucket_accessorD2Ev.exit109
+unreachable:                                      ; preds = %_ZN3tbb6detail2d219concurrent_hash_mapIjN7openvdb5v11_02io5Queue6StatusENS0_2d116tbb_hash_compareIjEENS8_13tbb_allocatorISt4pairIKjS7_EEEE15bucket_accessorD2Ev.exit108
   unreachable
 }
 
@@ -4675,29 +4666,28 @@ do.body.i.i:                                      ; preds = %_ZN3tbb6detail2d213
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.inc15.i.i, %do.body.i.i
-  %i.027.i.i = phi i64 [ 0, %do.body.i.i ], [ %inc.i.i, %for.inc15.i.i ]
-  %node_list.i.i = getelementptr inbounds %"struct.tbb::detail::d2::hash_map_base<tbb::detail::d1::tbb_allocator<std::pair<const unsigned int, openvdb::v11_0::io::Queue::Status>>, tbb::detail::d1::spin_rw_mutex>::bucket", ptr %atomic-temp.i.0.i.i.i, i64 %i.027.i.i, i32 1
+  %i.026.i.i = phi i64 [ 0, %do.body.i.i ], [ %inc.i.i, %for.inc15.i.i ]
+  %node_list.i.i = getelementptr inbounds %"struct.tbb::detail::d2::hash_map_base<tbb::detail::d1::tbb_allocator<std::pair<const unsigned int, openvdb::v11_0::io::Queue::Status>>, tbb::detail::d1::spin_rw_mutex>::bucket", ptr %atomic-temp.i.0.i.i.i, i64 %i.026.i.i, i32 1
   %6 = load atomic i64, ptr %node_list.i.i monotonic, align 8
-  %n.024.i.i = inttoptr i64 %6 to ptr
-  %cmp.i25.i.i = icmp ugt ptr %n.024.i.i, inttoptr (i64 63 to ptr)
-  br i1 %cmp.i25.i.i, label %for.body9.i.i, label %for.inc15.i.i
+  %cmp.i24.i.i = icmp ugt i64 %6, 63
+  br i1 %cmp.i24.i.i, label %for.body9.i.i, label %for.inc15.i.i
 
 for.body9.i.i:                                    ; preds = %for.body.i.i, %.noexc.i
-  %n.026.i.i = phi ptr [ %n.0.i.i, %.noexc.i ], [ %n.024.i.i, %for.body.i.i ]
-  %7 = load ptr, ptr %n.026.i.i, align 8
+  %n.0.in25.i.i = phi i64 [ %9, %.noexc.i ], [ %6, %for.body.i.i ]
+  %n.0.i.i = inttoptr i64 %n.0.in25.i.i to ptr
+  %7 = load ptr, ptr %n.0.i.i, align 8
   %8 = ptrtoint ptr %7 to i64
   store atomic i64 %8, ptr %node_list.i.i monotonic, align 8
-  invoke void @_ZN3tbb6detail2r117deallocate_memoryEPv(ptr noundef nonnull %n.026.i.i)
+  invoke void @_ZN3tbb6detail2r117deallocate_memoryEPv(ptr noundef nonnull %n.0.i.i)
           to label %.noexc.i unwind label %terminate.lpad.loopexit.i
 
 .noexc.i:                                         ; preds = %for.body9.i.i
   %9 = load atomic i64, ptr %node_list.i.i monotonic, align 8
-  %n.0.i.i = inttoptr i64 %9 to ptr
-  %cmp.i.i.i = icmp ugt ptr %n.0.i.i, inttoptr (i64 63 to ptr)
+  %cmp.i.i.i = icmp ugt i64 %9, 63
   br i1 %cmp.i.i.i, label %for.body9.i.i, label %for.inc15.i.i, !llvm.loop !33
 
 for.inc15.i.i:                                    ; preds = %.noexc.i, %for.body.i.i
-  %inc.i.i = add i64 %i.027.i.i, 1
+  %inc.i.i = add i64 %i.026.i.i, 1
   %i.0.highbits.i.i = lshr i64 %inc.i.i, %cond.i.i
   %cmp.i.i = icmp eq i64 %i.0.highbits.i.i, 0
   br i1 %cmp.i.i, label %for.body.i.i, label %for.end16.i.i, !llvm.loop !34

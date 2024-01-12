@@ -421,7 +421,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
 declare i32 @pthread_mutex_lock(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @vu_message_write(ptr noundef %dev, i32 noundef %conn_fd, ptr noundef %vmsg) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @vu_message_write(ptr noundef %dev, i32 noundef %conn_fd, ptr noundef %vmsg) unnamed_addr #2 {
 entry:
   %control = alloca [48 x i8], align 16
   %iov = alloca %struct.iovec, align 8
@@ -634,7 +634,7 @@ return:                                           ; preds = %entry, %out
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
-define internal zeroext i1 @vu_message_read_default(ptr noundef %dev, i32 noundef %conn_fd, ptr noundef %vmsg) #2 {
+define internal noundef zeroext i1 @vu_message_read_default(ptr noundef %dev, i32 noundef %conn_fd, ptr noundef %vmsg) #2 {
 entry:
   %control = alloca [48 x i8], align 16
   %iov = alloca %struct.iovec, align 8
@@ -819,7 +819,7 @@ return:                                           ; preds = %for.body.i, %fail, 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local zeroext i1 @vu_add_shared_object(ptr noundef %dev, ptr nocapture noundef readonly %uuid) local_unnamed_addr #2 {
+define dso_local noundef zeroext i1 @vu_add_shared_object(ptr noundef %dev, ptr nocapture noundef readonly %uuid) local_unnamed_addr #2 {
 entry:
   %msg = alloca %struct.VhostUserMsg, align 4
   %0 = getelementptr inbounds i8, ptr %msg, i64 28
@@ -852,7 +852,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local zeroext i1 @vu_rm_shared_object(ptr noundef %dev, ptr nocapture noundef readonly %uuid) local_unnamed_addr #2 {
+define dso_local noundef zeroext i1 @vu_rm_shared_object(ptr noundef %dev, ptr nocapture noundef readonly %uuid) local_unnamed_addr #2 {
 entry:
   %msg = alloca %struct.VhostUserMsg, align 4
   %0 = getelementptr inbounds i8, ptr %msg, i64 28
@@ -885,7 +885,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local zeroext i1 @vu_dispatch(ptr noundef %dev) local_unnamed_addr #2 {
+define dso_local noundef zeroext i1 @vu_dispatch(ptr noundef %dev) local_unnamed_addr #2 {
 entry:
   %do_reply.i = alloca i32, align 4
   %vmsg = alloca %struct.VhostUserMsg, align 4
@@ -1301,7 +1301,7 @@ if.end9:                                          ; preds = %if.end6.thread, %if
   %and.i = and i32 %45, -8
   %or3.i = or disjoint i32 %and.i, 5
   store i32 %or3.i, ptr %flags, align 4
-  %call.i9 = call fastcc zeroext i1 @vu_message_write(ptr noundef %dev, i32 noundef %44, ptr noundef nonnull %vmsg)
+  %call.i9 = call fastcc noundef zeroext i1 @vu_message_write(ptr noundef %dev, i32 noundef %44, ptr noundef nonnull %vmsg)
   br label %end
 
 end:                                              ; preds = %if.end9, %if.end6, %entry
@@ -1328,11 +1328,11 @@ for.body:                                         ; preds = %entry, %for.inc
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 0, %entry ]
   %mmap_addr = getelementptr %struct.VuDev, ptr %dev, i64 0, i32 2, i64 %indvars.iv, i32 4
   %2 = load i64, ptr %mmap_addr, align 8
-  %3 = inttoptr i64 %2 to ptr
-  %cmp1.not = icmp eq ptr %3, inttoptr (i64 -1 to ptr)
+  %cmp1.not = icmp eq i64 %2, -1
   br i1 %cmp1.not, label %for.inc, label %if.then
 
 if.then:                                          ; preds = %for.body
+  %3 = inttoptr i64 %2 to ptr
   %size = getelementptr %struct.VuDev, ptr %dev, i64 0, i32 2, i64 %indvars.iv, i32 1
   %4 = load i64, ptr %size, align 8
   %mmap_offset = getelementptr %struct.VuDev, ptr %dev, i64 0, i32 2, i64 %indvars.iv, i32 3
@@ -1514,7 +1514,7 @@ declare i32 @close(i32 noundef) local_unnamed_addr #7
 declare i32 @pthread_mutex_destroy(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local zeroext i1 @vu_init(ptr noundef %dev, i16 noundef zeroext %max_queues, i32 noundef %socket, ptr noundef %panic, ptr noundef %read_msg, ptr noundef %set_watch, ptr noundef %remove_watch, ptr noundef %iface) local_unnamed_addr #2 {
+define dso_local noundef zeroext i1 @vu_init(ptr noundef %dev, i16 noundef zeroext %max_queues, i32 noundef %socket, ptr noundef %panic, ptr noundef %read_msg, ptr noundef %set_watch, ptr noundef %remove_watch, ptr noundef %iface) local_unnamed_addr #2 {
 entry:
   %cmp.not = icmp eq i16 %max_queues, 0
   br i1 %cmp.not, label %if.else, label %if.end
@@ -2297,7 +2297,7 @@ if.end8:                                          ; preds = %if.then, %if.end5.t
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @vu_queue_pop(ptr noundef %dev, ptr nocapture noundef %vq, i64 noundef %sz) local_unnamed_addr #2 {
+define dso_local noundef ptr @vu_queue_pop(ptr noundef %dev, ptr nocapture noundef %vq, i64 noundef %sz) local_unnamed_addr #2 {
 entry:
   %broken = getelementptr inbounds %struct.VuDev, ptr %dev, i64 0, i32 12
   %0 = load i8, ptr %broken, align 8
@@ -2456,7 +2456,7 @@ return:                                           ; preds = %if.end5.i, %if.end.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @vu_queue_map_desc(ptr noundef %dev, i32 %vq.0.val, ptr nocapture readonly %vq.8.val, i32 noundef %idx, i64 noundef %sz) unnamed_addr #2 {
+define internal fastcc noundef ptr @vu_queue_map_desc(ptr noundef %dev, i32 %vq.0.val, ptr nocapture readonly %vq.8.val, i32 noundef %idx, i64 noundef %sz) unnamed_addr #2 {
 entry:
   %out_num = alloca i32, align 4
   %in_num = alloca i32, align 4
@@ -2757,7 +2757,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local zeroext i1 @vu_queue_rewind(ptr nocapture noundef readnone %dev, ptr nocapture noundef %vq, i32 noundef %num) local_unnamed_addr #12 {
+define dso_local noundef zeroext i1 @vu_queue_rewind(ptr nocapture noundef readnone %dev, ptr nocapture noundef %vq, i32 noundef %num) local_unnamed_addr #12 {
 entry:
   %inuse = getelementptr inbounds %struct.VuVirtq, ptr %vq, i64 0, i32 11
   %0 = load i32, ptr %inuse, align 4
@@ -3471,7 +3471,7 @@ for.end.i:                                        ; preds = %if.end.i, %if.then4
   %and.i.i = and i32 %25, -8
   %or3.i.i = or disjoint i32 %and.i.i, 5
   store i32 %or3.i.i, ptr %flags.i.i, align 1
-  %call.i.i = tail call fastcc zeroext i1 @vu_message_write(ptr noundef nonnull %dev, i32 noundef %24, ptr noundef nonnull %vmsg)
+  %call.i.i = tail call fastcc noundef zeroext i1 @vu_message_write(ptr noundef nonnull %dev, i32 noundef %24, ptr noundef nonnull %vmsg)
   br i1 %call.i.i, label %if.end35.i, label %if.then34.i
 
 if.then34.i:                                      ; preds = %for.end.i
@@ -4209,7 +4209,7 @@ return:                                           ; preds = %if.end54, %if.then1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @vu_set_vring_call_exec(ptr noundef %dev, ptr nocapture noundef readonly %vmsg) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @vu_set_vring_call_exec(ptr noundef %dev, ptr nocapture noundef readonly %vmsg) unnamed_addr #2 {
 entry:
   %payload = getelementptr inbounds %struct.VhostUserMsg, ptr %vmsg, i64 0, i32 3
   %0 = load i64, ptr %payload, align 1
@@ -4652,7 +4652,7 @@ return:                                           ; preds = %if.end13, %if.then1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @vu_add_mem_reg(ptr noundef %dev, ptr nocapture noundef %vmsg) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @vu_add_mem_reg(ptr noundef %dev, ptr nocapture noundef %vmsg) unnamed_addr #2 {
 entry:
   %postcopy_listening = getelementptr inbounds %struct.VuDev, ptr %dev, i64 0, i32 20
   %0 = load i8, ptr %postcopy_listening, align 4
@@ -5143,7 +5143,7 @@ declare i32 @mprotect(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr 
 declare void @perror(ptr nocapture noundef readonly) local_unnamed_addr #15
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @vu_check_queue_msg_file(ptr noundef %dev, ptr nocapture noundef readonly %vmsg) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @vu_check_queue_msg_file(ptr noundef %dev, ptr nocapture noundef readonly %vmsg) unnamed_addr #2 {
 entry:
   %payload = getelementptr inbounds %struct.VhostUserMsg, ptr %vmsg, i64 0, i32 3
   %0 = load i64, ptr %payload, align 1
@@ -5271,7 +5271,7 @@ declare i32 @vasprintf(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr
 declare void @llvm.va_end(ptr) #17
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @virtqueue_map_desc(ptr noundef %dev, ptr nocapture noundef %p_num_sg, ptr nocapture noundef writeonly %iov, i32 noundef %max_num_sg, i64 noundef %pa, i64 noundef %sz) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @virtqueue_map_desc(ptr noundef %dev, ptr nocapture noundef %p_num_sg, ptr nocapture noundef writeonly %iov, i32 noundef %max_num_sg, i64 noundef %pa, i64 noundef %sz) unnamed_addr #2 {
 entry:
   %0 = load i32, ptr %p_num_sg, align 4
   %cmp.not = icmp ugt i32 %0, %max_num_sg

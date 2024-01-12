@@ -2262,7 +2262,7 @@ if.end5:                                          ; preds = %for.body
   %arrayidx.i.i.i = getelementptr inbounds %"class.re2::Prog::Inst", ptr %19, i64 %conv.i.i
   %20 = load i32, ptr %arrayidx.i.i.i, align 4
   %and.i = and i32 %20, 7
-  switch i32 %and.i, label %if.end5.unreachabledefault [
+  switch i32 %and.i, label %default.unreachable [
     i32 7, label %for.inc
     i32 3, label %for.inc
     i32 6, label %for.inc
@@ -2273,7 +2273,7 @@ if.end5:                                          ; preds = %for.body
     i32 0, label %sw.default
   ]
 
-if.end5.unreachabledefault:                       ; preds = %if.end5
+default.unreachable:                              ; preds = %if.end5
   unreachable
 
 sw.default:                                       ; preds = %if.end5
@@ -9716,7 +9716,7 @@ land.lhs.true:                                    ; preds = %if.end81
   %28 = load i8, ptr %anchored, align 8
   %29 = and i8 %28, 1
   %tobool87.not = icmp eq i8 %29, 0
-  %cmp90 = icmp ugt ptr %atomic-temp.i.0.i, inttoptr (i64 2 to ptr)
+  %cmp90 = icmp ugt i64 %25, 2
   %or.cond = select i1 %tobool87.not, i1 %cmp90, i1 false
   br i1 %or.cond, label %land.lhs.true91, label %return
 

@@ -37,7 +37,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @lua_checkstack(ptr noundef %L, i32 noundef %size) local_unnamed_addr #1 {
+define noundef i32 @lua_checkstack(ptr noundef %L, i32 noundef %size) local_unnamed_addr #1 {
 entry:
   %cmp = icmp sgt i32 %size, 8000
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -199,7 +199,7 @@ return:                                           ; preds = %entry, %while.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @lua_version(ptr nocapture noundef readnone %L) local_unnamed_addr #4 {
+define noundef nonnull ptr @lua_version(ptr nocapture noundef readnone %L) local_unnamed_addr #4 {
 entry:
   ret ptr @lua_version.version
 }
@@ -5682,7 +5682,7 @@ land.end:                                         ; preds = %land.rhs, %if.end
 declare hidden ptr @lj_tab_new_ah(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @luaL_newmetatable(ptr noundef %L, ptr noundef %tname) local_unnamed_addr #1 {
+define noundef i32 @luaL_newmetatable(ptr noundef %L, ptr noundef %tname) local_unnamed_addr #1 {
 entry:
   %glref = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
   %0 = load i64, ptr %glref, align 8
@@ -6528,7 +6528,7 @@ land.end:                                         ; preds = %land.rhs, %if.end
 declare hidden ptr @lj_tab_getinth(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @lua_getmetatable(ptr noundef %L, i32 noundef %idx) local_unnamed_addr #1 {
+define noundef i32 @lua_getmetatable(ptr noundef %L, i32 noundef %idx) local_unnamed_addr #1 {
 entry:
   %cmp.i = icmp sgt i32 %idx, 0
   br i1 %cmp.i, label %if.then.i, label %if.else.i
@@ -6691,7 +6691,7 @@ return:                                           ; preds = %if.end24, %land.rhs
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @luaL_getmetafield(ptr noundef %L, i32 noundef %idx, ptr noundef %field) local_unnamed_addr #1 {
+define noundef i32 @luaL_getmetafield(ptr noundef %L, i32 noundef %idx, ptr noundef %field) local_unnamed_addr #1 {
 entry:
   %call = tail call i32 @lua_getmetatable(ptr noundef %L, i32 noundef %idx), !range !11
   %tobool.not = icmp eq i32 %call, 0
@@ -7681,11 +7681,9 @@ land.lhs.true:                                    ; preds = %if.then
 
 land.lhs.true11:                                  ; preds = %land.lhs.true
   %and13 = and i64 %28, 140737488355327
-  %30 = inttoptr i64 %and13 to ptr
   %metatable = getelementptr inbounds %struct.GCudata, ptr %23, i64 0, i32 7
-  %31 = load i64, ptr %metatable, align 8
-  %32 = inttoptr i64 %31 to ptr
-  %cmp15 = icmp eq ptr %30, %32
+  %30 = load i64, ptr %metatable, align 8
+  %cmp15 = icmp eq i64 %and13, %30
   %add.ptr = getelementptr inbounds %struct.GCudata, ptr %23, i64 1
   %spec.select = select i1 %cmp15, ptr %add.ptr, ptr null
   br label %return
@@ -8302,7 +8300,7 @@ if.end:                                           ; preds = %if.then, %land.lhs.
 declare hidden ptr @lj_tab_setinth(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @lua_setmetatable(ptr noundef %L, i32 noundef %idx) local_unnamed_addr #1 {
+define noundef i32 @lua_setmetatable(ptr noundef %L, i32 noundef %idx) local_unnamed_addr #1 {
 entry:
   %cmp.i = icmp sgt i32 %idx, 0
   br i1 %cmp.i, label %if.then.i, label %if.else.i
@@ -8594,7 +8592,7 @@ lua_getfield.exit:                                ; preds = %if.end.i, %land.rhs
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @lua_setfenv(ptr nocapture noundef %L, i32 noundef %idx) local_unnamed_addr #1 {
+define noundef i32 @lua_setfenv(ptr nocapture noundef %L, i32 noundef %idx) local_unnamed_addr #1 {
 entry:
   %cmp.i = icmp sgt i32 %idx, 0
   br i1 %cmp.i, label %if.then.i, label %if.else.i
@@ -9111,7 +9109,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @luaL_callmeta(ptr noundef %L, i32 noundef %idx, ptr noundef %field) local_unnamed_addr #1 {
+define noundef i32 @luaL_callmeta(ptr noundef %L, i32 noundef %idx, ptr noundef %field) local_unnamed_addr #1 {
 entry:
   %call.i = tail call i32 @lua_getmetatable(ptr noundef %L, i32 noundef %idx), !range !11
   %tobool.not.i = icmp eq i32 %call.i, 0
@@ -9272,7 +9270,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @lua_yield(ptr noundef %L, i32 noundef %nresults) local_unnamed_addr #1 {
+define noundef i32 @lua_yield(ptr noundef %L, i32 noundef %nresults) local_unnamed_addr #1 {
 entry:
   %cframe = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 13
   %0 = load ptr, ptr %cframe, align 8

@@ -18275,23 +18275,20 @@ for.body:                                         ; preds = %for.body.preheader,
   %arrayidx.i = getelementptr inbounds %"class.datalog::rule", ptr %r1, i64 0, i32 8, i64 %indvars.iv
   %4 = load ptr, ptr %arrayidx.i, align 8
   %5 = ptrtoint ptr %4 to i64
-  %and.i = and i64 %5, -8
-  %6 = inttoptr i64 %and.i to ptr
   %arrayidx.i16 = getelementptr inbounds %"class.datalog::rule", ptr %r2, i64 0, i32 8, i64 %indvars.iv
-  %7 = load ptr, ptr %arrayidx.i16, align 8
-  %8 = ptrtoint ptr %7 to i64
-  %and.i17 = and i64 %8, -8
-  %9 = inttoptr i64 %and.i17 to ptr
-  %cmp11.not = icmp eq ptr %6, %9
+  %6 = load ptr, ptr %arrayidx.i16, align 8
+  %7 = ptrtoint ptr %6 to i64
+  %8 = xor i64 %7, %5
+  %cmp11.not = icmp ult i64 %8, 8
   br i1 %cmp11.not, label %if.end13, label %return
 
 if.end13:                                         ; preds = %for.body
   %and.i20 = and i64 %5, 7
   %cmp.i = icmp eq i64 %and.i20, 1
-  %and.i23 = and i64 %8, 7
+  %and.i23 = and i64 %7, 7
   %cmp.i24 = icmp eq i64 %and.i23, 1
-  %10 = xor i1 %cmp.i, %cmp.i24
-  br i1 %10, label %return, label %for.cond
+  %9 = xor i1 %cmp.i, %cmp.i24
+  br i1 %9, label %return, label %for.cond
 
 return:                                           ; preds = %for.body, %if.end13, %for.cond, %for.cond.preheader, %if.end, %entry
   %retval.0 = phi i1 [ false, %entry ], [ false, %if.end ], [ true, %for.cond.preheader ], [ false, %for.body ], [ false, %if.end13 ], [ true, %for.cond ]
@@ -24083,7 +24080,7 @@ entry:
   %bf.load = load i32, ptr %m_state, align 8
   %bf.lshr = lshr i32 %bf.load, 2
   %bf.clear = and i32 %bf.lshr, 3
-  switch i32 %bf.clear, label %entry.unreachabledefault [
+  switch i32 %bf.clear, label %default.unreachable958 [
     i32 0, label %sw.bb
     i32 1, label %sw.bb289
     i32 2, label %sw.bb345
@@ -25170,7 +25167,7 @@ sw.bb346:                                         ; preds = %entry
   tail call void @exit(i32 noundef 107) #21
   unreachable
 
-entry.unreachabledefault:                         ; preds = %entry
+default.unreachable958:                           ; preds = %entry
   unreachable
 
 return:                                           ; preds = %while.body, %_ZN6vectorIN13rewriter_core5frameELb0EjE4backEv.exit.i944, %_ZNK6vectorIN13rewriter_core5frameELb0EjE5emptyEv.exit.i941, %_ZN12rewriter_tplIN2qe21simplify_rewriter_cfgEE12cache_resultILb1EEEvP4exprS5_P3appb.exit935, %if.then2.i.i.i703, %if.then.i.i.i698, %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit696
@@ -25333,7 +25330,7 @@ if.then4.i:                                       ; preds = %if.else.i
 
 if.else6.i:                                       ; preds = %if.else.i
   %25 = xor i32 %21, -1
-  %sub9.i = add i32 %bf.lshr12, %25
+  %sub9.i = add nsw i32 %bf.lshr12, %25
   %26 = load i32, ptr %m_num_decls.i, align 4
   %idx.ext.i.i.i7.i = zext i32 %26 to i64
   %add.ptr.i.i.i8.i = getelementptr inbounds ptr, ptr %m_patterns_decls.i.i.i.i.i, i64 %idx.ext.i.i.i7.i
@@ -27775,7 +27772,7 @@ entry:
   %bf.load = load i32, ptr %m_state, align 8
   %bf.lshr = lshr i32 %bf.load, 2
   %bf.clear = and i32 %bf.lshr, 3
-  switch i32 %bf.clear, label %entry.unreachabledefault [
+  switch i32 %bf.clear, label %default.unreachable520 [
     i32 0, label %sw.bb
     i32 1, label %sw.bb203
     i32 2, label %sw.bb223
@@ -28599,7 +28596,7 @@ sw.bb275:                                         ; preds = %entry
   tail call void @exit(i32 noundef 107) #21
   unreachable
 
-entry.unreachabledefault:                         ; preds = %entry
+default.unreachable520:                           ; preds = %entry
   unreachable
 
 return:                                           ; preds = %if.end, %while.body, %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit268.thread, %if.then2.i.i.i501, %if.then.i.i.i496, %invoke.cont274, %_ZN6vectorIN13rewriter_core5frameELb0EjE4backEv.exit.i360, %_ZNK6vectorIN13rewriter_core5frameELb0EjE5emptyEv.exit.i357, %_ZN12rewriter_tplIN2qe21simplify_rewriter_cfgEE12cache_resultILb0EEEvP4exprS5_P3appb.exit351, %if.then2.i.i.i275, %if.then.i.i.i270, %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit268
@@ -28758,7 +28755,7 @@ if.then4.i:                                       ; preds = %if.else.i
 
 if.else6.i:                                       ; preds = %if.else.i
   %25 = xor i32 %21, -1
-  %sub9.i = add i32 %bf.lshr12, %25
+  %sub9.i = add nsw i32 %bf.lshr12, %25
   %26 = load i32, ptr %m_num_decls.i, align 4
   %idx.ext.i.i.i7.i = zext i32 %26 to i64
   %add.ptr.i.i.i8.i = getelementptr inbounds ptr, ptr %m_patterns_decls.i.i.i.i.i, i64 %idx.ext.i.i.i7.i

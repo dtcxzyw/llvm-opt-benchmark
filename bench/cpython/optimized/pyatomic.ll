@@ -367,7 +367,7 @@ entry:
 declare i32 @PyModule_AddFunctions(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal nonnull ptr @test_atomic_add_uint8(ptr nocapture readnone %self, ptr nocapture readnone %obj) #0 {
+define internal noundef nonnull ptr @test_atomic_add_uint8(ptr nocapture readnone %self, ptr nocapture readnone %obj) #0 {
 entry:
   %x = alloca i8, align 1
   store i8 0, ptr %x, align 1
@@ -501,7 +501,7 @@ cond.end85:                                       ; preds = %cond.end79
 }
 
 ; Function Attrs: nounwind uwtable
-define internal nonnull ptr @test_atomic_add_uint16(ptr nocapture readnone %self, ptr nocapture readnone %obj) #0 {
+define internal noundef nonnull ptr @test_atomic_add_uint16(ptr nocapture readnone %self, ptr nocapture readnone %obj) #0 {
 entry:
   %x = alloca i16, align 2
   store i16 0, ptr %x, align 2
@@ -635,7 +635,7 @@ cond.end85:                                       ; preds = %cond.end79
 }
 
 ; Function Attrs: nounwind uwtable
-define internal nonnull ptr @test_atomic_add_uint32(ptr nocapture readnone %self, ptr nocapture readnone %obj) #0 {
+define internal noundef nonnull ptr @test_atomic_add_uint32(ptr nocapture readnone %self, ptr nocapture readnone %obj) #0 {
 entry:
   %x = alloca i32, align 4
   store i32 0, ptr %x, align 4
@@ -769,7 +769,7 @@ cond.end58:                                       ; preds = %cond.end54
 }
 
 ; Function Attrs: nounwind uwtable
-define internal nonnull ptr @test_atomic_add_uint64(ptr nocapture readnone %self, ptr nocapture readnone %obj) #0 {
+define internal noundef nonnull ptr @test_atomic_add_uint64(ptr nocapture readnone %self, ptr nocapture readnone %obj) #0 {
 entry:
   %x = alloca i64, align 8
   store i64 0, ptr %x, align 8
@@ -903,7 +903,7 @@ cond.end58:                                       ; preds = %cond.end54
 }
 
 ; Function Attrs: nounwind uwtable
-define internal nonnull ptr @test_atomic_add_uintptr(ptr nocapture readnone %self, ptr nocapture readnone %obj) #0 {
+define internal noundef nonnull ptr @test_atomic_add_uintptr(ptr nocapture readnone %self, ptr nocapture readnone %obj) #0 {
 entry:
   %x = alloca i64, align 8
   store i64 0, ptr %x, align 8
@@ -1037,7 +1037,7 @@ cond.end58:                                       ; preds = %cond.end54
 }
 
 ; Function Attrs: nounwind uwtable
-define internal nonnull ptr @test_atomic_add_int(ptr nocapture readnone %self, ptr nocapture readnone %obj) #0 {
+define internal noundef nonnull ptr @test_atomic_add_int(ptr nocapture readnone %self, ptr nocapture readnone %obj) #0 {
 entry:
   %x = alloca i32, align 4
   store i32 0, ptr %x, align 4
@@ -1171,7 +1171,7 @@ cond.end58:                                       ; preds = %cond.end54
 }
 
 ; Function Attrs: nounwind uwtable
-define internal nonnull ptr @test_atomic_add_uint(ptr nocapture readnone %self, ptr nocapture readnone %obj) #0 {
+define internal noundef nonnull ptr @test_atomic_add_uint(ptr nocapture readnone %self, ptr nocapture readnone %obj) #0 {
 entry:
   %x = alloca i32, align 4
   store i32 0, ptr %x, align 4
@@ -1305,7 +1305,7 @@ cond.end58:                                       ; preds = %cond.end54
 }
 
 ; Function Attrs: nounwind uwtable
-define internal nonnull ptr @test_atomic_add_int8(ptr nocapture readnone %self, ptr nocapture readnone %obj) #0 {
+define internal noundef nonnull ptr @test_atomic_add_int8(ptr nocapture readnone %self, ptr nocapture readnone %obj) #0 {
 entry:
   %x = alloca i8, align 1
   store i8 0, ptr %x, align 1
@@ -1439,7 +1439,7 @@ cond.end85:                                       ; preds = %cond.end79
 }
 
 ; Function Attrs: nounwind uwtable
-define internal nonnull ptr @test_atomic_add_int16(ptr nocapture readnone %self, ptr nocapture readnone %obj) #0 {
+define internal noundef nonnull ptr @test_atomic_add_int16(ptr nocapture readnone %self, ptr nocapture readnone %obj) #0 {
 entry:
   %x = alloca i16, align 2
   store i16 0, ptr %x, align 2
@@ -1573,7 +1573,7 @@ cond.end85:                                       ; preds = %cond.end79
 }
 
 ; Function Attrs: nounwind uwtable
-define internal nonnull ptr @test_atomic_add_int32(ptr nocapture readnone %self, ptr nocapture readnone %obj) #0 {
+define internal noundef nonnull ptr @test_atomic_add_int32(ptr nocapture readnone %self, ptr nocapture readnone %obj) #0 {
 entry:
   %x = alloca i32, align 4
   store i32 0, ptr %x, align 4
@@ -1707,7 +1707,7 @@ cond.end58:                                       ; preds = %cond.end54
 }
 
 ; Function Attrs: nounwind uwtable
-define internal nonnull ptr @test_atomic_add_int64(ptr nocapture readnone %self, ptr nocapture readnone %obj) #0 {
+define internal noundef nonnull ptr @test_atomic_add_int64(ptr nocapture readnone %self, ptr nocapture readnone %obj) #0 {
 entry:
   %x = alloca i64, align 8
   store i64 0, ptr %x, align 8
@@ -1841,7 +1841,7 @@ cond.end58:                                       ; preds = %cond.end54
 }
 
 ; Function Attrs: nounwind uwtable
-define internal nonnull ptr @test_atomic_add_intptr(ptr nocapture readnone %self, ptr nocapture readnone %obj) #0 {
+define internal noundef nonnull ptr @test_atomic_add_intptr(ptr nocapture readnone %self, ptr nocapture readnone %obj) #0 {
 entry:
   %x = alloca i64, align 8
   store i64 0, ptr %x, align 8
@@ -1975,7 +1975,7 @@ cond.end58:                                       ; preds = %cond.end54
 }
 
 ; Function Attrs: nounwind uwtable
-define internal nonnull ptr @test_atomic_add_ssize(ptr nocapture readnone %self, ptr nocapture readnone %obj) #0 {
+define internal noundef nonnull ptr @test_atomic_add_ssize(ptr nocapture readnone %self, ptr nocapture readnone %obj) #0 {
 entry:
   %x = alloca i64, align 8
   store i64 0, ptr %x, align 8
@@ -2109,7 +2109,7 @@ cond.end58:                                       ; preds = %cond.end54
 }
 
 ; Function Attrs: nounwind uwtable
-define internal nonnull ptr @test_atomic_compare_exchange_uint8(ptr nocapture readnone %self, ptr nocapture readnone %obj) #0 {
+define internal noundef nonnull ptr @test_atomic_compare_exchange_uint8(ptr nocapture readnone %self, ptr nocapture readnone %obj) #0 {
 entry:
   %x = alloca i8, align 1
   store i8 0, ptr %x, align 1
@@ -2189,7 +2189,7 @@ cond.end50:                                       ; preds = %cond.end43
 }
 
 ; Function Attrs: nounwind uwtable
-define internal nonnull ptr @test_atomic_compare_exchange_uint16(ptr nocapture readnone %self, ptr nocapture readnone %obj) #0 {
+define internal noundef nonnull ptr @test_atomic_compare_exchange_uint16(ptr nocapture readnone %self, ptr nocapture readnone %obj) #0 {
 entry:
   %x = alloca i16, align 2
   store i16 0, ptr %x, align 2
@@ -2269,7 +2269,7 @@ cond.end50:                                       ; preds = %cond.end43
 }
 
 ; Function Attrs: nounwind uwtable
-define internal nonnull ptr @test_atomic_compare_exchange_uint32(ptr nocapture readnone %self, ptr nocapture readnone %obj) #0 {
+define internal noundef nonnull ptr @test_atomic_compare_exchange_uint32(ptr nocapture readnone %self, ptr nocapture readnone %obj) #0 {
 entry:
   %x = alloca i32, align 4
   store i32 0, ptr %x, align 4
@@ -2349,7 +2349,7 @@ cond.end34:                                       ; preds = %cond.end30
 }
 
 ; Function Attrs: nounwind uwtable
-define internal nonnull ptr @test_atomic_compare_exchange_uint64(ptr nocapture readnone %self, ptr nocapture readnone %obj) #0 {
+define internal noundef nonnull ptr @test_atomic_compare_exchange_uint64(ptr nocapture readnone %self, ptr nocapture readnone %obj) #0 {
 entry:
   %x = alloca i64, align 8
   store i64 0, ptr %x, align 8
@@ -2429,7 +2429,7 @@ cond.end34:                                       ; preds = %cond.end30
 }
 
 ; Function Attrs: nounwind uwtable
-define internal nonnull ptr @test_atomic_compare_exchange_uintptr(ptr nocapture readnone %self, ptr nocapture readnone %obj) #0 {
+define internal noundef nonnull ptr @test_atomic_compare_exchange_uintptr(ptr nocapture readnone %self, ptr nocapture readnone %obj) #0 {
 entry:
   %x = alloca i64, align 8
   store i64 0, ptr %x, align 8
@@ -2509,7 +2509,7 @@ cond.end34:                                       ; preds = %cond.end30
 }
 
 ; Function Attrs: nounwind uwtable
-define internal nonnull ptr @test_atomic_compare_exchange_int(ptr nocapture readnone %self, ptr nocapture readnone %obj) #0 {
+define internal noundef nonnull ptr @test_atomic_compare_exchange_int(ptr nocapture readnone %self, ptr nocapture readnone %obj) #0 {
 entry:
   %x = alloca i32, align 4
   store i32 0, ptr %x, align 4
@@ -2589,7 +2589,7 @@ cond.end34:                                       ; preds = %cond.end30
 }
 
 ; Function Attrs: nounwind uwtable
-define internal nonnull ptr @test_atomic_compare_exchange_uint(ptr nocapture readnone %self, ptr nocapture readnone %obj) #0 {
+define internal noundef nonnull ptr @test_atomic_compare_exchange_uint(ptr nocapture readnone %self, ptr nocapture readnone %obj) #0 {
 entry:
   %x = alloca i32, align 4
   store i32 0, ptr %x, align 4
@@ -2669,7 +2669,7 @@ cond.end34:                                       ; preds = %cond.end30
 }
 
 ; Function Attrs: nounwind uwtable
-define internal nonnull ptr @test_atomic_compare_exchange_int8(ptr nocapture readnone %self, ptr nocapture readnone %obj) #0 {
+define internal noundef nonnull ptr @test_atomic_compare_exchange_int8(ptr nocapture readnone %self, ptr nocapture readnone %obj) #0 {
 entry:
   %x = alloca i8, align 1
   store i8 0, ptr %x, align 1
@@ -2749,7 +2749,7 @@ cond.end50:                                       ; preds = %cond.end43
 }
 
 ; Function Attrs: nounwind uwtable
-define internal nonnull ptr @test_atomic_compare_exchange_int16(ptr nocapture readnone %self, ptr nocapture readnone %obj) #0 {
+define internal noundef nonnull ptr @test_atomic_compare_exchange_int16(ptr nocapture readnone %self, ptr nocapture readnone %obj) #0 {
 entry:
   %x = alloca i16, align 2
   store i16 0, ptr %x, align 2
@@ -2829,7 +2829,7 @@ cond.end50:                                       ; preds = %cond.end43
 }
 
 ; Function Attrs: nounwind uwtable
-define internal nonnull ptr @test_atomic_compare_exchange_int32(ptr nocapture readnone %self, ptr nocapture readnone %obj) #0 {
+define internal noundef nonnull ptr @test_atomic_compare_exchange_int32(ptr nocapture readnone %self, ptr nocapture readnone %obj) #0 {
 entry:
   %x = alloca i32, align 4
   store i32 0, ptr %x, align 4
@@ -2909,7 +2909,7 @@ cond.end34:                                       ; preds = %cond.end30
 }
 
 ; Function Attrs: nounwind uwtable
-define internal nonnull ptr @test_atomic_compare_exchange_int64(ptr nocapture readnone %self, ptr nocapture readnone %obj) #0 {
+define internal noundef nonnull ptr @test_atomic_compare_exchange_int64(ptr nocapture readnone %self, ptr nocapture readnone %obj) #0 {
 entry:
   %x = alloca i64, align 8
   store i64 0, ptr %x, align 8
@@ -2989,7 +2989,7 @@ cond.end34:                                       ; preds = %cond.end30
 }
 
 ; Function Attrs: nounwind uwtable
-define internal nonnull ptr @test_atomic_compare_exchange_intptr(ptr nocapture readnone %self, ptr nocapture readnone %obj) #0 {
+define internal noundef nonnull ptr @test_atomic_compare_exchange_intptr(ptr nocapture readnone %self, ptr nocapture readnone %obj) #0 {
 entry:
   %x = alloca i64, align 8
   store i64 0, ptr %x, align 8
@@ -3069,7 +3069,7 @@ cond.end34:                                       ; preds = %cond.end30
 }
 
 ; Function Attrs: nounwind uwtable
-define internal nonnull ptr @test_atomic_compare_exchange_ssize(ptr nocapture readnone %self, ptr nocapture readnone %obj) #0 {
+define internal noundef nonnull ptr @test_atomic_compare_exchange_ssize(ptr nocapture readnone %self, ptr nocapture readnone %obj) #0 {
 entry:
   %x = alloca i64, align 8
   store i64 0, ptr %x, align 8
@@ -3149,7 +3149,7 @@ cond.end34:                                       ; preds = %cond.end30
 }
 
 ; Function Attrs: nounwind uwtable
-define internal nonnull ptr @test_atomic_compare_exchange_ptr(ptr nocapture readnone %self, ptr nocapture readnone %obj) #0 {
+define internal noundef nonnull ptr @test_atomic_compare_exchange_ptr(ptr nocapture readnone %self, ptr nocapture readnone %obj) #0 {
 entry:
   %x = alloca ptr, align 8
   store ptr null, ptr %x, align 8
@@ -3217,8 +3217,7 @@ cond.false29:                                     ; preds = %cond.end26
 
 cond.end30:                                       ; preds = %cond.end26
   %10 = extractvalue { i64, i1 } %7, 0
-  %11 = inttoptr i64 %10 to ptr
-  %cmp31 = icmp eq ptr %11, inttoptr (i64 2 to ptr)
+  %cmp31 = icmp eq i64 %10, 2
   br i1 %cmp31, label %cond.end34, label %cond.false33
 
 cond.false33:                                     ; preds = %cond.end30
@@ -3230,7 +3229,7 @@ cond.end34:                                       ; preds = %cond.end30
 }
 
 ; Function Attrs: nounwind uwtable
-define internal nonnull ptr @test_atomic_exchange_uint8(ptr nocapture readnone %self, ptr nocapture readnone %obj) #0 {
+define internal noundef nonnull ptr @test_atomic_exchange_uint8(ptr nocapture readnone %self, ptr nocapture readnone %obj) #0 {
 entry:
   %x = alloca i8, align 1
   store i8 0, ptr %x, align 1
@@ -3292,7 +3291,7 @@ cond.end33:                                       ; preds = %cond.end27
 }
 
 ; Function Attrs: nounwind uwtable
-define internal nonnull ptr @test_atomic_exchange_uint16(ptr nocapture readnone %self, ptr nocapture readnone %obj) #0 {
+define internal noundef nonnull ptr @test_atomic_exchange_uint16(ptr nocapture readnone %self, ptr nocapture readnone %obj) #0 {
 entry:
   %x = alloca i16, align 2
   store i16 0, ptr %x, align 2
@@ -3354,7 +3353,7 @@ cond.end33:                                       ; preds = %cond.end27
 }
 
 ; Function Attrs: nounwind uwtable
-define internal nonnull ptr @test_atomic_exchange_uint32(ptr nocapture readnone %self, ptr nocapture readnone %obj) #0 {
+define internal noundef nonnull ptr @test_atomic_exchange_uint32(ptr nocapture readnone %self, ptr nocapture readnone %obj) #0 {
 entry:
   %x = alloca i32, align 4
   store i32 0, ptr %x, align 4
@@ -3416,7 +3415,7 @@ cond.end22:                                       ; preds = %cond.end18
 }
 
 ; Function Attrs: nounwind uwtable
-define internal nonnull ptr @test_atomic_exchange_uint64(ptr nocapture readnone %self, ptr nocapture readnone %obj) #0 {
+define internal noundef nonnull ptr @test_atomic_exchange_uint64(ptr nocapture readnone %self, ptr nocapture readnone %obj) #0 {
 entry:
   %x = alloca i64, align 8
   store i64 0, ptr %x, align 8
@@ -3478,7 +3477,7 @@ cond.end22:                                       ; preds = %cond.end18
 }
 
 ; Function Attrs: nounwind uwtable
-define internal nonnull ptr @test_atomic_exchange_uintptr(ptr nocapture readnone %self, ptr nocapture readnone %obj) #0 {
+define internal noundef nonnull ptr @test_atomic_exchange_uintptr(ptr nocapture readnone %self, ptr nocapture readnone %obj) #0 {
 entry:
   %x = alloca i64, align 8
   store i64 0, ptr %x, align 8
@@ -3540,7 +3539,7 @@ cond.end22:                                       ; preds = %cond.end18
 }
 
 ; Function Attrs: nounwind uwtable
-define internal nonnull ptr @test_atomic_exchange_int(ptr nocapture readnone %self, ptr nocapture readnone %obj) #0 {
+define internal noundef nonnull ptr @test_atomic_exchange_int(ptr nocapture readnone %self, ptr nocapture readnone %obj) #0 {
 entry:
   %x = alloca i32, align 4
   store i32 0, ptr %x, align 4
@@ -3602,7 +3601,7 @@ cond.end22:                                       ; preds = %cond.end18
 }
 
 ; Function Attrs: nounwind uwtable
-define internal nonnull ptr @test_atomic_exchange_uint(ptr nocapture readnone %self, ptr nocapture readnone %obj) #0 {
+define internal noundef nonnull ptr @test_atomic_exchange_uint(ptr nocapture readnone %self, ptr nocapture readnone %obj) #0 {
 entry:
   %x = alloca i32, align 4
   store i32 0, ptr %x, align 4
@@ -3664,7 +3663,7 @@ cond.end22:                                       ; preds = %cond.end18
 }
 
 ; Function Attrs: nounwind uwtable
-define internal nonnull ptr @test_atomic_exchange_int8(ptr nocapture readnone %self, ptr nocapture readnone %obj) #0 {
+define internal noundef nonnull ptr @test_atomic_exchange_int8(ptr nocapture readnone %self, ptr nocapture readnone %obj) #0 {
 entry:
   %x = alloca i8, align 1
   store i8 0, ptr %x, align 1
@@ -3726,7 +3725,7 @@ cond.end33:                                       ; preds = %cond.end27
 }
 
 ; Function Attrs: nounwind uwtable
-define internal nonnull ptr @test_atomic_exchange_int16(ptr nocapture readnone %self, ptr nocapture readnone %obj) #0 {
+define internal noundef nonnull ptr @test_atomic_exchange_int16(ptr nocapture readnone %self, ptr nocapture readnone %obj) #0 {
 entry:
   %x = alloca i16, align 2
   store i16 0, ptr %x, align 2
@@ -3788,7 +3787,7 @@ cond.end33:                                       ; preds = %cond.end27
 }
 
 ; Function Attrs: nounwind uwtable
-define internal nonnull ptr @test_atomic_exchange_int32(ptr nocapture readnone %self, ptr nocapture readnone %obj) #0 {
+define internal noundef nonnull ptr @test_atomic_exchange_int32(ptr nocapture readnone %self, ptr nocapture readnone %obj) #0 {
 entry:
   %x = alloca i32, align 4
   store i32 0, ptr %x, align 4
@@ -3850,7 +3849,7 @@ cond.end22:                                       ; preds = %cond.end18
 }
 
 ; Function Attrs: nounwind uwtable
-define internal nonnull ptr @test_atomic_exchange_int64(ptr nocapture readnone %self, ptr nocapture readnone %obj) #0 {
+define internal noundef nonnull ptr @test_atomic_exchange_int64(ptr nocapture readnone %self, ptr nocapture readnone %obj) #0 {
 entry:
   %x = alloca i64, align 8
   store i64 0, ptr %x, align 8
@@ -3912,7 +3911,7 @@ cond.end22:                                       ; preds = %cond.end18
 }
 
 ; Function Attrs: nounwind uwtable
-define internal nonnull ptr @test_atomic_exchange_intptr(ptr nocapture readnone %self, ptr nocapture readnone %obj) #0 {
+define internal noundef nonnull ptr @test_atomic_exchange_intptr(ptr nocapture readnone %self, ptr nocapture readnone %obj) #0 {
 entry:
   %x = alloca i64, align 8
   store i64 0, ptr %x, align 8
@@ -3974,7 +3973,7 @@ cond.end22:                                       ; preds = %cond.end18
 }
 
 ; Function Attrs: nounwind uwtable
-define internal nonnull ptr @test_atomic_exchange_ssize(ptr nocapture readnone %self, ptr nocapture readnone %obj) #0 {
+define internal noundef nonnull ptr @test_atomic_exchange_ssize(ptr nocapture readnone %self, ptr nocapture readnone %obj) #0 {
 entry:
   %x = alloca i64, align 8
   store i64 0, ptr %x, align 8
@@ -4036,7 +4035,7 @@ cond.end22:                                       ; preds = %cond.end18
 }
 
 ; Function Attrs: nounwind uwtable
-define internal nonnull ptr @test_atomic_exchange_ptr(ptr nocapture readnone %self, ptr nocapture readnone %obj) #0 {
+define internal noundef nonnull ptr @test_atomic_exchange_ptr(ptr nocapture readnone %self, ptr nocapture readnone %obj) #0 {
 entry:
   %x = alloca ptr, align 8
   store ptr null, ptr %x, align 8
@@ -4059,8 +4058,7 @@ cond.false3:                                      ; preds = %cond.end
 
 cond.end4:                                        ; preds = %cond.end
   %2 = atomicrmw xchg ptr %x, i64 2 seq_cst, align 8
-  %3 = inttoptr i64 %2 to ptr
-  %cmp6 = icmp eq ptr %3, inttoptr (i64 1 to ptr)
+  %cmp6 = icmp eq i64 %2, 1
   br i1 %cmp6, label %cond.end9, label %cond.false8
 
 cond.false8:                                      ; preds = %cond.end4
@@ -4068,8 +4066,8 @@ cond.false8:                                      ; preds = %cond.end4
   unreachable
 
 cond.end9:                                        ; preds = %cond.end4
-  %4 = load ptr, ptr %x, align 8
-  %cmp10 = icmp eq ptr %4, inttoptr (i64 2 to ptr)
+  %3 = load ptr, ptr %x, align 8
+  %cmp10 = icmp eq ptr %3, inttoptr (i64 2 to ptr)
   br i1 %cmp10, label %cond.end13, label %cond.false12
 
 cond.false12:                                     ; preds = %cond.end9
@@ -4077,9 +4075,8 @@ cond.false12:                                     ; preds = %cond.end9
   unreachable
 
 cond.end13:                                       ; preds = %cond.end9
-  %5 = atomicrmw xchg ptr %x, i64 1 seq_cst, align 8
-  %6 = inttoptr i64 %5 to ptr
-  %cmp15 = icmp eq ptr %6, inttoptr (i64 2 to ptr)
+  %4 = atomicrmw xchg ptr %x, i64 1 seq_cst, align 8
+  %cmp15 = icmp eq i64 %4, 2
   br i1 %cmp15, label %cond.end18, label %cond.false17
 
 cond.false17:                                     ; preds = %cond.end13
@@ -4087,8 +4084,8 @@ cond.false17:                                     ; preds = %cond.end13
   unreachable
 
 cond.end18:                                       ; preds = %cond.end13
-  %7 = load ptr, ptr %x, align 8
-  %cmp19 = icmp eq ptr %7, inttoptr (i64 1 to ptr)
+  %5 = load ptr, ptr %x, align 8
+  %cmp19 = icmp eq ptr %5, inttoptr (i64 1 to ptr)
   br i1 %cmp19, label %cond.end22, label %cond.false21
 
 cond.false21:                                     ; preds = %cond.end18
@@ -4100,91 +4097,91 @@ cond.end22:                                       ; preds = %cond.end18
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal nonnull ptr @test_atomic_load_store_uint8(ptr nocapture readnone %self, ptr nocapture readnone %obj) #2 {
+define internal noundef nonnull ptr @test_atomic_load_store_uint8(ptr nocapture readnone %self, ptr nocapture readnone %obj) #2 {
 cond.end33:
   ret ptr @_Py_NoneStruct
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal nonnull ptr @test_atomic_load_store_uint16(ptr nocapture readnone %self, ptr nocapture readnone %obj) #2 {
+define internal noundef nonnull ptr @test_atomic_load_store_uint16(ptr nocapture readnone %self, ptr nocapture readnone %obj) #2 {
 cond.end33:
   ret ptr @_Py_NoneStruct
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal nonnull ptr @test_atomic_load_store_uint32(ptr nocapture readnone %self, ptr nocapture readnone %obj) #2 {
+define internal noundef nonnull ptr @test_atomic_load_store_uint32(ptr nocapture readnone %self, ptr nocapture readnone %obj) #2 {
 cond.end22:
   ret ptr @_Py_NoneStruct
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal nonnull ptr @test_atomic_load_store_uint64(ptr nocapture readnone %self, ptr nocapture readnone %obj) #2 {
+define internal noundef nonnull ptr @test_atomic_load_store_uint64(ptr nocapture readnone %self, ptr nocapture readnone %obj) #2 {
 cond.end22:
   ret ptr @_Py_NoneStruct
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal nonnull ptr @test_atomic_load_store_uintptr(ptr nocapture readnone %self, ptr nocapture readnone %obj) #2 {
+define internal noundef nonnull ptr @test_atomic_load_store_uintptr(ptr nocapture readnone %self, ptr nocapture readnone %obj) #2 {
 cond.end22:
   ret ptr @_Py_NoneStruct
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal nonnull ptr @test_atomic_load_store_int(ptr nocapture readnone %self, ptr nocapture readnone %obj) #2 {
+define internal noundef nonnull ptr @test_atomic_load_store_int(ptr nocapture readnone %self, ptr nocapture readnone %obj) #2 {
 cond.end22:
   ret ptr @_Py_NoneStruct
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal nonnull ptr @test_atomic_load_store_uint(ptr nocapture readnone %self, ptr nocapture readnone %obj) #2 {
+define internal noundef nonnull ptr @test_atomic_load_store_uint(ptr nocapture readnone %self, ptr nocapture readnone %obj) #2 {
 cond.end22:
   ret ptr @_Py_NoneStruct
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal nonnull ptr @test_atomic_load_store_int8(ptr nocapture readnone %self, ptr nocapture readnone %obj) #2 {
+define internal noundef nonnull ptr @test_atomic_load_store_int8(ptr nocapture readnone %self, ptr nocapture readnone %obj) #2 {
 cond.end33:
   ret ptr @_Py_NoneStruct
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal nonnull ptr @test_atomic_load_store_int16(ptr nocapture readnone %self, ptr nocapture readnone %obj) #2 {
+define internal noundef nonnull ptr @test_atomic_load_store_int16(ptr nocapture readnone %self, ptr nocapture readnone %obj) #2 {
 cond.end33:
   ret ptr @_Py_NoneStruct
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal nonnull ptr @test_atomic_load_store_int32(ptr nocapture readnone %self, ptr nocapture readnone %obj) #2 {
+define internal noundef nonnull ptr @test_atomic_load_store_int32(ptr nocapture readnone %self, ptr nocapture readnone %obj) #2 {
 cond.end22:
   ret ptr @_Py_NoneStruct
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal nonnull ptr @test_atomic_load_store_int64(ptr nocapture readnone %self, ptr nocapture readnone %obj) #2 {
+define internal noundef nonnull ptr @test_atomic_load_store_int64(ptr nocapture readnone %self, ptr nocapture readnone %obj) #2 {
 cond.end22:
   ret ptr @_Py_NoneStruct
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal nonnull ptr @test_atomic_load_store_intptr(ptr nocapture readnone %self, ptr nocapture readnone %obj) #2 {
+define internal noundef nonnull ptr @test_atomic_load_store_intptr(ptr nocapture readnone %self, ptr nocapture readnone %obj) #2 {
 cond.end22:
   ret ptr @_Py_NoneStruct
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal nonnull ptr @test_atomic_load_store_ssize(ptr nocapture readnone %self, ptr nocapture readnone %obj) #2 {
+define internal noundef nonnull ptr @test_atomic_load_store_ssize(ptr nocapture readnone %self, ptr nocapture readnone %obj) #2 {
 cond.end22:
   ret ptr @_Py_NoneStruct
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal nonnull ptr @test_atomic_load_store_ptr(ptr nocapture readnone %self, ptr nocapture readnone %obj) #2 {
+define internal noundef nonnull ptr @test_atomic_load_store_ptr(ptr nocapture readnone %self, ptr nocapture readnone %obj) #2 {
 cond.end22:
   ret ptr @_Py_NoneStruct
 }
 
 ; Function Attrs: nounwind uwtable
-define internal nonnull ptr @test_atomic_and_or_uint8(ptr nocapture readnone %self, ptr nocapture readnone %obj) #0 {
+define internal noundef nonnull ptr @test_atomic_and_or_uint8(ptr nocapture readnone %self, ptr nocapture readnone %obj) #0 {
 entry:
   %x = alloca i8, align 1
   store i8 0, ptr %x, align 1
@@ -4228,7 +4225,7 @@ cond.end20:                                       ; preds = %cond.end14
 }
 
 ; Function Attrs: nounwind uwtable
-define internal nonnull ptr @test_atomic_and_or_uint16(ptr nocapture readnone %self, ptr nocapture readnone %obj) #0 {
+define internal noundef nonnull ptr @test_atomic_and_or_uint16(ptr nocapture readnone %self, ptr nocapture readnone %obj) #0 {
 entry:
   %x = alloca i16, align 2
   store i16 0, ptr %x, align 2
@@ -4272,7 +4269,7 @@ cond.end20:                                       ; preds = %cond.end14
 }
 
 ; Function Attrs: nounwind uwtable
-define internal nonnull ptr @test_atomic_and_or_uint32(ptr nocapture readnone %self, ptr nocapture readnone %obj) #0 {
+define internal noundef nonnull ptr @test_atomic_and_or_uint32(ptr nocapture readnone %self, ptr nocapture readnone %obj) #0 {
 entry:
   %x = alloca i32, align 4
   store i32 0, ptr %x, align 4
@@ -4316,7 +4313,7 @@ cond.end13:                                       ; preds = %cond.end9
 }
 
 ; Function Attrs: nounwind uwtable
-define internal nonnull ptr @test_atomic_and_or_uint64(ptr nocapture readnone %self, ptr nocapture readnone %obj) #0 {
+define internal noundef nonnull ptr @test_atomic_and_or_uint64(ptr nocapture readnone %self, ptr nocapture readnone %obj) #0 {
 entry:
   %x = alloca i64, align 8
   store i64 0, ptr %x, align 8
@@ -4360,7 +4357,7 @@ cond.end13:                                       ; preds = %cond.end9
 }
 
 ; Function Attrs: nounwind uwtable
-define internal nonnull ptr @test_atomic_and_or_uintptr(ptr nocapture readnone %self, ptr nocapture readnone %obj) #0 {
+define internal noundef nonnull ptr @test_atomic_and_or_uintptr(ptr nocapture readnone %self, ptr nocapture readnone %obj) #0 {
 entry:
   %x = alloca i64, align 8
   store i64 0, ptr %x, align 8
@@ -4404,20 +4401,20 @@ cond.end13:                                       ; preds = %cond.end9
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn uwtable
-define internal nonnull ptr @test_atomic_fences(ptr nocapture readnone %self, ptr nocapture readnone %obj) #3 {
+define internal noundef nonnull ptr @test_atomic_fences(ptr nocapture readnone %self, ptr nocapture readnone %obj) #3 {
 entry:
   fence seq_cst
   ret ptr @_Py_NoneStruct
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal nonnull ptr @test_atomic_release_acquire(ptr nocapture readnone %self, ptr nocapture readnone %obj) #2 {
+define internal noundef nonnull ptr @test_atomic_release_acquire(ptr nocapture readnone %self, ptr nocapture readnone %obj) #2 {
 cond.end9:
   ret ptr @_Py_NoneStruct
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal nonnull ptr @test_atomic_load_store_int_release_acquire(ptr nocapture readnone %self, ptr nocapture readnone %obj) #2 {
+define internal noundef nonnull ptr @test_atomic_load_store_int_release_acquire(ptr nocapture readnone %self, ptr nocapture readnone %obj) #2 {
 cond.end18:
   ret ptr @_Py_NoneStruct
 }
