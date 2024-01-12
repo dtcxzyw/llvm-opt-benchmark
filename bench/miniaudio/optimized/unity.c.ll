@@ -49969,13 +49969,13 @@ if.then11:                                        ; preds = %if.end8
   br i1 %cmp15.not36, label %return, label %for.body
 
 for.body:                                         ; preds = %if.then11, %seqcst.i
-  %pPage.038.in = phi i64 [ %10, %seqcst.i ], [ %4, %if.then11 ]
-  %runningCursor.037 = phi i64 [ %add, %seqcst.i ], [ 0, %if.then11 ]
-  %pPage.038 = inttoptr i64 %pPage.038.in to ptr
-  %sizeInFrames = getelementptr inbounds %struct.ma_paged_audio_buffer_page, ptr %pPage.038, i64 0, i32 1
+  %runningCursor.038 = phi i64 [ %add, %seqcst.i ], [ 0, %if.then11 ]
+  %pPage.0.in37 = phi i64 [ %9, %seqcst.i ], [ %4, %if.then11 ]
+  %pPage.039 = inttoptr i64 %pPage.0.in37 to ptr
+  %sizeInFrames = getelementptr inbounds %struct.ma_paged_audio_buffer_page, ptr %pPage.039, i64 0, i32 1
   %5 = load i64, ptr %sizeInFrames, align 8
-  %add = add i64 %5, %runningCursor.037
-  %cmp16.not = icmp ugt i64 %runningCursor.037, %frameIndex
+  %add = add i64 %5, %runningCursor.038
+  %cmp16.not = icmp ugt i64 %runningCursor.038, %frameIndex
   br i1 %cmp16.not, label %seqcst.i, label %if.then17
 
 if.then17:                                        ; preds = %for.body
@@ -49999,22 +49999,21 @@ if.end.i:                                         ; preds = %land.lhs.true
 ma_paged_audio_buffer_data_get_tail.exit:         ; preds = %land.lhs.true, %if.end.i
   %retval.0.i32 = phi ptr [ %7, %if.end.i ], [ null, %land.lhs.true ]
   %8 = load atomic volatile i64, ptr %retval.0.i32 seq_cst, align 8
-  %9 = inttoptr i64 %8 to ptr
-  %cmp23 = icmp eq ptr %pPage.038, %9
+  %cmp23 = icmp eq i64 %pPage.0.in37, %8
   br i1 %cmp23, label %if.then24, label %seqcst.i
 
 if.then24:                                        ; preds = %ma_paged_audio_buffer_data_get_tail.exit, %if.then17
   %pCurrent25 = getelementptr inbounds %struct.ma_paged_audio_buffer, ptr %pPagedAudioBuffer, i64 0, i32 2
-  store ptr %pPage.038, ptr %pCurrent25, align 8
+  store ptr %pPage.039, ptr %pCurrent25, align 8
   store i64 %frameIndex, ptr %absoluteCursor, align 8
-  %sub = sub i64 %frameIndex, %runningCursor.037
+  %sub = sub i64 %frameIndex, %runningCursor.038
   %relativeCursor27 = getelementptr inbounds %struct.ma_paged_audio_buffer, ptr %pPagedAudioBuffer, i64 0, i32 3
   store i64 %sub, ptr %relativeCursor27, align 8
   br label %return
 
 seqcst.i:                                         ; preds = %for.body, %ma_paged_audio_buffer_data_get_tail.exit, %lor.lhs.false
-  %10 = load atomic volatile i64, ptr %pPage.038 seq_cst, align 8
-  %cmp15.not = icmp eq i64 %10, 0
+  %9 = load atomic volatile i64, ptr %pPage.039 seq_cst, align 8
+  %cmp15.not = icmp eq i64 %9, 0
   br i1 %cmp15.not, label %return, label %for.body, !llvm.loop !504
 
 return:                                           ; preds = %seqcst.i, %if.then11, %if.end8, %if.end, %entry, %if.then24
@@ -124551,13 +124550,13 @@ if.then11.i:                                      ; preds = %if.end8.i
   br i1 %cmp15.not36.i, label %ma_paged_audio_buffer_seek_to_pcm_frame.exit, label %for.body.i
 
 for.body.i:                                       ; preds = %if.then11.i, %seqcst.i.i
-  %pPage.038.in.i = phi i64 [ %10, %seqcst.i.i ], [ %4, %if.then11.i ]
-  %runningCursor.037.i = phi i64 [ %add.i, %seqcst.i.i ], [ 0, %if.then11.i ]
-  %pPage.038.i = inttoptr i64 %pPage.038.in.i to ptr
-  %sizeInFrames.i = getelementptr inbounds %struct.ma_paged_audio_buffer_page, ptr %pPage.038.i, i64 0, i32 1
+  %runningCursor.038.i = phi i64 [ %add.i, %seqcst.i.i ], [ 0, %if.then11.i ]
+  %pPage.0.in37.i = phi i64 [ %9, %seqcst.i.i ], [ %4, %if.then11.i ]
+  %pPage.039.i = inttoptr i64 %pPage.0.in37.i to ptr
+  %sizeInFrames.i = getelementptr inbounds %struct.ma_paged_audio_buffer_page, ptr %pPage.039.i, i64 0, i32 1
   %5 = load i64, ptr %sizeInFrames.i, align 8
-  %add.i = add i64 %5, %runningCursor.037.i
-  %cmp16.not.i = icmp ugt i64 %runningCursor.037.i, %frameIndex
+  %add.i = add i64 %5, %runningCursor.038.i
+  %cmp16.not.i = icmp ugt i64 %runningCursor.038.i, %frameIndex
   br i1 %cmp16.not.i, label %seqcst.i.i, label %if.then17.i
 
 if.then17.i:                                      ; preds = %for.body.i
@@ -124581,22 +124580,21 @@ if.end.i.i:                                       ; preds = %land.lhs.true.i
 ma_paged_audio_buffer_data_get_tail.exit.i:       ; preds = %if.end.i.i, %land.lhs.true.i
   %retval.0.i32.i = phi ptr [ %7, %if.end.i.i ], [ null, %land.lhs.true.i ]
   %8 = load atomic volatile i64, ptr %retval.0.i32.i seq_cst, align 8
-  %9 = inttoptr i64 %8 to ptr
-  %cmp23.i = icmp eq ptr %pPage.038.i, %9
+  %cmp23.i = icmp eq i64 %pPage.0.in37.i, %8
   br i1 %cmp23.i, label %if.then24.i, label %seqcst.i.i
 
 if.then24.i:                                      ; preds = %ma_paged_audio_buffer_data_get_tail.exit.i, %if.then17.i
   %pCurrent25.i = getelementptr inbounds %struct.ma_paged_audio_buffer, ptr %pDataSource, i64 0, i32 2
-  store ptr %pPage.038.i, ptr %pCurrent25.i, align 8
+  store ptr %pPage.039.i, ptr %pCurrent25.i, align 8
   store i64 %frameIndex, ptr %absoluteCursor.i, align 8
-  %sub.i = sub i64 %frameIndex, %runningCursor.037.i
+  %sub.i = sub i64 %frameIndex, %runningCursor.038.i
   %relativeCursor27.i = getelementptr inbounds %struct.ma_paged_audio_buffer, ptr %pDataSource, i64 0, i32 3
   store i64 %sub.i, ptr %relativeCursor27.i, align 8
   br label %ma_paged_audio_buffer_seek_to_pcm_frame.exit
 
 seqcst.i.i:                                       ; preds = %ma_paged_audio_buffer_data_get_tail.exit.i, %lor.lhs.false.i, %for.body.i
-  %10 = load atomic volatile i64, ptr %pPage.038.i seq_cst, align 8
-  %cmp15.not.i = icmp eq i64 %10, 0
+  %9 = load atomic volatile i64, ptr %pPage.039.i seq_cst, align 8
+  %cmp15.not.i = icmp eq i64 %9, 0
   br i1 %cmp15.not.i, label %ma_paged_audio_buffer_seek_to_pcm_frame.exit, label %for.body.i, !llvm.loop !504
 
 ma_paged_audio_buffer_seek_to_pcm_frame.exit:     ; preds = %seqcst.i.i, %entry, %if.end.i, %if.end8.i, %if.then11.i, %if.then24.i

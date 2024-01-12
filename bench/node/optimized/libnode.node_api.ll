@@ -1563,7 +1563,7 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #6
 declare void @node_module_register(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local i32 @napi_add_env_cleanup_hook(ptr noundef %env, ptr noundef %fun, ptr noundef %arg) local_unnamed_addr #3 {
+define dso_local noundef i32 @napi_add_env_cleanup_hook(ptr noundef %env, ptr noundef %fun, ptr noundef %arg) local_unnamed_addr #3 {
 entry:
   %cmp = icmp eq ptr %env, null
   br i1 %cmp, label %return, label %do.body1
@@ -1595,7 +1595,7 @@ return:                                           ; preds = %entry, %do.end5, %i
 declare void @_ZN4node25AddEnvironmentCleanupHookEPN2v87IsolateEPFvPvES3_(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local i32 @napi_remove_env_cleanup_hook(ptr noundef %env, ptr noundef %fun, ptr noundef %arg) local_unnamed_addr #3 {
+define dso_local noundef i32 @napi_remove_env_cleanup_hook(ptr noundef %env, ptr noundef %fun, ptr noundef %arg) local_unnamed_addr #3 {
 entry:
   %cmp = icmp eq ptr %env, null
   br i1 %cmp, label %return, label %do.body1
@@ -1627,7 +1627,7 @@ return:                                           ; preds = %entry, %do.end5, %i
 declare void @_ZN4node28RemoveEnvironmentCleanupHookEPN2v87IsolateEPFvPvES3_(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local i32 @napi_add_async_cleanup_hook(ptr noundef %env, ptr noundef %hook, ptr noundef %arg, ptr noundef writeonly %remove_handle) local_unnamed_addr #3 {
+define dso_local noundef i32 @napi_add_async_cleanup_hook(ptr noundef %env, ptr noundef %hook, ptr noundef %arg, ptr noundef writeonly %remove_handle) local_unnamed_addr #3 {
 entry:
   %cmp = icmp eq ptr %env, null
   br i1 %cmp, label %return, label %do.body1
@@ -1691,7 +1691,7 @@ return:                                           ; preds = %entry, %if.end9, %i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local i32 @napi_remove_async_cleanup_hook(ptr noundef %remove_handle) local_unnamed_addr #3 {
+define dso_local noundef i32 @napi_remove_async_cleanup_hook(ptr noundef %remove_handle) local_unnamed_addr #3 {
 entry:
   %cmp = icmp eq ptr %remove_handle, null
   br i1 %cmp, label %return, label %delete.notnull
@@ -2019,7 +2019,7 @@ declare void @_ZN4node12OnFatalErrorEPKcS1_(ptr noundef, ptr noundef) local_unna
 declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local i32 @napi_open_callback_scope(ptr noundef writeonly %env, ptr nocapture noundef readnone %0, ptr nocapture noundef %async_context_handle, ptr noundef writeonly %result) local_unnamed_addr #3 {
+define dso_local noundef i32 @napi_open_callback_scope(ptr noundef writeonly %env, ptr nocapture noundef readnone %0, ptr nocapture noundef %async_context_handle, ptr noundef writeonly %result) local_unnamed_addr #3 {
 entry:
   %cmp = icmp eq ptr %env, null
   br i1 %cmp, label %return, label %do.body1
@@ -2133,7 +2133,7 @@ return:                                           ; preds = %entry, %_ZN6v8impl1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local i32 @napi_close_callback_scope(ptr noundef %env, ptr noundef %scope) local_unnamed_addr #3 {
+define dso_local noundef i32 @napi_close_callback_scope(ptr noundef %env, ptr noundef %scope) local_unnamed_addr #3 {
 entry:
   %cmp = icmp eq ptr %env, null
   br i1 %cmp, label %return, label %do.body1
@@ -2173,7 +2173,7 @@ return:                                           ; preds = %do.end5, %entry, %i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local i32 @napi_async_init(ptr noundef %env, ptr noundef %async_resource, ptr noundef %async_resource_name, ptr noundef writeonly %result) local_unnamed_addr #3 {
+define dso_local noundef i32 @napi_async_init(ptr noundef %env, ptr noundef %async_resource, ptr noundef %async_resource_name, ptr noundef writeonly %result) local_unnamed_addr #3 {
 entry:
   %cmp = icmp eq ptr %env, null
   br i1 %cmp, label %return, label %do.end
@@ -2308,72 +2308,70 @@ _ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit: ; preds = %do.end64
   %sub.i.i.i.i.i13.i = add i64 %20, 327
   %21 = inttoptr i64 %sub.i.i.i.i.i13.i to ptr
   %22 = load i64, ptr %21, align 8
-  %23 = inttoptr i64 %22 to ptr
-  %cmp12.not.i.i.i.i14.i = icmp eq ptr %9, %23
+  %cmp12.not.i.i.i.i14.i = icmp eq i64 %8, %22
   tail call void @llvm.assume(i1 %cmp12.not.i.i.i.i14.i)
   %sub.i.i.i.i17.i = add i64 %20, 271
-  %24 = inttoptr i64 %sub.i.i.i.i17.i to ptr
-  %25 = load i64, ptr %24, align 8
-  %26 = inttoptr i64 %25 to ptr
-  %buffer_.i.i.i19.i = getelementptr inbounds %"class.node::Environment", ptr %26, i64 0, i32 14, i32 3, i32 4
-  %27 = load ptr, ptr %buffer_.i.i.i19.i, align 8
-  %arrayidx.i.i.i20.i = getelementptr inbounds double, ptr %27, i64 3
-  %28 = load double, ptr %arrayidx.i.i.i20.i, align 8
-  %cmp.i.i28 = fcmp olt double %28, 0.000000e+00
+  %23 = inttoptr i64 %sub.i.i.i.i17.i to ptr
+  %24 = load i64, ptr %23, align 8
+  %25 = inttoptr i64 %24 to ptr
+  %buffer_.i.i.i19.i = getelementptr inbounds %"class.node::Environment", ptr %25, i64 0, i32 14, i32 3, i32 4
+  %26 = load ptr, ptr %buffer_.i.i.i19.i, align 8
+  %arrayidx.i.i.i20.i = getelementptr inbounds double, ptr %26, i64 3
+  %27 = load double, ptr %arrayidx.i.i.i20.i, align 8
+  %cmp.i.i28 = fcmp olt double %27, 0.000000e+00
   br i1 %cmp.i.i28, label %if.then.i.i, label %_ZN2v814PersistentBaseINS_6ObjectEE5ResetEv.exit.i
 
 if.then.i.i:                                      ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit
-  %29 = load double, ptr %27, align 8
+  %28 = load double, ptr %26, align 8
   br label %_ZN2v814PersistentBaseINS_6ObjectEE5ResetEv.exit.i
 
 _ZN2v814PersistentBaseINS_6ObjectEE5ResetEv.exit.i: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit, %if.then.i.i
-  %default_trigger_async_id.0.i.i = phi double [ %29, %if.then.i.i ], [ %28, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit ]
+  %default_trigger_async_id.0.i.i = phi double [ %28, %if.then.i.i ], [ %27, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit ]
   %trigger_async_id_.i = getelementptr inbounds %"class.v8impl::(anonymous namespace)::AsyncContext", ptr %call93, i64 0, i32 2
   store double %default_trigger_async_id.0.i.i, ptr %trigger_async_id_.i, align 8
   %this.val5.val.i = load ptr, ptr %context_persistent.i, align 8, !nonnull !13, !noundef !13
   %call5.i.i.i.i23.i = tail call noundef i32 @_ZN2v87Context29GetNumberOfEmbedderDataFieldsEv(ptr noundef nonnull align 1 dereferenceable(1) %this.val5.val.i) #21
   %cmp.i.i.i.i24.i = icmp ugt i32 %call5.i.i.i.i23.i, 39
   tail call void @llvm.assume(i1 %cmp.i.i.i.i24.i)
-  %30 = load i64, ptr %this.val5.val.i, align 8
-  %sub.i47.i.i.i.i26.i = add i64 %30, 47
-  %31 = inttoptr i64 %sub.i47.i.i.i.i26.i to ptr
-  %32 = load i64, ptr %31, align 8
-  %sub.i.i.i.i.i27.i = add i64 %32, 327
-  %33 = inttoptr i64 %sub.i.i.i.i.i27.i to ptr
-  %34 = load i64, ptr %33, align 8
-  %35 = inttoptr i64 %34 to ptr
-  %cmp12.not.i.i.i.i28.i = icmp eq ptr %9, %35
+  %29 = load i64, ptr %this.val5.val.i, align 8
+  %sub.i47.i.i.i.i26.i = add i64 %29, 47
+  %30 = inttoptr i64 %sub.i47.i.i.i.i26.i to ptr
+  %31 = load i64, ptr %30, align 8
+  %sub.i.i.i.i.i27.i = add i64 %31, 327
+  %32 = inttoptr i64 %sub.i.i.i.i.i27.i to ptr
+  %33 = load i64, ptr %32, align 8
+  %cmp12.not.i.i.i.i28.i = icmp eq i64 %8, %33
   tail call void @llvm.assume(i1 %cmp12.not.i.i.i.i28.i)
   %cmp.i.i.i = icmp eq ptr %v8_resource.sroa.0.0, null
   br i1 %cmp.i.i.i, label %_ZN2v814PersistentBaseINS_6ObjectEE5ResetIS1_EEvPNS_7IsolateERKNS_5LocalIT_EE.exit.i, label %if.end.i34.i
 
 if.end.i34.i:                                     ; preds = %_ZN2v814PersistentBaseINS_6ObjectEE5ResetEv.exit.i
-  %sub.i.i.i.i31.i = add i64 %32, 271
-  %36 = inttoptr i64 %sub.i.i.i.i31.i to ptr
-  %37 = load i64, ptr %36, align 8
-  %38 = inttoptr i64 %37 to ptr
-  %isolate_.i.i = getelementptr inbounds %"class.node::Environment", ptr %38, i64 0, i32 3
-  %39 = load ptr, ptr %isolate_.i.i, align 8
-  %40 = load i64, ptr %v8_resource.sroa.0.0, align 8
-  %call2.i35.i = tail call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %39, i64 noundef %40) #21
+  %sub.i.i.i.i31.i = add i64 %31, 271
+  %34 = inttoptr i64 %sub.i.i.i.i31.i to ptr
+  %35 = load i64, ptr %34, align 8
+  %36 = inttoptr i64 %35 to ptr
+  %isolate_.i.i = getelementptr inbounds %"class.node::Environment", ptr %36, i64 0, i32 3
+  %37 = load ptr, ptr %isolate_.i.i, align 8
+  %38 = load i64, ptr %v8_resource.sroa.0.0, align 8
+  %call2.i35.i = tail call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %37, i64 noundef %38) #21
   store ptr %call2.i35.i, ptr %resource_.i, align 8
   br label %_ZN2v814PersistentBaseINS_6ObjectEE5ResetIS1_EEvPNS_7IsolateERKNS_5LocalIT_EE.exit.i
 
 _ZN2v814PersistentBaseINS_6ObjectEE5ResetIS1_EEvPNS_7IsolateERKNS_5LocalIT_EE.exit.i: ; preds = %if.end.i34.i, %_ZN2v814PersistentBaseINS_6ObjectEE5ResetEv.exit.i
-  %41 = phi ptr [ null, %_ZN2v814PersistentBaseINS_6ObjectEE5ResetEv.exit.i ], [ %call2.i35.i, %if.end.i34.i ]
+  %39 = phi ptr [ null, %_ZN2v814PersistentBaseINS_6ObjectEE5ResetEv.exit.i ], [ %call2.i35.i, %if.end.i34.i ]
   %lost_reference_.i = getelementptr inbounds %"class.v8impl::(anonymous namespace)::AsyncContext", ptr %call93, i64 0, i32 4
   store i8 0, ptr %lost_reference_.i, align 8
   br i1 %cmp18.not.not, label %if.end.i, label %if.then.i29
 
 if.then.i29:                                      ; preds = %_ZN2v814PersistentBaseINS_6ObjectEE5ResetIS1_EEvPNS_7IsolateERKNS_5LocalIT_EE.exit.i
-  tail call void @_ZN2v812api_internal8MakeWeakEPmPvPFvRKNS_16WeakCallbackInfoIvEEENS_16WeakCallbackTypeE(ptr noundef %41, ptr noundef nonnull %call93, ptr noundef nonnull @_ZN6v8impl12_GLOBAL__N_112AsyncContext12WeakCallbackERKN2v816WeakCallbackInfoIS1_EE, i32 noundef 0) #21
+  tail call void @_ZN2v812api_internal8MakeWeakEPmPvPFvRKNS_16WeakCallbackInfoIvEEENS_16WeakCallbackTypeE(ptr noundef %39, ptr noundef nonnull %call93, ptr noundef nonnull @_ZN6v8impl12_GLOBAL__N_112AsyncContext12WeakCallbackERKN2v816WeakCallbackInfoIS1_EE, i32 noundef 0) #21
   %this.val6.i.pre = load ptr, ptr %call93, align 8
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i29, %_ZN2v814PersistentBaseINS_6ObjectEE5ResetIS1_EEvPNS_7IsolateERKNS_5LocalIT_EE.exit.i
   %this.val6.i = phi ptr [ %this.val6.i.pre, %if.then.i29 ], [ %env, %_ZN2v814PersistentBaseINS_6ObjectEE5ResetIS1_EEvPNS_7IsolateERKNS_5LocalIT_EE.exit.i ]
-  %42 = getelementptr i8, ptr %this.val6.i, i64 16
-  %this.val6.val.i = load ptr, ptr %42, align 8
+  %40 = getelementptr i8, ptr %this.val6.i, i64 16
+  %this.val6.val.i = load ptr, ptr %40, align 8
   %cmp.i.i.i.i.i33.i = icmp eq ptr %this.val6.val.i, null
   br i1 %cmp.i.i.i.i.i33.i, label %_ZN6v8impl12_GLOBAL__N_112AsyncContextC2EP15node_napi_env__N2v85LocalINS4_6ObjectEEENS5_INS4_6StringEEEb.exit, label %if.end.i.i.i.i34.i
 
@@ -2383,29 +2381,28 @@ if.end.i.i.i.i34.i:                               ; preds = %if.end.i
   br i1 %cmp.i.i.i.i36.i, label %_ZN6v8impl12_GLOBAL__N_112AsyncContextC2EP15node_napi_env__N2v85LocalINS4_6ObjectEEENS5_INS4_6StringEEEb.exit, label %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i.i37.i
 
 _ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i.i37.i: ; preds = %if.end.i.i.i.i34.i
-  %43 = load i64, ptr %this.val6.val.i, align 8
-  %sub.i47.i.i.i.i38.i = add i64 %43, 47
-  %44 = inttoptr i64 %sub.i47.i.i.i.i38.i to ptr
+  %41 = load i64, ptr %this.val6.val.i, align 8
+  %sub.i47.i.i.i.i38.i = add i64 %41, 47
+  %42 = inttoptr i64 %sub.i47.i.i.i.i38.i to ptr
+  %43 = load i64, ptr %42, align 8
+  %sub.i.i.i.i.i39.i = add i64 %43, 327
+  %44 = inttoptr i64 %sub.i.i.i.i.i39.i to ptr
   %45 = load i64, ptr %44, align 8
-  %sub.i.i.i.i.i39.i = add i64 %45, 327
-  %46 = inttoptr i64 %sub.i.i.i.i.i39.i to ptr
-  %47 = load i64, ptr %46, align 8
-  %48 = inttoptr i64 %47 to ptr
-  %cmp12.not.i.i.i.i40.i = icmp eq ptr %9, %48
+  %cmp12.not.i.i.i.i40.i = icmp eq i64 %8, %45
   br i1 %cmp12.not.i.i.i.i40.i, label %if.end.i.i.i42.i, label %_ZN6v8impl12_GLOBAL__N_112AsyncContextC2EP15node_napi_env__N2v85LocalINS4_6ObjectEEENS5_INS4_6StringEEEb.exit
 
 if.end.i.i.i42.i:                                 ; preds = %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i.i37.i
-  %sub.i.i.i.i43.i = add i64 %45, 271
-  %49 = inttoptr i64 %sub.i.i.i.i43.i to ptr
-  %50 = load i64, ptr %49, align 8
-  %51 = inttoptr i64 %50 to ptr
+  %sub.i.i.i.i43.i = add i64 %43, 271
+  %46 = inttoptr i64 %sub.i.i.i.i43.i to ptr
+  %47 = load i64, ptr %46, align 8
+  %48 = inttoptr i64 %47 to ptr
   br label %_ZN6v8impl12_GLOBAL__N_112AsyncContextC2EP15node_napi_env__N2v85LocalINS4_6ObjectEEENS5_INS4_6StringEEEb.exit
 
 _ZN6v8impl12_GLOBAL__N_112AsyncContextC2EP15node_napi_env__N2v85LocalINS4_6ObjectEEENS5_INS4_6StringEEEb.exit: ; preds = %if.end.i, %if.end.i.i.i.i34.i, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i.i37.i, %if.end.i.i.i42.i
-  %retval.0.i.i.i41.i = phi ptr [ %51, %if.end.i.i.i42.i ], [ null, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i.i37.i ], [ null, %if.end.i ], [ null, %if.end.i.i.i.i34.i ]
-  %52 = load double, ptr %async_id_.i, align 8
-  %53 = load double, ptr %trigger_async_id_.i, align 8
-  tail call void @_ZN4node9AsyncWrap13EmitAsyncInitEPNS_11EnvironmentEN2v85LocalINS3_6ObjectEEENS4_INS3_6StringEEEdd(ptr noundef %retval.0.i.i.i41.i, ptr %v8_resource.sroa.0.0, ptr nonnull %call76, double noundef %52, double noundef %53) #21
+  %retval.0.i.i.i41.i = phi ptr [ %48, %if.end.i.i.i42.i ], [ null, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i.i37.i ], [ null, %if.end.i ], [ null, %if.end.i.i.i.i34.i ]
+  %49 = load double, ptr %async_id_.i, align 8
+  %50 = load double, ptr %trigger_async_id_.i, align 8
+  tail call void @_ZN4node9AsyncWrap13EmitAsyncInitEPNS_11EnvironmentEN2v85LocalINS3_6ObjectEEENS4_INS3_6StringEEEdd(ptr noundef %retval.0.i.i.i41.i, ptr %v8_resource.sroa.0.0, ptr nonnull %call76, double noundef %49, double noundef %50) #21
   store ptr %call93, ptr %result, align 8
   %last_error.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
@@ -2421,7 +2418,7 @@ declare ptr @_ZN2v86Object3NewEPNS_7IsolateE(ptr noundef) local_unnamed_addr #0
 declare ptr @_ZNK2v85Value8ToStringENS_5LocalINS_7ContextEEE(ptr noundef nonnull align 1 dereferenceable(1), ptr) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local i32 @napi_async_destroy(ptr noundef %env, ptr noundef %async_context) local_unnamed_addr #3 {
+define dso_local noundef i32 @napi_async_destroy(ptr noundef %env, ptr noundef %async_context) local_unnamed_addr #3 {
 entry:
   %cmp = icmp eq ptr %env, null
   br i1 %cmp, label %return, label %do.end
@@ -3243,7 +3240,7 @@ return:                                           ; preds = %entry, %_ZN6v8impl8
 declare ptr @_ZN4node6Buffer4CopyEPN2v87IsolateEPKcm(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local i32 @napi_is_buffer(ptr noundef %env, ptr noundef %value, ptr noundef writeonly %result) local_unnamed_addr #3 {
+define dso_local noundef i32 @napi_is_buffer(ptr noundef %env, ptr noundef %value, ptr noundef writeonly %result) local_unnamed_addr #3 {
 entry:
   %cmp = icmp eq ptr %env, null
   br i1 %cmp, label %return, label %do.end
@@ -3307,7 +3304,7 @@ return:                                           ; preds = %entry, %do.end13, %
 declare noundef zeroext i1 @_ZN4node6Buffer11HasInstanceEN2v85LocalINS1_5ValueEEE(ptr) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local i32 @napi_get_buffer_info(ptr noundef %env, ptr noundef %value, ptr noundef writeonly %data, ptr noundef writeonly %length) local_unnamed_addr #3 {
+define dso_local noundef i32 @napi_get_buffer_info(ptr noundef %env, ptr noundef %value, ptr noundef writeonly %data, ptr noundef writeonly %length) local_unnamed_addr #3 {
 entry:
   %cmp = icmp eq ptr %env, null
   br i1 %cmp, label %return, label %do.end
@@ -3375,7 +3372,7 @@ declare noundef ptr @_ZN4node6Buffer4DataEN2v85LocalINS1_5ValueEEE(ptr) local_un
 declare noundef i64 @_ZN4node6Buffer6LengthEN2v85LocalINS1_5ValueEEE(ptr) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local i32 @napi_get_node_version(ptr noundef writeonly %env, ptr noundef writeonly %result) local_unnamed_addr #11 {
+define dso_local noundef i32 @napi_get_node_version(ptr noundef writeonly %env, ptr noundef writeonly %result) local_unnamed_addr #11 {
 entry:
   %cmp = icmp eq ptr %env, null
   br i1 %cmp, label %return, label %do.body1
@@ -3405,7 +3402,7 @@ return:                                           ; preds = %entry, %do.end5, %i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local i32 @napi_create_async_work(ptr noundef %env, ptr noundef %async_resource, ptr noundef %async_resource_name, ptr noundef %execute, ptr noundef %complete, ptr noundef %data, ptr noundef writeonly %result) local_unnamed_addr #3 {
+define dso_local noundef i32 @napi_create_async_work(ptr noundef %env, ptr noundef %async_resource, ptr noundef %async_resource_name, ptr noundef %execute, ptr noundef %complete, ptr noundef %data, ptr noundef writeonly %result) local_unnamed_addr #3 {
 entry:
   %ref.tmp.i.i = alloca %"class.v8::String::Utf8Value", align 8
   %cmp = icmp eq ptr %env, null
@@ -3589,7 +3586,7 @@ return:                                           ; preds = %entry, %_ZN12_GLOBA
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local i32 @napi_delete_async_work(ptr noundef %env, ptr noundef %work) local_unnamed_addr #3 {
+define dso_local noundef i32 @napi_delete_async_work(ptr noundef %env, ptr noundef %work) local_unnamed_addr #3 {
 entry:
   %cmp = icmp eq ptr %env, null
   br i1 %cmp, label %return, label %do.end
@@ -3639,7 +3636,7 @@ return:                                           ; preds = %entry, %do.end7, %i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local i32 @napi_get_uv_event_loop(ptr noundef %env, ptr noundef writeonly %loop) local_unnamed_addr #3 {
+define dso_local noundef i32 @napi_get_uv_event_loop(ptr noundef %env, ptr noundef writeonly %loop) local_unnamed_addr #3 {
 entry:
   %cmp = icmp eq ptr %env, null
   br i1 %cmp, label %return, label %do.body1
@@ -3693,7 +3690,7 @@ return:                                           ; preds = %entry, %do.end5, %i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local i32 @napi_queue_async_work(ptr noundef %env, ptr noundef %work) local_unnamed_addr #3 {
+define dso_local noundef i32 @napi_queue_async_work(ptr noundef %env, ptr noundef %work) local_unnamed_addr #3 {
 entry:
   %cmp = icmp eq ptr %env, null
   br i1 %cmp, label %return, label %do.body1
@@ -3845,7 +3842,7 @@ do.end23:                                         ; preds = %do.end
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local i32 @napi_cancel_async_work(ptr noundef writeonly %env, ptr noundef %work) local_unnamed_addr #3 {
+define dso_local noundef i32 @napi_cancel_async_work(ptr noundef writeonly %env, ptr noundef %work) local_unnamed_addr #3 {
 entry:
   %cmp = icmp eq ptr %env, null
   br i1 %cmp, label %return, label %do.body1
@@ -3899,7 +3896,7 @@ return:                                           ; preds = %entry, %do.end13, %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local i32 @napi_create_threadsafe_function(ptr noundef %env, ptr noundef %func, ptr noundef %async_resource, ptr noundef %async_resource_name, i64 noundef %max_queue_size, i64 noundef %initial_thread_count, ptr noundef %thread_finalize_data, ptr noundef %thread_finalize_cb, ptr noundef %context, ptr noundef %call_js_cb, ptr noundef writeonly %result) local_unnamed_addr #3 {
+define dso_local noundef i32 @napi_create_threadsafe_function(ptr noundef %env, ptr noundef %func, ptr noundef %async_resource, ptr noundef %async_resource_name, i64 noundef %max_queue_size, i64 noundef %initial_thread_count, ptr noundef %thread_finalize_data, ptr noundef %thread_finalize_cb, ptr noundef %context, ptr noundef %call_js_cb, ptr noundef writeonly %result) local_unnamed_addr #3 {
 entry:
   %ref.tmp.i = alloca %"class.v8::String::Utf8Value", align 8
   %cmp = icmp eq ptr %env, null
@@ -4140,28 +4137,27 @@ _ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i7
   %sub.i.i.i.i9.i = add i64 %31, 327
   %32 = inttoptr i64 %sub.i.i.i.i9.i to ptr
   %33 = load i64, ptr %32, align 8
-  %34 = inttoptr i64 %33 to ptr
-  %cmp12.not.i.i.i10.i = icmp eq ptr %18, %34
+  %cmp12.not.i.i.i10.i = icmp eq i64 %17, %33
   br i1 %cmp12.not.i.i.i10.i, label %if.end.i.i12.i, label %if.end16.thread.i
 
 if.end.i.i12.i:                                   ; preds = %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i7.i
   %sub.i.i.i13.i = add i64 %31, 271
-  %35 = inttoptr i64 %sub.i.i.i13.i to ptr
-  %36 = load i64, ptr %35, align 8
-  %37 = inttoptr i64 %36 to ptr
+  %34 = inttoptr i64 %sub.i.i.i13.i to ptr
+  %35 = load i64, ptr %34, align 8
+  %36 = inttoptr i64 %35 to ptr
   br label %if.end16.thread.i
 
 if.end16.thread.i:                                ; preds = %if.end.i.i12.i, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i7.i, %if.end.i.i.i4.i, %if.end12.i
-  %retval.0.i.i11.i = phi ptr [ %37, %if.end.i.i12.i ], [ null, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i7.i ], [ null, %if.end12.i ], [ null, %if.end.i.i.i4.i ]
+  %retval.0.i.i11.i = phi ptr [ %36, %if.end.i.i12.i ], [ null, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i7.i ], [ null, %if.end12.i ], [ null, %if.end.i.i.i4.i ]
   %handle_cleanup_waiting_.i.i = getelementptr inbounds %"class.node::Environment", ptr %retval.0.i.i11.i, i64 0, i32 72
-  %38 = load i32, ptr %handle_cleanup_waiting_.i.i, align 8
-  %inc.i.i55 = add nsw i32 %38, 1
+  %37 = load i32, ptr %handle_cleanup_waiting_.i.i, align 8
+  %inc.i.i55 = add nsw i32 %37, 1
   store i32 %inc.i.i55, ptr %handle_cleanup_waiting_.i.i, align 8
   %call.i15.i = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #23
   store ptr %retval.0.i.i11.i, ptr %call.i15.i, align 16
   %original_data.i.i = getelementptr inbounds %struct.CloseData.446, ptr %call.i15.i, i64 0, i32 2
-  %39 = load ptr, ptr %async.i, align 8
-  store ptr %39, ptr %original_data.i.i, align 16
+  %38 = load ptr, ptr %async.i, align 8
+  store ptr %38, ptr %original_data.i.i, align 16
   store ptr %call.i15.i, ptr %async.i, align 8
   call void @uv_close(ptr noundef nonnull %async.i, ptr noundef nonnull @_ZZN4node11Environment11CloseHandleI11uv_handle_sZN6v8impl12_GLOBAL__N_118ThreadSafeFunction4InitEvEUlPS2_E_EEvPT_T0_ENUlS6_E_8__invokeES6_) #21
   br label %return.sink.split
@@ -4169,8 +4165,8 @@ if.end16.thread.i:                                ; preds = %if.end.i.i12.i, %_Z
 delete.notnull.i:                                 ; preds = %_ZN6v8impl12_GLOBAL__N_118ThreadSafeFunctionC2EN2v85LocalINS2_8FunctionEEENS3_INS2_6ObjectEEENS3_INS2_6StringEEEmPvmP15node_napi_env__SA_PFvP10napi_env__SA_SA_EPFvSE_P12napi_value__SA_SA_E.exit
   %vtable.i = load ptr, ptr %call132, align 8
   %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 1
-  %40 = load ptr, ptr %vfn.i, align 8
-  call void %40(ptr noundef nonnull align 8 dereferenceable(369) %call132) #21
+  %39 = load ptr, ptr %vfn.i, align 8
+  call void %39(ptr noundef nonnull align 8 dereferenceable(369) %call132) #21
   br label %return.sink.split
 
 if.then150:                                       ; preds = %if.end.i, %if.then.i51, %_ZSt11make_uniqueIN4node21ConditionVariableBaseINS0_16LibuvMutexTraitsEEEJEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit.i
@@ -4193,7 +4189,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local i32 @napi_get_threadsafe_function_context(ptr noundef readonly %func, ptr noundef writeonly %result) local_unnamed_addr #3 {
+define dso_local noundef i32 @napi_get_threadsafe_function_context(ptr noundef readonly %func, ptr noundef writeonly %result) local_unnamed_addr #3 {
 entry:
   %cmp.not = icmp eq ptr %func, null
   br i1 %cmp.not, label %do.body3, label %do.body5
@@ -4220,7 +4216,7 @@ do.end14:                                         ; preds = %do.body5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local i32 @napi_call_threadsafe_function(ptr noundef %func, ptr noundef %data, i32 noundef %is_blocking) local_unnamed_addr #3 {
+define dso_local noundef i32 @napi_call_threadsafe_function(ptr noundef %func, ptr noundef %data, i32 noundef %is_blocking) local_unnamed_addr #3 {
 entry:
   %data.addr.i = alloca ptr, align 8
   %cmp.not = icmp eq ptr %func, null
@@ -4384,7 +4380,7 @@ _ZN6v8impl12_GLOBAL__N_118ThreadSafeFunction4PushEPv34napi_threadsafe_function_c
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local i32 @napi_acquire_threadsafe_function(ptr noundef %func) local_unnamed_addr #3 {
+define dso_local noundef i32 @napi_acquire_threadsafe_function(ptr noundef %func) local_unnamed_addr #3 {
 entry:
   %cmp.not = icmp eq ptr %func, null
   br i1 %cmp.not, label %do.body3, label %do.end4
@@ -4417,7 +4413,7 @@ _ZN6v8impl12_GLOBAL__N_118ThreadSafeFunction7AcquireEv.exit: ; preds = %do.end4,
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local i32 @napi_release_threadsafe_function(ptr noundef %func, i32 noundef %mode) local_unnamed_addr #3 {
+define dso_local noundef i32 @napi_release_threadsafe_function(ptr noundef %func, i32 noundef %mode) local_unnamed_addr #3 {
 entry:
   %cmp.not = icmp eq ptr %func, null
   br i1 %cmp.not, label %do.body3, label %do.end4
@@ -4490,7 +4486,7 @@ _ZN6v8impl12_GLOBAL__N_118ThreadSafeFunction7ReleaseE37napi_threadsafe_function_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local i32 @napi_unref_threadsafe_function(ptr nocapture noundef readnone %env, ptr noundef %func) local_unnamed_addr #3 {
+define dso_local noundef i32 @napi_unref_threadsafe_function(ptr nocapture noundef readnone %env, ptr noundef %func) local_unnamed_addr #3 {
 entry:
   %cmp.not = icmp eq ptr %func, null
   br i1 %cmp.not, label %do.body3, label %do.end4
@@ -4507,7 +4503,7 @@ do.end4:                                          ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local i32 @napi_ref_threadsafe_function(ptr nocapture noundef readnone %env, ptr noundef %func) local_unnamed_addr #3 {
+define dso_local noundef i32 @napi_ref_threadsafe_function(ptr nocapture noundef readnone %env, ptr noundef %func) local_unnamed_addr #3 {
 entry:
   %cmp.not = icmp eq ptr %func, null
   br i1 %cmp.not, label %do.body3, label %do.end4
@@ -4524,7 +4520,7 @@ do.end4:                                          ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local i32 @node_api_get_module_file_name(ptr noundef %env, ptr noundef writeonly %result) local_unnamed_addr #3 {
+define dso_local noundef i32 @node_api_get_module_file_name(ptr noundef %env, ptr noundef writeonly %result) local_unnamed_addr #3 {
 entry:
   %cmp = icmp eq ptr %env, null
   br i1 %cmp, label %return, label %do.body1
@@ -5748,44 +5744,42 @@ if.then:                                          ; preds = %entry
   %sub.i.i.i.i.i12 = add i64 %17, 327
   %18 = inttoptr i64 %sub.i.i.i.i.i12 to ptr
   %19 = load i64, ptr %18, align 8
-  %20 = inttoptr i64 %19 to ptr
-  %cmp12.not.i.i.i.i13 = icmp eq ptr %8, %20
+  %cmp12.not.i.i.i.i13 = icmp eq i64 %7, %19
   call void @llvm.assume(i1 %cmp12.not.i.i.i.i13)
   %sub.i.i.i.i16 = add i64 %17, 271
-  %21 = inttoptr i64 %sub.i.i.i.i16 to ptr
-  %22 = load i64, ptr %21, align 8
-  %23 = inttoptr i64 %22 to ptr
-  %isolate_.i18 = getelementptr inbounds %"class.node::Environment", ptr %23, i64 0, i32 3
-  %24 = load ptr, ptr %isolate_.i18, align 8
+  %20 = inttoptr i64 %sub.i.i.i.i16 to ptr
+  %21 = load i64, ptr %20, align 8
+  %22 = inttoptr i64 %21 to ptr
+  %isolate_.i18 = getelementptr inbounds %"class.node::Environment", ptr %22, i64 0, i32 3
+  %23 = load ptr, ptr %isolate_.i18, align 8
   %this.val5 = load ptr, ptr %this, align 8
-  %25 = getelementptr i8, ptr %this.val5, i64 16
-  %this.val5.val = load ptr, ptr %25, align 8, !nonnull !13, !noundef !13
+  %24 = getelementptr i8, ptr %this.val5, i64 16
+  %this.val5.val = load ptr, ptr %24, align 8, !nonnull !13, !noundef !13
   %call5.i.i.i.i21 = call noundef i32 @_ZN2v87Context29GetNumberOfEmbedderDataFieldsEv(ptr noundef nonnull align 1 dereferenceable(1) %this.val5.val) #21
   %cmp.i.i.i.i22 = icmp ugt i32 %call5.i.i.i.i21, 39
   call void @llvm.assume(i1 %cmp.i.i.i.i22)
-  %26 = load i64, ptr %this.val5.val, align 8
-  %sub.i47.i.i.i.i24 = add i64 %26, 47
-  %27 = inttoptr i64 %sub.i47.i.i.i.i24 to ptr
-  %28 = load i64, ptr %27, align 8
-  %sub.i.i.i.i.i25 = add i64 %28, 327
-  %29 = inttoptr i64 %sub.i.i.i.i.i25 to ptr
-  %30 = load i64, ptr %29, align 8
-  %31 = inttoptr i64 %30 to ptr
-  %cmp12.not.i.i.i.i26 = icmp eq ptr %8, %31
+  %25 = load i64, ptr %this.val5.val, align 8
+  %sub.i47.i.i.i.i24 = add i64 %25, 47
+  %26 = inttoptr i64 %sub.i47.i.i.i.i24 to ptr
+  %27 = load i64, ptr %26, align 8
+  %sub.i.i.i.i.i25 = add i64 %27, 327
+  %28 = inttoptr i64 %sub.i.i.i.i.i25 to ptr
+  %29 = load i64, ptr %28, align 8
+  %cmp12.not.i.i.i.i26 = icmp eq i64 %7, %29
   call void @llvm.assume(i1 %cmp12.not.i.i.i.i26)
-  %sub.i.i.i.i29 = add i64 %28, 271
-  %32 = inttoptr i64 %sub.i.i.i.i29 to ptr
-  %33 = load i64, ptr %32, align 8
-  %34 = inttoptr i64 %33 to ptr
-  %isolate_.i31 = getelementptr inbounds %"class.node::Environment", ptr %34, i64 0, i32 3
-  %35 = load ptr, ptr %isolate_.i31, align 8
-  %call7 = call ptr @_ZN2v86Object3NewEPNS_7IsolateE(ptr noundef %35) #21
-  %36 = load ptr, ptr %resource_, align 8
-  %cmp.i.i16 = icmp eq ptr %36, null
+  %sub.i.i.i.i29 = add i64 %27, 271
+  %30 = inttoptr i64 %sub.i.i.i.i29 to ptr
+  %31 = load i64, ptr %30, align 8
+  %32 = inttoptr i64 %31 to ptr
+  %isolate_.i31 = getelementptr inbounds %"class.node::Environment", ptr %32, i64 0, i32 3
+  %33 = load ptr, ptr %isolate_.i31, align 8
+  %call7 = call ptr @_ZN2v86Object3NewEPNS_7IsolateE(ptr noundef %33) #21
+  %34 = load ptr, ptr %resource_, align 8
+  %cmp.i.i16 = icmp eq ptr %34, null
   br i1 %cmp.i.i16, label %_ZN2v814PersistentBaseINS_6ObjectEE5ResetEv.exit, label %if.end.i17
 
 if.end.i17:                                       ; preds = %if.then
-  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %36) #21
+  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %34) #21
   store ptr null, ptr %resource_, align 8
   br label %_ZN2v814PersistentBaseINS_6ObjectEE5ResetEv.exit
 
@@ -5794,8 +5788,8 @@ _ZN2v814PersistentBaseINS_6ObjectEE5ResetEv.exit: ; preds = %if.then, %if.end.i1
   br i1 %cmp.i.i, label %_ZN2v814PersistentBaseINS_6ObjectEE5ResetIS1_EEvPNS_7IsolateERKNS_5LocalIT_EE.exit, label %if.end.i21
 
 if.end.i21:                                       ; preds = %_ZN2v814PersistentBaseINS_6ObjectEE5ResetEv.exit
-  %37 = load i64, ptr %call7, align 8
-  %call2.i22 = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %24, i64 noundef %37) #21
+  %35 = load i64, ptr %call7, align 8
+  %call2.i22 = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %23, i64 noundef %35) #21
   store ptr %call2.i22, ptr %resource_, align 8
   br label %_ZN2v814PersistentBaseINS_6ObjectEE5ResetIS1_EEvPNS_7IsolateERKNS_5LocalIT_EE.exit
 

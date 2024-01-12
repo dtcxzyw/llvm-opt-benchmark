@@ -497,13 +497,11 @@ _ZN6hermes2vm10JSFunction6createERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEE.exit
 define weak_odr hidden ptr @_ZN6hermes2vm17NativeConstructor15creatorFunctionINS0_7JSArrayEEENS0_10CallResultINS0_12PseudoHandleINS0_8JSObjectEEELNS0_6detail20CallResultSpecializeE6EEERNS0_7RuntimeENS0_6HandleIS6_EEPv(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr %prototype.coerce, ptr noundef %0) local_unnamed_addr #0 comdat align 2 {
 entry:
   %retval.sroa.0.0.copyload.i.i.i.i.i = load i64, ptr %prototype.coerce, align 8
-  %and.i.i.i.i.i.i.i = and i64 %retval.sroa.0.0.copyload.i.i.i.i.i, 281474976710655
-  %1 = inttoptr i64 %and.i.i.i.i.i.i.i to ptr
   %arrayPrototype.i.i = getelementptr inbounds %"class.hermes::vm::Runtime", ptr %runtime, i64 0, i32 32
-  %2 = load i64, ptr %arrayPrototype.i.i, align 8
-  %and.i.i.i.i = and i64 %2, 281474976710655
-  %3 = inttoptr i64 %and.i.i.i.i to ptr
-  %cmp.i.i = icmp eq ptr %1, %3
+  %1 = load i64, ptr %arrayPrototype.i.i, align 8
+  %2 = xor i64 %1, %retval.sroa.0.0.copyload.i.i.i.i.i
+  %3 = and i64 %2, 281474976710655
+  %cmp.i.i = icmp eq i64 %3, 0
   br i1 %cmp.i.i, label %cond.true.i.i, label %cond.false.i.i
 
 cond.true.i.i:                                    ; preds = %entry
@@ -522,8 +520,8 @@ _ZN6hermes2vm7JSArray6createERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEE.exit: ; 
 
 if.end.i:                                         ; preds = %_ZN6hermes2vm7JSArray6createERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEE.exit
   %retval.sroa.0.0.copyload.i.i.i.i.i1 = load i64, ptr %call17.i.i, align 8
-  %and.i.i.i.i.i.i.i2 = and i64 %retval.sroa.0.0.copyload.i.i.i.i.i1, 281474976710655
-  %4 = inttoptr i64 %and.i.i.i.i.i.i.i2 to ptr
+  %and.i.i.i.i.i.i.i = and i64 %retval.sroa.0.0.copyload.i.i.i.i.i1, 281474976710655
+  %4 = inttoptr i64 %and.i.i.i.i.i.i.i to ptr
   br label %_ZN6hermes2vmL32toCallResultPseudoHandleJSObjectINS0_7JSArrayEEENS0_10CallResultINS0_12PseudoHandleINS0_8JSObjectEEELNS0_6detail20CallResultSpecializeE6EEENS3_INS0_6HandleIT_EEXsr6detail23GetCallResultSpecializeISC_EE5valueEEE.exit
 
 _ZN6hermes2vmL32toCallResultPseudoHandleJSObjectINS0_7JSArrayEEENS0_10CallResultINS0_12PseudoHandleINS0_8JSObjectEEELNS0_6detail20CallResultSpecializeE6EEENS3_INS0_6HandleIT_EEXsr6detail23GetCallResultSpecializeISC_EE5valueEEE.exit: ; preds = %_ZN6hermes2vm7JSArray6createERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEE.exit, %if.end.i
@@ -2399,7 +2397,7 @@ _ZNK6hermes2vm9ArrayImpl2atERNS0_7RuntimeEj.exit.i: ; preds = %if.else.i.i.i, %i
   %retval.sroa.0.0.i.i.i = load i32, ptr %retval.sroa.0.0.in.i.i.i, align 4
   %28 = trunc i32 %retval.sroa.0.0.i.i.i to i8
   %conv.i.i.i24 = and i8 %28, 15
-  switch i8 %conv.i.i.i24, label %sw.default.i.i [
+  switch i8 %conv.i.i.i24, label %default.unreachable [
     i8 0, label %sw.bb.i.i
     i8 8, label %sw.bb.i.i
     i8 1, label %sw.bb4.i.i
@@ -2473,7 +2471,7 @@ sw.bb29.i.i:                                      ; preds = %_ZNK6hermes2vm9Arra
 sw.bb39.i.i:                                      ; preds = %_ZNK6hermes2vm9ArrayImpl2atERNS0_7RuntimeEj.exit.i
   br label %for.inc.i
 
-sw.default.i.i:                                   ; preds = %_ZNK6hermes2vm9ArrayImpl2atERNS0_7RuntimeEj.exit.i
+default.unreachable:                              ; preds = %_ZNK6hermes2vm9ArrayImpl2atERNS0_7RuntimeEj.exit.i
   unreachable
 
 _ZNK6hermes2vm13HermesValue329unboxToHVERNS0_11PointerBaseE.exit.i: ; preds = %sw.bb29.i.i, %sw.bb22.i.i, %sw.bb18.i.i, %sw.bb12.i.i, %sw.bb8.i.i, %sw.bb4.i.i, %sw.bb.i.i
@@ -3375,7 +3373,7 @@ for.body:                                         ; preds = %for.cond.preheader,
 
 if.then.i21:                                      ; preds = %for.body
   %add.ptr.i.i.i.i = getelementptr inbounds %"class.hermes::vm::ArrayStorageBase", ptr %10, i64 1
-  %idxprom.i = zext i32 %11 to i64
+  %idxprom.i = zext nneg i32 %11 to i64
   %arrayidx.i = getelementptr inbounds %"class.hermes::vm::GCHermesValueBase", ptr %add.ptr.i.i.i.i, i64 %idxprom.i
   store i64 %retval.sroa.0.0.copyload.i.i12.i, ptr %arrayidx.i, align 8
   %13 = load ptr, ptr %youngGen_.i.i.i.i, align 8
@@ -3390,7 +3388,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i21
   br label %_ZN6hermes2vm17GCHermesValueBaseINS0_11HermesValueEEC2ISt17integral_constantIbLb1EEEES2_RNS0_7HadesGCE.exit.i
 
 _ZN6hermes2vm17GCHermesValueBaseINS0_11HermesValueEEC2ISt17integral_constantIbLb1EEEES2_RNS0_7HadesGCE.exit.i: ; preds = %if.then.i.i.i, %if.then.i21
-  %add.i = add nuw i32 %11, 1
+  %add.i = add nuw nsw i32 %11, 1
   store atomic i32 %add.i, ptr %size_.i.i release, align 4
   br label %_ZN6hermes2vm16ArrayStorageBaseINS0_11HermesValueEE9push_backERNS0_13MutableHandleIS3_EERNS0_7RuntimeENS0_6HandleIS2_EE.exit
 
@@ -3419,7 +3417,7 @@ if.else:                                          ; preds = %_ZN6hermes2vm15Hand
 
 if.then.i33:                                      ; preds = %if.else
   %add.ptr.i.i.i.i34 = getelementptr inbounds %"class.hermes::vm::ArrayStorageBase", ptr %16, i64 1
-  %idxprom.i35 = zext i32 %17 to i64
+  %idxprom.i35 = zext nneg i32 %17 to i64
   %arrayidx.i36 = getelementptr inbounds %"class.hermes::vm::GCHermesValueBase", ptr %add.ptr.i.i.i.i34, i64 %idxprom.i35
   store i64 %retval.sroa.0.0.copyload.i.i12.i25, ptr %arrayidx.i36, align 8
   %youngGen_.i.i.i.i37 = getelementptr inbounds %"class.hermes::vm::Runtime", ptr %runtime, i64 0, i32 97, i32 0, i32 5
@@ -3436,7 +3434,7 @@ if.then.i.i.i40:                                  ; preds = %if.then.i33
   br label %_ZN6hermes2vm17GCHermesValueBaseINS0_11HermesValueEEC2ISt17integral_constantIbLb1EEEES2_RNS0_7HadesGCE.exit.i42
 
 _ZN6hermes2vm17GCHermesValueBaseINS0_11HermesValueEEC2ISt17integral_constantIbLb1EEEES2_RNS0_7HadesGCE.exit.i42: ; preds = %if.then.i.i.i40, %if.then.i33
-  %add.i43 = add nuw i32 %17, 1
+  %add.i43 = add nuw nsw i32 %17, 1
   store atomic i32 %add.i43, ptr %size_.i.i24 release, align 4
   br label %if.end20
 
@@ -3716,7 +3714,7 @@ cleanup:                                          ; preds = %bail, %if.then
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden nonnull ptr @_ZN6hermes2vm14NativeFunction14_newObjectImplENS0_6HandleINS0_8CallableEEERNS0_7RuntimeENS2_INS0_8JSObjectEEE(ptr nocapture readnone %.coerce, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nocapture readnone %.coerce2) #0 align 2 {
+define hidden noundef nonnull ptr @_ZN6hermes2vm14NativeFunction14_newObjectImplENS0_6HandleINS0_8CallableEEERNS0_7RuntimeENS2_INS0_8JSObjectEEE(ptr nocapture readnone %.coerce, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nocapture readnone %.coerce2) #0 align 2 {
 entry:
   %ref.tmp = alloca %"class.hermes::vm::TwineChar16", align 8
   %rightKind_.i3.i = getelementptr inbounds %"class.hermes::vm::TwineChar16", ptr %ref.tmp, i64 0, i32 3
@@ -4218,7 +4216,7 @@ _ZN6hermes2vm17CallableBuildMetaEPKNS0_6GCCellERNS0_8Metadata7BuilderE.exit: ; p
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden ptr @_ZN6hermes2vm10JSFunction6createERNS0_7RuntimeENS0_6HandleINS0_6DomainEEENS4_INS0_8JSObjectEEENS4_INS0_11EnvironmentEEEPNS0_9CodeBlockE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr %domain.coerce, ptr %parentHandle.coerce, ptr %envHandle.coerce, ptr noundef %codeBlock) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN6hermes2vm10JSFunction6createERNS0_7RuntimeENS0_6HandleINS0_6DomainEEENS4_INS0_8JSObjectEEENS4_INS0_11EnvironmentEEEPNS0_9CodeBlockE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr %domain.coerce, ptr %parentHandle.coerce, ptr %envHandle.coerce, ptr noundef %codeBlock) local_unnamed_addr #0 align 2 {
 entry:
   %domain = alloca %"class.hermes::vm::Handle.254", align 8
   %parentHandle = alloca %"class.hermes::vm::Handle", align 8
@@ -4270,7 +4268,7 @@ _ZN6hermes2vm19JSFunctionBuildMetaEPKNS0_6GCCellERNS0_8Metadata7BuilderE.exit: ;
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden ptr @_ZN6hermes2vm15JSAsyncFunction6createERNS0_7RuntimeENS0_6HandleINS0_6DomainEEENS4_INS0_8JSObjectEEENS4_INS0_11EnvironmentEEEPNS0_9CodeBlockE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr %domain.coerce, ptr %parentHandle.coerce, ptr %envHandle.coerce, ptr noundef %codeBlock) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN6hermes2vm15JSAsyncFunction6createERNS0_7RuntimeENS0_6HandleINS0_6DomainEEENS4_INS0_8JSObjectEEENS4_INS0_11EnvironmentEEEPNS0_9CodeBlockE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr %domain.coerce, ptr %parentHandle.coerce, ptr %envHandle.coerce, ptr noundef %codeBlock) local_unnamed_addr #0 align 2 {
 entry:
   %domain = alloca %"class.hermes::vm::Handle.254", align 8
   %parentHandle = alloca %"class.hermes::vm::Handle", align 8
@@ -4320,7 +4318,7 @@ _ZN6hermes2vm19JSFunctionBuildMetaEPKNS0_6GCCellERNS0_8Metadata7BuilderE.exit: ;
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden ptr @_ZN6hermes2vm19JSGeneratorFunction6createERNS0_7RuntimeENS0_6HandleINS0_6DomainEEENS4_INS0_8JSObjectEEENS4_INS0_11EnvironmentEEEPNS0_9CodeBlockE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr %domain.coerce, ptr %parentHandle.coerce, ptr %envHandle.coerce, ptr noundef %codeBlock) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN6hermes2vm19JSGeneratorFunction6createERNS0_7RuntimeENS0_6HandleINS0_6DomainEEENS4_INS0_8JSObjectEEENS4_INS0_11EnvironmentEEEPNS0_9CodeBlockE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr %domain.coerce, ptr %parentHandle.coerce, ptr %envHandle.coerce, ptr noundef %codeBlock) local_unnamed_addr #0 align 2 {
 entry:
   %domain = alloca %"class.hermes::vm::Handle.254", align 8
   %parentHandle = alloca %"class.hermes::vm::Handle", align 8
@@ -4985,7 +4983,7 @@ cleanup:                                          ; preds = %if.end63, %if.then
   ret { i32, i64 } %.fca.1.insert
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define hidden void @_ZN6hermes2vm22GeneratorInnerFunction12restoreStackERNS0_7RuntimeE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(9832) %runtime) local_unnamed_addr #5 align 2 {
 entry:
   %argCount_.i = getelementptr inbounds %"class.hermes::vm::GeneratorInnerFunction", ptr %this, i64 0, i32 2
@@ -5728,7 +5726,7 @@ attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protect
 attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #3 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #5 = { mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }

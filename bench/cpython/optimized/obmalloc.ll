@@ -6259,7 +6259,7 @@ if.end.i.i:                                       ; preds = %entry
   %sub.i.i.i = add i64 %0, -1
   %and.i.i.i = and i64 %sub.i.i.i, -33554432
   %1 = inttoptr i64 %and.i.i.i to ptr
-  %cmp.i.i.i = icmp ugt ptr %1, inttoptr (i64 43980465111039 to ptr)
+  %cmp.i.i.i = icmp ugt i64 %and.i.i.i, 43980465111039
   %div4.i.i.i = lshr i64 %sub.i.i.i, 25
   %rem.i.i.i = and i64 %div4.i.i.i, 63
   %div15.i.i.i = lshr i64 %sub.i.i.i, 31
@@ -13087,7 +13087,7 @@ do.body.i.i.i.i:                                  ; preds = %lor.rhs.i.i.i.i, %d
   %18 = load atomic i64, ptr %xthread_free.i.i.i.i acquire, align 8
   %19 = trunc i64 %18 to i32
   %conv.i.i.i.i.i = and i32 %19, 3
-  switch i32 %conv.i.i.i.i.i, label %do.body.i.i.unreachabledefault.i.i [
+  switch i32 %conv.i.i.i.i.i, label %default.unreachable [
     i32 1, label %if.then.i.i.i.i
     i32 3, label %_mi_page_use_delayed_free.exit.i.i
     i32 0, label %_mi_page_use_delayed_free.exit.i.i
@@ -13107,7 +13107,7 @@ do.body.outer.i.i.i.i.backedge:                   ; preds = %do.cond.i.i.i.i, %w
   %yield_count.0.ph.i.i.i.i.be = phi i64 [ %inc.i.i.i.i, %do.cond.i.i.i.i ], [ 0, %while.body.i.i.i ]
   br label %do.body.outer.i.i.i.i, !llvm.loop !67
 
-do.body.i.i.unreachabledefault.i.i:               ; preds = %do.body.i.i.i.i
+default.unreachable:                              ; preds = %do.body.i.i.i.i
   unreachable
 
 lor.rhs.i.i.i.i:                                  ; preds = %do.body.i.i.i.i
@@ -18141,7 +18141,7 @@ do.body.i.i:                                      ; preds = %lor.rhs.i.i, %do.bo
   %2 = load atomic i64, ptr %xthread_free.i.i acquire, align 8
   %3 = trunc i64 %2 to i32
   %conv.i.i.i = and i32 %3, 3
-  switch i32 %conv.i.i.i, label %do.body.i.i.unreachabledefault [
+  switch i32 %conv.i.i.i, label %default.unreachable [
     i32 1, label %if.then.i.i
     i32 3, label %_mi_page_use_delayed_free.exit
     i32 0, label %_mi_page_use_delayed_free.exit
@@ -18161,7 +18161,7 @@ do.body.outer.i.i.backedge:                       ; preds = %do.cond.i.i, %while
   %yield_count.0.ph.i.i.be = phi i64 [ %inc.i.i, %do.cond.i.i ], [ 0, %while.body.i ]
   br label %do.body.outer.i.i, !llvm.loop !67
 
-do.body.i.i.unreachabledefault:                   ; preds = %do.body.i.i
+default.unreachable:                              ; preds = %do.body.i.i
   unreachable
 
 lor.rhs.i.i:                                      ; preds = %do.body.i.i

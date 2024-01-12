@@ -3003,12 +3003,15 @@ _ZN5folly19make_hazard_pointerISt6atomicEENS_13hazptr_holderIT_EERNS_13hazptr_do
   store atomic i64 %5, ptr %hptr.i.sroa.0.1 release, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !170
   %6 = load atomic i64, ptr %p_.i acquire, align 128
-  %atomic-temp.0.i.i70103 = inttoptr i64 %6 to ptr
-  %cmp.not.i47104 = icmp eq ptr %atomic-temp.0.i.i, %atomic-temp.0.i.i70103
-  br i1 %cmp.not.i47104, label %_ZN5folly13hazptr_holderISt6atomicE7protectINS_14UnboundedQueueINS_21CPUThreadPoolExecutor7CPUTaskELb0ELb0ELb0ELm6ELm7ES1_E7SegmentEZNS2_7protectIS8_EEPT_RKS1_ISB_EEUlPS8_E_EESB_SE_T0_.exit, label %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14UnboundedQueueINS_21CPUThreadPoolExecutor7CPUTaskELb0ELb0ELb0ELm6ELm7ES1_E7SegmentEZNS2_7protectIS8_EEPT_RKS1_ISB_EEUlPS8_E_EEbRSB_SE_T0_.exit, !prof !171
+  %cmp.not.i47104 = icmp eq i64 %5, %6
+  br i1 %cmp.not.i47104, label %_ZN5folly13hazptr_holderISt6atomicE7protectINS_14UnboundedQueueINS_21CPUThreadPoolExecutor7CPUTaskELb0ELb0ELb0ELm6ELm7ES1_E7SegmentEZNS2_7protectIS8_EEPT_RKS1_ISB_EEUlPS8_E_EESB_SE_T0_.exit, label %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14UnboundedQueueINS_21CPUThreadPoolExecutor7CPUTaskELb0ELb0ELb0ELm6ELm7ES1_E7SegmentEZNS2_7protectIS8_EEPT_RKS1_ISB_EEUlPS8_E_EEbRSB_SE_T0_.exit.preheader, !prof !171
 
-_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14UnboundedQueueINS_21CPUThreadPoolExecutor7CPUTaskELb0ELb0ELb0ELm6ELm7ES1_E7SegmentEZNS2_7protectIS8_EEPT_RKS1_ISB_EEUlPS8_E_EEbRSB_SE_T0_.exit: ; preds = %_ZN5folly19make_hazard_pointerISt6atomicEENS_13hazptr_holderIT_EERNS_13hazptr_domainIS3_EE.exit, %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14UnboundedQueueINS_21CPUThreadPoolExecutor7CPUTaskELb0ELb0ELb0ELm6ELm7ES1_E7SegmentEZNS2_7protectIS8_EEPT_RKS1_ISB_EEUlPS8_E_EEbRSB_SE_T0_.exit
-  %atomic-temp.0.i.i70105 = phi ptr [ %atomic-temp.0.i.i70, %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14UnboundedQueueINS_21CPUThreadPoolExecutor7CPUTaskELb0ELb0ELb0ELm6ELm7ES1_E7SegmentEZNS2_7protectIS8_EEPT_RKS1_ISB_EEUlPS8_E_EEbRSB_SE_T0_.exit ], [ %atomic-temp.0.i.i70103, %_ZN5folly19make_hazard_pointerISt6atomicEENS_13hazptr_holderIT_EERNS_13hazptr_domainIS3_EE.exit ]
+_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14UnboundedQueueINS_21CPUThreadPoolExecutor7CPUTaskELb0ELb0ELb0ELm6ELm7ES1_E7SegmentEZNS2_7protectIS8_EEPT_RKS1_ISB_EEUlPS8_E_EEbRSB_SE_T0_.exit.preheader: ; preds = %_ZN5folly19make_hazard_pointerISt6atomicEENS_13hazptr_holderIT_EERNS_13hazptr_domainIS3_EE.exit
+  %atomic-temp.0.i.i70103 = inttoptr i64 %6 to ptr
+  br label %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14UnboundedQueueINS_21CPUThreadPoolExecutor7CPUTaskELb0ELb0ELb0ELm6ELm7ES1_E7SegmentEZNS2_7protectIS8_EEPT_RKS1_ISB_EEUlPS8_E_EEbRSB_SE_T0_.exit
+
+_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14UnboundedQueueINS_21CPUThreadPoolExecutor7CPUTaskELb0ELb0ELb0ELm6ELm7ES1_E7SegmentEZNS2_7protectIS8_EEPT_RKS1_ISB_EEUlPS8_E_EEbRSB_SE_T0_.exit: ; preds = %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14UnboundedQueueINS_21CPUThreadPoolExecutor7CPUTaskELb0ELb0ELb0ELm6ELm7ES1_E7SegmentEZNS2_7protectIS8_EEPT_RKS1_ISB_EEUlPS8_E_EEbRSB_SE_T0_.exit.preheader, %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14UnboundedQueueINS_21CPUThreadPoolExecutor7CPUTaskELb0ELb0ELb0ELm6ELm7ES1_E7SegmentEZNS2_7protectIS8_EEPT_RKS1_ISB_EEUlPS8_E_EEbRSB_SE_T0_.exit
+  %atomic-temp.0.i.i70105 = phi ptr [ %atomic-temp.0.i.i70, %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14UnboundedQueueINS_21CPUThreadPoolExecutor7CPUTaskELb0ELb0ELb0ELm6ELm7ES1_E7SegmentEZNS2_7protectIS8_EEPT_RKS1_ISB_EEUlPS8_E_EEbRSB_SE_T0_.exit ], [ %atomic-temp.0.i.i70103, %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14UnboundedQueueINS_21CPUThreadPoolExecutor7CPUTaskELb0ELb0ELb0ELm6ELm7ES1_E7SegmentEZNS2_7protectIS8_EEPT_RKS1_ISB_EEUlPS8_E_EEbRSB_SE_T0_.exit.preheader ]
   store atomic i64 0, ptr %hptr.i.sroa.0.1 release, align 8
   %7 = ptrtoint ptr %atomic-temp.0.i.i70105 to i64
   store atomic i64 %7, ptr %hptr.i.sroa.0.1 release, align 8
@@ -3479,12 +3482,15 @@ _ZN5folly19make_hazard_pointerISt6atomicEENS_13hazptr_holderIT_EERNS_13hazptr_do
   store atomic i64 %5, ptr %hptr.i.sroa.0.1 release, align 8, !noalias !186
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !noalias !186, !srcloc !170
   %6 = load atomic i64, ptr %queue_ acquire, align 128, !noalias !186
-  %atomic-temp.0.i.i1029 = inttoptr i64 %6 to ptr
-  %cmp.not.i27.i30 = icmp eq ptr %atomic-temp.0.i.i, %atomic-temp.0.i.i1029
-  br i1 %cmp.not.i27.i30, label %_ZN5folly13hazptr_holderISt6atomicE7protectINS_14UnboundedQueueINS_21CPUThreadPoolExecutor7CPUTaskELb0ELb0ELb0ELm6ELm7ES1_E7SegmentEZNS2_7protectIS8_EEPT_RKS1_ISB_EEUlPS8_E_EESB_SE_T0_.exit.i, label %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14UnboundedQueueINS_21CPUThreadPoolExecutor7CPUTaskELb0ELb0ELb0ELm6ELm7ES1_E7SegmentEZNS2_7protectIS8_EEPT_RKS1_ISB_EEUlPS8_E_EEbRSB_SE_T0_.exit.i, !prof !171
+  %cmp.not.i27.i30 = icmp eq i64 %5, %6
+  br i1 %cmp.not.i27.i30, label %_ZN5folly13hazptr_holderISt6atomicE7protectINS_14UnboundedQueueINS_21CPUThreadPoolExecutor7CPUTaskELb0ELb0ELb0ELm6ELm7ES1_E7SegmentEZNS2_7protectIS8_EEPT_RKS1_ISB_EEUlPS8_E_EESB_SE_T0_.exit.i, label %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14UnboundedQueueINS_21CPUThreadPoolExecutor7CPUTaskELb0ELb0ELb0ELm6ELm7ES1_E7SegmentEZNS2_7protectIS8_EEPT_RKS1_ISB_EEUlPS8_E_EEbRSB_SE_T0_.exit.i.preheader, !prof !171
 
-_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14UnboundedQueueINS_21CPUThreadPoolExecutor7CPUTaskELb0ELb0ELb0ELm6ELm7ES1_E7SegmentEZNS2_7protectIS8_EEPT_RKS1_ISB_EEUlPS8_E_EEbRSB_SE_T0_.exit.i: ; preds = %_ZN5folly19make_hazard_pointerISt6atomicEENS_13hazptr_holderIT_EERNS_13hazptr_domainIS3_EE.exit.i, %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14UnboundedQueueINS_21CPUThreadPoolExecutor7CPUTaskELb0ELb0ELb0ELm6ELm7ES1_E7SegmentEZNS2_7protectIS8_EEPT_RKS1_ISB_EEUlPS8_E_EEbRSB_SE_T0_.exit.i
-  %atomic-temp.0.i.i1031 = phi ptr [ %atomic-temp.0.i.i10, %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14UnboundedQueueINS_21CPUThreadPoolExecutor7CPUTaskELb0ELb0ELb0ELm6ELm7ES1_E7SegmentEZNS2_7protectIS8_EEPT_RKS1_ISB_EEUlPS8_E_EEbRSB_SE_T0_.exit.i ], [ %atomic-temp.0.i.i1029, %_ZN5folly19make_hazard_pointerISt6atomicEENS_13hazptr_holderIT_EERNS_13hazptr_domainIS3_EE.exit.i ]
+_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14UnboundedQueueINS_21CPUThreadPoolExecutor7CPUTaskELb0ELb0ELb0ELm6ELm7ES1_E7SegmentEZNS2_7protectIS8_EEPT_RKS1_ISB_EEUlPS8_E_EEbRSB_SE_T0_.exit.i.preheader: ; preds = %_ZN5folly19make_hazard_pointerISt6atomicEENS_13hazptr_holderIT_EERNS_13hazptr_domainIS3_EE.exit.i
+  %atomic-temp.0.i.i1029 = inttoptr i64 %6 to ptr
+  br label %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14UnboundedQueueINS_21CPUThreadPoolExecutor7CPUTaskELb0ELb0ELb0ELm6ELm7ES1_E7SegmentEZNS2_7protectIS8_EEPT_RKS1_ISB_EEUlPS8_E_EEbRSB_SE_T0_.exit.i
+
+_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14UnboundedQueueINS_21CPUThreadPoolExecutor7CPUTaskELb0ELb0ELb0ELm6ELm7ES1_E7SegmentEZNS2_7protectIS8_EEPT_RKS1_ISB_EEUlPS8_E_EEbRSB_SE_T0_.exit.i: ; preds = %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14UnboundedQueueINS_21CPUThreadPoolExecutor7CPUTaskELb0ELb0ELb0ELm6ELm7ES1_E7SegmentEZNS2_7protectIS8_EEPT_RKS1_ISB_EEUlPS8_E_EEbRSB_SE_T0_.exit.i.preheader, %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14UnboundedQueueINS_21CPUThreadPoolExecutor7CPUTaskELb0ELb0ELb0ELm6ELm7ES1_E7SegmentEZNS2_7protectIS8_EEPT_RKS1_ISB_EEUlPS8_E_EEbRSB_SE_T0_.exit.i
+  %atomic-temp.0.i.i1031 = phi ptr [ %atomic-temp.0.i.i10, %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14UnboundedQueueINS_21CPUThreadPoolExecutor7CPUTaskELb0ELb0ELb0ELm6ELm7ES1_E7SegmentEZNS2_7protectIS8_EEPT_RKS1_ISB_EEUlPS8_E_EEbRSB_SE_T0_.exit.i ], [ %atomic-temp.0.i.i1029, %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14UnboundedQueueINS_21CPUThreadPoolExecutor7CPUTaskELb0ELb0ELb0ELm6ELm7ES1_E7SegmentEZNS2_7protectIS8_EEPT_RKS1_ISB_EEUlPS8_E_EEbRSB_SE_T0_.exit.i.preheader ]
   store atomic i64 0, ptr %hptr.i.sroa.0.1 release, align 8, !noalias !186
   %7 = ptrtoint ptr %atomic-temp.0.i.i1031 to i64
   store atomic i64 %7, ptr %hptr.i.sroa.0.1 release, align 8, !noalias !186
@@ -3809,12 +3815,15 @@ _ZN5folly19make_hazard_pointerISt6atomicEENS_13hazptr_holderIT_EERNS_13hazptr_do
   store atomic i64 %5, ptr %hptr.i.sroa.0.1 release, align 8, !noalias !199
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !noalias !199, !srcloc !170
   %6 = load atomic i64, ptr %queue_ acquire, align 128, !noalias !199
-  %atomic-temp.0.i.i1170 = inttoptr i64 %6 to ptr
-  %cmp.not.i27.i71 = icmp eq ptr %atomic-temp.0.i.i, %atomic-temp.0.i.i1170
-  br i1 %cmp.not.i27.i71, label %_ZN5folly13hazptr_holderISt6atomicE7protectINS_14UnboundedQueueINS_21CPUThreadPoolExecutor7CPUTaskELb0ELb0ELb0ELm6ELm7ES1_E7SegmentEZNS2_7protectIS8_EEPT_RKS1_ISB_EEUlPS8_E_EESB_SE_T0_.exit.i, label %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14UnboundedQueueINS_21CPUThreadPoolExecutor7CPUTaskELb0ELb0ELb0ELm6ELm7ES1_E7SegmentEZNS2_7protectIS8_EEPT_RKS1_ISB_EEUlPS8_E_EEbRSB_SE_T0_.exit.i, !prof !171
+  %cmp.not.i27.i71 = icmp eq i64 %5, %6
+  br i1 %cmp.not.i27.i71, label %_ZN5folly13hazptr_holderISt6atomicE7protectINS_14UnboundedQueueINS_21CPUThreadPoolExecutor7CPUTaskELb0ELb0ELb0ELm6ELm7ES1_E7SegmentEZNS2_7protectIS8_EEPT_RKS1_ISB_EEUlPS8_E_EESB_SE_T0_.exit.i, label %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14UnboundedQueueINS_21CPUThreadPoolExecutor7CPUTaskELb0ELb0ELb0ELm6ELm7ES1_E7SegmentEZNS2_7protectIS8_EEPT_RKS1_ISB_EEUlPS8_E_EEbRSB_SE_T0_.exit.i.preheader, !prof !171
 
-_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14UnboundedQueueINS_21CPUThreadPoolExecutor7CPUTaskELb0ELb0ELb0ELm6ELm7ES1_E7SegmentEZNS2_7protectIS8_EEPT_RKS1_ISB_EEUlPS8_E_EEbRSB_SE_T0_.exit.i: ; preds = %_ZN5folly19make_hazard_pointerISt6atomicEENS_13hazptr_holderIT_EERNS_13hazptr_domainIS3_EE.exit.i, %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14UnboundedQueueINS_21CPUThreadPoolExecutor7CPUTaskELb0ELb0ELb0ELm6ELm7ES1_E7SegmentEZNS2_7protectIS8_EEPT_RKS1_ISB_EEUlPS8_E_EEbRSB_SE_T0_.exit.i
-  %atomic-temp.0.i.i1172 = phi ptr [ %atomic-temp.0.i.i11, %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14UnboundedQueueINS_21CPUThreadPoolExecutor7CPUTaskELb0ELb0ELb0ELm6ELm7ES1_E7SegmentEZNS2_7protectIS8_EEPT_RKS1_ISB_EEUlPS8_E_EEbRSB_SE_T0_.exit.i ], [ %atomic-temp.0.i.i1170, %_ZN5folly19make_hazard_pointerISt6atomicEENS_13hazptr_holderIT_EERNS_13hazptr_domainIS3_EE.exit.i ]
+_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14UnboundedQueueINS_21CPUThreadPoolExecutor7CPUTaskELb0ELb0ELb0ELm6ELm7ES1_E7SegmentEZNS2_7protectIS8_EEPT_RKS1_ISB_EEUlPS8_E_EEbRSB_SE_T0_.exit.i.preheader: ; preds = %_ZN5folly19make_hazard_pointerISt6atomicEENS_13hazptr_holderIT_EERNS_13hazptr_domainIS3_EE.exit.i
+  %atomic-temp.0.i.i1170 = inttoptr i64 %6 to ptr
+  br label %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14UnboundedQueueINS_21CPUThreadPoolExecutor7CPUTaskELb0ELb0ELb0ELm6ELm7ES1_E7SegmentEZNS2_7protectIS8_EEPT_RKS1_ISB_EEUlPS8_E_EEbRSB_SE_T0_.exit.i
+
+_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14UnboundedQueueINS_21CPUThreadPoolExecutor7CPUTaskELb0ELb0ELb0ELm6ELm7ES1_E7SegmentEZNS2_7protectIS8_EEPT_RKS1_ISB_EEUlPS8_E_EEbRSB_SE_T0_.exit.i: ; preds = %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14UnboundedQueueINS_21CPUThreadPoolExecutor7CPUTaskELb0ELb0ELb0ELm6ELm7ES1_E7SegmentEZNS2_7protectIS8_EEPT_RKS1_ISB_EEUlPS8_E_EEbRSB_SE_T0_.exit.i.preheader, %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14UnboundedQueueINS_21CPUThreadPoolExecutor7CPUTaskELb0ELb0ELb0ELm6ELm7ES1_E7SegmentEZNS2_7protectIS8_EEPT_RKS1_ISB_EEUlPS8_E_EEbRSB_SE_T0_.exit.i
+  %atomic-temp.0.i.i1172 = phi ptr [ %atomic-temp.0.i.i11, %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14UnboundedQueueINS_21CPUThreadPoolExecutor7CPUTaskELb0ELb0ELb0ELm6ELm7ES1_E7SegmentEZNS2_7protectIS8_EEPT_RKS1_ISB_EEUlPS8_E_EEbRSB_SE_T0_.exit.i ], [ %atomic-temp.0.i.i1170, %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14UnboundedQueueINS_21CPUThreadPoolExecutor7CPUTaskELb0ELb0ELb0ELm6ELm7ES1_E7SegmentEZNS2_7protectIS8_EEPT_RKS1_ISB_EEUlPS8_E_EEbRSB_SE_T0_.exit.i.preheader ]
   store atomic i64 0, ptr %hptr.i.sroa.0.1 release, align 8, !noalias !199
   %7 = ptrtoint ptr %atomic-temp.0.i.i1172 to i64
   store atomic i64 %7, ptr %hptr.i.sroa.0.1 release, align 8, !noalias !199
@@ -4837,31 +4846,30 @@ _ZN5folly8Executor9KeepAliveIS0_EC2ERKS2_.exit:   ; preds = %if.end.i.i, %if.end
 
 invoke.cont12:                                    ; preds = %_ZN5folly8Executor9KeepAliveIS0_EC2ERKS2_.exit
   %and.i = and i64 %5, -4
-  %6 = inttoptr i64 %and.i to ptr
-  %7 = load i64, ptr %ref.tmp, align 8, !tbaa !146
-  %and.i48 = and i64 %7, -4
-  %8 = inttoptr i64 %and.i48 to ptr
-  %cmp16 = icmp eq ptr %6, %8
+  %6 = load i64, ptr %ref.tmp, align 8, !tbaa !146
+  %and.i48 = and i64 %6, -4
+  %7 = inttoptr i64 %and.i48 to ptr
+  %cmp16 = icmp eq i64 %and.i, %and.i48
   %tobool.not.i.i49 = icmp eq i64 %and.i48, 0
   br i1 %tobool.not.i.i49, label %_ZN5folly8Executor9KeepAliveIS0_ED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %invoke.cont12
   store i64 0, ptr %ref.tmp, align 8, !tbaa !146
-  %and.i.i50 = and i64 %7, 3
+  %and.i.i50 = and i64 %6, 3
   %tobool4.not.i.i = icmp eq i64 %and.i.i50, 0
   br i1 %tobool4.not.i.i, label %if.then5.i.i, label %_ZN5folly8Executor9KeepAliveIS0_ED2Ev.exit
 
 if.then5.i.i:                                     ; preds = %if.then.i.i
-  %vtable.i.i51 = load ptr, ptr %8, align 8, !tbaa !22
+  %vtable.i.i51 = load ptr, ptr %7, align 8, !tbaa !22
   %vfn.i.i52 = getelementptr inbounds ptr, ptr %vtable.i.i51, i64 6
-  %9 = load ptr, ptr %vfn.i.i52, align 8
-  call void %9(ptr noundef nonnull align 8 dereferenceable(8) %8) #23
+  %8 = load ptr, ptr %vfn.i.i52, align 8
+  call void %8(ptr noundef nonnull align 8 dereferenceable(8) %7) #23
   br label %_ZN5folly8Executor9KeepAliveIS0_ED2Ev.exit
 
 _ZN5folly8Executor9KeepAliveIS0_ED2Ev.exit:       ; preds = %if.then5.i.i, %if.then.i.i, %invoke.cont12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp) #23
-  %10 = load i64, ptr %ex, align 8, !tbaa !232
-  %and.i.i53 = and i64 %10, -4
+  %9 = load i64, ptr %ex, align 8, !tbaa !232
+  %and.i.i53 = and i64 %9, -4
   br i1 %cmp16, label %if.then17, label %if.else
 
 if.then17:                                        ; preds = %_ZN5folly8Executor9KeepAliveIS0_ED2Ev.exit
@@ -4869,11 +4877,11 @@ if.then17:                                        ; preds = %_ZN5folly8Executor9
   br i1 %tobool.not.i.i54, label %_ZN5folly8Executor9KeepAliveIS0_EC2ERKS2_.exit63, label %if.end.i.i55
 
 if.end.i.i55:                                     ; preds = %if.then17
-  %11 = inttoptr i64 %and.i.i53 to ptr
-  %vtable.i.i56 = load ptr, ptr %11, align 8, !tbaa !22, !noalias !237
+  %10 = inttoptr i64 %and.i.i53 to ptr
+  %vtable.i.i56 = load ptr, ptr %10, align 8, !tbaa !22, !noalias !237
   %vfn.i.i57 = getelementptr inbounds ptr, ptr %vtable.i.i56, i64 5
-  %12 = load ptr, ptr %vfn.i.i57, align 8, !noalias !237
-  %call.i.i58 = call noundef zeroext i1 %12(ptr noundef nonnull align 8 dereferenceable(8) %11) #23, !noalias !237
+  %11 = load ptr, ptr %vfn.i.i57, align 8, !noalias !237
+  %call.i.i58 = call noundef zeroext i1 %11(ptr noundef nonnull align 8 dereferenceable(8) %10) #23, !noalias !237
   %not.call.i.i59 = xor i1 %call.i.i58, true
   %or.i.i.i.i60 = zext i1 %not.call.i.i59 to i64
   %spec.select.i.i61 = or disjoint i64 %and.i.i53, %or.i.i.i.i60
@@ -4890,60 +4898,60 @@ _ZZN5folly13hazptr_domainISt6atomicE30invoke_reclamation_in_executorEiENUlvE_C2E
   br label %_ZZN5folly13hazptr_domainISt6atomicE30invoke_reclamation_in_executorEiENUlvE_C2ERKS3_.exit.i
 
 _ZZN5folly13hazptr_domainISt6atomicE30invoke_reclamation_in_executorEiENUlvE_C2ERKS3_.exit: ; preds = %_ZN5folly8Executor9KeepAliveIS0_EC2ERKS2_.exit63
-  %13 = inttoptr i64 %and.i.i.i64 to ptr
-  %vtable.i.i.i = load ptr, ptr %13, align 8, !tbaa !22, !noalias !240
+  %12 = inttoptr i64 %and.i.i.i64 to ptr
+  %vtable.i.i.i = load ptr, ptr %12, align 8, !tbaa !22, !noalias !240
   %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 5
-  %14 = load ptr, ptr %vfn.i.i.i, align 8, !noalias !240
-  %call.i.i.i = call noundef zeroext i1 %14(ptr noundef nonnull align 8 dereferenceable(8) %13) #23, !noalias !240
+  %13 = load ptr, ptr %vfn.i.i.i, align 8, !noalias !240
+  %call.i.i.i = call noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(8) %12) #23, !noalias !240
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %agg.tmp.i)
-  %vtable.i.i.i.i = load ptr, ptr %13, align 8, !tbaa !22, !noalias !243
+  %vtable.i.i.i.i = load ptr, ptr %12, align 8, !tbaa !22, !noalias !243
   %vfn.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i, i64 5
-  %15 = load ptr, ptr %vfn.i.i.i.i, align 8, !noalias !243
-  %call.i.i.i.i = call noundef zeroext i1 %15(ptr noundef nonnull align 8 dereferenceable(8) %13) #23, !noalias !243
+  %14 = load ptr, ptr %vfn.i.i.i.i, align 8, !noalias !243
+  %call.i.i.i.i = call noundef zeroext i1 %14(ptr noundef nonnull align 8 dereferenceable(8) %12) #23, !noalias !243
   %not.call.i.i.i.i = xor i1 %call.i.i.i.i, true
   %or.i.i.i.i.i.i = zext i1 %not.call.i.i.i.i to i64
   %spec.select.i.i.i.i = or disjoint i64 %and.i.i.i64, %or.i.i.i.i.i.i
   br label %_ZZN5folly13hazptr_domainISt6atomicE30invoke_reclamation_in_executorEiENUlvE_C2ERKS3_.exit.i
 
 _ZZN5folly13hazptr_domainISt6atomicE30invoke_reclamation_in_executorEiENUlvE_C2ERKS3_.exit.i: ; preds = %_ZZN5folly13hazptr_domainISt6atomicE30invoke_reclamation_in_executorEiENUlvE_C2ERKS3_.exit, %_ZZN5folly13hazptr_domainISt6atomicE30invoke_reclamation_in_executorEiENUlvE_C2ERKS3_.exit.thread
-  %and.i.i.i.i196 = phi ptr [ %13, %_ZZN5folly13hazptr_domainISt6atomicE30invoke_reclamation_in_executorEiENUlvE_C2ERKS3_.exit ], [ null, %_ZZN5folly13hazptr_domainISt6atomicE30invoke_reclamation_in_executorEiENUlvE_C2ERKS3_.exit.thread ]
+  %and.i.i.i.i196 = phi ptr [ %12, %_ZZN5folly13hazptr_domainISt6atomicE30invoke_reclamation_in_executorEiENUlvE_C2ERKS3_.exit ], [ null, %_ZZN5folly13hazptr_domainISt6atomicE30invoke_reclamation_in_executorEiENUlvE_C2ERKS3_.exit.thread ]
   %.sink.i.i.i192 = phi i1 [ %call.i.i.i, %_ZZN5folly13hazptr_domainISt6atomicE30invoke_reclamation_in_executorEiENUlvE_C2ERKS3_.exit ], [ true, %_ZZN5folly13hazptr_domainISt6atomicE30invoke_reclamation_in_executorEiENUlvE_C2ERKS3_.exit.thread ]
   %.sink.i.i.i.i = phi i64 [ %spec.select.i.i.i.i, %_ZZN5folly13hazptr_domainISt6atomicE30invoke_reclamation_in_executorEiENUlvE_C2ERKS3_.exit ], [ 0, %_ZZN5folly13hazptr_domainISt6atomicE30invoke_reclamation_in_executorEiENUlvE_C2ERKS3_.exit.thread ]
   %and.i.i.i65194 = and i64 %.sink.i.i62, -4
-  %16 = inttoptr i64 %and.i.i.i65194 to ptr
+  %15 = inttoptr i64 %and.i.i.i65194 to ptr
   %call_.i.i = getelementptr inbounds %"class.folly::Function", ptr %agg.tmp.i, i64 0, i32 1
   %exec_.i.i = getelementptr inbounds %"class.folly::Function", ptr %agg.tmp.i, i64 0, i32 2
   store ptr @_ZN5folly14default_domainE, ptr %agg.tmp.i, align 16
   %agg.tmp2.sroa.0.i.sroa.4.0.agg.tmp.i.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp.i, i64 8
   store i32 %rcount, ptr %agg.tmp2.sroa.0.i.sroa.4.0.agg.tmp.i.sroa_idx, align 8
-  %17 = getelementptr inbounds %class.anon.45, ptr %agg.tmp.i, i64 0, i32 2
-  store i64 %.sink.i.i.i.i, ptr %17, align 16, !tbaa !232
+  %16 = getelementptr inbounds %class.anon.45, ptr %agg.tmp.i, i64 0, i32 2
+  store i64 %.sink.i.i.i.i, ptr %16, align 16, !tbaa !232
   store ptr @_ZN5folly6detail8function14FunctionTraitsIFvvEE9callSmallIZNS_13hazptr_domainISt6atomicE30invoke_reclamation_in_executorEiEUlvE_EEvRNS1_4DataE, ptr %call_.i.i, align 16, !tbaa !50
   store ptr @_ZN5folly6detail8function13DispatchSmall4execIZNS_13hazptr_domainISt6atomicE30invoke_reclamation_in_executorEiEUlvE_EEmNS1_2OpEPNS1_4DataESA_, ptr %exec_.i.i, align 8, !tbaa !52
-  %vtable.i = load ptr, ptr %16, align 8, !tbaa !22
+  %vtable.i = load ptr, ptr %15, align 8, !tbaa !22
   %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
-  %18 = load ptr, ptr %vfn.i, align 8
-  invoke void %18(ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef nonnull %agg.tmp.i)
+  %17 = load ptr, ptr %vfn.i, align 8
+  invoke void %17(ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull %agg.tmp.i)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %_ZZN5folly13hazptr_domainISt6atomicE30invoke_reclamation_in_executorEiENUlvE_C2ERKS3_.exit.i
-  %19 = load ptr, ptr %exec_.i.i, align 8, !tbaa !52
-  %tobool.not.i.i.i66 = icmp eq ptr %19, null
+  %18 = load ptr, ptr %exec_.i.i, align 8, !tbaa !52
+  %tobool.not.i.i.i66 = icmp eq ptr %18, null
   br i1 %tobool.not.i.i.i66, label %invoke.cont20, label %if.end.i.i.i67
 
 if.end.i.i.i67:                                   ; preds = %invoke.cont.i
-  %call.i.i.i68 = call noundef i64 %19(i32 noundef 1, ptr noundef nonnull %agg.tmp.i, ptr noundef null) #23
+  %call.i.i.i68 = call noundef i64 %18(i32 noundef 1, ptr noundef nonnull %agg.tmp.i, ptr noundef null) #23
   br label %invoke.cont20
 
 lpad.i:                                           ; preds = %_ZZN5folly13hazptr_domainISt6atomicE30invoke_reclamation_in_executorEiENUlvE_C2ERKS3_.exit.i
-  %20 = landingpad { ptr, i32 }
+  %19 = landingpad { ptr, i32 }
           cleanup
-  %21 = load ptr, ptr %exec_.i.i, align 8, !tbaa !52
-  %tobool.not.i.i9.i = icmp eq ptr %21, null
+  %20 = load ptr, ptr %exec_.i.i, align 8, !tbaa !52
+  %tobool.not.i.i9.i = icmp eq ptr %20, null
   br i1 %tobool.not.i.i9.i, label %lpad19.body, label %if.end.i.i10.i
 
 if.end.i.i10.i:                                   ; preds = %lpad.i
-  %call.i.i11.i = call noundef i64 %21(i32 noundef 1, ptr noundef nonnull %agg.tmp.i, ptr noundef null) #23
+  %call.i.i11.i = call noundef i64 %20(i32 noundef 1, ptr noundef nonnull %agg.tmp.i, ptr noundef null) #23
   %.sink.i.i.i192.not = xor i1 %.sink.i.i.i192, true
   %brmerge = or i1 %tobool.not.i.i.i, %.sink.i.i.i192.not
   br i1 %brmerge, label %_ZZN5folly13hazptr_domainISt6atomicE30invoke_reclamation_in_executorEiENUlvE_D2Ev.exit91, label %if.then5.i.i.i88
@@ -4957,8 +4965,8 @@ invoke.cont20:                                    ; preds = %if.end.i.i.i67, %in
 if.then5.i.i.i:                                   ; preds = %invoke.cont20
   %vtable.i.i.i72 = load ptr, ptr %and.i.i.i.i196, align 8, !tbaa !22
   %vfn.i.i.i73 = getelementptr inbounds ptr, ptr %vtable.i.i.i72, i64 6
-  %22 = load ptr, ptr %vfn.i.i.i73, align 8
-  call void %22(ptr noundef nonnull align 8 dereferenceable(8) %and.i.i.i.i196) #23
+  %21 = load ptr, ptr %vfn.i.i.i73, align 8
+  call void %21(ptr noundef nonnull align 8 dereferenceable(8) %and.i.i.i.i196) #23
   br label %_ZZN5folly13hazptr_domainISt6atomicE30invoke_reclamation_in_executorEiENUlvE_D2Ev.exit
 
 _ZZN5folly13hazptr_domainISt6atomicE30invoke_reclamation_in_executorEiENUlvE_D2Ev.exit: ; preds = %if.then5.i.i.i, %invoke.cont20
@@ -4969,19 +4977,19 @@ _ZZN5folly13hazptr_domainISt6atomicE30invoke_reclamation_in_executorEiENUlvE_D2E
   br i1 %or.cond217, label %if.then5.i.i79, label %if.end31
 
 if.then5.i.i79:                                   ; preds = %_ZZN5folly13hazptr_domainISt6atomicE30invoke_reclamation_in_executorEiENUlvE_D2Ev.exit
-  %vtable.i.i80 = load ptr, ptr %16, align 8, !tbaa !22
+  %vtable.i.i80 = load ptr, ptr %15, align 8, !tbaa !22
   %vfn.i.i81 = getelementptr inbounds ptr, ptr %vtable.i.i80, i64 6
-  %23 = load ptr, ptr %vfn.i.i81, align 8
-  call void %23(ptr noundef nonnull align 8 dereferenceable(8) %16) #23
+  %22 = load ptr, ptr %vfn.i.i81, align 8
+  call void %22(ptr noundef nonnull align 8 dereferenceable(8) %15) #23
   br label %if.end31
 
 lpad8:                                            ; preds = %if.then.i
-  %24 = landingpad { ptr, i32 }
+  %23 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup36
 
 lpad11:                                           ; preds = %_ZN5folly8Executor9KeepAliveIS0_EC2ERKS2_.exit
-  %25 = landingpad { ptr, i32 }
+  %24 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp) #23
   br label %ehcleanup36
@@ -4994,8 +5002,8 @@ lpad19.body:                                      ; preds = %lpad.i
 if.then5.i.i.i88:                                 ; preds = %lpad19.body, %if.end.i.i10.i
   %vtable.i.i.i89 = load ptr, ptr %and.i.i.i.i196, align 8, !tbaa !22
   %vfn.i.i.i90 = getelementptr inbounds ptr, ptr %vtable.i.i.i89, i64 6
-  %26 = load ptr, ptr %vfn.i.i.i90, align 8
-  call void %26(ptr noundef nonnull align 8 dereferenceable(8) %and.i.i.i.i196) #23
+  %25 = load ptr, ptr %vfn.i.i.i90, align 8
+  call void %25(ptr noundef nonnull align 8 dereferenceable(8) %and.i.i.i.i196) #23
   br label %_ZZN5folly13hazptr_domainISt6atomicE30invoke_reclamation_in_executorEiENUlvE_D2Ev.exit91
 
 _ZZN5folly13hazptr_domainISt6atomicE30invoke_reclamation_in_executorEiENUlvE_D2Ev.exit91: ; preds = %if.then5.i.i.i88, %lpad19.body, %if.end.i.i10.i
@@ -5006,24 +5014,24 @@ _ZZN5folly13hazptr_domainISt6atomicE30invoke_reclamation_in_executorEiENUlvE_D2E
   br i1 %or.cond218, label %if.then5.i.i97, label %ehcleanup36
 
 if.then5.i.i97:                                   ; preds = %_ZZN5folly13hazptr_domainISt6atomicE30invoke_reclamation_in_executorEiENUlvE_D2Ev.exit91
-  %vtable.i.i98 = load ptr, ptr %16, align 8, !tbaa !22
+  %vtable.i.i98 = load ptr, ptr %15, align 8, !tbaa !22
   %vfn.i.i99 = getelementptr inbounds ptr, ptr %vtable.i.i98, i64 6
-  %27 = load ptr, ptr %vfn.i.i99, align 8
-  call void %27(ptr noundef nonnull align 8 dereferenceable(8) %16) #23
+  %26 = load ptr, ptr %vfn.i.i99, align 8
+  call void %26(ptr noundef nonnull align 8 dereferenceable(8) %15) #23
   br label %ehcleanup36
 
 if.else:                                          ; preds = %_ZN5folly8Executor9KeepAliveIS0_ED2Ev.exit
-  %28 = inttoptr i64 %and.i.i53 to ptr
+  %27 = inttoptr i64 %and.i.i53 to ptr
   %and.i.i.i102 = and i64 %.sink.i.i, -4
   %tobool.not.i.i.i103 = icmp eq i64 %and.i.i.i102, 0
   br i1 %tobool.not.i.i.i103, label %_ZZN5folly13hazptr_domainISt6atomicE30invoke_reclamation_in_executorEiENUlvE_C2ERKS3_.exit112, label %if.end.i.i.i104
 
 if.end.i.i.i104:                                  ; preds = %if.else
-  %29 = inttoptr i64 %and.i.i.i102 to ptr
-  %vtable.i.i.i105 = load ptr, ptr %29, align 8, !tbaa !22, !noalias !246
+  %28 = inttoptr i64 %and.i.i.i102 to ptr
+  %vtable.i.i.i105 = load ptr, ptr %28, align 8, !tbaa !22, !noalias !246
   %vfn.i.i.i106 = getelementptr inbounds ptr, ptr %vtable.i.i.i105, i64 5
-  %30 = load ptr, ptr %vfn.i.i.i106, align 8, !noalias !246
-  %call.i.i.i107 = call noundef zeroext i1 %30(ptr noundef nonnull align 8 dereferenceable(8) %29) #23, !noalias !246
+  %29 = load ptr, ptr %vfn.i.i.i106, align 8, !noalias !246
+  %call.i.i.i107 = call noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(8) %28) #23, !noalias !246
   %not.call.i.i.i108 = xor i1 %call.i.i.i107, true
   %or.i.i.i.i.i109 = zext i1 %not.call.i.i.i108 to i64
   %spec.select.i.i.i110 = or disjoint i64 %and.i.i.i102, %or.i.i.i.i.i109
@@ -5036,34 +5044,34 @@ _ZZN5folly13hazptr_domainISt6atomicE30invoke_reclamation_in_executorEiENUlvE_C2E
   store ptr @_ZN5folly14default_domainE, ptr %agg.tmp25, align 16
   %agg.tmp26.sroa.0.sroa.2.0.agg.tmp25.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp25, i64 8
   store i32 %rcount, ptr %agg.tmp26.sroa.0.sroa.2.0.agg.tmp25.sroa_idx, align 8
-  %31 = getelementptr inbounds %class.anon.45, ptr %agg.tmp25, i64 0, i32 2
-  store i64 %.sink.i.i.i111, ptr %31, align 16, !tbaa !232
+  %30 = getelementptr inbounds %class.anon.45, ptr %agg.tmp25, i64 0, i32 2
+  store i64 %.sink.i.i.i111, ptr %30, align 16, !tbaa !232
   store ptr @_ZN5folly6detail8function14FunctionTraitsIFvvEE9callSmallIZNS_13hazptr_domainISt6atomicE30invoke_reclamation_in_executorEiEUlvE_EEvRNS1_4DataE, ptr %call_.i, align 16, !tbaa !50
   store ptr @_ZN5folly6detail8function13DispatchSmall4execIZNS_13hazptr_domainISt6atomicE30invoke_reclamation_in_executorEiEUlvE_EEmNS1_2OpEPNS1_4DataESA_, ptr %exec_.i, align 8, !tbaa !52
-  %vtable = load ptr, ptr %28, align 8, !tbaa !22
+  %vtable = load ptr, ptr %27, align 8, !tbaa !22
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
-  %32 = load ptr, ptr %vfn, align 8
-  invoke void %32(ptr noundef nonnull align 8 dereferenceable(8) %28, ptr noundef nonnull %agg.tmp25)
+  %31 = load ptr, ptr %vfn, align 8
+  invoke void %31(ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef nonnull %agg.tmp25)
           to label %invoke.cont28 unwind label %lpad27
 
 invoke.cont28:                                    ; preds = %_ZZN5folly13hazptr_domainISt6atomicE30invoke_reclamation_in_executorEiENUlvE_C2ERKS3_.exit112
-  %33 = load ptr, ptr %exec_.i, align 8, !tbaa !52
-  %tobool.not.i.i114 = icmp eq ptr %33, null
+  %32 = load ptr, ptr %exec_.i, align 8, !tbaa !52
+  %tobool.not.i.i114 = icmp eq ptr %32, null
   br i1 %tobool.not.i.i114, label %if.end31, label %if.end.i.i115
 
 if.end.i.i115:                                    ; preds = %invoke.cont28
-  %call.i.i116 = call noundef i64 %33(i32 noundef 1, ptr noundef nonnull %agg.tmp25, ptr noundef null) #23
+  %call.i.i116 = call noundef i64 %32(i32 noundef 1, ptr noundef nonnull %agg.tmp25, ptr noundef null) #23
   br label %if.end31
 
 lpad27:                                           ; preds = %_ZZN5folly13hazptr_domainISt6atomicE30invoke_reclamation_in_executorEiENUlvE_C2ERKS3_.exit112
-  %34 = landingpad { ptr, i32 }
+  %33 = landingpad { ptr, i32 }
           cleanup
-  %35 = load ptr, ptr %exec_.i, align 8, !tbaa !52
-  %tobool.not.i.i127 = icmp eq ptr %35, null
+  %34 = load ptr, ptr %exec_.i, align 8, !tbaa !52
+  %tobool.not.i.i127 = icmp eq ptr %34, null
   br i1 %tobool.not.i.i127, label %ehcleanup36, label %if.end.i.i128
 
 if.end.i.i128:                                    ; preds = %lpad27
-  %call.i.i129 = call noundef i64 %35(i32 noundef 1, ptr noundef nonnull %agg.tmp25, ptr noundef null) #23
+  %call.i.i129 = call noundef i64 %34(i32 noundef 1, ptr noundef nonnull %agg.tmp25, ptr noundef null) #23
   br label %ehcleanup36
 
 if.end31:                                         ; preds = %if.end.i.i115, %invoke.cont28, %if.then5.i.i79, %_ZZN5folly13hazptr_domainISt6atomicE30invoke_reclamation_in_executorEiENUlvE_D2Ev.exit
@@ -5071,8 +5079,8 @@ if.end31:                                         ; preds = %if.end.i.i115, %inv
   br i1 %cmp32, label %if.then33, label %if.end35
 
 if.then33:                                        ; preds = %if.end31
-  %36 = atomicrmw add ptr @_ZZN5folly13hazptr_domainISt6atomicE31hazptr_warning_executor_backlogEiE13warning_count, i64 1 seq_cst, align 8
-  %rem.i = urem i64 %36, 10000
+  %35 = atomicrmw add ptr @_ZZN5folly13hazptr_domainISt6atomicE31hazptr_warning_executor_backlogEiE13warning_count, i64 1 seq_cst, align 8
+  %rem.i = urem i64 %35, 10000
   %cmp.i = icmp eq i64 %rem.i, 0
   br i1 %cmp.i, label %if.then.i, label %if.end35
 
@@ -5099,7 +5107,7 @@ invoke.cont5.i:                                   ; preds = %invoke.cont3.i
   br label %if.end35
 
 lpad.i7:                                          ; preds = %invoke.cont3.i, %invoke.cont.i8, %.noexc
-  %37 = landingpad { ptr, i32 }
+  %36 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i) #23
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i) #23
@@ -5114,15 +5122,15 @@ if.end35:                                         ; preds = %invoke.cont5.i, %if
   br i1 %or.cond219, label %if.then5.i.i.i145, label %cleanup
 
 if.then5.i.i.i145:                                ; preds = %if.end35
-  %38 = inttoptr i64 %and.i.i.i.i140 to ptr
-  %vtable.i.i.i146 = load ptr, ptr %38, align 8, !tbaa !22
+  %37 = inttoptr i64 %and.i.i.i.i140 to ptr
+  %vtable.i.i.i146 = load ptr, ptr %37, align 8, !tbaa !22
   %vfn.i.i.i147 = getelementptr inbounds ptr, ptr %vtable.i.i.i146, i64 6
-  %39 = load ptr, ptr %vfn.i.i.i147, align 8
-  call void %39(ptr noundef nonnull align 8 dereferenceable(8) %38) #23
+  %38 = load ptr, ptr %vfn.i.i.i147, align 8
+  call void %38(ptr noundef nonnull align 8 dereferenceable(8) %37) #23
   br label %cleanup
 
 ehcleanup36:                                      ; preds = %lpad8, %lpad.i7, %if.end.i.i128, %lpad27, %if.then5.i.i97, %_ZZN5folly13hazptr_domainISt6atomicE30invoke_reclamation_in_executorEiENUlvE_D2Ev.exit91, %lpad11
-  %.pn = phi { ptr, i32 } [ %25, %lpad11 ], [ %20, %_ZZN5folly13hazptr_domainISt6atomicE30invoke_reclamation_in_executorEiENUlvE_D2Ev.exit91 ], [ %20, %if.then5.i.i97 ], [ %34, %if.end.i.i128 ], [ %34, %lpad27 ], [ %24, %lpad8 ], [ %37, %lpad.i7 ]
+  %.pn = phi { ptr, i32 } [ %24, %lpad11 ], [ %19, %_ZZN5folly13hazptr_domainISt6atomicE30invoke_reclamation_in_executorEiENUlvE_D2Ev.exit91 ], [ %19, %if.then5.i.i97 ], [ %33, %if.end.i.i128 ], [ %33, %lpad27 ], [ %23, %lpad8 ], [ %36, %lpad.i7 ]
   %and.i.i.i.i149 = and i64 %.sink.i.i, -4
   %tobool.not.i.i.i150 = icmp ne i64 %and.i.i.i.i149, 0
   %and.i.i.i152 = and i64 %.sink.i.i, 3
@@ -5131,31 +5139,31 @@ ehcleanup36:                                      ; preds = %lpad8, %lpad.i7, %i
   br i1 %or.cond220, label %if.then5.i.i.i154, label %_ZZN5folly13hazptr_domainISt6atomicE30invoke_reclamation_in_executorEiENUlvE_D2Ev.exit157
 
 if.then5.i.i.i154:                                ; preds = %ehcleanup36
-  %40 = inttoptr i64 %and.i.i.i.i149 to ptr
-  %vtable.i.i.i155 = load ptr, ptr %40, align 8, !tbaa !22
+  %39 = inttoptr i64 %and.i.i.i.i149 to ptr
+  %vtable.i.i.i155 = load ptr, ptr %39, align 8, !tbaa !22
   %vfn.i.i.i156 = getelementptr inbounds ptr, ptr %vtable.i.i.i155, i64 6
-  %41 = load ptr, ptr %vfn.i.i.i156, align 8
-  call void %41(ptr noundef nonnull align 8 dereferenceable(8) %40) #23
+  %40 = load ptr, ptr %vfn.i.i.i156, align 8
+  call void %40(ptr noundef nonnull align 8 dereferenceable(8) %39) #23
   br label %_ZZN5folly13hazptr_domainISt6atomicE30invoke_reclamation_in_executorEiENUlvE_D2Ev.exit157
 
 _ZZN5folly13hazptr_domainISt6atomicE30invoke_reclamation_in_executorEiENUlvE_D2Ev.exit157: ; preds = %if.then5.i.i.i154, %ehcleanup36
-  %42 = load i64, ptr %ex, align 8, !tbaa !146
-  %and.i.i.i158 = and i64 %42, -4
-  %43 = inttoptr i64 %and.i.i.i158 to ptr
+  %41 = load i64, ptr %ex, align 8, !tbaa !146
+  %and.i.i.i158 = and i64 %41, -4
+  %42 = inttoptr i64 %and.i.i.i158 to ptr
   %tobool.not.i.i159 = icmp eq i64 %and.i.i.i158, 0
   br i1 %tobool.not.i.i159, label %_ZN5folly8Executor9KeepAliveIS0_ED2Ev.exit166, label %if.then.i.i160
 
 if.then.i.i160:                                   ; preds = %_ZZN5folly13hazptr_domainISt6atomicE30invoke_reclamation_in_executorEiENUlvE_D2Ev.exit157
   store i64 0, ptr %ex, align 8, !tbaa !146
-  %and.i.i161 = and i64 %42, 3
+  %and.i.i161 = and i64 %41, 3
   %tobool4.not.i.i162 = icmp eq i64 %and.i.i161, 0
   br i1 %tobool4.not.i.i162, label %if.then5.i.i163, label %_ZN5folly8Executor9KeepAliveIS0_ED2Ev.exit166
 
 if.then5.i.i163:                                  ; preds = %if.then.i.i160
-  %vtable.i.i164 = load ptr, ptr %43, align 8, !tbaa !22
+  %vtable.i.i164 = load ptr, ptr %42, align 8, !tbaa !22
   %vfn.i.i165 = getelementptr inbounds ptr, ptr %vtable.i.i164, i64 6
-  %44 = load ptr, ptr %vfn.i.i165, align 8
-  call void %44(ptr noundef nonnull align 8 dereferenceable(8) %43) #23
+  %43 = load ptr, ptr %vfn.i.i165, align 8
+  call void %43(ptr noundef nonnull align 8 dereferenceable(8) %42) #23
   br label %_ZN5folly8Executor9KeepAliveIS0_ED2Ev.exit166
 
 _ZN5folly8Executor9KeepAliveIS0_ED2Ev.exit166:    ; preds = %if.then5.i.i163, %if.then.i.i160, %_ZZN5folly13hazptr_domainISt6atomicE30invoke_reclamation_in_executorEiENUlvE_D2Ev.exit157
@@ -5163,23 +5171,23 @@ _ZN5folly8Executor9KeepAliveIS0_ED2Ev.exit166:    ; preds = %if.then5.i.i163, %i
   resume { ptr, i32 } %.pn
 
 cleanup:                                          ; preds = %if.then5.i.i.i145, %if.end35, %cond.end
-  %45 = load i64, ptr %ex, align 8, !tbaa !146
-  %and.i.i.i167 = and i64 %45, -4
-  %46 = inttoptr i64 %and.i.i.i167 to ptr
+  %44 = load i64, ptr %ex, align 8, !tbaa !146
+  %and.i.i.i167 = and i64 %44, -4
+  %45 = inttoptr i64 %and.i.i.i167 to ptr
   %tobool.not.i.i168 = icmp eq i64 %and.i.i.i167, 0
   br i1 %tobool.not.i.i168, label %_ZN5folly8Executor9KeepAliveIS0_ED2Ev.exit175, label %if.then.i.i169
 
 if.then.i.i169:                                   ; preds = %cleanup
   store i64 0, ptr %ex, align 8, !tbaa !146
-  %and.i.i170 = and i64 %45, 3
+  %and.i.i170 = and i64 %44, 3
   %tobool4.not.i.i171 = icmp eq i64 %and.i.i170, 0
   br i1 %tobool4.not.i.i171, label %if.then5.i.i172, label %_ZN5folly8Executor9KeepAliveIS0_ED2Ev.exit175
 
 if.then5.i.i172:                                  ; preds = %if.then.i.i169
-  %vtable.i.i173 = load ptr, ptr %46, align 8, !tbaa !22
+  %vtable.i.i173 = load ptr, ptr %45, align 8, !tbaa !22
   %vfn.i.i174 = getelementptr inbounds ptr, ptr %vtable.i.i173, i64 6
-  %47 = load ptr, ptr %vfn.i.i174, align 8
-  call void %47(ptr noundef nonnull align 8 dereferenceable(8) %46) #23
+  %46 = load ptr, ptr %vfn.i.i174, align 8
+  call void %46(ptr noundef nonnull align 8 dereferenceable(8) %45) #23
   br label %_ZN5folly8Executor9KeepAliveIS0_ED2Ev.exit175
 
 _ZN5folly8Executor9KeepAliveIS0_ED2Ev.exit175:    ; preds = %if.then5.i.i172, %if.then.i.i169, %cleanup
@@ -12672,12 +12680,15 @@ _ZN5folly19make_hazard_pointerISt6atomicEENS_13hazptr_holderIT_EERNS_13hazptr_do
   store atomic i64 %10, ptr %hptr.i.sroa.0.1 release, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !170
   %11 = load atomic i64, ptr %p_.i acquire, align 8
-  %atomic-temp.0.i.i1757 = inttoptr i64 %11 to ptr
-  %cmp.not.i58 = icmp eq ptr %atomic-temp.0.i.i, %atomic-temp.0.i.i1757
-  br i1 %cmp.not.i58, label %_ZN5folly13hazptr_holderISt6atomicE7protectINS_14UnboundedQueueINS_21CPUThreadPoolExecutor7CPUTaskELb0ELb0ELb1ELm8ELm7ES1_E7SegmentEZNS2_7protectIS8_EEPT_RKS1_ISB_EEUlPS8_E_EESB_SE_T0_.exit, label %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14UnboundedQueueINS_21CPUThreadPoolExecutor7CPUTaskELb0ELb0ELb1ELm8ELm7ES1_E7SegmentEZNS2_7protectIS8_EEPT_RKS1_ISB_EEUlPS8_E_EEbRSB_SE_T0_.exit, !prof !171
+  %cmp.not.i58 = icmp eq i64 %10, %11
+  br i1 %cmp.not.i58, label %_ZN5folly13hazptr_holderISt6atomicE7protectINS_14UnboundedQueueINS_21CPUThreadPoolExecutor7CPUTaskELb0ELb0ELb1ELm8ELm7ES1_E7SegmentEZNS2_7protectIS8_EEPT_RKS1_ISB_EEUlPS8_E_EESB_SE_T0_.exit, label %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14UnboundedQueueINS_21CPUThreadPoolExecutor7CPUTaskELb0ELb0ELb1ELm8ELm7ES1_E7SegmentEZNS2_7protectIS8_EEPT_RKS1_ISB_EEUlPS8_E_EEbRSB_SE_T0_.exit.preheader, !prof !171
 
-_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14UnboundedQueueINS_21CPUThreadPoolExecutor7CPUTaskELb0ELb0ELb1ELm8ELm7ES1_E7SegmentEZNS2_7protectIS8_EEPT_RKS1_ISB_EEUlPS8_E_EEbRSB_SE_T0_.exit: ; preds = %_ZN5folly19make_hazard_pointerISt6atomicEENS_13hazptr_holderIT_EERNS_13hazptr_domainIS3_EE.exit.i, %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14UnboundedQueueINS_21CPUThreadPoolExecutor7CPUTaskELb0ELb0ELb1ELm8ELm7ES1_E7SegmentEZNS2_7protectIS8_EEPT_RKS1_ISB_EEUlPS8_E_EEbRSB_SE_T0_.exit
-  %atomic-temp.0.i.i1759 = phi ptr [ %atomic-temp.0.i.i17, %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14UnboundedQueueINS_21CPUThreadPoolExecutor7CPUTaskELb0ELb0ELb1ELm8ELm7ES1_E7SegmentEZNS2_7protectIS8_EEPT_RKS1_ISB_EEUlPS8_E_EEbRSB_SE_T0_.exit ], [ %atomic-temp.0.i.i1757, %_ZN5folly19make_hazard_pointerISt6atomicEENS_13hazptr_holderIT_EERNS_13hazptr_domainIS3_EE.exit.i ]
+_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14UnboundedQueueINS_21CPUThreadPoolExecutor7CPUTaskELb0ELb0ELb1ELm8ELm7ES1_E7SegmentEZNS2_7protectIS8_EEPT_RKS1_ISB_EEUlPS8_E_EEbRSB_SE_T0_.exit.preheader: ; preds = %_ZN5folly19make_hazard_pointerISt6atomicEENS_13hazptr_holderIT_EERNS_13hazptr_domainIS3_EE.exit.i
+  %atomic-temp.0.i.i1757 = inttoptr i64 %11 to ptr
+  br label %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14UnboundedQueueINS_21CPUThreadPoolExecutor7CPUTaskELb0ELb0ELb1ELm8ELm7ES1_E7SegmentEZNS2_7protectIS8_EEPT_RKS1_ISB_EEUlPS8_E_EEbRSB_SE_T0_.exit
+
+_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14UnboundedQueueINS_21CPUThreadPoolExecutor7CPUTaskELb0ELb0ELb1ELm8ELm7ES1_E7SegmentEZNS2_7protectIS8_EEPT_RKS1_ISB_EEUlPS8_E_EEbRSB_SE_T0_.exit: ; preds = %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14UnboundedQueueINS_21CPUThreadPoolExecutor7CPUTaskELb0ELb0ELb1ELm8ELm7ES1_E7SegmentEZNS2_7protectIS8_EEPT_RKS1_ISB_EEUlPS8_E_EEbRSB_SE_T0_.exit.preheader, %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14UnboundedQueueINS_21CPUThreadPoolExecutor7CPUTaskELb0ELb0ELb1ELm8ELm7ES1_E7SegmentEZNS2_7protectIS8_EEPT_RKS1_ISB_EEUlPS8_E_EEbRSB_SE_T0_.exit
+  %atomic-temp.0.i.i1759 = phi ptr [ %atomic-temp.0.i.i17, %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14UnboundedQueueINS_21CPUThreadPoolExecutor7CPUTaskELb0ELb0ELb1ELm8ELm7ES1_E7SegmentEZNS2_7protectIS8_EEPT_RKS1_ISB_EEUlPS8_E_EEbRSB_SE_T0_.exit ], [ %atomic-temp.0.i.i1757, %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14UnboundedQueueINS_21CPUThreadPoolExecutor7CPUTaskELb0ELb0ELb1ELm8ELm7ES1_E7SegmentEZNS2_7protectIS8_EEPT_RKS1_ISB_EEUlPS8_E_EEbRSB_SE_T0_.exit.preheader ]
   store atomic i64 0, ptr %hptr.i.sroa.0.1 release, align 8
   %12 = ptrtoint ptr %atomic-temp.0.i.i1759 to i64
   store atomic i64 %12, ptr %hptr.i.sroa.0.1 release, align 8
@@ -14842,9 +14853,12 @@ _ZN5folly19make_hazard_pointerISt6atomicEENS_13hazptr_holderIT_EERNS_13hazptr_do
   store atomic i64 %8, ptr %hptr.i.sroa.0.2 release, align 8, !noalias !513
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !noalias !513, !srcloc !170
   %9 = load atomic i64, ptr %__begin0.sroa.0.0321 acquire, align 8, !noalias !513
+  %cmp.not.i32.i318 = icmp eq i64 %8, %9
+  br i1 %cmp.not.i32.i318, label %while.cond.i.preheader, label %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14UnboundedQueueINS_21CPUThreadPoolExecutor7CPUTaskELb0ELb0ELb1ELm8ELm7ES1_E7SegmentEZNS2_7protectIS8_EEPT_RKS1_ISB_EEUlPS8_E_EEbRSB_SE_T0_.exit.i.preheader, !prof !171
+
+_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14UnboundedQueueINS_21CPUThreadPoolExecutor7CPUTaskELb0ELb0ELb1ELm8ELm7ES1_E7SegmentEZNS2_7protectIS8_EEPT_RKS1_ISB_EEUlPS8_E_EEbRSB_SE_T0_.exit.i.preheader: ; preds = %_ZN5folly19make_hazard_pointerISt6atomicEENS_13hazptr_holderIT_EERNS_13hazptr_domainIS3_EE.exit.i
   %atomic-temp.0.i.i33317 = inttoptr i64 %9 to ptr
-  %cmp.not.i32.i318 = icmp eq ptr %atomic-temp.0.i.i, %atomic-temp.0.i.i33317
-  br i1 %cmp.not.i32.i318, label %while.cond.i.preheader, label %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14UnboundedQueueINS_21CPUThreadPoolExecutor7CPUTaskELb0ELb0ELb1ELm8ELm7ES1_E7SegmentEZNS2_7protectIS8_EEPT_RKS1_ISB_EEUlPS8_E_EEbRSB_SE_T0_.exit.i, !prof !171
+  br label %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14UnboundedQueueINS_21CPUThreadPoolExecutor7CPUTaskELb0ELb0ELb1ELm8ELm7ES1_E7SegmentEZNS2_7protectIS8_EEPT_RKS1_ISB_EEUlPS8_E_EEbRSB_SE_T0_.exit.i
 
 while.cond.i.preheader:                           ; preds = %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14UnboundedQueueINS_21CPUThreadPoolExecutor7CPUTaskELb0ELb0ELb1ELm8ELm7ES1_E7SegmentEZNS2_7protectIS8_EEPT_RKS1_ISB_EEUlPS8_E_EEbRSB_SE_T0_.exit.i, %_ZN5folly19make_hazard_pointerISt6atomicEENS_13hazptr_holderIT_EERNS_13hazptr_domainIS3_EE.exit.i
   %atomic-temp.0.i.i33.lcssa = phi ptr [ %atomic-temp.0.i.i, %_ZN5folly19make_hazard_pointerISt6atomicEENS_13hazptr_holderIT_EERNS_13hazptr_domainIS3_EE.exit.i ], [ %atomic-temp.0.i.i33319, %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14UnboundedQueueINS_21CPUThreadPoolExecutor7CPUTaskELb0ELb0ELb1ELm8ELm7ES1_E7SegmentEZNS2_7protectIS8_EEPT_RKS1_ISB_EEUlPS8_E_EEbRSB_SE_T0_.exit.i ]
@@ -14852,8 +14866,8 @@ while.cond.i.preheader:                           ; preds = %_ZN5folly13hazptr_h
   %ticket.i.i23 = getelementptr inbounds %"class.folly::UnboundedQueue.185", ptr %__begin0.sroa.0.0321, i64 0, i32 2, i32 1
   br label %while.cond.i.outer
 
-_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14UnboundedQueueINS_21CPUThreadPoolExecutor7CPUTaskELb0ELb0ELb1ELm8ELm7ES1_E7SegmentEZNS2_7protectIS8_EEPT_RKS1_ISB_EEUlPS8_E_EEbRSB_SE_T0_.exit.i: ; preds = %_ZN5folly19make_hazard_pointerISt6atomicEENS_13hazptr_holderIT_EERNS_13hazptr_domainIS3_EE.exit.i, %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14UnboundedQueueINS_21CPUThreadPoolExecutor7CPUTaskELb0ELb0ELb1ELm8ELm7ES1_E7SegmentEZNS2_7protectIS8_EEPT_RKS1_ISB_EEUlPS8_E_EEbRSB_SE_T0_.exit.i
-  %atomic-temp.0.i.i33319 = phi ptr [ %atomic-temp.0.i.i33, %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14UnboundedQueueINS_21CPUThreadPoolExecutor7CPUTaskELb0ELb0ELb1ELm8ELm7ES1_E7SegmentEZNS2_7protectIS8_EEPT_RKS1_ISB_EEUlPS8_E_EEbRSB_SE_T0_.exit.i ], [ %atomic-temp.0.i.i33317, %_ZN5folly19make_hazard_pointerISt6atomicEENS_13hazptr_holderIT_EERNS_13hazptr_domainIS3_EE.exit.i ]
+_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14UnboundedQueueINS_21CPUThreadPoolExecutor7CPUTaskELb0ELb0ELb1ELm8ELm7ES1_E7SegmentEZNS2_7protectIS8_EEPT_RKS1_ISB_EEUlPS8_E_EEbRSB_SE_T0_.exit.i: ; preds = %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14UnboundedQueueINS_21CPUThreadPoolExecutor7CPUTaskELb0ELb0ELb1ELm8ELm7ES1_E7SegmentEZNS2_7protectIS8_EEPT_RKS1_ISB_EEUlPS8_E_EEbRSB_SE_T0_.exit.i.preheader, %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14UnboundedQueueINS_21CPUThreadPoolExecutor7CPUTaskELb0ELb0ELb1ELm8ELm7ES1_E7SegmentEZNS2_7protectIS8_EEPT_RKS1_ISB_EEUlPS8_E_EEbRSB_SE_T0_.exit.i
+  %atomic-temp.0.i.i33319 = phi ptr [ %atomic-temp.0.i.i33, %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14UnboundedQueueINS_21CPUThreadPoolExecutor7CPUTaskELb0ELb0ELb1ELm8ELm7ES1_E7SegmentEZNS2_7protectIS8_EEPT_RKS1_ISB_EEUlPS8_E_EEbRSB_SE_T0_.exit.i ], [ %atomic-temp.0.i.i33317, %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14UnboundedQueueINS_21CPUThreadPoolExecutor7CPUTaskELb0ELb0ELb1ELm8ELm7ES1_E7SegmentEZNS2_7protectIS8_EEPT_RKS1_ISB_EEUlPS8_E_EEbRSB_SE_T0_.exit.i.preheader ]
   store atomic i64 0, ptr %hptr.i.sroa.0.2 release, align 8, !noalias !513
   %10 = ptrtoint ptr %atomic-temp.0.i.i33319 to i64
   store atomic i64 %10, ptr %hptr.i.sroa.0.2 release, align 8, !noalias !513
@@ -16372,12 +16386,15 @@ _ZN5folly19make_hazard_pointerISt6atomicEENS_13hazptr_holderIT_EERNS_13hazptr_do
   store atomic i64 %5, ptr %hptr.i.sroa.0.1 release, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !170
   %6 = load atomic i64, ptr %p_.i acquire, align 128
-  %atomic-temp.0.i.i70106 = inttoptr i64 %6 to ptr
-  %cmp.not.i47107 = icmp eq ptr %atomic-temp.0.i.i, %atomic-temp.0.i.i70106
-  br i1 %cmp.not.i47107, label %_ZN5folly13hazptr_holderISt6atomicE7protectINS_14UnboundedQueueINS_21CPUThreadPoolExecutor7CPUTaskELb0ELb0ELb0ELm6ELm7ES1_E7SegmentEZNS2_7protectIS8_EEPT_RKS1_ISB_EEUlPS8_E_EESB_SE_T0_.exit, label %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14UnboundedQueueINS_21CPUThreadPoolExecutor7CPUTaskELb0ELb0ELb0ELm6ELm7ES1_E7SegmentEZNS2_7protectIS8_EEPT_RKS1_ISB_EEUlPS8_E_EEbRSB_SE_T0_.exit, !prof !171
+  %cmp.not.i47107 = icmp eq i64 %5, %6
+  br i1 %cmp.not.i47107, label %_ZN5folly13hazptr_holderISt6atomicE7protectINS_14UnboundedQueueINS_21CPUThreadPoolExecutor7CPUTaskELb0ELb0ELb0ELm6ELm7ES1_E7SegmentEZNS2_7protectIS8_EEPT_RKS1_ISB_EEUlPS8_E_EESB_SE_T0_.exit, label %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14UnboundedQueueINS_21CPUThreadPoolExecutor7CPUTaskELb0ELb0ELb0ELm6ELm7ES1_E7SegmentEZNS2_7protectIS8_EEPT_RKS1_ISB_EEUlPS8_E_EEbRSB_SE_T0_.exit.preheader, !prof !171
 
-_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14UnboundedQueueINS_21CPUThreadPoolExecutor7CPUTaskELb0ELb0ELb0ELm6ELm7ES1_E7SegmentEZNS2_7protectIS8_EEPT_RKS1_ISB_EEUlPS8_E_EEbRSB_SE_T0_.exit: ; preds = %_ZN5folly19make_hazard_pointerISt6atomicEENS_13hazptr_holderIT_EERNS_13hazptr_domainIS3_EE.exit, %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14UnboundedQueueINS_21CPUThreadPoolExecutor7CPUTaskELb0ELb0ELb0ELm6ELm7ES1_E7SegmentEZNS2_7protectIS8_EEPT_RKS1_ISB_EEUlPS8_E_EEbRSB_SE_T0_.exit
-  %atomic-temp.0.i.i70108 = phi ptr [ %atomic-temp.0.i.i70, %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14UnboundedQueueINS_21CPUThreadPoolExecutor7CPUTaskELb0ELb0ELb0ELm6ELm7ES1_E7SegmentEZNS2_7protectIS8_EEPT_RKS1_ISB_EEUlPS8_E_EEbRSB_SE_T0_.exit ], [ %atomic-temp.0.i.i70106, %_ZN5folly19make_hazard_pointerISt6atomicEENS_13hazptr_holderIT_EERNS_13hazptr_domainIS3_EE.exit ]
+_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14UnboundedQueueINS_21CPUThreadPoolExecutor7CPUTaskELb0ELb0ELb0ELm6ELm7ES1_E7SegmentEZNS2_7protectIS8_EEPT_RKS1_ISB_EEUlPS8_E_EEbRSB_SE_T0_.exit.preheader: ; preds = %_ZN5folly19make_hazard_pointerISt6atomicEENS_13hazptr_holderIT_EERNS_13hazptr_domainIS3_EE.exit
+  %atomic-temp.0.i.i70106 = inttoptr i64 %6 to ptr
+  br label %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14UnboundedQueueINS_21CPUThreadPoolExecutor7CPUTaskELb0ELb0ELb0ELm6ELm7ES1_E7SegmentEZNS2_7protectIS8_EEPT_RKS1_ISB_EEUlPS8_E_EEbRSB_SE_T0_.exit
+
+_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14UnboundedQueueINS_21CPUThreadPoolExecutor7CPUTaskELb0ELb0ELb0ELm6ELm7ES1_E7SegmentEZNS2_7protectIS8_EEPT_RKS1_ISB_EEUlPS8_E_EEbRSB_SE_T0_.exit: ; preds = %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14UnboundedQueueINS_21CPUThreadPoolExecutor7CPUTaskELb0ELb0ELb0ELm6ELm7ES1_E7SegmentEZNS2_7protectIS8_EEPT_RKS1_ISB_EEUlPS8_E_EEbRSB_SE_T0_.exit.preheader, %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14UnboundedQueueINS_21CPUThreadPoolExecutor7CPUTaskELb0ELb0ELb0ELm6ELm7ES1_E7SegmentEZNS2_7protectIS8_EEPT_RKS1_ISB_EEUlPS8_E_EEbRSB_SE_T0_.exit
+  %atomic-temp.0.i.i70108 = phi ptr [ %atomic-temp.0.i.i70, %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14UnboundedQueueINS_21CPUThreadPoolExecutor7CPUTaskELb0ELb0ELb0ELm6ELm7ES1_E7SegmentEZNS2_7protectIS8_EEPT_RKS1_ISB_EEUlPS8_E_EEbRSB_SE_T0_.exit ], [ %atomic-temp.0.i.i70106, %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14UnboundedQueueINS_21CPUThreadPoolExecutor7CPUTaskELb0ELb0ELb0ELm6ELm7ES1_E7SegmentEZNS2_7protectIS8_EEPT_RKS1_ISB_EEUlPS8_E_EEbRSB_SE_T0_.exit.preheader ]
   store atomic i64 0, ptr %hptr.i.sroa.0.1 release, align 8
   %7 = ptrtoint ptr %atomic-temp.0.i.i70108 to i64
   store atomic i64 %7, ptr %hptr.i.sroa.0.1 release, align 8
@@ -16876,12 +16893,15 @@ _ZN5folly19make_hazard_pointerISt6atomicEENS_13hazptr_holderIT_EERNS_13hazptr_do
   store atomic i64 %13, ptr %hptr.i.sroa.0.1 release, align 8, !noalias !557
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !noalias !557, !srcloc !170
   %14 = load atomic i64, ptr %queue_ acquire, align 128, !noalias !557
-  %atomic-temp.0.i.i1136 = inttoptr i64 %14 to ptr
-  %cmp.not.i27.i37 = icmp eq ptr %atomic-temp.0.i.i, %atomic-temp.0.i.i1136
-  br i1 %cmp.not.i27.i37, label %_ZN5folly13hazptr_holderISt6atomicE7protectINS_14UnboundedQueueINS_21CPUThreadPoolExecutor7CPUTaskELb0ELb0ELb0ELm6ELm7ES1_E7SegmentEZNS2_7protectIS8_EEPT_RKS1_ISB_EEUlPS8_E_EESB_SE_T0_.exit.i, label %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14UnboundedQueueINS_21CPUThreadPoolExecutor7CPUTaskELb0ELb0ELb0ELm6ELm7ES1_E7SegmentEZNS2_7protectIS8_EEPT_RKS1_ISB_EEUlPS8_E_EEbRSB_SE_T0_.exit.i, !prof !171
+  %cmp.not.i27.i37 = icmp eq i64 %13, %14
+  br i1 %cmp.not.i27.i37, label %_ZN5folly13hazptr_holderISt6atomicE7protectINS_14UnboundedQueueINS_21CPUThreadPoolExecutor7CPUTaskELb0ELb0ELb0ELm6ELm7ES1_E7SegmentEZNS2_7protectIS8_EEPT_RKS1_ISB_EEUlPS8_E_EESB_SE_T0_.exit.i, label %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14UnboundedQueueINS_21CPUThreadPoolExecutor7CPUTaskELb0ELb0ELb0ELm6ELm7ES1_E7SegmentEZNS2_7protectIS8_EEPT_RKS1_ISB_EEUlPS8_E_EEbRSB_SE_T0_.exit.i.preheader, !prof !171
 
-_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14UnboundedQueueINS_21CPUThreadPoolExecutor7CPUTaskELb0ELb0ELb0ELm6ELm7ES1_E7SegmentEZNS2_7protectIS8_EEPT_RKS1_ISB_EEUlPS8_E_EEbRSB_SE_T0_.exit.i: ; preds = %_ZN5folly19make_hazard_pointerISt6atomicEENS_13hazptr_holderIT_EERNS_13hazptr_domainIS3_EE.exit.i, %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14UnboundedQueueINS_21CPUThreadPoolExecutor7CPUTaskELb0ELb0ELb0ELm6ELm7ES1_E7SegmentEZNS2_7protectIS8_EEPT_RKS1_ISB_EEUlPS8_E_EEbRSB_SE_T0_.exit.i
-  %atomic-temp.0.i.i1138 = phi ptr [ %atomic-temp.0.i.i11, %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14UnboundedQueueINS_21CPUThreadPoolExecutor7CPUTaskELb0ELb0ELb0ELm6ELm7ES1_E7SegmentEZNS2_7protectIS8_EEPT_RKS1_ISB_EEUlPS8_E_EEbRSB_SE_T0_.exit.i ], [ %atomic-temp.0.i.i1136, %_ZN5folly19make_hazard_pointerISt6atomicEENS_13hazptr_holderIT_EERNS_13hazptr_domainIS3_EE.exit.i ]
+_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14UnboundedQueueINS_21CPUThreadPoolExecutor7CPUTaskELb0ELb0ELb0ELm6ELm7ES1_E7SegmentEZNS2_7protectIS8_EEPT_RKS1_ISB_EEUlPS8_E_EEbRSB_SE_T0_.exit.i.preheader: ; preds = %_ZN5folly19make_hazard_pointerISt6atomicEENS_13hazptr_holderIT_EERNS_13hazptr_domainIS3_EE.exit.i
+  %atomic-temp.0.i.i1136 = inttoptr i64 %14 to ptr
+  br label %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14UnboundedQueueINS_21CPUThreadPoolExecutor7CPUTaskELb0ELb0ELb0ELm6ELm7ES1_E7SegmentEZNS2_7protectIS8_EEPT_RKS1_ISB_EEUlPS8_E_EEbRSB_SE_T0_.exit.i
+
+_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14UnboundedQueueINS_21CPUThreadPoolExecutor7CPUTaskELb0ELb0ELb0ELm6ELm7ES1_E7SegmentEZNS2_7protectIS8_EEPT_RKS1_ISB_EEUlPS8_E_EEbRSB_SE_T0_.exit.i: ; preds = %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14UnboundedQueueINS_21CPUThreadPoolExecutor7CPUTaskELb0ELb0ELb0ELm6ELm7ES1_E7SegmentEZNS2_7protectIS8_EEPT_RKS1_ISB_EEUlPS8_E_EEbRSB_SE_T0_.exit.i.preheader, %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14UnboundedQueueINS_21CPUThreadPoolExecutor7CPUTaskELb0ELb0ELb0ELm6ELm7ES1_E7SegmentEZNS2_7protectIS8_EEPT_RKS1_ISB_EEUlPS8_E_EEbRSB_SE_T0_.exit.i
+  %atomic-temp.0.i.i1138 = phi ptr [ %atomic-temp.0.i.i11, %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14UnboundedQueueINS_21CPUThreadPoolExecutor7CPUTaskELb0ELb0ELb0ELm6ELm7ES1_E7SegmentEZNS2_7protectIS8_EEPT_RKS1_ISB_EEUlPS8_E_EEbRSB_SE_T0_.exit.i ], [ %atomic-temp.0.i.i1136, %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14UnboundedQueueINS_21CPUThreadPoolExecutor7CPUTaskELb0ELb0ELb0ELm6ELm7ES1_E7SegmentEZNS2_7protectIS8_EEPT_RKS1_ISB_EEUlPS8_E_EEbRSB_SE_T0_.exit.i.preheader ]
   store atomic i64 0, ptr %hptr.i.sroa.0.1 release, align 8, !noalias !557
   %15 = ptrtoint ptr %atomic-temp.0.i.i1138 to i64
   store atomic i64 %15, ptr %hptr.i.sroa.0.1 release, align 8, !noalias !557
@@ -17207,12 +17227,15 @@ _ZN5folly19make_hazard_pointerISt6atomicEENS_13hazptr_holderIT_EERNS_13hazptr_do
   store atomic i64 %6, ptr %hptr.i.sroa.0.1 release, align 8, !noalias !570
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !noalias !570, !srcloc !170
   %7 = load atomic i64, ptr %queue_ acquire, align 128, !noalias !570
-  %atomic-temp.0.i.i1171 = inttoptr i64 %7 to ptr
-  %cmp.not.i27.i72 = icmp eq ptr %atomic-temp.0.i.i, %atomic-temp.0.i.i1171
-  br i1 %cmp.not.i27.i72, label %_ZN5folly13hazptr_holderISt6atomicE7protectINS_14UnboundedQueueINS_21CPUThreadPoolExecutor7CPUTaskELb0ELb0ELb0ELm6ELm7ES1_E7SegmentEZNS2_7protectIS8_EEPT_RKS1_ISB_EEUlPS8_E_EESB_SE_T0_.exit.i, label %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14UnboundedQueueINS_21CPUThreadPoolExecutor7CPUTaskELb0ELb0ELb0ELm6ELm7ES1_E7SegmentEZNS2_7protectIS8_EEPT_RKS1_ISB_EEUlPS8_E_EEbRSB_SE_T0_.exit.i, !prof !171
+  %cmp.not.i27.i72 = icmp eq i64 %6, %7
+  br i1 %cmp.not.i27.i72, label %_ZN5folly13hazptr_holderISt6atomicE7protectINS_14UnboundedQueueINS_21CPUThreadPoolExecutor7CPUTaskELb0ELb0ELb0ELm6ELm7ES1_E7SegmentEZNS2_7protectIS8_EEPT_RKS1_ISB_EEUlPS8_E_EESB_SE_T0_.exit.i, label %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14UnboundedQueueINS_21CPUThreadPoolExecutor7CPUTaskELb0ELb0ELb0ELm6ELm7ES1_E7SegmentEZNS2_7protectIS8_EEPT_RKS1_ISB_EEUlPS8_E_EEbRSB_SE_T0_.exit.i.preheader, !prof !171
 
-_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14UnboundedQueueINS_21CPUThreadPoolExecutor7CPUTaskELb0ELb0ELb0ELm6ELm7ES1_E7SegmentEZNS2_7protectIS8_EEPT_RKS1_ISB_EEUlPS8_E_EEbRSB_SE_T0_.exit.i: ; preds = %_ZN5folly19make_hazard_pointerISt6atomicEENS_13hazptr_holderIT_EERNS_13hazptr_domainIS3_EE.exit.i, %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14UnboundedQueueINS_21CPUThreadPoolExecutor7CPUTaskELb0ELb0ELb0ELm6ELm7ES1_E7SegmentEZNS2_7protectIS8_EEPT_RKS1_ISB_EEUlPS8_E_EEbRSB_SE_T0_.exit.i
-  %atomic-temp.0.i.i1173 = phi ptr [ %atomic-temp.0.i.i11, %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14UnboundedQueueINS_21CPUThreadPoolExecutor7CPUTaskELb0ELb0ELb0ELm6ELm7ES1_E7SegmentEZNS2_7protectIS8_EEPT_RKS1_ISB_EEUlPS8_E_EEbRSB_SE_T0_.exit.i ], [ %atomic-temp.0.i.i1171, %_ZN5folly19make_hazard_pointerISt6atomicEENS_13hazptr_holderIT_EERNS_13hazptr_domainIS3_EE.exit.i ]
+_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14UnboundedQueueINS_21CPUThreadPoolExecutor7CPUTaskELb0ELb0ELb0ELm6ELm7ES1_E7SegmentEZNS2_7protectIS8_EEPT_RKS1_ISB_EEUlPS8_E_EEbRSB_SE_T0_.exit.i.preheader: ; preds = %_ZN5folly19make_hazard_pointerISt6atomicEENS_13hazptr_holderIT_EERNS_13hazptr_domainIS3_EE.exit.i
+  %atomic-temp.0.i.i1171 = inttoptr i64 %7 to ptr
+  br label %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14UnboundedQueueINS_21CPUThreadPoolExecutor7CPUTaskELb0ELb0ELb0ELm6ELm7ES1_E7SegmentEZNS2_7protectIS8_EEPT_RKS1_ISB_EEUlPS8_E_EEbRSB_SE_T0_.exit.i
+
+_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14UnboundedQueueINS_21CPUThreadPoolExecutor7CPUTaskELb0ELb0ELb0ELm6ELm7ES1_E7SegmentEZNS2_7protectIS8_EEPT_RKS1_ISB_EEUlPS8_E_EEbRSB_SE_T0_.exit.i: ; preds = %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14UnboundedQueueINS_21CPUThreadPoolExecutor7CPUTaskELb0ELb0ELb0ELm6ELm7ES1_E7SegmentEZNS2_7protectIS8_EEPT_RKS1_ISB_EEUlPS8_E_EEbRSB_SE_T0_.exit.i.preheader, %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14UnboundedQueueINS_21CPUThreadPoolExecutor7CPUTaskELb0ELb0ELb0ELm6ELm7ES1_E7SegmentEZNS2_7protectIS8_EEPT_RKS1_ISB_EEUlPS8_E_EEbRSB_SE_T0_.exit.i
+  %atomic-temp.0.i.i1173 = phi ptr [ %atomic-temp.0.i.i11, %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14UnboundedQueueINS_21CPUThreadPoolExecutor7CPUTaskELb0ELb0ELb0ELm6ELm7ES1_E7SegmentEZNS2_7protectIS8_EEPT_RKS1_ISB_EEUlPS8_E_EEbRSB_SE_T0_.exit.i ], [ %atomic-temp.0.i.i1171, %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14UnboundedQueueINS_21CPUThreadPoolExecutor7CPUTaskELb0ELb0ELb0ELm6ELm7ES1_E7SegmentEZNS2_7protectIS8_EEPT_RKS1_ISB_EEUlPS8_E_EEbRSB_SE_T0_.exit.i.preheader ]
   store atomic i64 0, ptr %hptr.i.sroa.0.1 release, align 8, !noalias !570
   %8 = ptrtoint ptr %atomic-temp.0.i.i1173 to i64
   store atomic i64 %8, ptr %hptr.i.sroa.0.1 release, align 8, !noalias !570
@@ -20085,12 +20108,15 @@ _ZN5folly19make_hazard_pointerISt6atomicEENS_13hazptr_holderIT_EERNS_13hazptr_do
   store atomic i64 %10, ptr %hptr.i.sroa.0.1 release, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !170
   %11 = load atomic i64, ptr %p_.i acquire, align 8
-  %atomic-temp.0.i.i1761 = inttoptr i64 %11 to ptr
-  %cmp.not.i62 = icmp eq ptr %atomic-temp.0.i.i, %atomic-temp.0.i.i1761
-  br i1 %cmp.not.i62, label %_ZN5folly13hazptr_holderISt6atomicE7protectINS_14UnboundedQueueINS_21CPUThreadPoolExecutor7CPUTaskELb0ELb0ELb1ELm8ELm7ES1_E7SegmentEZNS2_7protectIS8_EEPT_RKS1_ISB_EEUlPS8_E_EESB_SE_T0_.exit, label %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14UnboundedQueueINS_21CPUThreadPoolExecutor7CPUTaskELb0ELb0ELb1ELm8ELm7ES1_E7SegmentEZNS2_7protectIS8_EEPT_RKS1_ISB_EEUlPS8_E_EEbRSB_SE_T0_.exit, !prof !171
+  %cmp.not.i62 = icmp eq i64 %10, %11
+  br i1 %cmp.not.i62, label %_ZN5folly13hazptr_holderISt6atomicE7protectINS_14UnboundedQueueINS_21CPUThreadPoolExecutor7CPUTaskELb0ELb0ELb1ELm8ELm7ES1_E7SegmentEZNS2_7protectIS8_EEPT_RKS1_ISB_EEUlPS8_E_EESB_SE_T0_.exit, label %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14UnboundedQueueINS_21CPUThreadPoolExecutor7CPUTaskELb0ELb0ELb1ELm8ELm7ES1_E7SegmentEZNS2_7protectIS8_EEPT_RKS1_ISB_EEUlPS8_E_EEbRSB_SE_T0_.exit.preheader, !prof !171
 
-_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14UnboundedQueueINS_21CPUThreadPoolExecutor7CPUTaskELb0ELb0ELb1ELm8ELm7ES1_E7SegmentEZNS2_7protectIS8_EEPT_RKS1_ISB_EEUlPS8_E_EEbRSB_SE_T0_.exit: ; preds = %_ZN5folly19make_hazard_pointerISt6atomicEENS_13hazptr_holderIT_EERNS_13hazptr_domainIS3_EE.exit.i, %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14UnboundedQueueINS_21CPUThreadPoolExecutor7CPUTaskELb0ELb0ELb1ELm8ELm7ES1_E7SegmentEZNS2_7protectIS8_EEPT_RKS1_ISB_EEUlPS8_E_EEbRSB_SE_T0_.exit
-  %atomic-temp.0.i.i1763 = phi ptr [ %atomic-temp.0.i.i17, %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14UnboundedQueueINS_21CPUThreadPoolExecutor7CPUTaskELb0ELb0ELb1ELm8ELm7ES1_E7SegmentEZNS2_7protectIS8_EEPT_RKS1_ISB_EEUlPS8_E_EEbRSB_SE_T0_.exit ], [ %atomic-temp.0.i.i1761, %_ZN5folly19make_hazard_pointerISt6atomicEENS_13hazptr_holderIT_EERNS_13hazptr_domainIS3_EE.exit.i ]
+_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14UnboundedQueueINS_21CPUThreadPoolExecutor7CPUTaskELb0ELb0ELb1ELm8ELm7ES1_E7SegmentEZNS2_7protectIS8_EEPT_RKS1_ISB_EEUlPS8_E_EEbRSB_SE_T0_.exit.preheader: ; preds = %_ZN5folly19make_hazard_pointerISt6atomicEENS_13hazptr_holderIT_EERNS_13hazptr_domainIS3_EE.exit.i
+  %atomic-temp.0.i.i1761 = inttoptr i64 %11 to ptr
+  br label %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14UnboundedQueueINS_21CPUThreadPoolExecutor7CPUTaskELb0ELb0ELb1ELm8ELm7ES1_E7SegmentEZNS2_7protectIS8_EEPT_RKS1_ISB_EEUlPS8_E_EEbRSB_SE_T0_.exit
+
+_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14UnboundedQueueINS_21CPUThreadPoolExecutor7CPUTaskELb0ELb0ELb1ELm8ELm7ES1_E7SegmentEZNS2_7protectIS8_EEPT_RKS1_ISB_EEUlPS8_E_EEbRSB_SE_T0_.exit: ; preds = %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14UnboundedQueueINS_21CPUThreadPoolExecutor7CPUTaskELb0ELb0ELb1ELm8ELm7ES1_E7SegmentEZNS2_7protectIS8_EEPT_RKS1_ISB_EEUlPS8_E_EEbRSB_SE_T0_.exit.preheader, %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14UnboundedQueueINS_21CPUThreadPoolExecutor7CPUTaskELb0ELb0ELb1ELm8ELm7ES1_E7SegmentEZNS2_7protectIS8_EEPT_RKS1_ISB_EEUlPS8_E_EEbRSB_SE_T0_.exit
+  %atomic-temp.0.i.i1763 = phi ptr [ %atomic-temp.0.i.i17, %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14UnboundedQueueINS_21CPUThreadPoolExecutor7CPUTaskELb0ELb0ELb1ELm8ELm7ES1_E7SegmentEZNS2_7protectIS8_EEPT_RKS1_ISB_EEUlPS8_E_EEbRSB_SE_T0_.exit ], [ %atomic-temp.0.i.i1761, %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14UnboundedQueueINS_21CPUThreadPoolExecutor7CPUTaskELb0ELb0ELb1ELm8ELm7ES1_E7SegmentEZNS2_7protectIS8_EEPT_RKS1_ISB_EEUlPS8_E_EEbRSB_SE_T0_.exit.preheader ]
   store atomic i64 0, ptr %hptr.i.sroa.0.1 release, align 8
   %12 = ptrtoint ptr %atomic-temp.0.i.i1763 to i64
   store atomic i64 %12, ptr %hptr.i.sroa.0.1 release, align 8

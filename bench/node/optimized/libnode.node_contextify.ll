@@ -1607,42 +1607,41 @@ _ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i: ;
   %sub.i.i.i.i89 = add i64 %90, 327
   %91 = inttoptr i64 %sub.i.i.i.i89 to ptr
   %92 = load i64, ptr %91, align 8
-  %93 = inttoptr i64 %92 to ptr
-  %cmp12.not.i.i = icmp eq ptr %6, %93
+  %cmp12.not.i.i = icmp eq i64 %5, %92
   br i1 %cmp12.not.i.i, label %if.end.i90, label %_ZN4node11Environment10GetCurrentEN2v85LocalINS1_7ContextEEE.exit
 
 if.end.i90:                                       ; preds = %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i
   %sub.i.i.i91 = add i64 %90, 271
-  %94 = inttoptr i64 %sub.i.i.i91 to ptr
-  %95 = load i64, ptr %94, align 8
-  %96 = inttoptr i64 %95 to ptr
+  %93 = inttoptr i64 %sub.i.i.i91 to ptr
+  %94 = load i64, ptr %93, align 8
+  %95 = inttoptr i64 %94 to ptr
   br label %_ZN4node11Environment10GetCurrentEN2v85LocalINS1_7ContextEEE.exit
 
 _ZN4node11Environment10GetCurrentEN2v85LocalINS1_7ContextEEE.exit: ; preds = %if.then138, %if.end.i.i, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i, %if.end.i90
-  %retval.0.i = phi ptr [ %96, %if.end.i90 ], [ null, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i ], [ null, %if.then138 ], [ null, %if.end.i.i ]
+  %retval.0.i = phi ptr [ %95, %if.end.i90 ], [ null, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i ], [ null, %if.then138 ], [ null, %if.end.i.i ]
   %isolate_data_.i.i = getelementptr inbounds %"class.node::Environment", ptr %retval.0.i, i64 0, i32 4
-  %97 = load ptr, ptr %isolate_data_.i.i, align 8
-  %get_string_.i.i = getelementptr inbounds %"class.node::IsolateData", ptr %97, i64 0, i32 123
-  %98 = load ptr, ptr %get_string_.i.i, align 8
-  %call166 = tail call i16 @_ZN2v86Object14HasOwnPropertyENS_5LocalINS_7ContextEEENS1_INS_4NameEEE(ptr noundef nonnull align 1 dereferenceable(1) %call130, ptr %retval.sroa.0.0.i.i, ptr %98) #21
-  %99 = and i16 %call166, 257
-  %cond.i230 = icmp eq i16 %99, 257
+  %96 = load ptr, ptr %isolate_data_.i.i, align 8
+  %get_string_.i.i = getelementptr inbounds %"class.node::IsolateData", ptr %96, i64 0, i32 123
+  %97 = load ptr, ptr %get_string_.i.i, align 8
+  %call166 = tail call i16 @_ZN2v86Object14HasOwnPropertyENS_5LocalINS_7ContextEEENS1_INS_4NameEEE(ptr noundef nonnull align 1 dereferenceable(1) %call130, ptr %retval.sroa.0.0.i.i, ptr %97) #21
+  %98 = and i16 %call166, 257
+  %cond.i230 = icmp eq i16 %98, 257
   br i1 %cond.i230, label %if.else.i, label %lor.rhs169
 
 lor.rhs169:                                       ; preds = %_ZN4node11Environment10GetCurrentEN2v85LocalINS1_7ContextEEE.exit
-  %100 = load ptr, ptr %isolate_data_.i.i, align 8
-  %set_string_.i.i = getelementptr inbounds %"class.node::IsolateData", ptr %100, i64 0, i32 259
-  %101 = load ptr, ptr %set_string_.i.i, align 8
-  %call188 = tail call i16 @_ZN2v86Object14HasOwnPropertyENS_5LocalINS_7ContextEEENS1_INS_4NameEEE(ptr noundef nonnull align 1 dereferenceable(1) %call130, ptr %retval.sroa.0.0.i.i, ptr %101) #21
-  %102 = and i16 %call188, 257
-  %103 = icmp eq i16 %102, 257
-  br i1 %103, label %if.else.i, label %if.end201
+  %99 = load ptr, ptr %isolate_data_.i.i, align 8
+  %set_string_.i.i = getelementptr inbounds %"class.node::IsolateData", ptr %99, i64 0, i32 259
+  %100 = load ptr, ptr %set_string_.i.i, align 8
+  %call188 = tail call i16 @_ZN2v86Object14HasOwnPropertyENS_5LocalINS_7ContextEEENS1_INS_4NameEEE(ptr noundef nonnull align 1 dereferenceable(1) %call130, ptr %retval.sroa.0.0.i.i, ptr %100) #21
+  %101 = and i16 %call188, 257
+  %102 = icmp eq i16 %101, 257
+  br i1 %102, label %if.else.i, label %if.end201
 
 if.else.i:                                        ; preds = %lor.rhs169, %_ZN4node11Environment10GetCurrentEN2v85LocalINS1_7ContextEEE.exit
-  %104 = load ptr, ptr %args, align 8
-  %arrayidx.i = getelementptr inbounds i64, ptr %104, i64 4
-  %105 = load i64, ptr %value.coerce, align 8
-  store i64 %105, ptr %arrayidx.i, align 8
+  %103 = load ptr, ptr %args, align 8
+  %arrayidx.i = getelementptr inbounds i64, ptr %103, i64 4
+  %104 = load i64, ptr %value.coerce, align 8
+  store i64 %104, ptr %arrayidx.i, align 8
   br label %if.end201
 
 if.end201:                                        ; preds = %if.end.i.i.i, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i, %entry, %_ZN4node10contextify17ContextifyContext3GetIN2v85ValueEEEPS1_RKNS3_20PropertyCallbackInfoIT_EE.exit, %_ZNK4node10contextify17ContextifyContext7sandboxEv.exit72, %_ZNK2v820PropertyCallbackInfoINS_5ValueEE18ShouldThrowOnErrorEv.exit, %_ZNK4node10contextify17ContextifyContext7sandboxEv.exit86, %lor.rhs169, %if.else.i, %land.lhs.true81, %_ZNK4node10contextify17ContextifyContext7sandboxEv.exit, %_ZN4node10contextify17ContextifyContext19IsStillInitializingEPKS1_.exit, %if.end5.i

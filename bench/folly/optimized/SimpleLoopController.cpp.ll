@@ -339,19 +339,13 @@ for.body:                                         ; preds = %for.cond.preheader,
   store i64 %dec.i, ptr %remoteCount_.i, align 16, !tbaa !32
   %remoteReadyQueue_.i = getelementptr inbounds %"class.folly::fibers::FiberManager", ptr %4, i64 0, i32 25
   %6 = load atomic i64, ptr %remoteReadyQueue_.i acquire, align 8
-  %atomic-temp.0.i.i.i.i.i = inttoptr i64 %6 to ptr
-  %cmp.i.i.i = icmp eq ptr %atomic-temp.0.i.i.i.i.i, inttoptr (i64 1 to ptr)
-  %cmp2.i.i = icmp eq i64 %6, 0
-  %cmp.i.i = or i1 %cmp2.i.i, %cmp.i.i.i
+  %cmp.i.i = icmp ult i64 %6, 2
   br i1 %cmp.i.i, label %_ZN5folly6fibers12FiberManager19shouldRunLoopRemoteEv.exit, label %if.then7
 
 _ZN5folly6fibers12FiberManager19shouldRunLoopRemoteEv.exit: ; preds = %for.body
   %remoteTaskQueue_.i = getelementptr inbounds %"class.folly::fibers::FiberManager", ptr %4, i64 0, i32 26
   %7 = load atomic i64, ptr %remoteTaskQueue_.i acquire, align 8
-  %atomic-temp.0.i.i.i.i3.i = inttoptr i64 %7 to ptr
-  %cmp.i.i4.i = icmp ne ptr %atomic-temp.0.i.i.i.i3.i, inttoptr (i64 1 to ptr)
-  %cmp2.i5.i = icmp ne i64 %7, 0
-  %cmp.i6.not.i = and i1 %cmp2.i5.i, %cmp.i.i4.i
+  %cmp.i6.not.i = icmp ugt i64 %7, 1
   br i1 %cmp.i6.not.i, label %if.then7, label %for.inc
 
 if.then7:                                         ; preds = %_ZN5folly6fibers12FiberManager19shouldRunLoopRemoteEv.exit, %for.body

@@ -187,23 +187,26 @@ return:                                           ; preds = %for.body.i.i, %whil
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
 declare void @llvm.prefetch.p0(ptr nocapture readonly, i32 immarg, i32 immarg, i32 immarg) #3
 
-; Function Attrs: nofree nosync nounwind sspstrong uwtable
+; Function Attrs: nofree norecurse nosync nounwind sspstrong uwtable
 define internal zeroext i1 @buffer_zero_avx2(ptr noundef %buf, i64 noundef %len) #4 {
 entry:
   %0 = load <4 x i64>, ptr %buf, align 1
   %1 = ptrtoint ptr %buf to i64
   %2 = and i64 %1, -32
   %and = add i64 %2, 160
-  %3 = inttoptr i64 %and to ptr
   %add1 = add i64 %1, %len
   %and2 = and i64 %add1, -32
-  %4 = inttoptr i64 %and2 to ptr
-  %cmp.not25 = icmp ugt ptr %3, %4
-  br i1 %cmp.not25, label %while.end, label %while.body
+  %3 = inttoptr i64 %and2 to ptr
+  %cmp.not25 = icmp ugt i64 %and, %and2
+  br i1 %cmp.not25, label %while.end, label %while.body.preheader
 
-while.body:                                       ; preds = %entry, %if.end
-  %t.027 = phi <4 x i64> [ %or12, %if.end ], [ %0, %entry ]
-  %p.026 = phi ptr [ %add.ptr, %if.end ], [ %3, %entry ]
+while.body.preheader:                             ; preds = %entry
+  %4 = inttoptr i64 %and to ptr
+  br label %while.body
+
+while.body:                                       ; preds = %while.body.preheader, %if.end
+  %t.027 = phi <4 x i64> [ %or12, %if.end ], [ %0, %while.body.preheader ]
+  %p.026 = phi ptr [ %add.ptr, %if.end ], [ %4, %while.body.preheader ]
   tail call void @llvm.prefetch.p0(ptr %p.026, i32 0, i32 3, i32 1)
   %5 = tail call i32 @llvm.x86.avx.ptestz.256(<4 x i64> %t.027, <4 x i64> %t.027)
   %tobool.not = icmp eq i32 %5, 0
@@ -222,7 +225,7 @@ if.end:                                           ; preds = %while.body
   %9 = load <4 x i64>, ptr %arrayidx11, align 32
   %or12 = or <4 x i64> %or10, %9
   %add.ptr = getelementptr <4 x i64>, ptr %p.026, i64 4
-  %cmp.not = icmp ugt ptr %add.ptr, %4
+  %cmp.not = icmp ugt ptr %add.ptr, %3
   br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !10
 
 while.end:                                        ; preds = %if.end, %entry
@@ -249,23 +252,26 @@ return:                                           ; preds = %while.body, %while.
   ret i1 %retval.0
 }
 
-; Function Attrs: nofree nosync nounwind sspstrong uwtable
+; Function Attrs: nofree norecurse nosync nounwind sspstrong uwtable
 define internal zeroext i1 @buffer_zero_sse4(ptr noundef %buf, i64 noundef %len) #5 {
 entry:
   %0 = load <2 x i64>, ptr %buf, align 1
   %1 = ptrtoint ptr %buf to i64
   %2 = and i64 %1, -16
   %and = add i64 %2, 80
-  %3 = inttoptr i64 %and to ptr
   %add1 = add i64 %1, %len
   %and2 = and i64 %add1, -16
-  %4 = inttoptr i64 %and2 to ptr
-  %cmp.not22 = icmp ugt ptr %3, %4
-  br i1 %cmp.not22, label %while.end, label %while.body
+  %3 = inttoptr i64 %and2 to ptr
+  %cmp.not22 = icmp ugt i64 %and, %and2
+  br i1 %cmp.not22, label %while.end, label %while.body.preheader
 
-while.body:                                       ; preds = %entry, %if.end
-  %p.024 = phi ptr [ %add.ptr, %if.end ], [ %3, %entry ]
-  %t.023 = phi <2 x i64> [ %or18, %if.end ], [ %0, %entry ]
+while.body.preheader:                             ; preds = %entry
+  %4 = inttoptr i64 %and to ptr
+  br label %while.body
+
+while.body:                                       ; preds = %while.body.preheader, %if.end
+  %p.024 = phi ptr [ %add.ptr, %if.end ], [ %4, %while.body.preheader ]
+  %t.023 = phi <2 x i64> [ %or18, %if.end ], [ %0, %while.body.preheader ]
   tail call void @llvm.prefetch.p0(ptr %p.024, i32 0, i32 3, i32 1)
   %5 = tail call i32 @llvm.x86.sse41.ptestz(<2 x i64> %t.023, <2 x i64> %t.023)
   %tobool5.not = icmp eq i32 %5, 0
@@ -284,16 +290,16 @@ if.end:                                           ; preds = %while.body
   %9 = load <2 x i64>, ptr %arrayidx17, align 16
   %or18 = or <2 x i64> %or16, %9
   %add.ptr = getelementptr <2 x i64>, ptr %p.024, i64 4
-  %cmp.not = icmp ugt ptr %add.ptr, %4
+  %cmp.not = icmp ugt ptr %add.ptr, %3
   br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !11
 
 while.end:                                        ; preds = %if.end, %entry
   %t.0.lcssa = phi <2 x i64> [ %0, %entry ], [ %or18, %if.end ]
-  %arrayidx19 = getelementptr <2 x i64>, ptr %4, i64 -3
+  %arrayidx19 = getelementptr <2 x i64>, ptr %3, i64 -3
   %10 = load <2 x i64>, ptr %arrayidx19, align 16
-  %arrayidx21 = getelementptr <2 x i64>, ptr %4, i64 -2
+  %arrayidx21 = getelementptr <2 x i64>, ptr %3, i64 -2
   %11 = load <2 x i64>, ptr %arrayidx21, align 16
-  %arrayidx23 = getelementptr <2 x i64>, ptr %4, i64 -1
+  %arrayidx23 = getelementptr <2 x i64>, ptr %3, i64 -1
   %12 = load <2 x i64>, ptr %arrayidx23, align 16
   %add.ptr25 = getelementptr i8, ptr %buf, i64 %len
   %add.ptr26 = getelementptr i8, ptr %add.ptr25, i64 -16
@@ -311,23 +317,26 @@ return:                                           ; preds = %while.body, %while.
   ret i1 %retval.0
 }
 
-; Function Attrs: nofree nosync nounwind sspstrong uwtable
+; Function Attrs: nofree norecurse nosync nounwind sspstrong uwtable
 define internal zeroext i1 @buffer_zero_sse2(ptr noundef %buf, i64 noundef %len) #6 {
 entry:
   %0 = load <2 x i64>, ptr %buf, align 1
   %1 = ptrtoint ptr %buf to i64
   %2 = and i64 %1, -16
   %and = add i64 %2, 80
-  %3 = inttoptr i64 %and to ptr
   %add1 = add i64 %1, %len
   %and2 = and i64 %add1, -16
-  %4 = inttoptr i64 %and2 to ptr
-  %cmp.not22 = icmp ugt ptr %3, %4
-  br i1 %cmp.not22, label %while.end, label %while.body
+  %3 = inttoptr i64 %and2 to ptr
+  %cmp.not22 = icmp ugt i64 %and, %and2
+  br i1 %cmp.not22, label %while.end, label %while.body.preheader
 
-while.body:                                       ; preds = %entry, %if.end
-  %t.024 = phi <2 x i64> [ %or19, %if.end ], [ %0, %entry ]
-  %p.023 = phi ptr [ %add.ptr, %if.end ], [ %3, %entry ]
+while.body.preheader:                             ; preds = %entry
+  %4 = inttoptr i64 %and to ptr
+  br label %while.body
+
+while.body:                                       ; preds = %while.body.preheader, %if.end
+  %t.024 = phi <2 x i64> [ %or19, %if.end ], [ %0, %while.body.preheader ]
+  %p.023 = phi ptr [ %add.ptr, %if.end ], [ %4, %while.body.preheader ]
   tail call void @llvm.prefetch.p0(ptr %p.023, i32 0, i32 3, i32 1)
   %5 = bitcast <2 x i64> %t.024 to <16 x i8>
   %6 = icmp ne <16 x i8> %5, zeroinitializer
@@ -348,16 +357,16 @@ if.end:                                           ; preds = %while.body
   %11 = load <2 x i64>, ptr %arrayidx18, align 16
   %or19 = or <2 x i64> %or17, %11
   %add.ptr = getelementptr <2 x i64>, ptr %p.023, i64 4
-  %cmp.not = icmp ugt ptr %add.ptr, %4
+  %cmp.not = icmp ugt ptr %add.ptr, %3
   br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !12
 
 while.end:                                        ; preds = %if.end, %entry
   %t.0.lcssa = phi <2 x i64> [ %0, %entry ], [ %or19, %if.end ]
-  %arrayidx20 = getelementptr <2 x i64>, ptr %4, i64 -3
+  %arrayidx20 = getelementptr <2 x i64>, ptr %3, i64 -3
   %12 = load <2 x i64>, ptr %arrayidx20, align 16
-  %arrayidx22 = getelementptr <2 x i64>, ptr %4, i64 -2
+  %arrayidx22 = getelementptr <2 x i64>, ptr %3, i64 -2
   %13 = load <2 x i64>, ptr %arrayidx22, align 16
-  %arrayidx24 = getelementptr <2 x i64>, ptr %4, i64 -1
+  %arrayidx24 = getelementptr <2 x i64>, ptr %3, i64 -1
   %14 = load <2 x i64>, ptr %arrayidx24, align 16
   %add.ptr26 = getelementptr i8, ptr %buf, i64 %len
   %add.ptr27 = getelementptr i8, ptr %add.ptr26, i64 -16
@@ -377,7 +386,7 @@ return:                                           ; preds = %while.body, %while.
   ret i1 %retval.0
 }
 
-; Function Attrs: nofree nosync nounwind sspstrong uwtable
+; Function Attrs: nofree norecurse nosync nounwind sspstrong uwtable
 define internal zeroext i1 @buffer_zero_int(ptr noundef %buf, i64 noundef %len) #7 {
 entry:
   %cmp = icmp ult i64 %len, 8
@@ -471,10 +480,10 @@ attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-ve
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nofree norecurse nosync nounwind sspstrong memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) }
-attributes #4 = { nofree nosync nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="256" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #5 = { nofree nosync nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
-attributes #6 = { nofree nosync nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nofree nosync nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nofree norecurse nosync nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="256" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #5 = { nofree norecurse nosync nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
+attributes #6 = { nofree norecurse nosync nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nofree norecurse nosync nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(none) }
 attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #10 = { nounwind }

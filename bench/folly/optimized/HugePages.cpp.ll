@@ -10268,7 +10268,7 @@ _ZN5boost16re_detail_10740018basic_regex_parserIcNS_12regex_traitsIcNS_16cpp_reg
 
 if.end:                                           ; preds = %entry
   %and4 = and i32 %l_flags, 3
-  switch i32 %and4, label %if.end.unreachabledefault [
+  switch i32 %and4, label %default.unreachable8 [
     i32 0, label %sw.bb
     i32 1, label %sw.bb8
     i32 2, label %sw.bb10
@@ -10364,7 +10364,7 @@ sw.bb10:                                          ; preds = %if.end
   store i64 0, ptr %m_parser_proc11.repack52, align 8, !tbaa !338
   br label %sw.epilog
 
-if.end.unreachabledefault:                        ; preds = %if.end
+default.unreachable8:                             ; preds = %if.end
   unreachable
 
 sw.default:                                       ; preds = %if.end
@@ -44776,7 +44776,7 @@ _ZNK5boost13match_resultsIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_s
   %second25 = getelementptr inbounds %"struct.std::pair.41", ptr %retval.0.i101, i64 0, i32 1
   %34 = load i64, ptr %second25, align 8, !tbaa !52
   %35 = inttoptr i64 %34 to ptr
-  %cmp.i137.not162 = icmp eq ptr %32, %35
+  %cmp.i137.not162 = icmp eq i64 %31, %34
   br i1 %cmp.i137.not162, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %_ZNK5boost13match_resultsIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaINS_9sub_matchISB_EEEEixEi.exit136

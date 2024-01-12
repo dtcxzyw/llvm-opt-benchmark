@@ -6016,8 +6016,7 @@ while.body.i.i9:                                  ; preds = %while.body.i.i9, %w
 
 _ZN5folly23AtomicNotificationQueueIN5boost7variantINS_17AsyncServerSocket14NewConnMessageEJNS3_12ErrorMessageEEEEE5QueueD2Ev.exit13: ; preds = %while.body.i.i9, %_ZN5folly23AtomicNotificationQueueIN5boost7variantINS_17AsyncServerSocket14NewConnMessageEJNS3_12ErrorMessageEEEEE5QueueD2Ev.exit
   %9 = load atomic i64, ptr %atomicQueue_ monotonic, align 64
-  %atomic-temp.0.i.i.i14 = inttoptr i64 %9 to ptr
-  %cmp.i = icmp eq ptr %atomic-temp.0.i.i.i14, inttoptr (i64 1 to ptr)
+  %cmp.i = icmp eq i64 %9, 1
   br i1 %cmp.i, label %_ZN5folly23AtomicNotificationQueueIN5boost7variantINS_17AsyncServerSocket14NewConnMessageEJNS3_12ErrorMessageEEEEE11AtomicQueueD2Ev.exit, label %if.end.i15
 
 if.end.i15:                                       ; preds = %_ZN5folly23AtomicNotificationQueueIN5boost7variantINS_17AsyncServerSocket14NewConnMessageEJNS3_12ErrorMessageEEEEE5QueueD2Ev.exit13
@@ -18739,7 +18738,7 @@ _ZNSt12__shared_ptrIN5folly14RequestContextELN9__gnu_cxx12_Lock_policyE2EED2Ev.e
   store ptr null, ptr %next.i, align 8, !tbaa !573
   %14 = load atomic i64, ptr %this monotonic, align 64
   %head.015 = inttoptr i64 %14 to ptr
-  %cmp16 = icmp eq ptr %head.015, inttoptr (i64 1 to ptr)
+  %cmp16 = icmp eq i64 %14, 1
   %cond17 = select i1 %cmp16, ptr null, ptr %head.015
   store ptr %cond17, ptr %next.i, align 8, !tbaa !573
   %15 = ptrtoint ptr %call to i64
@@ -18751,7 +18750,7 @@ _ZNSt6atomicIPN5folly23AtomicNotificationQueueIN5boost7variantINS0_17AsyncServer
   %18 = phi { i64, i1 } [ %20, %_ZNSt6atomicIPN5folly23AtomicNotificationQueueIN5boost7variantINS0_17AsyncServerSocket14NewConnMessageEJNS4_12ErrorMessageEEEEE4NodeEE21compare_exchange_weakERSA_SA_St12memory_orderSD_.exit ], [ %16, %_ZNSt12__shared_ptrIN5folly14RequestContextELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ]
   %19 = extractvalue { i64, i1 } %18, 0
   %head.0 = inttoptr i64 %19 to ptr
-  %cmp = icmp eq ptr %head.0, inttoptr (i64 1 to ptr)
+  %cmp = icmp eq i64 %19, 1
   %cond = select i1 %cmp, ptr null, ptr %head.0
   store ptr %cond, ptr %next.i, align 8, !tbaa !573
   %20 = cmpxchg weak ptr %this, i64 %19, i64 %15 acq_rel monotonic, align 8

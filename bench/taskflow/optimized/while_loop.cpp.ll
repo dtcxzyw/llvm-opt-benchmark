@@ -11377,83 +11377,82 @@ if.then.i.i42:                                    ; preds = %if.else
 
 _ZNSt10lock_guardISt5mutexEC2ERS0_.exit43:        ; preds = %if.else
   %5 = load atomic i64, ptr %0 seq_cst, align 8
-  %6 = inttoptr i64 %5 to ptr
-  %cmp10 = icmp eq ptr %6, %atomic-temp.i.0.i
+  %cmp10 = icmp eq i64 %5, %1
   br i1 %cmp10, label %if.then11, label %do.cond
 
 if.then11:                                        ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit43
-  %7 = load i64, ptr %u12, align 8
-  %cmp.i = icmp eq i64 %7, 273
-  %div.i = udiv i64 %7, 69
+  %6 = load i64, ptr %u12, align 8
+  %cmp.i = icmp eq i64 %6, 273
+  %div.i = udiv i64 %6, 69
   %cond.i = select i1 %cmp.i, i64 4, i64 %div.i
-  %8 = load ptr, ptr %top.i44, align 8
-  store ptr %8, ptr %mem, align 8
+  %7 = load ptr, ptr %top.i44, align 8
+  store ptr %7, ptr %mem, align 8
   store ptr %mem, ptr %top.i44, align 8
-  %9 = load i64, ptr %u12, align 8
-  %sub18 = add i64 %9, -1
+  %8 = load i64, ptr %u12, align 8
+  %sub18 = add i64 %8, -1
   store i64 %sub18, ptr %u12, align 8
   %u20 = getelementptr inbounds %"struct.tf::ObjectPool<tf::Node>::LocalHeap", ptr %atomic-temp.i.0.i, i64 0, i32 2
-  %10 = load i64, ptr %u20, align 8
-  %sub21 = add i64 %10, -1
+  %9 = load i64, ptr %u20, align 8
+  %sub21 = add i64 %9, -1
   store i64 %sub21, ptr %u20, align 8
-  %11 = load i64, ptr %u12, align 8
-  %cmp.i45 = icmp eq i64 %11, 273
-  %div.i46 = udiv i64 %11, 69
+  %10 = load i64, ptr %u12, align 8
+  %cmp.i45 = icmp eq i64 %10, 273
+  %div.i46 = udiv i64 %10, 69
   %cond.i47 = select i1 %cmp.i45, i64 4, i64 %div.i46
   %cmp26.not = icmp eq i64 %cond.i47, %cond.i
   br i1 %cmp26.not, label %if.end29, label %if.then27
 
 if.then27:                                        ; preds = %if.then11
   %arrayidx = getelementptr inbounds %"struct.tf::ObjectPool<tf::Node>::LocalHeap", ptr %atomic-temp.i.0.i, i64 0, i32 1, i64 %cond.i47
-  %12 = load ptr, ptr %list_node, align 8
-  %13 = load ptr, ptr %next.i, align 8
-  store ptr %12, ptr %13, align 8
-  %next3.i.i = getelementptr inbounds %"struct.tf::ObjectPool<tf::Node>::Blocklist", ptr %12, i64 0, i32 1
-  store ptr %13, ptr %next3.i.i, align 8
+  %11 = load ptr, ptr %list_node, align 8
+  %12 = load ptr, ptr %next.i, align 8
+  store ptr %11, ptr %12, align 8
+  %next3.i.i = getelementptr inbounds %"struct.tf::ObjectPool<tf::Node>::Blocklist", ptr %11, i64 0, i32 1
+  store ptr %12, ptr %next3.i.i, align 8
   %next.i.i = getelementptr inbounds %"struct.tf::ObjectPool<tf::Node>::LocalHeap", ptr %atomic-temp.i.0.i, i64 0, i32 1, i64 %cond.i47, i32 1
-  %14 = load ptr, ptr %next.i.i, align 8
-  store ptr %list_node, ptr %14, align 8
-  store ptr %14, ptr %next.i, align 8
+  %13 = load ptr, ptr %next.i.i, align 8
+  store ptr %list_node, ptr %13, align 8
+  store ptr %13, ptr %next.i, align 8
   store ptr %arrayidx, ptr %list_node, align 8
   store ptr %list_node, ptr %next.i.i, align 8
   %.pre = load i64, ptr %u20, align 8
   br label %if.end29
 
 lpad13:                                           ; preds = %if.then.i.i52
-  %15 = landingpad { ptr, i32 }
+  %14 = landingpad { ptr, i32 }
           cleanup
   %call1.i.i.i60 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %atomic-temp.i.0.i) #28
-  resume { ptr, i32 } %15
+  resume { ptr, i32 } %14
 
 if.end29:                                         ; preds = %if.then27, %if.then11
-  %16 = phi i64 [ %.pre, %if.then27 ], [ %sub21, %if.then11 ]
-  %add = add i64 %16, 1092
+  %15 = phi i64 [ %.pre, %if.then27 ], [ %sub21, %if.then11 ]
+  %add = add i64 %15, 1092
   %a = getelementptr inbounds %"struct.tf::ObjectPool<tf::Node>::LocalHeap", ptr %atomic-temp.i.0.i, i64 0, i32 3
-  %17 = load i64, ptr %a, align 8
-  %cmp31 = icmp ult i64 %add, %17
+  %16 = load i64, ptr %a, align 8
+  %cmp31 = icmp ult i64 %add, %16
   br i1 %cmp31, label %land.lhs.true, label %do.cond
 
 land.lhs.true:                                    ; preds = %if.end29
-  %mul = mul i64 %17, 3
+  %mul = mul i64 %16, 3
   %div37 = lshr i64 %mul, 2
-  %cmp34 = icmp ult i64 %16, %div37
+  %cmp34 = icmp ult i64 %15, %div37
   br i1 %cmp34, label %for.body, label %do.cond
 
 for.body:                                         ; preds = %land.lhs.true, %for.inc
   %i.068 = phi i64 [ %inc, %for.inc ], [ 0, %land.lhs.true ]
   %arrayidx38 = getelementptr inbounds %"struct.tf::ObjectPool<tf::Node>::LocalHeap", ptr %atomic-temp.i.0.i, i64 0, i32 1, i64 %i.068
   %next.i48 = getelementptr inbounds %"struct.tf::ObjectPool<tf::Node>::LocalHeap", ptr %atomic-temp.i.0.i, i64 0, i32 1, i64 %i.068, i32 1
-  %18 = load ptr, ptr %next.i48, align 8
-  %cmp.i49 = icmp eq ptr %18, %arrayidx38
+  %17 = load ptr, ptr %next.i48, align 8
+  %cmp.i49 = icmp eq ptr %17, %arrayidx38
   br i1 %cmp.i49, label %for.inc, label %invoke.cont44
 
 invoke.cont44:                                    ; preds = %for.body
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %18, i64 -8
-  %u47 = getelementptr inbounds i8, ptr %18, i64 24
-  %19 = load i64, ptr %u47, align 8
-  %sub48 = sub i64 %16, %19
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %17, i64 -8
+  %u47 = getelementptr inbounds i8, ptr %17, i64 24
+  %18 = load i64, ptr %u47, align 8
+  %sub48 = sub i64 %15, %18
   store i64 %sub48, ptr %u20, align 8
-  %sub51 = add i64 %17, -273
+  %sub51 = add i64 %16, -273
   store i64 %sub51, ptr %a, align 8
   store atomic i64 0, ptr %add.ptr.i.i seq_cst, align 8
   %call1.i.i.i50 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %_gheap56) #28
@@ -11468,17 +11467,17 @@ if.then.i.i52:                                    ; preds = %invoke.cont44
   unreachable
 
 invoke.cont62:                                    ; preds = %invoke.cont44
-  %20 = load ptr, ptr %18, align 8
-  %next.i54 = getelementptr inbounds %"struct.tf::ObjectPool<tf::Node>::Blocklist", ptr %18, i64 0, i32 1
-  %21 = load ptr, ptr %next.i54, align 8
-  store ptr %20, ptr %21, align 8
-  %next3.i.i55 = getelementptr inbounds %"struct.tf::ObjectPool<tf::Node>::Blocklist", ptr %20, i64 0, i32 1
-  store ptr %21, ptr %next3.i.i55, align 8
-  %22 = load ptr, ptr %next.i.i56, align 8
-  store ptr %18, ptr %22, align 8
-  store ptr %22, ptr %next.i54, align 8
-  store ptr %list, ptr %18, align 8
-  store ptr %18, ptr %next.i.i56, align 8
+  %19 = load ptr, ptr %17, align 8
+  %next.i54 = getelementptr inbounds %"struct.tf::ObjectPool<tf::Node>::Blocklist", ptr %17, i64 0, i32 1
+  %20 = load ptr, ptr %next.i54, align 8
+  store ptr %19, ptr %20, align 8
+  %next3.i.i55 = getelementptr inbounds %"struct.tf::ObjectPool<tf::Node>::Blocklist", ptr %19, i64 0, i32 1
+  store ptr %20, ptr %next3.i.i55, align 8
+  %21 = load ptr, ptr %next.i.i56, align 8
+  store ptr %17, ptr %21, align 8
+  store ptr %21, ptr %next.i54, align 8
+  store ptr %list, ptr %17, align 8
+  store ptr %17, ptr %next.i.i56, align 8
   %call1.i.i.i57 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %_gheap56) #28
   br label %do.cond
 
@@ -11491,8 +11490,8 @@ do.cond:                                          ; preds = %for.inc, %_ZNSt10lo
   %_gheap56.sink = phi ptr [ %_gheap56, %if.then5 ], [ %_gheap56, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit ], [ %atomic-temp.i.0.i, %if.end29 ], [ %atomic-temp.i.0.i, %land.lhs.true ], [ %atomic-temp.i.0.i, %invoke.cont62 ], [ %atomic-temp.i.0.i, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit43 ], [ %atomic-temp.i.0.i, %for.inc ]
   %sync.3 = phi i8 [ 1, %if.then5 ], [ %sync.0, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit ], [ 1, %if.end29 ], [ 1, %land.lhs.true ], [ 1, %invoke.cont62 ], [ %sync.0, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit43 ], [ 1, %for.inc ]
   %call1.i.i.i39 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %_gheap56.sink) #28
-  %23 = and i8 %sync.3, 1
-  %tobool.not = icmp eq i8 %23, 0
+  %22 = and i8 %sync.3, 1
+  %tobool.not = icmp eq i8 %22, 0
   br i1 %tobool.not, label %do.body, label %do.end, !llvm.loop !113
 
 do.end:                                           ; preds = %do.cond

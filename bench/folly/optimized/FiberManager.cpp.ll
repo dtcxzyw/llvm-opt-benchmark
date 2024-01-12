@@ -404,7 +404,7 @@ $_ZTIN5folly6detail10DefaultTagE = comdat any
 define void @_ZN5folly6fibers12FiberManagerD0Ev(ptr noundef nonnull align 16 dereferenceable(577) %this) unnamed_addr #0 align 2 {
 entry:
   tail call void @_ZN5folly6fibers12FiberManagerD1Ev(ptr noundef nonnull align 16 dereferenceable(577) %this) #11
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #30
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #29
   ret void
 }
 
@@ -427,7 +427,7 @@ entry:
   %memptr.offset.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 88
   %3 = ptrtoint ptr %1 to i64
   %oldHead.016.i.i.i = inttoptr i64 %2 to ptr
-  %cmp17.i.i.i = icmp eq ptr %oldHead.016.i.i.i, inttoptr (i64 1 to ptr)
+  %cmp17.i.i.i = icmp eq i64 %2, 1
   %cond18.i.i.i = select i1 %cmp17.i.i.i, ptr null, ptr %oldHead.016.i.i.i
   store ptr %cond18.i.i.i, ptr %memptr.offset.i.i.i.i, align 8, !tbaa !12
   %4 = cmpxchg weak ptr %remoteTaskQueue_.i, i64 %2, i64 %3 release monotonic, align 8
@@ -438,7 +438,7 @@ _ZNSt6atomicIPN5folly6fibers12FiberManager10RemoteTaskEE21compare_exchange_weakE
   %6 = phi { i64, i1 } [ %8, %_ZNSt6atomicIPN5folly6fibers12FiberManager10RemoteTaskEE21compare_exchange_weakERS4_S4_St12memory_orderS7_.exit.i.i.i ], [ %4, %entry ]
   %7 = extractvalue { i64, i1 } %6, 0
   %oldHead.0.i.i.i = inttoptr i64 %7 to ptr
-  %cmp.i.i.i = icmp eq ptr %oldHead.0.i.i.i, inttoptr (i64 1 to ptr)
+  %cmp.i.i.i = icmp eq i64 %7, 1
   %cond.i.i.i = select i1 %cmp.i.i.i, ptr null, ptr %oldHead.0.i.i.i
   store ptr %cond.i.i.i, ptr %memptr.offset.i.i.i.i, align 8, !tbaa !12
   %8 = cmpxchg weak ptr %remoteTaskQueue_.i, i64 %7, i64 %3 release monotonic, align 8
@@ -672,7 +672,7 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #7
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #8 comdat {
   %2 = tail call ptr @__cxa_begin_catch(ptr %0) #11
-  tail call void @_ZSt9terminatev() #31
+  tail call void @_ZSt9terminatev() #30
   unreachable
 }
 
@@ -896,7 +896,7 @@ terminate.lpad:                                   ; preds = %cond.false.i.i.i, %
   %8 = landingpad { ptr, i32 }
           catch ptr null
   %9 = extractvalue { ptr, i32 } %8, 0
-  tail call void @__clang_call_terminate(ptr %9) #31
+  tail call void @__clang_call_terminate(ptr %9) #30
   unreachable
 }
 
@@ -909,7 +909,7 @@ declare void @_ZN5folly6detail25SingletonThreadLocalState13LocalLifetime5trackER
 ; Function Attrs: mustprogress uwtable
 define internal noalias noundef nonnull ptr @_ZN5folly6detail5thunk4makeINS_11ThreadLocalINS_20SingletonThreadLocalIPNS_6fibers12FiberManagerEZNS6_22getCurrentFiberManagerEvE3TagNS0_11DefaultMakeIS7_EES8_E7WrapperES8_vEEJEEEPvDpT0_() #1 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
-  %call = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #32
+  %call = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #31
   store i32 -1, ptr %call, align 4, !tbaa !40
   %constructor_.i = getelementptr inbounds %"class.folly::ThreadLocal", ptr %call, i64 0, i32 1
   %_M_manager.i.i.i = getelementptr inbounds %"class.folly::ThreadLocal", ptr %call, i64 0, i32 1, i32 0, i32 1
@@ -932,7 +932,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 ; Function Attrs: mustprogress uwtable
 define internal noundef nonnull ptr @_ZNSt17_Function_handlerIFPvvEZN5folly11ThreadLocalINS2_20SingletonThreadLocalIPNS2_6fibers12FiberManagerEZNS6_22getCurrentFiberManagerEvE3TagNS2_6detail11DefaultMakeIS7_EES8_E7WrapperES8_vEC1EvEUlvE_E9_M_invokeERKSt9_Any_data(ptr nocapture nonnull readnone align 8 %__functor) #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %call.i.i.i = tail call noalias noundef nonnull dereferenceable(120) ptr @_Znwm(i64 noundef 120) #32
+  %call.i.i.i = tail call noalias noundef nonnull dereferenceable(120) ptr @_Znwm(i64 noundef 120) #31
   %0 = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %call.i.i.i, i8 0, i64 120, i1 false)
   tail call void @_ZN5folly6detail25SingletonThreadLocalState7WrapperC2Ev(ptr noundef nonnull align 8 dereferenceable(112) %0) #11
@@ -982,7 +982,7 @@ entry:
   br i1 %tobool.not.i.i, label %if.then.i, label %_ZNKSt8functionIFPvvEEclEv.exit
 
 if.then.i:                                        ; preds = %entry
-  tail call void @_ZSt25__throw_bad_function_callv() #33
+  tail call void @_ZSt25__throw_bad_function_callv() #32
   unreachable
 
 _ZNKSt8functionIFPvvEEclEv.exit:                  ; preds = %entry
@@ -1087,7 +1087,7 @@ cond.true18.i.i:                                  ; preds = %while.end.i.i
   br i1 %tobool.not.i.i.i24.i, label %if.then.i.i.i, label %_ZNKSt8functionIFvPvN5folly18TLPDestructionModeEEEclES0_S2_.exit.i.i
 
 if.then.i.i.i:                                    ; preds = %cond.true18.i.i
-  invoke void @_ZSt25__throw_bad_function_callv() #33
+  invoke void @_ZSt25__throw_bad_function_callv() #32
           to label %.noexc25.i unwind label %lpad.i
 
 .noexc25.i:                                       ; preds = %if.then.i.i.i
@@ -1157,11 +1157,11 @@ terminate.lpad.i.i.i:                             ; preds = %if.then.i.i30.i
   %27 = landingpad { ptr, i32 }
           catch ptr null
   %28 = extractvalue { ptr, i32 } %27, 0
-  call void @__clang_call_terminate(ptr %28) #31
+  call void @__clang_call_terminate(ptr %28) #30
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit.i.i:               ; preds = %if.then.i.i30.i, %delete.notnull.i.i
-  call void @_ZdlPv(ptr noundef nonnull %25) #30
+  call void @_ZdlPv(ptr noundef nonnull %25) #29
   br label %_ZN5folly18threadlocal_detail14ElementWrapper7cleanupEv.exit.i
 
 _ZN5folly18threadlocal_detail14ElementWrapper7cleanupEv.exit.i: ; preds = %_ZNSt14_Function_baseD2Ev.exit.i.i, %if.then.i29.i, %invoke.cont5.i
@@ -1258,7 +1258,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i.i.i, %i
   %41 = landingpad { ptr, i32 }
           catch ptr null
   %42 = extractvalue { ptr, i32 } %41, 0
-  call void @__clang_call_terminate(ptr %42) #31
+  call void @__clang_call_terminate(ptr %42) #30
   unreachable
 
 lpad.i:                                           ; preds = %if.end.i.i, %if.then.i.i, %cond.false20.i.i, %_ZNKSt8functionIFvPvN5folly18TLPDestructionModeEEEclES0_S2_.exit.i.i, %if.then.i.i.i, %if.then.i16.i
@@ -1323,7 +1323,7 @@ entry:
   %agg.tmp.i = alloca %"class.folly::Function.52", align 16
   %agg.tmp2.i = alloca %"class.folly::Function", align 16
   %agg.tmp3.i = alloca %"class.folly::Function", align 16
-  %call = tail call noalias noundef nonnull dereferenceable(160) ptr @_Znwm(i64 noundef 160) #32
+  %call = tail call noalias noundef nonnull dereferenceable(160) ptr @_Znwm(i64 noundef 160) #31
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %agg.tmp.i)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %agg.tmp2.i)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %agg.tmp3.i)
@@ -1422,7 +1422,7 @@ lpad:                                             ; preds = %entry
 
 lpad.body:                                        ; preds = %lpad, %_ZN5folly8FunctionIFbvEED2Ev.exit32.i
   %eh.lpad-body = phi { ptr, i32 } [ %7, %lpad ], [ %3, %_ZN5folly8FunctionIFbvEED2Ev.exit32.i ]
-  call void @_ZdlPv(ptr noundef nonnull %call) #30
+  call void @_ZdlPv(ptr noundef nonnull %call) #29
   resume { ptr, i32 } %eh.lpad-body
 }
 
@@ -1463,7 +1463,7 @@ if.then4:                                         ; preds = %if.then
   br label %if.end
 
 if.end:                                           ; preds = %if.then4, %if.then
-  %call.i = tail call i64 @pthread_self() #34
+  %call.i = tail call i64 @pthread_self() #33
   %tid_data.i = getelementptr inbounds %"struct.folly::threadlocal_detail::ThreadEntry", ptr %2, i64 0, i32 7
   store i64 %call.i, ptr %tid_data.i, align 8, !tbaa.struct !85
   %call9 = tail call noundef i64 @_ZN5folly13getOSThreadIDEv()
@@ -1480,7 +1480,7 @@ if.end:                                           ; preds = %if.then4, %if.then
   br i1 %cmp.not.i, label %if.end12, label %if.then.i, !prof !30
 
 if.then.i:                                        ; preds = %if.end
-  tail call void @_ZN5folly24throwSystemErrorExplicitEiPKc(i32 noundef %call11, ptr noundef nonnull @.str.3) #33
+  tail call void @_ZN5folly24throwSystemErrorExplicitEiPKc(i32 noundef %call11, ptr noundef nonnull @.str.3) #32
   unreachable
 
 if.end12:                                         ; preds = %if.end, %_ZN5folly18threadlocal_detail10StaticMetaIZNS_6fibers12FiberManager22getCurrentFiberManagerEvE3TagvE8instanceEv.exit
@@ -1650,7 +1650,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #31
+  call void @__clang_call_terminate(ptr %2) #30
   unreachable
 
 _ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEED2Ev.exit: ; preds = %if.then.i, %entry
@@ -1661,7 +1661,7 @@ _ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEED2Ev.exi
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIjSaIjEED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEED2Ev.exit
-  call void @_ZdlPv(ptr noundef nonnull %3) #30
+  call void @_ZdlPv(ptr noundef nonnull %3) #29
   br label %_ZNSt6vectorIjSaIjEED2Ev.exit
 
 _ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %if.then.i.i.i, %_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEED2Ev.exit
@@ -1686,9 +1686,9 @@ define linkonce_odr void @_ZN5folly24throwSystemErrorExplicitEiPKc(i32 noundef %
 entry:
   %ref.tmp = alloca %"class.std::system_error", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp) #11
-  %call.i.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V215system_categoryEv() #34
+  %call.i.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V215system_categoryEv() #33
   call void @_ZNSt12system_errorC2ESt10error_codePKc(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i32 %err, ptr nonnull %call.i.i, ptr noundef %msg)
-  invoke void @_ZN5folly15throw_exceptionISt12system_errorEEvOT_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #35
+  invoke void @_ZN5folly15throw_exceptionISt12system_errorEEvOT_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #34
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -1707,7 +1707,7 @@ define linkonce_odr void @_ZN5folly15throw_exceptionISt12system_errorEEvOT_(ptr 
 entry:
   %exception = tail call ptr @__cxa_allocate_exception(i64 32) #11
   tail call void @_ZNSt12system_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(32) %exception, ptr noundef nonnull align 8 dereferenceable(32) %ex) #11
-  tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTISt12system_error, ptr nonnull @_ZNSt12system_errorD1Ev) #33
+  tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTISt12system_error, ptr nonnull @_ZNSt12system_errorD1Ev) #32
   unreachable
 }
 
@@ -1837,7 +1837,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 if.then.i.i31:                                    ; preds = %invoke.cont7
-  call void @_ZdlPv(ptr noundef %13) #30
+  call void @_ZdlPv(ptr noundef %13) #29
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %if.then.i.i31, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i
@@ -1852,7 +1852,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit39
 
 if.then.i.i35:                                    ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
-  call void @_ZdlPv(ptr noundef %15) #30
+  call void @_ZdlPv(ptr noundef %15) #29
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit39
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit39: ; preds = %if.then.i.i35, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i36
@@ -1869,7 +1869,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit45
 
 if.then.i.i41:                                    ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit39
-  call void @_ZdlPv(ptr noundef %17) #30
+  call void @_ZdlPv(ptr noundef %17) #29
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit45
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit45: ; preds = %if.then.i.i41, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i42
@@ -1907,7 +1907,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   br label %ehcleanup
 
 if.then.i.i47:                                    ; preds = %lpad6
-  call void @_ZdlPv(ptr noundef %23) #30
+  call void @_ZdlPv(ptr noundef %23) #29
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %if.then.i.i47, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i48, %lpad4
@@ -1923,7 +1923,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   br label %ehcleanup8
 
 if.then.i.i53:                                    ; preds = %ehcleanup
-  call void @_ZdlPv(ptr noundef %25) #30
+  call void @_ZdlPv(ptr noundef %25) #29
   br label %ehcleanup8
 
 ehcleanup8:                                       ; preds = %if.then.i.i53, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i54, %lpad
@@ -1941,7 +1941,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit63
 
 if.then.i.i59:                                    ; preds = %ehcleanup8
-  call void @_ZdlPv(ptr noundef %27) #30
+  call void @_ZdlPv(ptr noundef %27) #29
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit63
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit63: ; preds = %if.then.i.i59, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i60
@@ -1986,7 +1986,7 @@ entry:
   %ref.tmp = alloca %"class.std::bad_function_call", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp) #11
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt17bad_function_call, i64 0, inrange i32 0, i64 2), ptr %ref.tmp, align 8, !tbaa !15
-  invoke void @_ZN5folly15throw_exceptionISt17bad_function_callEEvOT_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #35
+  invoke void @_ZN5folly15throw_exceptionISt17bad_function_callEEvOT_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #34
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -2005,7 +2005,7 @@ define linkonce_odr void @_ZN5folly15throw_exceptionISt17bad_function_callEEvOT_
 entry:
   %exception = tail call ptr @__cxa_allocate_exception(i64 8) #11
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt17bad_function_call, i64 0, inrange i32 0, i64 2), ptr %exception, align 8, !tbaa !15
-  tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTISt17bad_function_call, ptr nonnull @_ZNSt17bad_function_callD1Ev) #33
+  tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTISt17bad_function_call, ptr nonnull @_ZNSt17bad_function_callD1Ev) #32
   unreachable
 }
 
@@ -2018,7 +2018,7 @@ declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #3
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN5folly6detail8function14FunctionTraitsIFvvEE10uninitCallERNS1_4DataE(ptr noundef nonnull align 16 dereferenceable(48) %0) #1 comdat align 2 {
 entry:
-  tail call void @_ZN5folly6detail16throw_exception_ISt17bad_function_callJEEEvDpT0_() #35
+  tail call void @_ZN5folly6detail16throw_exception_ISt17bad_function_callJEEEvDpT0_() #34
   unreachable
 }
 
@@ -2052,7 +2052,7 @@ entry:
 delete.notnull.i.i:                               ; preds = %entry
   %0 = getelementptr inbounds i8, ptr %this.8.val.0.val, i64 8
   tail call void @_ZN5folly6detail25SingletonThreadLocalState7WrapperD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %0) #11
-  tail call void @_ZdlPv(ptr noundef nonnull %this.8.val.0.val) #30
+  tail call void @_ZdlPv(ptr noundef nonnull %this.8.val.0.val) #29
   br label %if.end
 
 if.end:                                           ; preds = %delete.notnull.i.i, %entry
@@ -2073,7 +2073,7 @@ entry:
   br i1 %tobool.not.i, label %cond.false.i, label %_ZN5folly19shared_mutex_detail21getMaxDeferredReadersEv.exit, !prof !29
 
 cond.false.i:                                     ; preds = %entry
-  %call3.i = tail call noundef i32 @_ZN5folly19shared_mutex_detail25getMaxDeferredReadersSlowERNS_14relaxed_atomicIjEE(ptr noundef nonnull align 4 dereferenceable(4) @_ZZN5folly19shared_mutex_detail21getMaxDeferredReadersEvE5cache) #36
+  %call3.i = tail call noundef i32 @_ZN5folly19shared_mutex_detail25getMaxDeferredReadersSlowERNS_14relaxed_atomicIjEE(ptr noundef nonnull align 4 dereferenceable(4) @_ZZN5folly19shared_mutex_detail21getMaxDeferredReadersEvE5cache) #35
   br label %_ZN5folly19shared_mutex_detail21getMaxDeferredReadersEv.exit
 
 _ZN5folly19shared_mutex_detail21getMaxDeferredReadersEv.exit: ; preds = %cond.false.i, %entry
@@ -2480,7 +2480,7 @@ entry:
 delete.notnull.i:                                 ; preds = %entry
   %1 = getelementptr inbounds i8, ptr %pt, i64 8
   tail call void @_ZN5folly6detail25SingletonThreadLocalState7WrapperD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %1) #11
-  tail call void @_ZdlPv(ptr noundef nonnull %pt) #30
+  tail call void @_ZdlPv(ptr noundef nonnull %pt) #29
   br label %_ZZN5folly18threadlocal_detail14ElementWrapper3setIPNS_20SingletonThreadLocalIPNS_6fibers12FiberManagerEZNS5_22getCurrentFiberManagerEvE3TagNS_6detail11DefaultMakeIS6_EES7_E7WrapperEEEvT_ENKUlPvNS_18TLPDestructionModeEE_clESF_SG_.exit
 
 _ZZN5folly18threadlocal_detail14ElementWrapper3setIPNS_20SingletonThreadLocalIPNS_6fibers12FiberManagerEZNS5_22getCurrentFiberManagerEvE3TagNS_6detail11DefaultMakeIS6_EES7_E7WrapperEEEvT_ENKUlPvNS_18TLPDestructionModeEE_clESF_SG_.exit: ; preds = %delete.notnull.i, %entry
@@ -2770,14 +2770,14 @@ declare void @_ZN5folly6fibers18GuardPageAllocatorD1Ev(ptr noundef nonnull align
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN5folly6detail8function14FunctionTraitsIFvRNS_6fibers5FiberEEE10uninitCallES5_RNS1_4DataE(ptr noundef nonnull align 64 dereferenceable(936) %0, ptr noundef nonnull align 16 dereferenceable(48) %1) #1 comdat align 2 {
 entry:
-  tail call void @_ZN5folly6detail16throw_exception_ISt17bad_function_callJEEEvDpT0_() #35
+  tail call void @_ZN5folly6detail16throw_exception_ISt17bad_function_callJEEEvDpT0_() #34
   unreachable
 }
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN5folly6detail8function14FunctionTraitsIFvRKNSt15__exception_ptr13exception_ptrENS_5RangeIPKcEEEE10uninitCallES6_SA_RNS1_4DataE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr %.coerce0, ptr %.coerce1, ptr noundef nonnull align 16 dereferenceable(48) %1) #1 comdat align 2 {
 entry:
-  tail call void @_ZN5folly6detail16throw_exception_ISt17bad_function_callJEEEvDpT0_() #35
+  tail call void @_ZN5folly6detail16throw_exception_ISt17bad_function_callJEEEvDpT0_() #34
   unreachable
 }
 
@@ -2795,7 +2795,7 @@ declare void @_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl10
 define linkonce_odr void @_ZN5folly6fibers12FiberManager17FibersPoolResizerD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #16 comdat align 2 {
 entry:
   tail call void @_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE8CallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #11
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #30
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #29
   ret void
 }
 
@@ -2812,7 +2812,7 @@ terminate.lpad:                                   ; preds = %entry
   %0 = landingpad { ptr, i32 }
           catch ptr null
   %1 = extractvalue { ptr, i32 } %0, 0
-  tail call void @__clang_call_terminate(ptr %1) #31
+  tail call void @__clang_call_terminate(ptr %1) #30
   unreachable
 }
 
@@ -2859,7 +2859,7 @@ cleanup.i:                                        ; preds = %cleanup.i, %cleanup
   store ptr %9, ptr %prev_.i5.i.i.i.i, align 8, !tbaa !119
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
   tail call void @_ZN5folly6fibers5FiberD1Ev(ptr noundef nonnull align 64 dereferenceable(936) %add.ptr.i.i.i.i) #11
-  tail call void @_ZdlPvSt11align_val_t(ptr noundef nonnull %add.ptr.i.i.i.i, i64 noundef 64) #30
+  tail call void @_ZdlPvSt11align_val_t(ptr noundef nonnull %add.ptr.i.i.i.i, i64 noundef 64) #29
   %sub.i = add i64 %5, -1
   store atomic i64 %sub.i, ptr %fibersPoolSize_.i.i monotonic, align 8
   %sub6.i = add i64 %6, -1
@@ -3023,7 +3023,7 @@ while.body:                                       ; preds = %_ZNSt10unique_ptrIN
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %4, i64 -896
   tail call void @_ZN5folly6fibers5FiberD1Ev(ptr noundef nonnull align 64 dereferenceable(936) %add.ptr.i.i.i) #11
-  tail call void @_ZdlPvSt11align_val_t(ptr noundef nonnull %add.ptr.i.i.i, i64 noundef 64) #30
+  tail call void @_ZdlPvSt11align_val_t(ptr noundef nonnull %add.ptr.i.i.i, i64 noundef 64) #29
   %7 = load ptr, ptr %fibersPool_, align 16, !tbaa !117
   %tobool.not.i.i6 = icmp eq ptr %7, null
   %cmp.i.i = icmp eq ptr %7, %fibersPool_
@@ -3182,19 +3182,13 @@ entry:
 lor.lhs.false:                                    ; preds = %entry
   %remoteReadyQueue_ = getelementptr inbounds %"class.folly::fibers::FiberManager", ptr %this, i64 0, i32 25
   %1 = load atomic i64, ptr %remoteReadyQueue_ acquire, align 16
-  %atomic-temp.0.i.i.i.i = inttoptr i64 %1 to ptr
-  %cmp.i.i = icmp eq ptr %atomic-temp.0.i.i.i.i, inttoptr (i64 1 to ptr)
-  %cmp2.i = icmp eq i64 %1, 0
-  %cmp.i = or i1 %cmp2.i, %cmp.i.i
+  %cmp.i = icmp ult i64 %1, 2
   br i1 %cmp.i, label %lor.lhs.false3, label %lor.end
 
 lor.lhs.false3:                                   ; preds = %lor.lhs.false
   %remoteTaskQueue_ = getelementptr inbounds %"class.folly::fibers::FiberManager", ptr %this, i64 0, i32 26
   %2 = load atomic i64, ptr %remoteTaskQueue_ acquire, align 8
-  %atomic-temp.0.i.i.i.i6 = inttoptr i64 %2 to ptr
-  %cmp.i.i7 = icmp eq ptr %atomic-temp.0.i.i.i.i6, inttoptr (i64 1 to ptr)
-  %cmp2.i8 = icmp eq i64 %2, 0
-  %cmp.i9 = or i1 %cmp2.i8, %cmp.i.i7
+  %cmp.i9 = icmp ult i64 %2, 2
   br i1 %cmp.i9, label %lor.rhs, label %lor.end
 
 lor.rhs:                                          ; preds = %lor.lhs.false3
@@ -3246,7 +3240,7 @@ if.end:                                           ; preds = %if.then, %land.lhs.
   br i1 %3, label %if.then3, label %if.else
 
 if.then3:                                         ; preds = %if.end
-  %call4 = tail call noalias noundef nonnull align 64 dereferenceable(960) ptr @_ZnwmSt11align_val_t(i64 noundef 960, i64 noundef 64) #32
+  %call4 = tail call noalias noundef nonnull align 64 dereferenceable(960) ptr @_ZnwmSt11align_val_t(i64 noundef 960, i64 noundef 64) #31
   invoke void @_ZN5folly6fibers5FiberC1ERNS0_12FiberManagerE(ptr noundef nonnull align 64 dereferenceable(936) %call4, ptr noundef nonnull align 16 dereferenceable(577) %this)
           to label %invoke.cont unwind label %lpad
 
@@ -3257,7 +3251,7 @@ invoke.cont:                                      ; preds = %if.then3
 lpad:                                             ; preds = %if.then3
   %4 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvSt11align_val_t(ptr noundef nonnull %call4, i64 noundef 64) #30
+  tail call void @_ZdlPvSt11align_val_t(ptr noundef nonnull %call4, i64 noundef 64) #29
   resume { ptr, i32 } %4
 
 if.else:                                          ; preds = %if.end
@@ -3396,7 +3390,7 @@ entry:
   %memptr.offset.i.i.i = getelementptr inbounds i8, ptr %fiber, i64 256
   %1 = ptrtoint ptr %fiber to i64
   %oldHead.016.i.i = inttoptr i64 %0 to ptr
-  %cmp17.i.i = icmp eq ptr %oldHead.016.i.i, inttoptr (i64 1 to ptr)
+  %cmp17.i.i = icmp eq i64 %0, 1
   %cond18.i.i = select i1 %cmp17.i.i, ptr null, ptr %oldHead.016.i.i
   store ptr %cond18.i.i, ptr %memptr.offset.i.i.i, align 8, !tbaa !12
   %2 = cmpxchg weak ptr %remoteReadyQueue_, i64 %0, i64 %1 release monotonic, align 8
@@ -3407,7 +3401,7 @@ _ZNSt6atomicIPN5folly6fibers5FiberEE21compare_exchange_weakERS3_S3_St12memory_or
   %4 = phi { i64, i1 } [ %6, %_ZNSt6atomicIPN5folly6fibers5FiberEE21compare_exchange_weakERS3_S3_St12memory_orderS6_.exit.i.i ], [ %2, %entry ]
   %5 = extractvalue { i64, i1 } %4, 0
   %oldHead.0.i.i = inttoptr i64 %5 to ptr
-  %cmp.i.i = icmp eq ptr %oldHead.0.i.i, inttoptr (i64 1 to ptr)
+  %cmp.i.i = icmp eq i64 %5, 1
   %cond.i.i = select i1 %cmp.i.i, ptr null, ptr %oldHead.0.i.i
   store ptr %cond.i.i, ptr %memptr.offset.i.i.i, align 8, !tbaa !12
   %6 = cmpxchg weak ptr %remoteReadyQueue_, i64 %5, i64 %1 release monotonic, align 8
@@ -3447,8 +3441,8 @@ entry:
   ret void
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN5folly6fibers12FiberManager14removeObserverEPNS_17ExecutionObserverE(ptr nocapture noundef nonnull readnone align 16 dereferenceable(577) %this, ptr nocapture noundef %observer) local_unnamed_addr #24 align 2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+define void @_ZN5folly6fibers12FiberManager14removeObserverEPNS_17ExecutionObserverE(ptr nocapture noundef nonnull readnone align 16 dereferenceable(577) %this, ptr nocapture noundef %observer) local_unnamed_addr #23 align 2 {
 entry:
   %add.ptr.i.i = getelementptr inbounds i8, ptr %observer, i64 8
   %0 = load ptr, ptr %add.ptr.i.i, align 8, !tbaa !117, !noalias !227
@@ -3462,7 +3456,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(16) ptr @_ZN5folly6fibers12FiberManager15getObserverListEv(ptr noundef nonnull readnone align 16 dereferenceable(577) %this) local_unnamed_addr #25 align 2 {
+define noundef nonnull align 8 dereferenceable(16) ptr @_ZN5folly6fibers12FiberManager15getObserverListEv(ptr noundef nonnull readnone align 16 dereferenceable(577) %this) local_unnamed_addr #24 align 2 {
 entry:
   %observerList_ = getelementptr inbounds %"class.folly::fibers::FiberManager", ptr %this, i64 0, i32 22
   ret ptr %observerList_
@@ -3509,7 +3503,7 @@ cleanup:                                          ; preds = %cleanup, %cleanup.l
   store ptr %8, ptr %prev_.i5.i.i.i, align 8, !tbaa !119
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
   tail call void @_ZN5folly6fibers5FiberD1Ev(ptr noundef nonnull align 64 dereferenceable(936) %add.ptr.i.i.i) #11
-  tail call void @_ZdlPvSt11align_val_t(ptr noundef nonnull %add.ptr.i.i.i, i64 noundef 64) #30
+  tail call void @_ZdlPvSt11align_val_t(ptr noundef nonnull %add.ptr.i.i.i, i64 noundef 64) #29
   %sub = add i64 %4, -1
   store atomic i64 %sub, ptr %fibersPoolSize_.i monotonic, align 8
   %sub6 = add i64 %5, -1
@@ -3702,7 +3696,7 @@ terminate.lpad:                                   ; preds = %entry
   %14 = landingpad { ptr, i32 }
           catch ptr null
   %15 = extractvalue { ptr, i32 } %14, 0
-  call void @__clang_call_terminate(ptr %15) #31
+  call void @__clang_call_terminate(ptr %15) #30
   unreachable
 }
 
@@ -3747,25 +3741,25 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE19_M_release_last_useEv.ex
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN5folly6fibers12FiberManager32registerStartSwitchStackWithAsanEPPvPKvm(ptr nocapture noundef nonnull readnone align 16 dereferenceable(577) %this, ptr nocapture noundef readnone %saveFakeStack, ptr nocapture noundef readnone %stackBottom, i64 noundef %stackSize) local_unnamed_addr #25 align 2 {
+define void @_ZN5folly6fibers12FiberManager32registerStartSwitchStackWithAsanEPPvPKvm(ptr nocapture noundef nonnull readnone align 16 dereferenceable(577) %this, ptr nocapture noundef readnone %saveFakeStack, ptr nocapture noundef readnone %stackBottom, i64 noundef %stackSize) local_unnamed_addr #24 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN5folly6fibers12FiberManager33registerFinishSwitchStackWithAsanEPvPPKvPm(ptr nocapture noundef nonnull readnone align 16 dereferenceable(577) %this, ptr nocapture noundef readnone %saveFakeStack, ptr nocapture noundef readnone %saveStackBottom, ptr nocapture noundef readnone %saveStackSize) local_unnamed_addr #25 align 2 {
+define void @_ZN5folly6fibers12FiberManager33registerFinishSwitchStackWithAsanEPvPPKvPm(ptr nocapture noundef nonnull readnone align 16 dereferenceable(577) %this, ptr nocapture noundef readnone %saveFakeStack, ptr nocapture noundef readnone %saveStackBottom, ptr nocapture noundef readnone %saveStackSize) local_unnamed_addr #24 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN5folly6fibers12FiberManager13freeFakeStackEPv(ptr nocapture noundef nonnull readnone align 16 dereferenceable(577) %this, ptr nocapture noundef readnone %fakeStack) local_unnamed_addr #25 align 2 {
+define void @_ZN5folly6fibers12FiberManager13freeFakeStackEPv(ptr nocapture noundef nonnull readnone align 16 dereferenceable(577) %this, ptr nocapture noundef readnone %fakeStack) local_unnamed_addr #24 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN5folly6fibers12FiberManager18unpoisonFiberStackEPKNS0_5FiberE(ptr nocapture noundef nonnull readnone align 16 dereferenceable(577) %this, ptr nocapture noundef readonly %fiber) local_unnamed_addr #25 align 2 {
+define void @_ZN5folly6fibers12FiberManager18unpoisonFiberStackEPKNS0_5FiberE(ptr nocapture noundef nonnull readnone align 16 dereferenceable(577) %this, ptr nocapture noundef readonly %fiber) local_unnamed_addr #24 align 2 {
 entry:
   ret void
 }
@@ -3915,14 +3909,14 @@ terminate.lpad:                                   ; preds = %cond.false.i.i.i, %
   %8 = landingpad { ptr, i32 }
           catch ptr null
   %9 = extractvalue { ptr, i32 } %8, 0
-  tail call void @__clang_call_terminate(ptr %9) #31
+  tail call void @__clang_call_terminate(ptr %9) #30
   unreachable
 }
 
 ; Function Attrs: mustprogress uwtable
 define internal noalias noundef nonnull ptr @_ZN5folly6detail5thunk4makeINS_11ThreadLocalINS_20SingletonThreadLocalINS_6fibers12_GLOBAL__N_126ScopedAlternateSignalStackENS0_10DefaultTagENS0_11DefaultMakeIS7_EEvE7WrapperEvvEEJEEEPvDpT0_() #1 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
-  %call = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #32
+  %call = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #31
   store i32 -1, ptr %call, align 4, !tbaa !40
   %constructor_.i = getelementptr inbounds %"class.folly::ThreadLocal.141", ptr %call, i64 0, i32 1
   %_M_manager.i.i.i = getelementptr inbounds %"class.folly::ThreadLocal.141", ptr %call, i64 0, i32 1, i32 0, i32 1
@@ -3938,7 +3932,7 @@ define internal noundef nonnull ptr @_ZNSt17_Function_handlerIFPvvEZN5folly11Thr
 entry:
   %ss.i22.i.i.i.i.i.i.i = alloca %struct.stack_t, align 8
   %ss.i.i.i.i.i.i.i.i = alloca %struct.stack_t, align 8
-  %call.i.i.i = tail call noalias noundef nonnull dereferenceable(120) ptr @_Znwm(i64 noundef 120) #32
+  %call.i.i.i = tail call noalias noundef nonnull dereferenceable(120) ptr @_Znwm(i64 noundef 120) #31
   tail call void @llvm.experimental.noalias.scope.decl(metadata !233)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %call.i.i.i, i8 0, i64 120, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ss.i.i.i.i.i.i.i.i) #11, !noalias !233
@@ -3953,7 +3947,7 @@ entry:
 if.end.i.i.i.i.i.i.i:                             ; preds = %entry
   %call2.i.i.i.i.i.i.i = call i64 @sysconf(i32 noundef 250) #11, !noalias !233
   %.sroa.speculated.i.i.i.i.i.i.i = call i64 @llvm.umax.i64(i64 %call2.i.i.i.i.i.i.i, i64 32768)
-  %call10.i.i.i.i.i.i.i = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %.sroa.speculated.i.i.i.i.i.i.i) #32
+  %call10.i.i.i.i.i.i.i = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %.sroa.speculated.i.i.i.i.i.i.i) #31
           to label %_ZN5folly6fibers12_GLOBAL__N_117setAlternateStackEPcm.exit.i.i.i.i.i.i.i unwind label %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit27.i.i.i.i.i.i.i, !noalias !233
 
 _ZN5folly6fibers12_GLOBAL__N_117setAlternateStackEPcm.exit.i.i.i.i.i.i.i: ; preds = %if.end.i.i.i.i.i.i.i
@@ -3972,7 +3966,7 @@ _ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit27.i.i.i.i.i.i.i: ; preds 
   %2 = landingpad { ptr, i32 }
           cleanup
   store ptr null, ptr %call.i.i.i, align 8, !tbaa !12, !alias.scope !233
-  call void @_ZdlPv(ptr noundef nonnull %call.i.i.i) #30
+  call void @_ZdlPv(ptr noundef nonnull %call.i.i.i) #29
   resume { ptr, i32 } %2
 
 _ZSt10__invoke_rIPvRZN5folly11ThreadLocalINS1_20SingletonThreadLocalINS1_6fibers12_GLOBAL__N_126ScopedAlternateSignalStackENS1_6detail10DefaultTagENS7_11DefaultMakeIS6_EEvE7WrapperEvvEC1EvEUlvE_JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESH_E4typeEOSI_DpOSJ_.exit: ; preds = %_ZN5folly6fibers12_GLOBAL__N_117setAlternateStackEPcm.exit.i.i.i.i.i.i.i, %entry
@@ -4029,7 +4023,7 @@ entry:
   br i1 %tobool.not.i.i, label %if.then.i, label %_ZNKSt8functionIFPvvEEclEv.exit
 
 if.then.i:                                        ; preds = %entry
-  tail call void @_ZSt25__throw_bad_function_callv() #33
+  tail call void @_ZSt25__throw_bad_function_callv() #32
   unreachable
 
 _ZNKSt8functionIFPvvEEclEv.exit:                  ; preds = %entry
@@ -4091,7 +4085,7 @@ cond.true18.i.i:                                  ; preds = %while.end.i.i
   br i1 %tobool.not.i.i.i.i, label %if.then.i.i.i, label %_ZNKSt8functionIFvPvN5folly18TLPDestructionModeEEEclES0_S2_.exit.i.i
 
 if.then.i.i.i:                                    ; preds = %cond.true18.i.i
-  invoke void @_ZSt25__throw_bad_function_callv() #33
+  invoke void @_ZSt25__throw_bad_function_callv() #32
           to label %.noexc23.i unwind label %lpad.i
 
 .noexc23.i:                                       ; preds = %if.then.i.i.i
@@ -4161,11 +4155,11 @@ terminate.lpad.i.i.i:                             ; preds = %if.then.i.i28.i
   %22 = landingpad { ptr, i32 }
           catch ptr null
   %23 = extractvalue { ptr, i32 } %22, 0
-  call void @__clang_call_terminate(ptr %23) #31
+  call void @__clang_call_terminate(ptr %23) #30
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit.i.i:               ; preds = %if.then.i.i28.i, %delete.notnull.i.i
-  call void @_ZdlPv(ptr noundef nonnull %20) #30
+  call void @_ZdlPv(ptr noundef nonnull %20) #29
   br label %_ZN5folly18threadlocal_detail14ElementWrapper7cleanupEv.exit.i
 
 _ZN5folly18threadlocal_detail14ElementWrapper7cleanupEv.exit.i: ; preds = %_ZNSt14_Function_baseD2Ev.exit.i.i, %if.then.i27.i, %invoke.cont5.i
@@ -4262,7 +4256,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i.i.i, %i
   %36 = landingpad { ptr, i32 }
           catch ptr null
   %37 = extractvalue { ptr, i32 } %36, 0
-  call void @__clang_call_terminate(ptr %37) #31
+  call void @__clang_call_terminate(ptr %37) #30
   unreachable
 
 lpad.i:                                           ; preds = %if.end.i.i, %if.then.i.i, %cond.false20.i.i, %_ZNKSt8functionIFvPvN5folly18TLPDestructionModeEEEclES0_S2_.exit.i.i, %if.then.i.i.i, %if.then.i15.i
@@ -4322,7 +4316,7 @@ if.end:                                           ; preds = %if.then, %_ZN5folly
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef ptr @_ZN5folly6detail5thunk4makeINS_18threadlocal_detail10StaticMetaIvvEEJEEEPvDpT0_() #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %call = tail call noalias noundef nonnull dereferenceable(160) ptr @_Znwm(i64 noundef 160) #32
+  %call = tail call noalias noundef nonnull dereferenceable(160) ptr @_Znwm(i64 noundef 160) #31
   invoke void @_ZN5folly18threadlocal_detail10StaticMetaIvvEC2Ev(ptr noundef nonnull align 8 dereferenceable(160) %call)
           to label %invoke.cont unwind label %lpad
 
@@ -4332,7 +4326,7 @@ invoke.cont:                                      ; preds = %entry
 lpad:                                             ; preds = %entry
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %call) #30
+  tail call void @_ZdlPv(ptr noundef nonnull %call) #29
   resume { ptr, i32 } %0
 }
 
@@ -4462,7 +4456,7 @@ if.then4:                                         ; preds = %if.then
   br label %if.end
 
 if.end:                                           ; preds = %if.then4, %if.then
-  %call.i = tail call i64 @pthread_self() #34
+  %call.i = tail call i64 @pthread_self() #33
   %tid_data.i = getelementptr inbounds %"struct.folly::threadlocal_detail::ThreadEntry", ptr %2, i64 0, i32 7
   store i64 %call.i, ptr %tid_data.i, align 8, !tbaa.struct !85
   %call9 = tail call noundef i64 @_ZN5folly13getOSThreadIDEv()
@@ -4479,7 +4473,7 @@ if.end:                                           ; preds = %if.then4, %if.then
   br i1 %cmp.not.i, label %if.end12, label %if.then.i, !prof !30
 
 if.then.i:                                        ; preds = %if.end
-  tail call void @_ZN5folly24throwSystemErrorExplicitEiPKc(i32 noundef %call11, ptr noundef nonnull @.str.3) #33
+  tail call void @_ZN5folly24throwSystemErrorExplicitEiPKc(i32 noundef %call11, ptr noundef nonnull @.str.3) #32
   unreachable
 
 if.end12:                                         ; preds = %if.end, %_ZN5folly18threadlocal_detail10StaticMetaIvvE8instanceEv.exit
@@ -4654,11 +4648,11 @@ if.end.i.i.i.i.i:                                 ; preds = %delete.notnull.i.i
   br i1 %cmp.not.i.i.i.i.i.i, label %_ZN5folly20SingletonThreadLocalINS_6fibers12_GLOBAL__N_126ScopedAlternateSignalStackENS_6detail10DefaultTagENS4_11DefaultMakeIS3_EEvE7WrapperD2Ev.exit.i.i, label %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i.i.i.i
 
 _ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i.i.i.i: ; preds = %if.end.i.i.i.i.i
-  call void @_ZdaPv(ptr noundef nonnull %.pr.i.i.i.i.i) #30
+  call void @_ZdaPv(ptr noundef nonnull %.pr.i.i.i.i.i) #29
   br label %_ZN5folly20SingletonThreadLocalINS_6fibers12_GLOBAL__N_126ScopedAlternateSignalStackENS_6detail10DefaultTagENS4_11DefaultMakeIS3_EEvE7WrapperD2Ev.exit.i.i
 
 _ZN5folly20SingletonThreadLocalINS_6fibers12_GLOBAL__N_126ScopedAlternateSignalStackENS_6detail10DefaultTagENS4_11DefaultMakeIS3_EEvE7WrapperD2Ev.exit.i.i: ; preds = %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i.i.i.i, %if.end.i.i.i.i.i, %delete.notnull.i.i
-  call void @_ZdlPv(ptr noundef nonnull %this.8.val.0.val) #30
+  call void @_ZdlPv(ptr noundef nonnull %this.8.val.0.val) #29
   br label %if.end
 
 if.end:                                           ; preds = %_ZN5folly20SingletonThreadLocalINS_6fibers12_GLOBAL__N_126ScopedAlternateSignalStackENS_6detail10DefaultTagENS4_11DefaultMakeIS3_EEvE7WrapperD2Ev.exit.i.i, %entry
@@ -4691,11 +4685,11 @@ if.end.i.i.i.i:                                   ; preds = %delete.notnull.i
   br i1 %cmp.not.i.i.i.i.i, label %_ZN5folly20SingletonThreadLocalINS_6fibers12_GLOBAL__N_126ScopedAlternateSignalStackENS_6detail10DefaultTagENS4_11DefaultMakeIS3_EEvE7WrapperD2Ev.exit.i, label %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i.i.i
 
 _ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i.i.i: ; preds = %if.end.i.i.i.i
-  call void @_ZdaPv(ptr noundef nonnull %.pr.i.i.i.i) #30
+  call void @_ZdaPv(ptr noundef nonnull %.pr.i.i.i.i) #29
   br label %_ZN5folly20SingletonThreadLocalINS_6fibers12_GLOBAL__N_126ScopedAlternateSignalStackENS_6detail10DefaultTagENS4_11DefaultMakeIS3_EEvE7WrapperD2Ev.exit.i
 
 _ZN5folly20SingletonThreadLocalINS_6fibers12_GLOBAL__N_126ScopedAlternateSignalStackENS_6detail10DefaultTagENS4_11DefaultMakeIS3_EEvE7WrapperD2Ev.exit.i: ; preds = %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i.i.i, %if.end.i.i.i.i, %delete.notnull.i
-  call void @_ZdlPv(ptr noundef nonnull %pt) #30
+  call void @_ZdlPv(ptr noundef nonnull %pt) #29
   br label %_ZZN5folly18threadlocal_detail14ElementWrapper3setIPNS_20SingletonThreadLocalINS_6fibers12_GLOBAL__N_126ScopedAlternateSignalStackENS_6detail10DefaultTagENS7_11DefaultMakeIS6_EEvE7WrapperEEEvT_ENKUlPvNS_18TLPDestructionModeEE_clESF_SG_.exit
 
 _ZZN5folly18threadlocal_detail14ElementWrapper3setIPNS_20SingletonThreadLocalINS_6fibers12_GLOBAL__N_126ScopedAlternateSignalStackENS_6detail10DefaultTagENS7_11DefaultMakeIS6_EEvE7WrapperEEEvT_ENKUlPvNS_18TLPDestructionModeEE_clESF_SG_.exit: ; preds = %_ZN5folly20SingletonThreadLocalINS_6fibers12_GLOBAL__N_126ScopedAlternateSignalStackENS_6detail10DefaultTagENS4_11DefaultMakeIS3_EEvE7WrapperD2Ev.exit.i, %entry
@@ -4703,7 +4697,7 @@ _ZZN5folly18threadlocal_detail14ElementWrapper3setIPNS_20SingletonThreadLocalINS
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr void @_ZZN5folly6fibers12FiberManager13addTaskRemoteINS_8FunctionIFvvEEEEEvOT_ENKUlvE_clEv(ptr noalias sret(%"class.std::unique_ptr.155") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %this) local_unnamed_addr #26 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZZN5folly6fibers12FiberManager13addTaskRemoteINS_8FunctionIFvvEEEEEvOT_ENKUlvE_clEv(ptr noalias sret(%"class.std::unique_ptr.155") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %this) local_unnamed_addr #25 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8, !tbaa !7
   %1 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZZN5folly20SingletonThreadLocalIPNS_6fibers12FiberManagerEZNS2_22getCurrentFiberManagerEvE3TagNS_6detail11DefaultMakeIS3_EES4_E3getEvE5cache)
@@ -4761,14 +4755,14 @@ if.then:                                          ; preds = %_ZNKSt10type_indexe
   %12 = getelementptr inbounds %class.anon.163, ptr %this, i64 0, i32 1
   %13 = load ptr, ptr %12, align 8, !tbaa !248
   %localData_ = getelementptr inbounds %"class.folly::fibers::Fiber", ptr %5, i64 0, i32 22
-  %call.i = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #32, !noalias !249
+  %call.i = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #31, !noalias !249
   invoke void @_ZN5folly6fibers12FiberManager10RemoteTaskC2INS_8FunctionIFvvEEEEEOT_RKNS0_5Fiber9LocalDataE(ptr noundef nonnull align 16 dereferenceable(96) %call.i, ptr noundef nonnull align 16 dereferenceable(64) %13, ptr noundef nonnull align 64 dereferenceable(176) %localData_)
           to label %cleanup unwind label %lpad.i, !noalias !249
 
 common.resume:                                    ; preds = %if.end.i.i5.i.i, %lpad.i.i, %lpad.i
   %call.i10.sink = phi ptr [ %call.i, %lpad.i ], [ %call.i10, %if.end.i.i5.i.i ], [ %call.i10, %lpad.i.i ]
   %common.resume.op = phi { ptr, i32 } [ %14, %lpad.i ], [ %24, %if.end.i.i5.i.i ], [ %24, %lpad.i.i ]
-  tail call void @_ZdlPv(ptr noundef nonnull %call.i10.sink) #30, !noalias !58
+  tail call void @_ZdlPv(ptr noundef nonnull %call.i10.sink) #29, !noalias !58
   resume { ptr, i32 } %common.resume.op
 
 lpad.i:                                           ; preds = %if.then
@@ -4779,7 +4773,7 @@ lpad.i:                                           ; preds = %if.then
 if.end:                                           ; preds = %_ZNKSt10type_indexeqERKS_.exit, %if.end.i.i, %land.lhs.true, %_ZN5folly6fibers12FiberManager21getFiberManagerUnsafeEv.exit
   %15 = getelementptr inbounds %class.anon.163, ptr %this, i64 0, i32 1
   %16 = load ptr, ptr %15, align 8, !tbaa !248
-  %call.i10 = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #32, !noalias !252
+  %call.i10 = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #31, !noalias !252
   store ptr null, ptr %call.i10, align 16, !tbaa !17, !noalias !252
   %call_.i.i.i = getelementptr inbounds %"class.folly::Function", ptr %call.i10, i64 0, i32 1
   %call_2.i.i.i = getelementptr inbounds %"class.folly::Function", ptr %16, i64 0, i32 1
@@ -4881,7 +4875,7 @@ if.end.i.i:                                       ; preds = %entry
 _ZN5folly8FunctionIFvvEEC2EOS2_.exit:             ; preds = %if.end.i.i, %entry
   %localData = getelementptr inbounds %"struct.folly::fibers::FiberManager::RemoteTask", ptr %this, i64 0, i32 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !264)
-  %call.i6 = invoke noalias noundef nonnull align 64 dereferenceable(192) ptr @_ZnwmSt11align_val_t(i64 noundef 192, i64 noundef 64) #32
+  %call.i6 = invoke noalias noundef nonnull align 64 dereferenceable(192) ptr @_ZnwmSt11align_val_t(i64 noundef 192, i64 noundef 64) #31
           to label %call.i.noexc unwind label %lpad
 
 call.i.noexc:                                     ; preds = %_ZN5folly8FunctionIFvvEEC2EOS2_.exit
@@ -4891,7 +4885,7 @@ call.i.noexc:                                     ; preds = %_ZN5folly8FunctionI
 lpad.i:                                           ; preds = %call.i.noexc
   %2 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvSt11align_val_t(ptr noundef nonnull %call.i6, i64 noundef 64) #30, !noalias !264
+  tail call void @_ZdlPvSt11align_val_t(ptr noundef nonnull %call.i6, i64 noundef 64) #29, !noalias !264
   br label %ehcleanup
 
 invoke.cont:                                      ; preds = %call.i.noexc
@@ -4966,7 +4960,7 @@ entry:
 
 _ZNKSt14default_deleteIN5folly6fibers5Fiber9LocalDataEEclEPS3_.exit: ; preds = %entry
   tail call void @_ZN5folly6fibers5Fiber9LocalDataD1Ev(ptr noundef nonnull align 64 dereferenceable(176) %0) #11
-  tail call void @_ZdlPvSt11align_val_t(ptr noundef nonnull %0, i64 noundef 64) #30
+  tail call void @_ZdlPvSt11align_val_t(ptr noundef nonnull %0, i64 noundef 64) #29
   br label %if.end
 
 if.end:                                           ; preds = %_ZNKSt14default_deleteIN5folly6fibers5Fiber9LocalDataEEclEPS3_.exit, %entry
@@ -5045,7 +5039,7 @@ _ZNSt12__shared_ptrIN5folly14RequestContextELN9__gnu_cxx12_Lock_policyE2EED2Ev.e
 
 _ZNKSt14default_deleteIN5folly6fibers5Fiber9LocalDataEEclEPS3_.exit.i.i: ; preds = %_ZNSt12__shared_ptrIN5folly14RequestContextELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i
   tail call void @_ZN5folly6fibers5Fiber9LocalDataD1Ev(ptr noundef nonnull align 64 dereferenceable(176) %7) #11
-  tail call void @_ZdlPvSt11align_val_t(ptr noundef nonnull %7, i64 noundef 64) #30
+  tail call void @_ZdlPvSt11align_val_t(ptr noundef nonnull %7, i64 noundef 64) #29
   br label %_ZNSt10unique_ptrIN5folly6fibers5Fiber9LocalDataESt14default_deleteIS3_EED2Ev.exit.i
 
 _ZNSt10unique_ptrIN5folly6fibers5Fiber9LocalDataESt14default_deleteIS3_EED2Ev.exit.i: ; preds = %_ZNKSt14default_deleteIN5folly6fibers5Fiber9LocalDataEEclEPS3_.exit.i.i, %_ZNSt12__shared_ptrIN5folly14RequestContextELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i
@@ -5060,7 +5054,7 @@ if.end.i.i.i:                                     ; preds = %_ZNSt10unique_ptrIN
   br label %_ZN5folly6fibers12FiberManager10RemoteTaskD2Ev.exit
 
 _ZN5folly6fibers12FiberManager10RemoteTaskD2Ev.exit: ; preds = %if.end.i.i.i, %_ZNSt10unique_ptrIN5folly6fibers5Fiber9LocalDataESt14default_deleteIS3_EED2Ev.exit.i
-  tail call void @_ZdlPv(ptr noundef nonnull %__ptr) #30
+  tail call void @_ZdlPv(ptr noundef nonnull %__ptr) #29
   br label %delete.end
 
 delete.end:                                       ; preds = %_ZN5folly6fibers12FiberManager10RemoteTaskD2Ev.exit, %entry
@@ -5068,7 +5062,7 @@ delete.end:                                       ; preds = %_ZN5folly6fibers12F
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @__cxx_global_var_init() #27 section ".text.startup" {
+define internal void @__cxx_global_var_init() #26 section ".text.startup" {
 entry:
   tail call void @_ZN5folly6detail14UniqueInstance7enforceERNS1_3ArgE(ptr noundef nonnull align 8 dereferenceable(64) @_ZZN5folly6detail14UniqueInstanceC1ITtTpTyENS_20SingletonThreadLocalEJPNS_6fibers12FiberManagerEZNS5_22getCurrentFiberManagerEvE3TagEJNS0_11DefaultMakeIS6_EES7_EEENS_5tag_tIJT_IJDpT0_DpT1_EEEEENSA_IJSD_EEENSA_IJSF_EEEE3arg) #11
   ret void
@@ -5077,7 +5071,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef ptr @_ZN5folly6detail5thunk4makeINS0_14UniqueInstance5ValueEJEEEPvDpT0_() #1 comdat align 2 {
 entry:
-  %call = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #32
+  %call = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #31
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call, i8 0, i64 24, i1 false)
   ret ptr %call
 }
@@ -5089,17 +5083,17 @@ declare noundef ptr @_ZN5folly6detail30StaticSingletonManagerWithRtti7create_ILb
 declare void @_ZN5folly6detail14UniqueInstance7enforceERNS1_3ArgE(ptr noundef nonnull align 8 dereferenceable(64)) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal void @__cxx_global_var_init.12() #27 section ".text.startup" {
+define internal void @__cxx_global_var_init.12() #26 section ".text.startup" {
 entry:
   tail call void @_ZN5folly6detail14UniqueInstance7enforceERNS1_3ArgE(ptr noundef nonnull align 8 dereferenceable(64) @_ZZN5folly6detail14UniqueInstanceC1ITtTpTyENS_20SingletonThreadLocalEJNS_6fibers12_GLOBAL__N_126ScopedAlternateSignalStackENS0_10DefaultTagEEJNS0_11DefaultMakeIS6_EEvEEENS_5tag_tIJT_IJDpT0_DpT1_EEEEENSA_IJSD_EEENSA_IJSF_EEEE3arg) #11
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #28
+declare void @llvm.assume(i1 noundef) #27
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #29
+declare void @llvm.experimental.noalias.scope.decl(metadata) #28
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #10
@@ -5131,19 +5125,18 @@ attributes #20 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"=
 attributes #21 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #22 = { mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #23 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #24 = { mustprogress nofree nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #25 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #26 = { inlinehint mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #27 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #28 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #29 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #30 = { builtin nounwind }
-attributes #31 = { noreturn nounwind }
-attributes #32 = { builtin allocsize(0) }
-attributes #33 = { noreturn }
-attributes #34 = { nounwind willreturn memory(none) }
-attributes #35 = { cold noreturn }
-attributes #36 = { cold }
+attributes #24 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #25 = { inlinehint mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #26 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #27 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #28 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #29 = { builtin nounwind }
+attributes #30 = { noreturn nounwind }
+attributes #31 = { builtin allocsize(0) }
+attributes #32 = { noreturn }
+attributes #33 = { nounwind willreturn memory(none) }
+attributes #34 = { cold noreturn }
+attributes #35 = { cold }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5, !6}
 

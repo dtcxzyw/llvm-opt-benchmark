@@ -972,7 +972,7 @@ if.then.i21.i:                                    ; preds = %lor.lhs.false.i16.i
   br label %fold_add2.exit
 
 fold_add2.exit:                                   ; preds = %lor.lhs.false.i16.i, %if.then.i21.i
-  %call12.i = call fastcc zeroext i1 @fold_addsub2(ptr noundef nonnull %ctx, ptr noundef nonnull %op.01540, i1 noundef zeroext true)
+  %call12.i = call fastcc noundef zeroext i1 @fold_addsub2(ptr noundef nonnull %ctx, ptr noundef nonnull %op.01540, i1 noundef zeroext true)
   br i1 %call12.i, label %for.inc173, label %if.then171
 
 sw.bb38:                                          ; preds = %if.end30, %if.end30, %if.end30
@@ -1016,7 +1016,7 @@ lor.lhs.false4.i:                                 ; preds = %land.lhs.true.i.i10
   %arrayidx.i29.i = getelementptr %struct.TCGOp, ptr %op.01540, i64 1, i32 2
   %131 = load i64, ptr %arrayidx.i29.i, align 8
   %132 = inttoptr i64 %131 to ptr
-  %cmp.i.i.i.i106 = icmp eq ptr %132, %124
+  %cmp.i.i.i.i106 = icmp eq i64 %131, %123
   br i1 %cmp.i.i.i.i106, label %fold_xx_to_x.exit.i, label %if.end.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %lor.lhs.false4.i
@@ -1166,7 +1166,7 @@ fold_const2.exit.i:                               ; preds = %land.lhs.true.i.i11
   br label %for.inc173
 
 lor.lhs.false.i128:                               ; preds = %land.lhs.true.i.i119, %sw.bb41
-  %cmp.i.i.i.i129 = icmp eq ptr %.pre70.i, %158
+  %cmp.i.i.i.i129 = icmp eq i64 %157, %.pre.i118
   br i1 %cmp.i.i.i.i129, label %fold_xx_to_i.exit.i, label %if.end.i.i.i.i130
 
 if.end.i.i.i.i130:                                ; preds = %lor.lhs.false.i128
@@ -2127,7 +2127,7 @@ if.then.i380:                                     ; preds = %land.lhs.true.i379
   br label %for.inc173
 
 if.end.i389:                                      ; preds = %land.lhs.true.i379, %sw.bb68
-  %cmp.i.i.i390 = icmp eq ptr %.pre16.i378, %327
+  %cmp.i.i.i390 = icmp eq i64 %326, %.pre.i377
   br i1 %cmp.i.i.i390, label %if.then20.i397, label %if.end.i.i.i391
 
 if.end.i.i.i391:                                  ; preds = %if.end.i389
@@ -3606,7 +3606,7 @@ lor.lhs.false2.i927:                              ; preds = %land.lhs.true.i.i92
   %arrayidx.i13.i = getelementptr %struct.TCGOp, ptr %op.01540, i64 1, i32 2
   %575 = load i64, ptr %arrayidx.i13.i, align 8
   %576 = inttoptr i64 %575 to ptr
-  %cmp.i.i.i.i928 = icmp eq ptr %576, %569
+  %cmp.i.i.i.i928 = icmp eq i64 %575, %568
   br i1 %cmp.i.i.i.i928, label %fold_xx_to_x.exit.i970, label %if.end.i.i.i.i929
 
 if.end.i.i.i.i929:                                ; preds = %lor.lhs.false2.i927
@@ -3736,7 +3736,7 @@ fold_const2.exit.i985:                            ; preds = %land.lhs.true.i.i98
   br label %for.inc173
 
 lor.lhs.false.i995:                               ; preds = %land.lhs.true.i.i981, %sw.bb131
-  %cmp.i.i.i.i996 = icmp eq ptr %.pre48.i, %598
+  %cmp.i.i.i.i996 = icmp eq i64 %597, %.pre.i980
   br i1 %cmp.i.i.i.i996, label %fold_xx_to_i.exit.i1028, label %if.end.i.i.i.i997
 
 if.end.i.i.i.i997:                                ; preds = %lor.lhs.false.i995
@@ -3906,7 +3906,7 @@ fold_const2.exit.i1060:                           ; preds = %land.lhs.true.i.i10
   br label %for.inc173
 
 lor.lhs.false.i1070:                              ; preds = %land.lhs.true.i.i1056, %sw.bb140
-  %cmp.i.i.i.i1071 = icmp eq ptr %.pre10.i, %622
+  %cmp.i.i.i.i1071 = icmp eq i64 %621, %.pre.i1055
   br i1 %cmp.i.i.i.i1071, label %if.then.i5.i, label %if.end.i.i.i.i1072
 
 if.end.i.i.i.i1072:                               ; preds = %lor.lhs.false.i1070
@@ -4590,7 +4590,7 @@ sw.bb161:                                         ; preds = %if.end30
   br i1 %call162, label %for.inc173, label %if.then171
 
 sw.bb164:                                         ; preds = %if.end30, %if.end30
-  %call.i1356 = call fastcc zeroext i1 @fold_addsub2(ptr noundef nonnull %ctx, ptr noundef nonnull %op.01540, i1 noundef zeroext false)
+  %call.i1356 = call fastcc noundef zeroext i1 @fold_addsub2(ptr noundef nonnull %ctx, ptr noundef nonnull %op.01540, i1 noundef zeroext false)
   br i1 %call.i1356, label %for.inc173, label %if.then171
 
 sw.bb167:                                         ; preds = %if.end30, %if.end30, %if.end30
@@ -4604,7 +4604,7 @@ lor.lhs.false.i1358:                              ; preds = %sw.bb167
   %758 = load i64, ptr %arrayidx2.i.i1360, align 8
   %759 = inttoptr i64 %757 to ptr
   %760 = inttoptr i64 %758 to ptr
-  %cmp.i.i.i.i1361 = icmp eq ptr %759, %760
+  %cmp.i.i.i.i1361 = icmp eq i64 %757, %758
   br i1 %cmp.i.i.i.i1361, label %fold_xx_to_i.exit.i1422, label %if.end.i.i.i.i1362
 
 if.end.i.i.i.i1362:                               ; preds = %lor.lhs.false.i1358
@@ -5067,7 +5067,7 @@ return:                                           ; preds = %remove_mem_copy.exi
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc zeroext i1 @fold_sub_vec(ptr noundef %ctx, ptr noundef %op) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @fold_sub_vec(ptr noundef %ctx, ptr noundef %op) unnamed_addr #0 {
 entry:
   %arrayidx.i = getelementptr %struct.TCGOp, ptr %op, i64 1, i32 2
   %0 = load i64, ptr %arrayidx.i, align 8
@@ -5075,7 +5075,7 @@ entry:
   %1 = load i64, ptr %arrayidx2.i, align 8
   %2 = inttoptr i64 %0 to ptr
   %3 = inttoptr i64 %1 to ptr
-  %cmp.i.i.i = icmp eq ptr %2, %3
+  %cmp.i.i.i = icmp eq i64 %0, %1
   br i1 %cmp.i.i.i, label %fold_xx_to_i.exit, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %entry
@@ -5482,7 +5482,7 @@ declare ptr @tcg_malloc_internal(ptr noundef, i32 noundef) local_unnamed_addr #2
 declare i64 @llvm.ctlz.i64(i64, i1 immarg) #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc zeroext i1 @fold_const2_commutative(ptr noundef %ctx, ptr noundef %op) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @fold_const2_commutative(ptr noundef %ctx, ptr noundef %op) unnamed_addr #0 {
 entry:
   %args = getelementptr inbounds %struct.TCGOp, ptr %op, i64 0, i32 4
   %arrayidx2 = getelementptr %struct.TCGOp, ptr %op, i64 1, i32 2
@@ -5711,23 +5711,23 @@ sw.bb26.i:                                        ; preds = %entry
 sw.bb29.i:                                        ; preds = %entry
   %conv30.i = trunc i64 %x to i32
   %3 = trunc i64 %y to i32
-  %or.i.i = tail call i32 @llvm.fshr.i32(i32 %conv30.i, i32 %conv30.i, i32 %3)
+  %or.i.i = tail call noundef i32 @llvm.fshr.i32(i32 %conv30.i, i32 %conv30.i, i32 %3)
   %conv33.i = zext i32 %or.i.i to i64
   br label %do_constant_folding_2.exit
 
 sw.bb34.i:                                        ; preds = %entry
-  %or.i104.i = tail call i64 @llvm.fshr.i64(i64 %x, i64 %x, i64 %y)
+  %or.i104.i = tail call noundef i64 @llvm.fshr.i64(i64 %x, i64 %x, i64 %y)
   br label %do_constant_folding_2.exit
 
 sw.bb38.i:                                        ; preds = %entry
   %conv39.i = trunc i64 %x to i32
   %4 = trunc i64 %y to i32
-  %or.i105.i = tail call i32 @llvm.fshl.i32(i32 %conv39.i, i32 %conv39.i, i32 %4)
+  %or.i105.i = tail call noundef i32 @llvm.fshl.i32(i32 %conv39.i, i32 %conv39.i, i32 %4)
   %conv43.i = zext i32 %or.i105.i to i64
   br label %do_constant_folding_2.exit
 
 sw.bb44.i:                                        ; preds = %entry
-  %or.i107.i = tail call i64 @llvm.fshl.i64(i64 %x, i64 %x, i64 %y)
+  %or.i107.i = tail call noundef i64 @llvm.fshl.i64(i64 %x, i64 %x, i64 %y)
   br label %do_constant_folding_2.exit
 
 sw.bb48.i:                                        ; preds = %entry, %entry, %entry
@@ -5989,7 +5989,7 @@ define internal fastcc void @tcg_opt_gen_mov(ptr noundef %ctx, ptr noundef %op, 
 entry:
   %0 = inttoptr i64 %dst to ptr
   %1 = inttoptr i64 %src to ptr
-  %cmp.i = icmp eq ptr %0, %1
+  %cmp.i = icmp eq i64 %dst, %src
   br i1 %cmp.i, label %if.then, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
@@ -6261,7 +6261,7 @@ declare void @tcg_op_remove(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare ptr @tcg_constant_internal(i32 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc zeroext i1 @fold_addsub2(ptr noundef %ctx, ptr noundef %op, i1 noundef zeroext %add) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @fold_addsub2(ptr noundef %ctx, ptr noundef %op, i1 noundef zeroext %add) unnamed_addr #0 {
 entry:
   %args = getelementptr inbounds %struct.TCGOp, ptr %op, i64 0, i32 4
   %arrayidx = getelementptr %struct.TCGOp, ptr %op, i64 1, i32 2, i32 0, i32 1
@@ -6420,7 +6420,7 @@ declare ptr @tcg_op_insert_before(ptr noundef, ptr noundef, i32 noundef, i32 nou
 declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc zeroext i1 @fold_to_not(ptr noundef %ctx, ptr noundef %op, i32 noundef %idx) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @fold_to_not(ptr noundef %ctx, ptr noundef %op, i32 noundef %idx) unnamed_addr #0 {
 entry:
   %type = getelementptr inbounds %struct.OptContext, ptr %ctx, i64 0, i32 8
   %0 = load i32, ptr %type, align 8
@@ -6647,7 +6647,7 @@ do_constant_folding_cond_64.exit:                 ; preds = %sw.bb.i38, %sw.bb1.
   br label %return
 
 if.else:                                          ; preds = %entry, %land.lhs.true
-  %cmp.i.i = icmp eq ptr %.pre, %0
+  %cmp.i.i = icmp eq i64 %x, %y
   br i1 %cmp.i.i, label %if.then12, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.else
@@ -6853,7 +6853,7 @@ sw.bb21:                                          ; preds = %if.then20
 
 if.end23:                                         ; preds = %if.end, %if.then20, %land.lhs.true, %entry
   %16 = inttoptr i64 %p1.0.val to ptr
-  %cmp.i.i = icmp eq ptr %16, %0
+  %cmp.i.i = icmp eq i64 %p1.0.val, %p2.0.val
   br i1 %cmp.i.i, label %land.lhs.true26, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.end23
@@ -6886,7 +6886,7 @@ for.inc.i.i:                                      ; preds = %for.body.i.i
 land.lhs.true26:                                  ; preds = %for.body.i.i, %if.end23
   %21 = inttoptr i64 %p1.8.val to ptr
   %22 = inttoptr i64 %p2.8.val to ptr
-  %cmp.i.i31 = icmp eq ptr %21, %22
+  %cmp.i.i31 = icmp eq i64 %p1.8.val, %p2.8.val
   br i1 %cmp.i.i31, label %if.then29, label %if.end.i.i32
 
 if.end.i.i32:                                     ; preds = %land.lhs.true26
