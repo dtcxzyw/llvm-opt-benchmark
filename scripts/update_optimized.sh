@@ -33,12 +33,15 @@ then
     echo "SHOULD_OPEN_ISSUE=0" >> $GITHUB_OUTPUT
   fi
 else
-  git commit -a -m "pre-commit: Update"
+  diff_stat=$(git diff --shortstat)
+  ./scripts/filter_pr_changes.py
+  git commit -m "pre-commit: Update"
   git push -f
   echo "baseline: https://github.com/llvm/llvm-project/commit/$LLVM_REVISION" > scripts/pr-comment.md
   echo "patch: $COMMIT_URL" >> scripts/pr-comment.md
   echo "sha256: $PATCH_SHA256" >> scripts/pr-comment.md
   echo "commit: $(git rev-parse HEAD)" >> scripts/pr-comment.md
+  echo "$diff_stat" >> scripts/pr-comment.md
   head -100 test.log >> scripts/pr-comment.md
   git show --name-only --oneline | head -100 >> scripts/pr-comment.md
 fi
