@@ -1328,11 +1328,11 @@ for.body:                                         ; preds = %entry, %for.inc
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 0, %entry ]
   %mmap_addr = getelementptr %struct.VuDev, ptr %dev, i64 0, i32 2, i64 %indvars.iv, i32 4
   %2 = load i64, ptr %mmap_addr, align 8
-  %cmp1.not = icmp eq i64 %2, -1
+  %3 = inttoptr i64 %2 to ptr
+  %cmp1.not = icmp eq ptr %3, inttoptr (i64 -1 to ptr)
   br i1 %cmp1.not, label %for.inc, label %if.then
 
 if.then:                                          ; preds = %for.body
-  %3 = inttoptr i64 %2 to ptr
   %size = getelementptr %struct.VuDev, ptr %dev, i64 0, i32 2, i64 %indvars.iv, i32 1
   %4 = load i64, ptr %size, align 8
   %mmap_offset = getelementptr %struct.VuDev, ptr %dev, i64 0, i32 2, i64 %indvars.iv, i32 3

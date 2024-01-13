@@ -1654,12 +1654,12 @@ while.cond.preheader:                             ; preds = %entry
   br i1 %tobool.not76.not, label %return, label %land.rhs.preheader
 
 land.rhs.preheader:                               ; preds = %while.cond.preheader
-  %entry9.07794 = inttoptr i64 %add.i.i.i.i.i.i to ptr
-  %key1895 = getelementptr inbounds %"class.hermes::vm::HashMapEntry", ptr %entry9.07794, i64 0, i32 2
-  %agg.tmp17.sroa.0.0.copyload96 = load i64, ptr %key1895, align 8
-  %retval.sroa.0.0.copyload.i2697 = load i64, ptr %key.coerce, align 8
-  %call2498 = tail call noundef zeroext i1 @_ZN6hermes2vm15isSameValueZeroENS0_11HermesValueES1_(i64 %agg.tmp17.sroa.0.0.copyload96, i64 %retval.sroa.0.0.copyload.i2697) #4
-  br i1 %call2498, label %if.end, label %while.body
+  %entry9.07793 = inttoptr i64 %add.i.i.i.i.i.i to ptr
+  %key1894 = getelementptr inbounds %"class.hermes::vm::HashMapEntry", ptr %entry9.07793, i64 0, i32 2
+  %agg.tmp17.sroa.0.0.copyload95 = load i64, ptr %key1894, align 8
+  %retval.sroa.0.0.copyload.i2696 = load i64, ptr %key.coerce, align 8
+  %call2497 = tail call noundef zeroext i1 @_ZN6hermes2vm15isSameValueZeroENS0_11HermesValueES1_(i64 %agg.tmp17.sroa.0.0.copyload95, i64 %retval.sroa.0.0.copyload.i2696) #4
+  br i1 %call2497, label %if.end, label %while.body
 
 land.rhs:                                         ; preds = %while.body
   %entry9.077 = inttoptr i64 %add.i.i.i.i.i to ptr
@@ -1670,8 +1670,8 @@ land.rhs:                                         ; preds = %while.body
   br i1 %call24, label %if.end, label %while.body
 
 while.body:                                       ; preds = %land.rhs.preheader, %land.rhs
-  %entry9.07799 = phi ptr [ %entry9.077, %land.rhs ], [ %entry9.07794, %land.rhs.preheader ]
-  %nextEntryInBucket = getelementptr inbounds %"class.hermes::vm::HashMapEntry", ptr %entry9.07799, i64 0, i32 6
+  %entry9.07798 = phi ptr [ %entry9.077, %land.rhs ], [ %entry9.07793, %land.rhs.preheader ]
+  %nextEntryInBucket = getelementptr inbounds %"class.hermes::vm::HashMapEntry", ptr %entry9.07798, i64 0, i32 6
   %agg.tmp.sroa.0.0.copyload.i.i27 = load i32, ptr %nextEntryInBucket, align 4
   %cmp.i.not.i.i.i.i = icmp eq i32 %agg.tmp.sroa.0.0.copyload.i.i27, 0
   %conv.i.i.i.i.i = zext i32 %agg.tmp.sroa.0.0.copyload.i.i27 to i64
@@ -1681,9 +1681,8 @@ while.body:                                       ; preds = %land.rhs.preheader,
   br i1 %tobool.not.not, label %return, label %land.rhs
 
 if.end:                                           ; preds = %land.rhs, %land.rhs.preheader
-  %prevEntry.078.lcssa = phi ptr [ null, %land.rhs.preheader ], [ %entry9.07799, %land.rhs ]
-  %entry9.077.in.lcssa = phi i64 [ %add.i.i.i.i.i.i, %land.rhs.preheader ], [ %add.i.i.i.i.i, %land.rhs ]
-  %entry9.077.lcssa = phi ptr [ %entry9.07794, %land.rhs.preheader ], [ %entry9.077, %land.rhs ]
+  %prevEntry.078.lcssa = phi ptr [ null, %land.rhs.preheader ], [ %entry9.07798, %land.rhs ]
+  %entry9.077.lcssa = phi ptr [ %entry9.07793, %land.rhs.preheader ], [ %entry9.077, %land.rhs ]
   %key18.le = getelementptr inbounds %"class.hermes::vm::HashMapEntry", ptr %entry9.077.lcssa, i64 0, i32 2
   %tobool27.not = icmp eq ptr %prevEntry.078.lcssa, null
   br i1 %tobool27.not, label %if.else, label %if.then28
@@ -1807,7 +1806,8 @@ _ZN6hermes2vm12HashMapEntry11markDeletedERNS0_7RuntimeE.exit: ; preds = %_ZN6her
   %cmp.i.not.i.i.i.i56 = icmp ne i32 %agg.tmp.sroa.0.0.copyload.i.i55, 0
   %conv.i.i.i.i.i57 = zext i32 %agg.tmp.sroa.0.0.copyload.i.i55 to i64
   %add.i.i.i.i.i58 = add i64 %conv.i.i.i.i.i57, %3
-  %cmp.not80 = icmp eq i64 %entry9.077.in.lcssa, %add.i.i.i.i.i58
+  %28 = inttoptr i64 %add.i.i.i.i.i58 to ptr
+  %cmp.not80 = icmp eq ptr %entry9.077.lcssa, %28
   %cmp.not = and i1 %cmp.i.not.i.i.i.i56, %cmp.not80
   br i1 %cmp.not, label %if.end55, label %if.then52
 

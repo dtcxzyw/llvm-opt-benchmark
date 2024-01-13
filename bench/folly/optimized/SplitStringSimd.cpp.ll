@@ -381,7 +381,7 @@ if.end.i:                                         ; preds = %entry
   %and.i = and i64 %1, -16
   %2 = inttoptr i64 %and.i to ptr
   %sub.ptr.sub.i = and i64 %sub.ptr.rhs.cast.i108, 15
-  %cmp2.not.i = icmp eq i64 %and.i9, %and.i
+  %cmp2.not.i = icmp eq ptr %0, %2
   br i1 %cmp2.not.i, label %if.end.i.if.end16.i_crit_edge, label %if.then3.i
 
 if.end.i.if.end16.i_crit_edge:                    ; preds = %if.end.i
@@ -875,7 +875,7 @@ if.end.i:                                         ; preds = %entry
   %and.i.i = and i64 %1, -16
   %2 = inttoptr i64 %and.i.i to ptr
   %sub.ptr.sub.i = and i64 %sub.ptr.rhs.cast.i100, 15
-  %cmp2.not.i = icmp eq i64 %and.i50.i, %and.i.i
+  %cmp2.not.i = icmp eq ptr %0, %2
   br i1 %cmp2.not.i, label %if.end.i.if.end16.i_crit_edge, label %if.then3.i
 
 if.end.i.if.end16.i_crit_edge:                    ; preds = %if.end.i
@@ -1346,7 +1346,7 @@ if.end.i:                                         ; preds = %entry
   %and.i.i = and i64 %1, -16
   %2 = inttoptr i64 %and.i.i to ptr
   %sub.ptr.sub.i = and i64 %sub.ptr.rhs.cast.i94, 15
-  %cmp2.not.i = icmp eq i64 %and.i50.i, %and.i.i
+  %cmp2.not.i = icmp eq ptr %0, %2
   br i1 %cmp2.not.i, label %if.end.i.if.end16.i_crit_edge, label %if.then3.i
 
 if.end.i.if.end16.i_crit_edge:                    ; preds = %if.end.i
@@ -2130,7 +2130,7 @@ if.end.i:                                         ; preds = %entry
   %and.i.i = and i64 %1, -16
   %2 = inttoptr i64 %and.i.i to ptr
   %sub.ptr.sub.i = and i64 %sub.ptr.rhs.cast.i100, 15
-  %cmp2.not.i = icmp eq i64 %and.i50.i, %and.i.i
+  %cmp2.not.i = icmp eq ptr %0, %2
   br i1 %cmp2.not.i, label %if.end.i.if.end16.i_crit_edge, label %if.then3.i
 
 if.end.i.if.end16.i_crit_edge:                    ; preds = %if.end.i
@@ -2429,7 +2429,7 @@ if.end.i:                                         ; preds = %entry
   %and.i.i = and i64 %1, -16
   %2 = inttoptr i64 %and.i.i to ptr
   %sub.ptr.sub.i = and i64 %sub.ptr.rhs.cast.i94, 15
-  %cmp2.not.i = icmp eq i64 %and.i50.i, %and.i.i
+  %cmp2.not.i = icmp eq ptr %0, %2
   br i1 %cmp2.not.i, label %if.end.i.if.end16.i_crit_edge, label %if.then3.i
 
 if.end.i.if.end16.i_crit_edge:                    ; preds = %if.end.i
@@ -3208,7 +3208,7 @@ if.end.i:                                         ; preds = %entry
   %and.i.i = and i64 %1, -16
   %2 = inttoptr i64 %and.i.i to ptr
   %sub.ptr.sub.i = and i64 %sub.ptr.rhs.cast.i100, 15
-  %cmp2.not.i = icmp eq i64 %and.i50.i, %and.i.i
+  %cmp2.not.i = icmp eq ptr %0, %2
   br i1 %cmp2.not.i, label %if.end.i.if.end16.i_crit_edge, label %if.then3.i
 
 if.end.i.if.end16.i_crit_edge:                    ; preds = %if.end.i
@@ -3707,7 +3707,7 @@ if.end.i:                                         ; preds = %entry
   %and.i.i = and i64 %1, -16
   %2 = inttoptr i64 %and.i.i to ptr
   %sub.ptr.sub.i = and i64 %sub.ptr.rhs.cast.i94, 15
-  %cmp2.not.i = icmp eq i64 %and.i50.i, %and.i.i
+  %cmp2.not.i = icmp eq ptr %0, %2
   br i1 %cmp2.not.i, label %if.end.i.if.end16.i_crit_edge, label %if.then3.i
 
 if.end.i.if.end16.i_crit_edge:                    ; preds = %if.end.i
@@ -4272,7 +4272,7 @@ if.end.i:                                         ; preds = %entry
   %and.i.i = and i64 %1, -16
   %2 = inttoptr i64 %and.i.i to ptr
   %sub.ptr.sub.i = and i64 %sub.ptr.rhs.cast.i100, 15
-  %cmp2.not.i = icmp eq i64 %and.i50.i, %and.i.i
+  %cmp2.not.i = icmp eq ptr %0, %2
   br i1 %cmp2.not.i, label %if.end.i.if.end16.i_crit_edge, label %if.then3.i
 
 if.end.i.if.end16.i_crit_edge:                    ; preds = %if.end.i
@@ -4672,7 +4672,7 @@ if.end.i:                                         ; preds = %entry
   %and.i.i = and i64 %1, -16
   %2 = inttoptr i64 %and.i.i to ptr
   %sub.ptr.sub.i = and i64 %sub.ptr.rhs.cast.i94, 15
-  %cmp2.not.i = icmp eq i64 %and.i50.i, %and.i.i
+  %cmp2.not.i = icmp eq ptr %0, %2
   br i1 %cmp2.not.i, label %if.end.i.if.end16.i_crit_edge, label %if.then3.i
 
 if.end.i.if.end16.i_crit_edge:                    ; preds = %if.end.i
@@ -5237,7 +5237,7 @@ if.end.i:                                         ; preds = %entry
   %and.i.i = and i64 %1, -16
   %2 = inttoptr i64 %and.i.i to ptr
   %sub.ptr.sub.i = and i64 %sub.ptr.rhs.cast.i100, 15
-  %cmp2.not.i = icmp eq i64 %and.i50.i, %and.i.i
+  %cmp2.not.i = icmp eq ptr %0, %2
   br i1 %cmp2.not.i, label %if.end.i.if.end16.i_crit_edge, label %if.then3.i
 
 if.end.i.if.end16.i_crit_edge:                    ; preds = %if.end.i
@@ -5637,7 +5637,7 @@ if.end.i:                                         ; preds = %entry
   %and.i.i = and i64 %1, -16
   %2 = inttoptr i64 %and.i.i to ptr
   %sub.ptr.sub.i = and i64 %sub.ptr.rhs.cast.i94, 15
-  %cmp2.not.i = icmp eq i64 %and.i50.i, %and.i.i
+  %cmp2.not.i = icmp eq ptr %0, %2
   br i1 %cmp2.not.i, label %if.end.i.if.end16.i_crit_edge, label %if.then3.i
 
 if.end.i.if.end16.i_crit_edge:                    ; preds = %if.end.i
@@ -6202,7 +6202,7 @@ if.end.i:                                         ; preds = %entry
   %and.i.i = and i64 %1, -16
   %2 = inttoptr i64 %and.i.i to ptr
   %sub.ptr.sub.i = and i64 %sub.ptr.rhs.cast.i100, 15
-  %cmp2.not.i = icmp eq i64 %and.i50.i, %and.i.i
+  %cmp2.not.i = icmp eq ptr %0, %2
   br i1 %cmp2.not.i, label %if.end.i.if.end16.i_crit_edge, label %if.then3.i
 
 if.end.i.if.end16.i_crit_edge:                    ; preds = %if.end.i
@@ -6602,7 +6602,7 @@ if.end.i:                                         ; preds = %entry
   %and.i.i = and i64 %1, -16
   %2 = inttoptr i64 %and.i.i to ptr
   %sub.ptr.sub.i = and i64 %sub.ptr.rhs.cast.i94, 15
-  %cmp2.not.i = icmp eq i64 %and.i50.i, %and.i.i
+  %cmp2.not.i = icmp eq ptr %0, %2
   br i1 %cmp2.not.i, label %if.end.i.if.end16.i_crit_edge, label %if.then3.i
 
 if.end.i.if.end16.i_crit_edge:                    ; preds = %if.end.i
@@ -7167,7 +7167,7 @@ if.end.i:                                         ; preds = %entry
   %and.i.i = and i64 %1, -16
   %2 = inttoptr i64 %and.i.i to ptr
   %sub.ptr.sub.i = and i64 %sub.ptr.rhs.cast.i100, 15
-  %cmp2.not.i = icmp eq i64 %and.i50.i, %and.i.i
+  %cmp2.not.i = icmp eq ptr %0, %2
   br i1 %cmp2.not.i, label %if.end.i.if.end16.i_crit_edge, label %if.then3.i
 
 if.end.i.if.end16.i_crit_edge:                    ; preds = %if.end.i
@@ -7567,7 +7567,7 @@ if.end.i:                                         ; preds = %entry
   %and.i.i = and i64 %1, -16
   %2 = inttoptr i64 %and.i.i to ptr
   %sub.ptr.sub.i = and i64 %sub.ptr.rhs.cast.i94, 15
-  %cmp2.not.i = icmp eq i64 %and.i50.i, %and.i.i
+  %cmp2.not.i = icmp eq ptr %0, %2
   br i1 %cmp2.not.i, label %if.end.i.if.end16.i_crit_edge, label %if.then3.i
 
 if.end.i.if.end16.i_crit_edge:                    ; preds = %if.end.i
@@ -8132,7 +8132,7 @@ if.end.i:                                         ; preds = %entry
   %and.i.i = and i64 %1, -16
   %2 = inttoptr i64 %and.i.i to ptr
   %sub.ptr.sub.i = and i64 %sub.ptr.rhs.cast.i100, 15
-  %cmp2.not.i = icmp eq i64 %and.i50.i, %and.i.i
+  %cmp2.not.i = icmp eq ptr %0, %2
   br i1 %cmp2.not.i, label %if.end.i.if.end16.i_crit_edge, label %if.then3.i
 
 if.end.i.if.end16.i_crit_edge:                    ; preds = %if.end.i
@@ -8532,7 +8532,7 @@ if.end.i:                                         ; preds = %entry
   %and.i.i = and i64 %1, -16
   %2 = inttoptr i64 %and.i.i to ptr
   %sub.ptr.sub.i = and i64 %sub.ptr.rhs.cast.i94, 15
-  %cmp2.not.i = icmp eq i64 %and.i50.i, %and.i.i
+  %cmp2.not.i = icmp eq ptr %0, %2
   br i1 %cmp2.not.i, label %if.end.i.if.end16.i_crit_edge, label %if.then3.i
 
 if.end.i.if.end16.i_crit_edge:                    ; preds = %if.end.i
@@ -9097,7 +9097,7 @@ if.end.i:                                         ; preds = %entry
   %and.i.i = and i64 %1, -16
   %2 = inttoptr i64 %and.i.i to ptr
   %sub.ptr.sub.i = and i64 %sub.ptr.rhs.cast.i100, 15
-  %cmp2.not.i = icmp eq i64 %and.i50.i, %and.i.i
+  %cmp2.not.i = icmp eq ptr %0, %2
   br i1 %cmp2.not.i, label %if.end.i.if.end16.i_crit_edge, label %if.then3.i
 
 if.end.i.if.end16.i_crit_edge:                    ; preds = %if.end.i
@@ -9497,7 +9497,7 @@ if.end.i:                                         ; preds = %entry
   %and.i.i = and i64 %1, -16
   %2 = inttoptr i64 %and.i.i to ptr
   %sub.ptr.sub.i = and i64 %sub.ptr.rhs.cast.i94, 15
-  %cmp2.not.i = icmp eq i64 %and.i50.i, %and.i.i
+  %cmp2.not.i = icmp eq ptr %0, %2
   br i1 %cmp2.not.i, label %if.end.i.if.end16.i_crit_edge, label %if.then3.i
 
 if.end.i.if.end16.i_crit_edge:                    ; preds = %if.end.i
@@ -10062,7 +10062,7 @@ if.end.i:                                         ; preds = %entry
   %and.i.i = and i64 %1, -16
   %2 = inttoptr i64 %and.i.i to ptr
   %sub.ptr.sub.i = and i64 %sub.ptr.rhs.cast.i100, 15
-  %cmp2.not.i = icmp eq i64 %and.i50.i, %and.i.i
+  %cmp2.not.i = icmp eq ptr %0, %2
   br i1 %cmp2.not.i, label %if.end.i.if.end16.i_crit_edge, label %if.then3.i
 
 if.end.i.if.end16.i_crit_edge:                    ; preds = %if.end.i
@@ -10450,7 +10450,7 @@ if.end.i:                                         ; preds = %entry
   %and.i.i = and i64 %1, -16
   %2 = inttoptr i64 %and.i.i to ptr
   %sub.ptr.sub.i = and i64 %sub.ptr.rhs.cast.i94, 15
-  %cmp2.not.i = icmp eq i64 %and.i50.i, %and.i.i
+  %cmp2.not.i = icmp eq ptr %0, %2
   br i1 %cmp2.not.i, label %if.end.i.if.end16.i_crit_edge, label %if.then3.i
 
 if.end.i.if.end16.i_crit_edge:                    ; preds = %if.end.i
@@ -10901,7 +10901,7 @@ if.end.i:                                         ; preds = %entry
   %and.i.i = and i64 %1, -16
   %2 = inttoptr i64 %and.i.i to ptr
   %sub.ptr.sub.i = and i64 %sub.ptr.rhs.cast.i100, 15
-  %cmp2.not.i = icmp eq i64 %and.i50.i, %and.i.i
+  %cmp2.not.i = icmp eq ptr %0, %2
   br i1 %cmp2.not.i, label %if.end.i.if.end16.i_crit_edge, label %if.then3.i
 
 if.end.i.if.end16.i_crit_edge:                    ; preds = %if.end.i
@@ -11364,7 +11364,7 @@ if.end.i:                                         ; preds = %entry
   %and.i.i = and i64 %1, -16
   %2 = inttoptr i64 %and.i.i to ptr
   %sub.ptr.sub.i = and i64 %sub.ptr.rhs.cast.i94, 15
-  %cmp2.not.i = icmp eq i64 %and.i50.i, %and.i.i
+  %cmp2.not.i = icmp eq ptr %0, %2
   br i1 %cmp2.not.i, label %if.end.i.if.end16.i_crit_edge, label %if.then3.i
 
 if.end.i.if.end16.i_crit_edge:                    ; preds = %if.end.i
@@ -11857,7 +11857,7 @@ if.end.i:                                         ; preds = %entry
   %and.i.i = and i64 %1, -16
   %2 = inttoptr i64 %and.i.i to ptr
   %sub.ptr.sub.i = and i64 %sub.ptr.rhs.cast.i100, 15
-  %cmp2.not.i = icmp eq i64 %and.i50.i, %and.i.i
+  %cmp2.not.i = icmp eq ptr %0, %2
   br i1 %cmp2.not.i, label %if.end.i.if.end16.i_crit_edge, label %if.then3.i
 
 if.end.i.if.end16.i_crit_edge:                    ; preds = %if.end.i
@@ -12152,7 +12152,7 @@ if.end.i:                                         ; preds = %entry
   %and.i.i = and i64 %1, -16
   %2 = inttoptr i64 %and.i.i to ptr
   %sub.ptr.sub.i = and i64 %sub.ptr.rhs.cast.i94, 15
-  %cmp2.not.i = icmp eq i64 %and.i50.i, %and.i.i
+  %cmp2.not.i = icmp eq ptr %0, %2
   br i1 %cmp2.not.i, label %if.end.i.if.end16.i_crit_edge, label %if.then3.i
 
 if.end.i.if.end16.i_crit_edge:                    ; preds = %if.end.i
@@ -12865,7 +12865,7 @@ if.end.i:                                         ; preds = %entry
   %and.i.i = and i64 %1, -16
   %2 = inttoptr i64 %and.i.i to ptr
   %sub.ptr.sub.i = and i64 %sub.ptr.rhs.cast.i100, 15
-  %cmp2.not.i = icmp eq i64 %and.i50.i, %and.i.i
+  %cmp2.not.i = icmp eq ptr %0, %2
   br i1 %cmp2.not.i, label %if.end.i.if.end16.i_crit_edge, label %if.then3.i
 
 if.end.i.if.end16.i_crit_edge:                    ; preds = %if.end.i
@@ -13356,7 +13356,7 @@ if.end.i:                                         ; preds = %entry
   %and.i.i = and i64 %1, -16
   %2 = inttoptr i64 %and.i.i to ptr
   %sub.ptr.sub.i = and i64 %sub.ptr.rhs.cast.i94, 15
-  %cmp2.not.i = icmp eq i64 %and.i50.i, %and.i.i
+  %cmp2.not.i = icmp eq ptr %0, %2
   br i1 %cmp2.not.i, label %if.end.i.if.end16.i_crit_edge, label %if.then3.i
 
 if.end.i.if.end16.i_crit_edge:                    ; preds = %if.end.i
@@ -13912,7 +13912,7 @@ if.end.i:                                         ; preds = %entry
   %and.i.i = and i64 %1, -16
   %2 = inttoptr i64 %and.i.i to ptr
   %sub.ptr.sub.i = and i64 %sub.ptr.rhs.cast.i100, 15
-  %cmp2.not.i = icmp eq i64 %and.i50.i, %and.i.i
+  %cmp2.not.i = icmp eq ptr %0, %2
   br i1 %cmp2.not.i, label %if.end.i.if.end16.i_crit_edge, label %if.then3.i
 
 if.end.i.if.end16.i_crit_edge:                    ; preds = %if.end.i
@@ -14304,7 +14304,7 @@ if.end.i:                                         ; preds = %entry
   %and.i.i = and i64 %1, -16
   %2 = inttoptr i64 %and.i.i to ptr
   %sub.ptr.sub.i = and i64 %sub.ptr.rhs.cast.i94, 15
-  %cmp2.not.i = icmp eq i64 %and.i50.i, %and.i.i
+  %cmp2.not.i = icmp eq ptr %0, %2
   br i1 %cmp2.not.i, label %if.end.i.if.end16.i_crit_edge, label %if.then3.i
 
 if.end.i.if.end16.i_crit_edge:                    ; preds = %if.end.i
@@ -14860,7 +14860,7 @@ if.end.i:                                         ; preds = %entry
   %and.i.i = and i64 %1, -16
   %2 = inttoptr i64 %and.i.i to ptr
   %sub.ptr.sub.i = and i64 %sub.ptr.rhs.cast.i100, 15
-  %cmp2.not.i = icmp eq i64 %and.i50.i, %and.i.i
+  %cmp2.not.i = icmp eq ptr %0, %2
   br i1 %cmp2.not.i, label %if.end.i.if.end16.i_crit_edge, label %if.then3.i
 
 if.end.i.if.end16.i_crit_edge:                    ; preds = %if.end.i
@@ -15252,7 +15252,7 @@ if.end.i:                                         ; preds = %entry
   %and.i.i = and i64 %1, -16
   %2 = inttoptr i64 %and.i.i to ptr
   %sub.ptr.sub.i = and i64 %sub.ptr.rhs.cast.i94, 15
-  %cmp2.not.i = icmp eq i64 %and.i50.i, %and.i.i
+  %cmp2.not.i = icmp eq ptr %0, %2
   br i1 %cmp2.not.i, label %if.end.i.if.end16.i_crit_edge, label %if.then3.i
 
 if.end.i.if.end16.i_crit_edge:                    ; preds = %if.end.i
@@ -15808,7 +15808,7 @@ if.end.i:                                         ; preds = %entry
   %and.i.i = and i64 %1, -16
   %2 = inttoptr i64 %and.i.i to ptr
   %sub.ptr.sub.i = and i64 %sub.ptr.rhs.cast.i100, 15
-  %cmp2.not.i = icmp eq i64 %and.i50.i, %and.i.i
+  %cmp2.not.i = icmp eq ptr %0, %2
   br i1 %cmp2.not.i, label %if.end.i.if.end16.i_crit_edge, label %if.then3.i
 
 if.end.i.if.end16.i_crit_edge:                    ; preds = %if.end.i
@@ -16200,7 +16200,7 @@ if.end.i:                                         ; preds = %entry
   %and.i.i = and i64 %1, -16
   %2 = inttoptr i64 %and.i.i to ptr
   %sub.ptr.sub.i = and i64 %sub.ptr.rhs.cast.i94, 15
-  %cmp2.not.i = icmp eq i64 %and.i50.i, %and.i.i
+  %cmp2.not.i = icmp eq ptr %0, %2
   br i1 %cmp2.not.i, label %if.end.i.if.end16.i_crit_edge, label %if.then3.i
 
 if.end.i.if.end16.i_crit_edge:                    ; preds = %if.end.i
@@ -16756,7 +16756,7 @@ if.end.i:                                         ; preds = %entry
   %and.i.i = and i64 %1, -16
   %2 = inttoptr i64 %and.i.i to ptr
   %sub.ptr.sub.i = and i64 %sub.ptr.rhs.cast.i100, 15
-  %cmp2.not.i = icmp eq i64 %and.i50.i, %and.i.i
+  %cmp2.not.i = icmp eq ptr %0, %2
   br i1 %cmp2.not.i, label %if.end.i.if.end16.i_crit_edge, label %if.then3.i
 
 if.end.i.if.end16.i_crit_edge:                    ; preds = %if.end.i
@@ -17148,7 +17148,7 @@ if.end.i:                                         ; preds = %entry
   %and.i.i = and i64 %1, -16
   %2 = inttoptr i64 %and.i.i to ptr
   %sub.ptr.sub.i = and i64 %sub.ptr.rhs.cast.i94, 15
-  %cmp2.not.i = icmp eq i64 %and.i50.i, %and.i.i
+  %cmp2.not.i = icmp eq ptr %0, %2
   br i1 %cmp2.not.i, label %if.end.i.if.end16.i_crit_edge, label %if.then3.i
 
 if.end.i.if.end16.i_crit_edge:                    ; preds = %if.end.i
@@ -17704,7 +17704,7 @@ if.end.i:                                         ; preds = %entry
   %and.i.i = and i64 %1, -16
   %2 = inttoptr i64 %and.i.i to ptr
   %sub.ptr.sub.i = and i64 %sub.ptr.rhs.cast.i100, 15
-  %cmp2.not.i = icmp eq i64 %and.i50.i, %and.i.i
+  %cmp2.not.i = icmp eq ptr %0, %2
   br i1 %cmp2.not.i, label %if.end.i.if.end16.i_crit_edge, label %if.then3.i
 
 if.end.i.if.end16.i_crit_edge:                    ; preds = %if.end.i
@@ -18096,7 +18096,7 @@ if.end.i:                                         ; preds = %entry
   %and.i.i = and i64 %1, -16
   %2 = inttoptr i64 %and.i.i to ptr
   %sub.ptr.sub.i = and i64 %sub.ptr.rhs.cast.i94, 15
-  %cmp2.not.i = icmp eq i64 %and.i50.i, %and.i.i
+  %cmp2.not.i = icmp eq ptr %0, %2
   br i1 %cmp2.not.i, label %if.end.i.if.end16.i_crit_edge, label %if.then3.i
 
 if.end.i.if.end16.i_crit_edge:                    ; preds = %if.end.i
@@ -18652,7 +18652,7 @@ if.end.i:                                         ; preds = %entry
   %and.i.i = and i64 %1, -16
   %2 = inttoptr i64 %and.i.i to ptr
   %sub.ptr.sub.i = and i64 %sub.ptr.rhs.cast.i100, 15
-  %cmp2.not.i = icmp eq i64 %and.i50.i, %and.i.i
+  %cmp2.not.i = icmp eq ptr %0, %2
   br i1 %cmp2.not.i, label %if.end.i.if.end16.i_crit_edge, label %if.then3.i
 
 if.end.i.if.end16.i_crit_edge:                    ; preds = %if.end.i
@@ -19044,7 +19044,7 @@ if.end.i:                                         ; preds = %entry
   %and.i.i = and i64 %1, -16
   %2 = inttoptr i64 %and.i.i to ptr
   %sub.ptr.sub.i = and i64 %sub.ptr.rhs.cast.i94, 15
-  %cmp2.not.i = icmp eq i64 %and.i50.i, %and.i.i
+  %cmp2.not.i = icmp eq ptr %0, %2
   br i1 %cmp2.not.i, label %if.end.i.if.end16.i_crit_edge, label %if.then3.i
 
 if.end.i.if.end16.i_crit_edge:                    ; preds = %if.end.i
@@ -19600,7 +19600,7 @@ if.end.i:                                         ; preds = %entry
   %and.i.i = and i64 %1, -16
   %2 = inttoptr i64 %and.i.i to ptr
   %sub.ptr.sub.i = and i64 %sub.ptr.rhs.cast.i100, 15
-  %cmp2.not.i = icmp eq i64 %and.i50.i, %and.i.i
+  %cmp2.not.i = icmp eq ptr %0, %2
   br i1 %cmp2.not.i, label %if.end.i.if.end16.i_crit_edge, label %if.then3.i
 
 if.end.i.if.end16.i_crit_edge:                    ; preds = %if.end.i
@@ -19989,7 +19989,7 @@ if.end.i:                                         ; preds = %entry
   %and.i.i = and i64 %1, -16
   %2 = inttoptr i64 %and.i.i to ptr
   %sub.ptr.sub.i = and i64 %sub.ptr.rhs.cast.i94, 15
-  %cmp2.not.i = icmp eq i64 %and.i50.i, %and.i.i
+  %cmp2.not.i = icmp eq ptr %0, %2
   br i1 %cmp2.not.i, label %if.end.i.if.end16.i_crit_edge, label %if.then3.i
 
 if.end.i.if.end16.i_crit_edge:                    ; preds = %if.end.i
@@ -20551,7 +20551,7 @@ if.end.i:                                         ; preds = %entry
   %and.i.i = and i64 %1, -16
   %2 = inttoptr i64 %and.i.i to ptr
   %sub.ptr.sub.i = and i64 %sub.ptr.rhs.cast.i100, 15
-  %cmp2.not.i = icmp eq i64 %and.i50.i, %and.i.i
+  %cmp2.not.i = icmp eq ptr %0, %2
   br i1 %cmp2.not.i, label %if.end.i.if.end16.i_crit_edge, label %if.then3.i
 
 if.end.i.if.end16.i_crit_edge:                    ; preds = %if.end.i
@@ -20827,7 +20827,7 @@ if.end.i:                                         ; preds = %entry
   %and.i.i = and i64 %1, -16
   %2 = inttoptr i64 %and.i.i to ptr
   %sub.ptr.sub.i = and i64 %sub.ptr.rhs.cast.i94, 15
-  %cmp2.not.i = icmp eq i64 %and.i50.i, %and.i.i
+  %cmp2.not.i = icmp eq ptr %0, %2
   br i1 %cmp2.not.i, label %if.end.i.if.end16.i_crit_edge, label %if.then3.i
 
 if.end.i.if.end16.i_crit_edge:                    ; preds = %if.end.i
@@ -21833,7 +21833,7 @@ if.end.i:                                         ; preds = %entry
   %and.i.i = and i64 %1, -16
   %2 = inttoptr i64 %and.i.i to ptr
   %sub.ptr.sub.i = and i64 %sub.ptr.rhs.cast.i100, 15
-  %cmp2.not.i = icmp eq i64 %and.i50.i, %and.i.i
+  %cmp2.not.i = icmp eq ptr %0, %2
   br i1 %cmp2.not.i, label %if.end.i.if.end16.i_crit_edge, label %if.then3.i
 
 if.end.i.if.end16.i_crit_edge:                    ; preds = %if.end.i
@@ -22424,7 +22424,7 @@ if.end.i:                                         ; preds = %entry
   %and.i.i = and i64 %1, -16
   %2 = inttoptr i64 %and.i.i to ptr
   %sub.ptr.sub.i = and i64 %sub.ptr.rhs.cast.i94, 15
-  %cmp2.not.i = icmp eq i64 %and.i50.i, %and.i.i
+  %cmp2.not.i = icmp eq ptr %0, %2
   br i1 %cmp2.not.i, label %if.end.i.if.end16.i_crit_edge, label %if.then3.i
 
 if.end.i.if.end16.i_crit_edge:                    ; preds = %if.end.i
@@ -23366,7 +23366,7 @@ if.end.i:                                         ; preds = %entry
   %and.i.i = and i64 %1, -16
   %2 = inttoptr i64 %and.i.i to ptr
   %sub.ptr.sub.i = and i64 %sub.ptr.rhs.cast.i100, 15
-  %cmp2.not.i = icmp eq i64 %and.i50.i, %and.i.i
+  %cmp2.not.i = icmp eq ptr %0, %2
   br i1 %cmp2.not.i, label %if.end.i.if.end16.i_crit_edge, label %if.then3.i
 
 if.end.i.if.end16.i_crit_edge:                    ; preds = %if.end.i
@@ -23839,7 +23839,7 @@ if.end.i:                                         ; preds = %entry
   %and.i.i = and i64 %1, -16
   %2 = inttoptr i64 %and.i.i to ptr
   %sub.ptr.sub.i = and i64 %sub.ptr.rhs.cast.i94, 15
-  %cmp2.not.i = icmp eq i64 %and.i50.i, %and.i.i
+  %cmp2.not.i = icmp eq ptr %0, %2
   br i1 %cmp2.not.i, label %if.end.i.if.end16.i_crit_edge, label %if.then3.i
 
 if.end.i.if.end16.i_crit_edge:                    ; preds = %if.end.i
@@ -24813,7 +24813,7 @@ if.end.i:                                         ; preds = %entry
   %and.i.i = and i64 %1, -16
   %2 = inttoptr i64 %and.i.i to ptr
   %sub.ptr.sub.i = and i64 %sub.ptr.rhs.cast.i100, 15
-  %cmp2.not.i = icmp eq i64 %and.i50.i, %and.i.i
+  %cmp2.not.i = icmp eq ptr %0, %2
   br i1 %cmp2.not.i, label %if.end.i.if.end16.i_crit_edge, label %if.then3.i
 
 if.end.i.if.end16.i_crit_edge:                    ; preds = %if.end.i

@@ -13330,7 +13330,10 @@ land.lhs.true33:                                  ; preds = %if.end32
 invoke.cont35:                                    ; preds = %land.lhs.true33
   %atomicQueue_.i.i = getelementptr inbounds %"class.folly::EventBaseAtomicNotificationQueue", ptr %20, i64 0, i32 8, i32 2
   %22 = load atomic i64, ptr %atomicQueue_.i.i monotonic, align 8
-  %.not.i.i = icmp ult i64 %22, 2
+  %atomic-temp.0.i.i.i.i.i = inttoptr i64 %22 to ptr
+  %tobool.i.i.i = icmp eq i64 %22, 0
+  %cmp.i.i.i = icmp eq ptr %atomic-temp.0.i.i.i.i.i, inttoptr (i64 1 to ptr)
+  %.not.i.i = or i1 %tobool.i.i.i, %cmp.i.i.i
   br i1 %.not.i.i, label %if.end46, label %if.then37
 
 if.then37:                                        ; preds = %invoke.cont35, %land.lhs.true33
@@ -15246,7 +15249,7 @@ call.i3.noexc.i.i.i:                              ; preds = %_ZN5folly14RequestC
   %12 = load atomic i64, ptr %atomicQueue_.i.i monotonic, align 8
   %13 = ptrtoint ptr %call.i34.i.i.i to i64
   %head.09.i.i.i.i = inttoptr i64 %12 to ptr
-  %cmp10.i.i.i.i = icmp eq i64 %12, 1
+  %cmp10.i.i.i.i = icmp eq ptr %head.09.i.i.i.i, inttoptr (i64 1 to ptr)
   %cond11.i.i.i.i = select i1 %cmp10.i.i.i.i, ptr null, ptr %head.09.i.i.i.i
   store ptr %cond11.i.i.i.i, ptr %next.i.i.i.i.i, align 16, !tbaa !508
   %14 = cmpxchg weak ptr %atomicQueue_.i.i, i64 %12, i64 %13 acq_rel monotonic, align 8
@@ -15257,7 +15260,7 @@ _ZNSt6atomicIPN5folly23AtomicNotificationQueueINS0_8FunctionIFvvEEEE4NodeEE21com
   %16 = phi { i64, i1 } [ %18, %_ZNSt6atomicIPN5folly23AtomicNotificationQueueINS0_8FunctionIFvvEEEE4NodeEE21compare_exchange_weakERS7_S7_St12memory_orderSA_.exit.i.i.i.i ], [ %14, %call.i3.noexc.i.i.i ]
   %17 = extractvalue { i64, i1 } %16, 0
   %head.0.i.i.i.i = inttoptr i64 %17 to ptr
-  %cmp.i.i.i.i = icmp eq i64 %17, 1
+  %cmp.i.i.i.i = icmp eq ptr %head.0.i.i.i.i, inttoptr (i64 1 to ptr)
   %cond.i.i.i.i = select i1 %cmp.i.i.i.i, ptr null, ptr %head.0.i.i.i.i
   store ptr %cond.i.i.i.i, ptr %next.i.i.i.i.i, align 16, !tbaa !508
   %18 = cmpxchg weak ptr %atomicQueue_.i.i, i64 %17, i64 %13 acq_rel monotonic, align 8
@@ -17035,7 +17038,7 @@ _ZNSt12__shared_ptrIN5folly14RequestContextELN9__gnu_cxx12_Lock_policyE2EED2Ev.e
   %9 = load atomic i64, ptr %this monotonic, align 64
   %10 = ptrtoint ptr %call.i34 to i64
   %head.019.i = inttoptr i64 %9 to ptr
-  %cmp20.i = icmp eq i64 %9, 1
+  %cmp20.i = icmp eq ptr %head.019.i, inttoptr (i64 1 to ptr)
   %cond21.i = select i1 %cmp20.i, ptr null, ptr %head.019.i
   store ptr %cond21.i, ptr %next.i.i, align 16, !tbaa !508
   %11 = cmpxchg weak ptr %this, i64 %9, i64 %10 acq_rel monotonic, align 8
@@ -17046,7 +17049,7 @@ _ZNSt6atomicIPN5folly23AtomicNotificationQueueINS0_8FunctionIFvvEEEE4NodeEE21com
   %13 = phi { i64, i1 } [ %15, %_ZNSt6atomicIPN5folly23AtomicNotificationQueueINS0_8FunctionIFvvEEEE4NodeEE21compare_exchange_weakERS7_S7_St12memory_orderSA_.exit.i ], [ %11, %_ZNSt12__shared_ptrIN5folly14RequestContextELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i ]
   %14 = extractvalue { i64, i1 } %13, 0
   %head.0.i = inttoptr i64 %14 to ptr
-  %cmp.i = icmp eq i64 %14, 1
+  %cmp.i = icmp eq ptr %head.0.i, inttoptr (i64 1 to ptr)
   %cond.i = select i1 %cmp.i, ptr null, ptr %head.0.i
   store ptr %cond.i, ptr %next.i.i, align 16, !tbaa !508
   %15 = cmpxchg weak ptr %this, i64 %14, i64 %10 acq_rel monotonic, align 8
@@ -18645,7 +18648,8 @@ _ZN5folly32EventBaseAtomicNotificationQueueINS_8FunctionIFvvEEENS_9EventBase10Fu
 define linkonce_odr void @_ZN5folly23AtomicNotificationQueueINS_8FunctionIFvvEEEE11AtomicQueueD2Ev(ptr noundef nonnull align 64 dereferenceable(8) %this) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load atomic i64, ptr %this monotonic, align 64
-  %cmp = icmp eq i64 %0, 1
+  %atomic-temp.0.i.i = inttoptr i64 %0 to ptr
+  %cmp = icmp eq ptr %atomic-temp.0.i.i, inttoptr (i64 1 to ptr)
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry

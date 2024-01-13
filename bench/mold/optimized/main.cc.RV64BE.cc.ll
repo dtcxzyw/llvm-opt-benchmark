@@ -4902,25 +4902,26 @@ do.body.i.i:                                      ; preds = %_ZN3tbb6detail2d213
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.inc15.i.i, %do.body.i.i
-  %i.026.i.i = phi i64 [ 0, %do.body.i.i ], [ %inc.i.i, %for.inc15.i.i ]
-  %node_list.i.i = getelementptr inbounds %"struct.tbb::detail::d2::hash_map_base<tbb::detail::d1::tbb_allocator<std::pair<const std::basic_string_view<char>, mold::elf::ComdatGroup>>, tbb::detail::d1::spin_rw_mutex>::bucket", ptr %atomic-temp.i.0.i.i.i, i64 %i.026.i.i, i32 1
+  %i.027.i.i = phi i64 [ 0, %do.body.i.i ], [ %inc.i.i, %for.inc15.i.i ]
+  %node_list.i.i = getelementptr inbounds %"struct.tbb::detail::d2::hash_map_base<tbb::detail::d1::tbb_allocator<std::pair<const std::basic_string_view<char>, mold::elf::ComdatGroup>>, tbb::detail::d1::spin_rw_mutex>::bucket", ptr %atomic-temp.i.0.i.i.i, i64 %i.027.i.i, i32 1
   %57 = load atomic i64, ptr %node_list.i.i monotonic, align 8
-  %cmp.i24.i.i = icmp ugt i64 %57, 63
-  br i1 %cmp.i24.i.i, label %for.body9.i.i, label %for.inc15.i.i
+  %n.024.i.i = inttoptr i64 %57 to ptr
+  %cmp.i25.i.i = icmp ugt ptr %n.024.i.i, inttoptr (i64 63 to ptr)
+  br i1 %cmp.i25.i.i, label %for.body9.i.i, label %for.inc15.i.i
 
 for.body9.i.i:                                    ; preds = %for.body.i.i, %for.body9.i.i
-  %n.0.in25.i.i = phi i64 [ %60, %for.body9.i.i ], [ %57, %for.body.i.i ]
-  %n.0.i.i = inttoptr i64 %n.0.in25.i.i to ptr
-  %58 = load ptr, ptr %n.0.i.i, align 8
+  %n.026.i.i = phi ptr [ %n.0.i.i, %for.body9.i.i ], [ %n.024.i.i, %for.body.i.i ]
+  %58 = load ptr, ptr %n.026.i.i, align 8
   %59 = ptrtoint ptr %58 to i64
   store atomic i64 %59, ptr %node_list.i.i monotonic, align 8
-  tail call void @_ZN3tbb6detail2r117deallocate_memoryEPv(ptr noundef nonnull %n.0.i.i) #17
+  tail call void @_ZN3tbb6detail2r117deallocate_memoryEPv(ptr noundef nonnull %n.026.i.i) #17
   %60 = load atomic i64, ptr %node_list.i.i monotonic, align 8
-  %cmp.i.i.i = icmp ugt i64 %60, 63
+  %n.0.i.i = inttoptr i64 %60 to ptr
+  %cmp.i.i.i = icmp ugt ptr %n.0.i.i, inttoptr (i64 63 to ptr)
   br i1 %cmp.i.i.i, label %for.body9.i.i, label %for.inc15.i.i, !llvm.loop !73
 
 for.inc15.i.i:                                    ; preds = %for.body9.i.i, %for.body.i.i
-  %inc.i.i = add i64 %i.026.i.i, 1
+  %inc.i.i = add i64 %i.027.i.i, 1
   %i.0.highbits.i.i = lshr i64 %inc.i.i, %cond.i.i
   %cmp.i.i = icmp eq i64 %i.0.highbits.i.i, 0
   br i1 %cmp.i.i, label %for.body.i.i, label %for.end16.i.i, !llvm.loop !74
@@ -4959,59 +4960,60 @@ _ZN3tbb6detail2d219concurrent_hash_mapISt17basic_string_viewIcSt11char_traitsIcE
   br label %do.body.i.i204
 
 do.body.i.i204:                                   ; preds = %_ZN3tbb6detail2d213hash_map_baseINS0_2d113tbb_allocatorISt4pairIKSt17basic_string_viewIcSt11char_traitsIcEEN4mold3elf6SymbolINSC_6RV64BEEEEEEENS3_13spin_rw_mutexEE14delete_segmentEm.exit.i.i, %_ZN3tbb6detail2d219concurrent_hash_mapISt17basic_string_viewIcSt11char_traitsIcEEN4mold3elf11ComdatGroupE7HashCmpNS0_2d113tbb_allocatorISt4pairIKS6_S9_EEEED2Ev.exit
-  %s.0.i.i205 = phi i64 [ %xor.i.i.i.i.i203, %_ZN3tbb6detail2d219concurrent_hash_mapISt17basic_string_viewIcSt11char_traitsIcEEN4mold3elf11ComdatGroupE7HashCmpNS0_2d113tbb_allocatorISt4pairIKS6_S9_EEEED2Ev.exit ], [ %dec.i.i225, %_ZN3tbb6detail2d213hash_map_baseINS0_2d113tbb_allocatorISt4pairIKSt17basic_string_viewIcSt11char_traitsIcEEN4mold3elf6SymbolINSC_6RV64BEEEEEEENS3_13spin_rw_mutexEE14delete_segmentEm.exit.i.i ]
+  %s.0.i.i205 = phi i64 [ %xor.i.i.i.i.i203, %_ZN3tbb6detail2d219concurrent_hash_mapISt17basic_string_viewIcSt11char_traitsIcEEN4mold3elf11ComdatGroupE7HashCmpNS0_2d113tbb_allocatorISt4pairIKS6_S9_EEEED2Ev.exit ], [ %dec.i.i226, %_ZN3tbb6detail2d213hash_map_baseINS0_2d113tbb_allocatorISt4pairIKSt17basic_string_viewIcSt11char_traitsIcEEN4mold3elf6SymbolINSC_6RV64BEEEEEEENS3_13spin_rw_mutexEE14delete_segmentEm.exit.i.i ]
   %arrayidx.i.i206 = getelementptr inbounds %"class.tbb::detail::d2::hash_map_base", ptr %symbol_map, i64 0, i32 4, i64 %s.0.i.i205
   %64 = load atomic i64, ptr %arrayidx.i.i206 monotonic, align 8
   %atomic-temp.i.0.i.i.i207 = inttoptr i64 %64 to ptr
   %cond.i.i208 = tail call i64 @llvm.umax.i64(i64 %s.0.i.i205, i64 1)
   br label %for.body.i.i209
 
-for.body.i.i209:                                  ; preds = %for.inc15.i.i213, %do.body.i.i204
-  %i.026.i.i210 = phi i64 [ 0, %do.body.i.i204 ], [ %inc.i.i214, %for.inc15.i.i213 ]
-  %node_list.i.i211 = getelementptr inbounds %"struct.tbb::detail::d2::hash_map_base<tbb::detail::d1::tbb_allocator<std::pair<const std::basic_string_view<char>, mold::elf::Symbol<mold::elf::RV64BE>>>, tbb::detail::d1::spin_rw_mutex>::bucket", ptr %atomic-temp.i.0.i.i.i207, i64 %i.026.i.i210, i32 1
+for.body.i.i209:                                  ; preds = %for.inc15.i.i214, %do.body.i.i204
+  %i.027.i.i210 = phi i64 [ 0, %do.body.i.i204 ], [ %inc.i.i215, %for.inc15.i.i214 ]
+  %node_list.i.i211 = getelementptr inbounds %"struct.tbb::detail::d2::hash_map_base<tbb::detail::d1::tbb_allocator<std::pair<const std::basic_string_view<char>, mold::elf::Symbol<mold::elf::RV64BE>>>, tbb::detail::d1::spin_rw_mutex>::bucket", ptr %atomic-temp.i.0.i.i.i207, i64 %i.027.i.i210, i32 1
   %65 = load atomic i64, ptr %node_list.i.i211 monotonic, align 8
-  %cmp.i24.i.i212 = icmp ugt i64 %65, 63
-  br i1 %cmp.i24.i.i212, label %for.body9.i.i226, label %for.inc15.i.i213
+  %n.024.i.i212 = inttoptr i64 %65 to ptr
+  %cmp.i25.i.i213 = icmp ugt ptr %n.024.i.i212, inttoptr (i64 63 to ptr)
+  br i1 %cmp.i25.i.i213, label %for.body9.i.i227, label %for.inc15.i.i214
 
-for.body9.i.i226:                                 ; preds = %for.body.i.i209, %for.body9.i.i226
-  %n.0.in25.i.i227 = phi i64 [ %68, %for.body9.i.i226 ], [ %65, %for.body.i.i209 ]
-  %n.0.i.i228 = inttoptr i64 %n.0.in25.i.i227 to ptr
-  %66 = load ptr, ptr %n.0.i.i228, align 8
+for.body9.i.i227:                                 ; preds = %for.body.i.i209, %for.body9.i.i227
+  %n.026.i.i228 = phi ptr [ %n.0.i.i229, %for.body9.i.i227 ], [ %n.024.i.i212, %for.body.i.i209 ]
+  %66 = load ptr, ptr %n.026.i.i228, align 8
   %67 = ptrtoint ptr %66 to i64
   store atomic i64 %67, ptr %node_list.i.i211 monotonic, align 8
-  tail call void @_ZN3tbb6detail2r117deallocate_memoryEPv(ptr noundef nonnull %n.0.i.i228) #17
+  tail call void @_ZN3tbb6detail2r117deallocate_memoryEPv(ptr noundef nonnull %n.026.i.i228) #17
   %68 = load atomic i64, ptr %node_list.i.i211 monotonic, align 8
-  %cmp.i.i.i229 = icmp ugt i64 %68, 63
-  br i1 %cmp.i.i.i229, label %for.body9.i.i226, label %for.inc15.i.i213, !llvm.loop !76
+  %n.0.i.i229 = inttoptr i64 %68 to ptr
+  %cmp.i.i.i230 = icmp ugt ptr %n.0.i.i229, inttoptr (i64 63 to ptr)
+  br i1 %cmp.i.i.i230, label %for.body9.i.i227, label %for.inc15.i.i214, !llvm.loop !76
 
-for.inc15.i.i213:                                 ; preds = %for.body9.i.i226, %for.body.i.i209
-  %inc.i.i214 = add i64 %i.026.i.i210, 1
-  %i.0.highbits.i.i215 = lshr i64 %inc.i.i214, %cond.i.i208
-  %cmp.i.i216 = icmp eq i64 %i.0.highbits.i.i215, 0
-  br i1 %cmp.i.i216, label %for.body.i.i209, label %for.end16.i.i217, !llvm.loop !77
+for.inc15.i.i214:                                 ; preds = %for.body9.i.i227, %for.body.i.i209
+  %inc.i.i215 = add i64 %i.027.i.i210, 1
+  %i.0.highbits.i.i216 = lshr i64 %inc.i.i215, %cond.i.i208
+  %cmp.i.i217 = icmp eq i64 %i.0.highbits.i.i216, 0
+  br i1 %cmp.i.i217, label %for.body.i.i209, label %for.end16.i.i218, !llvm.loop !77
 
-for.end16.i.i217:                                 ; preds = %for.inc15.i.i213
+for.end16.i.i218:                                 ; preds = %for.inc15.i.i214
   %69 = load atomic i64, ptr %arrayidx.i.i206 monotonic, align 8
-  %cmp3.i.i.i218 = icmp ne i64 %s.0.i.i205, 1
-  %cmp.i22.i.i219 = icmp ult i64 %s.0.i.i205, 8
-  %cmp8.not.i.i.i220 = and i1 %cmp.i22.i.i219, %cmp3.i.i.i218
-  br i1 %cmp8.not.i.i.i220, label %if.end11.i.i.i223, label %if.then9.i.i.i221
+  %cmp3.i.i.i219 = icmp ne i64 %s.0.i.i205, 1
+  %cmp.i22.i.i220 = icmp ult i64 %s.0.i.i205, 8
+  %cmp8.not.i.i.i221 = and i1 %cmp.i22.i.i220, %cmp3.i.i.i219
+  br i1 %cmp8.not.i.i.i221, label %if.end11.i.i.i224, label %if.then9.i.i.i222
 
-if.then9.i.i.i221:                                ; preds = %for.end16.i.i217
-  %atomic-temp.i.0.i.i.i.i222 = inttoptr i64 %69 to ptr
-  tail call void @_ZN3tbb6detail2r117deallocate_memoryEPv(ptr noundef %atomic-temp.i.0.i.i.i.i222) #17
-  br label %if.end11.i.i.i223
+if.then9.i.i.i222:                                ; preds = %for.end16.i.i218
+  %atomic-temp.i.0.i.i.i.i223 = inttoptr i64 %69 to ptr
+  tail call void @_ZN3tbb6detail2r117deallocate_memoryEPv(ptr noundef %atomic-temp.i.0.i.i.i.i223) #17
+  br label %if.end11.i.i.i224
 
-if.end11.i.i.i223:                                ; preds = %if.then9.i.i.i221, %for.end16.i.i217
-  %cmp12.not.i.i.i224 = icmp eq i64 %s.0.i.i205, 0
-  br i1 %cmp12.not.i.i.i224, label %_ZN3tbb6detail2d219concurrent_hash_mapISt17basic_string_viewIcSt11char_traitsIcEEN4mold3elf6SymbolINS8_6RV64BEEEE7HashCmpNS0_2d113tbb_allocatorISt4pairIKS6_SB_EEEED2Ev.exit, label %_ZN3tbb6detail2d213hash_map_baseINS0_2d113tbb_allocatorISt4pairIKSt17basic_string_viewIcSt11char_traitsIcEEN4mold3elf6SymbolINSC_6RV64BEEEEEEENS3_13spin_rw_mutexEE14delete_segmentEm.exit.i.i
+if.end11.i.i.i224:                                ; preds = %if.then9.i.i.i222, %for.end16.i.i218
+  %cmp12.not.i.i.i225 = icmp eq i64 %s.0.i.i205, 0
+  br i1 %cmp12.not.i.i.i225, label %_ZN3tbb6detail2d219concurrent_hash_mapISt17basic_string_viewIcSt11char_traitsIcEEN4mold3elf6SymbolINS8_6RV64BEEEE7HashCmpNS0_2d113tbb_allocatorISt4pairIKS6_SB_EEEED2Ev.exit, label %_ZN3tbb6detail2d213hash_map_baseINS0_2d113tbb_allocatorISt4pairIKSt17basic_string_viewIcSt11char_traitsIcEEN4mold3elf6SymbolINSC_6RV64BEEEEEEENS3_13spin_rw_mutexEE14delete_segmentEm.exit.i.i
 
-_ZN3tbb6detail2d213hash_map_baseINS0_2d113tbb_allocatorISt4pairIKSt17basic_string_viewIcSt11char_traitsIcEEN4mold3elf6SymbolINSC_6RV64BEEEEEEENS3_13spin_rw_mutexEE14delete_segmentEm.exit.i.i: ; preds = %if.end11.i.i.i223
+_ZN3tbb6detail2d213hash_map_baseINS0_2d113tbb_allocatorISt4pairIKSt17basic_string_viewIcSt11char_traitsIcEEN4mold3elf6SymbolINSC_6RV64BEEEEEEENS3_13spin_rw_mutexEE14delete_segmentEm.exit.i.i: ; preds = %if.end11.i.i.i224
   store atomic i64 0, ptr %arrayidx.i.i206 monotonic, align 8
-  %dec.i.i225 = add nsw i64 %s.0.i.i205, -1
+  %dec.i.i226 = add nsw i64 %s.0.i.i205, -1
   br label %do.body.i.i204, !llvm.loop !78
 
-_ZN3tbb6detail2d219concurrent_hash_mapISt17basic_string_viewIcSt11char_traitsIcEEN4mold3elf6SymbolINS8_6RV64BEEEE7HashCmpNS0_2d113tbb_allocatorISt4pairIKS6_SB_EEEED2Ev.exit: ; preds = %if.end11.i.i.i223
+_ZN3tbb6detail2d219concurrent_hash_mapISt17basic_string_viewIcSt11char_traitsIcEEN4mold3elf6SymbolINS8_6RV64BEEEE7HashCmpNS0_2d113tbb_allocatorISt4pairIKS6_SB_EEEED2Ev.exit: ; preds = %if.end11.i.i.i224
   store atomic i64 1, ptr %my_mask.i.i200 monotonic, align 8
   %tg = getelementptr inbounds %"struct.mold::elf::Context", ptr %this, i64 0, i32 13
   tail call void @_ZN3tbb6detail2d115task_group_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %tg)
@@ -5037,8 +5039,8 @@ _ZNSt10_HashtableISt17basic_string_viewIcSt11char_traitsIcEES3_SaIS3_ENSt8__deta
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_before_begin.i.i.i.i, i8 0, i64 16, i1 false)
   %74 = load ptr, ptr %visited, align 8
   %_M_single_bucket.i.i.i.i.i = getelementptr inbounds %"struct.mold::elf::Context", ptr %this, i64 0, i32 12, i32 0, i32 5
-  %cmp.i.i.i.i.i230 = icmp eq ptr %_M_single_bucket.i.i.i.i.i, %74
-  br i1 %cmp.i.i.i.i.i230, label %_ZNSt13unordered_setISt17basic_string_viewIcSt11char_traitsIcEESt4hashIS3_ESt8equal_toIS3_ESaIS3_EED2Ev.exit, label %if.end.i.i.i.i
+  %cmp.i.i.i.i.i231 = icmp eq ptr %_M_single_bucket.i.i.i.i.i, %74
+  br i1 %cmp.i.i.i.i.i231, label %_ZNSt13unordered_setISt17basic_string_viewIcSt11char_traitsIcEESt4hashIS3_ESt8equal_toIS3_ESaIS3_EED2Ev.exit, label %if.end.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %_ZNSt10_HashtableISt17basic_string_viewIcSt11char_traitsIcEES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb1ELb1ELb1EEEE5clearEv.exit.i.i
   tail call void @_ZdlPv(ptr noundef %74) #28
@@ -5047,24 +5049,24 @@ if.end.i.i.i.i:                                   ; preds = %_ZNSt10_HashtableIS
 _ZNSt13unordered_setISt17basic_string_viewIcSt11char_traitsIcEESt4hashIS3_ESt8equal_toIS3_ESaIS3_EED2Ev.exit: ; preds = %_ZNSt10_HashtableISt17basic_string_viewIcSt11char_traitsIcEES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb1ELb1ELb1EEEE5clearEv.exit.i.i, %if.end.i.i.i.i
   %dynamic_list_patterns = getelementptr inbounds %"struct.mold::elf::Context", ptr %this, i64 0, i32 2
   %75 = load ptr, ptr %dynamic_list_patterns, align 8
-  %tobool.not.i.i.i231 = icmp eq ptr %75, null
-  br i1 %tobool.not.i.i.i231, label %_ZNSt6vectorIN4mold3elf14DynamicPatternESaIS2_EED2Ev.exit, label %if.then.i.i.i232
+  %tobool.not.i.i.i232 = icmp eq ptr %75, null
+  br i1 %tobool.not.i.i.i232, label %_ZNSt6vectorIN4mold3elf14DynamicPatternESaIS2_EED2Ev.exit, label %if.then.i.i.i233
 
-if.then.i.i.i232:                                 ; preds = %_ZNSt13unordered_setISt17basic_string_viewIcSt11char_traitsIcEESt4hashIS3_ESt8equal_toIS3_ESaIS3_EED2Ev.exit
+if.then.i.i.i233:                                 ; preds = %_ZNSt13unordered_setISt17basic_string_viewIcSt11char_traitsIcEESt4hashIS3_ESt8equal_toIS3_ESaIS3_EED2Ev.exit
   tail call void @_ZdlPv(ptr noundef nonnull %75) #28
   br label %_ZNSt6vectorIN4mold3elf14DynamicPatternESaIS2_EED2Ev.exit
 
-_ZNSt6vectorIN4mold3elf14DynamicPatternESaIS2_EED2Ev.exit: ; preds = %_ZNSt13unordered_setISt17basic_string_viewIcSt11char_traitsIcEESt4hashIS3_ESt8equal_toIS3_ESaIS3_EED2Ev.exit, %if.then.i.i.i232
+_ZNSt6vectorIN4mold3elf14DynamicPatternESaIS2_EED2Ev.exit: ; preds = %_ZNSt13unordered_setISt17basic_string_viewIcSt11char_traitsIcEESt4hashIS3_ESt8equal_toIS3_ESaIS3_EED2Ev.exit, %if.then.i.i.i233
   %version_patterns = getelementptr inbounds %"struct.mold::elf::Context", ptr %this, i64 0, i32 1
   %76 = load ptr, ptr %version_patterns, align 8
-  %tobool.not.i.i.i233 = icmp eq ptr %76, null
-  br i1 %tobool.not.i.i.i233, label %_ZNSt6vectorIN4mold3elf14VersionPatternESaIS2_EED2Ev.exit, label %if.then.i.i.i234
+  %tobool.not.i.i.i234 = icmp eq ptr %76, null
+  br i1 %tobool.not.i.i.i234, label %_ZNSt6vectorIN4mold3elf14VersionPatternESaIS2_EED2Ev.exit, label %if.then.i.i.i235
 
-if.then.i.i.i234:                                 ; preds = %_ZNSt6vectorIN4mold3elf14DynamicPatternESaIS2_EED2Ev.exit
+if.then.i.i.i235:                                 ; preds = %_ZNSt6vectorIN4mold3elf14DynamicPatternESaIS2_EED2Ev.exit
   tail call void @_ZdlPv(ptr noundef nonnull %76) #28
   br label %_ZNSt6vectorIN4mold3elf14VersionPatternESaIS2_EED2Ev.exit
 
-_ZNSt6vectorIN4mold3elf14VersionPatternESaIS2_EED2Ev.exit: ; preds = %_ZNSt6vectorIN4mold3elf14DynamicPatternESaIS2_EED2Ev.exit, %if.then.i.i.i234
+_ZNSt6vectorIN4mold3elf14VersionPatternESaIS2_EED2Ev.exit: ; preds = %_ZNSt6vectorIN4mold3elf14DynamicPatternESaIS2_EED2Ev.exit, %if.then.i.i.i235
   tail call void @_ZN4mold3elf7ContextINS0_6RV64BEEEUt_D2Ev(ptr noundef nonnull align 8 dereferenceable(1128) %this) #17
   ret void
 }
@@ -6440,12 +6442,12 @@ for.body:                                         ; preds = %do.body, %for.inc15
   %i.027 = phi i64 [ 0, %do.body ], [ %inc, %for.inc15 ]
   %node_list = getelementptr inbounds %"struct.tbb::detail::d2::hash_map_base<tbb::detail::d1::tbb_allocator<std::pair<mold::elf::Symbol<mold::elf::RV64BE> *const, std::vector<std::__cxx11::basic_string<char>>>>, tbb::detail::d1::spin_rw_mutex>::bucket", ptr %atomic-temp.i.0.i, i64 %i.027, i32 1
   %3 = load atomic i64, ptr %node_list monotonic, align 8
-  %cmp.i25 = icmp ugt i64 %3, 63
+  %n.024 = inttoptr i64 %3 to ptr
+  %cmp.i25 = icmp ugt ptr %n.024, inttoptr (i64 63 to ptr)
   br i1 %cmp.i25, label %for.body9, label %for.inc15
 
 for.body9:                                        ; preds = %for.body, %_ZN3tbb6detail2d219concurrent_hash_mapIPN4mold3elf6SymbolINS4_6RV64BEEEESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISF_EENS0_2d116tbb_hash_compareIS8_EENSI_13tbb_allocatorISt4pairIKS8_SH_EEEE11delete_nodeEPNS1_18hash_map_node_baseINSI_13spin_rw_mutexEEE.exit
-  %n.026.in = phi i64 [ %12, %_ZN3tbb6detail2d219concurrent_hash_mapIPN4mold3elf6SymbolINS4_6RV64BEEEESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISF_EENS0_2d116tbb_hash_compareIS8_EENSI_13tbb_allocatorISt4pairIKS8_SH_EEEE11delete_nodeEPNS1_18hash_map_node_baseINSI_13spin_rw_mutexEEE.exit ], [ %3, %for.body ]
-  %n.026 = inttoptr i64 %n.026.in to ptr
+  %n.026 = phi ptr [ %n.0, %_ZN3tbb6detail2d219concurrent_hash_mapIPN4mold3elf6SymbolINS4_6RV64BEEEESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISF_EENS0_2d116tbb_hash_compareIS8_EENSI_13tbb_allocatorISt4pairIKS8_SH_EEEE11delete_nodeEPNS1_18hash_map_node_baseINSI_13spin_rw_mutexEEE.exit ], [ %n.024, %for.body ]
   %4 = load ptr, ptr %n.026, align 8
   %5 = ptrtoint ptr %4 to i64
   store atomic i64 %5, ptr %node_list monotonic, align 8
@@ -6496,7 +6498,8 @@ if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %_ZSt8_DestroyIPNSt7
 _ZN3tbb6detail2d219concurrent_hash_mapIPN4mold3elf6SymbolINS4_6RV64BEEEESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISF_EENS0_2d116tbb_hash_compareIS8_EENSI_13tbb_allocatorISt4pairIKS8_SH_EEEE11delete_nodeEPNS1_18hash_map_node_baseINSI_13spin_rw_mutexEEE.exit: ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i
   tail call void @_ZN3tbb6detail2r117deallocate_memoryEPv(ptr noundef nonnull %n.026) #17
   %12 = load atomic i64, ptr %node_list monotonic, align 8
-  %cmp.i = icmp ugt i64 %12, 63
+  %n.0 = inttoptr i64 %12 to ptr
+  %cmp.i = icmp ugt ptr %n.0, inttoptr (i64 63 to ptr)
   br i1 %cmp.i, label %for.body9, label %for.inc15, !llvm.loop !86
 
 for.inc15:                                        ; preds = %_ZN3tbb6detail2d219concurrent_hash_mapIPN4mold3elf6SymbolINS4_6RV64BEEEESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISF_EENS0_2d116tbb_hash_compareIS8_EENSI_13tbb_allocatorISt4pairIKS8_SH_EEEE11delete_nodeEPNS1_18hash_map_node_baseINSI_13spin_rw_mutexEEE.exit, %for.body

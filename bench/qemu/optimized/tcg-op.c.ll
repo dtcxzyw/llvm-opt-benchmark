@@ -9305,15 +9305,20 @@ tcg_gen_mov_i64.exit:                             ; preds = %entry
   store i64 %5, ptr %arrayidx2.i.i.i, align 8
   %6 = load ptr, ptr %0, align 8
   %add.ptr.i.i.i = getelementptr i8, ptr %6, i64 %2
+  %add.ptr.i = getelementptr %struct.TCGTemp, ptr %add.ptr.i.i.i, i64 1
+  %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %add.ptr.i to i64
+  %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %6 to i64
+  %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i
+  %7 = inttoptr i64 %sub.ptr.sub.i.i.i to ptr
   %add.ptr.i.i.i5 = getelementptr i8, ptr %6, i64 %4
-  %cmp.i10 = icmp eq ptr %add.ptr.i.i.i, %add.ptr.i.i.i5
+  %add.ptr.i6 = getelementptr %struct.TCGTemp, ptr %add.ptr.i.i.i5, i64 1
+  %sub.ptr.lhs.cast.i.i.i.i7 = ptrtoint ptr %add.ptr.i6 to i64
+  %sub.ptr.sub.i.i.i9 = sub i64 %sub.ptr.lhs.cast.i.i.i.i7, %sub.ptr.rhs.cast.i.i.i
+  %8 = inttoptr i64 %sub.ptr.sub.i.i.i9 to ptr
+  %cmp.i10 = icmp eq ptr %7, %8
   br i1 %cmp.i10, label %if.end, label %if.end.i11
 
 if.end.i11:                                       ; preds = %tcg_gen_mov_i64.exit
-  %add.ptr.i6 = getelementptr %struct.TCGTemp, ptr %add.ptr.i.i.i5, i64 1
-  %add.ptr.i = getelementptr %struct.TCGTemp, ptr %add.ptr.i.i.i, i64 1
-  %sub.ptr.lhs.cast.i.i.i.i7 = ptrtoint ptr %add.ptr.i6 to i64
-  %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %add.ptr.i to i64
   %call.i.i.i14 = tail call ptr @tcg_emit_op(i32 noundef 63, i32 noundef 2) #5
   %args.i.i.i15 = getelementptr inbounds %struct.TCGOp, ptr %call.i.i.i14, i64 0, i32 4
   store i64 %sub.ptr.lhs.cast.i.i.i.i, ptr %args.i.i.i15, align 8

@@ -9716,7 +9716,7 @@ land.lhs.true:                                    ; preds = %if.end81
   %28 = load i8, ptr %anchored, align 8
   %29 = and i8 %28, 1
   %tobool87.not = icmp eq i8 %29, 0
-  %cmp90 = icmp ugt i64 %25, 2
+  %cmp90 = icmp ugt ptr %atomic-temp.i.0.i, inttoptr (i64 2 to ptr)
   %or.cond = select i1 %tobool87.not, i1 %cmp90, i1 false
   br i1 %or.cond, label %land.lhs.true91, label %return
 

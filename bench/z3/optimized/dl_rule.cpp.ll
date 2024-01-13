@@ -18275,20 +18275,23 @@ for.body:                                         ; preds = %for.body.preheader,
   %arrayidx.i = getelementptr inbounds %"class.datalog::rule", ptr %r1, i64 0, i32 8, i64 %indvars.iv
   %4 = load ptr, ptr %arrayidx.i, align 8
   %5 = ptrtoint ptr %4 to i64
+  %and.i = and i64 %5, -8
+  %6 = inttoptr i64 %and.i to ptr
   %arrayidx.i16 = getelementptr inbounds %"class.datalog::rule", ptr %r2, i64 0, i32 8, i64 %indvars.iv
-  %6 = load ptr, ptr %arrayidx.i16, align 8
-  %7 = ptrtoint ptr %6 to i64
-  %8 = xor i64 %7, %5
-  %cmp11.not = icmp ult i64 %8, 8
+  %7 = load ptr, ptr %arrayidx.i16, align 8
+  %8 = ptrtoint ptr %7 to i64
+  %and.i17 = and i64 %8, -8
+  %9 = inttoptr i64 %and.i17 to ptr
+  %cmp11.not = icmp eq ptr %6, %9
   br i1 %cmp11.not, label %if.end13, label %return
 
 if.end13:                                         ; preds = %for.body
   %and.i20 = and i64 %5, 7
   %cmp.i = icmp eq i64 %and.i20, 1
-  %and.i23 = and i64 %7, 7
+  %and.i23 = and i64 %8, 7
   %cmp.i24 = icmp eq i64 %and.i23, 1
-  %9 = xor i1 %cmp.i, %cmp.i24
-  br i1 %9, label %return, label %for.cond
+  %10 = xor i1 %cmp.i, %cmp.i24
+  br i1 %10, label %return, label %for.cond
 
 return:                                           ; preds = %for.body, %if.end13, %for.cond, %for.cond.preheader, %if.end, %entry
   %retval.0 = phi i1 [ false, %entry ], [ false, %if.end ], [ true, %for.cond.preheader ], [ false, %for.body ], [ false, %if.end13 ], [ true, %for.cond ]

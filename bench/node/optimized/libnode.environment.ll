@@ -647,31 +647,32 @@ _ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i13:
   %sub.i.i29.i.i15 = add i64 %12, 327
   %13 = inttoptr i64 %sub.i.i29.i.i15 to ptr
   %14 = load i64, ptr %13, align 8
-  %cmp12.not.i.i16 = icmp eq i64 %4, %14
+  %15 = inttoptr i64 %14 to ptr
+  %cmp12.not.i.i16 = icmp eq ptr %5, %15
   br i1 %cmp12.not.i.i16, label %_ZN4node5Realm10GetCurrentEN2v85LocalINS1_7ContextEEE.exit, label %if.else
 
 _ZN4node5Realm10GetCurrentEN2v85LocalINS1_7ContextEEE.exit: ; preds = %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i13
   %sub.i.i17.i19 = add i64 %12, 319
-  %15 = inttoptr i64 %sub.i.i17.i19 to ptr
-  %16 = load i64, ptr %15, align 8
-  %cmp39.not = icmp eq i64 %16, 0
+  %16 = inttoptr i64 %sub.i.i17.i19 to ptr
+  %17 = load i64, ptr %16, align 8
+  %cmp39.not = icmp eq i64 %17, 0
   br i1 %cmp39.not, label %if.else, label %if.then40
 
 if.then40:                                        ; preds = %_ZN4node5Realm10GetCurrentEN2v85LocalINS1_7ContextEEE.exit
-  %17 = inttoptr i64 %16 to ptr
+  %18 = inttoptr i64 %17 to ptr
   br label %if.end54
 
 if.else:                                          ; preds = %if.end.i.i10, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i13, %_ZN4node5Realm10GetCurrentEN2v85LocalINS1_7ContextEEE.exit
   %principal_realm_.i = getelementptr inbounds %"class.node::Environment", ptr %9, i64 0, i32 89
-  %18 = load ptr, ptr %principal_realm_.i, align 8
+  %19 = load ptr, ptr %principal_realm_.i, align 8
   br label %if.end54
 
 if.end54:                                         ; preds = %if.else, %if.then40
-  %.sink25 = phi ptr [ %18, %if.else ], [ %17, %if.then40 ]
+  %.sink25 = phi ptr [ %19, %if.else ], [ %18, %if.then40 ]
   %vtable48 = load ptr, ptr %.sink25, align 8
   %vfn49 = getelementptr inbounds ptr, ptr %vtable48, i64 87
-  %19 = load ptr, ptr %vfn49, align 8
-  %call50 = tail call ptr %19(ptr noundef nonnull align 8 dereferenceable(872) %.sink25) #12
+  %20 = load ptr, ptr %vfn49, align 8
+  %call50 = tail call ptr %20(ptr noundef nonnull align 8 dereferenceable(872) %.sink25) #12
   %cmp.i = icmp eq ptr %call50, null
   br i1 %cmp.i, label %if.then56, label %if.end80
 
@@ -687,17 +688,17 @@ if.end80:                                         ; preds = %if.end54
   %arrayinit.element90 = getelementptr inbounds %"class.v8::Local.2", ptr %args, i64 2
   store ptr %trace.coerce, ptr %arrayinit.element90, align 16
   %isolate_.i.i = getelementptr inbounds %"class.node::Environment", ptr %9, i64 0, i32 3
-  %20 = load ptr, ptr %isolate_.i.i, align 8
-  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %20) #12
+  %21 = load ptr, ptr %isolate_.i.i, align 8
+  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %21) #12
   %env_.i = getelementptr inbounds %"class.node::errors::TryCatchScope", ptr %try_catch, i64 0, i32 2
   store ptr %9, ptr %env_.i, align 8
   %mode_.i = getelementptr inbounds %"class.node::errors::TryCatchScope", ptr %try_catch, i64 0, i32 3
   store i32 0, ptr %mode_.i, align 8
-  %21 = load ptr, ptr %isolate_.i.i, align 8
-  %22 = ptrtoint ptr %21 to i64
-  %add1.i = add i64 %22, 608
-  %23 = inttoptr i64 %add1.i to ptr
-  %call114 = call ptr @_ZN2v88Function4CallENS_5LocalINS_7ContextEEENS1_INS_5ValueEEEiPS5_(ptr noundef nonnull align 1 dereferenceable(1) %call50, ptr nonnull %context.coerce, ptr %23, i32 noundef 3, ptr noundef nonnull %args) #12
+  %22 = load ptr, ptr %isolate_.i.i, align 8
+  %23 = ptrtoint ptr %22 to i64
+  %add1.i = add i64 %23, 608
+  %24 = inttoptr i64 %add1.i to ptr
+  %call114 = call ptr @_ZN2v88Function4CallENS_5LocalINS_7ContextEEENS1_INS_5ValueEEEiPS5_(ptr noundef nonnull align 1 dereferenceable(1) %call50, ptr nonnull %context.coerce, ptr %24, i32 noundef 3, ptr noundef nonnull %args) #12
   %call119 = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #12
   br i1 %call119, label %land.lhs.true, label %if.end126
 

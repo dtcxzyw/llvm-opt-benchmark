@@ -564,11 +564,11 @@ entry:
 
 do.body.i:                                        ; preds = %if.end.i, %entry
   %0 = load atomic i64, ptr @rr_current_cpu monotonic, align 8
+  %1 = inttoptr i64 %0 to ptr
   %tobool.not.i = icmp eq i64 %0, 0
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %do.body.i
-  %1 = inttoptr i64 %0 to ptr
   tail call void @cpu_exit(ptr noundef nonnull %1) #8
   br label %if.end.i
 
@@ -576,7 +576,8 @@ if.end.i:                                         ; preds = %if.then.i, %do.body
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !34
   fence seq_cst
   %2 = load atomic i64, ptr @rr_current_cpu monotonic, align 8
-  %cmp.not.i = icmp eq i64 %0, %2
+  %3 = inttoptr i64 %2 to ptr
+  %cmp.not.i = icmp eq ptr %1, %3
   br i1 %cmp.not.i, label %rr_kick_next_cpu.exit, label %do.body.i, !llvm.loop !35
 
 rr_kick_next_cpu.exit:                            ; preds = %if.end.i
@@ -695,11 +696,11 @@ entry:
 
 do.body.i:                                        ; preds = %if.end.i, %entry
   %1 = load atomic i64, ptr @rr_current_cpu monotonic, align 8
+  %2 = inttoptr i64 %1 to ptr
   %tobool.not.i = icmp eq i64 %1, 0
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %do.body.i
-  %2 = inttoptr i64 %1 to ptr
   tail call void @cpu_exit(ptr noundef nonnull %2) #8
   br label %if.end.i
 
@@ -707,7 +708,8 @@ if.end.i:                                         ; preds = %if.then.i, %do.body
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !34
   fence seq_cst
   %3 = load atomic i64, ptr @rr_current_cpu monotonic, align 8
-  %cmp.not.i = icmp eq i64 %1, %3
+  %4 = inttoptr i64 %3 to ptr
+  %cmp.not.i = icmp eq ptr %2, %4
   br i1 %cmp.not.i, label %rr_kick_next_cpu.exit, label %do.body.i, !llvm.loop !35
 
 rr_kick_next_cpu.exit:                            ; preds = %if.end.i

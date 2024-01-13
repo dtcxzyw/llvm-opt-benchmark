@@ -17,7 +17,7 @@ if.end.i:                                         ; preds = %entry
   %and.i = and i64 %1, -16
   %2 = inttoptr i64 %and.i to ptr
   %sub.ptr.sub.i = and i64 %sub.ptr.rhs.cast.i238, 15
-  %cmp2.not.i = icmp eq i64 %and.i4, %and.i
+  %cmp2.not.i = icmp eq ptr %0, %2
   br i1 %cmp2.not.i, label %if.end16.i, label %if.then3.i
 
 if.then3.i:                                       ; preds = %if.end.i

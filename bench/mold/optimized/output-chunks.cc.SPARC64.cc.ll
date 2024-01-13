@@ -13471,19 +13471,17 @@ entry:
   br i1 %cmp.i2.i.i, label %while.cond.outer.split.us, label %while.cond.outer.split
 
 while.cond.outer.split.us:                        ; preds = %entry, %if.end24.us
-  %idx.0.ph26.us = phi i64 [ %or.us, %if.end24.us ], [ %and, %entry ]
-  %retry.0.ph25.us = phi i64 [ %inc.us, %if.end24.us ], [ 0, %entry ]
+  %idx.0.ph27.us = phi i64 [ %or.us, %if.end24.us ], [ %and, %entry ]
+  %retry.0.ph26.us = phi i64 [ %inc.us, %if.end24.us ], [ 0, %entry ]
   br label %while.cond.us
 
 if.end.us:                                        ; preds = %while.cond.us
   %1 = extractvalue { i64, i1 } %6, 0
-  switch i64 %1, label %while.end.us [
-    i64 0, label %while.cond.us
-    i64 -1, label %while.body13.us
-  ]
+  %cmp8.us = icmp eq i64 %1, 0
+  br i1 %cmp8.us, label %while.cond.us, label %while.cond11.preheader.us, !llvm.loop !147
 
-while.end.us:                                     ; preds = %if.end.us, %while.body13.us
-  %keylen17.us = getelementptr inbounds %"struct.mold::ConcurrentMap<mold::elf::SectionFragment<mold::elf::SPARC64>>::Entry", ptr %5, i64 %idx.0.ph26.us, i32 2
+while.end.us:                                     ; preds = %while.body13.us, %while.cond11.preheader.us
+  %keylen17.us = getelementptr inbounds %"struct.mold::ConcurrentMap<mold::elf::SectionFragment<mold::elf::SPARC64>>::Entry", ptr %5, i64 %idx.0.ph27.us, i32 2
   %2 = load i32, ptr %keylen17.us, align 8
   %cmp.i.us = icmp eq i32 %2, 0
   br i1 %cmp.i.us, label %if.then20, label %if.end24.us
@@ -13493,94 +13491,103 @@ if.end24.us:                                      ; preds = %while.end.us
   %div.us = sdiv i64 %3, 16
   %sub26.us = add nsw i64 %div.us, -1
   %not.us = sub nsw i64 0, %div.us
-  %and27.us = and i64 %idx.0.ph26.us, %not.us
-  %add.us = add nsw i64 %idx.0.ph26.us, 1
+  %and27.us = and i64 %idx.0.ph27.us, %not.us
+  %add.us = add nsw i64 %idx.0.ph27.us, 1
   %and28.us = and i64 %sub26.us, %add.us
   %or.us = or i64 %and28.us, %and27.us
-  %inc.us = add nuw nsw i64 %retry.0.ph25.us, 1
-  %exitcond51.not = icmp eq i64 %inc.us, 128
-  br i1 %exitcond51.not, label %return, label %while.cond.outer.split.us, !llvm.loop !147
+  %inc.us = add nuw nsw i64 %retry.0.ph26.us, 1
+  %exitcond52.not = icmp eq i64 %inc.us, 128
+  br i1 %exitcond52.not, label %return, label %while.cond.outer.split.us, !llvm.loop !147
 
-while.body13.us:                                  ; preds = %if.end.us, %while.body13.us
+while.body13.us:                                  ; preds = %while.cond11.preheader.us, %while.body13.us
   tail call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !148
   %4 = load atomic i64, ptr %arrayidx.us acquire, align 8
-  %cmp12.us = icmp eq i64 %4, -1
+  %ptr.1.us = inttoptr i64 %4 to ptr
+  %cmp12.us = icmp eq ptr %ptr.1.us, inttoptr (i64 -1 to ptr)
   br i1 %cmp12.us, label %while.body13.us, label %while.end.us, !llvm.loop !149
+
+while.cond11.preheader.us:                        ; preds = %if.end.us
+  %ptr.124.us = inttoptr i64 %1 to ptr
+  %cmp1225.us = icmp eq ptr %ptr.124.us, inttoptr (i64 -1 to ptr)
+  br i1 %cmp1225.us, label %while.body13.us, label %while.end.us
 
 while.cond.us:                                    ; preds = %if.end.us, %while.cond.outer.split.us
   %5 = load ptr, ptr %entries, align 8
-  %arrayidx.us = getelementptr inbounds %"struct.mold::ConcurrentMap<mold::elf::SectionFragment<mold::elf::SPARC64>>::Entry", ptr %5, i64 %idx.0.ph26.us
+  %arrayidx.us = getelementptr inbounds %"struct.mold::ConcurrentMap<mold::elf::SectionFragment<mold::elf::SPARC64>>::Entry", ptr %5, i64 %idx.0.ph27.us
   %6 = cmpxchg weak ptr %arrayidx.us, i64 0, i64 -1 acquire acquire, align 8
   %7 = extractvalue { i64, i1 } %6, 1
   br i1 %7, label %if.then, label %if.end.us
 
 while.cond.outer.split:                           ; preds = %entry, %if.end24
-  %idx.0.ph26 = phi i64 [ %or, %if.end24 ], [ %and, %entry ]
-  %retry.0.ph25 = phi i64 [ %inc, %if.end24 ], [ 0, %entry ]
+  %idx.0.ph27 = phi i64 [ %or, %if.end24 ], [ %and, %entry ]
+  %retry.0.ph26 = phi i64 [ %inc, %if.end24 ], [ 0, %entry ]
   br label %while.cond
 
-while.cond:                                       ; preds = %if.end, %while.cond.outer.split
+while.cond:                                       ; preds = %while.cond.outer.split, %if.end
   %8 = load ptr, ptr %entries, align 8
-  %arrayidx = getelementptr inbounds %"struct.mold::ConcurrentMap<mold::elf::SectionFragment<mold::elf::SPARC64>>::Entry", ptr %8, i64 %idx.0.ph26
+  %arrayidx = getelementptr inbounds %"struct.mold::ConcurrentMap<mold::elf::SectionFragment<mold::elf::SPARC64>>::Entry", ptr %8, i64 %idx.0.ph27
   %9 = cmpxchg weak ptr %arrayidx, i64 0, i64 -1 acquire acquire, align 8
   %10 = extractvalue { i64, i1 } %9, 1
   br i1 %10, label %if.then, label %if.end
 
 if.then:                                          ; preds = %while.cond, %while.cond.us
-  %.us-phi28 = phi i64 [ %idx.0.ph26.us, %while.cond.us ], [ %idx.0.ph26, %while.cond ]
-  %.us-phi29 = phi ptr [ %5, %while.cond.us ], [ %8, %while.cond ]
-  %.us-phi30 = phi ptr [ %arrayidx.us, %while.cond.us ], [ %arrayidx, %while.cond ]
-  %value = getelementptr inbounds %"struct.mold::ConcurrentMap<mold::elf::SectionFragment<mold::elf::SPARC64>>::Entry", ptr %.us-phi29, i64 %.us-phi28, i32 1
+  %.us-phi29 = phi i64 [ %idx.0.ph27.us, %while.cond.us ], [ %idx.0.ph27, %while.cond ]
+  %.us-phi30 = phi ptr [ %5, %while.cond.us ], [ %8, %while.cond ]
+  %.us-phi31 = phi ptr [ %arrayidx.us, %while.cond.us ], [ %arrayidx, %while.cond ]
+  %value = getelementptr inbounds %"struct.mold::ConcurrentMap<mold::elf::SectionFragment<mold::elf::SPARC64>>::Entry", ptr %.us-phi30, i64 %.us-phi29, i32 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %value, ptr noundef nonnull align 8 dereferenceable(12) %val, i64 12, i1 false)
-  %p2align.i = getelementptr inbounds %"struct.mold::ConcurrentMap<mold::elf::SectionFragment<mold::elf::SPARC64>>::Entry", ptr %.us-phi29, i64 %.us-phi28, i32 1, i32 2
+  %p2align.i = getelementptr inbounds %"struct.mold::ConcurrentMap<mold::elf::SectionFragment<mold::elf::SPARC64>>::Entry", ptr %.us-phi30, i64 %.us-phi29, i32 1, i32 2
   %p2align3.i = getelementptr inbounds %"struct.mold::elf::SectionFragment", ptr %val, i64 0, i32 2
   store i8 0, ptr %p2align.i, align 1
   %11 = load atomic i8, ptr %p2align3.i monotonic, align 4
   store atomic i8 %11, ptr %p2align.i monotonic, align 1
-  %is_alive.i = getelementptr inbounds %"struct.mold::ConcurrentMap<mold::elf::SectionFragment<mold::elf::SPARC64>>::Entry", ptr %.us-phi29, i64 %.us-phi28, i32 1, i32 3
+  %is_alive.i = getelementptr inbounds %"struct.mold::ConcurrentMap<mold::elf::SectionFragment<mold::elf::SPARC64>>::Entry", ptr %.us-phi30, i64 %.us-phi29, i32 1, i32 3
   %is_alive4.i = getelementptr inbounds %"struct.mold::elf::SectionFragment", ptr %val, i64 0, i32 3
   store i8 0, ptr %is_alive.i, align 1
   %12 = load atomic i8, ptr %is_alive4.i monotonic, align 1
   %13 = and i8 %12, 1
   store atomic i8 %13, ptr %is_alive.i monotonic, align 1
   %conv = trunc i64 %key.coerce0.fr to i32
-  %keylen = getelementptr inbounds %"struct.mold::ConcurrentMap<mold::elf::SectionFragment<mold::elf::SPARC64>>::Entry", ptr %.us-phi29, i64 %.us-phi28, i32 2
+  %keylen = getelementptr inbounds %"struct.mold::ConcurrentMap<mold::elf::SectionFragment<mold::elf::SPARC64>>::Entry", ptr %.us-phi30, i64 %.us-phi29, i32 2
   store i32 %conv, ptr %keylen, align 8
   %14 = ptrtoint ptr %key.coerce1 to i64
-  store atomic i64 %14, ptr %.us-phi30 release, align 8
+  store atomic i64 %14, ptr %.us-phi31 release, align 8
   br label %return
 
 if.end:                                           ; preds = %while.cond
   %15 = extractvalue { i64, i1 } %9, 0
-  switch i64 %15, label %while.end [
-    i64 0, label %while.cond
-    i64 -1, label %while.body13
-  ]
+  %cmp8 = icmp eq i64 %15, 0
+  br i1 %cmp8, label %while.cond, label %while.cond11.preheader, !llvm.loop !147
 
-while.body13:                                     ; preds = %if.end, %while.body13
+while.cond11.preheader:                           ; preds = %if.end
+  %ptr.124 = inttoptr i64 %15 to ptr
+  %cmp1225 = icmp eq ptr %ptr.124, inttoptr (i64 -1 to ptr)
+  br i1 %cmp1225, label %while.body13, label %while.end
+
+while.body13:                                     ; preds = %while.cond11.preheader, %while.body13
   tail call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !148
   %16 = load atomic i64, ptr %arrayidx acquire, align 8
-  %cmp12 = icmp eq i64 %16, -1
+  %ptr.1 = inttoptr i64 %16 to ptr
+  %cmp12 = icmp eq ptr %ptr.1, inttoptr (i64 -1 to ptr)
   br i1 %cmp12, label %while.body13, label %while.end, !llvm.loop !149
 
-while.end:                                        ; preds = %if.end, %while.body13
-  %ptr.1.in.lcssa = phi i64 [ %16, %while.body13 ], [ %15, %if.end ]
-  %keylen17 = getelementptr inbounds %"struct.mold::ConcurrentMap<mold::elf::SectionFragment<mold::elf::SPARC64>>::Entry", ptr %8, i64 %idx.0.ph26, i32 2
+while.end:                                        ; preds = %while.body13, %while.cond11.preheader
+  %ptr.1.lcssa = phi ptr [ %ptr.124, %while.cond11.preheader ], [ %ptr.1, %while.body13 ]
+  %keylen17 = getelementptr inbounds %"struct.mold::ConcurrentMap<mold::elf::SectionFragment<mold::elf::SPARC64>>::Entry", ptr %8, i64 %idx.0.ph27, i32 2
   %17 = load i32, ptr %keylen17, align 8
   %conv18 = zext i32 %17 to i64
   %cmp.i = icmp eq i64 %key.coerce0.fr, %conv18
   br i1 %cmp.i, label %land.rhs.i, label %if.end24
 
 land.rhs.i:                                       ; preds = %while.end
-  %ptr.1.le = inttoptr i64 %ptr.1.in.lcssa to ptr
-  %bcmp.i = tail call i32 @bcmp(ptr %key.coerce1, ptr %ptr.1.le, i64 %key.coerce0.fr)
+  %bcmp.i = tail call i32 @bcmp(ptr %key.coerce1, ptr %ptr.1.lcssa, i64 %key.coerce0.fr)
   %cmp.i.i = icmp eq i32 %bcmp.i, 0
   br i1 %cmp.i.i, label %if.then20, label %if.end24
 
 if.then20:                                        ; preds = %land.rhs.i, %while.end.us
-  %.us-phi = phi i64 [ %idx.0.ph26.us, %while.end.us ], [ %idx.0.ph26, %land.rhs.i ]
-  %.us-phi27 = phi ptr [ %5, %while.end.us ], [ %8, %land.rhs.i ]
-  %value22 = getelementptr inbounds %"struct.mold::ConcurrentMap<mold::elf::SectionFragment<mold::elf::SPARC64>>::Entry", ptr %.us-phi27, i64 %.us-phi, i32 1
+  %.us-phi = phi i64 [ %idx.0.ph27.us, %while.end.us ], [ %idx.0.ph27, %land.rhs.i ]
+  %.us-phi28 = phi ptr [ %5, %while.end.us ], [ %8, %land.rhs.i ]
+  %value22 = getelementptr inbounds %"struct.mold::ConcurrentMap<mold::elf::SectionFragment<mold::elf::SPARC64>>::Entry", ptr %.us-phi28, i64 %.us-phi, i32 1
   br label %return
 
 if.end24:                                         ; preds = %while.end, %land.rhs.i
@@ -13588,11 +13595,11 @@ if.end24:                                         ; preds = %while.end, %land.rh
   %div = sdiv i64 %18, 16
   %sub26 = add nsw i64 %div, -1
   %not = sub nsw i64 0, %div
-  %and27 = and i64 %idx.0.ph26, %not
-  %add = add nsw i64 %idx.0.ph26, 1
+  %and27 = and i64 %idx.0.ph27, %not
+  %add = add nsw i64 %idx.0.ph27, 1
   %and28 = and i64 %sub26, %add
   %or = or i64 %and28, %and27
-  %inc = add nuw nsw i64 %retry.0.ph25, 1
+  %inc = add nuw nsw i64 %retry.0.ph26, 1
   %exitcond.not = icmp eq i64 %inc, 128
   br i1 %exitcond.not, label %return, label %while.cond.outer.split, !llvm.loop !147
 

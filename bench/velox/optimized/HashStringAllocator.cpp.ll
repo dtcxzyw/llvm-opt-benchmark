@@ -2700,7 +2700,8 @@ if.end.i:                                         ; preds = %if.end11
   %conv2.i.i.i.i.i = zext i16 %10 to i64
   %shl.i.i.i.i.i = shl nuw nsw i64 %conv2.i.i.i.i.i, 32
   %or.i.i.i.i.i = or disjoint i64 %shl.i.i.i.i.i, %conv.i.i.i.i.i
-  %cmp.i.i.i = icmp eq i64 %or.i.i, %or.i.i.i.i.i
+  %11 = inttoptr i64 %or.i.i.i.i.i to ptr
+  %cmp.i.i.i = icmp eq ptr %2, %11
   br i1 %cmp.i.i.i, label %if.then.i.i, label %_ZN8facebook5velox17CompactDoubleList6removeEv.exit.i
 
 if.then.i.i:                                      ; preds = %if.end.i
@@ -2709,41 +2710,41 @@ if.then.i.i:                                      ; preds = %if.end.i
 
 _ZN8facebook5velox17CompactDoubleList6removeEv.exit.i: ; preds = %if.end.i
   %previousLow_.i.i.i = getelementptr inbounds %"class.facebook::velox::HashStringAllocator::Header", ptr %2, i64 1
-  %11 = load i32, ptr %previousLow_.i.i.i, align 4
+  %12 = load i32, ptr %previousLow_.i.i.i, align 4
   %previousHigh_.i.i.i = getelementptr inbounds i8, ptr %2, i64 10
-  %12 = load i16, ptr %previousHigh_.i.i.i, align 2
-  %conv.i.i.i.i = zext i32 %11 to i64
-  %conv2.i.i.i.i = zext i16 %12 to i64
+  %13 = load i16, ptr %previousHigh_.i.i.i, align 2
+  %conv.i.i.i.i = zext i32 %12 to i64
+  %conv2.i.i.i.i = zext i16 %13 to i64
   %shl.i.i.i.i = shl nuw nsw i64 %conv2.i.i.i.i, 32
   %or.i.i.i.i = or disjoint i64 %shl.i.i.i.i, %conv.i.i.i.i
-  %13 = inttoptr i64 %or.i.i.i.i to ptr
-  %nextHigh_.i5.i.i = getelementptr inbounds %"class.facebook::velox::CompactDoubleList", ptr %13, i64 0, i32 2
-  store i32 %9, ptr %13, align 4
+  %14 = inttoptr i64 %or.i.i.i.i to ptr
+  %nextHigh_.i5.i.i = getelementptr inbounds %"class.facebook::velox::CompactDoubleList", ptr %14, i64 0, i32 2
+  store i32 %9, ptr %14, align 4
   store i16 %10, ptr %nextHigh_.i5.i.i, align 2
-  %14 = load i32, ptr %2, align 4
-  %15 = load i16, ptr %nextHigh_.i.i.i.i, align 4
-  %conv.i.i8.i.i = zext i32 %14 to i64
-  %conv2.i.i9.i.i = zext i16 %15 to i64
+  %15 = load i32, ptr %2, align 4
+  %16 = load i16, ptr %nextHigh_.i.i.i.i, align 4
+  %conv.i.i8.i.i = zext i32 %15 to i64
+  %conv2.i.i9.i.i = zext i16 %16 to i64
   %shl.i.i10.i.i = shl nuw nsw i64 %conv2.i.i9.i.i, 32
   %or.i.i11.i.i = or disjoint i64 %shl.i.i10.i.i, %conv.i.i8.i.i
-  %16 = inttoptr i64 %or.i.i11.i.i to ptr
-  %17 = load i32, ptr %previousLow_.i.i.i, align 4
-  %18 = load i16, ptr %previousHigh_.i.i.i, align 2
-  %previousLow_.i18.i.i = getelementptr inbounds %"class.facebook::velox::CompactDoubleList", ptr %16, i64 0, i32 1
-  %previousHigh_.i19.i.i = getelementptr inbounds %"class.facebook::velox::CompactDoubleList", ptr %16, i64 0, i32 3
-  store i32 %17, ptr %previousLow_.i18.i.i, align 4
-  store i16 %18, ptr %previousHigh_.i19.i.i, align 2
+  %17 = inttoptr i64 %or.i.i11.i.i to ptr
+  %18 = load i32, ptr %previousLow_.i.i.i, align 4
+  %19 = load i16, ptr %previousHigh_.i.i.i, align 2
+  %previousLow_.i18.i.i = getelementptr inbounds %"class.facebook::velox::CompactDoubleList", ptr %17, i64 0, i32 1
+  %previousHigh_.i19.i.i = getelementptr inbounds %"class.facebook::velox::CompactDoubleList", ptr %17, i64 0, i32 3
+  store i32 %18, ptr %previousLow_.i18.i.i, align 4
+  store i16 %19, ptr %previousHigh_.i19.i.i, align 2
   %idxprom.i = sext i32 %.sroa.speculated.i.i to i64
   %arrayidx.i = getelementptr inbounds %"class.facebook::velox::HashStringAllocator", ptr %this, i64 0, i32 1, i64 %idxprom.i
-  %19 = load i32, ptr %arrayidx.i, align 4
+  %20 = load i32, ptr %arrayidx.i, align 4
   %nextHigh_.i.i.i = getelementptr inbounds %"class.facebook::velox::HashStringAllocator", ptr %this, i64 0, i32 1, i64 %idxprom.i, i32 2
-  %20 = load i16, ptr %nextHigh_.i.i.i, align 4
-  %conv.i.i.i6.i = zext i32 %19 to i64
-  %conv2.i.i.i7.i = zext i16 %20 to i64
+  %21 = load i16, ptr %nextHigh_.i.i.i, align 4
+  %conv.i.i.i6.i = zext i32 %20 to i64
+  %conv2.i.i.i7.i = zext i16 %21 to i64
   %shl.i.i.i8.i = shl nuw nsw i64 %conv2.i.i.i7.i, 32
   %or.i.i.i9.i = or disjoint i64 %shl.i.i.i8.i, %conv.i.i.i6.i
-  %21 = inttoptr i64 %or.i.i.i9.i to ptr
-  %cmp.i10.i = icmp eq ptr %arrayidx.i, %21
+  %22 = inttoptr i64 %or.i.i.i9.i to ptr
+  %cmp.i10.i = icmp eq ptr %arrayidx.i, %22
   br i1 %cmp.i10.i, label %if.then6.i, label %_ZN8facebook5velox19HashStringAllocator18removeFromFreeListEPNS1_6HeaderE.exit
 
 if.then6.i:                                       ; preds = %_ZN8facebook5velox17CompactDoubleList6removeEv.exit.i
@@ -2751,40 +2752,40 @@ if.then6.i:                                       ; preds = %_ZN8facebook5velox1
   %rem.i.i = and i32 %8, 7
   %idxprom.i.i = zext nneg i32 %rem.i.i to i64
   %arrayidx.i.i = getelementptr inbounds [8 x i8], ptr @_ZN8facebook5velox4bitsL13kZeroBitmasksE, i64 0, i64 %idxprom.i.i
-  %22 = load i8, ptr %arrayidx.i.i, align 1
+  %23 = load i8, ptr %arrayidx.i.i, align 1
   %div2.i.i = lshr i32 %.sroa.speculated.i.i, 3
   %idxprom1.i.i = zext nneg i32 %div2.i.i to i64
   %arrayidx2.i.i = getelementptr inbounds i8, ptr %freeNonEmpty_.i, i64 %idxprom1.i.i
-  %23 = load i8, ptr %arrayidx2.i.i, align 1
-  %and3.i.i = and i8 %23, %22
+  %24 = load i8, ptr %arrayidx2.i.i, align 1
+  %and3.i.i = and i8 %24, %23
   store i8 %and3.i.i, ptr %arrayidx2.i.i, align 1
   br label %_ZN8facebook5velox19HashStringAllocator18removeFromFreeListEPNS1_6HeaderE.exit
 
 _ZN8facebook5velox19HashStringAllocator18removeFromFreeListEPNS1_6HeaderE.exit: ; preds = %_ZN8facebook5velox17CompactDoubleList6removeEv.exit.i, %if.then6.i
-  %24 = load i32, ptr %add.ptr.i, align 4
-  %and.i.i.i = and i32 %24, 536870911
+  %25 = load i32, ptr %add.ptr.i, align 4
+  %and.i.i.i = and i32 %25, 536870911
   %idx.ext.i.i = zext nneg i32 %and.i.i.i to i64
   %add.ptr.i.i13 = getelementptr inbounds i8, ptr %2, i64 %idx.ext.i.i
-  %25 = load i32, ptr %add.ptr.i.i13, align 4
-  %cmp.i14 = icmp eq i32 %25, -256988403
+  %26 = load i32, ptr %add.ptr.i.i13, align 4
+  %cmp.i14 = icmp eq i32 %26, -256988403
   br i1 %cmp.i14, label %if.end16, label %if.then15
 
 if.then15:                                        ; preds = %_ZN8facebook5velox19HashStringAllocator18removeFromFreeListEPNS1_6HeaderE.exit
-  %and.i15 = and i32 %25, -536870913
+  %and.i15 = and i32 %26, -536870913
   store i32 %and.i15, ptr %add.ptr.i.i13, align 4
   br label %if.end16
 
 if.end16:                                         ; preds = %if.then15, %_ZN8facebook5velox19HashStringAllocator18removeFromFreeListEPNS1_6HeaderE.exit
   %cumulativeBytes_ = getelementptr inbounds %"class.facebook::velox::HashStringAllocator", ptr %this, i64 0, i32 5
-  %26 = load i64, ptr %cumulativeBytes_, align 8
-  %add19 = add i64 %26, %idx.ext.i.i
+  %27 = load i64, ptr %cumulativeBytes_, align 8
+  %add19 = add i64 %27, %idx.ext.i.i
   store i64 %add19, ptr %cumulativeBytes_, align 8
   br i1 %isFinalSize, label %if.then21, label %return
 
 if.then21:                                        ; preds = %if.end16
   %.sroa.speculated.i = tail call i32 @llvm.smax.i32(i32 %preferredSize, i32 16)
-  %27 = load i32, ptr %add.ptr.i, align 4
-  %and.i.i17 = and i32 %27, 536870911
+  %28 = load i32, ptr %add.ptr.i, align 4
+  %and.i.i17 = and i32 %28, 536870911
   %sub.i = sub nsw i32 %and.i.i17, %.sroa.speculated.i
   %sub3.i = add i32 %sub.i, -4
   %cmp.i18 = icmp slt i32 %sub3.i, 17
@@ -2799,7 +2800,7 @@ if.then.i.i26:                                    ; preds = %if.end.i19
   unreachable
 
 _ZN8facebook5velox19HashStringAllocator6Header7setSizeEi.exit.i: ; preds = %if.end.i19
-  %and.i5.i20 = and i32 %27, -536870912
+  %and.i5.i20 = and i32 %28, -536870912
   %or.i.i21 = or disjoint i32 %and.i5.i20, %.sroa.speculated.i
   store i32 %or.i.i21, ptr %add.ptr.i, align 4
   %and.i.i.i23 = and i32 %.sroa.speculated.i, 536870911

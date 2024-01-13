@@ -501,7 +501,7 @@ while.body:                                       ; preds = %land.rhs.preheader,
   %and.i.i310 = phi i64 [ %and.i.i, %land.rhs ], [ %and.i, %land.rhs.preheader ]
   %11 = phi i64 [ %6, %land.rhs ], [ %and.i, %land.rhs.preheader ]
   %x.addr.0293309 = phi ptr [ %x.addr.5, %land.rhs ], [ %x, %land.rhs.preheader ]
-  %12 = phi ptr [ %110, %land.rhs ], [ %1, %land.rhs.preheader ]
+  %12 = phi ptr [ %112, %land.rhs ], [ %1, %land.rhs.preheader ]
   %13 = inttoptr i64 %9 to ptr
   %left_.i = getelementptr inbounds %"struct.boost::multi_index::detail::ordered_index_node_compressed_base", ptr %13, i64 0, i32 1
   %14 = load ptr, ptr %left_.i, align 8, !tbaa !34
@@ -663,24 +663,25 @@ if.end.i191:                                      ; preds = %if.then.i188, %if.e
   store i64 %or.i.i.i194, ptr %51, align 8, !tbaa !36
   %56 = load i64, ptr %41, align 8, !tbaa !36
   %and.i53.i195 = and i64 %56, -2
-  %cmp10.i196 = icmp eq i64 %and.i53.i195, %and.i184
+  %57 = inttoptr i64 %and.i53.i195 to ptr
+  %cmp10.i196 = icmp eq ptr %57, %50
   br i1 %cmp10.i196, label %if.then11.i204, label %if.else.i197
 
 if.then11.i204:                                   ; preds = %if.end.i191
-  %57 = ptrtoint ptr %51 to i64
+  %58 = ptrtoint ptr %51 to i64
   %and.i54.i205 = and i64 %56, 1
-  %or.i55.i206 = or i64 %and.i54.i205, %57
+  %or.i55.i206 = or i64 %and.i54.i205, %58
   store i64 %or.i55.i206, ptr %41, align 8, !tbaa !36
   %.pre.i207 = load i64, ptr %50, align 8, !tbaa !36
   br label %_ZN5boost11multi_index6detail23ordered_index_node_implINS1_19null_augment_policyESaIcEE12rotate_rightEPS5_NS1_34ordered_index_node_compressed_baseIS3_S4_E10parent_refE.exit
 
 if.else.i197:                                     ; preds = %if.end.i191
-  %58 = load i64, ptr %50, align 8, !tbaa !36
-  %and.i.i56.i198 = and i64 %58, -2
-  %59 = inttoptr i64 %and.i.i56.i198 to ptr
-  %right_.i57.i = getelementptr inbounds %"struct.boost::multi_index::detail::ordered_index_node_compressed_base", ptr %59, i64 0, i32 2
-  %60 = load ptr, ptr %right_.i57.i, align 8, !tbaa !34
-  %cmp16.i199 = icmp eq ptr %60, %50
+  %59 = load i64, ptr %50, align 8, !tbaa !36
+  %and.i.i56.i198 = and i64 %59, -2
+  %60 = inttoptr i64 %and.i.i56.i198 to ptr
+  %right_.i57.i = getelementptr inbounds %"struct.boost::multi_index::detail::ordered_index_node_compressed_base", ptr %60, i64 0, i32 2
+  %61 = load ptr, ptr %right_.i57.i, align 8, !tbaa !34
+  %cmp16.i199 = icmp eq ptr %61, %50
   br i1 %cmp16.i199, label %if.then17.i203, label %if.else21.i200
 
 if.then17.i203:                                   ; preds = %if.else.i197
@@ -688,16 +689,16 @@ if.then17.i203:                                   ; preds = %if.else.i197
   br label %_ZN5boost11multi_index6detail23ordered_index_node_implINS1_19null_augment_policyESaIcEE12rotate_rightEPS5_NS1_34ordered_index_node_compressed_baseIS3_S4_E10parent_refE.exit
 
 if.else21.i200:                                   ; preds = %if.else.i197
-  %left_.i61.i = getelementptr inbounds %"struct.boost::multi_index::detail::ordered_index_node_compressed_base", ptr %59, i64 0, i32 1
+  %left_.i61.i = getelementptr inbounds %"struct.boost::multi_index::detail::ordered_index_node_compressed_base", ptr %60, i64 0, i32 1
   store ptr %51, ptr %left_.i61.i, align 8, !tbaa !34
   br label %_ZN5boost11multi_index6detail23ordered_index_node_implINS1_19null_augment_policyESaIcEE12rotate_rightEPS5_NS1_34ordered_index_node_compressed_baseIS3_S4_E10parent_refE.exit
 
 _ZN5boost11multi_index6detail23ordered_index_node_implINS1_19null_augment_policyESaIcEE12rotate_rightEPS5_NS1_34ordered_index_node_compressed_baseIS3_S4_E10parent_refE.exit: ; preds = %if.else21.i200, %if.then17.i203, %if.then11.i204
-  %61 = phi i64 [ %58, %if.then17.i203 ], [ %58, %if.else21.i200 ], [ %.pre.i207, %if.then11.i204 ]
+  %62 = phi i64 [ %59, %if.then17.i203 ], [ %59, %if.else21.i200 ], [ %.pre.i207, %if.then11.i204 ]
   store ptr %50, ptr %right_.i.i186, align 8, !tbaa !34
-  %62 = ptrtoint ptr %51 to i64
-  %and.i63.i201 = and i64 %61, 1
-  %or.i64.i202 = or i64 %and.i63.i201, %62
+  %63 = ptrtoint ptr %51 to i64
+  %and.i63.i201 = and i64 %62, 1
+  %or.i64.i202 = or i64 %and.i63.i201, %63
   store i64 %or.i64.i202, ptr %50, align 8, !tbaa !36
   br label %if.end122
 
@@ -706,84 +707,84 @@ if.else66:                                        ; preds = %while.body
   br i1 %cmp73.not, label %if.else96, label %land.rhs74
 
 land.rhs74:                                       ; preds = %if.else66
-  %63 = load i64, ptr %14, align 8, !tbaa !36
-  %conv.i211289 = and i64 %63, 1
+  %64 = load i64, ptr %14, align 8, !tbaa !36
+  %conv.i211289 = and i64 %64, 1
   %cmp77 = icmp eq i64 %conv.i211289, 0
   br i1 %cmp77, label %if.then79, label %if.else96
 
 if.then79:                                        ; preds = %land.rhs74
   %or.i214 = or disjoint i64 %9, 1
   store i64 %or.i214, ptr %10, align 8, !tbaa !36
-  %64 = load i64, ptr %14, align 8, !tbaa !36
-  %or.i216 = or i64 %64, 1
+  %65 = load i64, ptr %14, align 8, !tbaa !36
+  %or.i216 = or i64 %65, 1
   store i64 %or.i216, ptr %14, align 8, !tbaa !36
-  %65 = load i64, ptr %x.addr.0293309, align 8, !tbaa !36
-  %and.i.i217 = and i64 %65, -2
-  %66 = inttoptr i64 %and.i.i217 to ptr
-  %67 = load i64, ptr %66, align 8, !tbaa !36
-  %and.i.i218 = and i64 %67, -2
-  %68 = inttoptr i64 %and.i.i218 to ptr
-  %69 = load i64, ptr %68, align 8, !tbaa !36
-  %and.i219 = and i64 %69, -2
-  store i64 %and.i219, ptr %68, align 8, !tbaa !36
-  %70 = load i64, ptr %x.addr.0293309, align 8, !tbaa !36
-  %and.i.i220 = and i64 %70, -2
-  %71 = inttoptr i64 %and.i.i220 to ptr
-  %72 = load i64, ptr %71, align 8, !tbaa !36
-  %and.i221 = and i64 %72, -2
-  %73 = inttoptr i64 %and.i221 to ptr
+  %66 = load i64, ptr %x.addr.0293309, align 8, !tbaa !36
+  %and.i.i217 = and i64 %66, -2
+  %67 = inttoptr i64 %and.i.i217 to ptr
+  %68 = load i64, ptr %67, align 8, !tbaa !36
+  %and.i.i218 = and i64 %68, -2
+  %69 = inttoptr i64 %and.i.i218 to ptr
+  %70 = load i64, ptr %69, align 8, !tbaa !36
+  %and.i219 = and i64 %70, -2
+  store i64 %and.i219, ptr %69, align 8, !tbaa !36
+  %71 = load i64, ptr %x.addr.0293309, align 8, !tbaa !36
+  %and.i.i220 = and i64 %71, -2
+  %72 = inttoptr i64 %and.i.i220 to ptr
+  %73 = load i64, ptr %72, align 8, !tbaa !36
+  %and.i221 = and i64 %73, -2
+  %74 = inttoptr i64 %and.i221 to ptr
   br label %if.end122
 
 if.else96:                                        ; preds = %land.rhs74, %if.else66
   %left_.i223 = getelementptr inbounds %"struct.boost::multi_index::detail::ordered_index_node_compressed_base", ptr %10, i64 0, i32 1
-  %74 = load ptr, ptr %left_.i223, align 8, !tbaa !34
-  %cmp100 = icmp eq ptr %x.addr.0293309, %74
+  %75 = load ptr, ptr %left_.i223, align 8, !tbaa !34
+  %cmp100 = icmp eq ptr %x.addr.0293309, %75
   br i1 %cmp100, label %if.then101, label %if.end105
 
 if.then101:                                       ; preds = %if.else96
   %right_.i.i226 = getelementptr inbounds %"struct.boost::multi_index::detail::ordered_index_node_compressed_base", ptr %x.addr.0293309, i64 0, i32 2
-  %75 = load ptr, ptr %right_.i.i226, align 8, !tbaa !34
-  store ptr %75, ptr %left_.i223, align 8, !tbaa !34
-  %cmp.not.i227 = icmp eq ptr %75, null
+  %76 = load ptr, ptr %right_.i.i226, align 8, !tbaa !34
+  store ptr %76, ptr %left_.i223, align 8, !tbaa !34
+  %cmp.not.i227 = icmp eq ptr %76, null
   br i1 %cmp.not.i227, label %if.end.i231, label %if.then.i228
 
 if.then.i228:                                     ; preds = %if.then101
-  %76 = load i64, ptr %75, align 8, !tbaa !36
-  %and.i.i229 = and i64 %76, 1
+  %77 = load i64, ptr %76, align 8, !tbaa !36
+  %and.i.i229 = and i64 %77, 1
   %or.i.i230 = or disjoint i64 %and.i.i229, %and.i.i310
-  store i64 %or.i.i230, ptr %75, align 8, !tbaa !36
+  store i64 %or.i.i230, ptr %76, align 8, !tbaa !36
   %.pre = load i64, ptr %10, align 8, !tbaa !36
   %.pre295 = load i64, ptr %x.addr.0293309, align 8, !tbaa !36
   br label %if.end.i231
 
 if.end.i231:                                      ; preds = %if.then.i228, %if.then101
-  %77 = phi i64 [ %.pre295, %if.then.i228 ], [ %11, %if.then101 ]
-  %78 = phi i64 [ %.pre, %if.then.i228 ], [ %9, %if.then101 ]
-  %and.i.i.i232 = and i64 %78, -2
-  %and.i3.i.i233 = and i64 %77, 1
+  %78 = phi i64 [ %.pre295, %if.then.i228 ], [ %11, %if.then101 ]
+  %79 = phi i64 [ %.pre, %if.then.i228 ], [ %9, %if.then101 ]
+  %and.i.i.i232 = and i64 %79, -2
+  %and.i3.i.i233 = and i64 %78, 1
   %or.i.i.i234 = or disjoint i64 %and.i.i.i232, %and.i3.i.i233
   store i64 %or.i.i.i234, ptr %x.addr.0293309, align 8, !tbaa !36
-  %79 = load i64, ptr %12, align 8, !tbaa !36
-  %and.i53.i235 = and i64 %79, -2
-  %80 = inttoptr i64 %and.i53.i235 to ptr
-  %cmp10.i236 = icmp eq ptr %10, %80
+  %80 = load i64, ptr %12, align 8, !tbaa !36
+  %and.i53.i235 = and i64 %80, -2
+  %81 = inttoptr i64 %and.i53.i235 to ptr
+  %cmp10.i236 = icmp eq ptr %10, %81
   br i1 %cmp10.i236, label %if.then11.i246, label %if.else.i237
 
 if.then11.i246:                                   ; preds = %if.end.i231
-  %81 = ptrtoint ptr %x.addr.0293309 to i64
-  %and.i54.i247 = and i64 %79, 1
-  %or.i55.i248 = or i64 %and.i54.i247, %81
+  %82 = ptrtoint ptr %x.addr.0293309 to i64
+  %and.i54.i247 = and i64 %80, 1
+  %or.i55.i248 = or i64 %and.i54.i247, %82
   store i64 %or.i55.i248, ptr %12, align 8, !tbaa !36
   %.pre.i249 = load i64, ptr %10, align 8, !tbaa !36
   br label %_ZN5boost11multi_index6detail23ordered_index_node_implINS1_19null_augment_policyESaIcEE12rotate_rightEPS5_NS1_34ordered_index_node_compressed_baseIS3_S4_E10parent_refE.exit250
 
 if.else.i237:                                     ; preds = %if.end.i231
-  %82 = load i64, ptr %10, align 8, !tbaa !36
-  %and.i.i56.i238 = and i64 %82, -2
-  %83 = inttoptr i64 %and.i.i56.i238 to ptr
-  %right_.i57.i239 = getelementptr inbounds %"struct.boost::multi_index::detail::ordered_index_node_compressed_base", ptr %83, i64 0, i32 2
-  %84 = load ptr, ptr %right_.i57.i239, align 8, !tbaa !34
-  %cmp16.i240 = icmp eq ptr %84, %10
+  %83 = load i64, ptr %10, align 8, !tbaa !36
+  %and.i.i56.i238 = and i64 %83, -2
+  %84 = inttoptr i64 %and.i.i56.i238 to ptr
+  %right_.i57.i239 = getelementptr inbounds %"struct.boost::multi_index::detail::ordered_index_node_compressed_base", ptr %84, i64 0, i32 2
+  %85 = load ptr, ptr %right_.i57.i239, align 8, !tbaa !34
+  %cmp16.i240 = icmp eq ptr %85, %10
   br i1 %cmp16.i240, label %if.then17.i245, label %if.else21.i241
 
 if.then17.i245:                                   ; preds = %if.else.i237
@@ -791,125 +792,126 @@ if.then17.i245:                                   ; preds = %if.else.i237
   br label %_ZN5boost11multi_index6detail23ordered_index_node_implINS1_19null_augment_policyESaIcEE12rotate_rightEPS5_NS1_34ordered_index_node_compressed_baseIS3_S4_E10parent_refE.exit250
 
 if.else21.i241:                                   ; preds = %if.else.i237
-  %left_.i61.i242 = getelementptr inbounds %"struct.boost::multi_index::detail::ordered_index_node_compressed_base", ptr %83, i64 0, i32 1
+  %left_.i61.i242 = getelementptr inbounds %"struct.boost::multi_index::detail::ordered_index_node_compressed_base", ptr %84, i64 0, i32 1
   store ptr %x.addr.0293309, ptr %left_.i61.i242, align 8, !tbaa !34
   br label %_ZN5boost11multi_index6detail23ordered_index_node_implINS1_19null_augment_policyESaIcEE12rotate_rightEPS5_NS1_34ordered_index_node_compressed_baseIS3_S4_E10parent_refE.exit250
 
 _ZN5boost11multi_index6detail23ordered_index_node_implINS1_19null_augment_policyESaIcEE12rotate_rightEPS5_NS1_34ordered_index_node_compressed_baseIS3_S4_E10parent_refE.exit250: ; preds = %if.else21.i241, %if.then17.i245, %if.then11.i246
-  %85 = phi i64 [ %82, %if.then17.i245 ], [ %82, %if.else21.i241 ], [ %.pre.i249, %if.then11.i246 ]
+  %86 = phi i64 [ %83, %if.then17.i245 ], [ %83, %if.else21.i241 ], [ %.pre.i249, %if.then11.i246 ]
   store ptr %10, ptr %right_.i.i226, align 8, !tbaa !34
-  %86 = ptrtoint ptr %x.addr.0293309 to i64
-  %and.i63.i243 = and i64 %85, 1
-  %or.i64.i244 = or i64 %and.i63.i243, %86
+  %87 = ptrtoint ptr %x.addr.0293309 to i64
+  %and.i63.i243 = and i64 %86, 1
+  %or.i64.i244 = or i64 %and.i63.i243, %87
   store i64 %or.i64.i244, ptr %10, align 8, !tbaa !36
   %.pre296 = load ptr, ptr %root, align 8, !tbaa !41
-  %.pre303 = and i64 %86, -2
+  %.pre303 = and i64 %87, -2
   %.pre304 = inttoptr i64 %.pre303 to ptr
   %.pre12 = load i64, ptr %.pre304, align 8, !tbaa !36
   br label %if.end105
 
 if.end105:                                        ; preds = %_ZN5boost11multi_index6detail23ordered_index_node_implINS1_19null_augment_policyESaIcEE12rotate_rightEPS5_NS1_34ordered_index_node_compressed_baseIS3_S4_E10parent_refE.exit250, %if.else96
-  %87 = phi i64 [ %.pre12, %_ZN5boost11multi_index6detail23ordered_index_node_implINS1_19null_augment_policyESaIcEE12rotate_rightEPS5_NS1_34ordered_index_node_compressed_baseIS3_S4_E10parent_refE.exit250 ], [ %9, %if.else96 ]
+  %88 = phi i64 [ %.pre12, %_ZN5boost11multi_index6detail23ordered_index_node_implINS1_19null_augment_policyESaIcEE12rotate_rightEPS5_NS1_34ordered_index_node_compressed_baseIS3_S4_E10parent_refE.exit250 ], [ %9, %if.else96 ]
   %.pre-phi305 = phi ptr [ %.pre304, %_ZN5boost11multi_index6detail23ordered_index_node_implINS1_19null_augment_policyESaIcEE12rotate_rightEPS5_NS1_34ordered_index_node_compressed_baseIS3_S4_E10parent_refE.exit250 ], [ %10, %if.else96 ]
-  %88 = phi ptr [ %.pre296, %_ZN5boost11multi_index6detail23ordered_index_node_implINS1_19null_augment_policyESaIcEE12rotate_rightEPS5_NS1_34ordered_index_node_compressed_baseIS3_S4_E10parent_refE.exit250 ], [ %12, %if.else96 ]
+  %89 = phi ptr [ %.pre296, %_ZN5boost11multi_index6detail23ordered_index_node_implINS1_19null_augment_policyESaIcEE12rotate_rightEPS5_NS1_34ordered_index_node_compressed_baseIS3_S4_E10parent_refE.exit250 ], [ %12, %if.else96 ]
   %x.addr.3 = phi ptr [ %10, %_ZN5boost11multi_index6detail23ordered_index_node_implINS1_19null_augment_policyESaIcEE12rotate_rightEPS5_NS1_34ordered_index_node_compressed_baseIS3_S4_E10parent_refE.exit250 ], [ %x.addr.0293309, %if.else96 ]
-  %or.i253 = or i64 %87, 1
+  %or.i253 = or i64 %88, 1
   store i64 %or.i253, ptr %.pre-phi305, align 8, !tbaa !36
-  %89 = load i64, ptr %x.addr.3, align 8, !tbaa !36
-  %and.i.i254 = and i64 %89, -2
-  %90 = inttoptr i64 %and.i.i254 to ptr
-  %91 = load i64, ptr %90, align 8, !tbaa !36
-  %and.i.i255 = and i64 %91, -2
-  %92 = inttoptr i64 %and.i.i255 to ptr
-  %93 = load i64, ptr %92, align 8, !tbaa !36
-  %and.i256 = and i64 %93, -2
-  store i64 %and.i256, ptr %92, align 8, !tbaa !36
-  %94 = load i64, ptr %x.addr.3, align 8, !tbaa !36
-  %and.i.i257 = and i64 %94, -2
-  %95 = inttoptr i64 %and.i.i257 to ptr
-  %96 = load i64, ptr %95, align 8, !tbaa !36
-  %and.i258 = and i64 %96, -2
-  %97 = inttoptr i64 %and.i258 to ptr
-  %right_.i.i259 = getelementptr inbounds %"struct.boost::multi_index::detail::ordered_index_node_compressed_base", ptr %97, i64 0, i32 2
-  %98 = load ptr, ptr %right_.i.i259, align 8, !tbaa !34
-  %left_.i.i260 = getelementptr inbounds %"struct.boost::multi_index::detail::ordered_index_node_compressed_base", ptr %98, i64 0, i32 1
-  %99 = load ptr, ptr %left_.i.i260, align 8, !tbaa !34
-  store ptr %99, ptr %right_.i.i259, align 8, !tbaa !34
-  %cmp.not.i261 = icmp eq ptr %99, null
+  %90 = load i64, ptr %x.addr.3, align 8, !tbaa !36
+  %and.i.i254 = and i64 %90, -2
+  %91 = inttoptr i64 %and.i.i254 to ptr
+  %92 = load i64, ptr %91, align 8, !tbaa !36
+  %and.i.i255 = and i64 %92, -2
+  %93 = inttoptr i64 %and.i.i255 to ptr
+  %94 = load i64, ptr %93, align 8, !tbaa !36
+  %and.i256 = and i64 %94, -2
+  store i64 %and.i256, ptr %93, align 8, !tbaa !36
+  %95 = load i64, ptr %x.addr.3, align 8, !tbaa !36
+  %and.i.i257 = and i64 %95, -2
+  %96 = inttoptr i64 %and.i.i257 to ptr
+  %97 = load i64, ptr %96, align 8, !tbaa !36
+  %and.i258 = and i64 %97, -2
+  %98 = inttoptr i64 %and.i258 to ptr
+  %right_.i.i259 = getelementptr inbounds %"struct.boost::multi_index::detail::ordered_index_node_compressed_base", ptr %98, i64 0, i32 2
+  %99 = load ptr, ptr %right_.i.i259, align 8, !tbaa !34
+  %left_.i.i260 = getelementptr inbounds %"struct.boost::multi_index::detail::ordered_index_node_compressed_base", ptr %99, i64 0, i32 1
+  %100 = load ptr, ptr %left_.i.i260, align 8, !tbaa !34
+  store ptr %100, ptr %right_.i.i259, align 8, !tbaa !34
+  %cmp.not.i261 = icmp eq ptr %100, null
   br i1 %cmp.not.i261, label %if.end.i265, label %if.then.i262
 
 if.then.i262:                                     ; preds = %if.end105
-  %100 = load i64, ptr %99, align 8, !tbaa !36
-  %and.i.i263 = and i64 %100, 1
+  %101 = load i64, ptr %100, align 8, !tbaa !36
+  %and.i.i263 = and i64 %101, 1
   %or.i.i264 = or disjoint i64 %and.i.i263, %and.i258
-  store i64 %or.i.i264, ptr %99, align 8, !tbaa !36
+  store i64 %or.i.i264, ptr %100, align 8, !tbaa !36
   br label %if.end.i265
 
 if.end.i265:                                      ; preds = %if.then.i262, %if.end105
-  %101 = load i64, ptr %97, align 8, !tbaa !36
-  %and.i.i.i266 = and i64 %101, -2
   %102 = load i64, ptr %98, align 8, !tbaa !36
-  %and.i3.i.i267 = and i64 %102, 1
+  %and.i.i.i266 = and i64 %102, -2
+  %103 = load i64, ptr %99, align 8, !tbaa !36
+  %and.i3.i.i267 = and i64 %103, 1
   %or.i.i.i268 = or disjoint i64 %and.i3.i.i267, %and.i.i.i266
-  store i64 %or.i.i.i268, ptr %98, align 8, !tbaa !36
-  %103 = load i64, ptr %88, align 8, !tbaa !36
-  %and.i53.i269 = and i64 %103, -2
-  %cmp10.i270 = icmp eq i64 %and.i53.i269, %and.i258
+  store i64 %or.i.i.i268, ptr %99, align 8, !tbaa !36
+  %104 = load i64, ptr %89, align 8, !tbaa !36
+  %and.i53.i269 = and i64 %104, -2
+  %105 = inttoptr i64 %and.i53.i269 to ptr
+  %cmp10.i270 = icmp eq ptr %105, %98
   br i1 %cmp10.i270, label %if.then11.i280, label %if.else.i271
 
 if.then11.i280:                                   ; preds = %if.end.i265
-  %104 = ptrtoint ptr %98 to i64
-  %and.i54.i281 = and i64 %103, 1
-  %or.i55.i282 = or i64 %and.i54.i281, %104
-  store i64 %or.i55.i282, ptr %88, align 8, !tbaa !36
-  %.pre.i283 = load i64, ptr %97, align 8, !tbaa !36
+  %106 = ptrtoint ptr %99 to i64
+  %and.i54.i281 = and i64 %104, 1
+  %or.i55.i282 = or i64 %and.i54.i281, %106
+  store i64 %or.i55.i282, ptr %89, align 8, !tbaa !36
+  %.pre.i283 = load i64, ptr %98, align 8, !tbaa !36
   br label %_ZN5boost11multi_index6detail23ordered_index_node_implINS1_19null_augment_policyESaIcEE11rotate_leftEPS5_NS1_34ordered_index_node_compressed_baseIS3_S4_E10parent_refE.exit284
 
 if.else.i271:                                     ; preds = %if.end.i265
-  %105 = load i64, ptr %97, align 8, !tbaa !36
-  %and.i.i56.i272 = and i64 %105, -2
-  %106 = inttoptr i64 %and.i.i56.i272 to ptr
-  %left_.i57.i273 = getelementptr inbounds %"struct.boost::multi_index::detail::ordered_index_node_compressed_base", ptr %106, i64 0, i32 1
-  %107 = load ptr, ptr %left_.i57.i273, align 8, !tbaa !34
-  %cmp16.i274 = icmp eq ptr %107, %97
+  %107 = load i64, ptr %98, align 8, !tbaa !36
+  %and.i.i56.i272 = and i64 %107, -2
+  %108 = inttoptr i64 %and.i.i56.i272 to ptr
+  %left_.i57.i273 = getelementptr inbounds %"struct.boost::multi_index::detail::ordered_index_node_compressed_base", ptr %108, i64 0, i32 1
+  %109 = load ptr, ptr %left_.i57.i273, align 8, !tbaa !34
+  %cmp16.i274 = icmp eq ptr %109, %98
   br i1 %cmp16.i274, label %if.then17.i279, label %if.else21.i275
 
 if.then17.i279:                                   ; preds = %if.else.i271
-  store ptr %98, ptr %left_.i57.i273, align 8, !tbaa !34
+  store ptr %99, ptr %left_.i57.i273, align 8, !tbaa !34
   br label %_ZN5boost11multi_index6detail23ordered_index_node_implINS1_19null_augment_policyESaIcEE11rotate_leftEPS5_NS1_34ordered_index_node_compressed_baseIS3_S4_E10parent_refE.exit284
 
 if.else21.i275:                                   ; preds = %if.else.i271
-  %right_.i61.i276 = getelementptr inbounds %"struct.boost::multi_index::detail::ordered_index_node_compressed_base", ptr %106, i64 0, i32 2
-  store ptr %98, ptr %right_.i61.i276, align 8, !tbaa !34
+  %right_.i61.i276 = getelementptr inbounds %"struct.boost::multi_index::detail::ordered_index_node_compressed_base", ptr %108, i64 0, i32 2
+  store ptr %99, ptr %right_.i61.i276, align 8, !tbaa !34
   br label %_ZN5boost11multi_index6detail23ordered_index_node_implINS1_19null_augment_policyESaIcEE11rotate_leftEPS5_NS1_34ordered_index_node_compressed_baseIS3_S4_E10parent_refE.exit284
 
 _ZN5boost11multi_index6detail23ordered_index_node_implINS1_19null_augment_policyESaIcEE11rotate_leftEPS5_NS1_34ordered_index_node_compressed_baseIS3_S4_E10parent_refE.exit284: ; preds = %if.else21.i275, %if.then17.i279, %if.then11.i280
-  %108 = phi i64 [ %105, %if.then17.i279 ], [ %105, %if.else21.i275 ], [ %.pre.i283, %if.then11.i280 ]
-  store ptr %97, ptr %left_.i.i260, align 8, !tbaa !34
-  %109 = ptrtoint ptr %98 to i64
-  %and.i63.i277 = and i64 %108, 1
-  %or.i64.i278 = or i64 %and.i63.i277, %109
-  store i64 %or.i64.i278, ptr %97, align 8, !tbaa !36
+  %110 = phi i64 [ %107, %if.then17.i279 ], [ %107, %if.else21.i275 ], [ %.pre.i283, %if.then11.i280 ]
+  store ptr %98, ptr %left_.i.i260, align 8, !tbaa !34
+  %111 = ptrtoint ptr %99 to i64
+  %and.i63.i277 = and i64 %110, 1
+  %or.i64.i278 = or i64 %and.i63.i277, %111
+  store i64 %or.i64.i278, ptr %98, align 8, !tbaa !36
   br label %if.end122
 
 if.end122:                                        ; preds = %_ZN5boost11multi_index6detail23ordered_index_node_implINS1_19null_augment_policyESaIcEE11rotate_leftEPS5_NS1_34ordered_index_node_compressed_baseIS3_S4_E10parent_refE.exit284, %if.then79, %_ZN5boost11multi_index6detail23ordered_index_node_implINS1_19null_augment_policyESaIcEE12rotate_rightEPS5_NS1_34ordered_index_node_compressed_baseIS3_S4_E10parent_refE.exit, %if.then26
-  %x.addr.5 = phi ptr [ %26, %if.then26 ], [ %x.addr.1, %_ZN5boost11multi_index6detail23ordered_index_node_implINS1_19null_augment_policyESaIcEE12rotate_rightEPS5_NS1_34ordered_index_node_compressed_baseIS3_S4_E10parent_refE.exit ], [ %73, %if.then79 ], [ %x.addr.3, %_ZN5boost11multi_index6detail23ordered_index_node_implINS1_19null_augment_policyESaIcEE11rotate_leftEPS5_NS1_34ordered_index_node_compressed_baseIS3_S4_E10parent_refE.exit284 ]
-  %110 = load ptr, ptr %root, align 8, !tbaa !41
-  %111 = load i64, ptr %110, align 8, !tbaa !36
-  %and.i157 = and i64 %111, -2
-  %112 = inttoptr i64 %and.i157 to ptr
-  %cmp.not = icmp eq ptr %x.addr.5, %112
+  %x.addr.5 = phi ptr [ %26, %if.then26 ], [ %x.addr.1, %_ZN5boost11multi_index6detail23ordered_index_node_implINS1_19null_augment_policyESaIcEE12rotate_rightEPS5_NS1_34ordered_index_node_compressed_baseIS3_S4_E10parent_refE.exit ], [ %74, %if.then79 ], [ %x.addr.3, %_ZN5boost11multi_index6detail23ordered_index_node_implINS1_19null_augment_policyESaIcEE11rotate_leftEPS5_NS1_34ordered_index_node_compressed_baseIS3_S4_E10parent_refE.exit284 ]
+  %112 = load ptr, ptr %root, align 8, !tbaa !41
+  %113 = load i64, ptr %112, align 8, !tbaa !36
+  %and.i157 = and i64 %113, -2
+  %114 = inttoptr i64 %and.i157 to ptr
+  %cmp.not = icmp eq ptr %x.addr.5, %114
   br i1 %cmp.not, label %while.end.loopexit, label %land.rhs, !llvm.loop !49
 
 while.end.loopexit:                               ; preds = %if.end122, %land.rhs, %land.rhs.preheader
-  %.lcssa.ph = phi ptr [ %3, %land.rhs.preheader ], [ %x.addr.5, %if.end122 ], [ %112, %land.rhs ]
+  %.lcssa.ph = phi ptr [ %3, %land.rhs.preheader ], [ %x.addr.5, %if.end122 ], [ %114, %land.rhs ]
   %.pre300 = load i64, ptr %.lcssa.ph, align 8, !tbaa !36
   br label %while.end
 
 while.end:                                        ; preds = %while.end.loopexit, %entry
-  %113 = phi i64 [ %and.i, %entry ], [ %.pre300, %while.end.loopexit ]
+  %115 = phi i64 [ %and.i, %entry ], [ %.pre300, %while.end.loopexit ]
   %.lcssa = phi ptr [ %x, %entry ], [ %.lcssa.ph, %while.end.loopexit ]
-  %or.i287 = or i64 %113, 1
+  %or.i287 = or i64 %115, 1
   store i64 %or.i287, ptr %.lcssa, align 8, !tbaa !36
   ret void
 }

@@ -1016,7 +1016,7 @@ lor.lhs.false4.i:                                 ; preds = %land.lhs.true.i.i10
   %arrayidx.i29.i = getelementptr %struct.TCGOp, ptr %op.01540, i64 1, i32 2
   %131 = load i64, ptr %arrayidx.i29.i, align 8
   %132 = inttoptr i64 %131 to ptr
-  %cmp.i.i.i.i106 = icmp eq i64 %131, %123
+  %cmp.i.i.i.i106 = icmp eq ptr %132, %124
   br i1 %cmp.i.i.i.i106, label %fold_xx_to_x.exit.i, label %if.end.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %lor.lhs.false4.i
@@ -1166,7 +1166,7 @@ fold_const2.exit.i:                               ; preds = %land.lhs.true.i.i11
   br label %for.inc173
 
 lor.lhs.false.i128:                               ; preds = %land.lhs.true.i.i119, %sw.bb41
-  %cmp.i.i.i.i129 = icmp eq i64 %157, %.pre.i118
+  %cmp.i.i.i.i129 = icmp eq ptr %.pre70.i, %158
   br i1 %cmp.i.i.i.i129, label %fold_xx_to_i.exit.i, label %if.end.i.i.i.i130
 
 if.end.i.i.i.i130:                                ; preds = %lor.lhs.false.i128
@@ -2127,7 +2127,7 @@ if.then.i380:                                     ; preds = %land.lhs.true.i379
   br label %for.inc173
 
 if.end.i389:                                      ; preds = %land.lhs.true.i379, %sw.bb68
-  %cmp.i.i.i390 = icmp eq i64 %326, %.pre.i377
+  %cmp.i.i.i390 = icmp eq ptr %.pre16.i378, %327
   br i1 %cmp.i.i.i390, label %if.then20.i397, label %if.end.i.i.i391
 
 if.end.i.i.i391:                                  ; preds = %if.end.i389
@@ -3606,7 +3606,7 @@ lor.lhs.false2.i927:                              ; preds = %land.lhs.true.i.i92
   %arrayidx.i13.i = getelementptr %struct.TCGOp, ptr %op.01540, i64 1, i32 2
   %575 = load i64, ptr %arrayidx.i13.i, align 8
   %576 = inttoptr i64 %575 to ptr
-  %cmp.i.i.i.i928 = icmp eq i64 %575, %568
+  %cmp.i.i.i.i928 = icmp eq ptr %576, %569
   br i1 %cmp.i.i.i.i928, label %fold_xx_to_x.exit.i970, label %if.end.i.i.i.i929
 
 if.end.i.i.i.i929:                                ; preds = %lor.lhs.false2.i927
@@ -3736,7 +3736,7 @@ fold_const2.exit.i985:                            ; preds = %land.lhs.true.i.i98
   br label %for.inc173
 
 lor.lhs.false.i995:                               ; preds = %land.lhs.true.i.i981, %sw.bb131
-  %cmp.i.i.i.i996 = icmp eq i64 %597, %.pre.i980
+  %cmp.i.i.i.i996 = icmp eq ptr %.pre48.i, %598
   br i1 %cmp.i.i.i.i996, label %fold_xx_to_i.exit.i1028, label %if.end.i.i.i.i997
 
 if.end.i.i.i.i997:                                ; preds = %lor.lhs.false.i995
@@ -3906,7 +3906,7 @@ fold_const2.exit.i1060:                           ; preds = %land.lhs.true.i.i10
   br label %for.inc173
 
 lor.lhs.false.i1070:                              ; preds = %land.lhs.true.i.i1056, %sw.bb140
-  %cmp.i.i.i.i1071 = icmp eq i64 %621, %.pre.i1055
+  %cmp.i.i.i.i1071 = icmp eq ptr %.pre10.i, %622
   br i1 %cmp.i.i.i.i1071, label %if.then.i5.i, label %if.end.i.i.i.i1072
 
 if.end.i.i.i.i1072:                               ; preds = %lor.lhs.false.i1070
@@ -4604,7 +4604,7 @@ lor.lhs.false.i1358:                              ; preds = %sw.bb167
   %758 = load i64, ptr %arrayidx2.i.i1360, align 8
   %759 = inttoptr i64 %757 to ptr
   %760 = inttoptr i64 %758 to ptr
-  %cmp.i.i.i.i1361 = icmp eq i64 %757, %758
+  %cmp.i.i.i.i1361 = icmp eq ptr %759, %760
   br i1 %cmp.i.i.i.i1361, label %fold_xx_to_i.exit.i1422, label %if.end.i.i.i.i1362
 
 if.end.i.i.i.i1362:                               ; preds = %lor.lhs.false.i1358
@@ -5075,7 +5075,7 @@ entry:
   %1 = load i64, ptr %arrayidx2.i, align 8
   %2 = inttoptr i64 %0 to ptr
   %3 = inttoptr i64 %1 to ptr
-  %cmp.i.i.i = icmp eq i64 %0, %1
+  %cmp.i.i.i = icmp eq ptr %2, %3
   br i1 %cmp.i.i.i, label %fold_xx_to_i.exit, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %entry
@@ -5989,7 +5989,7 @@ define internal fastcc void @tcg_opt_gen_mov(ptr noundef %ctx, ptr noundef %op, 
 entry:
   %0 = inttoptr i64 %dst to ptr
   %1 = inttoptr i64 %src to ptr
-  %cmp.i = icmp eq i64 %dst, %src
+  %cmp.i = icmp eq ptr %0, %1
   br i1 %cmp.i, label %if.then, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
@@ -6647,7 +6647,7 @@ do_constant_folding_cond_64.exit:                 ; preds = %sw.bb.i38, %sw.bb1.
   br label %return
 
 if.else:                                          ; preds = %entry, %land.lhs.true
-  %cmp.i.i = icmp eq i64 %x, %y
+  %cmp.i.i = icmp eq ptr %.pre, %0
   br i1 %cmp.i.i, label %if.then12, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.else
@@ -6853,7 +6853,7 @@ sw.bb21:                                          ; preds = %if.then20
 
 if.end23:                                         ; preds = %if.end, %if.then20, %land.lhs.true, %entry
   %16 = inttoptr i64 %p1.0.val to ptr
-  %cmp.i.i = icmp eq i64 %p1.0.val, %p2.0.val
+  %cmp.i.i = icmp eq ptr %16, %0
   br i1 %cmp.i.i, label %land.lhs.true26, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.end23
@@ -6886,7 +6886,7 @@ for.inc.i.i:                                      ; preds = %for.body.i.i
 land.lhs.true26:                                  ; preds = %for.body.i.i, %if.end23
   %21 = inttoptr i64 %p1.8.val to ptr
   %22 = inttoptr i64 %p2.8.val to ptr
-  %cmp.i.i31 = icmp eq i64 %p1.8.val, %p2.8.val
+  %cmp.i.i31 = icmp eq ptr %21, %22
   br i1 %cmp.i.i31, label %if.then29, label %if.end.i.i32
 
 if.end.i.i32:                                     ; preds = %land.lhs.true26

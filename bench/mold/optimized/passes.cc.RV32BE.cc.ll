@@ -21271,7 +21271,8 @@ entry:
   %my_embedded_segment.i = getelementptr inbounds %"struct.mold::elf::Context", ptr %ctx, i64 0, i32 43, i32 0, i32 3
   %node_list.i = getelementptr inbounds %"struct.mold::elf::Context", ptr %ctx, i64 0, i32 43, i32 0, i32 3, i64 0, i32 1
   %0 = load atomic i64, ptr %node_list.i monotonic, align 8, !noalias !415
-  %cmp.i.i.i = icmp ugt i64 %0, 63
+  %atomic-temp.i.0.i.i = inttoptr i64 %0 to ptr
+  %cmp.i.i.i = icmp ugt ptr %atomic-temp.i.0.i.i, inttoptr (i64 63 to ptr)
   br i1 %cmp.i.i.i, label %for.body.lr.ph, label %while.cond.i.i.i.preheader
 
 while.cond.i.i.i.preheader:                       ; preds = %entry
@@ -21313,14 +21314,14 @@ if.end.i.i.i:                                     ; preds = %if.else.i.i.i, %if.
   %storemerge.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %if.then.i.i.i ], [ %arrayidx4.i.i.i.i, %if.else.i.i.i ]
   %node_list.i.i.i = getelementptr inbounds %"struct.tbb::detail::d2::hash_map_base<tbb::detail::d1::tbb_allocator<std::pair<mold::elf::Symbol<mold::elf::RV32BE> *const, std::vector<std::__cxx11::basic_string<char>>>>, tbb::detail::d1::spin_rw_mutex>::bucket", ptr %storemerge.i.i.i, i64 0, i32 1
   %5 = load atomic i64, ptr %node_list.i.i.i monotonic, align 8, !noalias !415
-  %cmp.i.i.i.i = icmp ugt i64 %5, 63
+  %atomic-temp.i.0.i.i.i.i = inttoptr i64 %5 to ptr
+  %cmp.i.i.i.i = icmp ugt ptr %atomic-temp.i.0.i.i.i.i, inttoptr (i64 63 to ptr)
   br i1 %cmp.i.i.i.i, label %for.body.lr.ph, label %while.cond.i.i.i, !llvm.loop !418
 
 for.body.lr.ph:                                   ; preds = %if.end.i.i.i, %entry
   %__begin1.sroa.4.0 = phi i64 [ 0, %entry ], [ %k.0.i.i.i, %if.end.i.i.i ]
-  %__begin1.sroa.14.1.in = phi i64 [ %0, %entry ], [ %5, %if.end.i.i.i ]
+  %__begin1.sroa.14.1 = phi ptr [ %atomic-temp.i.0.i.i, %entry ], [ %atomic-temp.i.0.i.i.i.i, %if.end.i.i.i ]
   %__begin1.sroa.8.2 = phi ptr [ %my_embedded_segment.i, %entry ], [ %storemerge.i.i.i, %if.end.i.i.i ]
-  %__begin1.sroa.14.1 = inttoptr i64 %__begin1.sroa.14.1.in to ptr
   %add.ptr = getelementptr inbounds i8, ptr %ss, i64 16
   %demangle = getelementptr inbounds %struct.anon, ptr %ctx, i64 0, i32 15
   %unresolved_symbols = getelementptr inbounds %struct.anon, ptr %ctx, i64 0, i32 8
@@ -21331,17 +21332,21 @@ for.body.lr.ph:                                   ; preds = %if.end.i.i.i, %entr
   %7 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp24, i64 0, i32 2
   %_M_string_length.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp24, i64 0, i32 1
   %my_mask.i.i = getelementptr inbounds %"struct.mold::elf::Context", ptr %ctx, i64 0, i32 43, i32 0, i32 1
+  br label %for.body.outer
+
+for.body.outer:                                   ; preds = %if.end.i.i, %for.body.lr.ph
+  %__begin1.sroa.8.351.ph = phi ptr [ %__begin1.sroa.8.2, %for.body.lr.ph ], [ %storemerge.i.i, %if.end.i.i ]
+  %__begin1.sroa.14.250.ph = phi ptr [ %__begin1.sroa.14.1, %for.body.lr.ph ], [ %atomic-temp.i.0.i.i.i, %if.end.i.i ]
+  %__begin1.sroa.4.149.ph = phi i64 [ %__begin1.sroa.4.0, %for.body.lr.ph ], [ %k.0.i.i, %if.end.i.i ]
   br label %for.body
 
-for.body:                                         ; preds = %for.body.lr.ph, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN4mold3elf6SymbolINS5_6RV32BEEEESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISG_EENS0_2d116tbb_hash_compareIS9_EENSJ_13tbb_allocatorISt4pairIKS9_SI_EEEEESP_EppEv.exit
-  %__begin1.sroa.8.354 = phi ptr [ %__begin1.sroa.8.2, %for.body.lr.ph ], [ %__begin1.sroa.8.6, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN4mold3elf6SymbolINS5_6RV32BEEEESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISG_EENS0_2d116tbb_hash_compareIS9_EENSJ_13tbb_allocatorISt4pairIKS9_SI_EEEEESP_EppEv.exit ]
-  %__begin1.sroa.14.253 = phi ptr [ %__begin1.sroa.14.1, %for.body.lr.ph ], [ %__begin1.sroa.14.4, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN4mold3elf6SymbolINS5_6RV32BEEEESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISG_EENS0_2d116tbb_hash_compareIS9_EENSJ_13tbb_allocatorISt4pairIKS9_SI_EEEEESP_EppEv.exit ]
-  %__begin1.sroa.4.152 = phi i64 [ %__begin1.sroa.4.0, %for.body.lr.ph ], [ %__begin1.sroa.4.2, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN4mold3elf6SymbolINS5_6RV32BEEEESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISG_EENS0_2d116tbb_hash_compareIS9_EENSJ_13tbb_allocatorISt4pairIKS9_SI_EEEEESP_EppEv.exit ]
-  %8 = getelementptr inbounds %"class.tbb::detail::d2::concurrent_hash_map<mold::elf::Symbol<mold::elf::RV32BE> *, std::vector<std::__cxx11::basic_string<char>>>::node", ptr %__begin1.sroa.14.253, i64 0, i32 1
+for.body:                                         ; preds = %for.body.outer, %if.end34
+  %__begin1.sroa.14.250 = phi ptr [ %23, %if.end34 ], [ %__begin1.sroa.14.250.ph, %for.body.outer ]
+  %8 = getelementptr inbounds %"class.tbb::detail::d2::concurrent_hash_map<mold::elf::Symbol<mold::elf::RV32BE> *, std::vector<std::__cxx11::basic_string<char>>>::node", ptr %__begin1.sroa.14.250, i64 0, i32 1
   %9 = load ptr, ptr %8, align 8
-  %second = getelementptr inbounds %"class.tbb::detail::d2::concurrent_hash_map<mold::elf::Symbol<mold::elf::RV32BE> *, std::vector<std::__cxx11::basic_string<char>>>::node", ptr %__begin1.sroa.14.253, i64 0, i32 1, i32 0, i32 1
+  %second = getelementptr inbounds %"class.tbb::detail::d2::concurrent_hash_map<mold::elf::Symbol<mold::elf::RV32BE> *, std::vector<std::__cxx11::basic_string<char>>>::node", ptr %__begin1.sroa.14.250, i64 0, i32 1, i32 0, i32 1
   %10 = load ptr, ptr %second, align 8
-  %_M_finish.i.i.i = getelementptr inbounds %"class.tbb::detail::d2::concurrent_hash_map<mold::elf::Symbol<mold::elf::RV32BE> *, std::vector<std::__cxx11::basic_string<char>>>::node", ptr %__begin1.sroa.14.253, i64 0, i32 1, i32 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i.i = getelementptr inbounds %"class.tbb::detail::d2::concurrent_hash_map<mold::elf::Symbol<mold::elf::RV32BE> *, std::vector<std::__cxx11::basic_string<char>>>::node", ptr %__begin1.sroa.14.250, i64 0, i32 1, i32 0, i32 1, i32 0, i32 0, i32 0, i32 1
   %11 = load ptr, ptr %_M_finish.i.i.i, align 8
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %11 to i64
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %10 to i64
@@ -21383,10 +21388,10 @@ for.body10.preheader:                             ; preds = %cond.end
   br label %for.body10
 
 for.body10:                                       ; preds = %for.body10.preheader, %for.body10
-  %i.050 = phi i64 [ %inc, %for.body10 ], [ 0, %for.body10.preheader ]
-  %add.ptr.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %10, i64 %i.050
+  %i.047 = phi i64 [ %inc, %for.body10 ], [ 0, %for.body10.preheader ]
+  %add.ptr.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %10, i64 %i.047
   %call13 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i) #15
-  %inc = add nuw nsw i64 %i.050, 1
+  %inc = add nuw nsw i64 %i.047, 1
   %exitcond.not = icmp eq i64 %inc, %umax
   br i1 %exitcond.not, label %for.end, label %for.body10, !llvm.loop !419
 
@@ -21469,13 +21474,13 @@ if.end34.sink.split:                              ; preds = %if.then.i.i25, %_ZN
 
 if.end34:                                         ; preds = %if.end34.sink.split, %if.end
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss) #15
-  %23 = load ptr, ptr %__begin1.sroa.14.253, align 8
+  %23 = load ptr, ptr %__begin1.sroa.14.250, align 8
   %tobool.not.i = icmp eq ptr %23, null
-  br i1 %tobool.not.i, label %while.cond.i.i, label %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN4mold3elf6SymbolINS5_6RV32BEEEESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISG_EENS0_2d116tbb_hash_compareIS9_EENSJ_13tbb_allocatorISt4pairIKS9_SI_EEEEESP_EppEv.exit
+  br i1 %tobool.not.i, label %while.cond.i.i, label %for.body
 
 while.cond.i.i:                                   ; preds = %if.end34, %if.end.i.i
-  %__begin1.sroa.8.4 = phi ptr [ %storemerge.i.i, %if.end.i.i ], [ %__begin1.sroa.8.354, %if.end34 ]
-  %k.0.in.i.i = phi i64 [ %k.0.i.i, %if.end.i.i ], [ %__begin1.sroa.4.152, %if.end34 ]
+  %__begin1.sroa.8.4 = phi ptr [ %storemerge.i.i, %if.end.i.i ], [ %__begin1.sroa.8.351.ph, %if.end34 ]
+  %k.0.in.i.i = phi i64 [ %k.0.i.i, %if.end.i.i ], [ %__begin1.sroa.4.149.ph, %if.end34 ]
   %k.0.i.i = add i64 %k.0.in.i.i, 1
   %24 = load atomic i64, ptr %my_mask.i.i monotonic, align 8
   %cmp.not.i.i = icmp ugt i64 %k.0.i.i, %24
@@ -21508,21 +21513,11 @@ if.end.i.i:                                       ; preds = %if.else.i.i, %if.th
   %storemerge.i.i = phi ptr [ %incdec.ptr.i.i, %if.then.i.i34 ], [ %arrayidx4.i.i.i, %if.else.i.i ]
   %node_list.i.i = getelementptr inbounds %"struct.tbb::detail::d2::hash_map_base<tbb::detail::d1::tbb_allocator<std::pair<mold::elf::Symbol<mold::elf::RV32BE> *const, std::vector<std::__cxx11::basic_string<char>>>>, tbb::detail::d1::spin_rw_mutex>::bucket", ptr %storemerge.i.i, i64 0, i32 1
   %27 = load atomic i64, ptr %node_list.i.i monotonic, align 8
-  %cmp.i.i.i35 = icmp ugt i64 %27, 63
-  br i1 %cmp.i.i.i35, label %if.then8.i.i, label %while.cond.i.i, !llvm.loop !418
-
-if.then8.i.i:                                     ; preds = %if.end.i.i
   %atomic-temp.i.0.i.i.i = inttoptr i64 %27 to ptr
-  br label %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN4mold3elf6SymbolINS5_6RV32BEEEESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISG_EENS0_2d116tbb_hash_compareIS9_EENSJ_13tbb_allocatorISt4pairIKS9_SI_EEEEESP_EppEv.exit
+  %cmp.i.i.i35 = icmp ugt ptr %atomic-temp.i.0.i.i.i, inttoptr (i64 63 to ptr)
+  br i1 %cmp.i.i.i35, label %for.body.outer, label %while.cond.i.i, !llvm.loop !418
 
-_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN4mold3elf6SymbolINS5_6RV32BEEEESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISG_EENS0_2d116tbb_hash_compareIS9_EENSJ_13tbb_allocatorISt4pairIKS9_SI_EEEEESP_EppEv.exit: ; preds = %if.then8.i.i, %if.end34
-  %__begin1.sroa.4.2 = phi i64 [ %__begin1.sroa.4.152, %if.end34 ], [ %k.0.i.i, %if.then8.i.i ]
-  %__begin1.sroa.14.4 = phi ptr [ %23, %if.end34 ], [ %atomic-temp.i.0.i.i.i, %if.then8.i.i ]
-  %__begin1.sroa.8.6 = phi ptr [ %__begin1.sroa.8.354, %if.end34 ], [ %storemerge.i.i, %if.then8.i.i ]
-  %cmp.not.i.not = icmp eq ptr %__begin1.sroa.14.4, null
-  br i1 %cmp.not.i.not, label %for.end37, label %for.body
-
-for.end37:                                        ; preds = %while.cond.i.i.i, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN4mold3elf6SymbolINS5_6RV32BEEEESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISG_EENS0_2d116tbb_hash_compareIS9_EENSJ_13tbb_allocatorISt4pairIKS9_SI_EEEEESP_EppEv.exit, %while.cond.i.i
+for.end37:                                        ; preds = %while.cond.i.i.i, %while.cond.i.i
   %has_error.i = getelementptr inbounds %"struct.mold::elf::Context", ptr %ctx, i64 0, i32 14
   %28 = load i8, ptr %has_error.i, align 8
   %29 = and i8 %28, 1

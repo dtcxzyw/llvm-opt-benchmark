@@ -7681,9 +7681,11 @@ land.lhs.true:                                    ; preds = %if.then
 
 land.lhs.true11:                                  ; preds = %land.lhs.true
   %and13 = and i64 %28, 140737488355327
+  %30 = inttoptr i64 %and13 to ptr
   %metatable = getelementptr inbounds %struct.GCudata, ptr %23, i64 0, i32 7
-  %30 = load i64, ptr %metatable, align 8
-  %cmp15 = icmp eq i64 %and13, %30
+  %31 = load i64, ptr %metatable, align 8
+  %32 = inttoptr i64 %31 to ptr
+  %cmp15 = icmp eq ptr %30, %32
   %add.ptr = getelementptr inbounds %struct.GCudata, ptr %23, i64 1
   %spec.select = select i1 %cmp15, ptr %add.ptr, ptr null
   br label %return

@@ -194,19 +194,16 @@ entry:
   %1 = ptrtoint ptr %buf to i64
   %2 = and i64 %1, -32
   %and = add i64 %2, 160
+  %3 = inttoptr i64 %and to ptr
   %add1 = add i64 %1, %len
   %and2 = and i64 %add1, -32
-  %3 = inttoptr i64 %and2 to ptr
-  %cmp.not25 = icmp ugt i64 %and, %and2
-  br i1 %cmp.not25, label %while.end, label %while.body.preheader
+  %4 = inttoptr i64 %and2 to ptr
+  %cmp.not25 = icmp ugt ptr %3, %4
+  br i1 %cmp.not25, label %while.end, label %while.body
 
-while.body.preheader:                             ; preds = %entry
-  %4 = inttoptr i64 %and to ptr
-  br label %while.body
-
-while.body:                                       ; preds = %while.body.preheader, %if.end
-  %t.027 = phi <4 x i64> [ %or12, %if.end ], [ %0, %while.body.preheader ]
-  %p.026 = phi ptr [ %add.ptr, %if.end ], [ %4, %while.body.preheader ]
+while.body:                                       ; preds = %entry, %if.end
+  %t.027 = phi <4 x i64> [ %or12, %if.end ], [ %0, %entry ]
+  %p.026 = phi ptr [ %add.ptr, %if.end ], [ %3, %entry ]
   tail call void @llvm.prefetch.p0(ptr %p.026, i32 0, i32 3, i32 1)
   %5 = tail call i32 @llvm.x86.avx.ptestz.256(<4 x i64> %t.027, <4 x i64> %t.027)
   %tobool.not = icmp eq i32 %5, 0
@@ -225,7 +222,7 @@ if.end:                                           ; preds = %while.body
   %9 = load <4 x i64>, ptr %arrayidx11, align 32
   %or12 = or <4 x i64> %or10, %9
   %add.ptr = getelementptr <4 x i64>, ptr %p.026, i64 4
-  %cmp.not = icmp ugt ptr %add.ptr, %3
+  %cmp.not = icmp ugt ptr %add.ptr, %4
   br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !10
 
 while.end:                                        ; preds = %if.end, %entry
@@ -259,19 +256,16 @@ entry:
   %1 = ptrtoint ptr %buf to i64
   %2 = and i64 %1, -16
   %and = add i64 %2, 80
+  %3 = inttoptr i64 %and to ptr
   %add1 = add i64 %1, %len
   %and2 = and i64 %add1, -16
-  %3 = inttoptr i64 %and2 to ptr
-  %cmp.not22 = icmp ugt i64 %and, %and2
-  br i1 %cmp.not22, label %while.end, label %while.body.preheader
+  %4 = inttoptr i64 %and2 to ptr
+  %cmp.not22 = icmp ugt ptr %3, %4
+  br i1 %cmp.not22, label %while.end, label %while.body
 
-while.body.preheader:                             ; preds = %entry
-  %4 = inttoptr i64 %and to ptr
-  br label %while.body
-
-while.body:                                       ; preds = %while.body.preheader, %if.end
-  %p.024 = phi ptr [ %add.ptr, %if.end ], [ %4, %while.body.preheader ]
-  %t.023 = phi <2 x i64> [ %or18, %if.end ], [ %0, %while.body.preheader ]
+while.body:                                       ; preds = %entry, %if.end
+  %p.024 = phi ptr [ %add.ptr, %if.end ], [ %3, %entry ]
+  %t.023 = phi <2 x i64> [ %or18, %if.end ], [ %0, %entry ]
   tail call void @llvm.prefetch.p0(ptr %p.024, i32 0, i32 3, i32 1)
   %5 = tail call i32 @llvm.x86.sse41.ptestz(<2 x i64> %t.023, <2 x i64> %t.023)
   %tobool5.not = icmp eq i32 %5, 0
@@ -290,16 +284,16 @@ if.end:                                           ; preds = %while.body
   %9 = load <2 x i64>, ptr %arrayidx17, align 16
   %or18 = or <2 x i64> %or16, %9
   %add.ptr = getelementptr <2 x i64>, ptr %p.024, i64 4
-  %cmp.not = icmp ugt ptr %add.ptr, %3
+  %cmp.not = icmp ugt ptr %add.ptr, %4
   br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !11
 
 while.end:                                        ; preds = %if.end, %entry
   %t.0.lcssa = phi <2 x i64> [ %0, %entry ], [ %or18, %if.end ]
-  %arrayidx19 = getelementptr <2 x i64>, ptr %3, i64 -3
+  %arrayidx19 = getelementptr <2 x i64>, ptr %4, i64 -3
   %10 = load <2 x i64>, ptr %arrayidx19, align 16
-  %arrayidx21 = getelementptr <2 x i64>, ptr %3, i64 -2
+  %arrayidx21 = getelementptr <2 x i64>, ptr %4, i64 -2
   %11 = load <2 x i64>, ptr %arrayidx21, align 16
-  %arrayidx23 = getelementptr <2 x i64>, ptr %3, i64 -1
+  %arrayidx23 = getelementptr <2 x i64>, ptr %4, i64 -1
   %12 = load <2 x i64>, ptr %arrayidx23, align 16
   %add.ptr25 = getelementptr i8, ptr %buf, i64 %len
   %add.ptr26 = getelementptr i8, ptr %add.ptr25, i64 -16
@@ -324,19 +318,16 @@ entry:
   %1 = ptrtoint ptr %buf to i64
   %2 = and i64 %1, -16
   %and = add i64 %2, 80
+  %3 = inttoptr i64 %and to ptr
   %add1 = add i64 %1, %len
   %and2 = and i64 %add1, -16
-  %3 = inttoptr i64 %and2 to ptr
-  %cmp.not22 = icmp ugt i64 %and, %and2
-  br i1 %cmp.not22, label %while.end, label %while.body.preheader
+  %4 = inttoptr i64 %and2 to ptr
+  %cmp.not22 = icmp ugt ptr %3, %4
+  br i1 %cmp.not22, label %while.end, label %while.body
 
-while.body.preheader:                             ; preds = %entry
-  %4 = inttoptr i64 %and to ptr
-  br label %while.body
-
-while.body:                                       ; preds = %while.body.preheader, %if.end
-  %t.024 = phi <2 x i64> [ %or19, %if.end ], [ %0, %while.body.preheader ]
-  %p.023 = phi ptr [ %add.ptr, %if.end ], [ %4, %while.body.preheader ]
+while.body:                                       ; preds = %entry, %if.end
+  %t.024 = phi <2 x i64> [ %or19, %if.end ], [ %0, %entry ]
+  %p.023 = phi ptr [ %add.ptr, %if.end ], [ %3, %entry ]
   tail call void @llvm.prefetch.p0(ptr %p.023, i32 0, i32 3, i32 1)
   %5 = bitcast <2 x i64> %t.024 to <16 x i8>
   %6 = icmp ne <16 x i8> %5, zeroinitializer
@@ -357,16 +348,16 @@ if.end:                                           ; preds = %while.body
   %11 = load <2 x i64>, ptr %arrayidx18, align 16
   %or19 = or <2 x i64> %or17, %11
   %add.ptr = getelementptr <2 x i64>, ptr %p.023, i64 4
-  %cmp.not = icmp ugt ptr %add.ptr, %3
+  %cmp.not = icmp ugt ptr %add.ptr, %4
   br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !12
 
 while.end:                                        ; preds = %if.end, %entry
   %t.0.lcssa = phi <2 x i64> [ %0, %entry ], [ %or19, %if.end ]
-  %arrayidx20 = getelementptr <2 x i64>, ptr %3, i64 -3
+  %arrayidx20 = getelementptr <2 x i64>, ptr %4, i64 -3
   %12 = load <2 x i64>, ptr %arrayidx20, align 16
-  %arrayidx22 = getelementptr <2 x i64>, ptr %3, i64 -2
+  %arrayidx22 = getelementptr <2 x i64>, ptr %4, i64 -2
   %13 = load <2 x i64>, ptr %arrayidx22, align 16
-  %arrayidx24 = getelementptr <2 x i64>, ptr %3, i64 -1
+  %arrayidx24 = getelementptr <2 x i64>, ptr %4, i64 -1
   %14 = load <2 x i64>, ptr %arrayidx24, align 16
   %add.ptr26 = getelementptr i8, ptr %buf, i64 %len
   %add.ptr27 = getelementptr i8, ptr %add.ptr26, i64 -16
