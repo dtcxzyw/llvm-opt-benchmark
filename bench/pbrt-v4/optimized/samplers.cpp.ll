@@ -3254,11 +3254,7 @@ if.then8:                                         ; preds = %if.end
   %conv.i.i = trunc i64 %shr3.i.i to i32
   %shr4.i.i = lshr i64 %4, 59
   %conv5.i.i = trunc i64 %shr4.i.i to i32
-  %shr6.i.i = lshr i32 %conv.i.i, %conv5.i.i
-  %add7.i.i = sub nsw i32 0, %conv5.i.i
-  %and.i.i = and i32 %add7.i.i, 31
-  %shl.i.i = shl i32 %conv.i.i, %and.i.i
-  %or.i.i = or i32 %shr6.i.i, %shl.i.i
+  %or.i.i = tail call noundef i32 @llvm.fshr.i32(i32 %conv.i.i, i32 %conv.i.i, i32 %conv5.i.i)
   %conv.i = uitofp i32 %or.i.i to float
   %mul.i = fmul float %conv.i, 0x3DF0000000000000
   %cmp.i.i = fcmp olt float %mul.i, 0x3FEFFFFFE0000000
@@ -3295,15 +3291,11 @@ if.then13:                                        ; preds = %if.end12
   %conv.i.i16 = trunc i64 %shr3.i.i15 to i32
   %shr4.i.i17 = lshr i64 %13, 59
   %conv5.i.i18 = trunc i64 %shr4.i.i17 to i32
-  %shr6.i.i19 = lshr i32 %conv.i.i16, %conv5.i.i18
-  %add7.i.i20 = sub nsw i32 0, %conv5.i.i18
-  %and.i.i21 = and i32 %add7.i.i20, 31
-  %shl.i.i22 = shl i32 %conv.i.i16, %and.i.i21
-  %or.i.i23 = or i32 %shr6.i.i19, %shl.i.i22
-  %conv.i24 = uitofp i32 %or.i.i23 to float
-  %mul.i25 = fmul float %conv.i24, 0x3DF0000000000000
-  %cmp.i.i26 = fcmp olt float %mul.i25, 0x3FEFFFFFE0000000
-  %.sroa.speculated.i27 = select i1 %cmp.i.i26, float %mul.i25, float 0x3FEFFFFFE0000000
+  %or.i.i19 = tail call noundef i32 @llvm.fshr.i32(i32 %conv.i.i16, i32 %conv.i.i16, i32 %conv5.i.i18)
+  %conv.i20 = uitofp i32 %or.i.i19 to float
+  %mul.i21 = fmul float %conv.i20, 0x3DF0000000000000
+  %cmp.i.i22 = fcmp olt float %mul.i21, 0x3FEFFFFFE0000000
+  %.sroa.speculated.i23 = select i1 %cmp.i.i22, float %mul.i21, float 0x3FEFFFFFE0000000
   br label %if.end29
 
 if.else:                                          ; preds = %if.end12
@@ -3317,27 +3309,23 @@ if.else:                                          ; preds = %if.end12
   %mul = fmul float %18, %call.i
   %rng20 = getelementptr inbounds %"class.pbrt::MLTSampler", ptr %this, i64 0, i32 1
   %19 = load i64, ptr %rng20, align 8
-  %mul.i.i28 = mul i64 %19, 6364136223846793005
-  %inc.i.i29 = getelementptr inbounds %"class.pbrt::MLTSampler", ptr %this, i64 0, i32 1, i32 1
-  %20 = load i64, ptr %inc.i.i29, align 8
-  %add.i.i30 = add i64 %mul.i.i28, %20
-  store i64 %add.i.i30, ptr %rng20, align 8
+  %mul.i.i24 = mul i64 %19, 6364136223846793005
+  %inc.i.i25 = getelementptr inbounds %"class.pbrt::MLTSampler", ptr %this, i64 0, i32 1, i32 1
+  %20 = load i64, ptr %inc.i.i25, align 8
+  %add.i.i26 = add i64 %mul.i.i24, %20
+  store i64 %add.i.i26, ptr %rng20, align 8
   %21 = lshr i64 %19, 45
   %22 = lshr i64 %19, 27
-  %shr3.i.i31 = xor i64 %21, %22
-  %conv.i.i32 = trunc i64 %shr3.i.i31 to i32
-  %shr4.i.i33 = lshr i64 %19, 59
-  %conv5.i.i34 = trunc i64 %shr4.i.i33 to i32
-  %shr6.i.i35 = lshr i32 %conv.i.i32, %conv5.i.i34
-  %add7.i.i36 = sub nsw i32 0, %conv5.i.i34
-  %and.i.i37 = and i32 %add7.i.i36, 31
-  %shl.i.i38 = shl i32 %conv.i.i32, %and.i.i37
-  %or.i.i39 = or i32 %shr6.i.i35, %shl.i.i38
-  %conv.i40 = uitofp i32 %or.i.i39 to float
-  %mul.i41 = fmul float %conv.i40, 0x3DF0000000000000
-  %cmp.i.i42 = fcmp olt float %mul.i41, 0x3FEFFFFFE0000000
-  %.sroa.speculated.i43 = select i1 %cmp.i.i42, float %mul.i41, float 0x3FEFFFFFE0000000
-  %mul1.i = fmul float %.sroa.speculated.i43, 2.000000e+00
+  %shr3.i.i27 = xor i64 %21, %22
+  %conv.i.i28 = trunc i64 %shr3.i.i27 to i32
+  %shr4.i.i29 = lshr i64 %19, 59
+  %conv5.i.i30 = trunc i64 %shr4.i.i29 to i32
+  %or.i.i31 = tail call noundef i32 @llvm.fshr.i32(i32 %conv.i.i28, i32 %conv.i.i28, i32 %conv5.i.i30)
+  %conv.i32 = uitofp i32 %or.i.i31 to float
+  %mul.i33 = fmul float %conv.i32, 0x3DF0000000000000
+  %cmp.i.i34 = fcmp olt float %mul.i33, 0x3FEFFFFFE0000000
+  %.sroa.speculated.i35 = select i1 %cmp.i.i34, float %mul.i33, float 0x3FEFFFFFE0000000
+  %mul1.i = fmul float %.sroa.speculated.i35, 2.000000e+00
   %sub.i = fadd float %mul1.i, -1.000000e+00
   %fneg.i.i = fneg float %sub.i
   %23 = tail call noundef float @llvm.fma.f32(float %sub.i, float %fneg.i.i, float 1.000000e+00)
@@ -3353,8 +3341,8 @@ land.rhs.i.i:                                     ; preds = %if.else
   unreachable
 
 land.end.i.i:                                     ; preds = %if.else
-  %cmp.i.i44 = fcmp ogt float %24, 6.125000e+00
-  br i1 %cmp.i.i44, label %if.then.i.i, label %if.else.i.i
+  %cmp.i.i36 = fcmp ogt float %24, 6.125000e+00
+  br i1 %cmp.i.i36, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %land.end.i.i
   %25 = tail call noundef float @llvm.fma.f32(float %call.i.i.i, float 0x3DF4DEB440000000, float 0x3E5F7C9AE0000000)
@@ -3381,9 +3369,9 @@ if.else.i.i:                                      ; preds = %land.end.i.i
 
 _ZN4pbrt12SampleNormalEfff.exit:                  ; preds = %if.then.i.i, %if.else.i.i
   %p.0.i.i = phi float [ %32, %if.then.i.i ], [ %41, %if.else.i.i ]
-  %mul.i45 = fmul float %mul, 0x3FF6A09E60000000
-  %mul.i.i46 = fmul float %sub.i, %p.0.i.i
-  %mul2.i = fmul float %mul.i45, %mul.i.i46
+  %mul.i37 = fmul float %mul, 0x3FF6A09E60000000
+  %mul.i.i38 = fmul float %sub.i, %p.0.i.i
+  %mul2.i = fmul float %mul.i37, %mul.i.i38
   %add.i = fadd float %mul2.i, 0.000000e+00
   %42 = load float, ptr %arrayidx.i, align 8
   %add24 = fadd float %42, %add.i
@@ -3392,7 +3380,7 @@ _ZN4pbrt12SampleNormalEfff.exit:                  ; preds = %if.then.i.i, %if.el
   br label %if.end29
 
 if.end29:                                         ; preds = %_ZN4pbrt12SampleNormalEfff.exit, %if.then13
-  %storemerge = phi float [ %sub28, %_ZN4pbrt12SampleNormalEfff.exit ], [ %.sroa.speculated.i27, %if.then13 ]
+  %storemerge = phi float [ %sub28, %_ZN4pbrt12SampleNormalEfff.exit ], [ %.sroa.speculated.i23, %if.then13 ]
   store float %storemerge, ptr %arrayidx.i, align 8
   %currentIteration30 = getelementptr inbounds %"class.pbrt::MLTSampler", ptr %this, i64 0, i32 6
   %44 = load i64, ptr %currentIteration30, align 8
@@ -3502,11 +3490,7 @@ entry:
   %conv.i.i = trunc i64 %shr3.i.i to i32
   %shr4.i.i = lshr i64 %1, 59
   %conv5.i.i = trunc i64 %shr4.i.i to i32
-  %shr6.i.i = lshr i32 %conv.i.i, %conv5.i.i
-  %add7.i.i = sub nsw i32 0, %conv5.i.i
-  %and.i.i = and i32 %add7.i.i, 31
-  %shl.i.i = shl i32 %conv.i.i, %and.i.i
-  %or.i.i = or i32 %shr6.i.i, %shl.i.i
+  %or.i.i = tail call noundef i32 @llvm.fshr.i32(i32 %conv.i.i, i32 %conv.i.i, i32 %conv5.i.i)
   %conv.i = uitofp i32 %or.i.i to float
   %mul.i = fmul float %conv.i, 0x3DF0000000000000
   %cmp.i.i = fcmp olt float %mul.i, 0x3FEFFFFFE0000000
@@ -18045,6 +18029,9 @@ ehcleanup42:                                      ; preds = %ehcleanup27, %lpad
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #18
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.fshr.i32(i32, i32, i32) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.ctpop.i32(i32) #19

@@ -167,7 +167,7 @@ $_ZN4pbrt6detail9formatOneIRA54_KcEENSt9enable_ifIXntsr3stdE10is_class_vINSt5dec
 @.str.83 = private unnamed_addr constant [12 x i8] c"#?RADIANCE\0A\00", align 1
 @.str.84 = private unnamed_addr constant [8 x i8] c"#?RGBE\0A\00", align 1
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local ptr @stbi_failure_reason() local_unnamed_addr #0 {
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZL22stbi__g_failure_reason)
@@ -195,7 +195,7 @@ entry:
   ret void
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(write, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, inaccessiblemem: none) uwtable
 define dso_local void @stbi_set_flip_vertically_on_load_thread(i32 noundef %flag_true_if_should_flip) local_unnamed_addr #5 {
 entry:
   %0 = tail call align 4 ptr @llvm.threadlocal.address.p0(ptr align 4 @_ZL35stbi__vertically_flip_on_load_local)
@@ -206,7 +206,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local ptr @stbi_load(ptr nocapture noundef readonly %filename, ptr nocapture noundef %x, ptr nocapture noundef %y, ptr noundef %comp, i32 noundef %req_comp) local_unnamed_addr #6 {
+define dso_local noundef ptr @stbi_load(ptr nocapture noundef readonly %filename, ptr nocapture noundef %x, ptr nocapture noundef %y, ptr noundef %comp, i32 noundef %req_comp) local_unnamed_addr #6 {
 entry:
   %s.i = alloca %struct.stbi__context, align 8
   %call.i = tail call noalias noundef ptr @fopen(ptr noundef %filename, ptr noundef nonnull @.str)
@@ -293,7 +293,7 @@ return:                                           ; preds = %stbi_load_from_file
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local ptr @stbi_load_from_file(ptr noundef %f, ptr nocapture noundef %x, ptr nocapture noundef %y, ptr noundef %comp, i32 noundef %req_comp) local_unnamed_addr #6 {
+define dso_local noundef ptr @stbi_load_from_file(ptr noundef %f, ptr nocapture noundef %x, ptr nocapture noundef %y, ptr noundef %comp, i32 noundef %req_comp) local_unnamed_addr #6 {
 entry:
   %s = alloca %struct.stbi__context, align 8
   %io.i.i = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 4
@@ -518,7 +518,7 @@ return:                                           ; preds = %if.end10, %_ZL19stb
 declare noundef i32 @fseek(ptr nocapture noundef, i64 noundef, i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define dso_local ptr @stbi_load_from_file_16(ptr noundef %f, ptr nocapture noundef %x, ptr nocapture noundef %y, ptr noundef %comp, i32 noundef %req_comp) local_unnamed_addr #6 {
+define dso_local noundef ptr @stbi_load_from_file_16(ptr noundef %f, ptr nocapture noundef %x, ptr nocapture noundef %y, ptr noundef %comp, i32 noundef %req_comp) local_unnamed_addr #6 {
 entry:
   %s = alloca %struct.stbi__context, align 8
   %io.i.i = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 4
@@ -739,7 +739,7 @@ return:                                           ; preds = %if.end10, %_ZL19stb
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local ptr @stbi_load_16(ptr nocapture noundef readonly %filename, ptr nocapture noundef %x, ptr nocapture noundef %y, ptr noundef %comp, i32 noundef %req_comp) local_unnamed_addr #6 {
+define dso_local noundef ptr @stbi_load_16(ptr nocapture noundef readonly %filename, ptr nocapture noundef %x, ptr nocapture noundef %y, ptr noundef %comp, i32 noundef %req_comp) local_unnamed_addr #6 {
 entry:
   %s.i = alloca %struct.stbi__context, align 8
   %call.i = tail call noalias noundef ptr @fopen(ptr noundef %filename, ptr noundef nonnull @.str)
@@ -826,7 +826,7 @@ return:                                           ; preds = %stbi_load_from_file
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local ptr @stbi_load_16_from_memory(ptr noundef %buffer, i32 noundef %len, ptr nocapture noundef %x, ptr nocapture noundef %y, ptr noundef %channels_in_file, i32 noundef %desired_channels) local_unnamed_addr #6 {
+define dso_local noundef ptr @stbi_load_16_from_memory(ptr noundef %buffer, i32 noundef %len, ptr nocapture noundef %x, ptr nocapture noundef %y, ptr noundef %channels_in_file, i32 noundef %desired_channels) local_unnamed_addr #6 {
 entry:
   %s = alloca %struct.stbi__context, align 8
   %io.i = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 4
@@ -850,7 +850,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local ptr @stbi_load_16_from_callbacks(ptr nocapture noundef readonly %clbk, ptr noundef %user, ptr nocapture noundef %x, ptr nocapture noundef %y, ptr noundef %channels_in_file, i32 noundef %desired_channels) local_unnamed_addr #6 {
+define dso_local noundef ptr @stbi_load_16_from_callbacks(ptr nocapture noundef readonly %clbk, ptr noundef %user, ptr nocapture noundef %x, ptr nocapture noundef %y, ptr noundef %channels_in_file, i32 noundef %desired_channels) local_unnamed_addr #6 {
 entry:
   %s = alloca %struct.stbi__context, align 8
   %io.i = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 4
@@ -905,7 +905,7 @@ _ZL21stbi__start_callbacksP13stbi__contextP17stbi_io_callbacksPv.exit: ; preds =
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local ptr @stbi_load_from_memory(ptr noundef %buffer, i32 noundef %len, ptr nocapture noundef %x, ptr nocapture noundef %y, ptr noundef %comp, i32 noundef %req_comp) local_unnamed_addr #6 {
+define dso_local noundef ptr @stbi_load_from_memory(ptr noundef %buffer, i32 noundef %len, ptr nocapture noundef %x, ptr nocapture noundef %y, ptr noundef %comp, i32 noundef %req_comp) local_unnamed_addr #6 {
 entry:
   %s = alloca %struct.stbi__context, align 8
   %io.i = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 4
@@ -929,7 +929,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local ptr @stbi_load_from_callbacks(ptr nocapture noundef readonly %clbk, ptr noundef %user, ptr nocapture noundef %x, ptr nocapture noundef %y, ptr noundef %comp, i32 noundef %req_comp) local_unnamed_addr #6 {
+define dso_local noundef ptr @stbi_load_from_callbacks(ptr nocapture noundef readonly %clbk, ptr noundef %user, ptr nocapture noundef %x, ptr nocapture noundef %y, ptr noundef %comp, i32 noundef %req_comp) local_unnamed_addr #6 {
 entry:
   %s = alloca %struct.stbi__context, align 8
   %io.i = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 4
@@ -984,7 +984,7 @@ _ZL21stbi__start_callbacksP13stbi__contextP17stbi_io_callbacksPv.exit: ; preds =
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local ptr @stbi_load_gif_from_memory(ptr noundef %buffer, i32 noundef %len, ptr noundef %delays, ptr nocapture noundef %x, ptr nocapture noundef %y, ptr nocapture noundef %z, ptr noundef %comp, i32 noundef %req_comp) local_unnamed_addr #6 {
+define dso_local noundef ptr @stbi_load_gif_from_memory(ptr noundef %buffer, i32 noundef %len, ptr noundef %delays, ptr nocapture noundef %x, ptr nocapture noundef %y, ptr nocapture noundef %z, ptr noundef %comp, i32 noundef %req_comp) local_unnamed_addr #6 {
 entry:
   %temp.i.i = alloca [2048 x i8], align 16
   %g.i = alloca %struct.stbi__gif, align 8
@@ -1331,7 +1331,7 @@ if.end:                                           ; preds = %_ZL19stbi__vertical
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local ptr @stbi_loadf_from_memory(ptr noundef %buffer, i32 noundef %len, ptr nocapture noundef %x, ptr nocapture noundef %y, ptr noundef %comp, i32 noundef %req_comp) local_unnamed_addr #6 {
+define dso_local noundef ptr @stbi_loadf_from_memory(ptr noundef %buffer, i32 noundef %len, ptr nocapture noundef %x, ptr nocapture noundef %y, ptr noundef %comp, i32 noundef %req_comp) local_unnamed_addr #6 {
 entry:
   %s = alloca %struct.stbi__context, align 8
   %io.i = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 4
@@ -1585,7 +1585,7 @@ return:                                           ; preds = %if.end43.i, %if.the
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local ptr @stbi_loadf_from_callbacks(ptr nocapture noundef readonly %clbk, ptr noundef %user, ptr nocapture noundef %x, ptr nocapture noundef %y, ptr noundef %comp, i32 noundef %req_comp) local_unnamed_addr #6 {
+define dso_local noundef ptr @stbi_loadf_from_callbacks(ptr nocapture noundef readonly %clbk, ptr noundef %user, ptr nocapture noundef %x, ptr nocapture noundef %y, ptr noundef %comp, i32 noundef %req_comp) local_unnamed_addr #6 {
 entry:
   %s = alloca %struct.stbi__context, align 8
   %io.i = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 4
@@ -1640,7 +1640,7 @@ _ZL21stbi__start_callbacksP13stbi__contextP17stbi_io_callbacksPv.exit: ; preds =
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local ptr @stbi_loadf(ptr nocapture noundef readonly %filename, ptr nocapture noundef %x, ptr nocapture noundef %y, ptr noundef %comp, i32 noundef %req_comp) local_unnamed_addr #6 {
+define dso_local noundef ptr @stbi_loadf(ptr nocapture noundef readonly %filename, ptr nocapture noundef %x, ptr nocapture noundef %y, ptr noundef %comp, i32 noundef %req_comp) local_unnamed_addr #6 {
 entry:
   %s.i = alloca %struct.stbi__context, align 8
   %call.i = tail call noalias noundef ptr @fopen(ptr noundef %filename, ptr noundef nonnull @.str)
@@ -1712,7 +1712,7 @@ return:                                           ; preds = %stbi_loadf_from_fil
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local ptr @stbi_loadf_from_file(ptr noundef %f, ptr nocapture noundef %x, ptr nocapture noundef %y, ptr noundef %comp, i32 noundef %req_comp) local_unnamed_addr #6 {
+define dso_local noundef ptr @stbi_loadf_from_file(ptr noundef %f, ptr nocapture noundef %x, ptr nocapture noundef %y, ptr noundef %comp, i32 noundef %req_comp) local_unnamed_addr #6 {
 entry:
   %s = alloca %struct.stbi__context, align 8
   %io.i.i = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 4
@@ -1767,7 +1767,7 @@ _ZL16stbi__start_fileP13stbi__contextP8_IO_FILE.exit: ; preds = %if.then.i.i.i, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local i32 @stbi_is_hdr_from_memory(ptr noundef %buffer, i32 noundef %len) local_unnamed_addr #6 {
+define dso_local noundef i32 @stbi_is_hdr_from_memory(ptr noundef %buffer, i32 noundef %len) local_unnamed_addr #6 {
 entry:
   %s = alloca %struct.stbi__context, align 8
   %io.i = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 4
@@ -1973,7 +1973,7 @@ if.end:                                           ; preds = %_ZL10stbi__get8P13s
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local i32 @stbi_is_hdr(ptr nocapture noundef readonly %filename) local_unnamed_addr #6 {
+define dso_local noundef i32 @stbi_is_hdr(ptr nocapture noundef readonly %filename) local_unnamed_addr #6 {
 entry:
   %s.i = alloca %struct.stbi__context, align 8
   %call.i = tail call noalias noundef ptr @fopen(ptr noundef %filename, ptr noundef nonnull @.str)
@@ -2042,7 +2042,7 @@ if.end:                                           ; preds = %stbi_is_hdr_from_fi
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local i32 @stbi_is_hdr_from_file(ptr noundef %f) local_unnamed_addr #6 {
+define dso_local noundef i32 @stbi_is_hdr_from_file(ptr noundef %f) local_unnamed_addr #6 {
 entry:
   %s = alloca %struct.stbi__context, align 8
   %call = tail call i64 @ftell(ptr noundef %f)
@@ -2102,7 +2102,7 @@ _ZL16stbi__start_fileP13stbi__contextP8_IO_FILE.exit: ; preds = %if.then.i.i.i, 
 declare noundef i64 @ftell(ptr nocapture noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define dso_local i32 @stbi_is_hdr_from_callbacks(ptr nocapture noundef readonly %clbk, ptr noundef %user) local_unnamed_addr #6 {
+define dso_local noundef i32 @stbi_is_hdr_from_callbacks(ptr nocapture noundef readonly %clbk, ptr noundef %user) local_unnamed_addr #6 {
 entry:
   %s = alloca %struct.stbi__context, align 8
   %io.i = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 4
@@ -2187,7 +2187,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local i32 @stbi_info(ptr nocapture noundef readonly %filename, ptr noundef %x, ptr noundef %y, ptr noundef %comp) local_unnamed_addr #6 {
+define dso_local noundef i32 @stbi_info(ptr nocapture noundef readonly %filename, ptr noundef %x, ptr noundef %y, ptr noundef %comp) local_unnamed_addr #6 {
 entry:
   %s.i = alloca %struct.stbi__context, align 8
   %call.i = tail call noalias noundef ptr @fopen(ptr noundef %filename, ptr noundef nonnull @.str)
@@ -2261,7 +2261,7 @@ return:                                           ; preds = %stbi_info_from_file
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local i32 @stbi_info_from_file(ptr noundef %f, ptr noundef %x, ptr noundef %y, ptr noundef %comp) local_unnamed_addr #6 {
+define dso_local noundef i32 @stbi_info_from_file(ptr noundef %f, ptr noundef %x, ptr noundef %y, ptr noundef %comp) local_unnamed_addr #6 {
 entry:
   %s = alloca %struct.stbi__context, align 8
   %call = tail call i64 @ftell(ptr noundef %f)
@@ -2610,7 +2610,7 @@ return:                                           ; preds = %if.end28.else.i, %i
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local i32 @stbi_is_16_bit(ptr nocapture noundef readonly %filename) local_unnamed_addr #6 {
+define dso_local noundef i32 @stbi_is_16_bit(ptr nocapture noundef readonly %filename) local_unnamed_addr #6 {
 entry:
   %s.i = alloca %struct.stbi__context, align 8
   %call.i = tail call noalias noundef ptr @fopen(ptr noundef %filename, ptr noundef nonnull @.str)
@@ -2684,7 +2684,7 @@ return:                                           ; preds = %stbi_is_16_bit_from
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local i32 @stbi_is_16_bit_from_file(ptr noundef %f) local_unnamed_addr #6 {
+define dso_local noundef i32 @stbi_is_16_bit_from_file(ptr noundef %f) local_unnamed_addr #6 {
 entry:
   %s = alloca %struct.stbi__context, align 8
   %call = tail call i64 @ftell(ptr noundef %f)
@@ -2821,7 +2821,7 @@ return:                                           ; preds = %if.end9.i, %if.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local i32 @stbi_info_from_memory(ptr noundef %buffer, i32 noundef %len, ptr noundef %x, ptr noundef %y, ptr noundef %comp) local_unnamed_addr #6 {
+define dso_local noundef i32 @stbi_info_from_memory(ptr noundef %buffer, i32 noundef %len, ptr noundef %x, ptr noundef %y, ptr noundef %comp) local_unnamed_addr #6 {
 entry:
   %s = alloca %struct.stbi__context, align 8
   %io.i = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 4
@@ -2845,7 +2845,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local i32 @stbi_info_from_callbacks(ptr nocapture noundef readonly %c, ptr noundef %user, ptr noundef %x, ptr noundef %y, ptr noundef %comp) local_unnamed_addr #6 {
+define dso_local noundef i32 @stbi_info_from_callbacks(ptr nocapture noundef readonly %c, ptr noundef %user, ptr noundef %x, ptr noundef %y, ptr noundef %comp) local_unnamed_addr #6 {
 entry:
   %s = alloca %struct.stbi__context, align 8
   %io.i = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 4
@@ -2900,7 +2900,7 @@ _ZL21stbi__start_callbacksP13stbi__contextP17stbi_io_callbacksPv.exit: ; preds =
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local i32 @stbi_is_16_bit_from_memory(ptr noundef %buffer, i32 noundef %len) local_unnamed_addr #6 {
+define dso_local noundef i32 @stbi_is_16_bit_from_memory(ptr noundef %buffer, i32 noundef %len) local_unnamed_addr #6 {
 entry:
   %s = alloca %struct.stbi__context, align 8
   %io.i = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 4
@@ -2924,7 +2924,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local i32 @stbi_is_16_bit_from_callbacks(ptr nocapture noundef readonly %c, ptr noundef %user) local_unnamed_addr #6 {
+define dso_local noundef i32 @stbi_is_16_bit_from_callbacks(ptr nocapture noundef readonly %c, ptr noundef %user) local_unnamed_addr #6 {
 entry:
   %s = alloca %struct.stbi__context, align 8
   %io.i = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 4
@@ -6645,8 +6645,8 @@ if.then69.i.us.i.i.i.i:                           ; preds = %if.else63.i.us.i.i.
   %dec71.i.us.i.i.i.i = add nsw i32 %533, -1
   store i32 %dec71.i.us.i.i.i.i, ptr %eob_run.i.i.i.i.i, align 4
   %534 = load i32, ptr %spec_end.i.i.i.i, align 8
-  %cmp74.not138.i.us.i.i.i.i = icmp sgt i32 %529, %534
-  br i1 %cmp74.not138.i.us.i.i.i.i, label %if.end270.us.i.i.i.i, label %for.body.lr.ph.i.us.i.i.i.i
+  %cmp74.not133.i.us.i.i.i.i = icmp sgt i32 %529, %534
+  br i1 %cmp74.not133.i.us.i.i.i.i, label %if.end270.us.i.i.i.i, label %for.body.lr.ph.i.us.i.i.i.i
 
 for.body.lr.ph.i.us.i.i.i.i:                      ; preds = %if.then69.i.us.i.i.i.i
   %sext92.i.us.i.i.i.i = shl i32 65536, %532
@@ -6669,18 +6669,18 @@ for.body.i.us.i.i.i.i:                            ; preds = %for.inc.i.us.i.i.i.
 if.then81.i.us.i.i.i.i:                           ; preds = %for.body.i.us.i.i.i.i
   %540 = load i32, ptr %code_bits.i.i.i.i.i, align 4
   %cmp.i96.i.us.i.i.i.i = icmp slt i32 %540, 1
-  br i1 %cmp.i96.i.us.i.i.i.i, label %if.then.i100.i.us.i.i.i.i, label %_ZL18stbi__jpeg_get_bitP10stbi__jpeg.exit.i.us.i.i.i.i
+  br i1 %cmp.i96.i.us.i.i.i.i, label %if.then.i98.i.us.i.i.i.i, label %_ZL18stbi__jpeg_get_bitP10stbi__jpeg.exit.i.us.i.i.i.i
 
-if.then.i100.i.us.i.i.i.i:                        ; preds = %if.then81.i.us.i.i.i.i
+if.then.i98.i.us.i.i.i.i:                         ; preds = %if.then81.i.us.i.i.i.i
   call fastcc void @_ZL24stbi__grow_buffer_unsafeP10stbi__jpeg(ptr noundef nonnull %call.i.i155)
-  %.pre.i101.i.us.i.i.i.i = load i32, ptr %code_bits.i.i.i.i.i, align 4
+  %.pre.i99.i.us.i.i.i.i = load i32, ptr %code_bits.i.i.i.i.i, align 4
   br label %_ZL18stbi__jpeg_get_bitP10stbi__jpeg.exit.i.us.i.i.i.i
 
-_ZL18stbi__jpeg_get_bitP10stbi__jpeg.exit.i.us.i.i.i.i: ; preds = %if.then.i100.i.us.i.i.i.i, %if.then81.i.us.i.i.i.i
-  %541 = phi i32 [ %.pre.i101.i.us.i.i.i.i, %if.then.i100.i.us.i.i.i.i ], [ %540, %if.then81.i.us.i.i.i.i ]
+_ZL18stbi__jpeg_get_bitP10stbi__jpeg.exit.i.us.i.i.i.i: ; preds = %if.then.i98.i.us.i.i.i.i, %if.then81.i.us.i.i.i.i
+  %541 = phi i32 [ %.pre.i99.i.us.i.i.i.i, %if.then.i98.i.us.i.i.i.i ], [ %540, %if.then81.i.us.i.i.i.i ]
   %542 = load i32, ptr %code_buffer.i.i.i.i.i, align 8
-  %shl.i98.i.us.i.i.i.i = shl i32 %542, 1
-  store i32 %shl.i98.i.us.i.i.i.i, ptr %code_buffer.i.i.i.i.i, align 8
+  %shl.i.i.us.i.i.i.i = shl i32 %542, 1
+  store i32 %shl.i.i.us.i.i.i.i, ptr %code_buffer.i.i.i.i.i, align 8
   %dec.i.i.us.i.i.i.i = add nsw i32 %541, -1
   store i32 %dec.i.i.us.i.i.i.i, ptr %code_bits.i.i.i.i.i, align 4
   %tobool83.not.i.us.i.i.i.i = icmp sgt i32 %542, -1
@@ -6730,23 +6730,23 @@ if.end117.i.us.i.i.i.i:                           ; preds = %do.body109.i.us.i.i
 
 if.end139.i.us.i.i.i.i:                           ; preds = %if.end117.i.us.i.i.i.i
   %547 = load i32, ptr %code_bits.i.i.i.i.i, align 4
-  %cmp.i115.i.us.i.i.i.i = icmp slt i32 %547, 1
-  br i1 %cmp.i115.i.us.i.i.i.i, label %if.then.i120.i.us.i.i.i.i, label %_ZL18stbi__jpeg_get_bitP10stbi__jpeg.exit122.i.us.i.i.i.i
+  %cmp.i110.i.us.i.i.i.i = icmp slt i32 %547, 1
+  br i1 %cmp.i110.i.us.i.i.i.i, label %if.then.i115.i.us.i.i.i.i, label %_ZL18stbi__jpeg_get_bitP10stbi__jpeg.exit117.i.us.i.i.i.i
 
-if.then.i120.i.us.i.i.i.i:                        ; preds = %if.end139.i.us.i.i.i.i
+if.then.i115.i.us.i.i.i.i:                        ; preds = %if.end139.i.us.i.i.i.i
   call fastcc void @_ZL24stbi__grow_buffer_unsafeP10stbi__jpeg(ptr noundef nonnull %call.i.i155)
-  %.pre.i121.i.us.i.i.i.i = load i32, ptr %code_bits.i.i.i.i.i, align 4
-  br label %_ZL18stbi__jpeg_get_bitP10stbi__jpeg.exit122.i.us.i.i.i.i
+  %.pre.i116.i.us.i.i.i.i = load i32, ptr %code_bits.i.i.i.i.i, align 4
+  br label %_ZL18stbi__jpeg_get_bitP10stbi__jpeg.exit117.i.us.i.i.i.i
 
-_ZL18stbi__jpeg_get_bitP10stbi__jpeg.exit122.i.us.i.i.i.i: ; preds = %if.then.i120.i.us.i.i.i.i, %if.end139.i.us.i.i.i.i
-  %548 = phi i32 [ %.pre.i121.i.us.i.i.i.i, %if.then.i120.i.us.i.i.i.i ], [ %547, %if.end139.i.us.i.i.i.i ]
+_ZL18stbi__jpeg_get_bitP10stbi__jpeg.exit117.i.us.i.i.i.i: ; preds = %if.then.i115.i.us.i.i.i.i, %if.end139.i.us.i.i.i.i
+  %548 = phi i32 [ %.pre.i116.i.us.i.i.i.i, %if.then.i115.i.us.i.i.i.i ], [ %547, %if.end139.i.us.i.i.i.i ]
   %549 = load i32, ptr %code_buffer.i.i.i.i.i, align 8
-  %shl.i117.i.us.i.i.i.i = shl i32 %549, 1
-  store i32 %shl.i117.i.us.i.i.i.i, ptr %code_buffer.i.i.i.i.i, align 8
-  %dec.i118.i.us.i.i.i.i = add nsw i32 %548, -1
-  store i32 %dec.i118.i.us.i.i.i.i, ptr %code_bits.i.i.i.i.i, align 4
-  %tobool141.not144.i.us.i.i.i.i = icmp slt i32 %549, 0
-  %sub146.conv143.i.us.i.i.i.i = select i1 %tobool141.not144.i.us.i.i.i.i, i32 %conv143.i.us.i.i.i.i, i32 %sub146.i.us.i.i.i.i
+  %shl.i112.i.us.i.i.i.i = shl i32 %549, 1
+  store i32 %shl.i112.i.us.i.i.i.i, ptr %code_buffer.i.i.i.i.i, align 8
+  %dec.i113.i.us.i.i.i.i = add nsw i32 %548, -1
+  store i32 %dec.i113.i.us.i.i.i.i, ptr %code_bits.i.i.i.i.i, align 4
+  %tobool141.not139.i.us.i.i.i.i = icmp slt i32 %549, 0
+  %sub146.conv143.i.us.i.i.i.i = select i1 %tobool141.not139.i.us.i.i.i.i, i32 %conv143.i.us.i.i.i.i, i32 %sub146.i.us.i.i.i.i
   br label %if.end148.i.us.i.i.i.i
 
 if.then121.i.us.i.i.i.i:                          ; preds = %if.end117.i.us.i.i.i.i
@@ -6762,53 +6762,49 @@ if.then123.i.us.i.i.i.i:                          ; preds = %if.then121.i.us.i.i
 
 if.then128.i.us.i.i.i.i:                          ; preds = %if.then123.i.us.i.i.i.i
   %550 = load i32, ptr %code_bits.i.i.i.i.i, align 4
-  %cmp.i103.i.us.i.i.i.i = icmp slt i32 %550, %shr119.i.us.i.i.i.i
-  br i1 %cmp.i103.i.us.i.i.i.i, label %if.then.i112.i.us.i.i.i.i, label %_ZL19stbi__jpeg_get_bitsP10stbi__jpegi.exit.i.us.i.i.i.i
+  %cmp.i101.i.us.i.i.i.i = icmp slt i32 %550, %shr119.i.us.i.i.i.i
+  br i1 %cmp.i101.i.us.i.i.i.i, label %if.then.i107.i.us.i.i.i.i, label %_ZL19stbi__jpeg_get_bitsP10stbi__jpegi.exit.i.us.i.i.i.i
 
-if.then.i112.i.us.i.i.i.i:                        ; preds = %if.then128.i.us.i.i.i.i
+if.then.i107.i.us.i.i.i.i:                        ; preds = %if.then128.i.us.i.i.i.i
   call fastcc void @_ZL24stbi__grow_buffer_unsafeP10stbi__jpeg(ptr noundef nonnull %call.i.i155)
-  %.pre.i113.i.us.i.i.i.i = load i32, ptr %code_bits.i.i.i.i.i, align 4
+  %.pre.i108.i.us.i.i.i.i = load i32, ptr %code_bits.i.i.i.i.i, align 4
   %.pre.i.us.i.i.i.i = load i32, ptr %eob_run.i.i.i.i.i, align 4
   br label %_ZL19stbi__jpeg_get_bitsP10stbi__jpegi.exit.i.us.i.i.i.i
 
-_ZL19stbi__jpeg_get_bitsP10stbi__jpegi.exit.i.us.i.i.i.i: ; preds = %if.then.i112.i.us.i.i.i.i, %if.then128.i.us.i.i.i.i
-  %551 = phi i32 [ %.pre.i.us.i.i.i.i, %if.then.i112.i.us.i.i.i.i ], [ %sub125.i.us.i.i.i.i, %if.then128.i.us.i.i.i.i ]
-  %552 = phi i32 [ %.pre.i113.i.us.i.i.i.i, %if.then.i112.i.us.i.i.i.i ], [ %550, %if.then128.i.us.i.i.i.i ]
+_ZL19stbi__jpeg_get_bitsP10stbi__jpegi.exit.i.us.i.i.i.i: ; preds = %if.then.i107.i.us.i.i.i.i, %if.then128.i.us.i.i.i.i
+  %551 = phi i32 [ %.pre.i.us.i.i.i.i, %if.then.i107.i.us.i.i.i.i ], [ %sub125.i.us.i.i.i.i, %if.then128.i.us.i.i.i.i ]
+  %552 = phi i32 [ %.pre.i108.i.us.i.i.i.i, %if.then.i107.i.us.i.i.i.i ], [ %550, %if.then128.i.us.i.i.i.i ]
   %553 = load i32, ptr %code_buffer.i.i.i.i.i, align 8
-  %shl.i105.i.us.i.i.i.i = shl i32 %553, %shr119.i.us.i.i.i.i
-  %sub.i106.i.us.i.i.i.i = sub nsw i32 0, %shr119.i.us.i.i.i.i
-  %and.i107.i.us.i.i.i.i = and i32 %sub.i106.i.us.i.i.i.i, 31
-  %shr.i.i.us.i.i.i.i = lshr i32 %553, %and.i107.i.us.i.i.i.i
-  %or.i108.i.us.i.i.i.i = or i32 %shl.i105.i.us.i.i.i.i, %shr.i.i.us.i.i.i.i
-  %idxprom.i109.i.us.i.i.i.i = zext nneg i32 %shr119.i.us.i.i.i.i to i64
-  %arrayidx.i110.i.us.i.i.i.i = getelementptr inbounds [17 x i32], ptr @_ZL11stbi__bmask, i64 0, i64 %idxprom.i109.i.us.i.i.i.i
-  %554 = load i32, ptr %arrayidx.i110.i.us.i.i.i.i, align 4
-  %not.i111.i.us.i.i.i.i = xor i32 %554, -1
-  %and2.i.i.us.i.i.i.i = and i32 %or.i108.i.us.i.i.i.i, %not.i111.i.us.i.i.i.i
+  %or.i103.i.us.i.i.i.i = call i32 @llvm.fshl.i32(i32 %553, i32 %553, i32 %shr119.i.us.i.i.i.i)
+  %idxprom.i104.i.us.i.i.i.i = zext nneg i32 %shr119.i.us.i.i.i.i to i64
+  %arrayidx.i105.i.us.i.i.i.i = getelementptr inbounds [17 x i32], ptr @_ZL11stbi__bmask, i64 0, i64 %idxprom.i104.i.us.i.i.i.i
+  %554 = load i32, ptr %arrayidx.i105.i.us.i.i.i.i, align 4
+  %not.i106.i.us.i.i.i.i = xor i32 %554, -1
+  %and2.i.i.us.i.i.i.i = and i32 %or.i103.i.us.i.i.i.i, %not.i106.i.us.i.i.i.i
   store i32 %and2.i.i.us.i.i.i.i, ptr %code_buffer.i.i.i.i.i, align 8
-  %and6.i.i.us.i.i.i.i = and i32 %or.i108.i.us.i.i.i.i, %554
+  %and6.i.i.us.i.i.i.i = and i32 %or.i103.i.us.i.i.i.i, %554
   %sub8.i.i.us.i.i.i.i = sub nsw i32 %552, %shr119.i.us.i.i.i.i
   store i32 %sub8.i.i.us.i.i.i.i, ptr %code_bits.i.i.i.i.i, align 4
   %add131.i.us.i.i.i.i = add nsw i32 %and6.i.i.us.i.i.i.i, %551
   store i32 %add131.i.us.i.i.i.i, ptr %eob_run.i.i.i.i.i, align 4
   br label %if.end148.i.us.i.i.i.i
 
-if.end148.i.us.i.i.i.i:                           ; preds = %_ZL19stbi__jpeg_get_bitsP10stbi__jpegi.exit.i.us.i.i.i.i, %if.then123.i.us.i.i.i.i, %if.then121.i.us.i.i.i.i, %_ZL18stbi__jpeg_get_bitP10stbi__jpeg.exit122.i.us.i.i.i.i
-  %r110.0.i.us.i.i.i.i = phi i32 [ 15, %if.then121.i.us.i.i.i.i ], [ 64, %_ZL19stbi__jpeg_get_bitsP10stbi__jpegi.exit.i.us.i.i.i.i ], [ 64, %if.then123.i.us.i.i.i.i ], [ %shr119.i.us.i.i.i.i, %_ZL18stbi__jpeg_get_bitP10stbi__jpeg.exit122.i.us.i.i.i.i ]
-  %s111.0.i.us.i.i.i.i = phi i32 [ 0, %if.then121.i.us.i.i.i.i ], [ 0, %_ZL19stbi__jpeg_get_bitsP10stbi__jpegi.exit.i.us.i.i.i.i ], [ 0, %if.then123.i.us.i.i.i.i ], [ %sub146.conv143.i.us.i.i.i.i, %_ZL18stbi__jpeg_get_bitP10stbi__jpeg.exit122.i.us.i.i.i.i ]
+if.end148.i.us.i.i.i.i:                           ; preds = %_ZL19stbi__jpeg_get_bitsP10stbi__jpegi.exit.i.us.i.i.i.i, %if.then123.i.us.i.i.i.i, %if.then121.i.us.i.i.i.i, %_ZL18stbi__jpeg_get_bitP10stbi__jpeg.exit117.i.us.i.i.i.i
+  %r110.0.i.us.i.i.i.i = phi i32 [ 15, %if.then121.i.us.i.i.i.i ], [ 64, %_ZL19stbi__jpeg_get_bitsP10stbi__jpegi.exit.i.us.i.i.i.i ], [ 64, %if.then123.i.us.i.i.i.i ], [ %shr119.i.us.i.i.i.i, %_ZL18stbi__jpeg_get_bitP10stbi__jpeg.exit117.i.us.i.i.i.i ]
+  %s111.0.i.us.i.i.i.i = phi i32 [ 0, %if.then121.i.us.i.i.i.i ], [ 0, %_ZL19stbi__jpeg_get_bitsP10stbi__jpegi.exit.i.us.i.i.i.i ], [ 0, %if.then123.i.us.i.i.i.i ], [ %sub146.conv143.i.us.i.i.i.i, %_ZL18stbi__jpeg_get_bitP10stbi__jpeg.exit117.i.us.i.i.i.i ]
   %555 = load i32, ptr %spec_end.i.i.i.i, align 8
-  %cmp150.not141.i.us.i.i.i.i = icmp sgt i32 %k.3.i.us.i.i.i.i, %555
-  br i1 %cmp150.not141.i.us.i.i.i.i, label %do.cond190.i.us.i.i.i.i, label %while.body.preheader.i.us.i.i.i.i
+  %cmp150.not136.i.us.i.i.i.i = icmp sgt i32 %k.3.i.us.i.i.i.i, %555
+  br i1 %cmp150.not136.i.us.i.i.i.i, label %do.cond190.i.us.i.i.i.i, label %while.body.preheader.i.us.i.i.i.i
 
 while.body.preheader.i.us.i.i.i.i:                ; preds = %if.end148.i.us.i.i.i.i
   %556 = sext i32 %k.3.i.us.i.i.i.i to i64
   br label %while.body.i.us.i.i.i.i
 
 while.body.i.us.i.i.i.i:                          ; preds = %if.end189.i.us.i.i.i.i, %while.body.preheader.i.us.i.i.i.i
-  %indvars.iv151.i.us.i.i.i.i = phi i64 [ %556, %while.body.preheader.i.us.i.i.i.i ], [ %indvars.iv.next152.i.us.i.i.i.i, %if.end189.i.us.i.i.i.i ]
-  %r110.1142.i.us.i.i.i.i = phi i32 [ %r110.0.i.us.i.i.i.i, %while.body.preheader.i.us.i.i.i.i ], [ %r110.2.i.us.i.i.i.i, %if.end189.i.us.i.i.i.i ]
-  %indvars.iv.next152.i.us.i.i.i.i = add nsw i64 %indvars.iv151.i.us.i.i.i.i, 1
-  %arrayidx154.i.us.i.i.i.i = getelementptr inbounds [79 x i8], ptr @_ZL19stbi__jpeg_dezigzag, i64 0, i64 %indvars.iv151.i.us.i.i.i.i
+  %indvars.iv146.i.us.i.i.i.i = phi i64 [ %556, %while.body.preheader.i.us.i.i.i.i ], [ %indvars.iv.next147.i.us.i.i.i.i, %if.end189.i.us.i.i.i.i ]
+  %r110.1137.i.us.i.i.i.i = phi i32 [ %r110.0.i.us.i.i.i.i, %while.body.preheader.i.us.i.i.i.i ], [ %r110.2.i.us.i.i.i.i, %if.end189.i.us.i.i.i.i ]
+  %indvars.iv.next147.i.us.i.i.i.i = add nsw i64 %indvars.iv146.i.us.i.i.i.i, 1
+  %arrayidx154.i.us.i.i.i.i = getelementptr inbounds [79 x i8], ptr @_ZL19stbi__jpeg_dezigzag, i64 0, i64 %indvars.iv146.i.us.i.i.i.i
   %557 = load i8, ptr %arrayidx154.i.us.i.i.i.i, align 1
   %idxprom155.i.us.i.i.i.i = zext i8 %557 to i64
   %arrayidx156.i.us.i.i.i.i = getelementptr inbounds i16, ptr %add.ptr239.us.i.i.i.i, i64 %idxprom155.i.us.i.i.i.i
@@ -6818,25 +6814,25 @@ while.body.i.us.i.i.i.i:                          ; preds = %if.end189.i.us.i.i.
 
 if.then159.i.us.i.i.i.i:                          ; preds = %while.body.i.us.i.i.i.i
   %559 = load i32, ptr %code_bits.i.i.i.i.i, align 4
-  %cmp.i124.i.us.i.i.i.i = icmp slt i32 %559, 1
-  br i1 %cmp.i124.i.us.i.i.i.i, label %if.then.i129.i.us.i.i.i.i, label %_ZL18stbi__jpeg_get_bitP10stbi__jpeg.exit131.i.us.i.i.i.i
+  %cmp.i119.i.us.i.i.i.i = icmp slt i32 %559, 1
+  br i1 %cmp.i119.i.us.i.i.i.i, label %if.then.i124.i.us.i.i.i.i, label %_ZL18stbi__jpeg_get_bitP10stbi__jpeg.exit126.i.us.i.i.i.i
 
-if.then.i129.i.us.i.i.i.i:                        ; preds = %if.then159.i.us.i.i.i.i
+if.then.i124.i.us.i.i.i.i:                        ; preds = %if.then159.i.us.i.i.i.i
   call fastcc void @_ZL24stbi__grow_buffer_unsafeP10stbi__jpeg(ptr noundef nonnull %call.i.i155)
-  %.pre.i130.i.us.i.i.i.i = load i32, ptr %code_bits.i.i.i.i.i, align 4
-  br label %_ZL18stbi__jpeg_get_bitP10stbi__jpeg.exit131.i.us.i.i.i.i
+  %.pre.i125.i.us.i.i.i.i = load i32, ptr %code_bits.i.i.i.i.i, align 4
+  br label %_ZL18stbi__jpeg_get_bitP10stbi__jpeg.exit126.i.us.i.i.i.i
 
-_ZL18stbi__jpeg_get_bitP10stbi__jpeg.exit131.i.us.i.i.i.i: ; preds = %if.then.i129.i.us.i.i.i.i, %if.then159.i.us.i.i.i.i
-  %560 = phi i32 [ %.pre.i130.i.us.i.i.i.i, %if.then.i129.i.us.i.i.i.i ], [ %559, %if.then159.i.us.i.i.i.i ]
+_ZL18stbi__jpeg_get_bitP10stbi__jpeg.exit126.i.us.i.i.i.i: ; preds = %if.then.i124.i.us.i.i.i.i, %if.then159.i.us.i.i.i.i
+  %560 = phi i32 [ %.pre.i125.i.us.i.i.i.i, %if.then.i124.i.us.i.i.i.i ], [ %559, %if.then159.i.us.i.i.i.i ]
   %561 = load i32, ptr %code_buffer.i.i.i.i.i, align 8
-  %shl.i126.i.us.i.i.i.i = shl i32 %561, 1
-  store i32 %shl.i126.i.us.i.i.i.i, ptr %code_buffer.i.i.i.i.i, align 8
-  %dec.i127.i.us.i.i.i.i = add nsw i32 %560, -1
-  store i32 %dec.i127.i.us.i.i.i.i, ptr %code_bits.i.i.i.i.i, align 4
+  %shl.i121.i.us.i.i.i.i = shl i32 %561, 1
+  store i32 %shl.i121.i.us.i.i.i.i, ptr %code_buffer.i.i.i.i.i, align 8
+  %dec.i122.i.us.i.i.i.i = add nsw i32 %560, -1
+  store i32 %dec.i122.i.us.i.i.i.i, ptr %code_bits.i.i.i.i.i, align 4
   %tobool161.not.i.us.i.i.i.i = icmp sgt i32 %561, -1
   br i1 %tobool161.not.i.us.i.i.i.i, label %if.end189.i.us.i.i.i.i, label %if.then162.i.us.i.i.i.i
 
-if.then162.i.us.i.i.i.i:                          ; preds = %_ZL18stbi__jpeg_get_bitP10stbi__jpeg.exit131.i.us.i.i.i.i
+if.then162.i.us.i.i.i.i:                          ; preds = %_ZL18stbi__jpeg_get_bitP10stbi__jpeg.exit126.i.us.i.i.i.i
   %562 = load i16, ptr %arrayidx156.i.us.i.i.i.i, align 2
   %conv163.i.us.i.i.i.i = sext i16 %562 to i32
   %and165.i.us.i.i.i.i = and i32 %conv143.i.us.i.i.i.i, %conv163.i.us.i.i.i.i
@@ -6858,33 +6854,33 @@ if.then170.i.us.i.i.i.i:                          ; preds = %if.then167.i.us.i.i
   br label %if.end189.i.us.i.i.i.i
 
 if.else183.i.us.i.i.i.i:                          ; preds = %while.body.i.us.i.i.i.i
-  %cmp184.i.us.i.i.i.i = icmp eq i32 %r110.1142.i.us.i.i.i.i, 0
+  %cmp184.i.us.i.i.i.i = icmp eq i32 %r110.1137.i.us.i.i.i.i, 0
   br i1 %cmp184.i.us.i.i.i.i, label %if.then185.i.us.i.i.i.i, label %if.end187.i.us.i.i.i.i
 
 if.end187.i.us.i.i.i.i:                           ; preds = %if.else183.i.us.i.i.i.i
-  %dec188.i.us.i.i.i.i = add nsw i32 %r110.1142.i.us.i.i.i.i, -1
+  %dec188.i.us.i.i.i.i = add nsw i32 %r110.1137.i.us.i.i.i.i, -1
   br label %if.end189.i.us.i.i.i.i
 
-if.end189.i.us.i.i.i.i:                           ; preds = %if.end187.i.us.i.i.i.i, %if.then170.i.us.i.i.i.i, %if.else175.i.us.i.i.i.i, %if.then162.i.us.i.i.i.i, %_ZL18stbi__jpeg_get_bitP10stbi__jpeg.exit131.i.us.i.i.i.i
-  %r110.2.i.us.i.i.i.i = phi i32 [ %r110.1142.i.us.i.i.i.i, %if.then170.i.us.i.i.i.i ], [ %r110.1142.i.us.i.i.i.i, %if.else175.i.us.i.i.i.i ], [ %r110.1142.i.us.i.i.i.i, %if.then162.i.us.i.i.i.i ], [ %r110.1142.i.us.i.i.i.i, %_ZL18stbi__jpeg_get_bitP10stbi__jpeg.exit131.i.us.i.i.i.i ], [ %dec188.i.us.i.i.i.i, %if.end187.i.us.i.i.i.i ]
+if.end189.i.us.i.i.i.i:                           ; preds = %if.end187.i.us.i.i.i.i, %if.then170.i.us.i.i.i.i, %if.else175.i.us.i.i.i.i, %if.then162.i.us.i.i.i.i, %_ZL18stbi__jpeg_get_bitP10stbi__jpeg.exit126.i.us.i.i.i.i
+  %r110.2.i.us.i.i.i.i = phi i32 [ %r110.1137.i.us.i.i.i.i, %if.then170.i.us.i.i.i.i ], [ %r110.1137.i.us.i.i.i.i, %if.else175.i.us.i.i.i.i ], [ %r110.1137.i.us.i.i.i.i, %if.then162.i.us.i.i.i.i ], [ %r110.1137.i.us.i.i.i.i, %_ZL18stbi__jpeg_get_bitP10stbi__jpeg.exit126.i.us.i.i.i.i ], [ %dec188.i.us.i.i.i.i, %if.end187.i.us.i.i.i.i ]
   %563 = load i32, ptr %spec_end.i.i.i.i, align 8
   %564 = sext i32 %563 to i64
-  %cmp150.not.not.i.us.i.i.i.i = icmp slt i64 %indvars.iv151.i.us.i.i.i.i, %564
+  %cmp150.not.not.i.us.i.i.i.i = icmp slt i64 %indvars.iv146.i.us.i.i.i.i, %564
   br i1 %cmp150.not.not.i.us.i.i.i.i, label %while.body.i.us.i.i.i.i, label %do.cond190.loopexit.i.us.i.i.i.i, !llvm.loop !53
 
 do.cond190.loopexit.i.us.i.i.i.i:                 ; preds = %if.end189.i.us.i.i.i.i
-  %565 = trunc i64 %indvars.iv.next152.i.us.i.i.i.i to i32
+  %565 = trunc i64 %indvars.iv.next147.i.us.i.i.i.i to i32
   br label %do.cond190.i.us.i.i.i.i
 
 if.then185.i.us.i.i.i.i:                          ; preds = %if.else183.i.us.i.i.i.i
-  %566 = trunc i64 %indvars.iv.next152.i.us.i.i.i.i to i32
+  %566 = trunc i64 %indvars.iv.next147.i.us.i.i.i.i to i32
   %conv186.i.us.i.i.i.i = trunc i32 %s111.0.i.us.i.i.i.i to i16
   store i16 %conv186.i.us.i.i.i.i, ptr %arrayidx156.i.us.i.i.i.i, align 2
-  %.pre154.i.us.i.i.i.i = load i32, ptr %spec_end.i.i.i.i, align 8
+  %.pre149.i.us.i.i.i.i = load i32, ptr %spec_end.i.i.i.i, align 8
   br label %do.cond190.i.us.i.i.i.i
 
 do.cond190.i.us.i.i.i.i:                          ; preds = %if.then185.i.us.i.i.i.i, %do.cond190.loopexit.i.us.i.i.i.i, %if.end148.i.us.i.i.i.i
-  %567 = phi i32 [ %.pre154.i.us.i.i.i.i, %if.then185.i.us.i.i.i.i ], [ %555, %if.end148.i.us.i.i.i.i ], [ %563, %do.cond190.loopexit.i.us.i.i.i.i ]
+  %567 = phi i32 [ %.pre149.i.us.i.i.i.i, %if.then185.i.us.i.i.i.i ], [ %555, %if.end148.i.us.i.i.i.i ], [ %563, %do.cond190.loopexit.i.us.i.i.i.i ]
   %k.5.i.us.i.i.i.i = phi i32 [ %566, %if.then185.i.us.i.i.i.i ], [ %k.3.i.us.i.i.i.i, %if.end148.i.us.i.i.i.i ], [ %565, %do.cond190.loopexit.i.us.i.i.i.i ]
   %cmp192.not.i.us.i.i.i.i = icmp sgt i32 %k.5.i.us.i.i.i.i, %567
   br i1 %cmp192.not.i.us.i.i.i.i, label %if.end270.us.i.i.i.i, label %do.body109.i.us.i.i.i.i, !llvm.loop !54
@@ -6963,11 +6959,7 @@ if.then.i.i.us.i.i.i.i:                           ; preds = %if.else48.i.us.i.i.
 _ZL20stbi__extend_receiveP10stbi__jpegi.exit.i.us.i.i.i.i: ; preds = %if.then.i.i.us.i.i.i.i, %if.else48.i.us.i.i.i.i
   %575 = phi i32 [ %.pre.i.i.us.i.i.i.i, %if.then.i.i.us.i.i.i.i ], [ %574, %if.else48.i.us.i.i.i.i ]
   %576 = load i32, ptr %code_buffer.i.i.i.i.i, align 8
-  %shl.i.i.us.i.i.i.i = shl i32 %576, %and30.i.us.i.i.i.i
-  %sub.i.i.us.i.i.i.i = sub nsw i32 0, %and30.i.us.i.i.i.i
-  %and.i.i.us.i.i.i.i = and i32 %sub.i.i.us.i.i.i.i, 31
-  %shr3.i.i.us.i.i.i.i = lshr i32 %576, %and.i.i.us.i.i.i.i
-  %or.i.i.us.i.i.i.i = or i32 %shl.i.i.us.i.i.i.i, %shr3.i.i.us.i.i.i.i
+  %or.i.i.us.i.i.i.i = call i32 @llvm.fshl.i32(i32 %576, i32 %576, i32 %and30.i.us.i.i.i.i)
   %idxprom.i.i.us.i.i.i.i = zext nneg i32 %and30.i.us.i.i.i.i to i64
   %arrayidx.i.i.us.i.i.i.i = getelementptr inbounds [17 x i32], ptr @_ZL11stbi__bmask, i64 0, i64 %idxprom.i.i.us.i.i.i.i
   %577 = load i32, ptr %arrayidx.i.i.us.i.i.i.i, align 4
@@ -9405,8 +9397,8 @@ entry:
   br i1 %cmp.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %bcmp8 = call i32 @bcmp(ptr noundef nonnull dereferenceable(7) %buffer, ptr noundef nonnull dereferenceable(7) @.str.72, i64 7)
-  %cmp3.not = icmp eq i32 %bcmp8, 0
+  %bcmp7 = call i32 @bcmp(ptr noundef nonnull dereferenceable(7) %buffer, ptr noundef nonnull dereferenceable(7) @.str.72, i64 7)
+  %cmp3.not = icmp eq i32 %bcmp7, 0
   br i1 %cmp3.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %land.lhs.true
@@ -9415,16 +9407,16 @@ if.then:                                          ; preds = %land.lhs.true
   br label %return
 
 if.end:                                           ; preds = %land.lhs.true, %entry
-  %call631 = call fastcc noundef ptr @_ZL18stbi__hdr_gettokenP13stbi__contextPc(ptr noundef %s, ptr noundef nonnull %buffer)
+  %call630 = call fastcc noundef ptr @_ZL18stbi__hdr_gettokenP13stbi__contextPc(ptr noundef %s, ptr noundef nonnull %buffer)
   %1 = load i8, ptr %buffer, align 16
-  %cmp732 = icmp eq i8 %1, 0
-  br i1 %cmp732, label %if.then15, label %if.end9
+  %cmp731 = icmp eq i8 %1, 0
+  br i1 %cmp731, label %if.then15, label %if.end9
 
 if.end9:                                          ; preds = %if.end, %if.end9
-  %valid.033 = phi i32 [ %spec.select, %if.end9 ], [ 0, %if.end ]
-  %bcmp9 = call i32 @bcmp(ptr noundef nonnull dereferenceable(23) %buffer, ptr noundef nonnull dereferenceable(23) @.str.74, i64 23)
-  %cmp11 = icmp eq i32 %bcmp9, 0
-  %spec.select = select i1 %cmp11, i32 1, i32 %valid.033
+  %valid.032 = phi i32 [ %spec.select, %if.end9 ], [ 0, %if.end ]
+  %bcmp8 = call i32 @bcmp(ptr noundef nonnull dereferenceable(23) %buffer, ptr noundef nonnull dereferenceable(23) @.str.74, i64 23)
+  %cmp11 = icmp eq i32 %bcmp8, 0
+  %spec.select = select i1 %cmp11, i32 1, i32 %valid.032
   %call6 = call fastcc noundef ptr @_ZL18stbi__hdr_gettokenP13stbi__contextPc(ptr noundef %s, ptr noundef nonnull %buffer)
   %2 = load i8, ptr %buffer, align 16
   %cmp7 = icmp eq i8 %2, 0
@@ -9441,8 +9433,8 @@ if.then15:                                        ; preds = %if.end, %for.end
 
 if.end19:                                         ; preds = %for.end
   %call21 = call fastcc noundef ptr @_ZL18stbi__hdr_gettokenP13stbi__contextPc(ptr noundef %s, ptr noundef nonnull %buffer)
-  %bcmp10 = call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %buffer, ptr noundef nonnull dereferenceable(3) @.str.76, i64 3)
-  %tobool23.not = icmp eq i32 %bcmp10, 0
+  %bcmp9 = call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %buffer, ptr noundef nonnull dereferenceable(3) @.str.76, i64 3)
+  %tobool23.not = icmp eq i32 %bcmp9, 0
   br i1 %tobool23.not, label %if.end28, label %if.then24
 
 if.then24:                                        ; preds = %if.end19
@@ -9458,15 +9450,15 @@ if.end28:                                         ; preds = %if.end19
   br label %while.cond
 
 while.cond:                                       ; preds = %while.cond, %if.end28
-  %incdec.ptr34 = phi ptr [ %incdec.ptr, %while.cond ], [ %token.promoted, %if.end28 ]
-  %5 = load i8, ptr %incdec.ptr34, align 1
+  %incdec.ptr33 = phi ptr [ %incdec.ptr, %while.cond ], [ %token.promoted, %if.end28 ]
+  %5 = load i8, ptr %incdec.ptr33, align 1
   %cmp32 = icmp eq i8 %5, 32
-  %incdec.ptr = getelementptr inbounds i8, ptr %incdec.ptr34, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %incdec.ptr33, i64 1
   br i1 %cmp32, label %while.cond, label %while.end, !llvm.loop !84
 
 while.end:                                        ; preds = %while.cond
   %conv30 = trunc i64 %call29 to i32
-  %call33 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %incdec.ptr34, ptr noundef nonnull dereferenceable(4) @.str.78, i64 noundef 3) #40
+  %call33 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %incdec.ptr33, ptr noundef nonnull dereferenceable(4) @.str.78, i64 noundef 3) #40
   %tobool34.not = icmp eq i32 %call33, 0
   br i1 %tobool34.not, label %if.end39, label %if.then35
 
@@ -9476,7 +9468,7 @@ if.then35:                                        ; preds = %while.end
   br label %return
 
 if.end39:                                         ; preds = %while.end
-  %add.ptr40 = getelementptr inbounds i8, ptr %incdec.ptr34, i64 3
+  %add.ptr40 = getelementptr inbounds i8, ptr %incdec.ptr33, i64 3
   store ptr %add.ptr40, ptr %token, align 8
   %call41 = call i64 @strtol(ptr nocapture noundef nonnull %add.ptr40, ptr noundef null, i32 noundef 10) #36
   %call41.fr = freeze i64 %call41
@@ -9536,8 +9528,8 @@ if.end74:                                         ; preds = %if.end67
   br i1 %or.cond, label %for.cond78, label %for.cond95.preheader
 
 for.cond95.preheader:                             ; preds = %if.end74
-  %cmp9650 = icmp sgt i32 %conv30, 0
-  br i1 %cmp9650, label %for.body97.us.preheader, label %return
+  %cmp9649 = icmp sgt i32 %conv30, 0
+  br i1 %cmp9649, label %for.body97.us.preheader, label %return
 
 for.body97.us.preheader:                          ; preds = %for.cond95.preheader
   %mul.i.i = shl i64 %call41.fr, 2
@@ -9554,21 +9546,21 @@ for.body97.us.preheader:                          ; preds = %for.cond95.preheade
   %add.ptr.i.i = getelementptr inbounds %struct.stbi__context, ptr %s, i64 0, i32 8, i64 1
   %12 = sext i32 %spec.store.select to i64
   %13 = and i64 %call41.fr, 4294967295
-  %wide.trip.count131 = and i64 %call29, 4294967295
-  %wide.trip.count125 = and i64 %call41.fr, 4294967295
+  %wide.trip.count130 = and i64 %call29, 4294967295
+  %wide.trip.count124 = and i64 %call41.fr, 4294967295
   br label %for.body97.us
 
 for.body97.us:                                    ; preds = %for.body97.us.preheader, %for.inc210.us
-  %indvars.iv127 = phi i64 [ 0, %for.body97.us.preheader ], [ %indvars.iv.next128, %for.inc210.us ]
-  %scanline.052.us = phi ptr [ null, %for.body97.us.preheader ], [ %scanline.1.us, %for.inc210.us ]
+  %indvars.iv126 = phi i64 [ 0, %for.body97.us.preheader ], [ %indvars.iv.next127, %for.inc210.us ]
+  %scanline.051.us = phi ptr [ null, %for.body97.us.preheader ], [ %scanline.1.us, %for.inc210.us ]
   %call98.us = call fastcc noundef zeroext i8 @_ZL10stbi__get8P13stbi__context(ptr noundef %s)
   %call100.us = call fastcc noundef zeroext i8 @_ZL10stbi__get8P13stbi__context(ptr noundef %s)
   %call102.us = call fastcc noundef zeroext i8 @_ZL10stbi__get8P13stbi__context(ptr noundef %s)
   %cmp104.us = icmp eq i8 %call98.us, 2
   %cmp106.us = icmp eq i8 %call100.us, 2
-  %or.cond1.not11.us = and i1 %cmp104.us, %cmp106.us
+  %or.cond1.not10.us = and i1 %cmp104.us, %cmp106.us
   %tobool108.not.us = icmp sgt i8 %call102.us, -1
-  %or.cond90.us = and i1 %or.cond1.not11.us, %tobool108.not.us
+  %or.cond90.us = and i1 %or.cond1.not10.us, %tobool108.not.us
   br i1 %or.cond90.us, label %if.end120.us, label %if.then109
 
 if.end120.us:                                     ; preds = %for.body97.us
@@ -9581,42 +9573,42 @@ if.end120.us:                                     ; preds = %for.body97.us
   br i1 %cmp123.not.us, label %if.end128.us, label %if.then124
 
 if.end128.us:                                     ; preds = %if.end120.us
-  %cmp129.us = icmp eq ptr %scanline.052.us, null
-  br i1 %cmp129.us, label %_ZL17stbi__malloc_mad2iii.exit.us, label %if.end138.us
+  %cmp129.us = icmp eq ptr %scanline.051.us, null
+  br i1 %cmp129.us, label %if.then130.us, label %if.end138.us
 
-_ZL17stbi__malloc_mad2iii.exit.us:                ; preds = %if.end128.us
+if.then130.us:                                    ; preds = %if.end128.us
   %call.i.i98.us = call noalias noundef ptr @malloc(i64 noundef %conv.i97) #38
   %tobool132.not.us = icmp eq ptr %call.i.i98.us, null
   br i1 %tobool132.not.us, label %if.then133, label %if.end138.us
 
-if.end138.us:                                     ; preds = %_ZL17stbi__malloc_mad2iii.exit.us, %if.end128.us
-  %scanline.1.us = phi ptr [ %call.i.i98.us, %_ZL17stbi__malloc_mad2iii.exit.us ], [ %scanline.052.us, %if.end128.us ]
+if.end138.us:                                     ; preds = %if.then130.us, %if.end128.us
+  %scanline.1.us = phi ptr [ %call.i.i98.us, %if.then130.us ], [ %scanline.051.us, %if.end128.us ]
   br label %while.cond142.preheader.us.us
 
 for.inc210.us:                                    ; preds = %for.body198.us
-  %indvars.iv.next128 = add nuw nsw i64 %indvars.iv127, 1
-  %exitcond132.not = icmp eq i64 %indvars.iv.next128, %wide.trip.count131
-  br i1 %exitcond132.not, label %if.then214, label %for.body97.us, !llvm.loop !85
+  %indvars.iv.next127 = add nuw nsw i64 %indvars.iv126, 1
+  %exitcond131.not = icmp eq i64 %indvars.iv.next127, %wide.trip.count130
+  br i1 %exitcond131.not, label %if.then214, label %for.body97.us, !llvm.loop !85
 
 for.body198.us:                                   ; preds = %for.body198.lr.ph.us, %for.body198.us
-  %indvars.iv119 = phi i64 [ 0, %for.body198.lr.ph.us ], [ %indvars.iv.next120, %for.body198.us ]
-  %14 = add nuw nsw i64 %indvars.iv119, %56
+  %indvars.iv118 = phi i64 [ 0, %for.body198.lr.ph.us ], [ %indvars.iv.next119, %for.body198.us ]
+  %14 = add nuw nsw i64 %indvars.iv118, %56
   %15 = mul nsw i64 %14, %12
   %add.ptr203.us = getelementptr inbounds float, ptr %call68, i64 %15
-  %16 = shl nsw i64 %indvars.iv119, 2
+  %16 = shl nsw i64 %indvars.iv118, 2
   %add.ptr206.us = getelementptr inbounds i8, ptr %scanline.1.us, i64 %16
   call fastcc void @_ZL17stbi__hdr_convertPfPhi(ptr noundef nonnull %add.ptr203.us, ptr noundef nonnull %add.ptr206.us, i32 noundef %spec.store.select)
-  %indvars.iv.next120 = add nuw nsw i64 %indvars.iv119, 1
-  %exitcond126.not = icmp eq i64 %indvars.iv.next120, %wide.trip.count125
-  br i1 %exitcond126.not, label %for.inc210.us, label %for.body198.us, !llvm.loop !86
+  %indvars.iv.next119 = add nuw nsw i64 %indvars.iv118, 1
+  %exitcond125.not = icmp eq i64 %indvars.iv.next119, %wide.trip.count124
+  br i1 %exitcond125.not, label %for.inc210.us, label %for.body198.us, !llvm.loop !86
 
 while.cond142.preheader.us.us:                    ; preds = %while.cond142.for.inc193_crit_edge.us.us, %if.end138.us
-  %k.046.us.us = phi i32 [ 0, %if.end138.us ], [ %inc194.us.us, %while.cond142.for.inc193_crit_edge.us.us ]
+  %k.045.us.us = phi i32 [ 0, %if.end138.us ], [ %inc194.us.us, %while.cond142.for.inc193_crit_edge.us.us ]
   br label %while.body144.us.us
 
 while.body144.us.us:                              ; preds = %if.end191.us.us, %while.cond142.preheader.us.us
-  %sub45.us.us = phi i32 [ %conv42, %while.cond142.preheader.us.us ], [ %sub.us.us, %if.end191.us.us ]
-  %i.244.us.us = phi i32 [ 0, %while.cond142.preheader.us.us ], [ %i.5.us.us, %if.end191.us.us ]
+  %sub44.us.us = phi i32 [ %conv42, %while.cond142.preheader.us.us ], [ %sub.us.us, %if.end191.us.us ]
+  %i.243.us.us = phi i32 [ 0, %while.cond142.preheader.us.us ], [ %i.5.us.us, %if.end191.us.us ]
   %17 = load ptr, ptr %img_buffer.i99, align 8
   %18 = load ptr, ptr %img_buffer_end.i100, align 8
   %cmp.i101.us.us = icmp ult ptr %17, %18
@@ -9677,12 +9669,12 @@ _ZL10stbi__get8P13stbi__context.exit.us.us:       ; preds = %if.then.i107.us.us,
   br i1 %cmp147.us.us, label %if.then148.us.us, label %if.else170.us.us
 
 if.else170.us.us:                                 ; preds = %_ZL10stbi__get8P13stbi__context.exit.us.us
-  %cmp172.us.us = icmp ult i32 %sub45.us.us, %conv146.us.us
+  %cmp172.us.us = icmp ult i32 %sub44.us.us, %conv146.us.us
   br i1 %cmp172.us.us, label %if.then173, label %for.cond178.preheader.us.us
 
 for.body181.us.us:                                ; preds = %for.body181.us.us.preheader, %_ZL10stbi__get8P13stbi__context.exit173.us.us
-  %indvars.iv110 = phi i64 [ %55, %for.body181.us.us.preheader ], [ %indvars.iv.next111, %_ZL10stbi__get8P13stbi__context.exit173.us.us ]
-  %z.137.us.us = phi i32 [ 0, %for.body181.us.us.preheader ], [ %inc189.us.us, %_ZL10stbi__get8P13stbi__context.exit173.us.us ]
+  %indvars.iv109 = phi i64 [ %55, %for.body181.us.us.preheader ], [ %indvars.iv.next110, %_ZL10stbi__get8P13stbi__context.exit173.us.us ]
+  %z.136.us.us = phi i32 [ 0, %for.body181.us.us.preheader ], [ %inc189.us.us, %_ZL10stbi__get8P13stbi__context.exit173.us.us ]
   %30 = load ptr, ptr %img_buffer.i99, align 8
   %31 = load ptr, ptr %img_buffer_end.i100, align 8
   %cmp.i143.us.us = icmp ult ptr %30, %31
@@ -9736,16 +9728,16 @@ if.then.i171.us.us:                               ; preds = %for.body181.us.us
 
 _ZL10stbi__get8P13stbi__context.exit173.us.us:    ; preds = %if.then.i171.us.us, %_ZL19stbi__refill_bufferP13stbi__context.exit.i165.us.us, %if.end.i144.us.us
   %retval.0.i168.us.us = phi i8 [ %40, %if.then.i171.us.us ], [ %39, %_ZL19stbi__refill_bufferP13stbi__context.exit.i165.us.us ], [ 0, %if.end.i144.us.us ]
-  %indvars.iv.next111 = add i64 %indvars.iv110, 1
-  %41 = trunc i64 %indvars.iv110 to i32
+  %indvars.iv.next110 = add i64 %indvars.iv109, 1
+  %41 = trunc i64 %indvars.iv109 to i32
   %mul184.us.us = shl nsw i32 %41, 2
-  %add185.us.us = add nuw nsw i32 %mul184.us.us, %k.046.us.us
+  %add185.us.us = add nuw nsw i32 %mul184.us.us, %k.045.us.us
   %idxprom186.us.us = sext i32 %add185.us.us to i64
   %arrayidx187.us.us = getelementptr inbounds i8, ptr %scanline.1.us, i64 %idxprom186.us.us
   store i8 %retval.0.i168.us.us, ptr %arrayidx187.us.us, align 1
-  %inc189.us.us = add nuw nsw i32 %z.137.us.us, 1
-  %exitcond113.not = icmp eq i32 %inc189.us.us, %conv146.us.us
-  br i1 %exitcond113.not, label %if.end191.us.us.loopexit61, label %for.body181.us.us, !llvm.loop !87
+  %inc189.us.us = add nuw nsw i32 %z.136.us.us, 1
+  %exitcond112.not = icmp eq i32 %inc189.us.us, %conv146.us.us
+  br i1 %exitcond112.not, label %if.end191.us.us.loopexit60, label %for.body181.us.us, !llvm.loop !87
 
 if.then148.us.us:                                 ; preds = %_ZL10stbi__get8P13stbi__context.exit.us.us
   %cmp.i110.us.us = icmp ult ptr %29, %28
@@ -9801,60 +9793,60 @@ _ZL10stbi__get8P13stbi__context.exit140.us.us:    ; preds = %if.then.i138.us.us,
   %retval.0.i135.us.us = phi i8 [ %50, %if.then.i138.us.us ], [ %49, %_ZL19stbi__refill_bufferP13stbi__context.exit.i132.us.us ], [ 0, %if.end.i111.us.us ]
   %sub151.us.us = and i8 %retval.0.i106.us.us, 127
   %conv153.us.us = zext nneg i8 %sub151.us.us to i32
-  %cmp154.us.us = icmp ult i32 %sub45.us.us, %conv153.us.us
+  %cmp154.us.us = icmp ult i32 %sub44.us.us, %conv153.us.us
   br i1 %cmp154.us.us, label %if.then155, label %for.cond160.preheader.us.us
 
 if.end191.us.us.loopexit:                         ; preds = %for.body163.us.us
-  %51 = trunc i64 %indvars.iv.next115 to i32
+  %51 = trunc i64 %indvars.iv.next114 to i32
   br label %if.end191.us.us
 
-if.end191.us.us.loopexit61:                       ; preds = %_ZL10stbi__get8P13stbi__context.exit173.us.us
-  %52 = trunc i64 %indvars.iv.next111 to i32
+if.end191.us.us.loopexit60:                       ; preds = %_ZL10stbi__get8P13stbi__context.exit173.us.us
+  %52 = trunc i64 %indvars.iv.next110 to i32
   br label %if.end191.us.us
 
-if.end191.us.us:                                  ; preds = %if.end.i102.us.us, %if.end191.us.us.loopexit61, %if.end191.us.us.loopexit, %for.cond178.preheader.us.us, %for.cond160.preheader.us.us
-  %i.5.us.us = phi i32 [ %i.244.us.us, %for.cond160.preheader.us.us ], [ %i.244.us.us, %for.cond178.preheader.us.us ], [ %51, %if.end191.us.us.loopexit ], [ %52, %if.end191.us.us.loopexit61 ], [ %i.244.us.us, %if.end.i102.us.us ]
+if.end191.us.us:                                  ; preds = %if.end.i102.us.us, %if.end191.us.us.loopexit60, %if.end191.us.us.loopexit, %for.cond178.preheader.us.us, %for.cond160.preheader.us.us
+  %i.5.us.us = phi i32 [ %i.243.us.us, %for.cond160.preheader.us.us ], [ %i.243.us.us, %for.cond178.preheader.us.us ], [ %51, %if.end191.us.us.loopexit ], [ %52, %if.end191.us.us.loopexit60 ], [ %i.243.us.us, %if.end.i102.us.us ]
   %sub.us.us = sub nsw i32 %conv42, %i.5.us.us
   %cmp143.us.us = icmp sgt i32 %sub.us.us, 0
   br i1 %cmp143.us.us, label %while.body144.us.us, label %while.cond142.for.inc193_crit_edge.us.us, !llvm.loop !88
 
 for.body163.us.us:                                ; preds = %for.body163.us.us.preheader, %for.body163.us.us
-  %indvars.iv114 = phi i64 [ %54, %for.body163.us.us.preheader ], [ %indvars.iv.next115, %for.body163.us.us ]
-  %z.041.us.us = phi i32 [ 0, %for.body163.us.us.preheader ], [ %inc168.us.us, %for.body163.us.us ]
-  %indvars.iv.next115 = add i64 %indvars.iv114, 1
-  %53 = trunc i64 %indvars.iv114 to i32
+  %indvars.iv113 = phi i64 [ %54, %for.body163.us.us.preheader ], [ %indvars.iv.next114, %for.body163.us.us ]
+  %z.040.us.us = phi i32 [ 0, %for.body163.us.us.preheader ], [ %inc168.us.us, %for.body163.us.us ]
+  %indvars.iv.next114 = add i64 %indvars.iv113, 1
+  %53 = trunc i64 %indvars.iv113 to i32
   %mul165.us.us = shl nsw i32 %53, 2
-  %add.us.us = add nuw nsw i32 %mul165.us.us, %k.046.us.us
+  %add.us.us = add nuw nsw i32 %mul165.us.us, %k.045.us.us
   %idxprom.us.us = sext i32 %add.us.us to i64
   %arrayidx166.us.us = getelementptr inbounds i8, ptr %scanline.1.us, i64 %idxprom.us.us
   store i8 %retval.0.i135.us.us, ptr %arrayidx166.us.us, align 1
-  %inc168.us.us = add nuw nsw i32 %z.041.us.us, 1
-  %exitcond117.not = icmp eq i32 %inc168.us.us, %conv153.us.us
-  br i1 %exitcond117.not, label %if.end191.us.us.loopexit, label %for.body163.us.us, !llvm.loop !89
+  %inc168.us.us = add nuw nsw i32 %z.040.us.us, 1
+  %exitcond116.not = icmp eq i32 %inc168.us.us, %conv153.us.us
+  br i1 %exitcond116.not, label %if.end191.us.us.loopexit, label %for.body163.us.us, !llvm.loop !89
 
 for.cond160.preheader.us.us:                      ; preds = %_ZL10stbi__get8P13stbi__context.exit140.us.us
-  %cmp16239.us.us.not = icmp eq i8 %sub151.us.us, 0
-  br i1 %cmp16239.us.us.not, label %if.end191.us.us, label %for.body163.us.us.preheader
+  %cmp16238.us.us.not = icmp eq i8 %sub151.us.us, 0
+  br i1 %cmp16238.us.us.not, label %if.end191.us.us, label %for.body163.us.us.preheader
 
 for.body163.us.us.preheader:                      ; preds = %for.cond160.preheader.us.us
-  %54 = zext i32 %i.244.us.us to i64
+  %54 = zext i32 %i.243.us.us to i64
   br label %for.body163.us.us
 
 for.cond178.preheader.us.us:                      ; preds = %if.else170.us.us
-  %cmp18035.us.us.not = icmp eq i8 %retval.0.i106.us.us, 0
-  br i1 %cmp18035.us.us.not, label %if.end191.us.us, label %for.body181.us.us.preheader
+  %cmp18034.us.us.not = icmp eq i8 %retval.0.i106.us.us, 0
+  br i1 %cmp18034.us.us.not, label %if.end191.us.us, label %for.body181.us.us.preheader
 
 for.body181.us.us.preheader:                      ; preds = %for.cond178.preheader.us.us
-  %55 = zext i32 %i.244.us.us to i64
+  %55 = zext i32 %i.243.us.us to i64
   br label %for.body181.us.us
 
 while.cond142.for.inc193_crit_edge.us.us:         ; preds = %if.end191.us.us
-  %inc194.us.us = add nuw nsw i32 %k.046.us.us, 1
-  %exitcond118.not = icmp eq i32 %inc194.us.us, 4
-  br i1 %exitcond118.not, label %for.body198.lr.ph.us, label %while.cond142.preheader.us.us, !llvm.loop !90
+  %inc194.us.us = add nuw nsw i32 %k.045.us.us, 1
+  %exitcond117.not = icmp eq i32 %inc194.us.us, 4
+  br i1 %exitcond117.not, label %for.body198.lr.ph.us, label %while.cond142.preheader.us.us, !llvm.loop !90
 
 for.body198.lr.ph.us:                             ; preds = %while.cond142.for.inc193_crit_edge.us.us
-  %56 = mul nsw i64 %indvars.iv127, %13
+  %56 = mul nsw i64 %indvars.iv126, %13
   br label %for.body198.us
 
 for.cond78:                                       ; preds = %if.end74, %for.inc92
@@ -10035,17 +10027,17 @@ if.then109:                                       ; preds = %for.body97.us
   %arrayidx118 = getelementptr inbounds [4 x i8], ptr %rgbe110, i64 0, i64 3
   store i8 %call117, ptr %arrayidx118, align 1
   call fastcc void @_ZL17stbi__hdr_convertPfPhi(ptr noundef nonnull %call68, ptr noundef nonnull %rgbe110, i32 noundef %spec.store.select)
-  call void @free(ptr noundef %scanline.052.us) #36
+  call void @free(ptr noundef %scanline.051.us) #36
   br label %main_decode_loop
 
 if.then124:                                       ; preds = %if.end120.us
   call void @free(ptr noundef %call68) #36
-  call void @free(ptr noundef %scanline.052.us) #36
+  call void @free(ptr noundef %scanline.051.us) #36
   %74 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZL22stbi__g_failure_reason)
   store ptr @.str.79, ptr %74, align 8
   br label %return
 
-if.then133:                                       ; preds = %_ZL17stbi__malloc_mad2iii.exit.us
+if.then133:                                       ; preds = %if.then130.us
   call void @free(ptr noundef %call68) #36
   %75 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZL22stbi__g_failure_reason)
   store ptr @.str.8, ptr %75, align 8
@@ -13104,7 +13096,7 @@ return:                                           ; preds = %entry, %for.end200,
   ret ptr %retval.0
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal fastcc void @_ZL27stbi__bmp_set_mask_defaultsP14stbi__bmp_datai(ptr nocapture noundef %info, i32 noundef %compress) unnamed_addr #15 {
 entry:
   %cmp1 = icmp eq i32 %compress, 0
@@ -16790,7 +16782,7 @@ return:                                           ; preds = %while.body, %while.
   ret i32 %retval.0
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal void @_ZL15stbi__idct_simdPhiPs(ptr nocapture noundef writeonly %out, i32 noundef %out_stride, ptr nocapture noundef readonly %data) #22 {
 entry:
   %0 = load <8 x i16>, ptr %data, align 16
@@ -17091,7 +17083,7 @@ entry:
   ret void
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal void @_ZL23stbi__YCbCr_to_RGB_simdPhPKhS1_S1_ii(ptr nocapture noundef writeonly %out, ptr nocapture noundef readonly %y, ptr nocapture noundef readonly %pcb, ptr nocapture noundef readonly %pcr, i32 noundef %count, i32 noundef %step) #23 {
 entry:
   %cmp = icmp eq i32 %step, 4
@@ -17224,7 +17216,7 @@ for.end94:                                        ; preds = %for.body46, %if.end
   ret void
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind memory(argmem: readwrite) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal noundef ptr @_ZL28stbi__resample_row_hv_2_simdPhS_S_ii(ptr noundef returned writeonly %out, ptr nocapture noundef readonly %in_near, ptr nocapture noundef readonly %in_far, i32 noundef %w, i32 %hs) #24 {
 entry:
   %cmp = icmp eq i32 %w, 1
@@ -19123,7 +19115,7 @@ return:                                           ; preds = %for.inc340, %for.en
   ret i32 %retval.0
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal fastcc noundef i32 @_ZL19stbi__build_huffmanP13stbi__huffmanPi(ptr nocapture noundef %h, ptr nocapture noundef readonly %count) unnamed_addr #26 {
 entry:
   br label %for.cond1.preheader
@@ -19573,11 +19565,7 @@ _ZL20stbi__extend_receiveP10stbi__jpegi.exit:     ; preds = %cond.true, %if.then
   %2 = phi i32 [ %.pre.i, %if.then.i ], [ %1, %cond.true ]
   %code_buffer.i = getelementptr inbounds %struct.stbi__jpeg, ptr %j, i64 0, i32 12
   %3 = load i32, ptr %code_buffer.i, align 8
-  %shl.i = shl i32 %3, %call
-  %sub.i = sub nsw i32 0, %call
-  %and.i = and i32 %sub.i, 31
-  %shr3.i = lshr i32 %3, %and.i
-  %or.i = or i32 %shl.i, %shr3.i
+  %or.i = tail call i32 @llvm.fshl.i32(i32 %3, i32 %3, i32 %call)
   %idxprom.i = zext nneg i32 %call to i64
   %arrayidx.i = getelementptr inbounds [17 x i32], ptr @_ZL11stbi__bmask, i64 0, i64 %idxprom.i
   %4 = load i32, ptr %arrayidx.i, align 4
@@ -19628,11 +19616,11 @@ if.end17:                                         ; preds = %if.then16, %do.body
   br i1 %tobool21.not, label %if.else, label %if.then22
 
 if.then22:                                        ; preds = %if.end17
-  %conv2062 = zext i16 %11 to i32
-  %shr23 = lshr i32 %conv2062, 4
+  %conv2058 = zext i16 %11 to i32
+  %shr23 = lshr i32 %conv2058, 4
   %and24 = and i32 %shr23, 15
   %add25 = add nsw i32 %and24, %k.0
-  %and26 = and i32 %conv2062, 15
+  %and26 = and i32 %conv2058, 15
   %shl = shl i32 %10, %and26
   store i32 %shl, ptr %code_buffer, align 8
   %12 = load i32, ptr %code_bits, align 4
@@ -19678,46 +19666,42 @@ if.else53:                                        ; preds = %if.end44
   %15 = load i8, ptr %arrayidx57, align 1
   %16 = load i32, ptr %code_bits, align 4
   %cmp.i42 = icmp slt i32 %16, %and45
-  br i1 %cmp.i42, label %if.then.i59, label %_ZL20stbi__extend_receiveP10stbi__jpegi.exit61
+  br i1 %cmp.i42, label %if.then.i55, label %_ZL20stbi__extend_receiveP10stbi__jpegi.exit57
 
-if.then.i59:                                      ; preds = %if.else53
+if.then.i55:                                      ; preds = %if.else53
   tail call fastcc void @_ZL24stbi__grow_buffer_unsafeP10stbi__jpeg(ptr noundef nonnull %j)
-  %.pre.i60 = load i32, ptr %code_bits, align 4
-  br label %_ZL20stbi__extend_receiveP10stbi__jpegi.exit61
+  %.pre.i56 = load i32, ptr %code_bits, align 4
+  br label %_ZL20stbi__extend_receiveP10stbi__jpegi.exit57
 
-_ZL20stbi__extend_receiveP10stbi__jpegi.exit61:   ; preds = %if.else53, %if.then.i59
-  %17 = phi i32 [ %.pre.i60, %if.then.i59 ], [ %16, %if.else53 ]
+_ZL20stbi__extend_receiveP10stbi__jpegi.exit57:   ; preds = %if.else53, %if.then.i55
+  %17 = phi i32 [ %.pre.i56, %if.then.i55 ], [ %16, %if.else53 ]
   %18 = load i32, ptr %code_buffer, align 8
-  %shl.i44 = shl i32 %18, %and45
-  %sub.i45 = sub nsw i32 0, %and45
-  %and.i46 = and i32 %sub.i45, 31
-  %shr3.i47 = lshr i32 %18, %and.i46
-  %or.i48 = or i32 %shl.i44, %shr3.i47
-  %idxprom.i49 = zext nneg i32 %and45 to i64
-  %arrayidx.i50 = getelementptr inbounds [17 x i32], ptr @_ZL11stbi__bmask, i64 0, i64 %idxprom.i49
-  %19 = load i32, ptr %arrayidx.i50, align 4
-  %not.i51 = xor i32 %19, -1
-  %and4.i52 = and i32 %or.i48, %not.i51
-  store i32 %and4.i52, ptr %code_buffer, align 8
-  %and8.i53 = and i32 %or.i48, %19
-  %sub10.i54 = sub nsw i32 %17, %and45
-  store i32 %sub10.i54, ptr %code_bits, align 4
-  %arrayidx12.i55 = getelementptr inbounds [16 x i32], ptr @_ZL11stbi__jbias, i64 0, i64 %idxprom.i49
-  %20 = load i32, ptr %arrayidx12.i55, align 4
-  %.inv.i56 = icmp slt i32 %18, 0
-  %and14.i57 = select i1 %.inv.i56, i32 0, i32 %20
-  %add.i58 = add i32 %and14.i57, %and8.i53
+  %or.i44 = tail call i32 @llvm.fshl.i32(i32 %18, i32 %18, i32 %and45)
+  %idxprom.i45 = zext nneg i32 %and45 to i64
+  %arrayidx.i46 = getelementptr inbounds [17 x i32], ptr @_ZL11stbi__bmask, i64 0, i64 %idxprom.i45
+  %19 = load i32, ptr %arrayidx.i46, align 4
+  %not.i47 = xor i32 %19, -1
+  %and4.i48 = and i32 %or.i44, %not.i47
+  store i32 %and4.i48, ptr %code_buffer, align 8
+  %and8.i49 = and i32 %or.i44, %19
+  %sub10.i50 = sub nsw i32 %17, %and45
+  store i32 %sub10.i50, ptr %code_bits, align 4
+  %arrayidx12.i51 = getelementptr inbounds [16 x i32], ptr @_ZL11stbi__jbias, i64 0, i64 %idxprom.i45
+  %20 = load i32, ptr %arrayidx12.i51, align 4
+  %.inv.i52 = icmp slt i32 %18, 0
+  %and14.i53 = select i1 %.inv.i52, i32 0, i32 %20
+  %add.i54 = add i32 %and14.i53, %and8.i49
   %idxprom60 = zext i8 %15 to i64
   %arrayidx61 = getelementptr inbounds i16, ptr %dequant, i64 %idxprom60
   %21 = load i16, ptr %arrayidx61, align 2
-  %22 = trunc i32 %add.i58 to i16
+  %22 = trunc i32 %add.i54 to i16
   %conv64 = mul i16 %21, %22
   %arrayidx66 = getelementptr inbounds i16, ptr %data, i64 %idxprom60
   store i16 %conv64, ptr %arrayidx66, align 2
   br label %do.cond
 
-do.cond:                                          ; preds = %if.then22, %_ZL20stbi__extend_receiveP10stbi__jpegi.exit61, %if.end51
-  %k.1 = phi i32 [ %inc, %if.then22 ], [ %add52, %if.end51 ], [ %inc55, %_ZL20stbi__extend_receiveP10stbi__jpegi.exit61 ]
+do.cond:                                          ; preds = %if.then22, %_ZL20stbi__extend_receiveP10stbi__jpegi.exit57, %if.end51
+  %k.1 = phi i32 [ %inc, %if.then22 ], [ %add52, %if.end51 ], [ %inc55, %_ZL20stbi__extend_receiveP10stbi__jpegi.exit57 ]
   %cmp69 = icmp slt i32 %k.1, 64
   br i1 %cmp69, label %do.body, label %return, !llvm.loop !164
 
@@ -20055,11 +20039,7 @@ _ZL20stbi__extend_receiveP10stbi__jpegi.exit:     ; preds = %cond.true, %if.then
   %6 = phi i32 [ %.pre.i, %if.then.i ], [ %5, %cond.true ]
   %code_buffer.i = getelementptr inbounds %struct.stbi__jpeg, ptr %j, i64 0, i32 12
   %7 = load i32, ptr %code_buffer.i, align 8
-  %shl.i = shl i32 %7, %call6
-  %sub.i = sub nsw i32 0, %call6
-  %and.i = and i32 %sub.i, 31
-  %shr3.i = lshr i32 %7, %and.i
-  %or.i = or i32 %shl.i, %shr3.i
+  %or.i = tail call i32 @llvm.fshl.i32(i32 %7, i32 %7, i32 %call6)
   %idxprom.i = zext nneg i32 %call6 to i64
   %arrayidx.i = getelementptr inbounds [17 x i32], ptr @_ZL11stbi__bmask, i64 0, i64 %idxprom.i
   %8 = load i32, ptr %arrayidx.i, align 4
@@ -20093,19 +20073,19 @@ cond.end:                                         ; preds = %if.end11, %_ZL20stb
 if.else:                                          ; preds = %if.end3
   %12 = load i32, ptr %code_bits, align 4
   %cmp.i20 = icmp slt i32 %12, 1
-  br i1 %cmp.i20, label %if.then.i24, label %_ZL18stbi__jpeg_get_bitP10stbi__jpeg.exit
+  br i1 %cmp.i20, label %if.then.i22, label %_ZL18stbi__jpeg_get_bitP10stbi__jpeg.exit
 
-if.then.i24:                                      ; preds = %if.else
+if.then.i22:                                      ; preds = %if.else
   tail call fastcc void @_ZL24stbi__grow_buffer_unsafeP10stbi__jpeg(ptr noundef nonnull %j)
-  %.pre.i25 = load i32, ptr %code_bits, align 4
+  %.pre.i23 = load i32, ptr %code_bits, align 4
   br label %_ZL18stbi__jpeg_get_bitP10stbi__jpeg.exit
 
-_ZL18stbi__jpeg_get_bitP10stbi__jpeg.exit:        ; preds = %if.else, %if.then.i24
-  %13 = phi i32 [ %.pre.i25, %if.then.i24 ], [ %12, %if.else ]
+_ZL18stbi__jpeg_get_bitP10stbi__jpeg.exit:        ; preds = %if.else, %if.then.i22
+  %13 = phi i32 [ %.pre.i23, %if.then.i22 ], [ %12, %if.else ]
   %code_buffer.i21 = getelementptr inbounds %struct.stbi__jpeg, ptr %j, i64 0, i32 12
   %14 = load i32, ptr %code_buffer.i21, align 8
-  %shl.i22 = shl i32 %14, 1
-  store i32 %shl.i22, ptr %code_buffer.i21, align 8
+  %shl.i = shl i32 %14, 1
+  store i32 %shl.i, ptr %code_buffer.i21, align 8
   %dec.i = add nsw i32 %13, -1
   store i32 %dec.i, ptr %code_bits, align 4
   %tobool19.not = icmp sgt i32 %14, -1
@@ -20447,11 +20427,7 @@ if.end:                                           ; preds = %if.then, %entry
   %1 = phi i32 [ %.pre, %if.then ], [ %0, %entry ]
   %code_buffer = getelementptr inbounds %struct.stbi__jpeg, ptr %j, i64 0, i32 12
   %2 = load i32, ptr %code_buffer, align 8
-  %shl = shl i32 %2, %n
-  %sub = sub nsw i32 0, %n
-  %and = and i32 %sub, 31
-  %shr = lshr i32 %2, %and
-  %or = or i32 %shl, %shr
+  %or = tail call i32 @llvm.fshl.i32(i32 %2, i32 %2, i32 %n)
   %idxprom = zext nneg i32 %n to i64
   %arrayidx = getelementptr inbounds [17 x i32], ptr @_ZL11stbi__bmask, i64 0, i64 %idxprom
   %3 = load i32, ptr %arrayidx, align 4
@@ -22949,6 +22925,9 @@ return:                                           ; preds = %if.end65, %if.then6
 declare i64 @llvm.umin.i64(i64, i64) #33
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.fshl.i32(i32, i32, i32) #33
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #33
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
@@ -22969,12 +22948,12 @@ declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #35
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #33
 
-attributes #0 = { mustprogress nofree nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
+attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #2 = { mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
 attributes #3 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
 attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
-attributes #5 = { mustprogress nofree nosync nounwind willreturn memory(write, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
 attributes #6 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
 attributes #7 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
 attributes #8 = { mustprogress nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
@@ -22984,18 +22963,18 @@ attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(arg
 attributes #12 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
 attributes #13 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
 attributes #14 = { mustprogress nofree nounwind willreturn memory(inaccessiblemem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
-attributes #15 = { mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
+attributes #15 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
 attributes #16 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
 attributes #17 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
 attributes #18 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
 attributes #19 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
 attributes #20 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #21 = { mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
-attributes #22 = { mustprogress nofree nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
-attributes #23 = { mustprogress nofree nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
-attributes #24 = { mustprogress nofree nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
+attributes #22 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
+attributes #23 = { mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
+attributes #24 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
 attributes #25 = { mustprogress nocallback nofree nosync nounwind willreturn memory(none) }
-attributes #26 = { mustprogress nofree nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
+attributes #26 = { mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
 attributes #27 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
 attributes #28 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
 attributes #29 = { mustprogress nofree nounwind willreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }

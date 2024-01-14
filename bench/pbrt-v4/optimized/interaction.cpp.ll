@@ -6139,11 +6139,7 @@ sw.bb1:                                           ; preds = %entry
   %conv.i.i.i.i = trunc i64 %shr3.i.i.i.i to i32
   %shr4.i.i.i.i = lshr i64 %0, 59
   %conv5.i.i.i.i = trunc i64 %shr4.i.i.i.i to i32
-  %shr6.i.i.i.i = lshr i32 %conv.i.i.i.i, %conv5.i.i.i.i
-  %add7.i.i.i.i = sub nsw i32 0, %conv5.i.i.i.i
-  %and.i.i.i.i = and i32 %add7.i.i.i.i, 31
-  %shl.i.i.i.i = shl i32 %conv.i.i.i.i, %and.i.i.i.i
-  %or.i.i.i.i = or i32 %shr6.i.i.i.i, %shl.i.i.i.i
+  %or.i.i.i.i = tail call noundef i32 @llvm.fshr.i32(i32 %conv.i.i.i.i, i32 %conv.i.i.i.i, i32 %conv5.i.i.i.i)
   %conv.i.i.i = uitofp i32 %or.i.i.i.i to float
   %mul.i.i.i = fmul float %conv.i.i.i, 0x3DF0000000000000
   %cmp.i.i.i.i = fcmp olt float %mul.i.i.i, 0x3FEFFFFFE0000000
@@ -6655,11 +6651,7 @@ cond.true:                                        ; preds = %_ZN4pbrt18Permutati
   %conv.i.i = trunc i64 %shr3.i.i to i32
   %shr4.i.i = lshr i64 %8, 59
   %conv5.i.i = trunc i64 %shr4.i.i to i32
-  %shr6.i.i = lshr i32 %conv.i.i, %conv5.i.i
-  %add7.i.i = sub nsw i32 0, %conv5.i.i
-  %and.i.i = and i32 %add7.i.i, 31
-  %shl.i.i = shl i32 %conv.i.i, %and.i.i
-  %or.i.i = or i32 %shr6.i.i, %shl.i.i
+  %or.i.i = tail call noundef i32 @llvm.fshr.i32(i32 %conv.i.i, i32 %conv.i.i, i32 %conv5.i.i)
   %conv.i = uitofp i32 %or.i.i to float
   %mul.i2 = fmul float %conv.i, 0x3DF0000000000000
   %cmp.i.i = fcmp olt float %mul.i2, 0x3FEFFFFFE0000000
@@ -7483,7 +7475,7 @@ for.body.lr.ph.i:                                 ; preds = %entry
   %3 = load i32, ptr %dimension.i, align 8
   %mul10.i = mul i32 %3, 1431655765
   %conv11.i = zext i32 %mul10.i to i64
-  %4 = zext i32 %1 to i64
+  %4 = zext nneg i32 %1 to i64
   %5 = zext nneg i32 %and.i to i64
   br label %for.body.i
 
@@ -7792,15 +7784,11 @@ sw.bb1:                                           ; preds = %entry
   %7 = trunc <2 x i64> %6 to <2 x i32>
   %8 = lshr <2 x i64> %3, <i64 59, i64 59>
   %9 = trunc <2 x i64> %8 to <2 x i32>
-  %10 = lshr <2 x i32> %7, %9
-  %11 = sub nsw <2 x i32> zeroinitializer, %9
-  %12 = and <2 x i32> %11, <i32 31, i32 31>
-  %13 = shl <2 x i32> %7, %12
-  %14 = or <2 x i32> %10, %13
-  %15 = uitofp <2 x i32> %14 to <2 x float>
-  %16 = fmul <2 x float> %15, <float 0x3DF0000000000000, float 0x3DF0000000000000>
-  %17 = fcmp olt <2 x float> %16, <float 0x3FEFFFFFE0000000, float 0x3FEFFFFFE0000000>
-  %18 = select <2 x i1> %17, <2 x float> %16, <2 x float> <float 0x3FEFFFFFE0000000, float 0x3FEFFFFFE0000000>
+  %10 = tail call <2 x i32> @llvm.fshr.v2i32(<2 x i32> %7, <2 x i32> %7, <2 x i32> %9)
+  %11 = uitofp <2 x i32> %10 to <2 x float>
+  %12 = fmul <2 x float> %11, <float 0x3DF0000000000000, float 0x3DF0000000000000>
+  %13 = fcmp olt <2 x float> %12, <float 0x3FEFFFFFE0000000, float 0x3FEFFFFFE0000000>
+  %14 = select <2 x i1> %13, <2 x float> %12, <2 x float> <float 0x3FEFFFFFE0000000, float 0x3FEFFFFFE0000000>
   br label %return
 
 sw.bb4:                                           ; preds = %entry
@@ -7809,9 +7797,9 @@ sw.bb4:                                           ; preds = %entry
 
 sw.bb7:                                           ; preds = %entry
   %dimension.i.i = getelementptr inbounds %"class.pbrt::HaltonSampler", ptr %ptr, i64 0, i32 7
-  %19 = load i32, ptr %dimension.i.i, align 8
-  %cmp.i.i = icmp sgt i32 %19, 998
-  %spec.select.i.i = select i1 %cmp.i.i, i32 2, i32 %19
+  %15 = load i32, ptr %dimension.i.i, align 8
+  %cmp.i.i = icmp sgt i32 %15, 998
+  %spec.select.i.i = select i1 %cmp.i.i, i32 2, i32 %15
   %add5.i.i = add nsw i32 %spec.select.i.i, 2
   store i32 %add5.i.i, ptr %dimension.i.i, align 8
   %call.i.i = tail call noundef float @_ZNK4pbrt13HaltonSampler15SampleDimensionEi(ptr noundef nonnull align 8 dereferenceable(52) %ptr, i32 noundef %spec.select.i.i)
@@ -7827,8 +7815,8 @@ sw.bb10:                                          ; preds = %entry
 
 sw.bb13:                                          ; preds = %entry
   %dimension.i.i22 = getelementptr inbounds %"class.pbrt::SobolSampler", ptr %ptr, i64 0, i32 5
-  %20 = load i32, ptr %dimension.i.i22, align 8
-  %cmp.i.i23 = icmp sgt i32 %20, 1022
+  %16 = load i32, ptr %dimension.i.i22, align 8
+  %cmp.i.i23 = icmp sgt i32 %16, 1022
   br i1 %cmp.i.i23, label %if.then.i.i, label %_ZZN4pbrt7Sampler5Get2DEvENKUlT_E_clIPNS_12SobolSamplerEEEDaS1_.exit
 
 if.then.i.i:                                      ; preds = %sw.bb13
@@ -7836,15 +7824,15 @@ if.then.i.i:                                      ; preds = %sw.bb13
   br label %_ZZN4pbrt7Sampler5Get2DEvENKUlT_E_clIPNS_12SobolSamplerEEEDaS1_.exit
 
 _ZZN4pbrt7Sampler5Get2DEvENKUlT_E_clIPNS_12SobolSamplerEEEDaS1_.exit: ; preds = %sw.bb13, %if.then.i.i
-  %21 = phi i32 [ 2, %if.then.i.i ], [ %20, %sw.bb13 ]
-  %call.i.i24 = tail call noundef float @_ZNK4pbrt12SobolSampler15SampleDimensionEi(ptr noundef nonnull align 8 dereferenceable(40) %ptr, i32 noundef %21)
-  %22 = load i32, ptr %dimension.i.i22, align 8
-  %add5.i.i25 = add nsw i32 %22, 1
+  %17 = phi i32 [ 2, %if.then.i.i ], [ %16, %sw.bb13 ]
+  %call.i.i24 = tail call noundef float @_ZNK4pbrt12SobolSampler15SampleDimensionEi(ptr noundef nonnull align 8 dereferenceable(40) %ptr, i32 noundef %17)
+  %18 = load i32, ptr %dimension.i.i22, align 8
+  %add5.i.i25 = add nsw i32 %18, 1
   %call6.i.i = tail call noundef float @_ZNK4pbrt12SobolSampler15SampleDimensionEi(ptr noundef nonnull align 8 dereferenceable(40) %ptr, i32 noundef %add5.i.i25)
   %retval.sroa.0.0.vec.insert.i.i26 = insertelement <2 x float> poison, float %call.i.i24, i64 0
   %retval.sroa.0.4.vec.insert.i.i27 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i.i26, float %call6.i.i, i64 1
-  %23 = load i32, ptr %dimension.i.i22, align 8
-  %add8.i.i = add nsw i32 %23, 2
+  %19 = load i32, ptr %dimension.i.i22, align 8
+  %add8.i.i = add nsw i32 %19, 2
   store i32 %add8.i.i, ptr %dimension.i.i22, align 8
   br label %return
 
@@ -7858,33 +7846,33 @@ sw.bb19:                                          ; preds = %entry
 
 sw.default:                                       ; preds = %entry
   %streamIndex.i.i.i.i.i = getelementptr inbounds %"class.pbrt::MLTSampler", ptr %ptr, i64 0, i32 9
-  %24 = load i32, ptr %streamIndex.i.i.i.i.i, align 8
+  %20 = load i32, ptr %streamIndex.i.i.i.i.i, align 8
   %streamCount.i.i.i.i.i = getelementptr inbounds %"class.pbrt::MLTSampler", ptr %ptr, i64 0, i32 4
-  %25 = load i32, ptr %streamCount.i.i.i.i.i, align 8
+  %21 = load i32, ptr %streamCount.i.i.i.i.i, align 8
   %sampleIndex.i.i.i.i.i = getelementptr inbounds %"class.pbrt::MLTSampler", ptr %ptr, i64 0, i32 10
-  %26 = load i32, ptr %sampleIndex.i.i.i.i.i, align 4
-  %inc.i.i.i.i.i = add nsw i32 %26, 1
+  %22 = load i32, ptr %sampleIndex.i.i.i.i.i, align 4
+  %inc.i.i.i.i.i = add nsw i32 %22, 1
   store i32 %inc.i.i.i.i.i, ptr %sampleIndex.i.i.i.i.i, align 4
-  %mul.i.i.i.i.i = mul nsw i32 %26, %25
-  %add.i.i.i.i.i = add nsw i32 %mul.i.i.i.i.i, %24
+  %mul.i.i.i.i.i = mul nsw i32 %22, %21
+  %add.i.i.i.i.i = add nsw i32 %mul.i.i.i.i.i, %20
   %u.i.i.i.i = getelementptr inbounds %"class.pbrt::DebugMLTSampler", ptr %ptr, i64 0, i32 1
   %conv.i.i.i.i30 = sext i32 %add.i.i.i.i.i to i64
-  %27 = load ptr, ptr %u.i.i.i.i, align 8
-  %add.ptr.i.i.i.i.i = getelementptr inbounds float, ptr %27, i64 %conv.i.i.i.i30
-  %28 = load float, ptr %add.ptr.i.i.i.i.i, align 4
-  %inc.i.i4.i.i.i = add nsw i32 %26, 2
+  %23 = load ptr, ptr %u.i.i.i.i, align 8
+  %add.ptr.i.i.i.i.i = getelementptr inbounds float, ptr %23, i64 %conv.i.i.i.i30
+  %24 = load float, ptr %add.ptr.i.i.i.i.i, align 4
+  %inc.i.i4.i.i.i = add nsw i32 %22, 2
   store i32 %inc.i.i4.i.i.i, ptr %sampleIndex.i.i.i.i.i, align 4
-  %mul.i.i5.i.i.i = mul nsw i32 %inc.i.i.i.i.i, %25
-  %add.i.i6.i.i.i = add nsw i32 %mul.i.i5.i.i.i, %24
+  %mul.i.i5.i.i.i = mul nsw i32 %inc.i.i.i.i.i, %21
+  %add.i.i6.i.i.i = add nsw i32 %mul.i.i5.i.i.i, %20
   %conv.i8.i.i.i = sext i32 %add.i.i6.i.i.i to i64
-  %add.ptr.i.i9.i.i.i = getelementptr inbounds float, ptr %27, i64 %conv.i8.i.i.i
-  %29 = load float, ptr %add.ptr.i.i9.i.i.i, align 4
-  %retval.sroa.0.0.vec.insert.i.i.i = insertelement <2 x float> poison, float %28, i64 0
-  %retval.sroa.0.4.vec.insert.i.i.i = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i.i.i, float %29, i64 1
+  %add.ptr.i.i9.i.i.i = getelementptr inbounds float, ptr %23, i64 %conv.i8.i.i.i
+  %25 = load float, ptr %add.ptr.i.i9.i.i.i, align 4
+  %retval.sroa.0.0.vec.insert.i.i.i = insertelement <2 x float> poison, float %24, i64 0
+  %retval.sroa.0.4.vec.insert.i.i.i = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i.i.i, float %25, i64 1
   br label %return
 
 return:                                           ; preds = %sw.default, %sw.bb19, %sw.bb16, %_ZZN4pbrt7Sampler5Get2DEvENKUlT_E_clIPNS_12SobolSamplerEEEDaS1_.exit, %sw.bb10, %sw.bb7, %sw.bb4, %sw.bb1, %sw.bb
-  %retval.sroa.0.0 = phi <2 x float> [ %retval.sroa.0.4.vec.insert.i.i.i, %sw.default ], [ %call.i29, %sw.bb19 ], [ %call.i28, %sw.bb16 ], [ %retval.sroa.0.4.vec.insert.i.i27, %_ZZN4pbrt7Sampler5Get2DEvENKUlT_E_clIPNS_12SobolSamplerEEEDaS1_.exit ], [ %call.i21, %sw.bb10 ], [ %retval.sroa.0.4.vec.insert.i.i20, %sw.bb7 ], [ %call.i18, %sw.bb4 ], [ %18, %sw.bb1 ], [ %call.i, %sw.bb ]
+  %retval.sroa.0.0 = phi <2 x float> [ %retval.sroa.0.4.vec.insert.i.i.i, %sw.default ], [ %call.i29, %sw.bb19 ], [ %call.i28, %sw.bb16 ], [ %retval.sroa.0.4.vec.insert.i.i27, %_ZZN4pbrt7Sampler5Get2DEvENKUlT_E_clIPNS_12SobolSamplerEEEDaS1_.exit ], [ %call.i21, %sw.bb10 ], [ %retval.sroa.0.4.vec.insert.i.i20, %sw.bb7 ], [ %call.i18, %sw.bb4 ], [ %14, %sw.bb1 ], [ %call.i, %sw.bb ]
   ret <2 x float> %retval.sroa.0.0
 }
 
@@ -8178,30 +8166,26 @@ cond.true9:                                       ; preds = %_ZN4pbrt18Permutati
   %16 = trunc <2 x i64> %15 to <2 x i32>
   %17 = lshr <2 x i64> %12, <i64 59, i64 59>
   %18 = trunc <2 x i64> %17 to <2 x i32>
-  %19 = lshr <2 x i32> %16, %18
-  %20 = sub nsw <2 x i32> zeroinitializer, %18
-  %21 = and <2 x i32> %20, <i32 31, i32 31>
-  %22 = shl <2 x i32> %16, %21
-  %23 = or <2 x i32> %19, %22
-  %24 = uitofp <2 x i32> %23 to <2 x float>
-  %25 = fmul <2 x float> %24, <float 0x3DF0000000000000, float 0x3DF0000000000000>
-  %26 = fcmp olt <2 x float> %25, <float 0x3FEFFFFFE0000000, float 0x3FEFFFFFE0000000>
-  %27 = select <2 x i1> %26, <2 x float> %25, <2 x float> <float 0x3FEFFFFFE0000000, float 0x3FEFFFFFE0000000>
+  %19 = tail call <2 x i32> @llvm.fshr.v2i32(<2 x i32> %16, <2 x i32> %16, <2 x i32> %18)
+  %20 = uitofp <2 x i32> %19 to <2 x float>
+  %21 = fmul <2 x float> %20, <float 0x3DF0000000000000, float 0x3DF0000000000000>
+  %22 = fcmp olt <2 x float> %21, <float 0x3FEFFFFFE0000000, float 0x3FEFFFFFE0000000>
+  %23 = select <2 x i1> %22, <2 x float> %21, <2 x float> <float 0x3FEFFFFFE0000000, float 0x3FEFFFFFE0000000>
   br label %cond.end13
 
 cond.end13:                                       ; preds = %_ZN4pbrt18PermutationElementEjjj.exit, %cond.true9
-  %28 = phi <2 x float> [ %27, %cond.true9 ], [ <float 5.000000e-01, float 5.000000e-01>, %_ZN4pbrt18PermutationElementEjjj.exit ]
+  %24 = phi <2 x float> [ %23, %cond.true9 ], [ <float 5.000000e-01, float 5.000000e-01>, %_ZN4pbrt18PermutationElementEjjj.exit ]
   %add.i = add i32 %xor39.i, %conv
   %rem.i = urem i32 %add.i, %mul.i
   %div = sdiv i32 %rem.i, %4
   %rem = srem i32 %rem.i, %4
-  %29 = sitofp <2 x i32> %3 to <2 x float>
-  %30 = insertelement <2 x i32> poison, i32 %rem, i64 0
-  %31 = insertelement <2 x i32> %30, i32 %div, i64 1
-  %32 = sitofp <2 x i32> %31 to <2 x float>
-  %33 = fadd <2 x float> %28, %32
-  %34 = fdiv <2 x float> %33, %29
-  ret <2 x float> %34
+  %25 = sitofp <2 x i32> %3 to <2 x float>
+  %26 = insertelement <2 x i32> poison, i32 %rem, i64 0
+  %27 = insertelement <2 x i32> %26, i32 %div, i64 1
+  %28 = sitofp <2 x i32> %27 to <2 x float>
+  %29 = fadd <2 x float> %24, %28
+  %30 = fdiv <2 x float> %29, %25
+  ret <2 x float> %30
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -8333,7 +8317,7 @@ for.body.lr.ph.i:                                 ; preds = %entry
   %3 = load i32, ptr %dimension.i, align 8
   %mul10.i = mul i32 %3, 1431655765
   %conv11.i = zext i32 %mul10.i to i64
-  %4 = zext i32 %1 to i64
+  %4 = zext nneg i32 %1 to i64
   %5 = zext nneg i32 %and.i to i64
   br label %for.body.i
 
@@ -18958,6 +18942,9 @@ entry:
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.fshr.i32(i32, i32, i32) #13
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.bitreverse.i32(i32) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
@@ -18992,6 +18979,9 @@ declare <2 x float> @llvm.floor.v2f32(<2 x float>) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare <2 x float> @llvm.fabs.v2f32(<2 x float>) #13
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare <2 x i32> @llvm.fshr.v2i32(<2 x i32>, <2 x i32>, <2 x i32>) #13
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
 attributes #1 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
