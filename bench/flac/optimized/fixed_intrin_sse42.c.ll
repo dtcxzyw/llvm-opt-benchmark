@@ -17,7 +17,6 @@ entry:
 
 for.cond188.preheader:                            ; preds = %cond.end179
   %div = sdiv i32 %data_len, 2
-  %rem = srem i32 %data_len, 2
   %0 = sext i32 %div to i64
   br label %for.body191
 
@@ -235,46 +234,47 @@ for.end321:                                       ; preds = %for.body272, %for.e
   %shift456 = shufflevector <2 x i64> %shadow_err4.0.lcssa, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
   %34 = or <2 x i64> %shadow_err4.0.lcssa, %shift456
   %or370 = extractelement <2 x i64> %34, i64 0
-  %cmp372 = icmp eq i32 %rem, -1
+  %35 = and i32 %data_len, -2147483647
+  %cmp372 = icmp eq i32 %35, 1
   br i1 %cmp372, label %if.then, label %if.end
 
 if.then:                                          ; preds = %for.end321
   %div374364 = lshr i32 %data_len, 1
-  %add375 = add nuw i32 %i.2.lcssa, %div374364
+  %add375 = add nuw nsw i32 %i.2.lcssa, %div374364
   %idxprom376 = sext i32 %add375 to i64
   %arrayidx377 = getelementptr inbounds i32, ptr %data, i64 %idxprom376
-  %35 = load i32, ptr %arrayidx377, align 4
-  %conv378 = sext i32 %35 to i64
+  %36 = load i32, ptr %arrayidx377, align 4
+  %conv378 = sext i32 %36 to i64
   %cond391 = tail call i64 @llvm.abs.i64(i64 %conv378, i1 true)
   %arrayidx397 = getelementptr i32, ptr %arrayidx377, i64 -1
-  %36 = load i32, ptr %arrayidx397, align 4
-  %conv398 = sext i32 %36 to i64
+  %37 = load i32, ptr %arrayidx397, align 4
+  %conv398 = sext i32 %37 to i64
   %sub399 = sub nsw i64 %conv378, %conv398
   %cond422 = tail call i64 @llvm.abs.i64(i64 %sub399, i1 true)
-  %37 = shl nsw i64 %conv398, 1
-  %sub431 = sub nsw i64 %conv378, %37
+  %38 = shl nsw i64 %conv398, 1
+  %sub431 = sub nsw i64 %conv378, %38
   %arrayidx434 = getelementptr i32, ptr %arrayidx377, i64 -2
-  %38 = load i32, ptr %arrayidx434, align 4
-  %conv435 = sext i32 %38 to i64
+  %39 = load i32, ptr %arrayidx434, align 4
+  %conv435 = sext i32 %39 to i64
   %add436 = add nsw i64 %sub431, %conv435
   %cond471 = tail call i64 @llvm.abs.i64(i64 %add436, i1 true)
   %arrayidx489 = getelementptr i32, ptr %arrayidx377, i64 -3
-  %39 = load i32, ptr %arrayidx489, align 4
-  %conv490 = sext i32 %39 to i64
+  %40 = load i32, ptr %arrayidx489, align 4
+  %conv490 = sext i32 %40 to i64
   %reass.add = sub nsw i64 %conv435, %conv398
   %reass.mul = mul nsw i64 %reass.add, 3
   %add486 = sub nsw i64 %conv378, %conv490
   %sub491 = add nsw i64 %add486, %reass.mul
   %cond538 = tail call i64 @llvm.abs.i64(i64 %sub491, i1 true)
   %mul552 = mul nsw i64 %conv435, 6
-  %40 = add nsw i64 %mul552, %conv378
+  %41 = add nsw i64 %mul552, %conv378
   %mul546365 = add nsw i64 %conv490, %conv398
   %arrayidx562 = getelementptr i32, ptr %arrayidx377, i64 -4
-  %41 = load i32, ptr %arrayidx562, align 4
-  %conv563 = sext i32 %41 to i64
-  %sub559 = add nsw i64 %40, %conv563
-  %42 = shl nsw i64 %mul546365, 2
-  %add564 = sub nsw i64 %sub559, %42
+  %42 = load i32, ptr %arrayidx562, align 4
+  %conv563 = sext i32 %42 to i64
+  %sub559 = add nsw i64 %41, %conv563
+  %43 = shl nsw i64 %mul546365, 2
+  %add564 = sub nsw i64 %sub559, %43
   %cond623 = tail call i64 @llvm.abs.i64(i64 %add564, i1 true)
   %add624 = add i64 %cond391, %add326
   %add625 = add i64 %cond422, %add331
@@ -313,11 +313,11 @@ cond.true643:                                     ; preds = %if.then636
   %div647 = fdiv reassoc nsz arcp double %mul645, %conv646
   %call648 = tail call reassoc nsz arcp double @log(double noundef %div647) #3
   %div649 = fmul reassoc nsz arcp double %call648, 0x3FF71547652B82FE
-  %43 = fptrunc double %div649 to float
+  %44 = fptrunc double %div649 to float
   br label %if.end656
 
 if.end656:                                        ; preds = %if.end, %cond.true643
-  %storemerge = phi float [ %43, %cond.true643 ], [ 3.400000e+01, %if.end ]
+  %storemerge = phi float [ %44, %cond.true643 ], [ 3.400000e+01, %if.end ]
   %smallest_error.1 = phi i64 [ %total_error_0.1, %cond.true643 ], [ -1, %if.end ]
   store float %storemerge, ptr %residual_bits_per_sample, align 4
   %cmp657 = icmp ult i64 %shadow_error_1.1, 2147483648
@@ -340,13 +340,13 @@ cond.true666:                                     ; preds = %if.then659
   %div670 = fdiv reassoc nsz arcp double %mul668, %conv669
   %call671 = tail call reassoc nsz arcp double @log(double noundef %div670) #3
   %div672 = fmul reassoc nsz arcp double %call671, 0x3FF71547652B82FE
-  %44 = fptrunc double %div672 to float
+  %45 = fptrunc double %div672 to float
   br label %cond.end674
 
 cond.end674:                                      ; preds = %if.end656.thread, %if.then659, %cond.true666
   %smallest_error.1.pn = phi i64 [ %smallest_error.1, %cond.true666 ], [ %smallest_error.1, %if.then659 ], [ 0, %if.end656.thread ]
   %spec.select367395 = phi i64 [ %spec.select367, %cond.true666 ], [ %spec.select367, %if.then659 ], [ 0, %if.end656.thread ]
-  %cond675 = phi float [ %44, %cond.true666 ], [ 0.000000e+00, %if.then659 ], [ 0.000000e+00, %if.end656.thread ]
+  %cond675 = phi float [ %45, %cond.true666 ], [ 0.000000e+00, %if.then659 ], [ 0.000000e+00, %if.end656.thread ]
   %spec.select368396.in = icmp ult i64 %total_error_1.1, %smallest_error.1.pn
   %spec.select368396 = zext i1 %spec.select368396.in to i32
   br label %if.end680
@@ -374,11 +374,11 @@ cond.true690:                                     ; preds = %if.then683
   %div694 = fdiv reassoc nsz arcp double %mul692, %conv693
   %call695 = tail call reassoc nsz arcp double @log(double noundef %div694) #3
   %div696 = fmul reassoc nsz arcp double %call695, 0x3FF71547652B82FE
-  %45 = fptrunc double %div696 to float
+  %46 = fptrunc double %div696 to float
   br label %if.end704
 
 if.end704:                                        ; preds = %if.end680, %cond.true690, %if.then683
-  %.sink449 = phi float [ %45, %cond.true690 ], [ 0.000000e+00, %if.then683 ], [ 3.400000e+01, %if.end680 ]
+  %.sink449 = phi float [ %46, %cond.true690 ], [ 0.000000e+00, %if.then683 ], [ 3.400000e+01, %if.end680 ]
   %smallest_error.5 = phi i64 [ %spec.select369, %cond.true690 ], [ %spec.select369, %if.then683 ], [ %smallest_error.3, %if.end680 ]
   %order.5 = phi i32 [ %spec.select370, %cond.true690 ], [ %spec.select370, %if.then683 ], [ %order.3, %if.end680 ]
   %arrayidx703 = getelementptr inbounds float, ptr %residual_bits_per_sample, i64 2
@@ -400,11 +400,11 @@ cond.true714:                                     ; preds = %if.then707
   %div718 = fdiv reassoc nsz arcp double %mul716, %conv717
   %call719 = tail call reassoc nsz arcp double @log(double noundef %div718) #3
   %div720 = fmul reassoc nsz arcp double %call719, 0x3FF71547652B82FE
-  %46 = fptrunc double %div720 to float
+  %47 = fptrunc double %div720 to float
   br label %if.end728
 
 if.end728:                                        ; preds = %if.end704, %cond.true714, %if.then707
-  %.sink450 = phi float [ %46, %cond.true714 ], [ 0.000000e+00, %if.then707 ], [ 3.400000e+01, %if.end704 ]
+  %.sink450 = phi float [ %47, %cond.true714 ], [ 0.000000e+00, %if.then707 ], [ 3.400000e+01, %if.end704 ]
   %smallest_error.7 = phi i64 [ %spec.select371, %cond.true714 ], [ %spec.select371, %if.then707 ], [ %smallest_error.5, %if.end704 ]
   %order.7 = phi i32 [ %spec.select372, %cond.true714 ], [ %spec.select372, %if.then707 ], [ %order.5, %if.end704 ]
   %arrayidx727 = getelementptr inbounds float, ptr %residual_bits_per_sample, i64 3
@@ -425,11 +425,11 @@ cond.true738:                                     ; preds = %if.then731
   %div742 = fdiv reassoc nsz arcp double %mul740, %conv741
   %call743 = tail call reassoc nsz arcp double @log(double noundef %div742) #3
   %div744 = fmul reassoc nsz arcp double %call743, 0x3FF71547652B82FE
-  %47 = fptrunc double %div744 to float
+  %48 = fptrunc double %div744 to float
   br label %if.end752
 
 if.end752:                                        ; preds = %if.end728, %cond.true738, %if.then731
-  %.sink451 = phi float [ %47, %cond.true738 ], [ 0.000000e+00, %if.then731 ], [ 3.400000e+01, %if.end728 ]
+  %.sink451 = phi float [ %48, %cond.true738 ], [ 0.000000e+00, %if.then731 ], [ 3.400000e+01, %if.end728 ]
   %order.9 = phi i32 [ %spec.select373, %cond.true738 ], [ %spec.select373, %if.then731 ], [ %order.7, %if.end728 ]
   %arrayidx751 = getelementptr inbounds float, ptr %residual_bits_per_sample, i64 4
   store float %.sink451, ptr %arrayidx751, align 4

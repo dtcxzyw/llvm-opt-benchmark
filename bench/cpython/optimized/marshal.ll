@@ -6389,12 +6389,8 @@ for.cond31.preheader:                             ; preds = %if.end24, %for.end
   br label %for.body34
 
 for.cond47.preheader:                             ; preds = %for.end, %if.end24
-  %cmp48.not79 = icmp eq i32 %rem70, -1
-  br i1 %cmp48.not79, label %for.end72, label %for.body50.preheader
-
-for.body50.preheader:                             ; preds = %for.cond47.preheader
-  %smax = tail call i32 @llvm.smax.i32(i32 %rem70, i32 0)
-  br label %for.body50
+  %cmp48.not79 = icmp slt i32 %rem70, 0
+  br i1 %cmp48.not79, label %for.end72, label %for.body50
 
 for.body34:                                       ; preds = %for.cond31.preheader, %if.end42
   %d.076 = phi i32 [ 0, %for.cond31.preheader ], [ %add43, %if.end42 ]
@@ -6422,9 +6418,9 @@ for.end:                                          ; preds = %if.end42
   %exitcond.not = icmp eq i64 %inc45, %div.sext
   br i1 %exitcond.not, label %for.cond47.preheader, label %for.cond31.preheader, !llvm.loop !21
 
-for.body50:                                       ; preds = %for.body50.preheader, %if.end66
-  %d.181 = phi i32 [ %add69, %if.end66 ], [ 0, %for.body50.preheader ]
-  %j.180 = phi i32 [ %inc71, %if.end66 ], [ 0, %for.body50.preheader ]
+for.body50:                                       ; preds = %for.cond47.preheader, %if.end66
+  %d.181 = phi i32 [ %add69, %if.end66 ], [ 0, %for.cond47.preheader ]
+  %j.180 = phi i32 [ %inc71, %if.end66 ], [ 0, %for.cond47.preheader ]
   %call.i53 = tail call fastcc ptr @r_string(i64 noundef 2, ptr noundef %p)
   %cmp.not.i54 = icmp eq ptr %call.i53, null
   br i1 %cmp.not.i54, label %bad_digit, label %r_short.exit58
@@ -6467,7 +6463,7 @@ if.end66:                                         ; preds = %if.end58
   %shl68 = shl nuw nsw i32 %12, %mul67
   %add69 = add i32 %shl68, %d.181
   %inc71 = add nuw nsw i32 %j.180, 1
-  %exitcond83.not = icmp eq i32 %j.180, %smax
+  %exitcond83.not = icmp eq i32 %j.180, %rem70
   br i1 %exitcond83.not, label %for.end72, label %for.body50, !llvm.loop !22
 
 for.end72:                                        ; preds = %if.end66, %for.cond47.preheader
@@ -7040,9 +7036,6 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #7
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
