@@ -16,7 +16,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @helper_vclmul_vv(ptr noundef %vd, ptr noundef %v0, ptr noundef %vs1, ptr noundef %vs2, ptr noundef %env, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
-  tail call void @do_vext_vv(ptr noundef %vd, ptr noundef %v0, ptr noundef %vs1, ptr noundef %vs2, ptr noundef %env, i32 noundef %desc, ptr noundef nonnull @do_vclmul_vv, i32 noundef 8) #13
+  tail call void @do_vext_vv(ptr noundef %vd, ptr noundef %v0, ptr noundef %vs1, ptr noundef %vs2, ptr noundef %env, i32 noundef %desc, ptr noundef nonnull @do_vclmul_vv, i32 noundef 8) #12
   ret void
 }
 
@@ -54,7 +54,7 @@ clmul64.exit:                                     ; preds = %for.body.i
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @helper_vclmul_vx(ptr noundef %vd, ptr noundef %v0, i64 noundef %s1, ptr noundef %vs2, ptr noundef %env, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
-  tail call void @do_vext_vx(ptr noundef %vd, ptr noundef %v0, i64 noundef %s1, ptr noundef %vs2, ptr noundef %env, i32 noundef %desc, ptr noundef nonnull @do_vclmul_vx, i32 noundef 8) #13
+  tail call void @do_vext_vx(ptr noundef %vd, ptr noundef %v0, i64 noundef %s1, ptr noundef %vs2, ptr noundef %env, i32 noundef %desc, ptr noundef nonnull @do_vclmul_vx, i32 noundef 8) #12
   ret void
 }
 
@@ -90,7 +90,7 @@ clmul64.exit:                                     ; preds = %for.body.i
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @helper_vclmulh_vv(ptr noundef %vd, ptr noundef %v0, ptr noundef %vs1, ptr noundef %vs2, ptr noundef %env, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
-  tail call void @do_vext_vv(ptr noundef %vd, ptr noundef %v0, ptr noundef %vs1, ptr noundef %vs2, ptr noundef %env, i32 noundef %desc, ptr noundef nonnull @do_vclmulh_vv, i32 noundef 8) #13
+  tail call void @do_vext_vv(ptr noundef %vd, ptr noundef %v0, ptr noundef %vs1, ptr noundef %vs2, ptr noundef %env, i32 noundef %desc, ptr noundef nonnull @do_vclmulh_vv, i32 noundef 8) #12
   ret void
 }
 
@@ -127,7 +127,7 @@ clmulh64.exit:                                    ; preds = %for.body.i
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @helper_vclmulh_vx(ptr noundef %vd, ptr noundef %v0, i64 noundef %s1, ptr noundef %vs2, ptr noundef %env, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
-  tail call void @do_vext_vx(ptr noundef %vd, ptr noundef %v0, i64 noundef %s1, ptr noundef %vs2, ptr noundef %env, i32 noundef %desc, ptr noundef nonnull @do_vclmulh_vx, i32 noundef 8) #13
+  tail call void @do_vext_vx(ptr noundef %vd, ptr noundef %v0, i64 noundef %s1, ptr noundef %vs2, ptr noundef %env, i32 noundef %desc, ptr noundef nonnull @do_vclmulh_vx, i32 noundef 8) #12
   ret void
 }
 
@@ -162,11 +162,11 @@ clmulh64.exit:                                    ; preds = %for.body.i
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @helper_vror_vv_b(ptr noundef %vd, ptr noundef %v0, ptr noundef %vs1, ptr noundef %vs2, ptr noundef %env, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
-  tail call void @do_vext_vv(ptr noundef %vd, ptr noundef %v0, ptr noundef %vs1, ptr noundef %vs2, ptr noundef %env, i32 noundef %desc, ptr noundef nonnull @do_vror_vv_b, i32 noundef 1) #13
+  tail call void @do_vext_vv(ptr noundef %vd, ptr noundef %v0, ptr noundef %vs1, ptr noundef %vs2, ptr noundef %env, i32 noundef %desc, ptr noundef nonnull @do_vror_vv_b, i32 noundef 1) #12
   ret void
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
 define internal void @do_vror_vv_b(ptr nocapture noundef writeonly %vd, ptr nocapture noundef readonly %vs1, ptr nocapture noundef readonly %vs2, i32 noundef %i) #3 {
 entry:
   %idx.ext = sext i32 %i to i64
@@ -174,7 +174,7 @@ entry:
   %0 = load i8, ptr %add.ptr, align 1
   %add.ptr2 = getelementptr i8, ptr %vs2, i64 %idx.ext
   %1 = load i8, ptr %add.ptr2, align 1
-  %conv3.i = tail call i8 @llvm.fshr.i8(i8 %1, i8 %1, i8 %0)
+  %conv3.i = tail call noundef i8 @llvm.fshr.i8(i8 %1, i8 %1, i8 %0)
   %add.ptr4 = getelementptr i8, ptr %vd, i64 %idx.ext
   store i8 %conv3.i, ptr %add.ptr4, align 1
   ret void
@@ -183,11 +183,11 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @helper_vror_vv_h(ptr noundef %vd, ptr noundef %v0, ptr noundef %vs1, ptr noundef %vs2, ptr noundef %env, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
-  tail call void @do_vext_vv(ptr noundef %vd, ptr noundef %v0, ptr noundef %vs1, ptr noundef %vs2, ptr noundef %env, i32 noundef %desc, ptr noundef nonnull @do_vror_vv_h, i32 noundef 2) #13
+  tail call void @do_vext_vv(ptr noundef %vd, ptr noundef %v0, ptr noundef %vs1, ptr noundef %vs2, ptr noundef %env, i32 noundef %desc, ptr noundef nonnull @do_vror_vv_h, i32 noundef 2) #12
   ret void
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
 define internal void @do_vror_vv_h(ptr nocapture noundef writeonly %vd, ptr nocapture noundef readonly %vs1, ptr nocapture noundef readonly %vs2, i32 noundef %i) #3 {
 entry:
   %idx.ext = sext i32 %i to i64
@@ -195,7 +195,7 @@ entry:
   %0 = load i16, ptr %add.ptr, align 2
   %add.ptr2 = getelementptr i16, ptr %vs2, i64 %idx.ext
   %1 = load i16, ptr %add.ptr2, align 2
-  %conv3.i = tail call i16 @llvm.fshr.i16(i16 %1, i16 %1, i16 %0)
+  %conv3.i = tail call noundef i16 @llvm.fshr.i16(i16 %1, i16 %1, i16 %0)
   %add.ptr4 = getelementptr i16, ptr %vd, i64 %idx.ext
   store i16 %conv3.i, ptr %add.ptr4, align 2
   ret void
@@ -204,11 +204,11 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @helper_vror_vv_w(ptr noundef %vd, ptr noundef %v0, ptr noundef %vs1, ptr noundef %vs2, ptr noundef %env, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
-  tail call void @do_vext_vv(ptr noundef %vd, ptr noundef %v0, ptr noundef %vs1, ptr noundef %vs2, ptr noundef %env, i32 noundef %desc, ptr noundef nonnull @do_vror_vv_w, i32 noundef 4) #13
+  tail call void @do_vext_vv(ptr noundef %vd, ptr noundef %v0, ptr noundef %vs1, ptr noundef %vs2, ptr noundef %env, i32 noundef %desc, ptr noundef nonnull @do_vror_vv_w, i32 noundef 4) #12
   ret void
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
 define internal void @do_vror_vv_w(ptr nocapture noundef writeonly %vd, ptr nocapture noundef readonly %vs1, ptr nocapture noundef readonly %vs2, i32 noundef %i) #3 {
 entry:
   %idx.ext = sext i32 %i to i64
@@ -216,7 +216,7 @@ entry:
   %0 = load i32, ptr %add.ptr, align 4
   %add.ptr2 = getelementptr i32, ptr %vs2, i64 %idx.ext
   %1 = load i32, ptr %add.ptr2, align 4
-  %or.i = tail call i32 @llvm.fshr.i32(i32 %1, i32 %1, i32 %0)
+  %or.i = tail call noundef i32 @llvm.fshr.i32(i32 %1, i32 %1, i32 %0)
   %add.ptr4 = getelementptr i32, ptr %vd, i64 %idx.ext
   store i32 %or.i, ptr %add.ptr4, align 4
   ret void
@@ -225,11 +225,11 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @helper_vror_vv_d(ptr noundef %vd, ptr noundef %v0, ptr noundef %vs1, ptr noundef %vs2, ptr noundef %env, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
-  tail call void @do_vext_vv(ptr noundef %vd, ptr noundef %v0, ptr noundef %vs1, ptr noundef %vs2, ptr noundef %env, i32 noundef %desc, ptr noundef nonnull @do_vror_vv_d, i32 noundef 8) #13
+  tail call void @do_vext_vv(ptr noundef %vd, ptr noundef %v0, ptr noundef %vs1, ptr noundef %vs2, ptr noundef %env, i32 noundef %desc, ptr noundef nonnull @do_vror_vv_d, i32 noundef 8) #12
   ret void
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
 define internal void @do_vror_vv_d(ptr nocapture noundef writeonly %vd, ptr nocapture noundef readonly %vs1, ptr nocapture noundef readonly %vs2, i32 noundef %i) #3 {
 entry:
   %idx.ext = sext i32 %i to i64
@@ -237,7 +237,7 @@ entry:
   %0 = load i64, ptr %add.ptr, align 8
   %add.ptr2 = getelementptr i64, ptr %vs2, i64 %idx.ext
   %1 = load i64, ptr %add.ptr2, align 8
-  %or.i = tail call i64 @llvm.fshr.i64(i64 %1, i64 %1, i64 %0)
+  %or.i = tail call noundef i64 @llvm.fshr.i64(i64 %1, i64 %1, i64 %0)
   %add.ptr4 = getelementptr i64, ptr %vd, i64 %idx.ext
   store i64 %or.i, ptr %add.ptr4, align 8
   ret void
@@ -246,18 +246,18 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @helper_vror_vx_b(ptr noundef %vd, ptr noundef %v0, i64 noundef %s1, ptr noundef %vs2, ptr noundef %env, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
-  tail call void @do_vext_vx(ptr noundef %vd, ptr noundef %v0, i64 noundef %s1, ptr noundef %vs2, ptr noundef %env, i32 noundef %desc, ptr noundef nonnull @do_vror_vx_b, i32 noundef 1) #13
+  tail call void @do_vext_vx(ptr noundef %vd, ptr noundef %v0, i64 noundef %s1, ptr noundef %vs2, ptr noundef %env, i32 noundef %desc, ptr noundef nonnull @do_vror_vx_b, i32 noundef 1) #12
   ret void
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
 define internal void @do_vror_vx_b(ptr nocapture noundef writeonly %vd, i64 noundef %s1, ptr nocapture noundef readonly %vs2, i32 noundef %i) #3 {
 entry:
   %idx.ext = sext i32 %i to i64
   %add.ptr = getelementptr i8, ptr %vs2, i64 %idx.ext
   %0 = load i8, ptr %add.ptr, align 1
   %conv = trunc i64 %s1 to i8
-  %conv3.i = tail call i8 @llvm.fshr.i8(i8 %0, i8 %0, i8 %conv)
+  %conv3.i = tail call noundef i8 @llvm.fshr.i8(i8 %0, i8 %0, i8 %conv)
   %add.ptr3 = getelementptr i8, ptr %vd, i64 %idx.ext
   store i8 %conv3.i, ptr %add.ptr3, align 1
   ret void
@@ -266,18 +266,18 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @helper_vror_vx_h(ptr noundef %vd, ptr noundef %v0, i64 noundef %s1, ptr noundef %vs2, ptr noundef %env, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
-  tail call void @do_vext_vx(ptr noundef %vd, ptr noundef %v0, i64 noundef %s1, ptr noundef %vs2, ptr noundef %env, i32 noundef %desc, ptr noundef nonnull @do_vror_vx_h, i32 noundef 2) #13
+  tail call void @do_vext_vx(ptr noundef %vd, ptr noundef %v0, i64 noundef %s1, ptr noundef %vs2, ptr noundef %env, i32 noundef %desc, ptr noundef nonnull @do_vror_vx_h, i32 noundef 2) #12
   ret void
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
 define internal void @do_vror_vx_h(ptr nocapture noundef writeonly %vd, i64 noundef %s1, ptr nocapture noundef readonly %vs2, i32 noundef %i) #3 {
 entry:
   %idx.ext = sext i32 %i to i64
   %add.ptr = getelementptr i16, ptr %vs2, i64 %idx.ext
   %0 = load i16, ptr %add.ptr, align 2
   %conv = trunc i64 %s1 to i16
-  %conv3.i = tail call i16 @llvm.fshr.i16(i16 %0, i16 %0, i16 %conv)
+  %conv3.i = tail call noundef i16 @llvm.fshr.i16(i16 %0, i16 %0, i16 %conv)
   %add.ptr3 = getelementptr i16, ptr %vd, i64 %idx.ext
   store i16 %conv3.i, ptr %add.ptr3, align 2
   ret void
@@ -286,18 +286,18 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @helper_vror_vx_w(ptr noundef %vd, ptr noundef %v0, i64 noundef %s1, ptr noundef %vs2, ptr noundef %env, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
-  tail call void @do_vext_vx(ptr noundef %vd, ptr noundef %v0, i64 noundef %s1, ptr noundef %vs2, ptr noundef %env, i32 noundef %desc, ptr noundef nonnull @do_vror_vx_w, i32 noundef 4) #13
+  tail call void @do_vext_vx(ptr noundef %vd, ptr noundef %v0, i64 noundef %s1, ptr noundef %vs2, ptr noundef %env, i32 noundef %desc, ptr noundef nonnull @do_vror_vx_w, i32 noundef 4) #12
   ret void
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
 define internal void @do_vror_vx_w(ptr nocapture noundef writeonly %vd, i64 noundef %s1, ptr nocapture noundef readonly %vs2, i32 noundef %i) #3 {
 entry:
   %idx.ext = sext i32 %i to i64
   %add.ptr = getelementptr i32, ptr %vs2, i64 %idx.ext
   %0 = load i32, ptr %add.ptr, align 4
   %conv = trunc i64 %s1 to i32
-  %or.i = tail call i32 @llvm.fshr.i32(i32 %0, i32 %0, i32 %conv)
+  %or.i = tail call noundef i32 @llvm.fshr.i32(i32 %0, i32 %0, i32 %conv)
   %add.ptr2 = getelementptr i32, ptr %vd, i64 %idx.ext
   store i32 %or.i, ptr %add.ptr2, align 4
   ret void
@@ -306,17 +306,17 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @helper_vror_vx_d(ptr noundef %vd, ptr noundef %v0, i64 noundef %s1, ptr noundef %vs2, ptr noundef %env, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
-  tail call void @do_vext_vx(ptr noundef %vd, ptr noundef %v0, i64 noundef %s1, ptr noundef %vs2, ptr noundef %env, i32 noundef %desc, ptr noundef nonnull @do_vror_vx_d, i32 noundef 8) #13
+  tail call void @do_vext_vx(ptr noundef %vd, ptr noundef %v0, i64 noundef %s1, ptr noundef %vs2, ptr noundef %env, i32 noundef %desc, ptr noundef nonnull @do_vror_vx_d, i32 noundef 8) #12
   ret void
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
 define internal void @do_vror_vx_d(ptr nocapture noundef writeonly %vd, i64 noundef %s1, ptr nocapture noundef readonly %vs2, i32 noundef %i) #3 {
 entry:
   %idx.ext = sext i32 %i to i64
   %add.ptr = getelementptr i64, ptr %vs2, i64 %idx.ext
   %0 = load i64, ptr %add.ptr, align 8
-  %or.i = tail call i64 @llvm.fshr.i64(i64 %0, i64 %0, i64 %s1)
+  %or.i = tail call noundef i64 @llvm.fshr.i64(i64 %0, i64 %0, i64 %s1)
   %add.ptr2 = getelementptr i64, ptr %vd, i64 %idx.ext
   store i64 %or.i, ptr %add.ptr2, align 8
   ret void
@@ -325,11 +325,11 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @helper_vrol_vv_b(ptr noundef %vd, ptr noundef %v0, ptr noundef %vs1, ptr noundef %vs2, ptr noundef %env, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
-  tail call void @do_vext_vv(ptr noundef %vd, ptr noundef %v0, ptr noundef %vs1, ptr noundef %vs2, ptr noundef %env, i32 noundef %desc, ptr noundef nonnull @do_vrol_vv_b, i32 noundef 1) #13
+  tail call void @do_vext_vv(ptr noundef %vd, ptr noundef %v0, ptr noundef %vs1, ptr noundef %vs2, ptr noundef %env, i32 noundef %desc, ptr noundef nonnull @do_vrol_vv_b, i32 noundef 1) #12
   ret void
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
 define internal void @do_vrol_vv_b(ptr nocapture noundef writeonly %vd, ptr nocapture noundef readonly %vs1, ptr nocapture noundef readonly %vs2, i32 noundef %i) #3 {
 entry:
   %idx.ext = sext i32 %i to i64
@@ -337,7 +337,7 @@ entry:
   %0 = load i8, ptr %add.ptr, align 1
   %add.ptr2 = getelementptr i8, ptr %vs2, i64 %idx.ext
   %1 = load i8, ptr %add.ptr2, align 1
-  %conv3.i = tail call i8 @llvm.fshl.i8(i8 %1, i8 %1, i8 %0)
+  %conv3.i = tail call noundef i8 @llvm.fshl.i8(i8 %1, i8 %1, i8 %0)
   %add.ptr4 = getelementptr i8, ptr %vd, i64 %idx.ext
   store i8 %conv3.i, ptr %add.ptr4, align 1
   ret void
@@ -346,11 +346,11 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @helper_vrol_vv_h(ptr noundef %vd, ptr noundef %v0, ptr noundef %vs1, ptr noundef %vs2, ptr noundef %env, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
-  tail call void @do_vext_vv(ptr noundef %vd, ptr noundef %v0, ptr noundef %vs1, ptr noundef %vs2, ptr noundef %env, i32 noundef %desc, ptr noundef nonnull @do_vrol_vv_h, i32 noundef 2) #13
+  tail call void @do_vext_vv(ptr noundef %vd, ptr noundef %v0, ptr noundef %vs1, ptr noundef %vs2, ptr noundef %env, i32 noundef %desc, ptr noundef nonnull @do_vrol_vv_h, i32 noundef 2) #12
   ret void
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
 define internal void @do_vrol_vv_h(ptr nocapture noundef writeonly %vd, ptr nocapture noundef readonly %vs1, ptr nocapture noundef readonly %vs2, i32 noundef %i) #3 {
 entry:
   %idx.ext = sext i32 %i to i64
@@ -358,7 +358,7 @@ entry:
   %0 = load i16, ptr %add.ptr, align 2
   %add.ptr2 = getelementptr i16, ptr %vs2, i64 %idx.ext
   %1 = load i16, ptr %add.ptr2, align 2
-  %conv3.i = tail call i16 @llvm.fshl.i16(i16 %1, i16 %1, i16 %0)
+  %conv3.i = tail call noundef i16 @llvm.fshl.i16(i16 %1, i16 %1, i16 %0)
   %add.ptr4 = getelementptr i16, ptr %vd, i64 %idx.ext
   store i16 %conv3.i, ptr %add.ptr4, align 2
   ret void
@@ -367,11 +367,11 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @helper_vrol_vv_w(ptr noundef %vd, ptr noundef %v0, ptr noundef %vs1, ptr noundef %vs2, ptr noundef %env, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
-  tail call void @do_vext_vv(ptr noundef %vd, ptr noundef %v0, ptr noundef %vs1, ptr noundef %vs2, ptr noundef %env, i32 noundef %desc, ptr noundef nonnull @do_vrol_vv_w, i32 noundef 4) #13
+  tail call void @do_vext_vv(ptr noundef %vd, ptr noundef %v0, ptr noundef %vs1, ptr noundef %vs2, ptr noundef %env, i32 noundef %desc, ptr noundef nonnull @do_vrol_vv_w, i32 noundef 4) #12
   ret void
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
 define internal void @do_vrol_vv_w(ptr nocapture noundef writeonly %vd, ptr nocapture noundef readonly %vs1, ptr nocapture noundef readonly %vs2, i32 noundef %i) #3 {
 entry:
   %idx.ext = sext i32 %i to i64
@@ -379,7 +379,7 @@ entry:
   %0 = load i32, ptr %add.ptr, align 4
   %add.ptr2 = getelementptr i32, ptr %vs2, i64 %idx.ext
   %1 = load i32, ptr %add.ptr2, align 4
-  %or.i = tail call i32 @llvm.fshl.i32(i32 %1, i32 %1, i32 %0)
+  %or.i = tail call noundef i32 @llvm.fshl.i32(i32 %1, i32 %1, i32 %0)
   %add.ptr4 = getelementptr i32, ptr %vd, i64 %idx.ext
   store i32 %or.i, ptr %add.ptr4, align 4
   ret void
@@ -388,11 +388,11 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @helper_vrol_vv_d(ptr noundef %vd, ptr noundef %v0, ptr noundef %vs1, ptr noundef %vs2, ptr noundef %env, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
-  tail call void @do_vext_vv(ptr noundef %vd, ptr noundef %v0, ptr noundef %vs1, ptr noundef %vs2, ptr noundef %env, i32 noundef %desc, ptr noundef nonnull @do_vrol_vv_d, i32 noundef 8) #13
+  tail call void @do_vext_vv(ptr noundef %vd, ptr noundef %v0, ptr noundef %vs1, ptr noundef %vs2, ptr noundef %env, i32 noundef %desc, ptr noundef nonnull @do_vrol_vv_d, i32 noundef 8) #12
   ret void
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
 define internal void @do_vrol_vv_d(ptr nocapture noundef writeonly %vd, ptr nocapture noundef readonly %vs1, ptr nocapture noundef readonly %vs2, i32 noundef %i) #3 {
 entry:
   %idx.ext = sext i32 %i to i64
@@ -400,7 +400,7 @@ entry:
   %0 = load i64, ptr %add.ptr, align 8
   %add.ptr2 = getelementptr i64, ptr %vs2, i64 %idx.ext
   %1 = load i64, ptr %add.ptr2, align 8
-  %or.i = tail call i64 @llvm.fshl.i64(i64 %1, i64 %1, i64 %0)
+  %or.i = tail call noundef i64 @llvm.fshl.i64(i64 %1, i64 %1, i64 %0)
   %add.ptr4 = getelementptr i64, ptr %vd, i64 %idx.ext
   store i64 %or.i, ptr %add.ptr4, align 8
   ret void
@@ -409,18 +409,18 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @helper_vrol_vx_b(ptr noundef %vd, ptr noundef %v0, i64 noundef %s1, ptr noundef %vs2, ptr noundef %env, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
-  tail call void @do_vext_vx(ptr noundef %vd, ptr noundef %v0, i64 noundef %s1, ptr noundef %vs2, ptr noundef %env, i32 noundef %desc, ptr noundef nonnull @do_vrol_vx_b, i32 noundef 1) #13
+  tail call void @do_vext_vx(ptr noundef %vd, ptr noundef %v0, i64 noundef %s1, ptr noundef %vs2, ptr noundef %env, i32 noundef %desc, ptr noundef nonnull @do_vrol_vx_b, i32 noundef 1) #12
   ret void
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
 define internal void @do_vrol_vx_b(ptr nocapture noundef writeonly %vd, i64 noundef %s1, ptr nocapture noundef readonly %vs2, i32 noundef %i) #3 {
 entry:
   %idx.ext = sext i32 %i to i64
   %add.ptr = getelementptr i8, ptr %vs2, i64 %idx.ext
   %0 = load i8, ptr %add.ptr, align 1
   %conv = trunc i64 %s1 to i8
-  %conv3.i = tail call i8 @llvm.fshl.i8(i8 %0, i8 %0, i8 %conv)
+  %conv3.i = tail call noundef i8 @llvm.fshl.i8(i8 %0, i8 %0, i8 %conv)
   %add.ptr3 = getelementptr i8, ptr %vd, i64 %idx.ext
   store i8 %conv3.i, ptr %add.ptr3, align 1
   ret void
@@ -429,18 +429,18 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @helper_vrol_vx_h(ptr noundef %vd, ptr noundef %v0, i64 noundef %s1, ptr noundef %vs2, ptr noundef %env, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
-  tail call void @do_vext_vx(ptr noundef %vd, ptr noundef %v0, i64 noundef %s1, ptr noundef %vs2, ptr noundef %env, i32 noundef %desc, ptr noundef nonnull @do_vrol_vx_h, i32 noundef 2) #13
+  tail call void @do_vext_vx(ptr noundef %vd, ptr noundef %v0, i64 noundef %s1, ptr noundef %vs2, ptr noundef %env, i32 noundef %desc, ptr noundef nonnull @do_vrol_vx_h, i32 noundef 2) #12
   ret void
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
 define internal void @do_vrol_vx_h(ptr nocapture noundef writeonly %vd, i64 noundef %s1, ptr nocapture noundef readonly %vs2, i32 noundef %i) #3 {
 entry:
   %idx.ext = sext i32 %i to i64
   %add.ptr = getelementptr i16, ptr %vs2, i64 %idx.ext
   %0 = load i16, ptr %add.ptr, align 2
   %conv = trunc i64 %s1 to i16
-  %conv3.i = tail call i16 @llvm.fshl.i16(i16 %0, i16 %0, i16 %conv)
+  %conv3.i = tail call noundef i16 @llvm.fshl.i16(i16 %0, i16 %0, i16 %conv)
   %add.ptr3 = getelementptr i16, ptr %vd, i64 %idx.ext
   store i16 %conv3.i, ptr %add.ptr3, align 2
   ret void
@@ -449,18 +449,18 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @helper_vrol_vx_w(ptr noundef %vd, ptr noundef %v0, i64 noundef %s1, ptr noundef %vs2, ptr noundef %env, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
-  tail call void @do_vext_vx(ptr noundef %vd, ptr noundef %v0, i64 noundef %s1, ptr noundef %vs2, ptr noundef %env, i32 noundef %desc, ptr noundef nonnull @do_vrol_vx_w, i32 noundef 4) #13
+  tail call void @do_vext_vx(ptr noundef %vd, ptr noundef %v0, i64 noundef %s1, ptr noundef %vs2, ptr noundef %env, i32 noundef %desc, ptr noundef nonnull @do_vrol_vx_w, i32 noundef 4) #12
   ret void
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
 define internal void @do_vrol_vx_w(ptr nocapture noundef writeonly %vd, i64 noundef %s1, ptr nocapture noundef readonly %vs2, i32 noundef %i) #3 {
 entry:
   %idx.ext = sext i32 %i to i64
   %add.ptr = getelementptr i32, ptr %vs2, i64 %idx.ext
   %0 = load i32, ptr %add.ptr, align 4
   %conv = trunc i64 %s1 to i32
-  %or.i = tail call i32 @llvm.fshl.i32(i32 %0, i32 %0, i32 %conv)
+  %or.i = tail call noundef i32 @llvm.fshl.i32(i32 %0, i32 %0, i32 %conv)
   %add.ptr2 = getelementptr i32, ptr %vd, i64 %idx.ext
   store i32 %or.i, ptr %add.ptr2, align 4
   ret void
@@ -469,17 +469,17 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @helper_vrol_vx_d(ptr noundef %vd, ptr noundef %v0, i64 noundef %s1, ptr noundef %vs2, ptr noundef %env, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
-  tail call void @do_vext_vx(ptr noundef %vd, ptr noundef %v0, i64 noundef %s1, ptr noundef %vs2, ptr noundef %env, i32 noundef %desc, ptr noundef nonnull @do_vrol_vx_d, i32 noundef 8) #13
+  tail call void @do_vext_vx(ptr noundef %vd, ptr noundef %v0, i64 noundef %s1, ptr noundef %vs2, ptr noundef %env, i32 noundef %desc, ptr noundef nonnull @do_vrol_vx_d, i32 noundef 8) #12
   ret void
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
 define internal void @do_vrol_vx_d(ptr nocapture noundef writeonly %vd, i64 noundef %s1, ptr nocapture noundef readonly %vs2, i32 noundef %i) #3 {
 entry:
   %idx.ext = sext i32 %i to i64
   %add.ptr = getelementptr i64, ptr %vs2, i64 %idx.ext
   %0 = load i64, ptr %add.ptr, align 8
-  %or.i = tail call i64 @llvm.fshl.i64(i64 %0, i64 %0, i64 %s1)
+  %or.i = tail call noundef i64 @llvm.fshl.i64(i64 %0, i64 %0, i64 %s1)
   %add.ptr2 = getelementptr i64, ptr %vd, i64 %idx.ext
   store i64 %or.i, ptr %add.ptr2, align 8
   ret void
@@ -531,7 +531,7 @@ if.end.us:                                        ; preds = %for.body.us
 
 if.then.us:                                       ; preds = %for.body.us
   %add.us = add i32 %i.021.us, 1
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i17, i32 noundef %i.021.us, i32 noundef %add.us) #13
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i17, i32 noundef %i.021.us, i32 noundef %add.us) #12
   br label %for.inc.us
 
 for.inc.us:                                       ; preds = %if.then.us, %if.end.us
@@ -566,7 +566,7 @@ for.end:                                          ; preds = %for.body, %for.inc.
   %cond.i = tail call i32 @llvm.smax.i32(i32 %add.i, i32 0)
   %shl17.i = shl nuw nsw i32 %add.i.i, %cond.i
   store i64 0, ptr %vstart, align 8
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i15, i32 noundef %conv, i32 noundef %shl17.i) #13
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i15, i32 noundef %conv, i32 noundef %shl17.i) #12
   ret void
 }
 
@@ -632,7 +632,7 @@ if.end.us:                                        ; preds = %for.body.us
 if.then.us:                                       ; preds = %for.body.us
   %mul.us = shl i32 %i.025.us, 1
   %mul9.us = add i32 %mul.us, 2
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i17, i32 noundef %mul.us, i32 noundef %mul9.us) #13
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i17, i32 noundef %mul.us, i32 noundef %mul9.us) #12
   br label %for.inc.us
 
 for.inc.us:                                       ; preds = %if.then.us, %if.end.us
@@ -684,7 +684,7 @@ for.end:                                          ; preds = %for.body, %for.inc.
   %div.i.zext = and i32 %shl17.i, 65528
   store i64 0, ptr %vstart, align 8
   %mul11 = shl i32 %conv, 1
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i15, i32 noundef %mul11, i32 noundef %div.i.zext) #13
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i15, i32 noundef %mul11, i32 noundef %div.i.zext) #12
   ret void
 }
 
@@ -748,7 +748,7 @@ if.end.us:                                        ; preds = %for.body.us
 if.then.us:                                       ; preds = %for.body.us
   %mul.us = shl i32 %i.024.us, 2
   %mul9.us = add i32 %mul.us, 4
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i17, i32 noundef %mul.us, i32 noundef %mul9.us) #13
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i17, i32 noundef %mul.us, i32 noundef %mul9.us) #12
   br label %for.inc.us
 
 for.inc.us:                                       ; preds = %if.then.us, %if.end.us
@@ -799,7 +799,7 @@ for.end:                                          ; preds = %for.body, %for.inc.
   %shl17.i = shl nuw nsw i32 %add.i.i, %cond.i
   store i64 0, ptr %vstart, align 8
   %mul11 = shl i32 %conv, 2
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i15, i32 noundef %mul11, i32 noundef %shl17.i) #13
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i15, i32 noundef %mul11, i32 noundef %shl17.i) #12
   ret void
 }
 
@@ -863,7 +863,7 @@ if.end.us:                                        ; preds = %for.body.us
 if.then.us:                                       ; preds = %for.body.us
   %mul.us = shl i32 %i.024.us, 3
   %mul9.us = add i32 %mul.us, 8
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i17, i32 noundef %mul.us, i32 noundef %mul9.us) #13
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i17, i32 noundef %mul.us, i32 noundef %mul9.us) #12
   br label %for.inc.us
 
 for.inc.us:                                       ; preds = %if.then.us, %if.end.us
@@ -914,7 +914,7 @@ for.end:                                          ; preds = %for.body, %for.inc.
   %shl17.i = shl nuw nsw i32 %add.i.i, %cond.i
   store i64 0, ptr %vstart, align 8
   %mul11 = shl i32 %conv, 3
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i15, i32 noundef %mul11, i32 noundef %shl17.i) #13
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i15, i32 noundef %mul11, i32 noundef %shl17.i) #12
   ret void
 }
 
@@ -963,7 +963,7 @@ if.end.us:                                        ; preds = %for.body.us
 
 if.then.us:                                       ; preds = %for.body.us
   %add.us = add i32 %i.021.us, 1
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i17, i32 noundef %i.021.us, i32 noundef %add.us) #13
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i17, i32 noundef %i.021.us, i32 noundef %add.us) #12
   br label %for.inc.us
 
 for.inc.us:                                       ; preds = %if.then.us, %if.end.us
@@ -997,7 +997,7 @@ for.end:                                          ; preds = %for.body, %for.inc.
   %cond.i = tail call i32 @llvm.smax.i32(i32 %add.i, i32 0)
   %shl17.i = shl nuw nsw i32 %add.i.i, %cond.i
   store i64 0, ptr %vstart, align 8
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i15, i32 noundef %conv, i32 noundef %shl17.i) #13
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i15, i32 noundef %conv, i32 noundef %shl17.i) #12
   ret void
 }
 
@@ -1047,7 +1047,7 @@ if.end.us:                                        ; preds = %for.body.us
 if.then.us:                                       ; preds = %for.body.us
   %mul.us = shl i32 %i.024.us, 1
   %mul9.us = add i32 %mul.us, 2
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i17, i32 noundef %mul.us, i32 noundef %mul9.us) #13
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i17, i32 noundef %mul.us, i32 noundef %mul9.us) #12
   br label %for.inc.us
 
 for.inc.us:                                       ; preds = %if.then.us, %if.end.us
@@ -1085,7 +1085,7 @@ for.end:                                          ; preds = %for.body, %for.inc.
   %div.i.zext = and i32 %shl17.i, 65528
   store i64 0, ptr %vstart, align 8
   %mul11 = shl i32 %conv, 1
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i15, i32 noundef %mul11, i32 noundef %div.i.zext) #13
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i15, i32 noundef %mul11, i32 noundef %div.i.zext) #12
   ret void
 }
 
@@ -1135,7 +1135,7 @@ if.end.us:                                        ; preds = %for.body.us
 if.then.us:                                       ; preds = %for.body.us
   %mul.us = shl i32 %i.023.us, 2
   %mul9.us = add i32 %mul.us, 4
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i17, i32 noundef %mul.us, i32 noundef %mul9.us) #13
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i17, i32 noundef %mul.us, i32 noundef %mul9.us) #12
   br label %for.inc.us
 
 for.inc.us:                                       ; preds = %if.then.us, %if.end.us
@@ -1172,7 +1172,7 @@ for.end:                                          ; preds = %for.body, %for.inc.
   %shl17.i = shl nuw nsw i32 %add.i.i, %cond.i
   store i64 0, ptr %vstart, align 8
   %mul11 = shl i32 %conv, 2
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i15, i32 noundef %mul11, i32 noundef %shl17.i) #13
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i15, i32 noundef %mul11, i32 noundef %shl17.i) #12
   ret void
 }
 
@@ -1222,7 +1222,7 @@ if.end.us:                                        ; preds = %for.body.us
 if.then.us:                                       ; preds = %for.body.us
   %mul.us = shl i32 %i.023.us, 3
   %mul9.us = add i32 %mul.us, 8
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i17, i32 noundef %mul.us, i32 noundef %mul9.us) #13
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i17, i32 noundef %mul.us, i32 noundef %mul9.us) #12
   br label %for.inc.us
 
 for.inc.us:                                       ; preds = %if.then.us, %if.end.us
@@ -1259,19 +1259,19 @@ for.end:                                          ; preds = %for.body, %for.inc.
   %shl17.i = shl nuw nsw i32 %add.i.i, %cond.i
   store i64 0, ptr %vstart, align 8
   %mul11 = shl i32 %conv, 3
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i15, i32 noundef %mul11, i32 noundef %shl17.i) #13
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i15, i32 noundef %mul11, i32 noundef %shl17.i) #12
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @helper_vandn_vv_b(ptr noundef %vd, ptr noundef %v0, ptr noundef %vs1, ptr noundef %vs2, ptr noundef %env, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
-  tail call void @do_vext_vv(ptr noundef %vd, ptr noundef %v0, ptr noundef %vs1, ptr noundef %vs2, ptr noundef %env, i32 noundef %desc, ptr noundef nonnull @do_vandn_vv_b, i32 noundef 1) #13
+  tail call void @do_vext_vv(ptr noundef %vd, ptr noundef %v0, ptr noundef %vs1, ptr noundef %vs2, ptr noundef %env, i32 noundef %desc, ptr noundef nonnull @do_vandn_vv_b, i32 noundef 1) #12
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define internal void @do_vandn_vv_b(ptr nocapture noundef writeonly %vd, ptr nocapture noundef readonly %vs1, ptr nocapture noundef readonly %vs2, i32 noundef %i) #4 {
+define internal void @do_vandn_vv_b(ptr nocapture noundef writeonly %vd, ptr nocapture noundef readonly %vs1, ptr nocapture noundef readonly %vs2, i32 noundef %i) #3 {
 entry:
   %idx.ext = sext i32 %i to i64
   %add.ptr = getelementptr i8, ptr %vs1, i64 %idx.ext
@@ -1288,12 +1288,12 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @helper_vandn_vv_h(ptr noundef %vd, ptr noundef %v0, ptr noundef %vs1, ptr noundef %vs2, ptr noundef %env, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
-  tail call void @do_vext_vv(ptr noundef %vd, ptr noundef %v0, ptr noundef %vs1, ptr noundef %vs2, ptr noundef %env, i32 noundef %desc, ptr noundef nonnull @do_vandn_vv_h, i32 noundef 2) #13
+  tail call void @do_vext_vv(ptr noundef %vd, ptr noundef %v0, ptr noundef %vs1, ptr noundef %vs2, ptr noundef %env, i32 noundef %desc, ptr noundef nonnull @do_vandn_vv_h, i32 noundef 2) #12
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define internal void @do_vandn_vv_h(ptr nocapture noundef writeonly %vd, ptr nocapture noundef readonly %vs1, ptr nocapture noundef readonly %vs2, i32 noundef %i) #4 {
+define internal void @do_vandn_vv_h(ptr nocapture noundef writeonly %vd, ptr nocapture noundef readonly %vs1, ptr nocapture noundef readonly %vs2, i32 noundef %i) #3 {
 entry:
   %idx.ext = sext i32 %i to i64
   %add.ptr = getelementptr i16, ptr %vs1, i64 %idx.ext
@@ -1310,12 +1310,12 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @helper_vandn_vv_w(ptr noundef %vd, ptr noundef %v0, ptr noundef %vs1, ptr noundef %vs2, ptr noundef %env, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
-  tail call void @do_vext_vv(ptr noundef %vd, ptr noundef %v0, ptr noundef %vs1, ptr noundef %vs2, ptr noundef %env, i32 noundef %desc, ptr noundef nonnull @do_vandn_vv_w, i32 noundef 4) #13
+  tail call void @do_vext_vv(ptr noundef %vd, ptr noundef %v0, ptr noundef %vs1, ptr noundef %vs2, ptr noundef %env, i32 noundef %desc, ptr noundef nonnull @do_vandn_vv_w, i32 noundef 4) #12
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define internal void @do_vandn_vv_w(ptr nocapture noundef writeonly %vd, ptr nocapture noundef readonly %vs1, ptr nocapture noundef readonly %vs2, i32 noundef %i) #4 {
+define internal void @do_vandn_vv_w(ptr nocapture noundef writeonly %vd, ptr nocapture noundef readonly %vs1, ptr nocapture noundef readonly %vs2, i32 noundef %i) #3 {
 entry:
   %idx.ext = sext i32 %i to i64
   %add.ptr = getelementptr i32, ptr %vs1, i64 %idx.ext
@@ -1332,12 +1332,12 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @helper_vandn_vv_d(ptr noundef %vd, ptr noundef %v0, ptr noundef %vs1, ptr noundef %vs2, ptr noundef %env, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
-  tail call void @do_vext_vv(ptr noundef %vd, ptr noundef %v0, ptr noundef %vs1, ptr noundef %vs2, ptr noundef %env, i32 noundef %desc, ptr noundef nonnull @do_vandn_vv_d, i32 noundef 8) #13
+  tail call void @do_vext_vv(ptr noundef %vd, ptr noundef %v0, ptr noundef %vs1, ptr noundef %vs2, ptr noundef %env, i32 noundef %desc, ptr noundef nonnull @do_vandn_vv_d, i32 noundef 8) #12
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define internal void @do_vandn_vv_d(ptr nocapture noundef writeonly %vd, ptr nocapture noundef readonly %vs1, ptr nocapture noundef readonly %vs2, i32 noundef %i) #4 {
+define internal void @do_vandn_vv_d(ptr nocapture noundef writeonly %vd, ptr nocapture noundef readonly %vs1, ptr nocapture noundef readonly %vs2, i32 noundef %i) #3 {
 entry:
   %idx.ext = sext i32 %i to i64
   %add.ptr = getelementptr i64, ptr %vs1, i64 %idx.ext
@@ -1354,12 +1354,12 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @helper_vandn_vx_b(ptr noundef %vd, ptr noundef %v0, i64 noundef %s1, ptr noundef %vs2, ptr noundef %env, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
-  tail call void @do_vext_vx(ptr noundef %vd, ptr noundef %v0, i64 noundef %s1, ptr noundef %vs2, ptr noundef %env, i32 noundef %desc, ptr noundef nonnull @do_vandn_vx_b, i32 noundef 1) #13
+  tail call void @do_vext_vx(ptr noundef %vd, ptr noundef %v0, i64 noundef %s1, ptr noundef %vs2, ptr noundef %env, i32 noundef %desc, ptr noundef nonnull @do_vandn_vx_b, i32 noundef 1) #12
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define internal void @do_vandn_vx_b(ptr nocapture noundef writeonly %vd, i64 noundef %s1, ptr nocapture noundef readonly %vs2, i32 noundef %i) #4 {
+define internal void @do_vandn_vx_b(ptr nocapture noundef writeonly %vd, i64 noundef %s1, ptr nocapture noundef readonly %vs2, i32 noundef %i) #3 {
 entry:
   %idx.ext = sext i32 %i to i64
   %add.ptr = getelementptr i8, ptr %vs2, i64 %idx.ext
@@ -1375,12 +1375,12 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @helper_vandn_vx_h(ptr noundef %vd, ptr noundef %v0, i64 noundef %s1, ptr noundef %vs2, ptr noundef %env, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
-  tail call void @do_vext_vx(ptr noundef %vd, ptr noundef %v0, i64 noundef %s1, ptr noundef %vs2, ptr noundef %env, i32 noundef %desc, ptr noundef nonnull @do_vandn_vx_h, i32 noundef 2) #13
+  tail call void @do_vext_vx(ptr noundef %vd, ptr noundef %v0, i64 noundef %s1, ptr noundef %vs2, ptr noundef %env, i32 noundef %desc, ptr noundef nonnull @do_vandn_vx_h, i32 noundef 2) #12
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define internal void @do_vandn_vx_h(ptr nocapture noundef writeonly %vd, i64 noundef %s1, ptr nocapture noundef readonly %vs2, i32 noundef %i) #4 {
+define internal void @do_vandn_vx_h(ptr nocapture noundef writeonly %vd, i64 noundef %s1, ptr nocapture noundef readonly %vs2, i32 noundef %i) #3 {
 entry:
   %idx.ext = sext i32 %i to i64
   %add.ptr = getelementptr i16, ptr %vs2, i64 %idx.ext
@@ -1396,12 +1396,12 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @helper_vandn_vx_w(ptr noundef %vd, ptr noundef %v0, i64 noundef %s1, ptr noundef %vs2, ptr noundef %env, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
-  tail call void @do_vext_vx(ptr noundef %vd, ptr noundef %v0, i64 noundef %s1, ptr noundef %vs2, ptr noundef %env, i32 noundef %desc, ptr noundef nonnull @do_vandn_vx_w, i32 noundef 4) #13
+  tail call void @do_vext_vx(ptr noundef %vd, ptr noundef %v0, i64 noundef %s1, ptr noundef %vs2, ptr noundef %env, i32 noundef %desc, ptr noundef nonnull @do_vandn_vx_w, i32 noundef 4) #12
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define internal void @do_vandn_vx_w(ptr nocapture noundef writeonly %vd, i64 noundef %s1, ptr nocapture noundef readonly %vs2, i32 noundef %i) #4 {
+define internal void @do_vandn_vx_w(ptr nocapture noundef writeonly %vd, i64 noundef %s1, ptr nocapture noundef readonly %vs2, i32 noundef %i) #3 {
 entry:
   %idx.ext = sext i32 %i to i64
   %add.ptr = getelementptr i32, ptr %vs2, i64 %idx.ext
@@ -1417,12 +1417,12 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @helper_vandn_vx_d(ptr noundef %vd, ptr noundef %v0, i64 noundef %s1, ptr noundef %vs2, ptr noundef %env, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
-  tail call void @do_vext_vx(ptr noundef %vd, ptr noundef %v0, i64 noundef %s1, ptr noundef %vs2, ptr noundef %env, i32 noundef %desc, ptr noundef nonnull @do_vandn_vx_d, i32 noundef 8) #13
+  tail call void @do_vext_vx(ptr noundef %vd, ptr noundef %v0, i64 noundef %s1, ptr noundef %vs2, ptr noundef %env, i32 noundef %desc, ptr noundef nonnull @do_vandn_vx_d, i32 noundef 8) #12
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define internal void @do_vandn_vx_d(ptr nocapture noundef writeonly %vd, i64 noundef %s1, ptr nocapture noundef readonly %vs2, i32 noundef %i) #4 {
+define internal void @do_vandn_vx_d(ptr nocapture noundef writeonly %vd, i64 noundef %s1, ptr nocapture noundef readonly %vs2, i32 noundef %i) #3 {
 entry:
   %idx.ext = sext i32 %i to i64
   %add.ptr = getelementptr i64, ptr %vs2, i64 %idx.ext
@@ -1472,7 +1472,7 @@ if.end.us:                                        ; preds = %for.body.us
   %idx.ext.i.us = sext i32 %i.021.us to i64
   %add.ptr.i.us = getelementptr i8, ptr %vs2, i64 %idx.ext.i.us
   %7 = load i8, ptr %add.ptr.i.us, align 1
-  %8 = tail call i8 @llvm.bitreverse.i8(i8 %7)
+  %8 = tail call noundef i8 @llvm.bitreverse.i8(i8 %7)
   %add.ptr2.i.us = getelementptr i8, ptr %vd, i64 %idx.ext.i.us
   store i8 %8, ptr %add.ptr2.i.us, align 1
   %.pre = add i32 %i.021.us, 1
@@ -1480,7 +1480,7 @@ if.end.us:                                        ; preds = %for.body.us
 
 if.then.us:                                       ; preds = %for.body.us
   %add.us = add i32 %i.021.us, 1
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i17, i32 noundef %i.021.us, i32 noundef %add.us) #13
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i17, i32 noundef %i.021.us, i32 noundef %add.us) #12
   br label %for.inc.us
 
 for.inc.us:                                       ; preds = %if.then.us, %if.end.us
@@ -1493,7 +1493,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %idx.ext.i = sext i32 %i.021 to i64
   %add.ptr.i = getelementptr i8, ptr %vs2, i64 %idx.ext.i
   %9 = load i8, ptr %add.ptr.i, align 1
-  %10 = tail call i8 @llvm.bitreverse.i8(i8 %9)
+  %10 = tail call noundef i8 @llvm.bitreverse.i8(i8 %9)
   %add.ptr2.i = getelementptr i8, ptr %vd, i64 %idx.ext.i
   store i8 %10, ptr %add.ptr2.i, align 1
   %inc = add nuw i32 %i.021, 1
@@ -1515,7 +1515,7 @@ for.end:                                          ; preds = %for.body, %for.inc.
   %cond.i = tail call i32 @llvm.smax.i32(i32 %add.i, i32 0)
   %shl17.i = shl nuw nsw i32 %add.i.i, %cond.i
   store i64 0, ptr %vstart, align 8
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i15, i32 noundef %conv, i32 noundef %shl17.i) #13
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i15, i32 noundef %conv, i32 noundef %shl17.i) #12
   ret void
 }
 
@@ -1557,7 +1557,7 @@ if.end.us:                                        ; preds = %for.body.us
   %idx.ext.i.us = sext i32 %i.024.us to i64
   %add.ptr.i.us = getelementptr i16, ptr %vs2, i64 %idx.ext.i.us
   %7 = load i16, ptr %add.ptr.i.us, align 2
-  %8 = tail call i16 @llvm.bitreverse.i16(i16 %7)
+  %8 = tail call noundef i16 @llvm.bitreverse.i16(i16 %7)
   %add.ptr2.i.us = getelementptr i16, ptr %vd, i64 %idx.ext.i.us
   store i16 %8, ptr %add.ptr2.i.us, align 2
   br label %for.inc.us
@@ -1565,7 +1565,7 @@ if.end.us:                                        ; preds = %for.body.us
 if.then.us:                                       ; preds = %for.body.us
   %mul.us = shl i32 %i.024.us, 1
   %mul9.us = add i32 %mul.us, 2
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i17, i32 noundef %mul.us, i32 noundef %mul9.us) #13
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i17, i32 noundef %mul.us, i32 noundef %mul9.us) #12
   br label %for.inc.us
 
 for.inc.us:                                       ; preds = %if.then.us, %if.end.us
@@ -1578,7 +1578,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %idx.ext.i = sext i32 %i.024 to i64
   %add.ptr.i = getelementptr i16, ptr %vs2, i64 %idx.ext.i
   %9 = load i16, ptr %add.ptr.i, align 2
-  %10 = tail call i16 @llvm.bitreverse.i16(i16 %9)
+  %10 = tail call noundef i16 @llvm.bitreverse.i16(i16 %9)
   %add.ptr2.i = getelementptr i16, ptr %vd, i64 %idx.ext.i
   store i16 %10, ptr %add.ptr2.i, align 2
   %inc = add nuw i32 %i.024, 1
@@ -1603,7 +1603,7 @@ for.end:                                          ; preds = %for.body, %for.inc.
   %div.i.zext = and i32 %shl17.i, 65528
   store i64 0, ptr %vstart, align 8
   %mul11 = shl i32 %conv, 1
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i15, i32 noundef %mul11, i32 noundef %div.i.zext) #13
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i15, i32 noundef %mul11, i32 noundef %div.i.zext) #12
   ret void
 }
 
@@ -1645,7 +1645,7 @@ if.end.us:                                        ; preds = %for.body.us
   %idx.ext.i.us = sext i32 %i.023.us to i64
   %add.ptr.i.us = getelementptr i32, ptr %vs2, i64 %idx.ext.i.us
   %7 = load i32, ptr %add.ptr.i.us, align 4
-  %8 = tail call i32 @llvm.bitreverse.i32(i32 %7)
+  %8 = tail call noundef i32 @llvm.bitreverse.i32(i32 %7)
   %add.ptr2.i.us = getelementptr i32, ptr %vd, i64 %idx.ext.i.us
   store i32 %8, ptr %add.ptr2.i.us, align 4
   br label %for.inc.us
@@ -1653,7 +1653,7 @@ if.end.us:                                        ; preds = %for.body.us
 if.then.us:                                       ; preds = %for.body.us
   %mul.us = shl i32 %i.023.us, 2
   %mul9.us = add i32 %mul.us, 4
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i17, i32 noundef %mul.us, i32 noundef %mul9.us) #13
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i17, i32 noundef %mul.us, i32 noundef %mul9.us) #12
   br label %for.inc.us
 
 for.inc.us:                                       ; preds = %if.then.us, %if.end.us
@@ -1666,7 +1666,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %idx.ext.i = sext i32 %i.023 to i64
   %add.ptr.i = getelementptr i32, ptr %vs2, i64 %idx.ext.i
   %9 = load i32, ptr %add.ptr.i, align 4
-  %10 = tail call i32 @llvm.bitreverse.i32(i32 %9)
+  %10 = tail call noundef i32 @llvm.bitreverse.i32(i32 %9)
   %add.ptr2.i = getelementptr i32, ptr %vd, i64 %idx.ext.i
   store i32 %10, ptr %add.ptr2.i, align 4
   %inc = add nuw i32 %i.023, 1
@@ -1690,7 +1690,7 @@ for.end:                                          ; preds = %for.body, %for.inc.
   %shl17.i = shl nuw nsw i32 %add.i.i, %cond.i
   store i64 0, ptr %vstart, align 8
   %mul11 = shl i32 %conv, 2
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i15, i32 noundef %mul11, i32 noundef %shl17.i) #13
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i15, i32 noundef %mul11, i32 noundef %shl17.i) #12
   ret void
 }
 
@@ -1732,7 +1732,7 @@ if.end.us:                                        ; preds = %for.body.us
   %idx.ext.i.us = sext i32 %i.023.us to i64
   %add.ptr.i.us = getelementptr i64, ptr %vs2, i64 %idx.ext.i.us
   %7 = load i64, ptr %add.ptr.i.us, align 8
-  %8 = tail call i64 @llvm.bitreverse.i64(i64 %7)
+  %8 = tail call noundef i64 @llvm.bitreverse.i64(i64 %7)
   %add.ptr2.i.us = getelementptr i64, ptr %vd, i64 %idx.ext.i.us
   store i64 %8, ptr %add.ptr2.i.us, align 8
   br label %for.inc.us
@@ -1740,7 +1740,7 @@ if.end.us:                                        ; preds = %for.body.us
 if.then.us:                                       ; preds = %for.body.us
   %mul.us = shl i32 %i.023.us, 3
   %mul9.us = add i32 %mul.us, 8
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i17, i32 noundef %mul.us, i32 noundef %mul9.us) #13
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i17, i32 noundef %mul.us, i32 noundef %mul9.us) #12
   br label %for.inc.us
 
 for.inc.us:                                       ; preds = %if.then.us, %if.end.us
@@ -1753,7 +1753,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %idx.ext.i = sext i32 %i.023 to i64
   %add.ptr.i = getelementptr i64, ptr %vs2, i64 %idx.ext.i
   %9 = load i64, ptr %add.ptr.i, align 8
-  %10 = tail call i64 @llvm.bitreverse.i64(i64 %9)
+  %10 = tail call noundef i64 @llvm.bitreverse.i64(i64 %9)
   %add.ptr2.i = getelementptr i64, ptr %vd, i64 %idx.ext.i
   store i64 %10, ptr %add.ptr2.i, align 8
   %inc = add nuw i32 %i.023, 1
@@ -1777,7 +1777,7 @@ for.end:                                          ; preds = %for.body, %for.inc.
   %shl17.i = shl nuw nsw i32 %add.i.i, %cond.i
   store i64 0, ptr %vstart, align 8
   %mul11 = shl i32 %conv, 3
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i15, i32 noundef %mul11, i32 noundef %shl17.i) #13
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i15, i32 noundef %mul11, i32 noundef %shl17.i) #12
   ret void
 }
 
@@ -1827,7 +1827,7 @@ if.end.us:                                        ; preds = %for.body.us
 
 if.then.us:                                       ; preds = %for.body.us
   %add.us = add i32 %i.021.us, 1
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i17, i32 noundef %i.021.us, i32 noundef %add.us) #13
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i17, i32 noundef %i.021.us, i32 noundef %add.us) #12
   br label %for.inc.us
 
 for.inc.us:                                       ; preds = %if.then.us, %if.end.us
@@ -1862,7 +1862,7 @@ for.end:                                          ; preds = %for.body, %for.inc.
   %cond.i = tail call i32 @llvm.smax.i32(i32 %add.i, i32 0)
   %shl17.i = shl nuw nsw i32 %add.i.i, %cond.i
   store i64 0, ptr %vstart, align 8
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i15, i32 noundef %conv, i32 noundef %shl17.i) #13
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i15, i32 noundef %conv, i32 noundef %shl17.i) #12
   ret void
 }
 
@@ -1912,7 +1912,7 @@ if.end.us:                                        ; preds = %for.body.us
 if.then.us:                                       ; preds = %for.body.us
   %mul.us = shl i32 %i.024.us, 1
   %mul9.us = add i32 %mul.us, 2
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i17, i32 noundef %mul.us, i32 noundef %mul9.us) #13
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i17, i32 noundef %mul.us, i32 noundef %mul9.us) #12
   br label %for.inc.us
 
 for.inc.us:                                       ; preds = %if.then.us, %if.end.us
@@ -1950,7 +1950,7 @@ for.end:                                          ; preds = %for.body, %for.inc.
   %div.i.zext = and i32 %shl17.i, 65528
   store i64 0, ptr %vstart, align 8
   %mul11 = shl i32 %conv, 1
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i15, i32 noundef %mul11, i32 noundef %div.i.zext) #13
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i15, i32 noundef %mul11, i32 noundef %div.i.zext) #12
   ret void
 }
 
@@ -2000,7 +2000,7 @@ if.end.us:                                        ; preds = %for.body.us
 if.then.us:                                       ; preds = %for.body.us
   %mul.us = shl i32 %i.023.us, 2
   %mul9.us = add i32 %mul.us, 4
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i17, i32 noundef %mul.us, i32 noundef %mul9.us) #13
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i17, i32 noundef %mul.us, i32 noundef %mul9.us) #12
   br label %for.inc.us
 
 for.inc.us:                                       ; preds = %if.then.us, %if.end.us
@@ -2037,7 +2037,7 @@ for.end:                                          ; preds = %for.body, %for.inc.
   %shl17.i = shl nuw nsw i32 %add.i.i, %cond.i
   store i64 0, ptr %vstart, align 8
   %mul11 = shl i32 %conv, 2
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i15, i32 noundef %mul11, i32 noundef %shl17.i) #13
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i15, i32 noundef %mul11, i32 noundef %shl17.i) #12
   ret void
 }
 
@@ -2087,7 +2087,7 @@ if.end.us:                                        ; preds = %for.body.us
 if.then.us:                                       ; preds = %for.body.us
   %mul.us = shl i32 %i.023.us, 3
   %mul9.us = add i32 %mul.us, 8
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i17, i32 noundef %mul.us, i32 noundef %mul9.us) #13
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i17, i32 noundef %mul.us, i32 noundef %mul9.us) #12
   br label %for.inc.us
 
 for.inc.us:                                       ; preds = %if.then.us, %if.end.us
@@ -2124,7 +2124,7 @@ for.end:                                          ; preds = %for.body, %for.inc.
   %shl17.i = shl nuw nsw i32 %add.i.i, %cond.i
   store i64 0, ptr %vstart, align 8
   %mul11 = shl i32 %conv, 3
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i15, i32 noundef %mul11, i32 noundef %shl17.i) #13
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i15, i32 noundef %mul11, i32 noundef %shl17.i) #12
   ret void
 }
 
@@ -2174,7 +2174,7 @@ if.end.us:                                        ; preds = %for.body.us
 
 if.then.us:                                       ; preds = %for.body.us
   %add.us = add i32 %i.021.us, 1
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i17, i32 noundef %i.021.us, i32 noundef %add.us) #13
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i17, i32 noundef %i.021.us, i32 noundef %add.us) #12
   br label %for.inc.us
 
 for.inc.us:                                       ; preds = %if.then.us, %if.end.us
@@ -2209,7 +2209,7 @@ for.end:                                          ; preds = %for.body, %for.inc.
   %cond.i = tail call i32 @llvm.smax.i32(i32 %add.i, i32 0)
   %shl17.i = shl nuw nsw i32 %add.i.i, %cond.i
   store i64 0, ptr %vstart, align 8
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i15, i32 noundef %conv, i32 noundef %shl17.i) #13
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i15, i32 noundef %conv, i32 noundef %shl17.i) #12
   ret void
 }
 
@@ -2259,7 +2259,7 @@ if.end.us:                                        ; preds = %for.body.us
 if.then.us:                                       ; preds = %for.body.us
   %mul.us = shl i32 %i.024.us, 1
   %mul9.us = add i32 %mul.us, 2
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i17, i32 noundef %mul.us, i32 noundef %mul9.us) #13
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i17, i32 noundef %mul.us, i32 noundef %mul9.us) #12
   br label %for.inc.us
 
 for.inc.us:                                       ; preds = %if.then.us, %if.end.us
@@ -2297,7 +2297,7 @@ for.end:                                          ; preds = %for.body, %for.inc.
   %div.i.zext = and i32 %shl17.i, 65528
   store i64 0, ptr %vstart, align 8
   %mul11 = shl i32 %conv, 1
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i15, i32 noundef %mul11, i32 noundef %div.i.zext) #13
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i15, i32 noundef %mul11, i32 noundef %div.i.zext) #12
   ret void
 }
 
@@ -2347,7 +2347,7 @@ if.end.us:                                        ; preds = %for.body.us
 if.then.us:                                       ; preds = %for.body.us
   %mul.us = shl i32 %i.023.us, 2
   %mul9.us = add i32 %mul.us, 4
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i17, i32 noundef %mul.us, i32 noundef %mul9.us) #13
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i17, i32 noundef %mul.us, i32 noundef %mul9.us) #12
   br label %for.inc.us
 
 for.inc.us:                                       ; preds = %if.then.us, %if.end.us
@@ -2384,7 +2384,7 @@ for.end:                                          ; preds = %for.body, %for.inc.
   %shl17.i = shl nuw nsw i32 %add.i.i, %cond.i
   store i64 0, ptr %vstart, align 8
   %mul11 = shl i32 %conv, 2
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i15, i32 noundef %mul11, i32 noundef %shl17.i) #13
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i15, i32 noundef %mul11, i32 noundef %shl17.i) #12
   ret void
 }
 
@@ -2434,7 +2434,7 @@ if.end.us:                                        ; preds = %for.body.us
 if.then.us:                                       ; preds = %for.body.us
   %mul.us = shl i32 %i.023.us, 3
   %mul9.us = add i32 %mul.us, 8
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i17, i32 noundef %mul.us, i32 noundef %mul9.us) #13
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i17, i32 noundef %mul.us, i32 noundef %mul9.us) #12
   br label %for.inc.us
 
 for.inc.us:                                       ; preds = %if.then.us, %if.end.us
@@ -2471,7 +2471,7 @@ for.end:                                          ; preds = %for.body, %for.inc.
   %shl17.i = shl nuw nsw i32 %add.i.i, %cond.i
   store i64 0, ptr %vstart, align 8
   %mul11 = shl i32 %conv, 3
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i15, i32 noundef %mul11, i32 noundef %shl17.i) #13
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i15, i32 noundef %mul11, i32 noundef %shl17.i) #12
   ret void
 }
 
@@ -2521,7 +2521,7 @@ if.end.us:                                        ; preds = %for.body.us
 
 if.then.us:                                       ; preds = %for.body.us
   %add.us = add i32 %i.021.us, 1
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i17, i32 noundef %i.021.us, i32 noundef %add.us) #13
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i17, i32 noundef %i.021.us, i32 noundef %add.us) #12
   br label %for.inc.us
 
 for.inc.us:                                       ; preds = %if.then.us, %if.end.us
@@ -2556,7 +2556,7 @@ for.end:                                          ; preds = %for.body, %for.inc.
   %cond.i = tail call i32 @llvm.smax.i32(i32 %add.i, i32 0)
   %shl17.i = shl nuw nsw i32 %add.i.i, %cond.i
   store i64 0, ptr %vstart, align 8
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i15, i32 noundef %conv, i32 noundef %shl17.i) #13
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i15, i32 noundef %conv, i32 noundef %shl17.i) #12
   ret void
 }
 
@@ -2606,7 +2606,7 @@ if.end.us:                                        ; preds = %for.body.us
 if.then.us:                                       ; preds = %for.body.us
   %mul.us = shl i32 %i.024.us, 1
   %mul9.us = add i32 %mul.us, 2
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i17, i32 noundef %mul.us, i32 noundef %mul9.us) #13
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i17, i32 noundef %mul.us, i32 noundef %mul9.us) #12
   br label %for.inc.us
 
 for.inc.us:                                       ; preds = %if.then.us, %if.end.us
@@ -2644,7 +2644,7 @@ for.end:                                          ; preds = %for.body, %for.inc.
   %div.i.zext = and i32 %shl17.i, 65528
   store i64 0, ptr %vstart, align 8
   %mul11 = shl i32 %conv, 1
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i15, i32 noundef %mul11, i32 noundef %div.i.zext) #13
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i15, i32 noundef %mul11, i32 noundef %div.i.zext) #12
   ret void
 }
 
@@ -2694,7 +2694,7 @@ if.end.us:                                        ; preds = %for.body.us
 if.then.us:                                       ; preds = %for.body.us
   %mul.us = shl i32 %i.023.us, 2
   %mul9.us = add i32 %mul.us, 4
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i17, i32 noundef %mul.us, i32 noundef %mul9.us) #13
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i17, i32 noundef %mul.us, i32 noundef %mul9.us) #12
   br label %for.inc.us
 
 for.inc.us:                                       ; preds = %if.then.us, %if.end.us
@@ -2731,7 +2731,7 @@ for.end:                                          ; preds = %for.body, %for.inc.
   %shl17.i = shl nuw nsw i32 %add.i.i, %cond.i
   store i64 0, ptr %vstart, align 8
   %mul11 = shl i32 %conv, 2
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i15, i32 noundef %mul11, i32 noundef %shl17.i) #13
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i15, i32 noundef %mul11, i32 noundef %shl17.i) #12
   ret void
 }
 
@@ -2781,7 +2781,7 @@ if.end.us:                                        ; preds = %for.body.us
 if.then.us:                                       ; preds = %for.body.us
   %mul.us = shl i32 %i.023.us, 3
   %mul9.us = add i32 %mul.us, 8
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i17, i32 noundef %mul.us, i32 noundef %mul9.us) #13
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i17, i32 noundef %mul.us, i32 noundef %mul9.us) #12
   br label %for.inc.us
 
 for.inc.us:                                       ; preds = %if.then.us, %if.end.us
@@ -2818,19 +2818,19 @@ for.end:                                          ; preds = %for.body, %for.inc.
   %shl17.i = shl nuw nsw i32 %add.i.i, %cond.i
   store i64 0, ptr %vstart, align 8
   %mul11 = shl i32 %conv, 3
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i15, i32 noundef %mul11, i32 noundef %shl17.i) #13
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i15, i32 noundef %mul11, i32 noundef %shl17.i) #12
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @helper_vwsll_vv_b(ptr noundef %vd, ptr noundef %v0, ptr noundef %vs1, ptr noundef %vs2, ptr noundef %env, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
-  tail call void @do_vext_vv(ptr noundef %vd, ptr noundef %v0, ptr noundef %vs1, ptr noundef %vs2, ptr noundef %env, i32 noundef %desc, ptr noundef nonnull @do_vwsll_vv_b, i32 noundef 2) #13
+  tail call void @do_vext_vv(ptr noundef %vd, ptr noundef %v0, ptr noundef %vs1, ptr noundef %vs2, ptr noundef %env, i32 noundef %desc, ptr noundef nonnull @do_vwsll_vv_b, i32 noundef 2) #12
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define internal void @do_vwsll_vv_b(ptr nocapture noundef writeonly %vd, ptr nocapture noundef readonly %vs1, ptr nocapture noundef readonly %vs2, i32 noundef %i) #4 {
+define internal void @do_vwsll_vv_b(ptr nocapture noundef writeonly %vd, ptr nocapture noundef readonly %vs1, ptr nocapture noundef readonly %vs2, i32 noundef %i) #3 {
 entry:
   %idx.ext = sext i32 %i to i64
   %add.ptr = getelementptr i8, ptr %vs1, i64 %idx.ext
@@ -2849,12 +2849,12 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @helper_vwsll_vv_h(ptr noundef %vd, ptr noundef %v0, ptr noundef %vs1, ptr noundef %vs2, ptr noundef %env, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
-  tail call void @do_vext_vv(ptr noundef %vd, ptr noundef %v0, ptr noundef %vs1, ptr noundef %vs2, ptr noundef %env, i32 noundef %desc, ptr noundef nonnull @do_vwsll_vv_h, i32 noundef 4) #13
+  tail call void @do_vext_vv(ptr noundef %vd, ptr noundef %v0, ptr noundef %vs1, ptr noundef %vs2, ptr noundef %env, i32 noundef %desc, ptr noundef nonnull @do_vwsll_vv_h, i32 noundef 4) #12
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define internal void @do_vwsll_vv_h(ptr nocapture noundef writeonly %vd, ptr nocapture noundef readonly %vs1, ptr nocapture noundef readonly %vs2, i32 noundef %i) #4 {
+define internal void @do_vwsll_vv_h(ptr nocapture noundef writeonly %vd, ptr nocapture noundef readonly %vs1, ptr nocapture noundef readonly %vs2, i32 noundef %i) #3 {
 entry:
   %idx.ext = sext i32 %i to i64
   %add.ptr = getelementptr i16, ptr %vs1, i64 %idx.ext
@@ -2873,12 +2873,12 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @helper_vwsll_vv_w(ptr noundef %vd, ptr noundef %v0, ptr noundef %vs1, ptr noundef %vs2, ptr noundef %env, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
-  tail call void @do_vext_vv(ptr noundef %vd, ptr noundef %v0, ptr noundef %vs1, ptr noundef %vs2, ptr noundef %env, i32 noundef %desc, ptr noundef nonnull @do_vwsll_vv_w, i32 noundef 8) #13
+  tail call void @do_vext_vv(ptr noundef %vd, ptr noundef %v0, ptr noundef %vs1, ptr noundef %vs2, ptr noundef %env, i32 noundef %desc, ptr noundef nonnull @do_vwsll_vv_w, i32 noundef 8) #12
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define internal void @do_vwsll_vv_w(ptr nocapture noundef writeonly %vd, ptr nocapture noundef readonly %vs1, ptr nocapture noundef readonly %vs2, i32 noundef %i) #4 {
+define internal void @do_vwsll_vv_w(ptr nocapture noundef writeonly %vd, ptr nocapture noundef readonly %vs1, ptr nocapture noundef readonly %vs2, i32 noundef %i) #3 {
 entry:
   %idx.ext = sext i32 %i to i64
   %add.ptr = getelementptr i32, ptr %vs1, i64 %idx.ext
@@ -2897,12 +2897,12 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @helper_vwsll_vx_b(ptr noundef %vd, ptr noundef %v0, i64 noundef %s1, ptr noundef %vs2, ptr noundef %env, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
-  tail call void @do_vext_vx(ptr noundef %vd, ptr noundef %v0, i64 noundef %s1, ptr noundef %vs2, ptr noundef %env, i32 noundef %desc, ptr noundef nonnull @do_vwsll_vx_b, i32 noundef 2) #13
+  tail call void @do_vext_vx(ptr noundef %vd, ptr noundef %v0, i64 noundef %s1, ptr noundef %vs2, ptr noundef %env, i32 noundef %desc, ptr noundef nonnull @do_vwsll_vx_b, i32 noundef 2) #12
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define internal void @do_vwsll_vx_b(ptr nocapture noundef writeonly %vd, i64 noundef %s1, ptr nocapture noundef readonly %vs2, i32 noundef %i) #4 {
+define internal void @do_vwsll_vx_b(ptr nocapture noundef writeonly %vd, i64 noundef %s1, ptr nocapture noundef readonly %vs2, i32 noundef %i) #3 {
 entry:
   %idx.ext = sext i32 %i to i64
   %add.ptr = getelementptr i8, ptr %vs2, i64 %idx.ext
@@ -2919,12 +2919,12 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @helper_vwsll_vx_h(ptr noundef %vd, ptr noundef %v0, i64 noundef %s1, ptr noundef %vs2, ptr noundef %env, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
-  tail call void @do_vext_vx(ptr noundef %vd, ptr noundef %v0, i64 noundef %s1, ptr noundef %vs2, ptr noundef %env, i32 noundef %desc, ptr noundef nonnull @do_vwsll_vx_h, i32 noundef 4) #13
+  tail call void @do_vext_vx(ptr noundef %vd, ptr noundef %v0, i64 noundef %s1, ptr noundef %vs2, ptr noundef %env, i32 noundef %desc, ptr noundef nonnull @do_vwsll_vx_h, i32 noundef 4) #12
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define internal void @do_vwsll_vx_h(ptr nocapture noundef writeonly %vd, i64 noundef %s1, ptr nocapture noundef readonly %vs2, i32 noundef %i) #4 {
+define internal void @do_vwsll_vx_h(ptr nocapture noundef writeonly %vd, i64 noundef %s1, ptr nocapture noundef readonly %vs2, i32 noundef %i) #3 {
 entry:
   %idx.ext = sext i32 %i to i64
   %add.ptr = getelementptr i16, ptr %vs2, i64 %idx.ext
@@ -2941,12 +2941,12 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @helper_vwsll_vx_w(ptr noundef %vd, ptr noundef %v0, i64 noundef %s1, ptr noundef %vs2, ptr noundef %env, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
-  tail call void @do_vext_vx(ptr noundef %vd, ptr noundef %v0, i64 noundef %s1, ptr noundef %vs2, ptr noundef %env, i32 noundef %desc, ptr noundef nonnull @do_vwsll_vx_w, i32 noundef 8) #13
+  tail call void @do_vext_vx(ptr noundef %vd, ptr noundef %v0, i64 noundef %s1, ptr noundef %vs2, ptr noundef %env, i32 noundef %desc, ptr noundef nonnull @do_vwsll_vx_w, i32 noundef 8) #12
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define internal void @do_vwsll_vx_w(ptr nocapture noundef writeonly %vd, i64 noundef %s1, ptr nocapture noundef readonly %vs2, i32 noundef %i) #4 {
+define internal void @do_vwsll_vx_w(ptr nocapture noundef writeonly %vd, i64 noundef %s1, ptr nocapture noundef readonly %vs2, i32 noundef %i) #3 {
 entry:
   %idx.ext = sext i32 %i to i64
   %add.ptr = getelementptr i32, ptr %vs2, i64 %idx.ext
@@ -2980,7 +2980,7 @@ lor.lhs.false:                                    ; preds = %entry
 if.then:                                          ; preds = %lor.lhs.false, %entry
   %2 = tail call ptr @llvm.returnaddress(i32 0)
   %3 = ptrtoint ptr %2 to i64
-  tail call void @riscv_raise_exception(ptr noundef nonnull %env, i32 noundef 2, i64 noundef %3) #14
+  tail call void @riscv_raise_exception(ptr noundef nonnull %env, i32 noundef 2, i64 noundef %3) #13
   unreachable
 
 if.end:                                           ; preds = %lor.lhs.false
@@ -2988,10 +2988,10 @@ if.end:                                           ; preds = %lor.lhs.false
 }
 
 ; Function Attrs: noreturn
-declare void @riscv_raise_exception(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #5
+declare void @riscv_raise_exception(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare ptr @llvm.returnaddress(i32 immarg) #6
+declare ptr @llvm.returnaddress(i32 immarg) #5
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @helper_vaesef_vv(ptr noundef %vd, ptr nocapture noundef readonly %vs2, ptr nocapture noundef %env, i32 noundef %desc) local_unnamed_addr #0 {
@@ -3044,7 +3044,7 @@ if.then.i:                                        ; preds = %for.body
   br label %aesenc_SB_SR_AK.exit
 
 if.then7.i:                                       ; preds = %for.body
-  call void @aesenc_SB_SR_AK_gen(ptr noundef nonnull %round_state, ptr noundef nonnull %round_state, ptr noundef nonnull %round_key) #13
+  call void @aesenc_SB_SR_AK_gen(ptr noundef nonnull %round_state, ptr noundef nonnull %round_state, ptr noundef nonnull %round_key) #12
   br label %aesenc_SB_SR_AK.exit
 
 aesenc_SB_SR_AK.exit:                             ; preds = %if.then.i, %if.then7.i
@@ -3077,7 +3077,7 @@ for.end:                                          ; preds = %aesenc_SB_SR_AK.exi
   %conv = trunc i64 %0 to i32
   store i64 0, ptr %vstart, align 8
   %mul34 = shl i32 %conv, 2
-  call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i, i32 noundef %mul34, i32 noundef %shl17.i) #13
+  call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i, i32 noundef %mul34, i32 noundef %shl17.i) #12
   ret void
 }
 
@@ -3127,7 +3127,7 @@ if.then.i:                                        ; preds = %for.body
   br label %aesenc_SB_SR_AK.exit
 
 if.then7.i:                                       ; preds = %for.body
-  call void @aesenc_SB_SR_AK_gen(ptr noundef nonnull %round_state, ptr noundef nonnull %round_state, ptr noundef nonnull %round_key) #13
+  call void @aesenc_SB_SR_AK_gen(ptr noundef nonnull %round_state, ptr noundef nonnull %round_state, ptr noundef nonnull %round_key) #12
   br label %aesenc_SB_SR_AK.exit
 
 aesenc_SB_SR_AK.exit:                             ; preds = %if.then.i, %if.then7.i
@@ -3160,7 +3160,7 @@ for.end:                                          ; preds = %aesenc_SB_SR_AK.exi
   %conv = trunc i64 %0 to i32
   store i64 0, ptr %vstart, align 8
   %mul28 = shl i32 %conv, 2
-  call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i, i32 noundef %mul28, i32 noundef %shl17.i) #13
+  call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i, i32 noundef %mul28, i32 noundef %shl17.i) #12
   ret void
 }
 
@@ -3215,7 +3215,7 @@ if.then.i:                                        ; preds = %for.body
   br label %aesdec_ISB_ISR_AK.exit
 
 if.then7.i:                                       ; preds = %for.body
-  call void @aesdec_ISB_ISR_AK_gen(ptr noundef nonnull %round_state, ptr noundef nonnull %round_state, ptr noundef nonnull %round_key) #13
+  call void @aesdec_ISB_ISR_AK_gen(ptr noundef nonnull %round_state, ptr noundef nonnull %round_state, ptr noundef nonnull %round_key) #12
   br label %aesdec_ISB_ISR_AK.exit
 
 aesdec_ISB_ISR_AK.exit:                           ; preds = %if.then.i, %if.then7.i
@@ -3248,7 +3248,7 @@ for.end:                                          ; preds = %aesdec_ISB_ISR_AK.e
   %conv = trunc i64 %0 to i32
   store i64 0, ptr %vstart, align 8
   %mul34 = shl i32 %conv, 2
-  call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i, i32 noundef %mul34, i32 noundef %shl17.i) #13
+  call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i, i32 noundef %mul34, i32 noundef %shl17.i) #12
   ret void
 }
 
@@ -3298,7 +3298,7 @@ if.then.i:                                        ; preds = %for.body
   br label %aesdec_ISB_ISR_AK.exit
 
 if.then7.i:                                       ; preds = %for.body
-  call void @aesdec_ISB_ISR_AK_gen(ptr noundef nonnull %round_state, ptr noundef nonnull %round_state, ptr noundef nonnull %round_key) #13
+  call void @aesdec_ISB_ISR_AK_gen(ptr noundef nonnull %round_state, ptr noundef nonnull %round_state, ptr noundef nonnull %round_key) #12
   br label %aesdec_ISB_ISR_AK.exit
 
 aesdec_ISB_ISR_AK.exit:                           ; preds = %if.then.i, %if.then7.i
@@ -3331,7 +3331,7 @@ for.end:                                          ; preds = %aesdec_ISB_ISR_AK.e
   %conv = trunc i64 %0 to i32
   store i64 0, ptr %vstart, align 8
   %mul28 = shl i32 %conv, 2
-  call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i, i32 noundef %mul28, i32 noundef %shl17.i) #13
+  call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i, i32 noundef %mul28, i32 noundef %shl17.i) #12
   ret void
 }
 
@@ -3386,7 +3386,7 @@ if.then.i:                                        ; preds = %for.body
   br label %aesenc_SB_SR_MC_AK.exit
 
 if.then7.i:                                       ; preds = %for.body
-  call void @aesenc_SB_SR_MC_AK_gen(ptr noundef nonnull %round_state, ptr noundef nonnull %round_state, ptr noundef nonnull %round_key) #13
+  call void @aesenc_SB_SR_MC_AK_gen(ptr noundef nonnull %round_state, ptr noundef nonnull %round_state, ptr noundef nonnull %round_key) #12
   br label %aesenc_SB_SR_MC_AK.exit
 
 aesenc_SB_SR_MC_AK.exit:                          ; preds = %if.then.i, %if.then7.i
@@ -3419,7 +3419,7 @@ for.end:                                          ; preds = %aesenc_SB_SR_MC_AK.
   %conv = trunc i64 %0 to i32
   store i64 0, ptr %vstart, align 8
   %mul34 = shl i32 %conv, 2
-  call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i, i32 noundef %mul34, i32 noundef %shl17.i) #13
+  call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i, i32 noundef %mul34, i32 noundef %shl17.i) #12
   ret void
 }
 
@@ -3469,7 +3469,7 @@ if.then.i:                                        ; preds = %for.body
   br label %aesenc_SB_SR_MC_AK.exit
 
 if.then7.i:                                       ; preds = %for.body
-  call void @aesenc_SB_SR_MC_AK_gen(ptr noundef nonnull %round_state, ptr noundef nonnull %round_state, ptr noundef nonnull %round_key) #13
+  call void @aesenc_SB_SR_MC_AK_gen(ptr noundef nonnull %round_state, ptr noundef nonnull %round_state, ptr noundef nonnull %round_key) #12
   br label %aesenc_SB_SR_MC_AK.exit
 
 aesenc_SB_SR_MC_AK.exit:                          ; preds = %if.then.i, %if.then7.i
@@ -3502,7 +3502,7 @@ for.end:                                          ; preds = %aesenc_SB_SR_MC_AK.
   %conv = trunc i64 %0 to i32
   store i64 0, ptr %vstart, align 8
   %mul28 = shl i32 %conv, 2
-  call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i, i32 noundef %mul28, i32 noundef %shl17.i) #13
+  call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i, i32 noundef %mul28, i32 noundef %shl17.i) #12
   ret void
 }
 
@@ -3557,7 +3557,7 @@ if.then.i:                                        ; preds = %for.body
   br label %aesdec_ISB_ISR_AK_IMC.exit
 
 if.then7.i:                                       ; preds = %for.body
-  call void @aesdec_ISB_ISR_AK_IMC_gen(ptr noundef nonnull %round_state, ptr noundef nonnull %round_state, ptr noundef nonnull %round_key) #13
+  call void @aesdec_ISB_ISR_AK_IMC_gen(ptr noundef nonnull %round_state, ptr noundef nonnull %round_state, ptr noundef nonnull %round_key) #12
   br label %aesdec_ISB_ISR_AK_IMC.exit
 
 aesdec_ISB_ISR_AK_IMC.exit:                       ; preds = %if.then.i, %if.then7.i
@@ -3590,7 +3590,7 @@ for.end:                                          ; preds = %aesdec_ISB_ISR_AK_I
   %conv = trunc i64 %0 to i32
   store i64 0, ptr %vstart, align 8
   %mul34 = shl i32 %conv, 2
-  call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i, i32 noundef %mul34, i32 noundef %shl17.i) #13
+  call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i, i32 noundef %mul34, i32 noundef %shl17.i) #12
   ret void
 }
 
@@ -3640,7 +3640,7 @@ if.then.i:                                        ; preds = %for.body
   br label %aesdec_ISB_ISR_AK_IMC.exit
 
 if.then7.i:                                       ; preds = %for.body
-  call void @aesdec_ISB_ISR_AK_IMC_gen(ptr noundef nonnull %round_state, ptr noundef nonnull %round_state, ptr noundef nonnull %round_key) #13
+  call void @aesdec_ISB_ISR_AK_IMC_gen(ptr noundef nonnull %round_state, ptr noundef nonnull %round_state, ptr noundef nonnull %round_key) #12
   br label %aesdec_ISB_ISR_AK_IMC.exit
 
 aesdec_ISB_ISR_AK_IMC.exit:                       ; preds = %if.then.i, %if.then7.i
@@ -3673,12 +3673,12 @@ for.end:                                          ; preds = %aesdec_ISB_ISR_AK_I
   %conv = trunc i64 %0 to i32
   store i64 0, ptr %vstart, align 8
   %mul28 = shl i32 %conv, 2
-  call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i, i32 noundef %mul28, i32 noundef %shl17.i) #13
+  call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i, i32 noundef %mul28, i32 noundef %shl17.i) #12
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @helper_vaesz_vs(ptr noundef %vd, ptr nocapture noundef readonly %vs2, ptr nocapture noundef %env, i32 noundef %desc) local_unnamed_addr #7 {
+define dso_local void @helper_vaesz_vs(ptr noundef %vd, ptr nocapture noundef readonly %vs2, ptr nocapture noundef %env, i32 noundef %desc) local_unnamed_addr #6 {
 entry:
   %vl1 = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 5
   %0 = load i64, ptr %vl1, align 16
@@ -3739,7 +3739,7 @@ for.end:                                          ; preds = %for.body, %entry
   %conv = trunc i64 %0 to i32
   store i64 0, ptr %vstart, align 8
   %mul28 = shl i32 %conv, 2
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i, i32 noundef %mul28, i32 noundef %shl17.i) #13
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i, i32 noundef %mul28, i32 noundef %shl17.i) #12
   ret void
 }
 
@@ -3856,7 +3856,7 @@ for.end:                                          ; preds = %for.body, %entry
   %conv = trunc i64 %0 to i32
   store i64 0, ptr %vstart, align 8
   %mul93 = shl i32 %conv, 2
-  tail call void @vext_set_elems_1s(ptr noundef %vd_vptr, i32 noundef %and.i.i, i32 noundef %mul93, i32 noundef %shl17.i) #13
+  tail call void @vext_set_elems_1s(ptr noundef %vd_vptr, i32 noundef %and.i.i, i32 noundef %mul93, i32 noundef %shl17.i) #12
   ret void
 }
 
@@ -4048,7 +4048,7 @@ for.end:                                          ; preds = %for.body, %for.body
   %conv = trunc i64 %0 to i32
   store i64 0, ptr %vstart, align 8
   %mul152 = shl i32 %conv, 2
-  tail call void @vext_set_elems_1s(ptr noundef %vd_vptr, i32 noundef %and.i.i, i32 noundef %mul152, i32 noundef %shl17.i) #13
+  tail call void @vext_set_elems_1s(ptr noundef %vd_vptr, i32 noundef %and.i.i, i32 noundef %mul152, i32 noundef %shl17.i) #12
   ret void
 }
 
@@ -4272,7 +4272,7 @@ for.end:                                          ; preds = %for.body, %for.body
   %32 = select i1 %cmp, i64 2, i64 3
   %mul28 = shl i64 %.lcssa, %32
   %conv29 = trunc i64 %mul28 to i32
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i, i32 noundef %conv29, i32 noundef %shl17.i) #13
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i, i32 noundef %conv29, i32 noundef %shl17.i) #12
   store i64 0, ptr %vstart, align 8
   ret void
 }
@@ -4398,7 +4398,7 @@ for.end:                                          ; preds = %for.body, %entry
   %shl17.i = shl nuw nsw i32 %add.i.i, %cond.i
   %.tr = trunc i64 %.lcssa to i32
   %conv14 = shl i32 %.tr, 2
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i, i32 noundef %conv14, i32 noundef %shl17.i) #13
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i, i32 noundef %conv14, i32 noundef %shl17.i) #12
   store i64 0, ptr %vstart, align 8
   ret void
 }
@@ -4524,7 +4524,7 @@ for.end:                                          ; preds = %for.body, %entry
   %shl17.i = shl nuw nsw i32 %add.i.i, %cond.i
   %.tr = trunc i64 %.lcssa to i32
   %conv14 = shl i32 %.tr, 3
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i, i32 noundef %conv14, i32 noundef %shl17.i) #13
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i, i32 noundef %conv14, i32 noundef %shl17.i) #12
   store i64 0, ptr %vstart, align 8
   ret void
 }
@@ -4649,7 +4649,7 @@ for.end:                                          ; preds = %for.body, %entry
   %shl17.i = shl nuw nsw i32 %add.i.i, %cond.i
   %.tr = trunc i64 %.lcssa to i32
   %conv13 = shl i32 %.tr, 2
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i, i32 noundef %conv13, i32 noundef %shl17.i) #13
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i, i32 noundef %conv13, i32 noundef %shl17.i) #12
   store i64 0, ptr %vstart, align 8
   ret void
 }
@@ -4774,7 +4774,7 @@ for.end:                                          ; preds = %for.body, %entry
   %shl17.i = shl nuw nsw i32 %add.i.i, %cond.i
   %.tr = trunc i64 %.lcssa to i32
   %conv14 = shl i32 %.tr, 3
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i, i32 noundef %conv14, i32 noundef %shl17.i) #13
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i, i32 noundef %conv14, i32 noundef %shl17.i) #12
   store i64 0, ptr %vstart, align 8
   ret void
 }
@@ -4845,11 +4845,11 @@ for.body25:                                       ; preds = %for.body11, %for.bo
   %arrayidx39 = getelementptr [24 x i32], ptr %w, i64 0, i64 %17
   %18 = load i32, ptr %arrayidx39, align 4
   %xor.i = xor i32 %12, %10
-  %or.i.i = tail call i32 @llvm.fshl.i32(i32 %14, i32 %14, i32 15)
+  %or.i.i = tail call noundef i32 @llvm.fshl.i32(i32 %14, i32 %14, i32 15)
   %xor1.i = xor i32 %xor.i, %or.i.i
-  %or.i.i.i = tail call i32 @llvm.fshl.i32(i32 %xor1.i, i32 %xor1.i, i32 15)
-  %or.i3.i.i = tail call i32 @llvm.fshl.i32(i32 %xor1.i, i32 %xor1.i, i32 23)
-  %or.i1.i = tail call i32 @llvm.fshl.i32(i32 %16, i32 %16, i32 7)
+  %or.i.i.i = tail call noundef i32 @llvm.fshl.i32(i32 %xor1.i, i32 %xor1.i, i32 15)
+  %or.i3.i.i = tail call noundef i32 @llvm.fshl.i32(i32 %xor1.i, i32 %xor1.i, i32 23)
+  %or.i1.i = tail call noundef i32 @llvm.fshl.i32(i32 %16, i32 %16, i32 7)
   %19 = xor i32 %or.i1.i, %18
   %20 = xor i32 %19, %or.i.i.i
   %21 = xor i32 %20, %or.i3.i.i
@@ -4899,13 +4899,13 @@ for.end64:                                        ; preds = %for.inc62, %entry
   %conv6833 = shl i32 %30, %conv
   %31 = shl nsw i32 -1, %conv
   %mul6934 = and i32 %shl17.i, %31
-  tail call void @vext_set_elems_1s(ptr noundef %vd_vptr, i32 noundef %and.i.i, i32 noundef %conv6833, i32 noundef %mul6934) #13
+  tail call void @vext_set_elems_1s(ptr noundef %vd_vptr, i32 noundef %and.i.i, i32 noundef %conv6833, i32 noundef %mul6934) #12
   store i64 0, ptr %vstart, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.bswap.i32(i32) #8
+declare i32 @llvm.bswap.i32(i32) #7
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @helper_vsm3c_vi(ptr noundef %vd_vptr, ptr nocapture noundef readonly %vs2_vptr, i32 noundef %uimm, ptr nocapture noundef %env, i32 noundef %desc) local_unnamed_addr #0 {
@@ -4935,7 +4935,7 @@ for.cond8.preheader.lr.ph:                        ; preds = %entry
   %arrayidx6.i = getelementptr inbounds i32, ptr %v2, i64 4
   %cmp.i.i = icmp ult i32 %mul.i, 16
   %cond.i.i = select i1 %cmp.i.i, i32 2043430169, i32 2055708042
-  %or.i60.i = tail call i32 @llvm.fshl.i32(i32 %cond.i.i, i32 %cond.i.i, i32 %mul.i)
+  %or.i60.i = tail call noundef i32 @llvm.fshl.i32(i32 %cond.i.i, i32 %cond.i.i, i32 %mul.i)
   %arrayidx15.i = getelementptr inbounds i32, ptr %v2, i64 1
   %arrayidx16.i = getelementptr inbounds i32, ptr %v2, i64 2
   %arrayidx18.i = getelementptr inbounds i32, ptr %v2, i64 3
@@ -4983,11 +4983,11 @@ for.end:                                          ; preds = %for.body11
   %11 = load i32, ptr %arrayidx2.i, align 4
   %12 = load i32, ptr %arrayidx3.i, align 4
   %13 = load i32, ptr %v2, align 16
-  %or.i.i = tail call i32 @llvm.fshl.i32(i32 %13, i32 %13, i32 12)
+  %or.i.i = tail call noundef i32 @llvm.fshl.i32(i32 %13, i32 %13, i32 12)
   %14 = load i32, ptr %arrayidx6.i, align 16
   %add.i26 = add i32 %14, %or.i60.i
   %add9.i = add i32 %add.i26, %or.i.i
-  %or.i61.i = tail call i32 @llvm.fshl.i32(i32 %add9.i, i32 %add9.i, i32 7)
+  %or.i61.i = tail call noundef i32 @llvm.fshl.i32(i32 %add9.i, i32 %add9.i, i32 7)
   %xor13.i = xor i32 %or.i61.i, %or.i.i
   %15 = load i32, ptr %arrayidx15.i, align 4
   %16 = load i32, ptr %arrayidx16.i, align 8
@@ -5031,16 +5031,16 @@ gg_j.exit.i:                                      ; preds = %cond.false.i66.i, %
   %add28.i = add i32 %add27.i, %cond.i68.i
   %add30.i = add i32 %add28.i, %26
   store i32 %16, ptr %arrayidx18.i, align 4
-  %or.i72.i = tail call i32 @llvm.fshl.i32(i32 %15, i32 %15, i32 9)
+  %or.i72.i = tail call noundef i32 @llvm.fshl.i32(i32 %15, i32 %15, i32 9)
   store i32 %or.i72.i, ptr %arrayidx35.i, align 4
   store i32 %13, ptr %arrayidx15.i, align 4
   store i32 %add21117.i, ptr %arrayidx38.i, align 4
   store i32 %25, ptr %arrayidx26.i, align 4
-  %or.i73.i = tail call i32 @llvm.fshl.i32(i32 %24, i32 %24, i32 19)
+  %or.i73.i = tail call noundef i32 @llvm.fshl.i32(i32 %24, i32 %24, i32 19)
   store i32 %or.i73.i, ptr %arrayidx43.i, align 4
   store i32 %14, ptr %arrayidx23.i, align 4
-  %or.i.i74.i = tail call i32 @llvm.fshl.i32(i32 %add30.i, i32 %add30.i, i32 9)
-  %or.i3.i.i = tail call i32 @llvm.fshl.i32(i32 %add30.i, i32 %add30.i, i32 17)
+  %or.i.i74.i = tail call noundef i32 @llvm.fshl.i32(i32 %add30.i, i32 %add30.i, i32 9)
+  %or.i3.i.i = tail call noundef i32 @llvm.fshl.i32(i32 %add30.i, i32 %add30.i, i32 17)
   %27 = xor i32 %or.i3.i.i, %or.i.i74.i
   %xor2.i.i = xor i32 %27, %add30.i
   store i32 %xor2.i.i, ptr %arrayidx47.i, align 4
@@ -5069,11 +5069,11 @@ sm3c.exit:                                        ; preds = %cond.true.i99.i, %c
   %xor1.i.i90.i.pn = phi i32 [ %xor1.i.i90.i, %cond.true.i99.i ], [ %or3.i.i86.i, %cond.false.i93.i ]
   %cond.i98.i = phi i32 [ %xor1.i.i101.i, %cond.true.i99.i ], [ %or.i.i97.i, %cond.false.i93.i ]
   %xor4.i = xor i32 %12, %11
-  %or.i75.i = tail call i32 @llvm.fshl.i32(i32 %add21117.i, i32 %add21117.i, i32 12)
+  %or.i75.i = tail call noundef i32 @llvm.fshl.i32(i32 %add21117.i, i32 %add21117.i, i32 12)
   %add53.i = add i32 %xor2.i.i, %or.i75.i
-  %or.i78.i = tail call i32 @llvm.fshl.i32(i32 %cond.i77.i, i32 %cond.i77.i, i32 %add49.i)
+  %or.i78.i = tail call noundef i32 @llvm.fshl.i32(i32 %cond.i77.i, i32 %cond.i77.i, i32 %add49.i)
   %add57.i = add i32 %add53.i, %or.i78.i
-  %or.i79.i = tail call i32 @llvm.fshl.i32(i32 %add57.i, i32 %add57.i, i32 7)
+  %or.i79.i = tail call noundef i32 @llvm.fshl.i32(i32 %add57.i, i32 %add57.i, i32 7)
   %xor61.i = xor i32 %or.i79.i, %or.i75.i
   %add67124.pn.i = add i32 %16, %xor4.i
   %add68125.pn.i = add i32 %add67124.pn.i, %xor1.i.i90.i.pn
@@ -5081,13 +5081,13 @@ sm3c.exit:                                        ; preds = %cond.true.i99.i, %c
   %add75.i = add i32 %25, %11
   %add76.i = add i32 %add75.i, %cond.i98.i
   %add78.i = add i32 %add76.i, %or.i79.i
-  %or.i103.i = tail call i32 @llvm.fshl.i32(i32 %13, i32 %13, i32 9)
+  %or.i103.i = tail call noundef i32 @llvm.fshl.i32(i32 %13, i32 %13, i32 9)
   store i32 %or.i103.i, ptr %arrayidx81.i, align 8
   store i32 %add69127.i, ptr %v1, align 16
-  %or.i104.i = tail call i32 @llvm.fshl.i32(i32 %14, i32 %14, i32 19)
+  %or.i104.i = tail call noundef i32 @llvm.fshl.i32(i32 %14, i32 %14, i32 19)
   store i32 %or.i104.i, ptr %arrayidx85.i, align 8
-  %or.i.i105.i = tail call i32 @llvm.fshl.i32(i32 %add78.i, i32 %add78.i, i32 9)
-  %or.i3.i106.i = tail call i32 @llvm.fshl.i32(i32 %add78.i, i32 %add78.i, i32 17)
+  %or.i.i105.i = tail call noundef i32 @llvm.fshl.i32(i32 %add78.i, i32 %add78.i, i32 9)
+  %or.i3.i106.i = tail call noundef i32 @llvm.fshl.i32(i32 %add78.i, i32 %add78.i, i32 17)
   %29 = xor i32 %or.i3.i106.i, %or.i.i105.i
   %xor2.i107.i = xor i32 %29, %add78.i
   store i32 %xor2.i107.i, ptr %arrayidx87.i, align 16
@@ -5131,7 +5131,7 @@ for.end38:                                        ; preds = %for.inc36, %entry
   %conv4229 = shl i32 %36, %conv
   %37 = shl nsw i32 -1, %conv
   %mul4330 = and i32 %shl17.i, %37
-  tail call void @vext_set_elems_1s(ptr noundef %vd_vptr, i32 noundef %and.i.i, i32 noundef %conv4229, i32 noundef %mul4330) #13
+  tail call void @vext_set_elems_1s(ptr noundef %vd_vptr, i32 noundef %and.i.i, i32 noundef %conv4229, i32 noundef %mul4330) #12
   store i64 0, ptr %vstart, align 8
   ret void
 }
@@ -5303,13 +5303,13 @@ for.end83:                                        ; preds = %for.end, %entry
   %and.i.i = and i32 %shr.i.i.i, 1
   %.tr = trunc i64 %.lcssa to i32
   %conv86 = shl i32 %.tr, 2
-  tail call void @vext_set_elems_1s(ptr noundef %vd_vptr, i32 noundef %and.i.i, i32 noundef %conv86, i32 noundef %shl17.i) #13
+  tail call void @vext_set_elems_1s(ptr noundef %vd_vptr, i32 noundef %and.i.i, i32 noundef %conv86, i32 noundef %shl17.i) #12
   store i64 0, ptr %vstart, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @helper_vgmul_vv(ptr noundef %vd_vptr, ptr nocapture noundef readonly %vs2_vptr, ptr nocapture noundef %env, i32 noundef %desc) local_unnamed_addr #0 {
@@ -5471,7 +5471,7 @@ for.end65:                                        ; preds = %for.end, %entry
   %and.i.i = and i32 %shr.i.i.i, 1
   %.tr = trunc i64 %.lcssa to i32
   %conv68 = shl i32 %.tr, 2
-  tail call void @vext_set_elems_1s(ptr noundef %vd_vptr, i32 noundef %and.i.i, i32 noundef %conv68, i32 noundef %shl17.i) #13
+  tail call void @vext_set_elems_1s(ptr noundef %vd_vptr, i32 noundef %and.i.i, i32 noundef %conv68, i32 noundef %shl17.i) #12
   store i64 0, ptr %vstart, align 8
   ret void
 }
@@ -5502,7 +5502,9 @@ for.body.lr.ph:                                   ; preds = %entry
   %scevgep64 = getelementptr inbounds i8, ptr %tmp, i64 16
   %5 = sub i32 %conv2, %conv
   %6 = getelementptr inbounds i8, ptr %tmp, i64 16
-  %scevgep74 = getelementptr inbounds i8, ptr %tmp, i64 12
+  %arrayidx29.phi.trans.insert = getelementptr inbounds [8 x i32], ptr %tmp, i64 0, i64 1
+  %arrayidx32.phi.trans.insert = getelementptr inbounds [8 x i32], ptr %tmp, i64 0, i64 2
+  %scevgep76 = getelementptr inbounds i8, ptr %tmp, i64 12
   br label %for.body
 
 for.cond.loopexit:                                ; preds = %for.body60.lr.ph, %for.cond57.preheader
@@ -5537,7 +5539,9 @@ for.body9.preheader:                              ; preds = %for.body
 
 for.cond11.preheader:                             ; preds = %for.body9.preheader, %for.body
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %tmp, ptr noundef nonnull align 16 dereferenceable(16) %rk, i64 16, i1 false)
-  %load_initial = load i32, ptr %scevgep74, align 4
+  %.pre = load i32, ptr %arrayidx29.phi.trans.insert, align 4
+  %.pre74 = load i32, ptr %arrayidx32.phi.trans.insert, align 8
+  %load_initial = load i32, ptr %scevgep76, align 4
   br label %for.body26
 
 for.cond57.preheader:                             ; preds = %for.body26
@@ -5549,84 +5553,81 @@ for.body60.lr.ph:                                 ; preds = %for.cond57.preheade
 
 for.body26:                                       ; preds = %for.cond11.preheader, %for.body26
   %store_forwarded = phi i32 [ %load_initial, %for.cond11.preheader ], [ %xor49, %for.body26 ]
+  %12 = phi i32 [ %.pre74, %for.cond11.preheader ], [ %store_forwarded, %for.body26 ]
+  %13 = phi i32 [ %.pre, %for.cond11.preheader ], [ %12, %for.body26 ]
   %indvars.iv56 = phi i64 [ 0, %for.cond11.preheader ], [ %indvars.iv.next57, %for.body26 ]
   %indvars.iv.next57 = add nuw nsw i64 %indvars.iv56, 1
-  %arrayidx29 = getelementptr [8 x i32], ptr %tmp, i64 0, i64 %indvars.iv.next57
-  %12 = load i32, ptr %arrayidx29, align 4
-  %13 = add nuw nsw i64 %indvars.iv56, 2
-  %arrayidx32 = getelementptr [8 x i32], ptr %tmp, i64 0, i64 %13
-  %14 = load i32, ptr %arrayidx32, align 4
-  %xor = xor i32 %14, %12
-  %xor36 = xor i32 %xor, %store_forwarded
-  %15 = or disjoint i64 %indvars.iv56, %4
-  %arrayidx40 = getelementptr [32 x i32], ptr @sm4_ck, i64 0, i64 %15
-  %16 = load i32, ptr %arrayidx40, align 4
-  %xor41 = xor i32 %xor36, %16
+  %14 = or disjoint i64 %indvars.iv56, %4
+  %arrayidx40 = getelementptr [32 x i32], ptr @sm4_ck, i64 0, i64 %14
+  %15 = load i32, ptr %arrayidx40, align 4
+  %16 = xor i32 %13, %15
+  %17 = xor i32 %16, %12
+  %xor41 = xor i32 %17, %store_forwarded
   %and.i = and i32 %xor41, 255
   %idxprom.i = zext nneg i32 %and.i to i64
   %arrayidx.i = getelementptr [256 x i8], ptr @sm4_sbox, i64 0, i64 %idxprom.i
-  %17 = load i8, ptr %arrayidx.i, align 1
-  %conv.i = zext i8 %17 to i32
+  %18 = load i8, ptr %arrayidx.i, align 1
+  %conv.i = zext i8 %18 to i32
   %shr.i = lshr i32 %xor41, 8
   %and1.i = and i32 %shr.i, 255
   %idxprom2.i = zext nneg i32 %and1.i to i64
   %arrayidx3.i = getelementptr [256 x i8], ptr @sm4_sbox, i64 0, i64 %idxprom2.i
-  %18 = load i8, ptr %arrayidx3.i, align 1
-  %conv4.i = zext i8 %18 to i32
+  %19 = load i8, ptr %arrayidx3.i, align 1
+  %conv4.i = zext i8 %19 to i32
   %shl.i = shl nuw nsw i32 %conv4.i, 8
   %or.i = or disjoint i32 %shl.i, %conv.i
   %shr5.i = lshr i32 %xor41, 16
   %and6.i = and i32 %shr5.i, 255
   %idxprom7.i = zext nneg i32 %and6.i to i64
   %arrayidx8.i = getelementptr [256 x i8], ptr @sm4_sbox, i64 0, i64 %idxprom7.i
-  %19 = load i8, ptr %arrayidx8.i, align 1
-  %conv9.i = zext i8 %19 to i32
+  %20 = load i8, ptr %arrayidx8.i, align 1
+  %conv9.i = zext i8 %20 to i32
   %shl10.i = shl nuw nsw i32 %conv9.i, 16
   %or11.i = or disjoint i32 %or.i, %shl10.i
   %shr12.i = lshr i32 %xor41, 24
   %idxprom14.i = zext nneg i32 %shr12.i to i64
   %arrayidx15.i = getelementptr [256 x i8], ptr @sm4_sbox, i64 0, i64 %idxprom14.i
-  %20 = load i8, ptr %arrayidx15.i, align 1
-  %conv16.i = zext i8 %20 to i32
+  %21 = load i8, ptr %arrayidx15.i, align 1
+  %conv16.i = zext i8 %21 to i32
   %shl17.i36 = shl nuw i32 %conv16.i, 24
   %or18.i = or disjoint i32 %or11.i, %shl17.i36
   %arrayidx44 = getelementptr [8 x i32], ptr %tmp, i64 0, i64 %indvars.iv56
-  %21 = load i32, ptr %arrayidx44, align 4
-  %or.i37 = tail call i32 @llvm.fshl.i32(i32 %or18.i, i32 %or18.i, i32 13)
-  %or.i38 = tail call i32 @llvm.fshl.i32(i32 %or18.i, i32 %or18.i, i32 23)
-  %22 = xor i32 %21, %or.i38
-  %23 = xor i32 %22, %or.i37
-  %xor49 = xor i32 %23, %or18.i
-  %24 = or disjoint i64 %indvars.iv56, 4
-  %arrayidx52 = getelementptr [8 x i32], ptr %tmp, i64 0, i64 %24
+  %22 = load i32, ptr %arrayidx44, align 4
+  %or.i37 = tail call noundef i32 @llvm.fshl.i32(i32 %or18.i, i32 %or18.i, i32 13)
+  %or.i38 = tail call noundef i32 @llvm.fshl.i32(i32 %or18.i, i32 %or18.i, i32 23)
+  %23 = xor i32 %22, %or.i38
+  %24 = xor i32 %23, %or.i37
+  %xor49 = xor i32 %24, %or18.i
+  %25 = or disjoint i64 %indvars.iv56, 4
+  %arrayidx52 = getelementptr [8 x i32], ptr %tmp, i64 0, i64 %25
   store i32 %xor49, ptr %arrayidx52, align 4
   %exitcond.not = icmp eq i64 %indvars.iv.next57, 4
   br i1 %exitcond.not, label %for.cond57.preheader, label %for.body26, !llvm.loop !64
 
 for.end72.loopexit:                               ; preds = %for.cond.loopexit
-  %.pre = load i64, ptr %vl, align 16
+  %.pre75 = load i64, ptr %vl, align 16
   br label %for.end72
 
 for.end72:                                        ; preds = %for.end72.loopexit, %entry
-  %25 = phi i64 [ %.pre, %for.end72.loopexit ], [ %1, %entry ]
+  %26 = phi i64 [ %.pre75, %for.end72.loopexit ], [ %1, %entry ]
   %and.i.i.i = shl i32 %desc, 3
   %mul.i.i = and i32 %and.i.i.i, 2040
   %add.i.i = add nuw nsw i32 %mul.i.i, 8
-  %26 = shl i32 %desc, 18
-  %shr.i1.i.i = ashr i32 %26, 29
-  %27 = trunc i64 %env.val to i32
-  %28 = lshr i32 %27, 3
-  %sh_prom.i = and i32 %28, 7
+  %27 = shl i32 %desc, 18
+  %shr.i1.i.i = ashr i32 %27, 29
+  %28 = trunc i64 %env.val to i32
+  %29 = lshr i32 %28, 3
+  %sh_prom.i = and i32 %29, 7
   %reass.sub = sub nsw i32 %shr.i1.i.i, %sh_prom.i
-  %29 = tail call i32 @llvm.smax.i32(i32 %reass.sub, i32 -2)
-  %cond.i = add nsw i32 %29, 2
+  %30 = tail call i32 @llvm.smax.i32(i32 %reass.sub, i32 -2)
+  %cond.i = add nsw i32 %30, 2
   %shl17.i = shl nuw nsw i32 %add.i.i, %cond.i
   store i64 0, ptr %vstart, align 8
   %shr.i.i.i = lshr i32 %desc, 14
   %and.i.i = and i32 %shr.i.i.i, 1
-  %.tr = trunc i64 %25 to i32
+  %.tr = trunc i64 %26 to i32
   %conv78 = shl i32 %.tr, 2
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i, i32 noundef %conv78, i32 noundef %shl17.i) #13
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i, i32 noundef %conv78, i32 noundef %shl17.i) #12
   ret void
 }
 
@@ -5738,10 +5739,10 @@ for.body.i:                                       ; preds = %for.body.i.preheade
   %or18.i.i = or disjoint i32 %or11.i.i, %shl17.i.i
   %arrayidx14.i = getelementptr i32, ptr %tmp, i64 %13
   %21 = load i32, ptr %arrayidx14.i, align 4
-  %or.i16.i = tail call i32 @llvm.fshl.i32(i32 %or18.i.i, i32 %or18.i.i, i32 2)
-  %or.i17.i = tail call i32 @llvm.fshl.i32(i32 %or18.i.i, i32 %or18.i.i, i32 10)
-  %or.i18.i = tail call i32 @llvm.fshl.i32(i32 %or18.i.i, i32 %or18.i.i, i32 18)
-  %or.i19.i = tail call i32 @llvm.fshl.i32(i32 %or18.i.i, i32 %or18.i.i, i32 24)
+  %or.i16.i = tail call noundef i32 @llvm.fshl.i32(i32 %or18.i.i, i32 %or18.i.i, i32 2)
+  %or.i17.i = tail call noundef i32 @llvm.fshl.i32(i32 %or18.i.i, i32 %or18.i.i, i32 10)
+  %or.i18.i = tail call noundef i32 @llvm.fshl.i32(i32 %or18.i.i, i32 %or18.i.i, i32 18)
+  %or.i19.i = tail call noundef i32 @llvm.fshl.i32(i32 %or18.i.i, i32 %or18.i.i, i32 24)
   %22 = xor i32 %21, %or.i17.i
   %23 = xor i32 %22, %or.i16.i
   %24 = xor i32 %23, %or.i18.i
@@ -5783,7 +5784,7 @@ for.end40:                                        ; preds = %for.end40.loopexit,
   %and.i.i31 = and i32 %shr.i.i.i, 1
   %.tr = trunc i64 %26 to i32
   %conv46 = shl i32 %.tr, 2
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i31, i32 noundef %conv46, i32 noundef %shl17.i) #13
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i31, i32 noundef %conv46, i32 noundef %shl17.i) #12
   ret void
 }
 
@@ -5894,10 +5895,10 @@ for.body.i:                                       ; preds = %for.body.i.preheade
   %or18.i.i = or disjoint i32 %or11.i.i, %shl17.i.i
   %arrayidx14.i = getelementptr i32, ptr %tmp, i64 %13
   %21 = load i32, ptr %arrayidx14.i, align 4
-  %or.i16.i = tail call i32 @llvm.fshl.i32(i32 %or18.i.i, i32 %or18.i.i, i32 2)
-  %or.i17.i = tail call i32 @llvm.fshl.i32(i32 %or18.i.i, i32 %or18.i.i, i32 10)
-  %or.i18.i = tail call i32 @llvm.fshl.i32(i32 %or18.i.i, i32 %or18.i.i, i32 18)
-  %or.i19.i = tail call i32 @llvm.fshl.i32(i32 %or18.i.i, i32 %or18.i.i, i32 24)
+  %or.i16.i = tail call noundef i32 @llvm.fshl.i32(i32 %or18.i.i, i32 %or18.i.i, i32 2)
+  %or.i17.i = tail call noundef i32 @llvm.fshl.i32(i32 %or18.i.i, i32 %or18.i.i, i32 10)
+  %or.i18.i = tail call noundef i32 @llvm.fshl.i32(i32 %or18.i.i, i32 %or18.i.i, i32 18)
+  %or.i19.i = tail call noundef i32 @llvm.fshl.i32(i32 %or18.i.i, i32 %or18.i.i, i32 24)
   %22 = xor i32 %21, %or.i17.i
   %23 = xor i32 %22, %or.i16.i
   %24 = xor i32 %23, %or.i18.i
@@ -5939,48 +5940,48 @@ for.end39:                                        ; preds = %for.end39.loopexit,
   %and.i.i28 = and i32 %shr.i.i.i, 1
   %.tr = trunc i64 %26 to i32
   %conv45 = shl i32 %.tr, 2
-  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i28, i32 noundef %conv45, i32 noundef %shl17.i) #13
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i28, i32 noundef %conv45, i32 noundef %shl17.i) #12
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.cttz.i64(i64, i1 immarg) #8
+declare i64 @llvm.cttz.i64(i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.bswap.i16(i16) #8
+declare i16 @llvm.bswap.i16(i16) #7
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.bswap.i64(i64) #8
+declare i64 @llvm.bswap.i64(i64) #7
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.bitreverse.i8(i8) #8
+declare i8 @llvm.bitreverse.i8(i8) #7
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.bitreverse.i16(i16) #8
+declare i16 @llvm.bitreverse.i16(i16) #7
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.bitreverse.i32(i32) #8
+declare i32 @llvm.bitreverse.i32(i32) #7
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.bitreverse.i64(i64) #8
+declare i64 @llvm.bitreverse.i64(i64) #7
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.ctlz.i32(i32, i1 immarg) #8
+declare i32 @llvm.ctlz.i32(i32, i1 immarg) #7
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.ctlz.i64(i64, i1 immarg) #8
+declare i64 @llvm.ctlz.i64(i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.cttz.i32(i32, i1 immarg) #8
+declare i32 @llvm.cttz.i32(i32, i1 immarg) #7
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.ctpop.i32(i32) #8
+declare i32 @llvm.ctpop.i32(i32) #7
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.ctpop.i64(i64) #8
+declare i64 @llvm.ctpop.i64(i64) #7
 
-; Function Attrs: mustprogress nofree nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @aesenc_SB_SR_AK_accel(ptr nocapture noundef writeonly %ret, ptr nocapture noundef readonly %st, ptr nocapture noundef readonly %rk) unnamed_addr #10 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
+define internal fastcc void @aesenc_SB_SR_AK_accel(ptr nocapture noundef writeonly %ret, ptr nocapture noundef readonly %st, ptr nocapture noundef readonly %rk) unnamed_addr #9 {
 entry:
   %0 = load <2 x i64>, ptr %st, align 16
   %1 = load <2 x i64>, ptr %rk, align 16
@@ -5992,10 +5993,10 @@ entry:
 declare void @aesenc_SB_SR_AK_gen(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare <2 x i64> @llvm.x86.aesni.aesenclast(<2 x i64>, <2 x i64>) #6
+declare <2 x i64> @llvm.x86.aesni.aesenclast(<2 x i64>, <2 x i64>) #5
 
-; Function Attrs: mustprogress nofree nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @aesdec_ISB_ISR_AK_accel(ptr nocapture noundef writeonly %ret, ptr nocapture noundef readonly %st, ptr nocapture noundef readonly %rk) unnamed_addr #10 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
+define internal fastcc void @aesdec_ISB_ISR_AK_accel(ptr nocapture noundef writeonly %ret, ptr nocapture noundef readonly %st, ptr nocapture noundef readonly %rk) unnamed_addr #9 {
 entry:
   %0 = load <2 x i64>, ptr %st, align 16
   %1 = load <2 x i64>, ptr %rk, align 16
@@ -6007,10 +6008,10 @@ entry:
 declare void @aesdec_ISB_ISR_AK_gen(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare <2 x i64> @llvm.x86.aesni.aesdeclast(<2 x i64>, <2 x i64>) #6
+declare <2 x i64> @llvm.x86.aesni.aesdeclast(<2 x i64>, <2 x i64>) #5
 
-; Function Attrs: mustprogress nofree nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @aesenc_SB_SR_MC_AK_accel(ptr nocapture noundef writeonly %ret, ptr nocapture noundef readonly %st, ptr nocapture noundef readonly %rk) unnamed_addr #10 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
+define internal fastcc void @aesenc_SB_SR_MC_AK_accel(ptr nocapture noundef writeonly %ret, ptr nocapture noundef readonly %st, ptr nocapture noundef readonly %rk) unnamed_addr #9 {
 entry:
   %0 = load <2 x i64>, ptr %st, align 16
   %1 = load <2 x i64>, ptr %rk, align 16
@@ -6022,10 +6023,10 @@ entry:
 declare void @aesenc_SB_SR_MC_AK_gen(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare <2 x i64> @llvm.x86.aesni.aesenc(<2 x i64>, <2 x i64>) #6
+declare <2 x i64> @llvm.x86.aesni.aesenc(<2 x i64>, <2 x i64>) #5
 
-; Function Attrs: mustprogress nofree nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @aesdec_ISB_ISR_AK_IMC_accel(ptr nocapture noundef writeonly %ret, ptr nocapture noundef readonly %st, ptr nocapture noundef readonly %rk) unnamed_addr #10 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
+define internal fastcc void @aesdec_ISB_ISR_AK_IMC_accel(ptr nocapture noundef writeonly %ret, ptr nocapture noundef readonly %st, ptr nocapture noundef readonly %rk) unnamed_addr #9 {
 entry:
   %0 = load <2 x i64>, ptr %st, align 16
   %1 = load <2 x i64>, ptr %rk, align 16
@@ -6038,71 +6039,70 @@ entry:
 declare void @aesdec_ISB_ISR_AK_IMC_gen(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare <2 x i64> @llvm.x86.aesni.aesimc(<2 x i64>) #6
+declare <2 x i64> @llvm.x86.aesni.aesimc(<2 x i64>) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.fshr.i32(i32, i32, i32) #11
+declare i32 @llvm.fshr.i32(i32, i32, i32) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.fshl.i64(i64, i64, i64) #11
+declare i64 @llvm.fshl.i64(i64, i64, i64) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.fshl.i32(i32, i32, i32) #11
+declare i32 @llvm.fshl.i32(i32, i32, i32) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.fshr.i8(i8, i8, i8) #11
+declare i8 @llvm.fshr.i8(i8, i8, i8) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.fshr.i16(i16, i16, i16) #11
+declare i16 @llvm.fshr.i16(i16, i16, i16) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.fshr.i64(i64, i64, i64) #11
+declare i64 @llvm.fshr.i64(i64, i64, i64) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.fshl.i8(i8, i8, i8) #11
+declare i8 @llvm.fshl.i8(i8, i8, i8) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.fshl.i16(i16, i16, i16) #11
+declare i16 @llvm.fshl.i16(i16, i16, i16) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.cttz.i8(i8, i1 immarg) #11
+declare i8 @llvm.cttz.i8(i8, i1 immarg) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.cttz.i16(i16, i1 immarg) #11
+declare i16 @llvm.cttz.i16(i16, i1 immarg) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.ctpop.i8(i8) #11
+declare i8 @llvm.ctpop.i8(i8) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.ctpop.i16(i16) #11
+declare i16 @llvm.ctpop.i16(i16) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #11
+declare i32 @llvm.smax.i32(i32, i32) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.ctlz.i8(i8, i1 immarg) #11
+declare i8 @llvm.ctlz.i8(i8, i1 immarg) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.ctlz.i16(i16, i1 immarg) #11
+declare i16 @llvm.ctlz.i16(i16, i1 immarg) #10
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #12
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #11
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(none) }
-attributes #7 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #10 = { mustprogress nofree nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+aes,+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+ssse3,+x87" "tune-cpu"="generic" }
-attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #12 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #13 = { nounwind }
-attributes #14 = { noreturn nounwind }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(none) }
+attributes #6 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #9 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+aes,+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+ssse3,+x87" "tune-cpu"="generic" }
+attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #11 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #12 = { nounwind }
+attributes #13 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 
