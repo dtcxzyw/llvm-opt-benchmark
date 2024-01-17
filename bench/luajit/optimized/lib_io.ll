@@ -647,11 +647,10 @@ land.lhs.true:                                    ; preds = %io_tofilep.exit
   %type = getelementptr inbounds %struct.GCudata, ptr %4, i64 1, i32 1
   %7 = load i32, ptr %type, align 8
   %and = and i32 %7, 3
-  switch i32 %and, label %land.lhs.true.unreachabledefault [
+  switch i32 %and, label %if.else11.i [
     i32 2, label %if.end
     i32 0, label %if.then.i5
     i32 1, label %if.then6.i
-    i32 3, label %if.else11.i
   ]
 
 if.then.i5:                                       ; preds = %land.lhs.true
@@ -663,9 +662,6 @@ if.then6.i:                                       ; preds = %land.lhs.true
   %call8.i = tail call i32 @pclose(ptr noundef nonnull %6)
   %cmp9.i = icmp ne i32 %call8.i, -1
   br label %if.end12.i
-
-land.lhs.true.unreachabledefault:                 ; preds = %land.lhs.true
-  unreachable
 
 if.else11.i:                                      ; preds = %land.lhs.true
   %incdec.ptr.i = getelementptr inbounds %union.TValue, ptr %1, i64 1

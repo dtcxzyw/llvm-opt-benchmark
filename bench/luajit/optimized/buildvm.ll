@@ -1218,8 +1218,8 @@ land.lhs.true:                                    ; preds = %do.body129
   %26 = load i8, ptr %incdec.ptr, align 1
   %.mask = and i8 %26, -32
   %cmp136.not = icmp eq i8 %.mask, 64
-  %or.cond292 = select i1 %cmp133.not, i1 %cmp136.not, i1 false
-  br i1 %or.cond292, label %if.then138, label %do.end148
+  %or.cond288 = select i1 %cmp133.not, i1 %cmp136.not, i1 false
+  br i1 %or.cond288, label %if.then138, label %do.end148
 
 if.then138:                                       ; preds = %land.lhs.true, %do.body129
   %27 = load ptr, ptr %actionlist, align 8
@@ -1255,11 +1255,10 @@ if.end158:                                        ; preds = %land.lhs.true152, %
   %incdec.ptr169 = getelementptr inbounds i8, ptr %p.0, i64 2
   %30 = lshr i8 %26, 3
   %31 = and i8 %30, 3
-  switch i8 %31, label %default.unreachable252 [
+  switch i8 %31, label %while.body31.backedge [
     i8 3, label %sw.bb173
     i8 2, label %sw.bb178
     i8 1, label %sw.bb183
-    i8 0, label %while.body31.backedge
   ]
 
 sw.bb173:                                         ; preds = %if.end158
@@ -1268,14 +1267,14 @@ sw.bb173:                                         ; preds = %if.end158
   %or177 = or i32 %32, %18
   br label %sw.bb178
 
-sw.bb178:                                         ; preds = %if.end158, %sw.bb173
+sw.bb178:                                         ; preds = %sw.bb173, %if.end158
   %n.0 = phi i32 [ %18, %if.end158 ], [ %or177, %sw.bb173 ]
   %arrayidx181 = getelementptr i32, ptr %arrayidx43, i64 -1
   %33 = load i32, ptr %arrayidx181, align 4
   %or182 = or i32 %33, %n.0
   br label %sw.bb183
 
-sw.bb183:                                         ; preds = %if.end158, %sw.bb178
+sw.bb183:                                         ; preds = %sw.bb178, %if.end158
   %n.1 = phi i32 [ %18, %if.end158 ], [ %or182, %sw.bb178 ]
   %cmp184 = icmp slt i32 %n.1, 8
   br i1 %cmp184, label %if.then186, label %while.body31.backedge
@@ -1285,9 +1284,6 @@ if.then186:                                       ; preds = %sw.bb183
   store i32 %or190, ptr %arrayidx43, align 4
   %dec = add nsw i32 %ofs.1, -1
   br label %while.body31.backedge
-
-default.unreachable252:                           ; preds = %if.end158
-  unreachable
 
 default.unreachable:                              ; preds = %if.else193, %vaarg.end
   unreachable

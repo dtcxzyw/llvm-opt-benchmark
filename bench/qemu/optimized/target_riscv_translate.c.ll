@@ -6878,13 +6878,13 @@ sw.bb23:                                          ; preds = %sw.bb
   call fastcc void @gen_load(ptr noundef %ctx, ptr noundef nonnull %u, i32 noundef 2)
   br label %return
 
-default.unreachable6487:                          ; preds = %sw.bb3519, %sw.bb1360, %sw.bb1344, %sw.bb1328, %sw.bb1312, %sw.bb559, %sw.bb283, %sw.bb31, %sw.bb
+default.unreachable6487:                          ; preds = %sw.bb3519, %sw.bb283, %sw.bb
   unreachable
 
 sw.bb31:                                          ; preds = %entry
   %shr32 = lshr i32 %insn, 12
   %and33 = and i32 %shr32, 7
-  switch i32 %and33, label %default.unreachable6487 [
+  switch i32 %and33, label %sw.epilog3868 [
     i32 0, label %sw.bb34
     i32 1, label %sw.bb87
     i32 2, label %sw.bb91
@@ -6892,7 +6892,6 @@ sw.bb31:                                          ; preds = %entry
     i32 5, label %sw.bb99
     i32 6, label %sw.bb145
     i32 7, label %sw.bb191
-    i32 4, label %sw.epilog3868
   ]
 
 sw.bb34:                                          ; preds = %sw.bb31
@@ -8373,7 +8372,7 @@ sw.bb550:                                         ; preds = %sw.bb535
 sw.bb559:                                         ; preds = %entry
   %shr560 = lshr i32 %insn, 12
   %and561 = and i32 %shr560, 7
-  switch i32 %and561, label %default.unreachable6487 [
+  switch i32 %and561, label %sw.epilog3868 [
     i32 0, label %sw.bb562
     i32 1, label %sw.bb611
     i32 2, label %sw.bb615
@@ -8381,7 +8380,6 @@ sw.bb559:                                         ; preds = %entry
     i32 5, label %sw.bb623
     i32 6, label %sw.bb646
     i32 7, label %sw.bb669
-    i32 4, label %sw.epilog3868
   ]
 
 sw.bb562:                                         ; preds = %sw.bb559
@@ -10988,11 +10986,10 @@ sw.bb1312:                                        ; preds = %entry
   store i32 %and.i15.i3902, ptr %rs2.i3903, align 4
   %shr1313 = lshr i32 %insn, 25
   %and1314 = and i32 %shr1313, 3
-  switch i32 %and1314, label %default.unreachable6487 [
+  switch i32 %and1314, label %sw.epilog3868 [
     i32 0, label %sw.bb1315
     i32 1, label %sw.bb1319
     i32 2, label %sw.bb1323
-    i32 3, label %sw.epilog3868
   ]
 
 sw.bb1315:                                        ; preds = %sw.bb1312
@@ -11028,11 +11025,10 @@ sw.bb1328:                                        ; preds = %entry
   store i32 %and.i15.i3915, ptr %rs2.i3916, align 4
   %shr1329 = lshr i32 %insn, 25
   %and1330 = and i32 %shr1329, 3
-  switch i32 %and1330, label %default.unreachable6487 [
+  switch i32 %and1330, label %sw.epilog3868 [
     i32 0, label %sw.bb1331
     i32 1, label %sw.bb1335
     i32 2, label %sw.bb1339
-    i32 3, label %sw.epilog3868
   ]
 
 sw.bb1331:                                        ; preds = %sw.bb1328
@@ -11068,11 +11064,10 @@ sw.bb1344:                                        ; preds = %entry
   store i32 %and.i15.i3928, ptr %rs2.i3929, align 4
   %shr1345 = lshr i32 %insn, 25
   %and1346 = and i32 %shr1345, 3
-  switch i32 %and1346, label %default.unreachable6487 [
+  switch i32 %and1346, label %sw.epilog3868 [
     i32 0, label %sw.bb1347
     i32 1, label %sw.bb1351
     i32 2, label %sw.bb1355
-    i32 3, label %sw.epilog3868
   ]
 
 sw.bb1347:                                        ; preds = %sw.bb1344
@@ -11108,11 +11103,10 @@ sw.bb1360:                                        ; preds = %entry
   store i32 %and.i15.i3941, ptr %rs2.i3942, align 4
   %shr1361 = lshr i32 %insn, 25
   %and1362 = and i32 %shr1361, 3
-  switch i32 %and1362, label %default.unreachable6487 [
+  switch i32 %and1362, label %sw.epilog3868 [
     i32 0, label %sw.bb1363
     i32 1, label %sw.bb1367
     i32 2, label %sw.bb1371
-    i32 3, label %sw.epilog3868
   ]
 
 sw.bb1363:                                        ; preds = %sw.bb1360
@@ -17852,9 +17846,6 @@ trans_th_addsl1.exit:                             ; preds = %sw.bb120
   %call.i = call fastcc zeroext i1 @gen_arith(ptr noundef nonnull %ctx, ptr noundef nonnull %u, i32 noundef 0, ptr noundef nonnull @gen_th_addsl1, ptr noundef null)
   br i1 %call.i, label %return, label %sw.epilog502
 
-default.unreachable1647:                          ; preds = %sw.bb258
-  unreachable
-
 sw.bb125:                                         ; preds = %sw.bb110
   %shr.i.i407 = lshr i32 %insn, 15
   %and.i.i408 = and i32 %shr.i.i407, 31
@@ -18413,7 +18404,7 @@ if.then5.i.i.i601:                                ; preds = %sw.epilog.i.i.i598
 
 sw.bb258:                                         ; preds = %entry
   %shr259 = lshr i32 %insn, 27
-  switch i32 %shr259, label %default.unreachable1647 [
+  switch i32 %shr259, label %sw.epilog502 [
     i32 0, label %sw.bb261
     i32 1, label %sw.bb265
     i32 2, label %sw.bb269
@@ -18445,7 +18436,6 @@ sw.bb258:                                         ; preds = %entry
     i32 28, label %sw.bb373
     i32 30, label %sw.bb377
     i32 31, label %sw.bb381
-    i32 29, label %sw.epilog502
   ]
 
 sw.bb261:                                         ; preds = %sw.bb258

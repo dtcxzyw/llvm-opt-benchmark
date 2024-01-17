@@ -1101,11 +1101,10 @@ for.end:                                          ; preds = %for.body, %for.cond
   %idx.ext = sext i32 %mul13 to i64
   %add.ptr14 = getelementptr inbounds i8, ptr %key, i64 %idx.ext
   %and = and i32 %len, 3
-  switch i32 %and, label %default.unreachable318 [
+  switch i32 %and, label %sw.epilog [
     i32 3, label %sw.bb
     i32 2, label %sw.bb18
     i32 1, label %sw.bb23
-    i32 0, label %sw.epilog
   ]
 
 sw.bb:                                            ; preds = %for.end
@@ -1115,7 +1114,7 @@ sw.bb:                                            ; preds = %for.end
   %7 = shl nuw nsw i32 %6, 16
   br label %sw.bb18
 
-sw.bb18:                                          ; preds = %for.end, %sw.bb
+sw.bb18:                                          ; preds = %sw.bb, %for.end
   %k1.sroa.25.0 = phi i32 [ 0, %for.end ], [ %7, %sw.bb ]
   %arrayidx19 = getelementptr inbounds i8, ptr %add.ptr14, i64 1
   %8 = load i8, ptr %arrayidx19, align 1
@@ -1124,7 +1123,7 @@ sw.bb18:                                          ; preds = %for.end, %sw.bb
   %11 = or disjoint i32 %10, %k1.sroa.25.0
   br label %sw.bb23
 
-sw.bb23:                                          ; preds = %for.end, %sw.bb18
+sw.bb23:                                          ; preds = %sw.bb18, %for.end
   %k1.sroa.24.0.insert.insert128 = phi i32 [ 0, %for.end ], [ %11, %sw.bb18 ]
   %12 = load i8, ptr %add.ptr14, align 1
   %13 = trunc i32 %k1.sroa.24.0.insert.insert128 to i8
@@ -1144,9 +1143,6 @@ sw.bb23:                                          ; preds = %for.end, %sw.bb18
   %mul31 = mul i32 %k1.sroa.0.0.insert.insert80, 461845907
   %xor32 = xor i32 %mul31, %h1.0.lcssa
   br label %sw.epilog
-
-default.unreachable318:                           ; preds = %for.end
-  unreachable
 
 sw.epilog:                                        ; preds = %for.end, %sw.bb23
   %h1.1 = phi i32 [ %h1.0.lcssa, %for.end ], [ %xor32, %sw.bb23 ]

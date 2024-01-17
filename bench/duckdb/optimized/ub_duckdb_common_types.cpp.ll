@@ -29650,7 +29650,7 @@ for.cond.cleanup.i.i:                             ; preds = %for.body.i.i.epil, 
   %h.0.lcssa.i.i = phi i64 [ %xor.i.i, %entry ], [ %mul5.i.i.lcssa.ph, %for.cond.cleanup.i.i.loopexit.unr-lcssa ], [ %mul5.i.i.epil, %for.body.i.i.epil ]
   %add.ptr6.i.i = getelementptr inbounds i64, ptr %str, i64 %div74.i.i
   %and.i.i = and i64 %call, 7
-  switch i64 %and.i.i, label %for.cond.cleanup.i.i.unreachabledefault [
+  switch i64 %and.i.i, label %_ZN6duckdb4HashEPKcm.exit [
     i64 7, label %sw.bb.i.i
     i64 6, label %sw.bb8.i.i
     i64 5, label %sw.bb13.i.i
@@ -29658,7 +29658,6 @@ for.cond.cleanup.i.i:                             ; preds = %for.body.i.i.epil, 
     i64 3, label %sw.bb23.i.i
     i64 2, label %sw.bb28.i.i
     i64 1, label %sw.bb33.i.i
-    i64 0, label %_ZN6duckdb4HashEPKcm.exit
   ]
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.preheader.i.i.new
@@ -29693,7 +29692,7 @@ sw.bb.i.i:                                        ; preds = %for.cond.cleanup.i.
   %xor7.i.i = xor i64 %shl.i.i, %h.0.lcssa.i.i
   br label %sw.bb8.i.i
 
-sw.bb8.i.i:                                       ; preds = %for.cond.cleanup.i.i, %sw.bb.i.i
+sw.bb8.i.i:                                       ; preds = %sw.bb.i.i, %for.cond.cleanup.i.i
   %h.1.i.i = phi i64 [ %h.0.lcssa.i.i, %for.cond.cleanup.i.i ], [ %xor7.i.i, %sw.bb.i.i ]
   %arrayidx9.i.i = getelementptr inbounds i8, ptr %add.ptr6.i.i, i64 5
   %2 = load i8, ptr %arrayidx9.i.i, align 1, !tbaa !117
@@ -29702,7 +29701,7 @@ sw.bb8.i.i:                                       ; preds = %for.cond.cleanup.i.
   %xor12.i.i = xor i64 %shl11.i.i, %h.1.i.i
   br label %sw.bb13.i.i
 
-sw.bb13.i.i:                                      ; preds = %for.cond.cleanup.i.i, %sw.bb8.i.i
+sw.bb13.i.i:                                      ; preds = %sw.bb8.i.i, %for.cond.cleanup.i.i
   %h.2.i.i = phi i64 [ %h.0.lcssa.i.i, %for.cond.cleanup.i.i ], [ %xor12.i.i, %sw.bb8.i.i ]
   %arrayidx14.i.i = getelementptr inbounds i8, ptr %add.ptr6.i.i, i64 4
   %3 = load i8, ptr %arrayidx14.i.i, align 1, !tbaa !117
@@ -29711,7 +29710,7 @@ sw.bb13.i.i:                                      ; preds = %for.cond.cleanup.i.
   %xor17.i.i = xor i64 %shl16.i.i, %h.2.i.i
   br label %sw.bb18.i.i
 
-sw.bb18.i.i:                                      ; preds = %for.cond.cleanup.i.i, %sw.bb13.i.i
+sw.bb18.i.i:                                      ; preds = %sw.bb13.i.i, %for.cond.cleanup.i.i
   %h.3.i.i = phi i64 [ %h.0.lcssa.i.i, %for.cond.cleanup.i.i ], [ %xor17.i.i, %sw.bb13.i.i ]
   %arrayidx19.i.i = getelementptr inbounds i8, ptr %add.ptr6.i.i, i64 3
   %4 = load i8, ptr %arrayidx19.i.i, align 1, !tbaa !117
@@ -29720,7 +29719,7 @@ sw.bb18.i.i:                                      ; preds = %for.cond.cleanup.i.
   %xor22.i.i = xor i64 %shl21.i.i, %h.3.i.i
   br label %sw.bb23.i.i
 
-sw.bb23.i.i:                                      ; preds = %for.cond.cleanup.i.i, %sw.bb18.i.i
+sw.bb23.i.i:                                      ; preds = %sw.bb18.i.i, %for.cond.cleanup.i.i
   %h.4.i.i = phi i64 [ %h.0.lcssa.i.i, %for.cond.cleanup.i.i ], [ %xor22.i.i, %sw.bb18.i.i ]
   %arrayidx24.i.i = getelementptr inbounds i8, ptr %add.ptr6.i.i, i64 2
   %5 = load i8, ptr %arrayidx24.i.i, align 1, !tbaa !117
@@ -29729,7 +29728,7 @@ sw.bb23.i.i:                                      ; preds = %for.cond.cleanup.i.
   %xor27.i.i = xor i64 %shl26.i.i, %h.4.i.i
   br label %sw.bb28.i.i
 
-sw.bb28.i.i:                                      ; preds = %for.cond.cleanup.i.i, %sw.bb23.i.i
+sw.bb28.i.i:                                      ; preds = %sw.bb23.i.i, %for.cond.cleanup.i.i
   %h.5.i.i = phi i64 [ %h.0.lcssa.i.i, %for.cond.cleanup.i.i ], [ %xor27.i.i, %sw.bb23.i.i ]
   %arrayidx29.i.i = getelementptr inbounds i8, ptr %add.ptr6.i.i, i64 1
   %6 = load i8, ptr %arrayidx29.i.i, align 1, !tbaa !117
@@ -29738,7 +29737,7 @@ sw.bb28.i.i:                                      ; preds = %for.cond.cleanup.i.
   %xor32.i.i = xor i64 %shl31.i.i, %h.5.i.i
   br label %sw.bb33.i.i
 
-sw.bb33.i.i:                                      ; preds = %for.cond.cleanup.i.i, %sw.bb28.i.i
+sw.bb33.i.i:                                      ; preds = %sw.bb28.i.i, %for.cond.cleanup.i.i
   %h.6.i.i = phi i64 [ %h.0.lcssa.i.i, %for.cond.cleanup.i.i ], [ %xor32.i.i, %sw.bb28.i.i ]
   %7 = load i8, ptr %add.ptr6.i.i, align 1, !tbaa !117
   %conv35.i.i = zext i8 %7 to i64
@@ -29746,10 +29745,7 @@ sw.bb33.i.i:                                      ; preds = %for.cond.cleanup.i.
   %mul37.i.i = mul i64 %xor36.i.i, -4132994306676758123
   br label %_ZN6duckdb4HashEPKcm.exit
 
-for.cond.cleanup.i.i.unreachabledefault:          ; preds = %for.cond.cleanup.i.i
-  unreachable
-
-_ZN6duckdb4HashEPKcm.exit:                        ; preds = %for.cond.cleanup.i.i, %sw.bb33.i.i
+_ZN6duckdb4HashEPKcm.exit:                        ; preds = %sw.bb33.i.i, %for.cond.cleanup.i.i
   %h.7.i.i = phi i64 [ %h.0.lcssa.i.i, %for.cond.cleanup.i.i ], [ %mul37.i.i, %sw.bb33.i.i ]
   %shr38.i.i = lshr i64 %h.7.i.i, 47
   %xor39.i.i = xor i64 %shr38.i.i, %h.7.i.i
@@ -29800,7 +29796,7 @@ for.cond.cleanup.i:                               ; preds = %for.body.i.epil, %f
   %h.0.lcssa.i = phi i64 [ %xor.i, %entry ], [ %mul5.i.lcssa.ph, %for.cond.cleanup.i.loopexit.unr-lcssa ], [ %mul5.i.epil, %for.body.i.epil ]
   %add.ptr6.i = getelementptr inbounds i64, ptr %val, i64 %div74.i
   %and.i = and i64 %size, 7
-  switch i64 %and.i, label %for.cond.cleanup.i.unreachabledefault [
+  switch i64 %and.i, label %_ZN6duckdb9HashBytesEPvm.exit [
     i64 7, label %sw.bb.i
     i64 6, label %sw.bb8.i
     i64 5, label %sw.bb13.i
@@ -29808,7 +29804,6 @@ for.cond.cleanup.i:                               ; preds = %for.body.i.epil, %f
     i64 3, label %sw.bb23.i
     i64 2, label %sw.bb28.i
     i64 1, label %sw.bb33.i
-    i64 0, label %_ZN6duckdb9HashBytesEPvm.exit
   ]
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.preheader.i.new
@@ -29843,7 +29838,7 @@ sw.bb.i:                                          ; preds = %for.cond.cleanup.i
   %xor7.i = xor i64 %shl.i, %h.0.lcssa.i
   br label %sw.bb8.i
 
-sw.bb8.i:                                         ; preds = %for.cond.cleanup.i, %sw.bb.i
+sw.bb8.i:                                         ; preds = %sw.bb.i, %for.cond.cleanup.i
   %h.1.i = phi i64 [ %h.0.lcssa.i, %for.cond.cleanup.i ], [ %xor7.i, %sw.bb.i ]
   %arrayidx9.i = getelementptr inbounds i8, ptr %add.ptr6.i, i64 5
   %2 = load i8, ptr %arrayidx9.i, align 1, !tbaa !117
@@ -29852,7 +29847,7 @@ sw.bb8.i:                                         ; preds = %for.cond.cleanup.i,
   %xor12.i = xor i64 %shl11.i, %h.1.i
   br label %sw.bb13.i
 
-sw.bb13.i:                                        ; preds = %for.cond.cleanup.i, %sw.bb8.i
+sw.bb13.i:                                        ; preds = %sw.bb8.i, %for.cond.cleanup.i
   %h.2.i = phi i64 [ %h.0.lcssa.i, %for.cond.cleanup.i ], [ %xor12.i, %sw.bb8.i ]
   %arrayidx14.i = getelementptr inbounds i8, ptr %add.ptr6.i, i64 4
   %3 = load i8, ptr %arrayidx14.i, align 1, !tbaa !117
@@ -29861,7 +29856,7 @@ sw.bb13.i:                                        ; preds = %for.cond.cleanup.i,
   %xor17.i = xor i64 %shl16.i, %h.2.i
   br label %sw.bb18.i
 
-sw.bb18.i:                                        ; preds = %for.cond.cleanup.i, %sw.bb13.i
+sw.bb18.i:                                        ; preds = %sw.bb13.i, %for.cond.cleanup.i
   %h.3.i = phi i64 [ %h.0.lcssa.i, %for.cond.cleanup.i ], [ %xor17.i, %sw.bb13.i ]
   %arrayidx19.i = getelementptr inbounds i8, ptr %add.ptr6.i, i64 3
   %4 = load i8, ptr %arrayidx19.i, align 1, !tbaa !117
@@ -29870,7 +29865,7 @@ sw.bb18.i:                                        ; preds = %for.cond.cleanup.i,
   %xor22.i = xor i64 %shl21.i, %h.3.i
   br label %sw.bb23.i
 
-sw.bb23.i:                                        ; preds = %for.cond.cleanup.i, %sw.bb18.i
+sw.bb23.i:                                        ; preds = %sw.bb18.i, %for.cond.cleanup.i
   %h.4.i = phi i64 [ %h.0.lcssa.i, %for.cond.cleanup.i ], [ %xor22.i, %sw.bb18.i ]
   %arrayidx24.i = getelementptr inbounds i8, ptr %add.ptr6.i, i64 2
   %5 = load i8, ptr %arrayidx24.i, align 1, !tbaa !117
@@ -29879,7 +29874,7 @@ sw.bb23.i:                                        ; preds = %for.cond.cleanup.i,
   %xor27.i = xor i64 %shl26.i, %h.4.i
   br label %sw.bb28.i
 
-sw.bb28.i:                                        ; preds = %for.cond.cleanup.i, %sw.bb23.i
+sw.bb28.i:                                        ; preds = %sw.bb23.i, %for.cond.cleanup.i
   %h.5.i = phi i64 [ %h.0.lcssa.i, %for.cond.cleanup.i ], [ %xor27.i, %sw.bb23.i ]
   %arrayidx29.i = getelementptr inbounds i8, ptr %add.ptr6.i, i64 1
   %6 = load i8, ptr %arrayidx29.i, align 1, !tbaa !117
@@ -29888,7 +29883,7 @@ sw.bb28.i:                                        ; preds = %for.cond.cleanup.i,
   %xor32.i = xor i64 %shl31.i, %h.5.i
   br label %sw.bb33.i
 
-sw.bb33.i:                                        ; preds = %for.cond.cleanup.i, %sw.bb28.i
+sw.bb33.i:                                        ; preds = %sw.bb28.i, %for.cond.cleanup.i
   %h.6.i = phi i64 [ %h.0.lcssa.i, %for.cond.cleanup.i ], [ %xor32.i, %sw.bb28.i ]
   %7 = load i8, ptr %add.ptr6.i, align 1, !tbaa !117
   %conv35.i = zext i8 %7 to i64
@@ -29896,10 +29891,7 @@ sw.bb33.i:                                        ; preds = %for.cond.cleanup.i,
   %mul37.i = mul i64 %xor36.i, -4132994306676758123
   br label %_ZN6duckdb9HashBytesEPvm.exit
 
-for.cond.cleanup.i.unreachabledefault:            ; preds = %for.cond.cleanup.i
-  unreachable
-
-_ZN6duckdb9HashBytesEPvm.exit:                    ; preds = %for.cond.cleanup.i, %sw.bb33.i
+_ZN6duckdb9HashBytesEPvm.exit:                    ; preds = %sw.bb33.i, %for.cond.cleanup.i
   %h.7.i = phi i64 [ %h.0.lcssa.i, %for.cond.cleanup.i ], [ %mul37.i, %sw.bb33.i ]
   %shr38.i = lshr i64 %h.7.i, 47
   %xor39.i = xor i64 %shr38.i, %h.7.i
@@ -29962,7 +29954,7 @@ for.cond.cleanup.i.i:                             ; preds = %for.body.i.i.epil, 
   %h.0.lcssa.i.i = phi i64 [ %xor.i.i, %entry ], [ %mul5.i.i.lcssa.ph, %for.cond.cleanup.i.i.loopexit.unr-lcssa ], [ %mul5.i.i.epil, %for.body.i.i.epil ]
   %add.ptr6.i.i = getelementptr inbounds i64, ptr %cond.i, i64 %div74.i.i
   %and.i.i = and i64 %val.coerce0, 7
-  switch i64 %and.i.i, label %for.cond.cleanup.i.i.unreachabledefault [
+  switch i64 %and.i.i, label %_ZN6duckdb4HashEPKcm.exit [
     i64 7, label %sw.bb.i.i
     i64 6, label %sw.bb8.i.i
     i64 5, label %sw.bb13.i.i
@@ -29970,7 +29962,6 @@ for.cond.cleanup.i.i:                             ; preds = %for.body.i.i.epil, 
     i64 3, label %sw.bb23.i.i
     i64 2, label %sw.bb28.i.i
     i64 1, label %sw.bb33.i.i
-    i64 0, label %_ZN6duckdb4HashEPKcm.exit
   ]
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.preheader.i.i.new
@@ -30005,7 +29996,7 @@ sw.bb.i.i:                                        ; preds = %for.cond.cleanup.i.
   %xor7.i.i = xor i64 %shl.i.i, %h.0.lcssa.i.i
   br label %sw.bb8.i.i
 
-sw.bb8.i.i:                                       ; preds = %for.cond.cleanup.i.i, %sw.bb.i.i
+sw.bb8.i.i:                                       ; preds = %sw.bb.i.i, %for.cond.cleanup.i.i
   %h.1.i.i = phi i64 [ %h.0.lcssa.i.i, %for.cond.cleanup.i.i ], [ %xor7.i.i, %sw.bb.i.i ]
   %arrayidx9.i.i = getelementptr inbounds i8, ptr %add.ptr6.i.i, i64 5
   %4 = load i8, ptr %arrayidx9.i.i, align 1, !tbaa !117
@@ -30014,7 +30005,7 @@ sw.bb8.i.i:                                       ; preds = %for.cond.cleanup.i.
   %xor12.i.i = xor i64 %shl11.i.i, %h.1.i.i
   br label %sw.bb13.i.i
 
-sw.bb13.i.i:                                      ; preds = %for.cond.cleanup.i.i, %sw.bb8.i.i
+sw.bb13.i.i:                                      ; preds = %sw.bb8.i.i, %for.cond.cleanup.i.i
   %h.2.i.i = phi i64 [ %h.0.lcssa.i.i, %for.cond.cleanup.i.i ], [ %xor12.i.i, %sw.bb8.i.i ]
   %arrayidx14.i.i = getelementptr inbounds i8, ptr %add.ptr6.i.i, i64 4
   %5 = load i8, ptr %arrayidx14.i.i, align 1, !tbaa !117
@@ -30023,7 +30014,7 @@ sw.bb13.i.i:                                      ; preds = %for.cond.cleanup.i.
   %xor17.i.i = xor i64 %shl16.i.i, %h.2.i.i
   br label %sw.bb18.i.i
 
-sw.bb18.i.i:                                      ; preds = %for.cond.cleanup.i.i, %sw.bb13.i.i
+sw.bb18.i.i:                                      ; preds = %sw.bb13.i.i, %for.cond.cleanup.i.i
   %h.3.i.i = phi i64 [ %h.0.lcssa.i.i, %for.cond.cleanup.i.i ], [ %xor17.i.i, %sw.bb13.i.i ]
   %arrayidx19.i.i = getelementptr inbounds i8, ptr %add.ptr6.i.i, i64 3
   %6 = load i8, ptr %arrayidx19.i.i, align 1, !tbaa !117
@@ -30032,7 +30023,7 @@ sw.bb18.i.i:                                      ; preds = %for.cond.cleanup.i.
   %xor22.i.i = xor i64 %shl21.i.i, %h.3.i.i
   br label %sw.bb23.i.i
 
-sw.bb23.i.i:                                      ; preds = %for.cond.cleanup.i.i, %sw.bb18.i.i
+sw.bb23.i.i:                                      ; preds = %sw.bb18.i.i, %for.cond.cleanup.i.i
   %h.4.i.i = phi i64 [ %h.0.lcssa.i.i, %for.cond.cleanup.i.i ], [ %xor22.i.i, %sw.bb18.i.i ]
   %arrayidx24.i.i = getelementptr inbounds i8, ptr %add.ptr6.i.i, i64 2
   %7 = load i8, ptr %arrayidx24.i.i, align 1, !tbaa !117
@@ -30041,7 +30032,7 @@ sw.bb23.i.i:                                      ; preds = %for.cond.cleanup.i.
   %xor27.i.i = xor i64 %shl26.i.i, %h.4.i.i
   br label %sw.bb28.i.i
 
-sw.bb28.i.i:                                      ; preds = %for.cond.cleanup.i.i, %sw.bb23.i.i
+sw.bb28.i.i:                                      ; preds = %sw.bb23.i.i, %for.cond.cleanup.i.i
   %h.5.i.i = phi i64 [ %h.0.lcssa.i.i, %for.cond.cleanup.i.i ], [ %xor27.i.i, %sw.bb23.i.i ]
   %arrayidx29.i.i = getelementptr inbounds i8, ptr %add.ptr6.i.i, i64 1
   %8 = load i8, ptr %arrayidx29.i.i, align 1, !tbaa !117
@@ -30050,7 +30041,7 @@ sw.bb28.i.i:                                      ; preds = %for.cond.cleanup.i.
   %xor32.i.i = xor i64 %shl31.i.i, %h.5.i.i
   br label %sw.bb33.i.i
 
-sw.bb33.i.i:                                      ; preds = %for.cond.cleanup.i.i, %sw.bb28.i.i
+sw.bb33.i.i:                                      ; preds = %sw.bb28.i.i, %for.cond.cleanup.i.i
   %h.6.i.i = phi i64 [ %h.0.lcssa.i.i, %for.cond.cleanup.i.i ], [ %xor32.i.i, %sw.bb28.i.i ]
   %9 = load i8, ptr %add.ptr6.i.i, align 1, !tbaa !117
   %conv35.i.i = zext i8 %9 to i64
@@ -30058,10 +30049,7 @@ sw.bb33.i.i:                                      ; preds = %for.cond.cleanup.i.
   %mul37.i.i = mul i64 %xor36.i.i, -4132994306676758123
   br label %_ZN6duckdb4HashEPKcm.exit
 
-for.cond.cleanup.i.i.unreachabledefault:          ; preds = %for.cond.cleanup.i.i
-  unreachable
-
-_ZN6duckdb4HashEPKcm.exit:                        ; preds = %for.cond.cleanup.i.i, %sw.bb33.i.i
+_ZN6duckdb4HashEPKcm.exit:                        ; preds = %sw.bb33.i.i, %for.cond.cleanup.i.i
   %h.7.i.i = phi i64 [ %h.0.lcssa.i.i, %for.cond.cleanup.i.i ], [ %mul37.i.i, %sw.bb33.i.i ]
   %shr38.i.i = lshr i64 %h.7.i.i, 47
   %xor39.i.i = xor i64 %shr38.i.i, %h.7.i.i
@@ -30119,7 +30107,7 @@ for.cond.cleanup:                                 ; preds = %for.body.epil, %for
   %h.0.lcssa = phi i64 [ %xor, %entry ], [ %mul5.lcssa.ph, %for.cond.cleanup.loopexit.unr-lcssa ], [ %mul5.epil, %for.body.epil ]
   %add.ptr6 = getelementptr inbounds i64, ptr %ptr, i64 %div74
   %and = and i64 %len, 7
-  switch i64 %and, label %for.cond.cleanup.unreachabledefault [
+  switch i64 %and, label %sw.epilog [
     i64 7, label %sw.bb
     i64 6, label %sw.bb8
     i64 5, label %sw.bb13
@@ -30127,7 +30115,6 @@ for.cond.cleanup:                                 ; preds = %for.body.epil, %for
     i64 3, label %sw.bb23
     i64 2, label %sw.bb28
     i64 1, label %sw.bb33
-    i64 0, label %sw.epilog
   ]
 
 for.body:                                         ; preds = %for.body, %for.body.preheader.new
@@ -30162,7 +30149,7 @@ sw.bb:                                            ; preds = %for.cond.cleanup
   %xor7 = xor i64 %shl, %h.0.lcssa
   br label %sw.bb8
 
-sw.bb8:                                           ; preds = %for.cond.cleanup, %sw.bb
+sw.bb8:                                           ; preds = %sw.bb, %for.cond.cleanup
   %h.1 = phi i64 [ %h.0.lcssa, %for.cond.cleanup ], [ %xor7, %sw.bb ]
   %arrayidx9 = getelementptr inbounds i8, ptr %add.ptr6, i64 5
   %2 = load i8, ptr %arrayidx9, align 1, !tbaa !117
@@ -30171,7 +30158,7 @@ sw.bb8:                                           ; preds = %for.cond.cleanup, %
   %xor12 = xor i64 %shl11, %h.1
   br label %sw.bb13
 
-sw.bb13:                                          ; preds = %for.cond.cleanup, %sw.bb8
+sw.bb13:                                          ; preds = %sw.bb8, %for.cond.cleanup
   %h.2 = phi i64 [ %h.0.lcssa, %for.cond.cleanup ], [ %xor12, %sw.bb8 ]
   %arrayidx14 = getelementptr inbounds i8, ptr %add.ptr6, i64 4
   %3 = load i8, ptr %arrayidx14, align 1, !tbaa !117
@@ -30180,7 +30167,7 @@ sw.bb13:                                          ; preds = %for.cond.cleanup, %
   %xor17 = xor i64 %shl16, %h.2
   br label %sw.bb18
 
-sw.bb18:                                          ; preds = %for.cond.cleanup, %sw.bb13
+sw.bb18:                                          ; preds = %sw.bb13, %for.cond.cleanup
   %h.3 = phi i64 [ %h.0.lcssa, %for.cond.cleanup ], [ %xor17, %sw.bb13 ]
   %arrayidx19 = getelementptr inbounds i8, ptr %add.ptr6, i64 3
   %4 = load i8, ptr %arrayidx19, align 1, !tbaa !117
@@ -30189,7 +30176,7 @@ sw.bb18:                                          ; preds = %for.cond.cleanup, %
   %xor22 = xor i64 %shl21, %h.3
   br label %sw.bb23
 
-sw.bb23:                                          ; preds = %for.cond.cleanup, %sw.bb18
+sw.bb23:                                          ; preds = %sw.bb18, %for.cond.cleanup
   %h.4 = phi i64 [ %h.0.lcssa, %for.cond.cleanup ], [ %xor22, %sw.bb18 ]
   %arrayidx24 = getelementptr inbounds i8, ptr %add.ptr6, i64 2
   %5 = load i8, ptr %arrayidx24, align 1, !tbaa !117
@@ -30198,7 +30185,7 @@ sw.bb23:                                          ; preds = %for.cond.cleanup, %
   %xor27 = xor i64 %shl26, %h.4
   br label %sw.bb28
 
-sw.bb28:                                          ; preds = %for.cond.cleanup, %sw.bb23
+sw.bb28:                                          ; preds = %sw.bb23, %for.cond.cleanup
   %h.5 = phi i64 [ %h.0.lcssa, %for.cond.cleanup ], [ %xor27, %sw.bb23 ]
   %arrayidx29 = getelementptr inbounds i8, ptr %add.ptr6, i64 1
   %6 = load i8, ptr %arrayidx29, align 1, !tbaa !117
@@ -30207,7 +30194,7 @@ sw.bb28:                                          ; preds = %for.cond.cleanup, %
   %xor32 = xor i64 %shl31, %h.5
   br label %sw.bb33
 
-sw.bb33:                                          ; preds = %for.cond.cleanup, %sw.bb28
+sw.bb33:                                          ; preds = %sw.bb28, %for.cond.cleanup
   %h.6 = phi i64 [ %h.0.lcssa, %for.cond.cleanup ], [ %xor32, %sw.bb28 ]
   %7 = load i8, ptr %add.ptr6, align 1, !tbaa !117
   %conv35 = zext i8 %7 to i64
@@ -30215,10 +30202,7 @@ sw.bb33:                                          ; preds = %for.cond.cleanup, %
   %mul37 = mul i64 %xor36, -4132994306676758123
   br label %sw.epilog
 
-for.cond.cleanup.unreachabledefault:              ; preds = %for.cond.cleanup
-  unreachable
-
-sw.epilog:                                        ; preds = %for.cond.cleanup, %sw.bb33
+sw.epilog:                                        ; preds = %sw.bb33, %for.cond.cleanup
   %h.7 = phi i64 [ %h.0.lcssa, %for.cond.cleanup ], [ %mul37, %sw.bb33 ]
   %shr38 = lshr i64 %h.7, 47
   %xor39 = xor i64 %shr38, %h.7
@@ -30280,7 +30264,7 @@ for.cond.cleanup.i:                               ; preds = %for.body.i.epil, %f
   %h.0.lcssa.i = phi i64 [ %xor.i, %entry ], [ %mul5.i.lcssa.ph, %for.cond.cleanup.i.loopexit.unr-lcssa ], [ %mul5.i.epil, %for.body.i.epil ]
   %add.ptr6.i = getelementptr inbounds i64, ptr %val, i64 %div74.i
   %and.i = and i64 %size, 7
-  switch i64 %and.i, label %for.cond.cleanup.i.unreachabledefault [
+  switch i64 %and.i, label %_ZN6duckdb9HashBytesEPvm.exit [
     i64 7, label %sw.bb.i
     i64 6, label %sw.bb8.i
     i64 5, label %sw.bb13.i
@@ -30288,7 +30272,6 @@ for.cond.cleanup.i:                               ; preds = %for.body.i.epil, %f
     i64 3, label %sw.bb23.i
     i64 2, label %sw.bb28.i
     i64 1, label %sw.bb33.i
-    i64 0, label %_ZN6duckdb9HashBytesEPvm.exit
   ]
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.preheader.i.new
@@ -30323,7 +30306,7 @@ sw.bb.i:                                          ; preds = %for.cond.cleanup.i
   %xor7.i = xor i64 %shl.i, %h.0.lcssa.i
   br label %sw.bb8.i
 
-sw.bb8.i:                                         ; preds = %for.cond.cleanup.i, %sw.bb.i
+sw.bb8.i:                                         ; preds = %sw.bb.i, %for.cond.cleanup.i
   %h.1.i = phi i64 [ %h.0.lcssa.i, %for.cond.cleanup.i ], [ %xor7.i, %sw.bb.i ]
   %arrayidx9.i = getelementptr inbounds i8, ptr %add.ptr6.i, i64 5
   %2 = load i8, ptr %arrayidx9.i, align 1, !tbaa !117
@@ -30332,7 +30315,7 @@ sw.bb8.i:                                         ; preds = %for.cond.cleanup.i,
   %xor12.i = xor i64 %shl11.i, %h.1.i
   br label %sw.bb13.i
 
-sw.bb13.i:                                        ; preds = %for.cond.cleanup.i, %sw.bb8.i
+sw.bb13.i:                                        ; preds = %sw.bb8.i, %for.cond.cleanup.i
   %h.2.i = phi i64 [ %h.0.lcssa.i, %for.cond.cleanup.i ], [ %xor12.i, %sw.bb8.i ]
   %arrayidx14.i = getelementptr inbounds i8, ptr %add.ptr6.i, i64 4
   %3 = load i8, ptr %arrayidx14.i, align 1, !tbaa !117
@@ -30341,7 +30324,7 @@ sw.bb13.i:                                        ; preds = %for.cond.cleanup.i,
   %xor17.i = xor i64 %shl16.i, %h.2.i
   br label %sw.bb18.i
 
-sw.bb18.i:                                        ; preds = %for.cond.cleanup.i, %sw.bb13.i
+sw.bb18.i:                                        ; preds = %sw.bb13.i, %for.cond.cleanup.i
   %h.3.i = phi i64 [ %h.0.lcssa.i, %for.cond.cleanup.i ], [ %xor17.i, %sw.bb13.i ]
   %arrayidx19.i = getelementptr inbounds i8, ptr %add.ptr6.i, i64 3
   %4 = load i8, ptr %arrayidx19.i, align 1, !tbaa !117
@@ -30350,7 +30333,7 @@ sw.bb18.i:                                        ; preds = %for.cond.cleanup.i,
   %xor22.i = xor i64 %shl21.i, %h.3.i
   br label %sw.bb23.i
 
-sw.bb23.i:                                        ; preds = %for.cond.cleanup.i, %sw.bb18.i
+sw.bb23.i:                                        ; preds = %sw.bb18.i, %for.cond.cleanup.i
   %h.4.i = phi i64 [ %h.0.lcssa.i, %for.cond.cleanup.i ], [ %xor22.i, %sw.bb18.i ]
   %arrayidx24.i = getelementptr inbounds i8, ptr %add.ptr6.i, i64 2
   %5 = load i8, ptr %arrayidx24.i, align 1, !tbaa !117
@@ -30359,7 +30342,7 @@ sw.bb23.i:                                        ; preds = %for.cond.cleanup.i,
   %xor27.i = xor i64 %shl26.i, %h.4.i
   br label %sw.bb28.i
 
-sw.bb28.i:                                        ; preds = %for.cond.cleanup.i, %sw.bb23.i
+sw.bb28.i:                                        ; preds = %sw.bb23.i, %for.cond.cleanup.i
   %h.5.i = phi i64 [ %h.0.lcssa.i, %for.cond.cleanup.i ], [ %xor27.i, %sw.bb23.i ]
   %arrayidx29.i = getelementptr inbounds i8, ptr %add.ptr6.i, i64 1
   %6 = load i8, ptr %arrayidx29.i, align 1, !tbaa !117
@@ -30368,7 +30351,7 @@ sw.bb28.i:                                        ; preds = %for.cond.cleanup.i,
   %xor32.i = xor i64 %shl31.i, %h.5.i
   br label %sw.bb33.i
 
-sw.bb33.i:                                        ; preds = %for.cond.cleanup.i, %sw.bb28.i
+sw.bb33.i:                                        ; preds = %sw.bb28.i, %for.cond.cleanup.i
   %h.6.i = phi i64 [ %h.0.lcssa.i, %for.cond.cleanup.i ], [ %xor32.i, %sw.bb28.i ]
   %7 = load i8, ptr %add.ptr6.i, align 1, !tbaa !117
   %conv35.i = zext i8 %7 to i64
@@ -30376,10 +30359,7 @@ sw.bb33.i:                                        ; preds = %for.cond.cleanup.i,
   %mul37.i = mul i64 %xor36.i, -4132994306676758123
   br label %_ZN6duckdb9HashBytesEPvm.exit
 
-for.cond.cleanup.i.unreachabledefault:            ; preds = %for.cond.cleanup.i
-  unreachable
-
-_ZN6duckdb9HashBytesEPvm.exit:                    ; preds = %for.cond.cleanup.i, %sw.bb33.i
+_ZN6duckdb9HashBytesEPvm.exit:                    ; preds = %sw.bb33.i, %for.cond.cleanup.i
   %h.7.i = phi i64 [ %h.0.lcssa.i, %for.cond.cleanup.i ], [ %mul37.i, %sw.bb33.i ]
   %shr38.i = lshr i64 %h.7.i, 47
   %xor39.i = xor i64 %shr38.i, %h.7.i
@@ -117707,7 +117687,7 @@ for.cond.cleanup.i:                               ; preds = %for.body.i, %middle
   %data.0.lcssa.i = phi ptr [ %cond.i.i, %if.then ], [ %ind.end18, %middle.block ], [ %add.ptr.i, %for.body.i ]
   %h.0.lcssa.i = phi i64 [ 0, %if.then ], [ %34, %middle.block ], [ %xor.i, %for.body.i ]
   %and.i = and i64 %conv.i.i, 7
-  switch i64 %and.i, label %for.cond.cleanup.i.unreachabledefault [
+  switch i64 %and.i, label %_ZN6duckdb13HashOtherSizeERPKhRKm.exit.i [
     i64 4, label %sw.bb.i
     i64 2, label %sw.bb11.i
     i64 1, label %sw.bb16.i
@@ -117715,7 +117695,6 @@ for.cond.cleanup.i:                               ; preds = %for.body.i, %middle
     i64 6, label %sw.bb1.i.i
     i64 5, label %sw.bb2.i.i
     i64 3, label %sw.bb4.i.i
-    i64 0, label %_ZN6duckdb13HashOtherSizeERPKhRKm.exit.i
   ]
 
 for.body.i:                                       ; preds = %for.body.i.preheader6, %for.body.i
@@ -117804,11 +117783,8 @@ _ZN6duckdb13HashOtherSizeERPKhRKm.exit.sink.split.i: ; preds = %sw.bb4.i.i, %sw.
   %xor.i.i.i.i.i.i.i.i.i = or disjoint i64 %xor.i.i.i.i.i.i.i.sink.i, %conv.i.i.i.i.i.i.i.i.i
   br label %_ZN6duckdb13HashOtherSizeERPKhRKm.exit.i
 
-for.cond.cleanup.i.unreachabledefault:            ; preds = %for.cond.cleanup.i
-  unreachable
-
-_ZN6duckdb13HashOtherSizeERPKhRKm.exit.i:         ; preds = %for.cond.cleanup.i, %_ZN6duckdb13HashOtherSizeERPKhRKm.exit.sink.split.i
-  %x.0.i.i = phi i64 [ %and.i, %for.cond.cleanup.i ], [ %xor.i.i.i.i.i.i.i.i.i, %_ZN6duckdb13HashOtherSizeERPKhRKm.exit.sink.split.i ]
+_ZN6duckdb13HashOtherSizeERPKhRKm.exit.i:         ; preds = %_ZN6duckdb13HashOtherSizeERPKhRKm.exit.sink.split.i, %for.cond.cleanup.i
+  %x.0.i.i = phi i64 [ 0, %for.cond.cleanup.i ], [ %xor.i.i.i.i.i.i.i.i.i, %_ZN6duckdb13HashOtherSizeERPKhRKm.exit.sink.split.i ]
   %shr.i.i.i = lshr i64 %x.0.i.i, 30
   %xor.i85.i.i = xor i64 %shr.i.i.i, %x.0.i.i
   br label %_ZN6duckdb13TemplatedHashINS_8string_tEEEmRKT_.exit

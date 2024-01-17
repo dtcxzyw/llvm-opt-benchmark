@@ -5450,11 +5450,10 @@ if.end46:                                         ; preds = %if.then36
 if.end52:                                         ; preds = %if.end46, %if.end34
   %windowSize27.0 = phi i32 [ 0, %if.end34 ], [ %add51, %if.end46 ]
   %pos.0 = phi i64 [ 5, %if.end34 ], [ 6, %if.end46 ]
-  switch i32 %and.i, label %if.end52.unreachabledefault [
+  switch i32 %and.i, label %sw.epilog [
     i32 3, label %sw.bb62
     i32 1, label %sw.bb53
     i32 2, label %sw.bb57
-    i32 0, label %sw.epilog
   ]
 
 sw.bb53:                                          ; preds = %if.end52
@@ -5477,21 +5476,14 @@ sw.bb62:                                          ; preds = %if.end52
   %add65 = add nuw nsw i64 %pos.0, 4
   br label %sw.epilog
 
-if.end52.unreachabledefault:                      ; preds = %if.end52
-  unreachable
-
 sw.epilog:                                        ; preds = %if.end52, %sw.bb62, %sw.bb57, %sw.bb53
-  %dictID.0 = phi i32 [ %and.i, %if.end52 ], [ %conv60, %sw.bb57 ], [ %conv55, %sw.bb53 ], [ %add.ptr63.val, %sw.bb62 ]
+  %dictID.0 = phi i32 [ 0, %if.end52 ], [ %conv60, %sw.bb57 ], [ %conv55, %sw.bb53 ], [ %add.ptr63.val, %sw.bb62 ]
   %pos.1 = phi i64 [ %pos.0, %if.end52 ], [ %add61, %sw.bb57 ], [ %inc56, %sw.bb53 ], [ %add65, %sw.bb62 ]
-  switch i32 %shr4.i, label %sw.epilog.unreachabledefault [
+  switch i32 %shr4.i, label %sw.bb67 [
     i32 3, label %sw.bb83
     i32 1, label %sw.bb73
     i32 2, label %sw.bb79
-    i32 0, label %sw.bb67
   ]
-
-sw.epilog.unreachabledefault:                     ; preds = %sw.epilog
-  unreachable
 
 sw.bb67:                                          ; preds = %sw.epilog
   br i1 %tobool35.not, label %sw.epilog86, label %if.then69
@@ -5599,7 +5591,7 @@ if.end.i:                                         ; preds = %if.end
   %0 = load i8, ptr %src, align 1
   %conv.i = zext i8 %0 to i32
   %shr.i = lshr i32 %conv.i, 6
-  switch i32 %shr.i, label %if.end.unreachabledefault.i [
+  switch i32 %shr.i, label %default.unreachable [
     i32 0, label %sw.bb.i
     i32 1, label %sw.bb107.i
     i32 2, label %sw.bb168.i
@@ -5683,11 +5675,11 @@ if.end79.thread.i:                                ; preds = %if.end7.i
   %7 = load i8, ptr %arrayidx46.i, align 1
   %conv47.i = zext i8 %7 to i32
   %add48.i = or disjoint i32 %shl45.i, %conv47.i
-  %litSize.0116159.i = zext nneg i32 %add40.i to i64
-  %litCSize.0117160.i = zext nneg i32 %add48.i to i64
-  %add81161.i = add nuw nsw i64 %litCSize.0117160.i, 4
-  %cmp82162.i = icmp ugt i64 %add81161.i, %srcSize
-  br i1 %cmp82162.i, label %return, label %cond.false.i
+  %litSize.0116160.i = zext nneg i32 %add40.i to i64
+  %litCSize.0117161.i = zext nneg i32 %add48.i to i64
+  %add81162.i = add nuw nsw i64 %litCSize.0117161.i, 4
+  %cmp82163.i = icmp ugt i64 %add81162.i, %srcSize
+  br i1 %cmp82163.i, label %return, label %cond.false.i
 
 if.end85.i:                                       ; preds = %if.end79.i
   %and11.i = and i32 %conv.i, 16
@@ -5702,10 +5694,10 @@ cond.true.i:                                      ; preds = %if.end85.i
   br label %cond.end.i
 
 cond.false.i:                                     ; preds = %if.end85.i, %if.end79.thread.i, %sw.epilog.i
-  %litCSize.0122129144.i = phi i64 [ %litCSize.0117.i, %if.end85.i ], [ %litCSize.0.i, %sw.epilog.i ], [ %litCSize.0117160.i, %if.end79.thread.i ]
-  %litSize.0121130143.i = phi i64 [ %litSize.0116.i, %if.end85.i ], [ %litSize.0.i, %sw.epilog.i ], [ %litSize.0116159.i, %if.end79.thread.i ]
+  %litCSize.0122129144.i = phi i64 [ %litCSize.0117.i, %if.end85.i ], [ %litCSize.0.i, %sw.epilog.i ], [ %litCSize.0117161.i, %if.end79.thread.i ]
+  %litSize.0121130143.i = phi i64 [ %litSize.0116.i, %if.end85.i ], [ %litSize.0.i, %sw.epilog.i ], [ %litSize.0116160.i, %if.end79.thread.i ]
   %lhSize.0120131141.i = phi i64 [ 3, %if.end85.i ], [ 5, %sw.epilog.i ], [ 4, %if.end79.thread.i ]
-  %add81133140.i = phi i64 [ %add81.i, %if.end85.i ], [ %add81127.i, %sw.epilog.i ], [ %add81161.i, %if.end79.thread.i ]
+  %add81133140.i = phi i64 [ %add81.i, %if.end85.i ], [ %add81127.i, %sw.epilog.i ], [ %add81162.i, %if.end79.thread.i ]
   %hufTable87.i = getelementptr inbounds %struct.ZSTDv07_DCtx_s, ptr %dctx, i64 0, i32 3
   %litBuffer89.i = getelementptr inbounds %struct.ZSTDv07_DCtx_s, ptr %dctx, i64 0, i32 21
   %add.ptr92.i = getelementptr inbounds i8, ptr %src, i64 %lhSize.0120131141.i
@@ -5911,7 +5903,7 @@ if.end280.i:                                      ; preds = %sw.bb259.i, %sw.bb2
   %conv291.i = zext nneg i32 %add290.i to i64
   br label %if.end3
 
-if.end.unreachabledefault.i:                      ; preds = %if.end.i
+default.unreachable:                              ; preds = %if.end.i
   unreachable
 
 if.end3:                                          ; preds = %if.end280.i, %if.end230.i, %if.end215.i, %if.end157.i, %if.end97.i
@@ -7467,7 +7459,7 @@ if.end17:                                         ; preds = %if.end.i50, %if.end
 if.end22:                                         ; preds = %if.end17
   %sub.ptr.rhs.cast24 = ptrtoint ptr %op.0126 to i64
   %sub.ptr.sub25 = sub i64 %sub.ptr.lhs.cast33, %sub.ptr.rhs.cast24
-  switch i8 %8, label %if.end22.unreachabledefault [
+  switch i8 %8, label %default.unreachable [
     i8 0, label %if.end45
     i8 1, label %sw.bb27
     i8 2, label %sw.bb32
@@ -7528,7 +7520,7 @@ while.end:                                        ; preds = %if.end22.thread
   %sub.ptr.sub59 = sub i64 %sub.ptr.lhs.cast57, %sub.ptr.rhs.cast58
   br label %return
 
-if.end22.unreachabledefault:                      ; preds = %if.end22
+default.unreachable:                              ; preds = %if.end22
   unreachable
 
 return:                                           ; preds = %if.end17, %if.end45, %sw.bb32, %sw.bb27, %if.end53, %if.end11, %land.lhs.true.i, %if.end22.thread, %ZSTDv07_decodeFrameHeader.exit, %if.end4, %if.end, %entry, %while.end

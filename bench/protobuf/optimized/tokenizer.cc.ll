@@ -2628,8 +2628,8 @@ entry:
   %read_error_ = getelementptr inbounds %"class.google::protobuf::io::Tokenizer", ptr %this, i64 0, i32 8
   %1 = load i8, ptr %read_error_, align 8
   %2 = and i8 %1, 1
-  %tobool.not225 = icmp eq i8 %2, 0
-  br i1 %tobool.not225, label %while.body.lr.ph, label %while.end105
+  %tobool.not216 = icmp eq i8 %2, 0
+  br i1 %tobool.not216, label %while.body.lr.ph, label %while.end105
 
 while.body.lr.ph:                                 ; preds = %entry
   %line_.i = getelementptr inbounds %"class.google::protobuf::io::Tokenizer", ptr %this, i64 0, i32 9
@@ -3006,11 +3006,10 @@ _ZN6google8protobuf2io9Tokenizer8EndTokenEv.exit27: ; preds = %if.then.critedge,
 
 if.end:                                           ; preds = %_ZN6google8protobuf2io9Tokenizer8EndTokenEv.exit
   %call5 = call noundef i32 @_ZN6google8protobuf2io9Tokenizer22TryConsumeCommentStartEv(ptr noundef nonnull align 8 dereferenceable(192) %this), !range !15
-  switch i32 %call5, label %if.end.unreachabledefault [
+  switch i32 %call5, label %sw.epilog [
     i32 0, label %while.cond.i
     i32 1, label %sw.bb6
     i32 2, label %return
-    i32 3, label %sw.epilog
   ]
 
 while.cond.i:                                     ; preds = %if.end, %while.body.i
@@ -3028,7 +3027,7 @@ if.then.i.i28:                                    ; preds = %while.cond.i
   call void @_ZN6google8protobuf2io9Tokenizer8NextCharEv(ptr noundef nonnull align 8 dereferenceable(192) %this)
   br label %while.cond.backedge
 
-while.cond.backedge:                              ; preds = %lor.rhs20, %while.cond.i, %if.then.i.i28, %sw.bb6
+while.cond.backedge:                              ; preds = %while.cond.i, %lor.rhs20, %if.then.i.i28, %sw.bb6
   %64 = load i8, ptr %read_error_, align 8
   %65 = and i8 %64, 1
   %tobool.not = icmp eq i8 %65, 0
@@ -3037,9 +3036,6 @@ while.cond.backedge:                              ; preds = %lor.rhs20, %while.c
 sw.bb6:                                           ; preds = %if.end
   call void @_ZN6google8protobuf2io9Tokenizer19ConsumeBlockCommentEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(192) %this, ptr noundef null)
   br label %while.cond.backedge
-
-if.end.unreachabledefault:                        ; preds = %if.end
-  unreachable
 
 sw.epilog:                                        ; preds = %if.end
   %66 = load i8, ptr %read_error_, align 8
@@ -3572,7 +3568,7 @@ if.else:                                          ; preds = %_ZN6google8protobuf
   br label %while.cond.i
 
 while.cond.i:                                     ; preds = %while.cond.i.backedge, %if.else
-  %16 = phi i8 [ %.pre, %if.else ], [ %.be364, %while.cond.i.backedge ]
+  %16 = phi i8 [ %.pre, %if.else ], [ %.be365, %while.cond.i.backedge ]
   switch i8 %16, label %invoke.cont15 [
     i8 9, label %if.then5.i144
     i8 11, label %if.else8.i
@@ -3681,7 +3677,7 @@ _ZN6google8protobuf2io9Tokenizer7RefreshEv.exit.i: ; preds = %do.end.i.i, %if.th
   br label %while.cond.i.backedge
 
 while.cond.i.backedge:                            ; preds = %_ZN6google8protobuf2io9Tokenizer7RefreshEv.exit.i, %if.then15.i
-  %.be364 = phi i8 [ %.sink.i.i, %_ZN6google8protobuf2io9Tokenizer7RefreshEv.exit.i ], [ %22, %if.then15.i ]
+  %.be365 = phi i8 [ %.sink.i.i, %_ZN6google8protobuf2io9Tokenizer7RefreshEv.exit.i ], [ %22, %if.then15.i ]
   br label %while.cond.i, !llvm.loop !12
 
 invoke.cont15:                                    ; preds = %while.cond.i
@@ -3689,7 +3685,7 @@ invoke.cont15:                                    ; preds = %while.cond.i
           to label %invoke.cont16 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, !range !15
 
 invoke.cont16:                                    ; preds = %invoke.cont15
-  switch i32 %call17, label %invoke.cont16.unreachabledefault [
+  switch i32 %call17, label %default.unreachable359 [
     i32 0, label %sw.bb
     i32 1, label %sw.bb23
     i32 2, label %cleanup
@@ -3814,7 +3810,7 @@ if.then34:                                        ; preds = %sw.bb31
   %call36 = invoke noundef zeroext i1 @_ZN6google8protobuf2io9Tokenizer4NextEv(ptr noundef nonnull align 8 dereferenceable(192) %this)
           to label %cleanup unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-invoke.cont16.unreachabledefault:                 ; preds = %invoke.cont16
+default.unreachable359:                           ; preds = %invoke.cont40, %invoke.cont16
   unreachable
 
 if.end38:                                         ; preds = %if.then.i51, %invoke.cont21, %invoke.cont28, %if.end13
@@ -3838,7 +3834,7 @@ while.cond:                                       ; preds = %while.cond.backedge
   br label %while.cond.i55
 
 while.cond.i55:                                   ; preds = %while.cond.i55.backedge, %while.cond
-  %49 = phi i8 [ %.pre356, %while.cond ], [ %.be363, %while.cond.i55.backedge ]
+  %49 = phi i8 [ %.pre356, %while.cond ], [ %.be364, %while.cond.i55.backedge ]
   switch i8 %49, label %invoke.cont39 [
     i8 9, label %if.then5.i161
     i8 11, label %if.else8.i207
@@ -3860,8 +3856,8 @@ if.else8.i207:                                    ; preds = %while.cond.i55, %wh
   br label %if.end11.i166
 
 if.end11.i166:                                    ; preds = %if.else8.i207, %if.then5.i161
-  %storemerge359 = phi i32 [ %inc10.i209, %if.else8.i207 ], [ %add.i165, %if.then5.i161 ]
-  store i32 %storemerge359, ptr %column_9.i208, align 8
+  %storemerge360 = phi i32 [ %inc10.i209, %if.else8.i207 ], [ %add.i165, %if.then5.i161 ]
+  store i32 %storemerge360, ptr %column_9.i208, align 8
   %52 = load i32, ptr %buffer_pos_.i167, align 4
   %inc12.i168 = add nsw i32 %52, 1
   store i32 %inc12.i168, ptr %buffer_pos_.i167, align 4
@@ -3947,7 +3943,7 @@ _ZN6google8protobuf2io9Tokenizer7RefreshEv.exit.i174: ; preds = %do.end.i.i191, 
   br label %while.cond.i55.backedge
 
 while.cond.i55.backedge:                          ; preds = %_ZN6google8protobuf2io9Tokenizer7RefreshEv.exit.i174, %if.then15.i199
-  %.be363 = phi i8 [ %.sink.i.i175, %_ZN6google8protobuf2io9Tokenizer7RefreshEv.exit.i174 ], [ %55, %if.then15.i199 ]
+  %.be364 = phi i8 [ %.sink.i.i175, %_ZN6google8protobuf2io9Tokenizer7RefreshEv.exit.i174 ], [ %55, %if.then15.i199 ]
   br label %while.cond.i55, !llvm.loop !12
 
 invoke.cont39:                                    ; preds = %while.cond.i55
@@ -3955,7 +3951,7 @@ invoke.cont39:                                    ; preds = %while.cond.i55
           to label %invoke.cont40 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, !range !15
 
 invoke.cont40:                                    ; preds = %invoke.cont39
-  switch i32 %call41, label %invoke.cont40.unreachabledefault [
+  switch i32 %call41, label %default.unreachable359 [
     i32 0, label %sw.bb42
     i32 1, label %sw.bb46
     i32 2, label %cleanup
@@ -4008,8 +4004,8 @@ if.else8.i262:                                    ; preds = %while.cond.i76
   br label %if.end11.i221
 
 if.end11.i221:                                    ; preds = %if.else8.i262, %if.then5.i216
-  %storemerge361 = phi i32 [ %add.i220, %if.then5.i216 ], [ %inc10.i264, %if.else8.i262 ]
-  store i32 %storemerge361, ptr %column_9.i208, align 8
+  %storemerge362 = phi i32 [ %add.i220, %if.then5.i216 ], [ %inc10.i264, %if.else8.i262 ]
+  store i32 %storemerge362, ptr %column_9.i208, align 8
   %74 = load i32, ptr %buffer_pos_.i167, align 4
   %inc12.i223 = add nsw i32 %74, 1
   store i32 %inc12.i223, ptr %buffer_pos_.i167, align 4
@@ -4144,7 +4140,7 @@ while.cond.i105.preheader:                        ; preds = %invoke.cont47
   br label %while.cond.i105
 
 while.cond.i105:                                  ; preds = %while.cond.i105.backedge, %while.cond.i105.preheader
-  %94 = phi i8 [ %.pre357, %while.cond.i105.preheader ], [ %.be362, %while.cond.i105.backedge ]
+  %94 = phi i8 [ %.pre357, %while.cond.i105.preheader ], [ %.be363, %while.cond.i105.backedge ]
   switch i8 %94, label %while.cond.backedge [
     i8 9, label %if.then5.i271
     i8 11, label %if.else8.i317
@@ -4167,8 +4163,8 @@ if.else8.i317:                                    ; preds = %while.cond.i105, %w
   br label %if.end11.i276
 
 if.end11.i276:                                    ; preds = %if.else8.i317, %if.then5.i271
-  %storemerge360 = phi i32 [ %inc10.i319, %if.else8.i317 ], [ %add.i275, %if.then5.i271 ]
-  store i32 %storemerge360, ptr %column_9.i208, align 8
+  %storemerge361 = phi i32 [ %inc10.i319, %if.else8.i317 ], [ %add.i275, %if.then5.i271 ]
+  store i32 %storemerge361, ptr %column_9.i208, align 8
   %97 = load i32, ptr %buffer_pos_.i167, align 4
   %inc12.i278 = add nsw i32 %97, 1
   store i32 %inc12.i278, ptr %buffer_pos_.i167, align 4
@@ -4254,7 +4250,7 @@ _ZN6google8protobuf2io9Tokenizer7RefreshEv.exit.i284: ; preds = %do.end.i.i301, 
   br label %while.cond.i105.backedge
 
 while.cond.i105.backedge:                         ; preds = %_ZN6google8protobuf2io9Tokenizer7RefreshEv.exit.i284, %if.then15.i309
-  %.be362 = phi i8 [ %.sink.i.i285, %_ZN6google8protobuf2io9Tokenizer7RefreshEv.exit.i284 ], [ %100, %if.then15.i309 ]
+  %.be363 = phi i8 [ %.sink.i.i285, %_ZN6google8protobuf2io9Tokenizer7RefreshEv.exit.i284 ], [ %100, %if.then15.i309 ]
   br label %while.cond.i105, !llvm.loop !12
 
 if.then.i111:                                     ; preds = %while.cond.i105
@@ -4373,9 +4369,6 @@ if.end16.i:                                       ; preds = %if.end14.i, %land.l
 _ZN6google8protobuf2io12_GLOBAL__N_116CommentCollector18MaybeDetachCommentEv.exit: ; preds = %if.end16.i, %if.then86
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %trail.i)
   br label %cleanup
-
-invoke.cont40.unreachabledefault:                 ; preds = %invoke.cont40
-  unreachable
 
 cleanup:                                          ; preds = %invoke.cont40, %_ZN6google8protobuf2io12_GLOBAL__N_116CommentCollector18MaybeDetachCommentEv.exit, %if.end79, %land.lhs.true, %if.then34, %invoke.cont16, %invoke.cont12
   %retval.0 = phi i1 [ false, %invoke.cont12 ], [ true, %invoke.cont16 ], [ %call36, %if.then34 ], [ true, %land.lhs.true ], [ true, %_ZN6google8protobuf2io12_GLOBAL__N_116CommentCollector18MaybeDetachCommentEv.exit ], [ false, %if.end79 ], [ true, %invoke.cont40 ]

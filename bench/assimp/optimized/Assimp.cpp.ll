@@ -7373,8 +7373,8 @@ if.end3.i:                                        ; preds = %if.end12.i.i, %entr
   %code_buffer.i = getelementptr inbounds %struct.stbi__zbuf, ptr %a, i64 0, i32 3
   store i32 0, ptr %code_buffer.i, align 4
   %6 = getelementptr i8, ptr %a, i64 8
-  %z_length.i.i = getelementptr inbounds %struct.stbi__zbuf, ptr %a, i64 0, i32 8
-  %z_distance.i.i = getelementptr inbounds %struct.stbi__zbuf, ptr %a, i64 0, i32 9
+  %z_length.i = getelementptr inbounds %struct.stbi__zbuf, ptr %a, i64 0, i32 8
+  %z_distance.i = getelementptr inbounds %struct.stbi__zbuf, ptr %a, i64 0, i32 9
   %arrayidx20.i.i = getelementptr inbounds [4 x i8], ptr %header.i.i, i64 0, i64 1
   %7 = getelementptr inbounds i8, ptr %header.i.i, i64 2
   br label %do.body.i
@@ -7486,11 +7486,10 @@ _ZL14stbi__zreceiveP10stbi__zbufi.exit43.i:       ; preds = %_ZL11stbi__zget8P10
   store i32 %shr.i21.i, ptr %code_buffer.i, align 4
   %sub3.i22.i = add nsw i32 %16, -2
   store i32 %sub3.i22.i, ptr %num_bits.i, align 8
-  switch i32 %and.i20.i, label %_ZL14stbi__zreceiveP10stbi__zbufi.exit43.unreachabledefault.i [
+  switch i32 %and.i20.i, label %if.else24.i [
     i32 0, label %if.then6.i
     i32 3, label %_ZL16stbi__parse_zlibP10stbi__zbufi.exit
     i32 1, label %if.then15.i
-    i32 2, label %if.else24.i
   ]
 
 if.then6.i:                                       ; preds = %_ZL14stbi__zreceiveP10stbi__zbufi.exit43.i
@@ -7715,17 +7714,14 @@ _ZL30stbi__parse_uncompressed_blockP10stbi__zbuf.exit.i: ; preds = %_ZL13stbi__z
   br label %do.cond.i
 
 if.then15.i:                                      ; preds = %_ZL14stbi__zreceiveP10stbi__zbufi.exit43.i
-  %call16.i = tail call fastcc noundef i32 @_ZL20stbi__zbuild_huffmanP14stbi__zhuffmanPKhi(ptr noundef nonnull %z_length.i.i, ptr noundef nonnull @_ZL21stbi__zdefault_length, i32 noundef 288), !range !34
+  %call16.i = tail call fastcc noundef i32 @_ZL20stbi__zbuild_huffmanP14stbi__zhuffmanPKhi(ptr noundef nonnull %z_length.i, ptr noundef nonnull @_ZL21stbi__zdefault_length, i32 noundef 288), !range !34
   %tobool17.not.i = icmp eq i32 %call16.i, 0
   br i1 %tobool17.not.i, label %_ZL16stbi__parse_zlibP10stbi__zbufi.exit, label %if.end19.i
 
 if.end19.i:                                       ; preds = %if.then15.i
-  %call20.i = tail call fastcc noundef i32 @_ZL20stbi__zbuild_huffmanP14stbi__zhuffmanPKhi(ptr noundef nonnull %z_distance.i.i, ptr noundef nonnull @_ZL23stbi__zdefault_distance, i32 noundef 32), !range !34
+  %call20.i = tail call fastcc noundef i32 @_ZL20stbi__zbuild_huffmanP14stbi__zhuffmanPKhi(ptr noundef nonnull %z_distance.i, ptr noundef nonnull @_ZL23stbi__zdefault_distance, i32 noundef 32), !range !34
   %tobool21.not.i = icmp eq i32 %call20.i, 0
   br i1 %tobool21.not.i, label %_ZL16stbi__parse_zlibP10stbi__zbufi.exit, label %if.end29.i
-
-_ZL14stbi__zreceiveP10stbi__zbufi.exit43.unreachabledefault.i: ; preds = %_ZL14stbi__zreceiveP10stbi__zbufi.exit43.i
-  unreachable
 
 if.else24.i:                                      ; preds = %_ZL14stbi__zreceiveP10stbi__zbufi.exit43.i
   call void @llvm.lifetime.start.p0(i64 2020, ptr nonnull %z_codelength.i.i)
@@ -8151,7 +8147,7 @@ while.end.i80.i:                                  ; preds = %if.end58.i.i
   br i1 %cmp59.not.i.i, label %if.end62.i.i, label %_ZL27stbi__compute_huffman_codesP10stbi__zbuf.exit.thread.sink.split.i
 
 if.end62.i.i:                                     ; preds = %while.end.i80.i
-  %call64.i.i = call fastcc noundef i32 @_ZL20stbi__zbuild_huffmanP14stbi__zhuffmanPKhi(ptr noundef nonnull %z_length.i.i, ptr noundef nonnull %lencodes.i.i, i32 noundef %add.i70.i), !range !34
+  %call64.i.i = call fastcc noundef i32 @_ZL20stbi__zbuild_huffmanP14stbi__zhuffmanPKhi(ptr noundef nonnull %z_length.i, ptr noundef nonnull %lencodes.i.i, i32 noundef %add.i70.i), !range !34
   %tobool65.not.i.i = icmp eq i32 %call64.i.i, 0
   br i1 %tobool65.not.i.i, label %_ZL27stbi__compute_huffman_codesP10stbi__zbuf.exit.thread.i, label %_ZL27stbi__compute_huffman_codesP10stbi__zbuf.exit.i
 
@@ -8169,7 +8165,7 @@ _ZL27stbi__compute_huffman_codesP10stbi__zbuf.exit.thread.i: ; preds = %if.end62
 _ZL27stbi__compute_huffman_codesP10stbi__zbuf.exit.i: ; preds = %if.end62.i.i
   %idx.ext69.i.i = zext nneg i32 %add.i70.i to i64
   %add.ptr70.i.i = getelementptr inbounds i8, ptr %lencodes.i.i, i64 %idx.ext69.i.i
-  %call71.i.i = call fastcc noundef i32 @_ZL20stbi__zbuild_huffmanP14stbi__zhuffmanPKhi(ptr noundef nonnull %z_distance.i.i, ptr noundef nonnull %add.ptr70.i.i, i32 noundef %add2.i.i), !range !34
+  %call71.i.i = call fastcc noundef i32 @_ZL20stbi__zbuild_huffmanP14stbi__zhuffmanPKhi(ptr noundef nonnull %z_distance.i, ptr noundef nonnull %add.ptr70.i.i, i32 noundef %add2.i.i), !range !34
   call void @llvm.lifetime.end.p0(i64 2020, ptr nonnull %z_codelength.i.i)
   call void @llvm.lifetime.end.p0(i64 455, ptr nonnull %lencodes.i.i)
   call void @llvm.lifetime.end.p0(i64 19, ptr nonnull %codelength_sizes.i.i)
@@ -8182,7 +8178,7 @@ if.end29.i:                                       ; preds = %_ZL27stbi__compute_
 
 for.cond.i.i:                                     ; preds = %if.end80.i.i, %if.end29.i
   %zout.0.i.i = phi ptr [ %80, %if.end29.i ], [ %zout.5.i.i, %if.end80.i.i ]
-  %call.i.i = tail call fastcc noundef i32 @_ZL21stbi__zhuffman_decodeP10stbi__zbufP14stbi__zhuffman(ptr noundef %a, ptr noundef nonnull %z_length.i.i), !range !40
+  %call.i.i = tail call fastcc noundef i32 @_ZL21stbi__zhuffman_decodeP10stbi__zbufP14stbi__zhuffman(ptr noundef %a, ptr noundef nonnull %z_length.i), !range !40
   %cmp.i108.i = icmp slt i32 %call.i.i, 256
   br i1 %cmp.i108.i, label %if.then.i145.i, label %if.else.i109.i
 
@@ -8355,7 +8351,7 @@ _ZL14stbi__zreceiveP10stbi__zbufi.exit.i113.i:    ; preds = %_ZL11stbi__zget8P10
 
 if.end27.i.i:                                     ; preds = %_ZL14stbi__zreceiveP10stbi__zbufi.exit.i113.i, %if.end19.i.i
   %len.0.i.i = phi i32 [ %add.i117.i, %_ZL14stbi__zreceiveP10stbi__zbufi.exit.i113.i ], [ %90, %if.end19.i.i ]
-  %call28.i.i = tail call fastcc noundef i32 @_ZL21stbi__zhuffman_decodeP10stbi__zbufP14stbi__zhuffman(ptr noundef %a, ptr noundef nonnull %z_distance.i.i), !range !40
+  %call28.i.i = tail call fastcc noundef i32 @_ZL21stbi__zhuffman_decodeP10stbi__zbufP14stbi__zhuffman(ptr noundef %a, ptr noundef nonnull %z_distance.i), !range !40
   %or.cond.i118.i = icmp ugt i32 %call28.i.i, 29
   br i1 %or.cond.i118.i, label %if.then31.i125.i, label %if.end33.i119.i
 
@@ -16068,11 +16064,10 @@ for.body:                                         ; preds = %for.body.preheader,
 for.end:                                          ; preds = %for.body, %if.end3
   %hash.addr.0.lcssa = phi i32 [ %hash, %if.end3 ], [ %add21, %for.body ]
   %data.addr.0.lcssa = phi ptr [ %data, %if.end3 ], [ %add.ptr19, %for.body ]
-  switch i32 %and, label %for.end.unreachabledefault [
+  switch i32 %and, label %sw.epilog [
     i32 3, label %sw.bb
     i32 2, label %sw.bb37
     i32 1, label %sw.bb49
-    i32 0, label %sw.epilog
   ]
 
 sw.bb:                                            ; preds = %for.end
@@ -16111,10 +16106,7 @@ sw.bb49:                                          ; preds = %for.end
   %add55 = add i32 %shr54, %xor53
   br label %sw.epilog
 
-for.end.unreachabledefault:                       ; preds = %for.end
-  unreachable
-
-sw.epilog:                                        ; preds = %for.end, %sw.bb49, %sw.bb37, %sw.bb
+sw.epilog:                                        ; preds = %sw.bb49, %sw.bb37, %sw.bb, %for.end
   %hash.addr.1 = phi i32 [ %hash.addr.0.lcssa, %for.end ], [ %add55, %sw.bb49 ], [ %add48, %sw.bb37 ], [ %add36, %sw.bb ]
   %shl56 = shl i32 %hash.addr.1, 3
   %xor57 = xor i32 %shl56, %hash.addr.1

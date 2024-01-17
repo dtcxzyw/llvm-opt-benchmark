@@ -5393,11 +5393,10 @@ if.end74:                                         ; preds = %if.end69
   %cmp2.i = icmp eq i32 %and.i182, 512
   %cond.i184 = select i1 %cmp2.i, i32 24, i32 25
   %cond3.i = select i1 %cmp.i183, i32 16, i32 %cond.i184
-  switch i32 %cond3.i, label %if.end74.unreachabledefault [
+  switch i32 %cond3.i, label %sw.default [
     i32 16, label %sw.epilog
     i32 25, label %sw.bb100
     i32 24, label %sw.bb103
-    i32 17, label %sw.default
   ]
 
 sw.bb100:                                         ; preds = %if.end74
@@ -5407,9 +5406,6 @@ sw.bb100:                                         ; preds = %if.end74
 sw.bb103:                                         ; preds = %if.end74
   %or104 = or i32 %metadataBits.5, 512
   br label %sw.epilog
-
-if.end74.unreachabledefault:                      ; preds = %if.end74
-  unreachable
 
 sw.default:                                       ; preds = %if.end74
   store i32 5, ptr %status, align 4

@@ -622,7 +622,7 @@ sw.epilog.i:                                      ; preds = %sw.epilog.sink.spli
   %54 = phi i32 [ %cond.i, %if.end.i ], [ %mul10.sink.i, %sw.epilog.sink.split.i ]
   %and11.i = lshr i32 %and5, 8
   %shr12.i = and i32 %and11.i, 7
-  switch i32 %shr12.i, label %sw.epilog.unreachabledefault.i [
+  switch i32 %shr12.i, label %sw.epilog33.i [
     i32 1, label %sw.bb13.i
     i32 2, label %sw.bb15.i
     i32 3, label %sw.bb18.i
@@ -630,7 +630,6 @@ sw.epilog.i:                                      ; preds = %sw.epilog.sink.spli
     i32 5, label %sw.bb24.i
     i32 6, label %sw.bb27.i
     i32 7, label %sw.bb30.i
-    i32 0, label %sw.epilog33.i
   ]
 
 sw.bb13.i:                                        ; preds = %sw.epilog.i
@@ -660,9 +659,6 @@ sw.bb27.i:                                        ; preds = %sw.epilog.i
 sw.bb30.i:                                        ; preds = %sw.epilog.i
   %div3220.i = lshr i32 %54, 3
   br label %sw.epilog33.sink.split.i
-
-sw.epilog.unreachabledefault.i:                   ; preds = %sw.epilog.i
-  unreachable
 
 sw.epilog33.sink.split.i:                         ; preds = %sw.bb30.i, %sw.bb27.i, %sw.bb24.i, %sw.bb21.i, %sw.bb18.i, %sw.bb15.i, %sw.bb13.i
   %div3220.sink.i = phi i32 [ %div3220.i, %sw.bb30.i ], [ %div29.i, %sw.bb27.i ], [ %div26.i, %sw.bb24.i ], [ %div23.i, %sw.bb21.i ], [ %div2021.i, %sw.bb18.i ], [ %div17.i, %sw.bb15.i ], [ %div22.i, %sw.bb13.i ]
@@ -1868,7 +1864,7 @@ sw.epilog.i:                                      ; preds = %sw.epilog.sink.spli
   %9 = phi i32 [ %cond.i, %if.end.i ], [ %mul10.sink.i, %sw.epilog.sink.split.i ]
   %and11.i = lshr i32 %8, 8
   %shr12.i = and i32 %and11.i, 7
-  switch i32 %shr12.i, label %sw.epilog.unreachabledefault.i [
+  switch i32 %shr12.i, label %sw.epilog33.i [
     i32 1, label %sw.bb13.i
     i32 2, label %sw.bb15.i
     i32 3, label %sw.bb18.i
@@ -1876,7 +1872,6 @@ sw.epilog.i:                                      ; preds = %sw.epilog.sink.spli
     i32 5, label %sw.bb24.i
     i32 6, label %sw.bb27.i
     i32 7, label %sw.bb30.i
-    i32 0, label %sw.epilog33.i
   ]
 
 sw.bb13.i:                                        ; preds = %sw.epilog.i
@@ -1906,9 +1901,6 @@ sw.bb27.i:                                        ; preds = %sw.epilog.i
 sw.bb30.i:                                        ; preds = %sw.epilog.i
   %div3220.i = lshr i32 %9, 3
   br label %sw.epilog33.sink.split.i
-
-sw.epilog.unreachabledefault.i:                   ; preds = %sw.epilog.i
-  unreachable
 
 sw.epilog33.sink.split.i:                         ; preds = %sw.bb30.i, %sw.bb27.i, %sw.bb24.i, %sw.bb21.i, %sw.bb18.i, %sw.bb15.i, %sw.bb13.i
   %div3220.sink.i = phi i32 [ %div3220.i, %sw.bb30.i ], [ %div29.i, %sw.bb27.i ], [ %div26.i, %sw.bb24.i ], [ %div23.i, %sw.bb21.i ], [ %div2021.i, %sw.bb18.i ], [ %div17.i, %sw.bb15.i ], [ %div22.i, %sw.bb13.i ]

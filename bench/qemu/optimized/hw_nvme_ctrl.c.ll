@@ -945,11 +945,10 @@ entry:
   %flags = getelementptr inbounds %struct.NvmeCmd, ptr %cmd, i64 0, i32 1
   %0 = load i8, ptr %flags, align 1
   %1 = lshr i8 %0, 6
-  switch i8 %1, label %default.unreachable22 [
+  switch i8 %1, label %return [
     i8 0, label %sw.bb
     i8 1, label %sw.bb7
     i8 2, label %sw.bb7
-    i8 3, label %return
   ]
 
 sw.bb:                                            ; preds = %entry
@@ -1334,9 +1333,6 @@ sw.bb7:                                           ; preds = %entry, %entry
   %60 = load i64, ptr %59, align 1
   %call9 = tail call fastcc zeroext i16 @nvme_map_sgl(ptr noundef %n, ptr noundef %sg, i64 %58, i64 %60, i64 noundef %len)
   br label %return
-
-default.unreachable22:                            ; preds = %entry
-  unreachable
 
 return:                                           ; preds = %if.end5.i.i, %unmap.i, %if.end128.i, %cleanup.i, %if.end.i, %entry, %sw.bb7
   %retval.0 = phi i16 [ %call9, %sw.bb7 ], [ 2, %entry ], [ 0, %cleanup.i ], [ 0, %if.end128.i ], [ 0, %if.end.i ], [ %status.2.i, %unmap.i ], [ %status.2.i, %if.end5.i.i ]

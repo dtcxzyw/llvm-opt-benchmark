@@ -1504,7 +1504,7 @@ for.end.i:                                        ; preds = %for.body.i, %entry
   %idx.ext.i = sext i32 %mul21.i to i64
   %add.ptr.i = getelementptr inbounds i8, ptr %key, i64 %idx.ext.i
   %and.i = and i32 %conv, 15
-  switch i32 %and.i, label %for.end.unreachabledefault.i [
+  switch i32 %and.i, label %hash_x64_128.exit [
     i32 15, label %sw.bb.i
     i32 14, label %sw.bb26.i
     i32 13, label %sw.bb31.i
@@ -1520,7 +1520,6 @@ for.end.i:                                        ; preds = %for.body.i, %entry
     i32 3, label %sw.bb85.i
     i32 2, label %sw.bb90.i
     i32 1, label %sw.bb95.i
-    i32 0, label %hash_x64_128.exit
   ]
 
 sw.bb.i:                                          ; preds = %for.end.i
@@ -1670,9 +1669,6 @@ sw.bb95.i:                                        ; preds = %sw.bb90.i, %for.end
   %mul102.i = mul i64 %or.i94.i, 5545529020109919103
   %xor103.i = xor i64 %mul102.i, %h1.0.lcssa.i
   br label %hash_x64_128.exit
-
-for.end.unreachabledefault.i:                     ; preds = %for.end.i
-  unreachable
 
 hash_x64_128.exit:                                ; preds = %for.end.i, %sw.bb95.i
   %h2.9.i = phi i64 [ %h2.0.lcssa.i, %for.end.i ], [ %h2.8.i, %sw.bb95.i ]

@@ -2296,11 +2296,10 @@ if.end48:                                         ; preds = %if.then.i40.i, %if.
   %bf.load49 = load i8, ptr %pkt_space, align 8
   %bf.lshr50 = lshr i8 %bf.load49, 3
   %bf.clear51 = and i8 %bf.lshr50, 3
-  switch i8 %bf.clear51, label %if.end48.unreachabledefault [
+  switch i8 %bf.clear51, label %return [
     i8 2, label %sw.bb
     i8 1, label %sw.bb59
     i8 3, label %sw.bb67
-    i8 0, label %return
   ]
 
 sw.bb:                                            ; preds = %if.end48
@@ -2329,9 +2328,6 @@ sw.bb67:                                          ; preds = %if.end48
   %inc74 = add i64 %36, 1
   store i64 %inc74, ptr %arrayidx73, align 8
   br label %return
-
-if.end48.unreachabledefault:                      ; preds = %if.end48
-  unreachable
 
 return:                                           ; preds = %entry, %rx_pkt_history_add_pn.exit, %sw.bb, %sw.bb59, %sw.bb67, %if.end48, %ossl_ackm_is_rx_pn_processable.exit
   %retval.0 = phi i32 [ 1, %ossl_ackm_is_rx_pn_processable.exit ], [ 0, %rx_pkt_history_add_pn.exit ], [ 1, %if.end48 ], [ 1, %sw.bb67 ], [ 1, %sw.bb59 ], [ 1, %sw.bb ], [ 1, %entry ]

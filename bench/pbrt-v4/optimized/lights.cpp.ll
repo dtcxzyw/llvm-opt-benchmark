@@ -1473,7 +1473,7 @@ while.end.i.i.i.i:                                ; preds = %while.body.i.i.i.i,
   %h.0.lcssa.i.i.i.i = phi i64 [ %mul.i.i.i.i, %if.end ], [ %mul7.i.i.i.i, %while.body.i.i.i.i ]
   %key.addr.0.lcssa.i.i.i.i = phi ptr [ %13, %if.end ], [ %add.ptr.i.i.i.i6, %while.body.i.i.i.i ]
   %and.i.i.i.i = and i64 %14, 7
-  switch i64 %and.i.i.i.i, label %while.end.unreachabledefault.i.i.i.i [
+  switch i64 %and.i.i.i.i, label %_ZNKSt4hashIN4pbrt22DenselySampledSpectrumEEclERKS1_.exit.i [
     i64 7, label %sw.bb.i.i.i.i
     i64 6, label %sw.bb9.i.i.i.i
     i64 5, label %sw.bb14.i.i.i.i
@@ -1481,7 +1481,6 @@ while.end.i.i.i.i:                                ; preds = %while.body.i.i.i.i,
     i64 3, label %sw.bb24.i.i.i.i
     i64 2, label %sw.bb29.i.i.i.i
     i64 1, label %sw.bb34.i.i.i.i
-    i64 0, label %_ZNKSt4hashIN4pbrt22DenselySampledSpectrumEEclERKS1_.exit.i
   ]
 
 sw.bb.i.i.i.i:                                    ; preds = %while.end.i.i.i.i
@@ -1545,9 +1544,6 @@ sw.bb34.i.i.i.i:                                  ; preds = %sw.bb29.i.i.i.i, %w
   %mul38.i.i.i.i = mul i64 %xor37.i.i.i.i, -4132994306676758123
   br label %_ZNKSt4hashIN4pbrt22DenselySampledSpectrumEEclERKS1_.exit.i
 
-while.end.unreachabledefault.i.i.i.i:             ; preds = %while.end.i.i.i.i
-  unreachable
-
 _ZNKSt4hashIN4pbrt22DenselySampledSpectrumEEclERKS1_.exit.i: ; preds = %sw.bb34.i.i.i.i, %while.end.i.i.i.i
   %h.7.i.i.i.i = phi i64 [ %h.0.lcssa.i.i.i.i, %while.end.i.i.i.i ], [ %mul38.i.i.i.i, %sw.bb34.i.i.i.i ]
   %shr39.i.i.i.i = lshr i64 %h.7.i.i.i.i, 47
@@ -1572,19 +1568,19 @@ do.body.i.i.i:                                    ; preds = %do.body.i.i.i, %_ZN
 while.body.preheader.i:                           ; preds = %do.body.i.i.i
   %ptr.i.i = getelementptr inbounds %"class.pbrt::InternCache", ptr %11, i64 0, i32 3, i32 1
   %23 = load ptr, ptr %ptr.i.i, align 8
-  %arrayidx.i160.i = getelementptr inbounds ptr, ptr %23, i64 %rem.i
-  %24 = load ptr, ptr %arrayidx.i160.i, align 8
-  %tobool.not161.i = icmp eq ptr %24, null
-  br i1 %tobool.not161.i, label %if.then.i10, label %if.else58.lr.ph.i
+  %arrayidx.i159.i = getelementptr inbounds ptr, ptr %23, i64 %rem.i
+  %24 = load ptr, ptr %arrayidx.i159.i, align 8
+  %tobool.not160.i = icmp eq ptr %24, null
+  br i1 %tobool.not160.i, label %if.then.i10, label %if.else58.lr.ph.i
 
 if.else58.lr.ph.i:                                ; preds = %while.body.preheader.i
   %25 = load i32, ptr %ref.tmp, align 8
-  %lambda_max3.i124.i = getelementptr inbounds %"class.pbrt::DenselySampledSpectrum", ptr %ref.tmp, i64 0, i32 1
-  %26 = load i32, ptr %lambda_max3.i124.i, align 4
+  %lambda_max3.i123.i = getelementptr inbounds %"class.pbrt::DenselySampledSpectrum", ptr %ref.tmp, i64 0, i32 1
+  %26 = load i32, ptr %lambda_max3.i123.i, align 4
   %27 = load i64, ptr %nStored.i.i.i5, align 8
   %28 = load ptr, ptr %ptr.i.i.i4, align 8
   %29 = load i64, ptr %nStored.i.i, align 8
-  %cmp1111.not.i131.i = icmp eq i64 %27, 0
+  %cmp1111.not.i130.i = icmp eq i64 %27, 0
   br label %if.else58.i
 
 if.then.i10:                                      ; preds = %if.else67.i, %while.body.preheader.i
@@ -1627,15 +1623,14 @@ while.end.i.i.i40.i:                              ; preds = %while.body.i.i.i28.
   %h.0.lcssa.i.i.i41.i = phi i64 [ %mul.i.i.i24.i, %_ZNSt12shared_mutex4lockEv.exit.i ], [ %mul7.i.i.i38.i, %while.body.i.i.i28.i ]
   %key.addr.0.lcssa.i.i.i42.i = phi ptr [ %30, %_ZNSt12shared_mutex4lockEv.exit.i ], [ %add.ptr.i.i.i26.i, %while.body.i.i.i28.i ]
   %and.i.i.i43.i = and i64 %31, 7
-  switch i64 %and.i.i.i43.i, label %while.end.unreachabledefault.i.i.i90.i [
+  switch i64 %and.i.i.i43.i, label %_ZNKSt4hashIN4pbrt22DenselySampledSpectrumEEclERKS1_.exit90.i [
     i64 7, label %sw.bb.i.i.i85.i
     i64 6, label %sw.bb9.i.i.i79.i
     i64 5, label %sw.bb14.i.i.i73.i
     i64 4, label %sw.bb19.i.i.i67.i
     i64 3, label %sw.bb24.i.i.i61.i
     i64 2, label %sw.bb29.i.i.i55.i
-    i64 1, label %sw.bb34.i.i.i50.i
-    i64 0, label %_ZNKSt4hashIN4pbrt22DenselySampledSpectrumEEclERKS1_.exit91.i
+    i64 1, label %sw.bb34.i.i.i44.i
   ]
 
 sw.bb.i.i.i85.i:                                  ; preds = %while.end.i.i.i40.i
@@ -1689,35 +1684,32 @@ sw.bb29.i.i.i55.i:                                ; preds = %sw.bb24.i.i.i61.i, 
   %conv31.i.i.i58.i = zext i8 %37 to i64
   %shl32.i.i.i59.i = shl nuw nsw i64 %conv31.i.i.i58.i, 8
   %xor33.i.i.i60.i = xor i64 %shl32.i.i.i59.i, %h.5.i.i.i56.i
-  br label %sw.bb34.i.i.i50.i
+  br label %sw.bb34.i.i.i44.i
 
-sw.bb34.i.i.i50.i:                                ; preds = %sw.bb29.i.i.i55.i, %while.end.i.i.i40.i
-  %h.6.i.i.i51.i = phi i64 [ %h.0.lcssa.i.i.i41.i, %while.end.i.i.i40.i ], [ %xor33.i.i.i60.i, %sw.bb29.i.i.i55.i ]
+sw.bb34.i.i.i44.i:                                ; preds = %sw.bb29.i.i.i55.i, %while.end.i.i.i40.i
+  %h.6.i.i.i45.i = phi i64 [ %h.0.lcssa.i.i.i41.i, %while.end.i.i.i40.i ], [ %xor33.i.i.i60.i, %sw.bb29.i.i.i55.i ]
   %38 = load i8, ptr %key.addr.0.lcssa.i.i.i42.i, align 1
-  %conv36.i.i.i52.i = zext i8 %38 to i64
-  %xor37.i.i.i53.i = xor i64 %h.6.i.i.i51.i, %conv36.i.i.i52.i
-  %mul38.i.i.i54.i = mul i64 %xor37.i.i.i53.i, -4132994306676758123
-  br label %_ZNKSt4hashIN4pbrt22DenselySampledSpectrumEEclERKS1_.exit91.i
+  %conv36.i.i.i46.i = zext i8 %38 to i64
+  %xor37.i.i.i47.i = xor i64 %h.6.i.i.i45.i, %conv36.i.i.i46.i
+  %mul38.i.i.i48.i = mul i64 %xor37.i.i.i47.i, -4132994306676758123
+  br label %_ZNKSt4hashIN4pbrt22DenselySampledSpectrumEEclERKS1_.exit90.i
 
-while.end.unreachabledefault.i.i.i90.i:           ; preds = %while.end.i.i.i40.i
-  unreachable
-
-_ZNKSt4hashIN4pbrt22DenselySampledSpectrumEEclERKS1_.exit91.i: ; preds = %sw.bb34.i.i.i50.i, %while.end.i.i.i40.i
-  %h.7.i.i.i44.i = phi i64 [ %h.0.lcssa.i.i.i41.i, %while.end.i.i.i40.i ], [ %mul38.i.i.i54.i, %sw.bb34.i.i.i50.i ]
-  %shr39.i.i.i45.i = lshr i64 %h.7.i.i.i44.i, 47
-  %xor40.i.i.i46.i = xor i64 %shr39.i.i.i45.i, %h.7.i.i.i44.i
-  %mul41.i.i.i47.i = mul i64 %xor40.i.i.i46.i, -4132994306676758123
-  %shr42.i.i.i48.i = lshr i64 %mul41.i.i.i47.i, 47
-  %xor43.i.i.i49.i = xor i64 %shr42.i.i.i48.i, %mul41.i.i.i47.i
+_ZNKSt4hashIN4pbrt22DenselySampledSpectrumEEclERKS1_.exit90.i: ; preds = %sw.bb34.i.i.i44.i, %while.end.i.i.i40.i
+  %h.7.i.i.i49.i = phi i64 [ %h.0.lcssa.i.i.i41.i, %while.end.i.i.i40.i ], [ %mul38.i.i.i48.i, %sw.bb34.i.i.i44.i ]
+  %shr39.i.i.i50.i = lshr i64 %h.7.i.i.i49.i, 47
+  %xor40.i.i.i51.i = xor i64 %shr39.i.i.i50.i, %h.7.i.i.i49.i
+  %mul41.i.i.i52.i = mul i64 %xor40.i.i.i51.i, -4132994306676758123
+  %shr42.i.i.i53.i = lshr i64 %mul41.i.i.i52.i, 47
+  %xor43.i.i.i54.i = xor i64 %shr42.i.i.i53.i, %mul41.i.i.i52.i
   %39 = load i64, ptr %nStored.i.i, align 8
   %40 = load ptr, ptr %ptr.i.i, align 8
-  %offset7.0164.i = urem i64 %xor43.i.i.i49.i, %39
-  %arrayidx.i94165.i = getelementptr inbounds ptr, ptr %40, i64 %offset7.0164.i
-  %41 = load ptr, ptr %arrayidx.i94165.i, align 8
-  %tobool18.not166.i = icmp eq ptr %41, null
-  br i1 %tobool18.not166.i, label %while.end.i, label %if.else.lr.ph.i
+  %offset7.0163.i = urem i64 %xor43.i.i.i54.i, %39
+  %arrayidx.i93164.i = getelementptr inbounds ptr, ptr %40, i64 %offset7.0163.i
+  %41 = load ptr, ptr %arrayidx.i93164.i, align 8
+  %tobool18.not165.i = icmp eq ptr %41, null
+  br i1 %tobool18.not165.i, label %while.end.i, label %if.else.lr.ph.i
 
-if.else.lr.ph.i:                                  ; preds = %_ZNKSt4hashIN4pbrt22DenselySampledSpectrumEEclERKS1_.exit91.i
+if.else.lr.ph.i:                                  ; preds = %_ZNKSt4hashIN4pbrt22DenselySampledSpectrumEEclERKS1_.exit90.i
   %42 = load i32, ptr %ref.tmp, align 8
   %lambda_max3.i.i = getelementptr inbounds %"class.pbrt::DenselySampledSpectrum", ptr %ref.tmp, i64 0, i32 1
   %43 = load i32, ptr %lambda_max3.i.i, align 4
@@ -1725,9 +1717,9 @@ if.else.lr.ph.i:                                  ; preds = %_ZNKSt4hashIN4pbrt2
   br label %if.else.i
 
 if.else.i:                                        ; preds = %if.else27.i, %if.else.lr.ph.i
-  %indvars.iv179.i = phi i64 [ 1, %if.else.lr.ph.i ], [ %indvars.iv.next180.i, %if.else27.i ]
+  %indvars.iv178.i = phi i64 [ 1, %if.else.lr.ph.i ], [ %indvars.iv.next179.i, %if.else27.i ]
   %44 = phi ptr [ %41, %if.else.lr.ph.i ], [ %51, %if.else27.i ]
-  %offset7.0168.i = phi i64 [ %offset7.0164.i, %if.else.lr.ph.i ], [ %offset7.0.i, %if.else27.i ]
+  %offset7.0167.i = phi i64 [ %offset7.0163.i, %if.else.lr.ph.i ], [ %offset7.0.i, %if.else27.i ]
   %45 = load i32, ptr %44, align 8
   %cmp.not.i.i = icmp eq i32 %45, %42
   br i1 %cmp.not.i.i, label %lor.lhs.false.i.i, label %if.else27.i
@@ -1739,8 +1731,8 @@ lor.lhs.false.i.i:                                ; preds = %if.else.i
   br i1 %cmp4.not.i.i, label %lor.lhs.false5.i.i, label %if.else27.i
 
 lor.lhs.false5.i.i:                               ; preds = %lor.lhs.false.i.i
-  %nStored.i.i97.i = getelementptr inbounds %"class.pbrt::DenselySampledSpectrum", ptr %44, i64 0, i32 2, i32 3
-  %47 = load i64, ptr %nStored.i.i97.i, align 8
+  %nStored.i.i96.i = getelementptr inbounds %"class.pbrt::DenselySampledSpectrum", ptr %44, i64 0, i32 2, i32 3
+  %47 = load i64, ptr %nStored.i.i96.i, align 8
   %cmp8.not.i.i = icmp eq i64 %47, %31
   br i1 %cmp8.not.i.i, label %for.cond.preheader.i.i, label %if.else27.i
 
@@ -1748,8 +1740,8 @@ for.cond.preheader.i.i:                           ; preds = %lor.lhs.false5.i.i
   br i1 %cmp1111.not.i.i, label %invoke.cont6, label %for.body.lr.ph.i.i
 
 for.body.lr.ph.i.i:                               ; preds = %for.cond.preheader.i.i
-  %ptr.i.i98.i = getelementptr inbounds %"class.pbrt::DenselySampledSpectrum", ptr %44, i64 0, i32 2, i32 1
-  %48 = load ptr, ptr %ptr.i.i98.i, align 8
+  %ptr.i.i97.i = getelementptr inbounds %"class.pbrt::DenselySampledSpectrum", ptr %44, i64 0, i32 2, i32 1
+  %48 = load ptr, ptr %ptr.i.i97.i, align 8
   br label %for.body.i.i
 
 for.cond.i.i:                                     ; preds = %for.body.i.i
@@ -1767,15 +1759,15 @@ for.body.i.i:                                     ; preds = %for.cond.i.i, %for.
   br i1 %cmp16.i.i, label %for.cond.i.i, label %if.else27.i
 
 if.else27.i:                                      ; preds = %for.body.i.i, %lor.lhs.false5.i.i, %lor.lhs.false.i.i, %if.else.i
-  %add.i = add i64 %offset7.0168.i, %indvars.iv179.i
-  %indvars.iv.next180.i = add nuw i64 %indvars.iv179.i, 1
+  %add.i = add i64 %offset7.0167.i, %indvars.iv178.i
+  %indvars.iv.next179.i = add nuw i64 %indvars.iv178.i, 1
   %offset7.0.i = urem i64 %add.i, %39
-  %arrayidx.i94.i = getelementptr inbounds ptr, ptr %40, i64 %offset7.0.i
-  %51 = load ptr, ptr %arrayidx.i94.i, align 8
+  %arrayidx.i93.i = getelementptr inbounds ptr, ptr %40, i64 %offset7.0.i
+  %51 = load ptr, ptr %arrayidx.i93.i, align 8
   %tobool18.not.i = icmp eq ptr %51, null
   br i1 %tobool18.not.i, label %while.end.i, label %if.else.i, !llvm.loop !10
 
-while.end.i:                                      ; preds = %if.else27.i, %_ZNKSt4hashIN4pbrt22DenselySampledSpectrumEEclERKS1_.exit91.i
+while.end.i:                                      ; preds = %if.else27.i, %_ZNKSt4hashIN4pbrt22DenselySampledSpectrumEEclERKS1_.exit90.i
   %nEntries.i11 = getelementptr inbounds %"class.pbrt::InternCache", ptr %11, i64 0, i32 2
   %52 = load i64, ptr %nEntries.i11, align 8
   %mul.i = shl i64 %52, 2
@@ -1787,11 +1779,11 @@ if.then34.i:                                      ; preds = %while.end.i
   %retval.sroa.0.0.copyload.i.i = load ptr, ptr %hashTable.i7, align 8
   %53 = ptrtoint ptr %retval.sroa.0.0.copyload.i.i to i64
   store i64 %53, ptr %newHash.i, align 8
-  %ptr.i.i105.i = getelementptr inbounds %"class.pstd::vector", ptr %newHash.i, i64 0, i32 1
+  %ptr.i.i104.i = getelementptr inbounds %"class.pstd::vector", ptr %newHash.i, i64 0, i32 1
   %nAlloc.i.i.i13 = getelementptr inbounds %"class.pstd::vector", ptr %newHash.i, i64 0, i32 2
-  %nStored.i.i106.i = getelementptr inbounds %"class.pstd::vector", ptr %newHash.i, i64 0, i32 3
+  %nStored.i.i105.i = getelementptr inbounds %"class.pstd::vector", ptr %newHash.i, i64 0, i32 3
   %cmp.not.i.not.i.i.i = icmp eq i64 %mul37.i, 0
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ptr.i.i105.i, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ptr.i.i104.i, i8 0, i64 16, i1 false)
   br i1 %cmp.not.i.not.i.i.i, label %_ZN4pstd6vectorIPKN4pbrt22DenselySampledSpectrumENS_3pmr21polymorphic_allocatorIS4_EEEC2EmRKS7_.exit.i, label %if.end.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %if.then34.i
@@ -1809,23 +1801,23 @@ for.end.i.i.i.i14:                                ; preds = %if.end.i.i.i.i
 for.body.preheader.i.i.i17:                       ; preds = %for.end.i.i.i.i14, %if.end.i.i.i.i
   %55 = phi ptr [ null, %if.end.i.i.i.i ], [ %call.i.i.i.i.i.i.i26, %for.end.i.i.i.i14 ]
   store i64 %mul37.i, ptr %nAlloc.i.i.i13, align 8
-  store ptr %55, ptr %ptr.i.i105.i, align 8
+  store ptr %55, ptr %ptr.i.i104.i, align 8
   call void @llvm.memset.p0.i64(ptr align 8 %55, i8 0, i64 %mul.i.i.i.i.i, i1 false)
   %.pre.i = load ptr, ptr %ptr.i.i, align 8
-  %.pre182.i = load i64, ptr %nStored.i.i, align 8
+  %.pre181.i = load i64, ptr %nStored.i.i, align 8
   br label %_ZN4pstd6vectorIPKN4pbrt22DenselySampledSpectrumENS_3pmr21polymorphic_allocatorIS4_EEEC2EmRKS7_.exit.i
 
 _ZN4pstd6vectorIPKN4pbrt22DenselySampledSpectrumENS_3pmr21polymorphic_allocatorIS4_EEEC2EmRKS7_.exit.i: ; preds = %for.body.preheader.i.i.i17, %if.then34.i
-  %56 = phi i64 [ %.pre182.i, %for.body.preheader.i.i.i17 ], [ %39, %if.then34.i ]
+  %56 = phi i64 [ %.pre181.i, %for.body.preheader.i.i.i17 ], [ %39, %if.then34.i ]
   %57 = phi ptr [ %.pre.i, %for.body.preheader.i.i.i17 ], [ %40, %if.then34.i ]
-  store i64 %mul37.i, ptr %nStored.i.i106.i, align 8
+  store i64 %mul37.i, ptr %nStored.i.i105.i, align 8
   %add.ptr.i.i = getelementptr inbounds ptr, ptr %57, i64 %56
-  %cmp44.not169.i = icmp eq i64 %56, 0
-  br i1 %cmp44.not169.i, label %for.end.i, label %for.body.i
+  %cmp44.not168.i = icmp eq i64 %56, 0
+  br i1 %cmp44.not168.i, label %for.end.i, label %for.body.i
 
 for.body.i:                                       ; preds = %_ZN4pstd6vectorIPKN4pbrt22DenselySampledSpectrumENS_3pmr21polymorphic_allocatorIS4_EEEC2EmRKS7_.exit.i, %for.inc.i
-  %__begin0.0170.i = phi ptr [ %incdec.ptr.i, %for.inc.i ], [ %57, %_ZN4pstd6vectorIPKN4pbrt22DenselySampledSpectrumENS_3pmr21polymorphic_allocatorIS4_EEEC2EmRKS7_.exit.i ]
-  %58 = load ptr, ptr %__begin0.0170.i, align 8
+  %__begin0.0169.i = phi ptr [ %incdec.ptr.i, %for.inc.i ], [ %57, %_ZN4pstd6vectorIPKN4pbrt22DenselySampledSpectrumENS_3pmr21polymorphic_allocatorIS4_EEEC2EmRKS7_.exit.i ]
+  %58 = load ptr, ptr %__begin0.0169.i, align 8
   %tobool45.not.i = icmp eq ptr %58, null
   br i1 %tobool45.not.i, label %for.inc.i, label %if.then46.i
 
@@ -1834,34 +1826,34 @@ if.then46.i:                                      ; preds = %for.body.i
           to label %for.inc.i unwind label %lpad.loopexit.i
 
 lpad.loopexit.i:                                  ; preds = %if.then46.i
-  %lpad.loopexit150.i = landingpad { ptr, i32 }
+  %lpad.loopexit149.i = landingpad { ptr, i32 }
           cleanup
   br label %lpad.i23
 
 lpad.loopexit.split-lp.i:                         ; preds = %land.rhs.i.i
-  %lpad.loopexit.split-lp151.i = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp150.i = landingpad { ptr, i32 }
           cleanup
   br label %lpad.i23
 
 lpad.i23:                                         ; preds = %lpad.loopexit.split-lp.i, %lpad.loopexit.i
-  %lpad.phi.i = phi { ptr, i32 } [ %lpad.loopexit150.i, %lpad.loopexit.i ], [ %lpad.loopexit.split-lp151.i, %lpad.loopexit.split-lp.i ]
+  %lpad.phi.i = phi { ptr, i32 } [ %lpad.loopexit149.i, %lpad.loopexit.i ], [ %lpad.loopexit.split-lp150.i, %lpad.loopexit.split-lp.i ]
   call void @_ZN4pstd6vectorIPKN4pbrt22DenselySampledSpectrumENS_3pmr21polymorphic_allocatorIS4_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %newHash.i) #28
   br label %lpad5.body
 
 for.inc.i:                                        ; preds = %if.then46.i, %for.body.i
-  %incdec.ptr.i = getelementptr inbounds ptr, ptr %__begin0.0170.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds ptr, ptr %__begin0.0169.i, i64 1
   %cmp44.not.i = icmp eq ptr %incdec.ptr.i, %add.ptr.i.i
   br i1 %cmp44.not.i, label %for.end.loopexit.i, label %for.body.i
 
 for.end.loopexit.i:                               ; preds = %for.inc.i
-  %.pre183.i = load ptr, ptr %newHash.i, align 8
+  %.pre182.i = load ptr, ptr %newHash.i, align 8
   br label %for.end.i
 
 for.end.i:                                        ; preds = %for.end.loopexit.i, %_ZN4pstd6vectorIPKN4pbrt22DenselySampledSpectrumENS_3pmr21polymorphic_allocatorIS4_EEEC2EmRKS7_.exit.i
-  %59 = phi ptr [ %.pre183.i, %for.end.loopexit.i ], [ %retval.sroa.0.0.copyload.i.i, %_ZN4pstd6vectorIPKN4pbrt22DenselySampledSpectrumENS_3pmr21polymorphic_allocatorIS4_EEEC2EmRKS7_.exit.i ]
+  %59 = phi ptr [ %.pre182.i, %for.end.loopexit.i ], [ %retval.sroa.0.0.copyload.i.i, %_ZN4pstd6vectorIPKN4pbrt22DenselySampledSpectrumENS_3pmr21polymorphic_allocatorIS4_EEEC2EmRKS7_.exit.i ]
   %60 = load ptr, ptr %hashTable.i7, align 8
-  %cmp.i.i112.i = icmp eq ptr %60, %59
-  br i1 %cmp.i.i112.i, label %invoke.cont50.i, label %land.rhs.i.i
+  %cmp.i.i111.i = icmp eq ptr %60, %59
+  br i1 %cmp.i.i111.i, label %invoke.cont50.i, label %land.rhs.i.i
 
 land.rhs.i.i:                                     ; preds = %for.end.i
   invoke void @_ZN4pbrt8LogFatalIJRA21_KcEEEvNS_8LogLevelEPS1_iS5_DpOT_(i32 noundef 2, ptr noundef nonnull @.str.116, i32 noundef 992, ptr noundef nonnull @.str.32, ptr noundef nonnull align 1 dereferenceable(21) @.str.147) #29
@@ -1872,15 +1864,15 @@ land.rhs.i.i:                                     ; preds = %for.end.i
 
 invoke.cont50.i:                                  ; preds = %for.end.i
   %61 = load ptr, ptr %ptr.i.i, align 8
-  %62 = load ptr, ptr %ptr.i.i105.i, align 8
+  %62 = load ptr, ptr %ptr.i.i104.i, align 8
   store ptr %62, ptr %ptr.i.i, align 8
-  store ptr %61, ptr %ptr.i.i105.i, align 8
+  store ptr %61, ptr %ptr.i.i104.i, align 8
   %nAlloc.i.i = getelementptr inbounds %"class.pbrt::InternCache", ptr %11, i64 0, i32 3, i32 2
   %63 = load i64, ptr %nAlloc.i.i, align 8
   %64 = load <2 x i64>, ptr %nAlloc.i.i.i13, align 8
   store i64 %63, ptr %nAlloc.i.i.i13, align 8
   store <2 x i64> %64, ptr %nAlloc.i.i, align 8
-  store i64 0, ptr %nStored.i.i106.i, align 8
+  store i64 0, ptr %nStored.i.i105.i, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %61, null
   br i1 %tobool.not.i.i.i.i.i, label %if.end51.i, label %if.end.i.i.i.i.i
 
@@ -2001,47 +1993,47 @@ for.end.loopexit.i.i.i.i.i.i:                     ; preds = %for.body.i.i.i.i.i.
 if.else58.i:                                      ; preds = %if.else67.i, %if.else58.lr.ph.i
   %indvars.iv.i = phi i64 [ 1, %if.else58.lr.ph.i ], [ %indvars.iv.next.i, %if.else67.i ]
   %87 = phi ptr [ %24, %if.else58.lr.ph.i ], [ %94, %if.else67.i ]
-  %offset.0163.i = phi i64 [ %rem.i, %if.else58.lr.ph.i ], [ %rem73.i, %if.else67.i ]
+  %offset.0162.i = phi i64 [ %rem.i, %if.else58.lr.ph.i ], [ %rem73.i, %if.else67.i ]
   %88 = load i32, ptr %87, align 8
-  %cmp.not.i120.i = icmp eq i32 %88, %25
-  br i1 %cmp.not.i120.i, label %lor.lhs.false.i122.i, label %if.else67.i
+  %cmp.not.i119.i = icmp eq i32 %88, %25
+  br i1 %cmp.not.i119.i, label %lor.lhs.false.i121.i, label %if.else67.i
 
-lor.lhs.false.i122.i:                             ; preds = %if.else58.i
-  %lambda_max.i123.i = getelementptr inbounds %"class.pbrt::DenselySampledSpectrum", ptr %87, i64 0, i32 1
-  %89 = load i32, ptr %lambda_max.i123.i, align 4
-  %cmp4.not.i125.i = icmp eq i32 %89, %26
-  br i1 %cmp4.not.i125.i, label %lor.lhs.false5.i126.i, label %if.else67.i
+lor.lhs.false.i121.i:                             ; preds = %if.else58.i
+  %lambda_max.i122.i = getelementptr inbounds %"class.pbrt::DenselySampledSpectrum", ptr %87, i64 0, i32 1
+  %89 = load i32, ptr %lambda_max.i122.i, align 4
+  %cmp4.not.i124.i = icmp eq i32 %89, %26
+  br i1 %cmp4.not.i124.i, label %lor.lhs.false5.i125.i, label %if.else67.i
 
-lor.lhs.false5.i126.i:                            ; preds = %lor.lhs.false.i122.i
-  %nStored.i.i127.i = getelementptr inbounds %"class.pbrt::DenselySampledSpectrum", ptr %87, i64 0, i32 2, i32 3
-  %90 = load i64, ptr %nStored.i.i127.i, align 8
-  %cmp8.not.i129.i = icmp eq i64 %90, %27
-  br i1 %cmp8.not.i129.i, label %for.cond.preheader.i130.i, label %if.else67.i
+lor.lhs.false5.i125.i:                            ; preds = %lor.lhs.false.i121.i
+  %nStored.i.i126.i = getelementptr inbounds %"class.pbrt::DenselySampledSpectrum", ptr %87, i64 0, i32 2, i32 3
+  %90 = load i64, ptr %nStored.i.i126.i, align 8
+  %cmp8.not.i128.i = icmp eq i64 %90, %27
+  br i1 %cmp8.not.i128.i, label %for.cond.preheader.i129.i, label %if.else67.i
 
-for.cond.preheader.i130.i:                        ; preds = %lor.lhs.false5.i126.i
-  br i1 %cmp1111.not.i131.i, label %invoke.cont6, label %for.body.lr.ph.i132.i
+for.cond.preheader.i129.i:                        ; preds = %lor.lhs.false5.i125.i
+  br i1 %cmp1111.not.i130.i, label %invoke.cont6, label %for.body.lr.ph.i131.i
 
-for.body.lr.ph.i132.i:                            ; preds = %for.cond.preheader.i130.i
-  %ptr.i.i133.i = getelementptr inbounds %"class.pbrt::DenselySampledSpectrum", ptr %87, i64 0, i32 2, i32 1
-  %91 = load ptr, ptr %ptr.i.i133.i, align 8
-  br label %for.body.i135.i
+for.body.lr.ph.i131.i:                            ; preds = %for.cond.preheader.i129.i
+  %ptr.i.i132.i = getelementptr inbounds %"class.pbrt::DenselySampledSpectrum", ptr %87, i64 0, i32 2, i32 1
+  %91 = load ptr, ptr %ptr.i.i132.i, align 8
+  br label %for.body.i134.i
 
-for.cond.i140.i:                                  ; preds = %for.body.i135.i
-  %inc.i141.i = add nuw i64 %i.012.i136.i, 1
-  %exitcond.not.i142.i = icmp eq i64 %inc.i141.i, %27
-  br i1 %exitcond.not.i142.i, label %invoke.cont6, label %for.body.i135.i, !llvm.loop !9
+for.cond.i139.i:                                  ; preds = %for.body.i134.i
+  %inc.i140.i = add nuw i64 %i.012.i135.i, 1
+  %exitcond.not.i141.i = icmp eq i64 %inc.i140.i, %27
+  br i1 %exitcond.not.i141.i, label %invoke.cont6, label %for.body.i134.i, !llvm.loop !9
 
-for.body.i135.i:                                  ; preds = %for.cond.i140.i, %for.body.lr.ph.i132.i
-  %i.012.i136.i = phi i64 [ 0, %for.body.lr.ph.i132.i ], [ %inc.i141.i, %for.cond.i140.i ]
-  %arrayidx.i.i137.i = getelementptr inbounds float, ptr %91, i64 %i.012.i136.i
-  %92 = load float, ptr %arrayidx.i.i137.i, align 4
-  %arrayidx.i10.i138.i = getelementptr inbounds float, ptr %28, i64 %i.012.i136.i
-  %93 = load float, ptr %arrayidx.i10.i138.i, align 4
-  %cmp16.i139.i = fcmp oeq float %92, %93
-  br i1 %cmp16.i139.i, label %for.cond.i140.i, label %if.else67.i
+for.body.i134.i:                                  ; preds = %for.cond.i139.i, %for.body.lr.ph.i131.i
+  %i.012.i135.i = phi i64 [ 0, %for.body.lr.ph.i131.i ], [ %inc.i140.i, %for.cond.i139.i ]
+  %arrayidx.i.i136.i = getelementptr inbounds float, ptr %91, i64 %i.012.i135.i
+  %92 = load float, ptr %arrayidx.i.i136.i, align 4
+  %arrayidx.i10.i137.i = getelementptr inbounds float, ptr %28, i64 %i.012.i135.i
+  %93 = load float, ptr %arrayidx.i10.i137.i, align 4
+  %cmp16.i138.i = fcmp oeq float %92, %93
+  br i1 %cmp16.i138.i, label %for.cond.i139.i, label %if.else67.i
 
-if.else67.i:                                      ; preds = %for.body.i135.i, %lor.lhs.false5.i126.i, %lor.lhs.false.i122.i, %if.else58.i
-  %add69.i = add i64 %offset.0163.i, %indvars.iv.i
+if.else67.i:                                      ; preds = %for.body.i134.i, %lor.lhs.false5.i125.i, %lor.lhs.false.i121.i, %if.else58.i
+  %add69.i = add i64 %offset.0162.i, %indvars.iv.i
   %indvars.iv.next.i = add nuw i64 %indvars.iv.i, 1
   %rem73.i = urem i64 %add69.i, %29
   %arrayidx.i.i = getelementptr inbounds ptr, ptr %23, i64 %rem73.i
@@ -2049,9 +2041,9 @@ if.else67.i:                                      ; preds = %for.body.i135.i, %l
   %tobool.not.i9 = icmp eq ptr %94, null
   br i1 %tobool.not.i9, label %if.then.i10, label %if.else58.i, !llvm.loop !13
 
-invoke.cont6:                                     ; preds = %for.cond.preheader.i130.i, %for.cond.i140.i, %for.cond.preheader.i.i, %for.cond.i.i, %"_ZZN4pbrt9LightBase14LookupSpectrumENS_8SpectrumEENK3$_0clEN4pstd3pmr21polymorphic_allocatorISt4byteEERKNS_22DenselySampledSpectrumE.exit.i"
-  %retval.0.i = phi ptr [ %call.i.i.i.i.i.i28, %"_ZZN4pbrt9LightBase14LookupSpectrumENS_8SpectrumEENK3$_0clEN4pstd3pmr21polymorphic_allocatorISt4byteEERKNS_22DenselySampledSpectrumE.exit.i" ], [ %44, %for.cond.i.i ], [ %44, %for.cond.preheader.i.i ], [ %87, %for.cond.i140.i ], [ %87, %for.cond.preheader.i130.i ]
-  %call1.i.i.i.i146.i = call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %mutex.i8) #28
+invoke.cont6:                                     ; preds = %for.cond.preheader.i129.i, %for.cond.i139.i, %for.cond.preheader.i.i, %for.cond.i.i, %"_ZZN4pbrt9LightBase14LookupSpectrumENS_8SpectrumEENK3$_0clEN4pstd3pmr21polymorphic_allocatorISt4byteEERKNS_22DenselySampledSpectrumE.exit.i"
+  %retval.0.i = phi ptr [ %call.i.i.i.i.i.i28, %"_ZZN4pbrt9LightBase14LookupSpectrumENS_8SpectrumEENK3$_0clEN4pstd3pmr21polymorphic_allocatorISt4byteEERKNS_22DenselySampledSpectrumE.exit.i" ], [ %44, %for.cond.i.i ], [ %44, %for.cond.preheader.i.i ], [ %87, %for.cond.i139.i ], [ %87, %for.cond.preheader.i129.i ]
+  %call1.i.i.i.i145.i = call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %mutex.i8) #28
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %newHash.i)
   store i64 0, ptr %nStored.i.i.i5, align 8
   %95 = load ptr, ptr %ptr.i.i.i4, align 8
@@ -50459,7 +50451,7 @@ while.end.i.i.i:                                  ; preds = %while.body.i.i.i, %
   %h.0.lcssa.i.i.i = phi i64 [ %mul.i.i.i, %entry ], [ %mul7.i.i.i, %while.body.i.i.i ]
   %key.addr.0.lcssa.i.i.i = phi ptr [ %0, %entry ], [ %add.ptr.i.i.i, %while.body.i.i.i ]
   %and.i.i.i = and i64 %1, 7
-  switch i64 %and.i.i.i, label %while.end.unreachabledefault.i.i.i [
+  switch i64 %and.i.i.i, label %_ZNKSt4hashIN4pbrt22DenselySampledSpectrumEEclERKS1_.exit [
     i64 7, label %sw.bb.i.i.i
     i64 6, label %sw.bb9.i.i.i
     i64 5, label %sw.bb14.i.i.i
@@ -50467,7 +50459,6 @@ while.end.i.i.i:                                  ; preds = %while.body.i.i.i, %
     i64 3, label %sw.bb24.i.i.i
     i64 2, label %sw.bb29.i.i.i
     i64 1, label %sw.bb34.i.i.i
-    i64 0, label %_ZNKSt4hashIN4pbrt22DenselySampledSpectrumEEclERKS1_.exit
   ]
 
 sw.bb.i.i.i:                                      ; preds = %while.end.i.i.i
@@ -50530,9 +50521,6 @@ sw.bb34.i.i.i:                                    ; preds = %sw.bb29.i.i.i, %whi
   %xor37.i.i.i = xor i64 %h.6.i.i.i, %conv36.i.i.i
   %mul38.i.i.i = mul i64 %xor37.i.i.i, -4132994306676758123
   br label %_ZNKSt4hashIN4pbrt22DenselySampledSpectrumEEclERKS1_.exit
-
-while.end.unreachabledefault.i.i.i:               ; preds = %while.end.i.i.i
-  unreachable
 
 _ZNKSt4hashIN4pbrt22DenselySampledSpectrumEEclERKS1_.exit: ; preds = %while.end.i.i.i, %sw.bb34.i.i.i
   %h.7.i.i.i = phi i64 [ %h.0.lcssa.i.i.i, %while.end.i.i.i ], [ %mul38.i.i.i, %sw.bb34.i.i.i ]

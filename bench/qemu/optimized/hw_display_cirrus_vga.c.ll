@@ -847,11 +847,10 @@ for.body.i:                                       ; preds = %for.body.i.preheade
   %and10.i = shl nuw nsw i32 %shr9.i, 1
   %shl.i80 = and i32 %and10.i, 2
   %or.i81 = or disjoint i32 %shl.i80, %and2.i
-  switch i32 %or.i81, label %for.body.unreachabledefault.i [
+  switch i32 %or.i81, label %sw.epilog.i [
     i32 3, label %sw.bb15.i
     i32 1, label %sw.bb11.i
     i32 2, label %sw.epilog.sink.split.i
-    i32 0, label %sw.epilog.i
   ]
 
 sw.bb11.i:                                        ; preds = %for.body.i
@@ -861,9 +860,6 @@ sw.bb11.i:                                        ; preds = %for.body.i
 
 sw.bb15.i:                                        ; preds = %for.body.i
   br label %sw.epilog.sink.split.i
-
-for.body.unreachabledefault.i:                    ; preds = %for.body.i
-  unreachable
 
 sw.epilog.sink.split.i:                           ; preds = %sw.bb15.i, %sw.bb11.i, %for.body.i
   %color1.sink.i = phi i32 [ %or2.i78, %sw.bb15.i ], [ %xor.i, %sw.bb11.i ], [ %or2.i, %for.body.i ]
@@ -2622,7 +2618,7 @@ trace_vga_cirrus_bitblt_start.exit:               ; preds = %if.end, %land.lhs.t
   %31 = lshr i8 %30, 4
   %32 = and i8 %31, 3
   %cirrus_blt_pixelwidth = getelementptr inbounds %struct.CirrusVGAState, ptr %s, i64 0, i32 20
-  switch i8 %32, label %if.end.unreachabledefault [
+  switch i8 %32, label %default.unreachable [
     i8 0, label %sw.epilog
     i8 1, label %sw.bb101
     i8 2, label %sw.bb103
@@ -2638,7 +2634,7 @@ sw.bb103:                                         ; preds = %trace_vga_cirrus_bi
 sw.bb105:                                         ; preds = %trace_vga_cirrus_bitblt_start.exit
   br label %sw.epilog
 
-if.end.unreachabledefault:                        ; preds = %trace_vga_cirrus_bitblt_start.exit
+default.unreachable:                              ; preds = %trace_vga_cirrus_bitblt_start.exit
   unreachable
 
 sw.epilog:                                        ; preds = %trace_vga_cirrus_bitblt_start.exit, %sw.bb105, %sw.bb103, %sw.bb101

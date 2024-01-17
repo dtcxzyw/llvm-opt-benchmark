@@ -1768,11 +1768,10 @@ entry:
   %arrayidx5 = getelementptr i8, ptr %buf, i64 6
   %7 = load i8, ptr %arrayidx5, align 1
   %conv6 = zext i8 %7 to i32
-  switch i8 %3, label %entry.unreachabledefault [
+  switch i8 %3, label %error_cmd [
     i8 0, label %sw.bb
     i8 1, label %sw.bb10
     i8 2, label %sw.bb14
-    i8 3, label %error_cmd
   ]
 
 sw.bb:                                            ; preds = %entry
@@ -1897,9 +1896,6 @@ if.else.i52:                                      ; preds = %if.end20
   store i32 0, ptr %io_buffer_index.i54, align 8
   tail call void @ide_atapi_cmd_reply_end(ptr noundef nonnull %s)
   br label %sw.epilog
-
-entry.unreachabledefault:                         ; preds = %entry
-  unreachable
 
 error_cmd:                                        ; preds = %entry, %sw.bb14, %sw.bb
   tail call void @ide_atapi_cmd_error(ptr noundef nonnull %s, i32 noundef 5, i32 noundef 36)
@@ -2224,11 +2220,10 @@ entry:
   %1 = load i8, ptr %arrayidx, align 1
   %conv = zext i8 %1 to i32
   %shr = lshr i32 %conv, 6
-  switch i32 %shr, label %entry.unreachabledefault [
+  switch i32 %shr, label %sw.bb66 [
     i32 0, label %sw.bb
     i32 1, label %error_cmd
     i32 2, label %error_cmd
-    i32 3, label %sw.bb66
   ]
 
 sw.bb:                                            ; preds = %entry
@@ -2399,9 +2394,6 @@ if.else.i95:                                      ; preds = %sw.bb33
   store i32 0, ptr %io_buffer_index.i97, align 8
   tail call void @ide_atapi_cmd_reply_end(ptr noundef nonnull %s)
   br label %return
-
-entry.unreachabledefault:                         ; preds = %entry
-  unreachable
 
 sw.bb66:                                          ; preds = %entry
   tail call void @ide_atapi_cmd_error(ptr noundef %s, i32 noundef 5, i32 noundef 57)

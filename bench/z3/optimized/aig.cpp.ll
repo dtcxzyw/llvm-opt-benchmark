@@ -11532,11 +11532,10 @@ if.then14:                                        ; preds = %if.end13
   store i8 %bf.clear17, ptr %m_first, align 8
   store i8 1, ptr %visited, align 1
   %bf.clear19 = and i8 %bf.load, 3
-  switch i8 %bf.clear19, label %default.unreachable146 [
+  switch i8 %bf.clear19, label %sw.default [
     i8 0, label %sw.bb
     i8 1, label %sw.bb
     i8 2, label %sw.bb27
-    i8 3, label %sw.default
   ]
 
 sw.bb:                                            ; preds = %if.then14, %if.then14
@@ -11762,9 +11761,6 @@ _ZN6vectorIN11aig_manager3imp8aig2expr5frameELb0EjE9push_backEOS3_.exit.i107: ; 
   store i8 0, ptr %visited, align 1
   br label %sw.epilog
 
-default.unreachable146:                           ; preds = %if.end75, %if.then14
-  unreachable
-
 sw.default:                                       ; preds = %if.then14
   call void @_Z26notify_assertion_violationPKciS0_(ptr noundef nonnull @.str.6, i32 noundef 930, ptr noundef nonnull @.str.5)
   call void @exit(i32 noundef 114) #21
@@ -11783,11 +11779,10 @@ sw.epilog.if.end75_crit_edge:                     ; preds = %sw.epilog
 if.end75:                                         ; preds = %sw.epilog.if.end75_crit_edge, %if.end13
   %bf.load77 = phi i8 [ %bf.load77.pre, %sw.epilog.if.end75_crit_edge ], [ %bf.load, %if.end13 ]
   %bf.clear78 = and i8 %bf.load77, 3
-  switch i8 %bf.clear78, label %default.unreachable146 [
+  switch i8 %bf.clear78, label %sw.default83 [
     i8 1, label %while.cond.backedge.sink.split
     i8 0, label %sw.bb81
     i8 2, label %sw.bb82
-    i8 3, label %sw.default83
   ]
 
 sw.bb81:                                          ; preds = %if.end75

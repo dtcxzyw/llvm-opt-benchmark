@@ -5751,14 +5751,14 @@ if.end7:                                          ; preds = %ZSTDv06_frameHeader
 
 if.end13:                                         ; preds = %if.end7
   %shr = lshr i32 %conv, 6
-  switch i32 %shr, label %if.end13.unreachabledefault [
+  switch i32 %shr, label %default.unreachable16 [
     i32 0, label %return.sink.split
     i32 1, label %sw.bb15
     i32 2, label %sw.bb19
     i32 3, label %sw.bb25
   ]
 
-if.end13.unreachabledefault:                      ; preds = %if.end13
+default.unreachable16:                            ; preds = %if.end13
   unreachable
 
 sw.bb15:                                          ; preds = %if.end13
@@ -5832,7 +5832,7 @@ if.end.i:                                         ; preds = %if.end
   %0 = load i8, ptr %src, align 1
   %conv.i = zext i8 %0 to i32
   %shr.i = lshr i32 %conv.i, 6
-  switch i32 %shr.i, label %if.end.unreachabledefault.i [
+  switch i32 %shr.i, label %default.unreachable [
     i32 0, label %sw.bb.i
     i32 1, label %sw.bb104.i
     i32 2, label %sw.bb162.i
@@ -5916,11 +5916,11 @@ if.end79.thread.i:                                ; preds = %if.end7.i
   %7 = load i8, ptr %arrayidx46.i, align 1
   %conv47.i = zext i8 %7 to i32
   %add48.i = or disjoint i32 %shl45.i, %conv47.i
-  %litSize.0113152.i = zext nneg i32 %add40.i to i64
-  %litCSize.0114153.i = zext nneg i32 %add48.i to i64
-  %add81154.i = add nuw nsw i64 %litCSize.0114153.i, 4
-  %cmp82155.i = icmp ugt i64 %add81154.i, %srcSize
-  br i1 %cmp82155.i, label %return, label %cond.false.i
+  %litSize.0113153.i = zext nneg i32 %add40.i to i64
+  %litCSize.0114154.i = zext nneg i32 %add48.i to i64
+  %add81155.i = add nuw nsw i64 %litCSize.0114154.i, 4
+  %cmp82156.i = icmp ugt i64 %add81155.i, %srcSize
+  br i1 %cmp82156.i, label %return, label %cond.false.i
 
 if.end85.i:                                       ; preds = %if.end79.i
   %and11.i = and i32 %conv.i, 16
@@ -5934,10 +5934,10 @@ cond.true.i:                                      ; preds = %if.end85.i
   br label %cond.end.i
 
 cond.false.i:                                     ; preds = %if.end85.i, %if.end79.thread.i, %sw.epilog.i
-  %litCSize.0119126141.i = phi i64 [ %litCSize.0114.i, %if.end85.i ], [ %litCSize.0.i, %sw.epilog.i ], [ %litCSize.0114153.i, %if.end79.thread.i ]
-  %litSize.0118127140.i = phi i64 [ %litSize.0113.i, %if.end85.i ], [ %litSize.0.i, %sw.epilog.i ], [ %litSize.0113152.i, %if.end79.thread.i ]
+  %litCSize.0119126141.i = phi i64 [ %litCSize.0114.i, %if.end85.i ], [ %litCSize.0.i, %sw.epilog.i ], [ %litCSize.0114154.i, %if.end79.thread.i ]
+  %litSize.0118127140.i = phi i64 [ %litSize.0113.i, %if.end85.i ], [ %litSize.0.i, %sw.epilog.i ], [ %litSize.0113153.i, %if.end79.thread.i ]
   %lhSize.0117128138.i = phi i64 [ 3, %if.end85.i ], [ 5, %sw.epilog.i ], [ 4, %if.end79.thread.i ]
-  %add81130137.i = phi i64 [ %add81.i, %if.end85.i ], [ %add81124.i, %sw.epilog.i ], [ %add81154.i, %if.end79.thread.i ]
+  %add81130137.i = phi i64 [ %add81.i, %if.end85.i ], [ %add81124.i, %sw.epilog.i ], [ %add81155.i, %if.end79.thread.i ]
   %litBuffer86.i = getelementptr inbounds %struct.ZSTDv06_DCtx_s, ptr %dctx, i64 0, i32 16
   %add.ptr89.i = getelementptr inbounds i8, ptr %src, i64 %lhSize.0117128138.i
   %call90.i = tail call i64 @HUFv06_decompress(ptr noundef nonnull %litBuffer86.i, i64 noundef %litSize.0118127140.i, ptr noundef nonnull %add.ptr89.i, i64 noundef %litCSize.0119126141.i)
@@ -6134,7 +6134,7 @@ if.end274.i:                                      ; preds = %sw.bb253.i, %sw.bb2
   %conv285.i = zext nneg i32 %add284.i to i64
   br label %if.end3
 
-if.end.unreachabledefault.i:                      ; preds = %if.end.i
+default.unreachable:                              ; preds = %if.end.i
   unreachable
 
 if.end3:                                          ; preds = %if.end274.i, %if.end224.i, %if.end209.i, %if.end151.i, %if.end94.i
@@ -7203,14 +7203,14 @@ if.end7.i.i:                                      ; preds = %if.end7
 
 if.end13.i.i:                                     ; preds = %if.end7.i.i
   %shr.i.i = lshr i32 %conv.i.i, 6
-  switch i32 %shr.i.i, label %if.end13.unreachabledefault.i.i [
+  switch i32 %shr.i.i, label %default.unreachable [
     i32 0, label %if.end11
     i32 1, label %sw.bb15.i.i
     i32 2, label %sw.bb19.i.i
     i32 3, label %sw.bb25.i.i
   ]
 
-if.end13.unreachabledefault.i.i:                  ; preds = %if.end13.i.i
+default.unreachable:                              ; preds = %if.end13.i.i
   unreachable
 
 sw.bb15.i.i:                                      ; preds = %if.end13.i.i
@@ -7236,10 +7236,10 @@ if.end11:                                         ; preds = %sw.bb25.i.i, %sw.bb
   store i64 %.sink.i.i, ptr %fParams.i, align 8
   %add.ptr12 = getelementptr inbounds i8, ptr %src, i64 %add.i
   %sub.ptr.lhs.cast = ptrtoint ptr %add.ptr to i64
-  %sub.ptr.rhs.cast76 = ptrtoint ptr %add.ptr12 to i64
-  %sub.ptr.sub77 = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast76
-  %cmp.i4078 = icmp ult i64 %sub.ptr.sub77, 3
-  br i1 %cmp.i4078, label %return, label %if.end.i.lr.ph
+  %sub.ptr.rhs.cast75 = ptrtoint ptr %add.ptr12 to i64
+  %sub.ptr.sub76 = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast75
+  %cmp.i4077 = icmp ult i64 %sub.ptr.sub76, 3
+  br i1 %cmp.i4077, label %return, label %if.end.i.lr.ph
 
 if.end.i.lr.ph:                                   ; preds = %if.end11
   %sub = sub i64 %srcSize, %add.i
@@ -7247,10 +7247,10 @@ if.end.i.lr.ph:                                   ; preds = %if.end11
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.end.i.lr.ph, %if.end43
-  %ip.081 = phi ptr [ %add.ptr12, %if.end.i.lr.ph ], [ %add.ptr45, %if.end43 ]
-  %remainingSize.080 = phi i64 [ %sub, %if.end.i.lr.ph ], [ %sub46, %if.end43 ]
-  %op.079 = phi ptr [ %dst, %if.end.i.lr.ph ], [ %add.ptr44, %if.end43 ]
-  %5 = load i8, ptr %ip.081, align 1
+  %ip.080 = phi ptr [ %add.ptr12, %if.end.i.lr.ph ], [ %add.ptr45, %if.end43 ]
+  %remainingSize.079 = phi i64 [ %sub, %if.end.i.lr.ph ], [ %sub46, %if.end43 ]
+  %op.078 = phi ptr [ %dst, %if.end.i.lr.ph ], [ %add.ptr44, %if.end43 ]
+  %5 = load i8, ptr %ip.080, align 1
   %6 = lshr i8 %5, 6
   switch i8 %6, label %if.end20.i [
     i8 3, label %if.end22.thread
@@ -7258,18 +7258,18 @@ if.end.i:                                         ; preds = %if.end.i.lr.ph, %if
   ]
 
 if.end22.thread:                                  ; preds = %if.end.i
-  %tobool34.not = icmp eq i64 %remainingSize.080, 3
+  %tobool34.not = icmp eq i64 %remainingSize.079, 3
   br i1 %tobool34.not, label %sw.epilog, label %return
 
 if.end20.i:                                       ; preds = %if.end.i
   %7 = and i8 %5, 7
   %and.i = zext nneg i8 %7 to i64
   %shl6.i = shl nuw nsw i64 %and.i, 16
-  %arrayidx2.i = getelementptr inbounds i8, ptr %ip.081, i64 1
+  %arrayidx2.i = getelementptr inbounds i8, ptr %ip.080, i64 1
   %8 = load i8, ptr %arrayidx2.i, align 1
   %conv3.i = zext i8 %8 to i64
   %shl.i = shl nuw nsw i64 %conv3.i, 8
-  %arrayidx.i41 = getelementptr inbounds i8, ptr %ip.081, i64 2
+  %arrayidx.i41 = getelementptr inbounds i8, ptr %ip.080, i64 2
   %9 = load i8, ptr %arrayidx.i41, align 1
   %conv1.i = zext i8 %9 to i64
   %add.i42 = or disjoint i64 %shl.i, %conv1.i
@@ -7278,34 +7278,33 @@ if.end20.i:                                       ; preds = %if.end.i
 
 if.end17:                                         ; preds = %if.end.i, %if.end20.i
   %retval.0.i.ph = phi i64 [ %add7.i, %if.end20.i ], [ 1, %if.end.i ]
-  %add.ptr18 = getelementptr inbounds i8, ptr %ip.081, i64 3
-  %sub19 = add i64 %remainingSize.080, -3
+  %add.ptr18 = getelementptr inbounds i8, ptr %ip.080, i64 3
+  %sub19 = add i64 %remainingSize.079, -3
   %cmp20 = icmp ugt i64 %retval.0.i.ph, %sub19
   br i1 %cmp20, label %return, label %if.end22
 
 if.end22:                                         ; preds = %if.end17
-  switch i8 %6, label %if.end22.unreachabledefault [
+  switch i8 %6, label %return [
     i8 0, label %sw.bb
     i8 1, label %sw.bb27
-    i8 2, label %return
   ]
 
 sw.bb:                                            ; preds = %if.end22
-  %sub.ptr.rhs.cast24 = ptrtoint ptr %op.079 to i64
+  %sub.ptr.rhs.cast24 = ptrtoint ptr %op.078 to i64
   %sub.ptr.sub25 = sub i64 %sub.ptr.lhs.cast28, %sub.ptr.rhs.cast24
-  %call26 = tail call fastcc i64 @ZSTDv06_decompressBlock_internal(ptr noundef %dctx, ptr noundef %op.079, i64 noundef %sub.ptr.sub25, ptr noundef nonnull %add.ptr18, i64 noundef %retval.0.i.ph)
+  %call26 = tail call fastcc i64 @ZSTDv06_decompressBlock_internal(ptr noundef %dctx, ptr noundef %op.078, i64 noundef %sub.ptr.sub25, ptr noundef nonnull %add.ptr18, i64 noundef %retval.0.i.ph)
   br label %sw.epilog
 
 sw.bb27:                                          ; preds = %if.end22
-  %sub.ptr.rhs.cast29 = ptrtoint ptr %op.079 to i64
+  %sub.ptr.rhs.cast29 = ptrtoint ptr %op.078 to i64
   %sub.ptr.sub30 = sub i64 %sub.ptr.lhs.cast28, %sub.ptr.rhs.cast29
-  %cmp.i45 = icmp eq ptr %op.079, null
+  %cmp.i45 = icmp eq ptr %op.078, null
   %cmp1.i = icmp ugt i64 %retval.0.i.ph, %sub.ptr.sub30
   %or.cond.i = or i1 %cmp.i45, %cmp1.i
   br i1 %or.cond.i, label %sw.epilog.thread, label %if.end3.i
 
 if.end3.i:                                        ; preds = %sw.bb27
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %op.079, ptr nonnull align 1 %add.ptr18, i64 %retval.0.i.ph, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %op.078, ptr nonnull align 1 %add.ptr18, i64 %retval.0.i.ph, i1 false)
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %if.end3.i, %if.end22.thread, %sw.bb
@@ -7316,16 +7315,16 @@ sw.epilog:                                        ; preds = %if.end3.i, %if.end2
   br i1 %cmp37, label %while.end, label %if.end39
 
 sw.epilog.thread:                                 ; preds = %sw.bb27
-  %cmp3792 = icmp eq i64 %retval.0.i.ph, 0
-  br i1 %cmp3792, label %while.end, label %return
+  %cmp3790 = icmp eq i64 %retval.0.i.ph, 0
+  br i1 %cmp3790, label %while.end, label %return
 
 if.end39:                                         ; preds = %sw.epilog
   %cmp.i47 = icmp ult i64 %decodedSize.0, -119
   br i1 %cmp.i47, label %if.end43, label %return
 
 if.end43:                                         ; preds = %if.end39
-  %10 = getelementptr inbounds i8, ptr %ip.081, i64 3
-  %add.ptr44 = getelementptr inbounds i8, ptr %op.079, i64 %decodedSize.0
+  %10 = getelementptr inbounds i8, ptr %ip.080, i64 3
+  %add.ptr44 = getelementptr inbounds i8, ptr %op.078, i64 %decodedSize.0
   %add.ptr45 = getelementptr inbounds i8, ptr %10, i64 %retval.0.i.ph63
   %sub46 = sub i64 %sub196569, %retval.0.i.ph63
   %sub.ptr.rhs.cast = ptrtoint ptr %add.ptr45 to i64
@@ -7334,16 +7333,13 @@ if.end43:                                         ; preds = %if.end39
   br i1 %cmp.i40, label %return, label %if.end.i
 
 while.end:                                        ; preds = %sw.epilog, %sw.epilog.thread
-  %sub.ptr.lhs.cast47 = ptrtoint ptr %op.079 to i64
+  %sub.ptr.lhs.cast47 = ptrtoint ptr %op.078 to i64
   %sub.ptr.rhs.cast48 = ptrtoint ptr %dst to i64
   %sub.ptr.sub49 = sub i64 %sub.ptr.lhs.cast47, %sub.ptr.rhs.cast48
   br label %return
 
-if.end22.unreachabledefault:                      ; preds = %if.end22
-  unreachable
-
-return:                                           ; preds = %if.end22, %if.end17, %if.end22.thread, %if.end39, %if.end43, %sw.epilog.thread, %if.end11, %if.end7.i.i, %if.end7, %if.end4, %if.end, %entry, %while.end
-  %retval.0 = phi i64 [ %sub.ptr.sub49, %while.end ], [ -72, %entry ], [ %add.i, %if.end ], [ -72, %if.end4 ], [ -20, %if.end7 ], [ -20, %if.end7.i.i ], [ -72, %if.end11 ], [ -70, %sw.epilog.thread ], [ -72, %if.end17 ], [ -72, %if.end22.thread ], [ %decodedSize.0, %if.end39 ], [ -1, %if.end22 ], [ -72, %if.end43 ]
+return:                                           ; preds = %if.end17, %if.end22.thread, %if.end22, %if.end39, %if.end43, %sw.epilog.thread, %if.end11, %if.end7.i.i, %if.end7, %if.end4, %if.end, %entry, %while.end
+  %retval.0 = phi i64 [ %sub.ptr.sub49, %while.end ], [ -72, %entry ], [ %add.i, %if.end ], [ -72, %if.end4 ], [ -20, %if.end7 ], [ -20, %if.end7.i.i ], [ -72, %if.end11 ], [ -70, %sw.epilog.thread ], [ -72, %if.end17 ], [ -72, %if.end22.thread ], [ -1, %if.end22 ], [ %decodedSize.0, %if.end39 ], [ -72, %if.end43 ]
   ret i64 %retval.0
 }
 
@@ -8020,14 +8016,14 @@ if.end7.i.i:                                      ; preds = %ZSTDv06_frameHeader
 
 if.end13.i.i:                                     ; preds = %if.end7.i.i
   %shr.i.i = lshr i32 %conv.i.i, 6
-  switch i32 %shr.i.i, label %if.end13.unreachabledefault.i.i [
+  switch i32 %shr.i.i, label %default.unreachable [
     i32 0, label %return.sink.split.i.i
     i32 1, label %sw.bb15.i.i
     i32 2, label %sw.bb19.i.i
     i32 3, label %sw.bb25.i.i
   ]
 
-if.end13.unreachabledefault.i.i:                  ; preds = %if.end13.i.i
+default.unreachable:                              ; preds = %if.end13.i.i
   unreachable
 
 sw.bb15.i.i:                                      ; preds = %if.end13.i.i
@@ -8332,14 +8328,14 @@ if.end7.i:                                        ; preds = %ZSTDv06_frameHeader
 
 if.end13.i:                                       ; preds = %if.end7.i
   %shr.i = lshr i32 %conv.i, 6
-  switch i32 %shr.i, label %if.end13.unreachabledefault.i [
+  switch i32 %shr.i, label %default.unreachable [
     i32 0, label %if.end33
     i32 1, label %sw.bb15.i
     i32 2, label %sw.bb19.i
     i32 3, label %sw.bb25.i
   ]
 
-if.end13.unreachabledefault.i:                    ; preds = %if.end13.i
+default.unreachable:                              ; preds = %if.end13.i
   unreachable
 
 sw.bb15.i:                                        ; preds = %if.end13.i

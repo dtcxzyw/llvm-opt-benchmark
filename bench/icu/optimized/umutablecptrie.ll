@@ -2990,15 +2990,15 @@ if.else.i186.i.i.i:                               ; preds = %do.body102.i.i.i
 if.else6.i189.i.i.i:                              ; preds = %if.else.i186.i.i.i
   %cmp7.i190.i.i.i = icmp ult i32 %sub.i184.i.i.i, 131071
   %..i = select i1 %cmp7.i190.i.i.i, i32 17, i32 21
-  %.283.i = select i1 %cmp7.i190.i.i.i, i32 131071, i32 2097151
-  %.284.i = select i1 %cmp7.i190.i.i.i, i32 200003, i32 1500007
+  %.282.i = select i1 %cmp7.i190.i.i.i, i32 131071, i32 2097151
+  %.283.i = select i1 %cmp7.i190.i.i.i, i32 200003, i32 1500007
   br label %if.end15.i193.i.i.i
 
 if.end15.i193.i.i.i:                              ; preds = %if.else6.i189.i.i.i, %if.else.i186.i.i.i, %do.body102.i.i.i
-  %.sink282.i = phi i32 [ 12, %do.body102.i.i.i ], [ 15, %if.else.i186.i.i.i ], [ %..i, %if.else6.i189.i.i.i ]
-  %.sink.i = phi i32 [ 4095, %do.body102.i.i.i ], [ 32767, %if.else.i186.i.i.i ], [ %.283.i, %if.else6.i189.i.i.i ]
-  %newLength.0.i194.i.i.i = phi i32 [ 6007, %do.body102.i.i.i ], [ 50021, %if.else.i186.i.i.i ], [ %.284.i, %if.else6.i189.i.i.i ]
-  store i32 %.sink282.i, ptr %shift.i.i175.i.i, align 8
+  %.sink281.i = phi i32 [ 12, %do.body102.i.i.i ], [ 15, %if.else.i186.i.i.i ], [ %..i, %if.else6.i189.i.i.i ]
+  %.sink.i = phi i32 [ 4095, %do.body102.i.i.i ], [ 32767, %if.else.i186.i.i.i ], [ %.282.i, %if.else6.i189.i.i.i ]
+  %newLength.0.i194.i.i.i = phi i32 [ 6007, %do.body102.i.i.i ], [ 50021, %if.else.i186.i.i.i ], [ %.283.i, %if.else6.i189.i.i.i ]
+  store i32 %.sink281.i, ptr %shift.i.i175.i.i, align 8
   store i32 %.sink.i, ptr %mask.i.i176.i.i, align 4
   %cmp16.i196.i.i.i = icmp ugt i32 %newLength.0.i194.i.i.i, %135
   br i1 %cmp16.i196.i.i.i, label %if.then17.i206.i.i.i, label %if.end15.if.end24_crit_edge.i198.i.i.i
@@ -3909,11 +3909,10 @@ if.else103.i:                                     ; preds = %if.else.i
   %303 = load i32, ptr %dataLength104.i, align 4
   %add105.i = add nsw i32 %303, %mul.i
   %and106.i = and i32 %add105.i, 3
-  switch i32 %and106.i, label %default.unreachable [
+  switch i32 %and106.i, label %if.else103.i.while.body.lr.ph.i_crit_edge [
     i32 0, label %land.lhs.true108.i
     i32 3, label %land.lhs.true127.i
     i32 2, label %while.end.i
-    i32 1, label %if.else103.i.while.body.lr.ph.i_crit_edge
   ]
 
 if.else103.i.while.body.lr.ph.i_crit_edge:        ; preds = %if.else103.i
@@ -3955,9 +3954,6 @@ if.then135.i:                                     ; preds = %land.lhs.true127.i
   store i32 %inc139.i, ptr %dataLength104.i, align 4
   store i32 %315, ptr %312, align 4
   br label %if.end165.i
-
-default.unreachable:                              ; preds = %if.else103.i
-  unreachable
 
 while.body.lr.ph.i:                               ; preds = %if.else103.i.while.body.lr.ph.i_crit_edge, %land.lhs.true127.i, %land.lhs.true116.i, %land.lhs.true108.i
   %.pre241.i = phi i32 [ %.pre241.i.pre, %if.else103.i.while.body.lr.ph.i_crit_edge ], [ %314, %land.lhs.true127.i ], [ %.pre241.i.pre63, %land.lhs.true116.i ], [ %.pre241.i.pre63, %land.lhs.true108.i ]

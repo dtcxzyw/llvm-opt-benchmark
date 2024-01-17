@@ -41,11 +41,10 @@ for.body:                                         ; preds = %for.body.preheader,
 for.end:                                          ; preds = %for.body, %entry
   %h1.0.lcssa = phi i32 [ 0, %entry ], [ %add, %for.body ]
   %and = and i64 %length, 3
-  switch i64 %and, label %for.end.unreachabledefault [
+  switch i64 %and, label %sw.epilog [
     i64 3, label %sw.bb
     i64 2, label %sw.bb12
     i64 1, label %sw.bb17
-    i64 0, label %sw.epilog
   ]
 
 sw.bb:                                            ; preds = %for.end
@@ -55,7 +54,7 @@ sw.bb:                                            ; preds = %for.end
   %shl = shl nuw nsw i32 %conv10, 16
   br label %sw.bb12
 
-sw.bb12:                                          ; preds = %for.end, %sw.bb
+sw.bb12:                                          ; preds = %sw.bb, %for.end
   %k19.0 = phi i32 [ 0, %for.end ], [ %shl, %sw.bb ]
   %arrayidx13 = getelementptr inbounds i8, ptr %add.ptr, i64 1
   %4 = load i8, ptr %arrayidx13, align 1
@@ -64,7 +63,7 @@ sw.bb12:                                          ; preds = %for.end, %sw.bb
   %xor16 = or disjoint i32 %shl15, %k19.0
   br label %sw.bb17
 
-sw.bb17:                                          ; preds = %for.end, %sw.bb12
+sw.bb17:                                          ; preds = %sw.bb12, %for.end
   %k19.1 = phi i32 [ 0, %for.end ], [ %xor16, %sw.bb12 ]
   %5 = load i8, ptr %add.ptr, align 1
   %conv19 = zext i8 %5 to i32
@@ -77,10 +76,7 @@ sw.bb17:                                          ; preds = %for.end, %sw.bb12
   %xor24 = xor i32 %mul23, %h1.0.lcssa
   br label %sw.epilog
 
-for.end.unreachabledefault:                       ; preds = %for.end
-  unreachable
-
-sw.epilog:                                        ; preds = %for.end, %sw.bb17
+sw.epilog:                                        ; preds = %sw.bb17, %for.end
   %h1.1 = phi i32 [ %h1.0.lcssa, %for.end ], [ %xor24, %sw.bb17 ]
   %6 = trunc i64 %length to i32
   %conv27 = xor i32 %h1.1, %6

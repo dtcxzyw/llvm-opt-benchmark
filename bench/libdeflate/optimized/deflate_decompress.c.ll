@@ -224,11 +224,10 @@ do.end53:                                         ; preds = %if.end51, %while.co
   %1 = trunc i64 %bitbuf.3 to i32
   %2 = lshr i32 %1, 1
   %conv58 = and i32 %2, 3
-  switch i32 %conv58, label %do.end53.unreachabledefault [
+  switch i32 %conv58, label %return [
     i32 2, label %if.then61
     i32 0, label %if.then429
     i32 1, label %if.end537
-    i32 3, label %return
   ]
 
 if.then61:                                        ; preds = %do.end53
@@ -1315,10 +1314,7 @@ if.else1332:                                      ; preds = %if.end1326
 if.end1337:                                       ; preds = %if.else1332, %if.then1328
   br label %return
 
-do.end53.unreachabledefault:                      ; preds = %do.end53
-  unreachable
-
-return:                                           ; preds = %do.end53, %if.end612, %if.end601, %if.end500, %if.end486, %if.end466, %if.end446, %if.then429, %do.end412, %for.end, %if.else39, %if.else129, %if.then280, %if.end897, %if.end1244, %if.end1190, %if.then1167, %if.else239, %if.else1110, %if.else1332, %if.end1299, %if.end1337
+return:                                           ; preds = %if.end612, %if.end601, %do.end53, %if.end500, %if.end486, %if.end466, %if.end446, %if.then429, %do.end412, %for.end, %if.else39, %if.else129, %if.then280, %if.end897, %if.end1244, %if.end1190, %if.then1167, %if.else239, %if.else1110, %if.else1332, %if.end1299, %if.end1337
   %retval.0 = phi i32 [ 0, %if.end1337 ], [ 1, %if.end1299 ], [ 2, %if.else1332 ], [ 1, %if.else1110 ], [ 1, %if.else239 ], [ 1, %if.end1244 ], [ 3, %if.end1190 ], [ 3, %if.then1167 ], [ 1, %if.end897 ], [ 1, %if.then280 ], [ 1, %if.else129 ], [ 1, %if.else39 ], [ 1, %if.end612 ], [ 1, %if.end601 ], [ 1, %do.end53 ], [ 1, %if.end500 ], [ 3, %if.end486 ], [ 1, %if.end466 ], [ 1, %if.end446 ], [ 1, %if.then429 ], [ 1, %do.end412 ], [ 1, %for.end ]
   ret i32 %retval.0
 }
@@ -1422,11 +1418,10 @@ do.end53:                                         ; preds = %if.end51, %while.co
   %1 = trunc i64 %bitbuf.3 to i32
   %2 = lshr i32 %1, 1
   %conv58 = and i32 %2, 3
-  switch i32 %conv58, label %do.end53.unreachabledefault [
+  switch i32 %conv58, label %return [
     i32 2, label %if.then61
     i32 0, label %if.then429
     i32 1, label %if.end537
-    i32 3, label %return
   ]
 
 if.then61:                                        ; preds = %do.end53
@@ -2513,10 +2508,7 @@ if.else1332:                                      ; preds = %if.end1326
 if.end1337:                                       ; preds = %if.else1332, %if.then1328
   br label %return
 
-do.end53.unreachabledefault:                      ; preds = %do.end53
-  unreachable
-
-return:                                           ; preds = %do.end53, %if.end612, %if.end601, %if.end500, %if.end486, %if.end466, %if.end446, %if.then429, %do.end412, %for.end, %if.else39, %if.else129, %if.then280, %if.end897, %if.end1244, %if.end1190, %if.then1167, %if.else239, %if.else1110, %if.else1332, %if.end1299, %if.end1337
+return:                                           ; preds = %if.end612, %if.end601, %do.end53, %if.end500, %if.end486, %if.end466, %if.end446, %if.then429, %do.end412, %for.end, %if.else39, %if.else129, %if.then280, %if.end897, %if.end1244, %if.end1190, %if.then1167, %if.else239, %if.else1110, %if.else1332, %if.end1299, %if.end1337
   %retval.0 = phi i32 [ 0, %if.end1337 ], [ 1, %if.end1299 ], [ 2, %if.else1332 ], [ 1, %if.else1110 ], [ 1, %if.else239 ], [ 1, %if.end1244 ], [ 3, %if.end1190 ], [ 3, %if.then1167 ], [ 1, %if.end897 ], [ 1, %if.then280 ], [ 1, %if.else129 ], [ 1, %if.else39 ], [ 1, %if.end612 ], [ 1, %if.end601 ], [ 1, %do.end53 ], [ 1, %if.end500 ], [ 3, %if.end486 ], [ 1, %if.end466 ], [ 1, %if.end446 ], [ 1, %if.then429 ], [ 1, %do.end412 ], [ 1, %for.end ]
   ret i32 %retval.0
 }

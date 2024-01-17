@@ -1701,11 +1701,11 @@ entry:
   %1 = load i32, ptr %niov, align 8
   call void @qemu_iovec_init(ptr noundef nonnull %hd_qiov, i32 noundef %1) #17
   call void @qemu_co_mutex_lock(ptr noundef %0) #17
+  %data_bits = getelementptr inbounds %struct.BDRVVHDXState, ptr %0, i64 0, i32 9, i32 1
   %cmp18 = icmp sgt i32 %nb_sectors, 0
   br i1 %cmp18, label %while.body.lr.ph, label %exit
 
 while.body.lr.ph:                                 ; preds = %entry
-  %data_bits = getelementptr inbounds %struct.BDRVVHDXState, ptr %0, i64 0, i32 9, i32 1
   %sectors_per_block_bits.i = getelementptr inbounds %struct.BDRVVHDXState, ptr %0, i64 0, i32 14
   %chunk_ratio_bits.i = getelementptr inbounds %struct.BDRVVHDXState, ptr %0, i64 0, i32 20
   %sectors_per_block.i = getelementptr inbounds %struct.BDRVVHDXState, ptr %0, i64 0, i32 13
@@ -1750,15 +1750,13 @@ if.else:                                          ; preds = %while.body
   %arrayidx = getelementptr i64, ptr %10, i64 %idxprom.i
   %11 = load i64, ptr %arrayidx, align 8
   %and1 = and i64 %11, 7
-  switch i64 %and1, label %if.else.unreachabledefault [
+  switch i64 %and1, label %exit [
     i64 0, label %sw.bb
     i64 1, label %sw.bb
     i64 3, label %sw.bb
     i64 5, label %sw.bb
     i64 2, label %sw.bb
     i64 6, label %sw.bb4
-    i64 7, label %exit
-    i64 4, label %exit
   ]
 
 sw.bb:                                            ; preds = %if.else, %if.else, %if.else, %if.else, %if.else
@@ -1782,9 +1780,6 @@ sw.bb4:                                           ; preds = %if.else
   %cmp9 = icmp slt i32 %call7, 0
   br i1 %cmp9, label %exit, label %sw.epilog
 
-if.else.unreachabledefault:                       ; preds = %if.else
-  unreachable
-
 sw.epilog:                                        ; preds = %sw.bb4, %sw.bb
   %conv15.pre-phi = phi i64 [ %conv6, %sw.bb4 ], [ %.pre, %sw.bb ]
   %sub = sub nsw i32 %nb_sectors.addr.019, %spec.select
@@ -1793,8 +1788,8 @@ sw.epilog:                                        ; preds = %sw.bb4, %sw.bb
   %cmp = icmp sgt i32 %sub, 0
   br i1 %cmp, label %while.body, label %exit, !llvm.loop !14
 
-exit:                                             ; preds = %sw.bb4, %while.body, %if.else, %if.else, %sw.epilog, %entry
-  %ret.0 = phi i32 [ 0, %entry ], [ 0, %sw.epilog ], [ -5, %if.else ], [ -5, %if.else ], [ -95, %while.body ], [ %call7, %sw.bb4 ]
+exit:                                             ; preds = %sw.bb4, %while.body, %if.else, %sw.epilog, %entry
+  %ret.0 = phi i32 [ 0, %entry ], [ 0, %sw.epilog ], [ -5, %if.else ], [ -95, %while.body ], [ %call7, %sw.bb4 ]
   call void @qemu_co_mutex_unlock(ptr noundef %0) #17
   call void @qemu_iovec_destroy(ptr noundef nonnull %hd_qiov) #17
   ret i32 %ret.0

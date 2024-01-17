@@ -5741,7 +5741,7 @@ if.end.i:                                         ; preds = %if.end
   %0 = load i8, ptr %src, align 1
   %conv.i = zext i8 %0 to i32
   %shr.i = lshr i32 %conv.i, 6
-  switch i32 %shr.i, label %if.end.unreachabledefault.i [
+  switch i32 %shr.i, label %default.unreachable [
     i32 0, label %sw.bb.i
     i32 1, label %sw.bb104.i
     i32 2, label %sw.bb162.i
@@ -5825,11 +5825,11 @@ if.end79.thread.i:                                ; preds = %if.end7.i
   %7 = load i8, ptr %arrayidx46.i, align 1
   %conv47.i = zext i8 %7 to i32
   %add48.i = or disjoint i32 %shl45.i, %conv47.i
-  %litSize.0113152.i = zext nneg i32 %add40.i to i64
-  %litCSize.0114153.i = zext nneg i32 %add48.i to i64
-  %add81154.i = add nuw nsw i64 %litCSize.0114153.i, 4
-  %cmp82155.i = icmp ugt i64 %add81154.i, %srcSize
-  br i1 %cmp82155.i, label %return, label %cond.false.i
+  %litSize.0113153.i = zext nneg i32 %add40.i to i64
+  %litCSize.0114154.i = zext nneg i32 %add48.i to i64
+  %add81155.i = add nuw nsw i64 %litCSize.0114154.i, 4
+  %cmp82156.i = icmp ugt i64 %add81155.i, %srcSize
+  br i1 %cmp82156.i, label %return, label %cond.false.i
 
 if.end85.i:                                       ; preds = %if.end79.i
   %and11.i = and i32 %conv.i, 16
@@ -5843,10 +5843,10 @@ cond.true.i:                                      ; preds = %if.end85.i
   br label %cond.end.i
 
 cond.false.i:                                     ; preds = %if.end85.i, %if.end79.thread.i, %sw.epilog.i
-  %litCSize.0119126141.i = phi i64 [ %litCSize.0114.i, %if.end85.i ], [ %litCSize.0.i, %sw.epilog.i ], [ %litCSize.0114153.i, %if.end79.thread.i ]
-  %litSize.0118127140.i = phi i64 [ %litSize.0113.i, %if.end85.i ], [ %litSize.0.i, %sw.epilog.i ], [ %litSize.0113152.i, %if.end79.thread.i ]
+  %litCSize.0119126141.i = phi i64 [ %litCSize.0114.i, %if.end85.i ], [ %litCSize.0.i, %sw.epilog.i ], [ %litCSize.0114154.i, %if.end79.thread.i ]
+  %litSize.0118127140.i = phi i64 [ %litSize.0113.i, %if.end85.i ], [ %litSize.0.i, %sw.epilog.i ], [ %litSize.0113153.i, %if.end79.thread.i ]
   %lhSize.0117128138.i = phi i64 [ 3, %if.end85.i ], [ 5, %sw.epilog.i ], [ 4, %if.end79.thread.i ]
-  %add81130137.i = phi i64 [ %add81.i, %if.end85.i ], [ %add81124.i, %sw.epilog.i ], [ %add81154.i, %if.end79.thread.i ]
+  %add81130137.i = phi i64 [ %add81.i, %if.end85.i ], [ %add81124.i, %sw.epilog.i ], [ %add81155.i, %if.end79.thread.i ]
   %litBuffer86.i = getelementptr inbounds %struct.ZSTDv05_DCtx_s, ptr %dctx, i64 0, i32 16
   %add.ptr89.i = getelementptr inbounds i8, ptr %src, i64 %lhSize.0117128138.i
   %call90.i = tail call i64 @HUFv05_decompress(ptr noundef nonnull %litBuffer86.i, i64 noundef %litSize.0118127140.i, ptr noundef nonnull %add.ptr89.i, i64 noundef %litCSize.0119126141.i)
@@ -6043,7 +6043,7 @@ if.end274.i:                                      ; preds = %sw.bb253.i, %sw.bb2
   %conv285.i = zext nneg i32 %add284.i to i64
   br label %if.end3
 
-if.end.unreachabledefault.i:                      ; preds = %if.end.i
+default.unreachable:                              ; preds = %if.end.i
   unreachable
 
 if.end3:                                          ; preds = %if.end274.i, %if.end224.i, %if.end209.i, %if.end151.i, %if.end94.i
@@ -6167,11 +6167,10 @@ if.end55.i.i:                                     ; preds = %if.end45.i.i, %if.e
   br i1 %cmp58.i.i, label %ZSTDv05_decodeSeqHeaders.exit.thread.i, label %if.end61.i.i
 
 if.end61.i.i:                                     ; preds = %if.end55.i.i
-  switch i32 %shr.i.i, label %if.end61.unreachabledefault.i.i [
+  switch i32 %shr.i.i, label %sw.default.i.i [
     i32 1, label %sw.bb.i.i
     i32 0, label %sw.bb63.i.i
     i32 2, label %sw.bb65.i.i
-    i32 3, label %sw.default.i.i
   ]
 
 sw.bb.i.i:                                        ; preds = %if.end61.i.i
@@ -6214,9 +6213,6 @@ sw.bb65.i.i:                                      ; preds = %if.end61.i.i
   %tobool66.not.i.i = icmp eq i32 %25, 0
   br i1 %tobool66.not.i.i, label %ZSTDv05_decodeSeqHeaders.exit.thread.i, label %sw.epilog.i.i
 
-if.end61.unreachabledefault.i.i:                  ; preds = %if.end61.i.i
-  unreachable
-
 sw.default.i.i:                                   ; preds = %if.end61.i.i
   store i32 63, ptr %max.i.i, align 4
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %add.ptr.i10 to i64
@@ -6239,11 +6235,10 @@ if.end78.i.i:                                     ; preds = %if.end74.i.i
 
 sw.epilog.i.i:                                    ; preds = %for.body.i.i.i, %if.end78.i.i, %sw.bb65.i.i, %sw.bb.i.i
   %ip.2.i.i = phi ptr [ %add.ptr79.i.i, %if.end78.i.i ], [ %add.ptr56.i.i, %sw.bb65.i.i ], [ %incdec.ptr62.i.i, %sw.bb.i.i ], [ %add.ptr56.i.i, %for.body.i.i.i ]
-  switch i32 %and.i.i, label %sw.epilog.unreachabledefault.i.i [
+  switch i32 %and.i.i, label %sw.default100.i.i [
     i32 1, label %sw.bb82.i.i
     i32 0, label %sw.bb93.i.i
     i32 2, label %sw.bb95.i.i
-    i32 3, label %sw.default100.i.i
   ]
 
 sw.bb82.i.i:                                      ; preds = %sw.epilog.i.i
@@ -6292,9 +6287,6 @@ sw.bb95.i.i:                                      ; preds = %sw.epilog.i.i
   %tobool96.not.i.i = icmp eq i32 %25, 0
   br i1 %tobool96.not.i.i, label %ZSTDv05_decodeSeqHeaders.exit.thread.i, label %sw.epilog118.i.i
 
-sw.epilog.unreachabledefault.i.i:                 ; preds = %sw.epilog.i.i
-  unreachable
-
 sw.default100.i.i:                                ; preds = %sw.epilog.i.i
   store i32 31, ptr %max101.i.i, align 4
   %sub.ptr.lhs.cast103.i.i = ptrtoint ptr %add.ptr.i10 to i64
@@ -6317,11 +6309,10 @@ if.end114.i.i:                                    ; preds = %if.end110.i.i
 
 sw.epilog118.i.i:                                 ; preds = %for.body.i77.i.i, %if.end114.i.i, %sw.bb95.i.i, %if.end87.i.i
   %ip.3.i.i = phi ptr [ %add.ptr115.i.i, %if.end114.i.i ], [ %ip.2.i.i, %sw.bb95.i.i ], [ %incdec.ptr88.i.i, %if.end87.i.i ], [ %ip.2.i.i, %for.body.i77.i.i ]
-  switch i32 %and24.i.i, label %sw.epilog118.unreachabledefault.i.i [
+  switch i32 %and24.i.i, label %sw.default134.i.i [
     i32 1, label %sw.bb119.i.i
     i32 0, label %sw.bb127.i.i
     i32 2, label %sw.bb129.i.i
-    i32 3, label %sw.default134.i.i
   ]
 
 sw.bb119.i.i:                                     ; preds = %sw.epilog118.i.i
@@ -6367,9 +6358,6 @@ for.body.i96.i.i:                                 ; preds = %for.body.i96.i.i, %
 sw.bb129.i.i:                                     ; preds = %sw.epilog118.i.i
   %tobool130.not.i.i = icmp eq i32 %25, 0
   br i1 %tobool130.not.i.i, label %ZSTDv05_decodeSeqHeaders.exit.thread.i, label %ZSTDv05_decodeSeqHeaders.exit.i
-
-sw.epilog118.unreachabledefault.i.i:              ; preds = %sw.epilog118.i.i
-  unreachable
 
 sw.default134.i.i:                                ; preds = %sw.epilog118.i.i
   store i32 127, ptr %max135.i.i, align 4

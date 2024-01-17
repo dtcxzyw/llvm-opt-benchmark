@@ -183,19 +183,19 @@ _ZN6vectorIS_IN3sat7watchedELb1EjELb1EjE3endEv.exit: ; preds = %entry
   %2 = load i32, ptr %arrayidx.i.i, align 4
   %3 = zext i32 %2 to i64
   %add.ptr.i = getelementptr inbounds %class.vector.51, ptr %1, i64 %3
-  %cmp.not32 = icmp eq i32 %2, 0
-  br i1 %cmp.not32, label %for.end31, label %for.body
+  %cmp.not31 = icmp eq i32 %2, 0
+  br i1 %cmp.not31, label %for.end31, label %for.body
 
 for.body:                                         ; preds = %_ZN6vectorIS_IN3sat7watchedELb1EjELb1EjE3endEv.exit, %for.inc29
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc29 ], [ 0, %_ZN6vectorIS_IN3sat7watchedELb1EjELb1EjE3endEv.exit ]
-  %it.034 = phi ptr [ %incdec.ptr30, %for.inc29 ], [ %1, %_ZN6vectorIS_IN3sat7watchedELb1EjELb1EjE3endEv.exit ]
+  %it.033 = phi ptr [ %incdec.ptr30, %for.inc29 ], [ %1, %_ZN6vectorIS_IN3sat7watchedELb1EjELb1EjE3endEv.exit ]
   %4 = load ptr, ptr %this, align 8
   %m_assignment.i = getelementptr inbounds %"class.sat::solver", ptr %4, i64 0, i32 37
   %5 = load ptr, ptr %m_assignment.i, align 8
   %arrayidx.i.i17 = getelementptr inbounds i32, ptr %5, i64 %indvars.iv
   %6 = load i32, ptr %arrayidx.i.i17, align 4
   %cmp9.not = icmp eq i32 %6, 0
-  %7 = load ptr, ptr %it.034, align 8
+  %7 = load ptr, ptr %it.033, align 8
   %cmp.i.i18 = icmp eq ptr %7, null
   br i1 %cmp9.not, label %if.end, label %if.then
 
@@ -208,7 +208,7 @@ if.then.i.i:                                      ; preds = %if.then
   br label %_ZN6vectorIN3sat7watchedELb1EjE8finalizeEv.exit
 
 _ZN6vectorIN3sat7watchedELb1EjE8finalizeEv.exit:  ; preds = %if.then, %if.then.i.i
-  store ptr null, ptr %it.034, align 8
+  store ptr null, ptr %it.033, align 8
   br label %for.inc29
 
 if.end:                                           ; preds = %for.body
@@ -219,25 +219,24 @@ _ZN6vectorIN3sat7watchedELb1EjE3endEv.exit:       ; preds = %if.end
   %8 = load i32, ptr %arrayidx.i.i20, align 4
   %9 = zext i32 %8 to i64
   %add.ptr.i22 = getelementptr inbounds %"class.sat::watched", ptr %7, i64 %9
-  %cmp13.not29 = icmp eq i32 %8, 0
-  br i1 %cmp13.not29, label %_ZN6vectorIN3sat7watchedELb1EjE3endEv.exit.i, label %for.body14
+  %cmp13.not28 = icmp eq i32 %8, 0
+  br i1 %cmp13.not28, label %_ZN6vectorIN3sat7watchedELb1EjE3endEv.exit.i, label %for.body14
 
 for.body14:                                       ; preds = %_ZN6vectorIN3sat7watchedELb1EjE3endEv.exit, %for.inc
-  %it_prev.031 = phi ptr [ %it_prev.1, %for.inc ], [ %7, %_ZN6vectorIN3sat7watchedELb1EjE3endEv.exit ]
-  %it2.030 = phi ptr [ %incdec.ptr28, %for.inc ], [ %7, %_ZN6vectorIN3sat7watchedELb1EjE3endEv.exit ]
-  %m_val2.i = getelementptr inbounds %"class.sat::watched", ptr %it2.030, i64 0, i32 1
+  %it_prev.030 = phi ptr [ %it_prev.1, %for.inc ], [ %7, %_ZN6vectorIN3sat7watchedELb1EjE3endEv.exit ]
+  %it2.029 = phi ptr [ %incdec.ptr28, %for.inc ], [ %7, %_ZN6vectorIN3sat7watchedELb1EjE3endEv.exit ]
+  %m_val2.i = getelementptr inbounds %"class.sat::watched", ptr %it2.029, i64 0, i32 1
   %10 = load i32, ptr %m_val2.i, align 8
   %and.i = and i32 %10, 3
-  switch i32 %and.i, label %for.body14.unreachabledefault [
+  switch i32 %and.i, label %sw.default [
     i32 0, label %sw.bb
     i32 1, label %for.inc
     i32 2, label %for.inc.sink.split
-    i32 3, label %sw.default
   ]
 
 sw.bb:                                            ; preds = %for.body14
   %11 = load ptr, ptr %this, align 8
-  %12 = load i64, ptr %it2.030, align 8
+  %12 = load i64, ptr %it2.029, align 8
   %m_assignment.i23 = getelementptr inbounds %"class.sat::solver", ptr %11, i64 0, i32 37
   %13 = load ptr, ptr %m_assignment.i23, align 8
   %idxprom.i.i24 = and i64 %12, 4294967295
@@ -246,34 +245,31 @@ sw.bb:                                            ; preds = %for.body14
   %cmp22 = icmp eq i32 %14, 0
   br i1 %cmp22, label %for.inc.sink.split, label %for.inc
 
-for.body14.unreachabledefault:                    ; preds = %for.body14
-  unreachable
-
 sw.default:                                       ; preds = %for.body14
   tail call void @_Z26notify_assertion_violationPKciS0_(ptr noundef nonnull @.str, i32 noundef 75, ptr noundef nonnull @.str.2)
   tail call void @exit(i32 noundef 114) #13
   unreachable
 
 for.inc.sink.split:                               ; preds = %for.body14, %sw.bb
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %it_prev.031, ptr noundef nonnull align 8 dereferenceable(12) %it2.030, i64 12, i1 false)
-  %incdec.ptr27 = getelementptr inbounds %"class.sat::watched", ptr %it_prev.031, i64 1
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %it_prev.030, ptr noundef nonnull align 8 dereferenceable(12) %it2.029, i64 12, i1 false)
+  %incdec.ptr27 = getelementptr inbounds %"class.sat::watched", ptr %it_prev.030, i64 1
   br label %for.inc
 
-for.inc:                                          ; preds = %for.inc.sink.split, %for.body14, %sw.bb
-  %it_prev.1 = phi ptr [ %it_prev.031, %for.body14 ], [ %it_prev.031, %sw.bb ], [ %incdec.ptr27, %for.inc.sink.split ]
-  %incdec.ptr28 = getelementptr inbounds %"class.sat::watched", ptr %it2.030, i64 1
+for.inc:                                          ; preds = %for.inc.sink.split, %sw.bb, %for.body14
+  %it_prev.1 = phi ptr [ %it_prev.030, %for.body14 ], [ %it_prev.030, %sw.bb ], [ %incdec.ptr27, %for.inc.sink.split ]
+  %incdec.ptr28 = getelementptr inbounds %"class.sat::watched", ptr %it2.029, i64 1
   %cmp13.not = icmp eq ptr %incdec.ptr28, %add.ptr.i22
   br i1 %cmp13.not, label %for.end, label %for.body14, !llvm.loop !4
 
 for.end:                                          ; preds = %for.inc
-  %.pre = load ptr, ptr %it.034, align 8
+  %.pre = load ptr, ptr %it.033, align 8
   %tobool.not.i = icmp eq ptr %.pre, null
   br i1 %tobool.not.i, label %for.inc29, label %_ZN6vectorIN3sat7watchedELb1EjE3endEv.exit.i
 
 _ZN6vectorIN3sat7watchedELb1EjE3endEv.exit.i:     ; preds = %_ZN6vectorIN3sat7watchedELb1EjE3endEv.exit, %for.end
-  %it_prev.0.lcssa47 = phi ptr [ %it_prev.1, %for.end ], [ %7, %_ZN6vectorIN3sat7watchedELb1EjE3endEv.exit ]
+  %it_prev.0.lcssa46 = phi ptr [ %it_prev.1, %for.end ], [ %7, %_ZN6vectorIN3sat7watchedELb1EjE3endEv.exit ]
   %15 = phi ptr [ %.pre, %for.end ], [ %7, %_ZN6vectorIN3sat7watchedELb1EjE3endEv.exit ]
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %it_prev.0.lcssa47 to i64
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %it_prev.0.lcssa46 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %15 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = lshr exact i64 %sub.ptr.sub.i, 4
@@ -283,7 +279,7 @@ _ZN6vectorIN3sat7watchedELb1EjE3endEv.exit.i:     ; preds = %_ZN6vectorIN3sat7wa
   br label %for.inc29
 
 for.inc29:                                        ; preds = %if.end, %_ZN6vectorIN3sat7watchedELb1EjE3endEv.exit.i, %for.end, %_ZN6vectorIN3sat7watchedELb1EjE8finalizeEv.exit
-  %incdec.ptr30 = getelementptr inbounds %class.vector.51, ptr %it.034, i64 1
+  %incdec.ptr30 = getelementptr inbounds %class.vector.51, ptr %it.033, i64 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %cmp.not = icmp eq ptr %incdec.ptr30, %add.ptr.i
   br i1 %cmp.not, label %for.end31, label %for.body, !llvm.loop !6

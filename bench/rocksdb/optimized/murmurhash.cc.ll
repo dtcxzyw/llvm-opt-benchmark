@@ -35,7 +35,7 @@ while.end:                                        ; preds = %while.body, %entry
   %data.0.lcssa = phi ptr [ %key, %entry ], [ %add.ptr, %while.body ]
   %h.0.lcssa = phi i64 [ %xor, %entry ], [ %mul6, %while.body ]
   %and = and i32 %len, 7
-  switch i32 %and, label %while.end.unreachabledefault [
+  switch i32 %and, label %sw.epilog [
     i32 7, label %sw.bb
     i32 6, label %sw.bb9
     i32 5, label %sw.bb14
@@ -43,7 +43,6 @@ while.end:                                        ; preds = %while.body, %entry
     i32 3, label %sw.bb24
     i32 2, label %sw.bb29
     i32 1, label %sw.bb34
-    i32 0, label %sw.epilog
   ]
 
 sw.bb:                                            ; preds = %while.end
@@ -54,7 +53,7 @@ sw.bb:                                            ; preds = %while.end
   %xor8 = xor i64 %shl, %h.0.lcssa
   br label %sw.bb9
 
-sw.bb9:                                           ; preds = %while.end, %sw.bb
+sw.bb9:                                           ; preds = %sw.bb, %while.end
   %h.1 = phi i64 [ %h.0.lcssa, %while.end ], [ %xor8, %sw.bb ]
   %arrayidx10 = getelementptr inbounds i8, ptr %data.0.lcssa, i64 5
   %2 = load i8, ptr %arrayidx10, align 1
@@ -63,7 +62,7 @@ sw.bb9:                                           ; preds = %while.end, %sw.bb
   %xor13 = xor i64 %shl12, %h.1
   br label %sw.bb14
 
-sw.bb14:                                          ; preds = %while.end, %sw.bb9
+sw.bb14:                                          ; preds = %sw.bb9, %while.end
   %h.2 = phi i64 [ %h.0.lcssa, %while.end ], [ %xor13, %sw.bb9 ]
   %arrayidx15 = getelementptr inbounds i8, ptr %data.0.lcssa, i64 4
   %3 = load i8, ptr %arrayidx15, align 1
@@ -72,7 +71,7 @@ sw.bb14:                                          ; preds = %while.end, %sw.bb9
   %xor18 = xor i64 %shl17, %h.2
   br label %sw.bb19
 
-sw.bb19:                                          ; preds = %while.end, %sw.bb14
+sw.bb19:                                          ; preds = %sw.bb14, %while.end
   %h.3 = phi i64 [ %h.0.lcssa, %while.end ], [ %xor18, %sw.bb14 ]
   %arrayidx20 = getelementptr inbounds i8, ptr %data.0.lcssa, i64 3
   %4 = load i8, ptr %arrayidx20, align 1
@@ -81,7 +80,7 @@ sw.bb19:                                          ; preds = %while.end, %sw.bb14
   %xor23 = xor i64 %shl22, %h.3
   br label %sw.bb24
 
-sw.bb24:                                          ; preds = %while.end, %sw.bb19
+sw.bb24:                                          ; preds = %sw.bb19, %while.end
   %h.4 = phi i64 [ %h.0.lcssa, %while.end ], [ %xor23, %sw.bb19 ]
   %arrayidx25 = getelementptr inbounds i8, ptr %data.0.lcssa, i64 2
   %5 = load i8, ptr %arrayidx25, align 1
@@ -90,7 +89,7 @@ sw.bb24:                                          ; preds = %while.end, %sw.bb19
   %xor28 = xor i64 %shl27, %h.4
   br label %sw.bb29
 
-sw.bb29:                                          ; preds = %while.end, %sw.bb24
+sw.bb29:                                          ; preds = %sw.bb24, %while.end
   %h.5 = phi i64 [ %h.0.lcssa, %while.end ], [ %xor28, %sw.bb24 ]
   %arrayidx30 = getelementptr inbounds i8, ptr %data.0.lcssa, i64 1
   %6 = load i8, ptr %arrayidx30, align 1
@@ -99,7 +98,7 @@ sw.bb29:                                          ; preds = %while.end, %sw.bb24
   %xor33 = xor i64 %shl32, %h.5
   br label %sw.bb34
 
-sw.bb34:                                          ; preds = %while.end, %sw.bb29
+sw.bb34:                                          ; preds = %sw.bb29, %while.end
   %h.6 = phi i64 [ %h.0.lcssa, %while.end ], [ %xor33, %sw.bb29 ]
   %7 = load i8, ptr %data.0.lcssa, align 1
   %conv36 = zext i8 %7 to i64
@@ -107,10 +106,7 @@ sw.bb34:                                          ; preds = %while.end, %sw.bb29
   %mul38 = mul i64 %xor37, -4132994306676758123
   br label %sw.epilog
 
-while.end.unreachabledefault:                     ; preds = %while.end
-  unreachable
-
-sw.epilog:                                        ; preds = %while.end, %sw.bb34
+sw.epilog:                                        ; preds = %sw.bb34, %while.end
   %h.7 = phi i64 [ %h.0.lcssa, %while.end ], [ %mul38, %sw.bb34 ]
   %shr39 = lshr i64 %h.7, 47
   %xor40 = xor i64 %shr39, %h.7

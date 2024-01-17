@@ -1096,13 +1096,11 @@ while.end.i33:                                    ; preds = %while.body.i41, %wh
   br i1 %cmp84.i, label %if.then85.i, label %if.end98.i
 
 if.then85.i:                                      ; preds = %while.end.i33
-  %and86.i = lshr i64 %.lcssa.i36, 2
-  %44 = and i64 %and86.i, 3
-  switch i64 %44, label %if.then85.unreachabledefault.i [
-    i64 3, label %sw.bb.i
-    i64 2, label %sw.bb88.i
-    i64 1, label %sw.bb92.i
-    i64 0, label %while.body101.preheader.i
+  %and86.i = and i64 %.lcssa.i36, 12
+  switch i64 %and86.i, label %while.body101.preheader.i [
+    i64 12, label %sw.bb.i
+    i64 8, label %sw.bb88.i
+    i64 4, label %sw.bb92.i
   ]
 
 sw.bb.i:                                          ; preds = %if.then85.i
@@ -1128,9 +1126,6 @@ sw.bb92.i:                                        ; preds = %if.then85.i
   %add.ptr95.i = getelementptr inbounds i8, ptr %pDestination.0.lcssa.i34, i64 12
   %sub96.i = add i64 %byteCount.addr.0.lcssa.i35, -12
   br label %while.body101.preheader.i
-
-if.then85.unreachabledefault.i:                   ; preds = %if.then85.i
-  unreachable
 
 if.end98.i:                                       ; preds = %while.end.i33, %sw.bb7
   %v1.2.i = phi i32 [ %v1.1.lcssa.i, %while.end.i33 ], [ %v1.0.i, %sw.bb7 ]
@@ -1215,8 +1210,8 @@ for.body.i:                                       ; preds = %for.body.i.preheade
   %inc.i = add nuw nsw i32 %i.0124.i, 1
   %cmp116.i = icmp ult i32 %i.0124.i, 3
   %cmp118.i = icmp ne i64 %dec123.i, 0
-  %45 = select i1 %cmp116.i, i1 %cmp118.i, i1 false
-  br i1 %45, label %for.body.i, label %sw.epilog, !llvm.loop !22
+  %44 = select i1 %cmp116.i, i1 %cmp118.i, i1 false
+  br i1 %44, label %for.body.i, label %sw.epilog, !llvm.loop !22
 
 sw.epilog:                                        ; preds = %for.body.i, %while.body46.i, %while.body53.i, %while.body46.i.i, %for.cond21.while.cond18.loopexit_crit_edge.us.i, %while.body14.i, %for.cond.preheader.i, %while.end107.i, %while.end.i29, %while.cond18.preheader.i, %if.end43.i, %while.cond51.preheader.i, %if.end43.i.i, %sw.bb
   ret void
