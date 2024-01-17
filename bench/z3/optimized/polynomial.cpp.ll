@@ -166,6 +166,8 @@ $_ZN10polynomial7manager3imp11const_coeffEPKNS_10polynomialEjjR3mpz = comdat any
 
 $_ZN10polynomial7manager3imp20newton_interpolationEjjPK3mpzPKPNS_10polynomialER7obj_refIS5_S0_E = comdat any
 
+$_ZN10polynomial7manager3imp2pwEPKNS_8monomialEj = comdat any
+
 $_ZN10polynomial7manager3imp8mk_constERK8rational = comdat any
 
 $_ZN10polynomial7manager3imp13mk_polynomialEjj = comdat any
@@ -5572,79 +5574,86 @@ _ZN10polynomial7manager3imp5unifyEPKNS_8monomialES4_RPS2_S6_.exit: ; preds = %en
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZN10polynomial7manager2pwEPKNS_8monomialEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, ptr noundef readonly %m, i32 noundef %k) local_unnamed_addr #4 align 2 {
+define hidden noundef ptr @_ZN10polynomial7manager2pwEPKNS_8monomialEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, ptr noundef %m, i32 noundef %k) local_unnamed_addr #4 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %m_monomial_manager.i.i = getelementptr inbounds %"struct.polynomial::manager::imp", ptr %0, i64 0, i32 4
-  %1 = load ptr, ptr %m_monomial_manager.i.i, align 8
-  switch i32 %k, label %if.end4.i.i [
-    i32 0, label %if.then.i.i
-    i32 1, label %_ZN10polynomial7manager3imp2pwEPKNS_8monomialEj.exit
+  %call = tail call noundef ptr @_ZN10polynomial7manager3imp2pwEPKNS_8monomialEj(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef %m, i32 noundef %k)
+  ret ptr %call
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden noundef ptr @_ZN10polynomial7manager3imp2pwEPKNS_8monomialEj(ptr noundef nonnull align 8 dereferenceable(824) %this, ptr noundef %m, i32 noundef %k) local_unnamed_addr #4 comdat align 2 {
+entry:
+  %m_monomial_manager.i = getelementptr inbounds %"struct.polynomial::manager::imp", ptr %this, i64 0, i32 4
+  %0 = load ptr, ptr %m_monomial_manager.i, align 8
+  switch i32 %k, label %if.end4.i [
+    i32 0, label %if.then.i
+    i32 1, label %_ZN10polynomial16monomial_manager2pwEPKNS_8monomialEj.exit
   ]
 
-if.then.i.i:                                      ; preds = %entry
-  %m_unit.i.i = getelementptr inbounds %"class.polynomial::monomial_manager", ptr %1, i64 0, i32 6
-  %2 = load ptr, ptr %m_unit.i.i, align 8
-  br label %_ZN10polynomial7manager3imp2pwEPKNS_8monomialEj.exit
+if.then.i:                                        ; preds = %entry
+  %m_unit.i = getelementptr inbounds %"class.polynomial::monomial_manager", ptr %0, i64 0, i32 6
+  %1 = load ptr, ptr %m_unit.i, align 8
+  br label %_ZN10polynomial16monomial_manager2pwEPKNS_8monomialEj.exit
 
-if.end4.i.i:                                      ; preds = %entry
-  %m_size.i.i.i = getelementptr inbounds %"class.polynomial::monomial", ptr %m, i64 0, i32 3
-  %3 = load i32, ptr %m_size.i.i.i, align 4
-  %m_tmp1.i.i = getelementptr inbounds %"class.polynomial::monomial_manager", ptr %1, i64 0, i32 8
-  %m_capacity.i.i.i = getelementptr inbounds %"class.polynomial::monomial_manager", ptr %1, i64 0, i32 8, i32 1
-  %4 = load i32, ptr %m_capacity.i.i.i, align 8
-  %cmp.i.i.i = icmp ult i32 %4, %3
-  br i1 %cmp.i.i.i, label %_ZN10polynomial12tmp_monomial7reserveEj.exit.thread.i.i, label %_ZN10polynomial12tmp_monomial7reserveEj.exit.i.i
+if.end4.i:                                        ; preds = %entry
+  %m_size.i.i = getelementptr inbounds %"class.polynomial::monomial", ptr %m, i64 0, i32 3
+  %2 = load i32, ptr %m_size.i.i, align 4
+  %m_tmp1.i = getelementptr inbounds %"class.polynomial::monomial_manager", ptr %0, i64 0, i32 8
+  %m_capacity.i.i = getelementptr inbounds %"class.polynomial::monomial_manager", ptr %0, i64 0, i32 8, i32 1
+  %3 = load i32, ptr %m_capacity.i.i, align 8
+  %cmp.i.i = icmp ult i32 %3, %2
+  br i1 %cmp.i.i, label %_ZN10polynomial12tmp_monomial7reserveEj.exit.thread.i, label %_ZN10polynomial12tmp_monomial7reserveEj.exit.i
 
-_ZN10polynomial12tmp_monomial7reserveEj.exit.thread.i.i: ; preds = %if.end4.i.i
-  %mul.i.i.i = shl i32 %3, 1
-  %5 = load ptr, ptr %m_tmp1.i.i, align 8
-  tail call void @_ZN6memory10deallocateEPv(ptr noundef %5)
-  %mul.i.i.i.i.i.i = shl i32 %3, 4
-  %add.i.i.i.i.i.i = add i32 %mul.i.i.i.i.i.i, 20
-  %conv.i.i.i.i.i = zext i32 %add.i.i.i.i.i.i to i64
-  %call2.i.i.i.i.i = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef %conv.i.i.i.i.i)
-  store <4 x i32> <i32 0, i32 -1, i32 0, i32 0>, ptr %call2.i.i.i.i.i, align 4
-  %m_hash.i.i.i.i.i.i = getelementptr inbounds %"class.polynomial::monomial", ptr %call2.i.i.i.i.i, i64 0, i32 4
-  store i32 0, ptr %m_hash.i.i.i.i.i.i, align 4
-  store ptr %call2.i.i.i.i.i, ptr %m_tmp1.i.i, align 8
-  store i32 %mul.i.i.i, ptr %m_capacity.i.i.i, align 8
-  br label %for.body.preheader.i.i
+_ZN10polynomial12tmp_monomial7reserveEj.exit.thread.i: ; preds = %if.end4.i
+  %mul.i.i = shl i32 %2, 1
+  %4 = load ptr, ptr %m_tmp1.i, align 8
+  tail call void @_ZN6memory10deallocateEPv(ptr noundef %4)
+  %mul.i.i.i.i.i = shl i32 %2, 4
+  %add.i.i.i.i.i = add i32 %mul.i.i.i.i.i, 20
+  %conv.i.i.i.i = zext i32 %add.i.i.i.i.i to i64
+  %call2.i.i.i.i = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef %conv.i.i.i.i)
+  store <4 x i32> <i32 0, i32 -1, i32 0, i32 0>, ptr %call2.i.i.i.i, align 4
+  %m_hash.i.i.i.i.i = getelementptr inbounds %"class.polynomial::monomial", ptr %call2.i.i.i.i, i64 0, i32 4
+  store i32 0, ptr %m_hash.i.i.i.i.i, align 4
+  store ptr %call2.i.i.i.i, ptr %m_tmp1.i, align 8
+  store i32 %mul.i.i, ptr %m_capacity.i.i, align 8
+  br label %for.body.preheader.i
 
-_ZN10polynomial12tmp_monomial7reserveEj.exit.i.i: ; preds = %if.end4.i.i
-  %cmp518.not.i.i = icmp eq i32 %3, 0
-  br i1 %cmp518.not.i.i, label %for.end.i.i, label %for.body.preheader.i.i
+_ZN10polynomial12tmp_monomial7reserveEj.exit.i:   ; preds = %if.end4.i
+  %cmp518.not.i = icmp eq i32 %2, 0
+  br i1 %cmp518.not.i, label %for.end.i, label %for.body.preheader.i
 
-for.body.preheader.i.i:                           ; preds = %_ZN10polynomial12tmp_monomial7reserveEj.exit.i.i, %_ZN10polynomial12tmp_monomial7reserveEj.exit.thread.i.i
-  %wide.trip.count.i.i = zext i32 %3 to i64
-  br label %for.body.i.i
+for.body.preheader.i:                             ; preds = %_ZN10polynomial12tmp_monomial7reserveEj.exit.i, %_ZN10polynomial12tmp_monomial7reserveEj.exit.thread.i
+  %wide.trip.count.i = zext i32 %2 to i64
+  br label %for.body.i
 
-for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.preheader.i.i
-  %indvars.iv.i.i = phi i64 [ 0, %for.body.preheader.i.i ], [ %indvars.iv.next.i.i, %for.body.i.i ]
-  %arrayidx.i.i.i.i = getelementptr inbounds %"class.polynomial::monomial", ptr %m, i64 0, i32 5, i64 %indvars.iv.i.i
-  %6 = load i32, ptr %arrayidx.i.i.i.i, align 4
-  %second.i.i.i.i = getelementptr inbounds %"class.polynomial::monomial", ptr %m, i64 0, i32 5, i64 %indvars.iv.i.i, i32 0, i32 1
-  %7 = load i32, ptr %second.i.i.i.i, align 4
-  %mul.i.i = mul i32 %7, %k
-  %8 = load ptr, ptr %m_tmp1.i.i, align 8
-  %arrayidx.i.i.i = getelementptr inbounds %"class.polynomial::monomial", ptr %8, i64 0, i32 5, i64 %indvars.iv.i.i
-  store i32 %6, ptr %arrayidx.i.i.i, align 4
-  %second3.i.i.i.i.i = getelementptr inbounds %"struct.std::pair", ptr %arrayidx.i.i.i, i64 0, i32 1
-  store i32 %mul.i.i, ptr %second3.i.i.i.i.i, align 4
-  %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %for.end.i.i, label %for.body.i.i, !llvm.loop !30
+for.body.i:                                       ; preds = %for.body.i, %for.body.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %for.body.preheader.i ], [ %indvars.iv.next.i, %for.body.i ]
+  %arrayidx.i.i.i = getelementptr inbounds %"class.polynomial::monomial", ptr %m, i64 0, i32 5, i64 %indvars.iv.i
+  %5 = load i32, ptr %arrayidx.i.i.i, align 4
+  %second.i.i.i = getelementptr inbounds %"class.polynomial::monomial", ptr %m, i64 0, i32 5, i64 %indvars.iv.i, i32 0, i32 1
+  %6 = load i32, ptr %second.i.i.i, align 4
+  %mul.i = mul i32 %6, %k
+  %7 = load ptr, ptr %m_tmp1.i, align 8
+  %arrayidx.i.i = getelementptr inbounds %"class.polynomial::monomial", ptr %7, i64 0, i32 5, i64 %indvars.iv.i
+  store i32 %5, ptr %arrayidx.i.i, align 4
+  %second3.i.i.i.i = getelementptr inbounds %"struct.std::pair", ptr %arrayidx.i.i, i64 0, i32 1
+  store i32 %mul.i, ptr %second3.i.i.i.i, align 4
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
+  br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !30
 
-for.end.i.i:                                      ; preds = %for.body.i.i, %_ZN10polynomial12tmp_monomial7reserveEj.exit.i.i
-  %9 = load ptr, ptr %m_tmp1.i.i, align 8
-  %m_size.i17.i.i = getelementptr inbounds %"class.polynomial::monomial", ptr %9, i64 0, i32 3
-  store i32 %3, ptr %m_size.i17.i.i, align 4
-  %call8.i.i = tail call noundef ptr @_ZN10polynomial16monomial_manager11mk_monomialERNS_12tmp_monomialE(ptr noundef nonnull align 8 dereferenceable(192) %1, ptr noundef nonnull align 8 dereferenceable(12) %m_tmp1.i.i)
-  br label %_ZN10polynomial7manager3imp2pwEPKNS_8monomialEj.exit
+for.end.i:                                        ; preds = %for.body.i, %_ZN10polynomial12tmp_monomial7reserveEj.exit.i
+  %8 = load ptr, ptr %m_tmp1.i, align 8
+  %m_size.i17.i = getelementptr inbounds %"class.polynomial::monomial", ptr %8, i64 0, i32 3
+  store i32 %2, ptr %m_size.i17.i, align 4
+  %call8.i = tail call noundef ptr @_ZN10polynomial16monomial_manager11mk_monomialERNS_12tmp_monomialE(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef nonnull align 8 dereferenceable(12) %m_tmp1.i)
+  br label %_ZN10polynomial16monomial_manager2pwEPKNS_8monomialEj.exit
 
-_ZN10polynomial7manager3imp2pwEPKNS_8monomialEj.exit: ; preds = %entry, %if.then.i.i, %for.end.i.i
-  %retval.0.i.i = phi ptr [ %2, %if.then.i.i ], [ %call8.i.i, %for.end.i.i ], [ %m, %entry ]
-  ret ptr %retval.0.i.i
+_ZN10polynomial16monomial_manager2pwEPKNS_8monomialEj.exit: ; preds = %entry, %if.then.i, %for.end.i
+  %retval.0.i = phi ptr [ %1, %if.then.i ], [ %call8.i, %for.end.i ], [ %m, %entry ]
+  ret ptr %retval.0.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
@@ -33724,7 +33733,7 @@ land.lhs.true.i.i.i.i:                            ; preds = %while.end.i.i.i.i
   br i1 %cmp8.i.i.i.i, label %if.then9.i.i.i.i, label %if.end16.i.i.i.i
 
 if.then9.i.i.i.i:                                 ; preds = %land.lhs.true.i.i.i.i
-  %add10.i.i.i.i = shl i64 %__secondChild.0.lcssa.i.i.i.i, 1
+  %add10.i.i.i.i = shl nsw i64 %__secondChild.0.lcssa.i.i.i.i, 1
   %sub12.i.i.i.i = or disjoint i64 %add10.i.i.i.i, 1
   %add.ptr13.i.i.i.i = getelementptr inbounds i32, ptr %__first, i64 %sub12.i.i.i.i
   %6 = load i32, ptr %add.ptr13.i.i.i.i, align 4
@@ -33911,7 +33920,7 @@ while.end.i:                                      ; preds = %while.body.i, %if.e
   br i1 %or.cond, label %if.then9.i, label %if.end16.i
 
 if.then9.i:                                       ; preds = %while.end.i
-  %add10.i = shl i64 %__secondChild.0.lcssa.i, 1
+  %add10.i = shl nsw i64 %__secondChild.0.lcssa.i, 1
   %sub12.i = or disjoint i64 %add10.i, 1
   %add.ptr13.i = getelementptr inbounds i32, ptr %__first, i64 %sub12.i
   %5 = load i32, ptr %add.ptr13.i, align 4
@@ -46048,7 +46057,7 @@ land.lhs.true.i.i.i:                              ; preds = %while.end.i.i.i
   br i1 %cmp9.i.i.i, label %if.then10.i.i.i, label %if.end18.i.i.i
 
 if.then10.i.i.i:                                  ; preds = %land.lhs.true.i.i.i
-  %add11.i.i.i = shl i64 %__holeIndex.addr.0.lcssa.i.i.i, 1
+  %add11.i.i.i = shl nsw i64 %__holeIndex.addr.0.lcssa.i.i.i, 1
   %sub13.i.i.i = or disjoint i64 %add11.i.i.i, 1
   %add.ptr14.i.i.i = getelementptr inbounds %"class.polynomial::power", ptr %__first, i64 %sub13.i.i.i
   %add.ptr15.i.i.i = getelementptr inbounds %"class.polynomial::power", ptr %__first, i64 %__holeIndex.addr.0.lcssa.i.i.i
@@ -46525,7 +46534,7 @@ while.end.i:                                      ; preds = %while.body.i, %if.e
   br i1 %or.cond, label %if.then10.i, label %if.end18.i
 
 if.then10.i:                                      ; preds = %while.end.i
-  %add11.i = shl i64 %__holeIndex.addr.0.lcssa.i, 1
+  %add11.i = shl nsw i64 %__holeIndex.addr.0.lcssa.i, 1
   %sub13.i = or disjoint i64 %add11.i, 1
   %add.ptr14.i = getelementptr inbounds %"class.polynomial::power", ptr %__first, i64 %sub13.i
   %add.ptr15.i = getelementptr inbounds %"class.polynomial::power", ptr %__first, i64 %__holeIndex.addr.0.lcssa.i
@@ -51045,7 +51054,7 @@ land.lhs.true.i.i.i:                              ; preds = %while.end.i.i.i
   br i1 %cmp9.i.i.i, label %if.then10.i.i.i, label %if.end18.i.i.i
 
 if.then10.i.i.i:                                  ; preds = %land.lhs.true.i.i.i
-  %add11.i.i.i = shl i64 %__holeIndex.addr.0.lcssa.i.i.i, 1
+  %add11.i.i.i = shl nsw i64 %__holeIndex.addr.0.lcssa.i.i.i, 1
   %sub13.i.i.i = or disjoint i64 %add11.i.i.i, 1
   %add.ptr14.i.i.i = getelementptr inbounds %"class.polynomial::power", ptr %__first, i64 %sub13.i.i.i
   %add.ptr15.i.i.i = getelementptr inbounds %"class.polynomial::power", ptr %__first, i64 %__holeIndex.addr.0.lcssa.i.i.i
@@ -51532,7 +51541,7 @@ while.end.i:                                      ; preds = %while.body.i, %if.e
   br i1 %or.cond, label %if.then10.i, label %if.end18.i
 
 if.then10.i:                                      ; preds = %while.end.i
-  %add11.i = shl i64 %__holeIndex.addr.0.lcssa.i, 1
+  %add11.i = shl nsw i64 %__holeIndex.addr.0.lcssa.i, 1
   %sub13.i = or disjoint i64 %add11.i, 1
   %add.ptr14.i = getelementptr inbounds %"class.polynomial::power", ptr %__first, i64 %sub13.i
   %add.ptr15.i = getelementptr inbounds %"class.polynomial::power", ptr %__first, i64 %__holeIndex.addr.0.lcssa.i
@@ -60966,7 +60975,7 @@ land.lhs.true:                                    ; preds = %while.end
   br i1 %cmp9, label %if.then10, label %if.end17
 
 if.then10:                                        ; preds = %land.lhs.true
-  %add11 = shl i64 %__secondChild.0.lcssa, 1
+  %add11 = shl nsw i64 %__secondChild.0.lcssa, 1
   %sub13 = or disjoint i64 %add11, 1
   %add.ptr14 = getelementptr inbounds ptr, ptr %__first, i64 %sub13
   %18 = load ptr, ptr %add.ptr14, align 8

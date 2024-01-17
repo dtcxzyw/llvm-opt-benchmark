@@ -98,10 +98,6 @@ target triple = "x86_64-unknown-linux-gnu"
 
 $__clang_call_terminate = comdat any
 
-$_ZN8proxygen11HTTPMessage16setStatusMessageIRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvOT_ = comdat any
-
-$_ZN8proxygen11HTTPMessage16setStatusMessageIPKcEEvOT_ = comdat any
-
 $_ZN8proxygen11HTTPHeaders3addIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvNS_14HTTPHeaderCodeEOT_ = comdat any
 
 $_ZN5folly2toINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJmEEENSt9enable_ifIXaasr12IsSomeStringIT_EE5valueoonesZT0_Li1Entsr3std7is_sameIS8_19__type_pack_elementIXmisPvDpT0_ELi1EEJvSB_EEEE5valueES8_E4typeEDpRKSA_ = comdat any
@@ -141,6 +137,8 @@ $_ZN8proxygen11HTTPHeaders17emplace_back_implIN5folly5RangeIPKcEEEEvNS_14HTTPHea
 $_ZN8proxygen11HTTPHeaders17emplace_back_implINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvNS_14HTTPHeaderCodeEPS7_OT_ = comdat any
 
 $_ZN8proxygen11HTTPHeaders17emplace_back_implIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvNS_14HTTPHeaderCodeEPS7_OT_ = comdat any
+
+$_ZN8proxygen11HTTPMessage8responseEv = comdat any
 
 $_ZTSN8proxygen22HTTPTransactionHandlerE = comdat any
 
@@ -266,7 +264,6 @@ entry:
   %ref.tmp.i = alloca %"class.folly::Range", align 8
   %ref.tmp6 = alloca %"class.google::LogMessage", align 8
   %response = alloca %"class.proxygen::HTTPMessage", align 8
-  %ref.tmp20 = alloca ptr, align 8
   %page = alloca %"struct.proxygen::HTTPErrorPage::Page", align 8
   %agg.tmp = alloca %"class.std::unique_ptr.49", align 8
   %ref.tmp55 = alloca %"class.google::LogMessage", align 8
@@ -330,7 +327,12 @@ invoke.cont16:                                    ; preds = %invoke.cont15
   br i1 %call17, label %if.else, label %if.then
 
 if.then:                                          ; preds = %invoke.cont16
-  invoke void @_ZN8proxygen11HTTPMessage16setStatusMessageIRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvOT_(ptr noundef nonnull align 8 dereferenceable(616) %response, ptr noundef nonnull align 8 dereferenceable(32) %statusMessage_)
+  %call.i5 = invoke noundef nonnull align 8 dereferenceable(72) ptr @_ZN8proxygen11HTTPMessage8responseEv(ptr noundef nonnull align 8 dereferenceable(616) %response)
+          to label %call.i.noexc unwind label %terminate.lpad
+
+call.i.noexc:                                     ; preds = %if.then
+  %statusMsg_.i = getelementptr inbounds %"struct.proxygen::HTTPMessage::Response", ptr %call.i5, i64 0, i32 2
+  %call2.i6 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %statusMsg_.i, ptr noundef nonnull align 8 dereferenceable(32) %statusMessage_)
           to label %if.end unwind label %terminate.lpad
 
 if.else:                                          ; preds = %invoke.cont16
@@ -340,11 +342,15 @@ if.else:                                          ; preds = %invoke.cont16
           to label %invoke.cont23 unwind label %terminate.lpad
 
 invoke.cont23:                                    ; preds = %if.else
-  store ptr %call24, ptr %ref.tmp20, align 8
-  invoke void @_ZN8proxygen11HTTPMessage16setStatusMessageIPKcEEvOT_(ptr noundef nonnull align 8 dereferenceable(616) %response, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp20)
+  %call.i9 = invoke noundef nonnull align 8 dereferenceable(72) ptr @_ZN8proxygen11HTTPMessage8responseEv(ptr noundef nonnull align 8 dereferenceable(616) %response)
+          to label %call.i.noexc8 unwind label %terminate.lpad
+
+call.i.noexc8:                                    ; preds = %invoke.cont23
+  %statusMsg_.i7 = getelementptr inbounds %"struct.proxygen::HTTPMessage::Response", ptr %call.i9, i64 0, i32 2
+  %call2.i10 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %statusMsg_.i7, ptr noundef %call24)
           to label %if.end unwind label %terminate.lpad
 
-if.end:                                           ; preds = %invoke.cont23, %if.then
+if.end:                                           ; preds = %call.i.noexc8, %call.i.noexc
   %bf.load26 = load i8, ptr %headersSent_, align 4
   %5 = and i8 %bf.load26, 4
   %bf.cast.not = icmp eq i8 %5, 0
@@ -355,12 +361,12 @@ if.then28:                                        ; preds = %if.end
   store ptr @.str.2, ptr %ref.tmp.i, align 8
   %e_.i.i = getelementptr inbounds %"class.folly::Range", ptr %ref.tmp.i, i64 0, i32 1
   store ptr getelementptr inbounds ([6 x i8], ptr @.str.2, i64 0, i64 5), ptr %e_.i.i, align 8
-  %call.i.i.i5 = invoke noundef ptr @_ZN8proxygen17HTTPCommonHeaders17getPointerToTableB5cxx11ENS_25HTTPCommonHeaderTableTypeE(i8 noundef zeroext 0)
+  %call.i.i.i11 = invoke noundef ptr @_ZN8proxygen17HTTPCommonHeaders17getPointerToTableB5cxx11ENS_25HTTPCommonHeaderTableTypeE(i8 noundef zeroext 0)
           to label %call.i.i.i.noexc unwind label %terminate.lpad
 
 call.i.i.i.noexc:                                 ; preds = %if.then28
   %headers_.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %response, i64 0, i32 9
-  %add.ptr.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %call.i.i.i5, i64 25
+  %add.ptr.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %call.i.i.i11, i64 25
   invoke void @_ZN8proxygen11HTTPHeaders17emplace_back_implIN5folly5RangeIPKcEEEEvNS_14HTTPHeaderCodeEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEOT_(ptr noundef nonnull align 8 dereferenceable(32) %headers_.i, i8 noundef zeroext 25, ptr noundef nonnull %add.ptr.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i)
           to label %_ZN8proxygen11HTTPHeaders3addENS_14HTTPHeaderCodeEPKc.exit unwind label %terminate.lpad
 
@@ -375,7 +381,7 @@ if.end32:                                         ; preds = %_ZN8proxygen11HTTPH
   br i1 %tobool33.not, label %if.end74.thread, label %if.then34
 
 if.end74.thread:                                  ; preds = %if.end32
-  %headers_.i724 = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %response, i64 0, i32 9
+  %headers_.i1330 = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %response, i64 0, i32 9
   br label %cond.end85
 
 if.then34:                                        ; preds = %if.end32
@@ -436,8 +442,8 @@ cleanup.action67:                                 ; preds = %invoke.cont60
   br label %cleanup.done68
 
 cleanup.done68:                                   ; preds = %cond.false45, %cond.end47, %cleanup.action67
-  %headers_.i6 = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %response, i64 0, i32 9
-  invoke void @_ZN8proxygen11HTTPHeaders3addIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvNS_14HTTPHeaderCodeEOT_(ptr noundef nonnull align 8 dereferenceable(32) %headers_.i6, i8 noundef zeroext 31, ptr noundef nonnull align 8 dereferenceable(32) %page)
+  %headers_.i12 = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %response, i64 0, i32 9
+  invoke void @_ZN8proxygen11HTTPHeaders3addIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvNS_14HTTPHeaderCodeEOT_(ptr noundef nonnull align 8 dereferenceable(32) %headers_.i12, i8 noundef zeroext 31, ptr noundef nonnull align 8 dereferenceable(32) %page)
           to label %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EEaSEOS4_.exit unwind label %terminate.lpad
 
 _ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EEaSEOS4_.exit: ; preds = %cleanup.done68
@@ -453,21 +459,21 @@ cond.true80:                                      ; preds = %_ZNSt10unique_ptrIN
           to label %cond.end85 unwind label %terminate.lpad
 
 cond.end85:                                       ; preds = %if.end74.thread, %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EEaSEOS4_.exit, %cond.true80
-  %cmp.i28 = phi i1 [ true, %cond.true80 ], [ false, %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EEaSEOS4_.exit ], [ false, %if.end74.thread ]
-  %headers_.i727 = phi ptr [ %headers_.i6, %cond.true80 ], [ %headers_.i6, %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EEaSEOS4_.exit ], [ %headers_.i724, %if.end74.thread ]
-  %responseBody.sroa.0.026 = phi ptr [ %12, %cond.true80 ], [ null, %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EEaSEOS4_.exit ], [ null, %if.end74.thread ]
+  %cmp.i34 = phi i1 [ true, %cond.true80 ], [ false, %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EEaSEOS4_.exit ], [ false, %if.end74.thread ]
+  %headers_.i1333 = phi ptr [ %headers_.i12, %cond.true80 ], [ %headers_.i12, %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EEaSEOS4_.exit ], [ %headers_.i1330, %if.end74.thread ]
+  %responseBody.sroa.0.032 = phi ptr [ %12, %cond.true80 ], [ null, %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EEaSEOS4_.exit ], [ null, %if.end74.thread ]
   %cond86 = phi i64 [ %call83, %cond.true80 ], [ 0, %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EEaSEOS4_.exit ], [ 0, %if.end74.thread ]
   store i64 %cond86, ptr %ref.tmp78, align 8
   invoke void @_ZN5folly2toINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJmEEENSt9enable_ifIXaasr12IsSomeStringIT_EE5valueoonesZT0_Li1Entsr3std7is_sameIS8_19__type_pack_elementIXmisPvDpT0_ELi1EEJvSB_EEEE5valueES8_E4typeEDpRKSA_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp77, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp78)
           to label %invoke.cont87 unwind label %terminate.lpad
 
 invoke.cont87:                                    ; preds = %cond.end85
-  %call.i.i9 = invoke noundef ptr @_ZN8proxygen17HTTPCommonHeaders17getPointerToTableB5cxx11ENS_25HTTPCommonHeaderTableTypeE(i8 noundef zeroext 0)
+  %call.i.i15 = invoke noundef ptr @_ZN8proxygen17HTTPCommonHeaders17getPointerToTableB5cxx11ENS_25HTTPCommonHeaderTableTypeE(i8 noundef zeroext 0)
           to label %call.i.i.noexc unwind label %terminate.lpad
 
 call.i.i.noexc:                                   ; preds = %invoke.cont87
-  %add.ptr.i.i8 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %call.i.i9, i64 29
-  invoke void @_ZN8proxygen11HTTPHeaders17emplace_back_implINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvNS_14HTTPHeaderCodeEPS7_OT_(ptr noundef nonnull align 8 dereferenceable(32) %headers_.i727, i8 noundef zeroext 29, ptr noundef nonnull %add.ptr.i.i8, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp77)
+  %add.ptr.i.i14 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %call.i.i15, i64 29
+  invoke void @_ZN8proxygen11HTTPHeaders17emplace_back_implINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvNS_14HTTPHeaderCodeEPS7_OT_(ptr noundef nonnull align 8 dereferenceable(32) %headers_.i1333, i8 noundef zeroext 29, ptr noundef nonnull %add.ptr.i.i14, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp77)
           to label %invoke.cont88 unwind label %terminate.lpad
 
 invoke.cont88:                                    ; preds = %call.i.i.noexc
@@ -481,11 +487,11 @@ invoke.cont88:                                    ; preds = %call.i.i.noexc
           to label %invoke.cont91 unwind label %terminate.lpad
 
 invoke.cont91:                                    ; preds = %invoke.cont88
-  br i1 %cmp.i28, label %if.then93, label %if.end99
+  br i1 %cmp.i34, label %if.then93, label %if.end99
 
 if.then93:                                        ; preds = %invoke.cont91
   %15 = load ptr, ptr %txn_, align 8
-  %16 = ptrtoint ptr %responseBody.sroa.0.026 to i64
+  %16 = ptrtoint ptr %responseBody.sroa.0.032 to i64
   store i64 %16, ptr %agg.tmp95, align 8
   %vtable96 = load ptr, ptr %15, align 8
   %vfn97 = getelementptr inbounds ptr, ptr %vtable96, i64 14
@@ -495,32 +501,32 @@ if.then93:                                        ; preds = %invoke.cont91
 
 invoke.cont98:                                    ; preds = %if.then93
   %18 = load ptr, ptr %agg.tmp95, align 8
-  %cmp.not.i11 = icmp eq ptr %18, null
-  br i1 %cmp.not.i11, label %if.end99.thread, label %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i12
+  %cmp.not.i17 = icmp eq ptr %18, null
+  br i1 %cmp.not.i17, label %if.end99.thread, label %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i18
 
-_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i12: ; preds = %invoke.cont98
+_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i18: ; preds = %invoke.cont98
   call void @_ZN5folly5IOBufD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %18) #16
   call void @_ZN5folly5IOBufdlEPv(ptr noundef nonnull %18) #16
   br label %if.end99.thread
 
-if.end99.thread:                                  ; preds = %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i12, %invoke.cont98
+if.end99.thread:                                  ; preds = %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i18, %invoke.cont98
   store ptr null, ptr %agg.tmp95, align 8
-  br label %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit16
+  br label %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit22
 
 if.end99:                                         ; preds = %invoke.cont91
-  %cmp.not.i14 = icmp eq ptr %responseBody.sroa.0.026, null
-  br i1 %cmp.not.i14, label %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit16, label %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i15
+  %cmp.not.i20 = icmp eq ptr %responseBody.sroa.0.032, null
+  br i1 %cmp.not.i20, label %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit22, label %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i21
 
-_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i15: ; preds = %if.end99
-  call void @_ZN5folly5IOBufD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %responseBody.sroa.0.026) #16
-  call void @_ZN5folly5IOBufdlEPv(ptr noundef nonnull %responseBody.sroa.0.026) #16
-  br label %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit16
+_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i21: ; preds = %if.end99
+  call void @_ZN5folly5IOBufD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %responseBody.sroa.0.032) #16
+  call void @_ZN5folly5IOBufdlEPv(ptr noundef nonnull %responseBody.sroa.0.032) #16
+  br label %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit22
 
-_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit16: ; preds = %if.end99.thread, %if.end99, %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i15
+_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit22: ; preds = %if.end99.thread, %if.end99, %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i21
   call void @_ZN8proxygen11HTTPMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(616) %response) #16
   ret void
 
-terminate.lpad:                                   ; preds = %call.i.i.noexc, %invoke.cont87, %call.i.i.i.noexc, %if.then28, %if.then93, %invoke.cont88, %cond.end85, %cond.true80, %cleanup.done68, %invoke.cont60, %invoke.cont58, %invoke.cont56, %cond.false52, %cond.true42, %if.then34, %invoke.cont23, %if.else, %if.then, %invoke.cont15, %invoke.cont14, %cleanup.done, %invoke.cont8, %invoke.cont7, %cond.false4, %cond.true
+terminate.lpad:                                   ; preds = %call.i.i.noexc, %invoke.cont87, %call.i.i.i.noexc, %if.then28, %call.i.noexc8, %invoke.cont23, %call.i.noexc, %if.then, %if.then93, %invoke.cont88, %cond.end85, %cond.true80, %cleanup.done68, %invoke.cont60, %invoke.cont58, %invoke.cont56, %cond.false52, %cond.true42, %if.then34, %if.else, %invoke.cont15, %invoke.cont14, %cleanup.done, %invoke.cont8, %invoke.cont7, %cond.false4, %cond.true
   %19 = landingpad { ptr, i32 }
           catch ptr null
   %20 = extractvalue { ptr, i32 } %19, 0
@@ -558,89 +564,6 @@ declare void @_ZN8proxygen11HTTPMessage13setStatusCodeEt(ptr noundef nonnull ali
 
 ; Function Attrs: nounwind
 declare noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN8proxygen11HTTPMessage16setStatusMessageIRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvOT_(ptr noundef nonnull align 8 dereferenceable(616) %this, ptr noundef nonnull align 8 dereferenceable(32) %msg) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %fields_15.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 6
-  %0 = load i8, ptr %fields_15.i, align 8
-  switch i8 %0, label %_ZN8proxygen11HTTPMessage8responseEv.exit [
-    i8 0, label %if.then.i
-    i8 1, label %if.then24.i
-  ]
-
-if.then.i:                                        ; preds = %entry
-  store i8 2, ptr %fields_15.i, align 8
-  %data_.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 6, i32 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %data_.i, i8 0, i64 72, i1 false)
-  %statusStr_.i.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 6, i32 1, i32 0, i32 1
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %statusStr_.i.i) #16
-  %statusMsg_.i.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 6, i32 1, i32 0, i32 2
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %statusMsg_.i.i) #16
-  br label %_ZN8proxygen11HTTPMessage8responseEv.exit
-
-if.then24.i:                                      ; preds = %entry
-  %exception.i = tail call ptr @__cxa_allocate_exception(i64 16) #16
-  invoke void @_ZNSt13runtime_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception.i, ptr noundef nonnull @.str.11)
-          to label %invoke.cont26.i unwind label %lpad25.i
-
-invoke.cont26.i:                                  ; preds = %if.then24.i
-  tail call void @__cxa_throw(ptr nonnull %exception.i, ptr nonnull @_ZTISt13runtime_error, ptr nonnull @_ZNSt13runtime_errorD1Ev) #19
-  unreachable
-
-lpad25.i:                                         ; preds = %if.then24.i
-  %1 = landingpad { ptr, i32 }
-          cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i) #16
-  resume { ptr, i32 } %1
-
-_ZN8proxygen11HTTPMessage8responseEv.exit:        ; preds = %entry, %if.then.i
-  %statusMsg_ = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 6, i32 1, i32 0, i32 2
-  %call2 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %statusMsg_, ptr noundef nonnull align 8 dereferenceable(32) %msg)
-  ret void
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN8proxygen11HTTPMessage16setStatusMessageIPKcEEvOT_(ptr noundef nonnull align 8 dereferenceable(616) %this, ptr noundef nonnull align 8 dereferenceable(8) %msg) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %0 = load ptr, ptr %msg, align 8
-  %fields_15.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 6
-  %1 = load i8, ptr %fields_15.i, align 8
-  switch i8 %1, label %_ZN8proxygen11HTTPMessage8responseEv.exit [
-    i8 0, label %if.then.i
-    i8 1, label %if.then24.i
-  ]
-
-if.then.i:                                        ; preds = %entry
-  store i8 2, ptr %fields_15.i, align 8
-  %data_.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 6, i32 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %data_.i, i8 0, i64 72, i1 false)
-  %statusStr_.i.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 6, i32 1, i32 0, i32 1
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %statusStr_.i.i) #16
-  %statusMsg_.i.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 6, i32 1, i32 0, i32 2
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %statusMsg_.i.i) #16
-  br label %_ZN8proxygen11HTTPMessage8responseEv.exit
-
-if.then24.i:                                      ; preds = %entry
-  %exception.i = tail call ptr @__cxa_allocate_exception(i64 16) #16
-  invoke void @_ZNSt13runtime_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception.i, ptr noundef nonnull @.str.11)
-          to label %invoke.cont26.i unwind label %lpad25.i
-
-invoke.cont26.i:                                  ; preds = %if.then24.i
-  tail call void @__cxa_throw(ptr nonnull %exception.i, ptr nonnull @_ZTISt13runtime_error, ptr nonnull @_ZNSt13runtime_errorD1Ev) #19
-  unreachable
-
-lpad25.i:                                         ; preds = %if.then24.i
-  %2 = landingpad { ptr, i32 }
-          cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i) #16
-  resume { ptr, i32 } %2
-
-_ZN8proxygen11HTTPMessage8responseEv.exit:        ; preds = %entry, %if.then.i
-  %statusMsg_ = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 6, i32 1, i32 0, i32 2
-  %call2 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %statusMsg_, ptr noundef %0)
-  ret void
-}
 
 declare noundef ptr @_ZN8proxygen11HTTPMessage16getDefaultReasonEt(i16 noundef zeroext) local_unnamed_addr #0
 
@@ -1262,7 +1185,7 @@ while.body.i:                                     ; preds = %if.end.i, %while.bo
 if.end.i.i:                                       ; preds = %while.body.i, %if.end.i
   %targetCapacity.0.lcssa.i = phi i64 [ %2, %if.end.i ], [ %add.i, %while.body.i ]
   %mul.i.i = mul i64 %targetCapacity.0.lcssa.i, 41
-  %call.i.i.i = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %mul.i.i) #20, !noalias !8
+  %call.i.i.i = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %mul.i.i) #19, !noalias !8
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %call.i.i.i, i8 0, i64 %mul.i.i, i1 false), !noalias !8
   %cmp2.not.i.i = icmp eq i64 %0, 0
   %.pre20.i.i = load ptr, ptr %this, align 8
@@ -1438,7 +1361,7 @@ while.body.i:                                     ; preds = %if.end.i, %while.bo
 if.end.i.i:                                       ; preds = %while.body.i, %if.end.i
   %targetCapacity.0.lcssa.i = phi i64 [ %2, %if.end.i ], [ %add.i, %while.body.i ]
   %mul.i.i = mul i64 %targetCapacity.0.lcssa.i, 41
-  %call.i.i.i = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %mul.i.i) #20, !noalias !12
+  %call.i.i.i = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %mul.i.i) #19, !noalias !12
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %call.i.i.i, i8 0, i64 %mul.i.i, i1 false), !noalias !12
   %cmp2.not.i.i = icmp eq i64 %0, 0
   %.pre20.i.i = load ptr, ptr %this, align 8
@@ -1573,7 +1496,7 @@ while.body.i:                                     ; preds = %if.end.i, %while.bo
 if.end.i.i:                                       ; preds = %while.body.i, %if.end.i
   %targetCapacity.0.lcssa.i = phi i64 [ %2, %if.end.i ], [ %add.i, %while.body.i ]
   %mul.i.i = mul i64 %targetCapacity.0.lcssa.i, 41
-  %call.i.i.i = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %mul.i.i) #20, !noalias !15
+  %call.i.i.i = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %mul.i.i) #19, !noalias !15
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %call.i.i.i, i8 0, i64 %mul.i.i, i1 false), !noalias !15
   %cmp2.not.i.i = icmp eq i64 %0, 0
   %.pre20.i.i = load ptr, ptr %this, align 8
@@ -1686,6 +1609,46 @@ declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4data
 ; Function Attrs: nounwind
 declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(72) ptr @_ZN8proxygen11HTTPMessage8responseEv(ptr noundef nonnull align 8 dereferenceable(616) %this) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
+entry:
+  %fields_15 = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 6
+  %0 = load i8, ptr %fields_15, align 8
+  switch i8 %0, label %if.end27 [
+    i8 0, label %if.then
+    i8 1, label %if.then24
+  ]
+
+if.then:                                          ; preds = %entry
+  store i8 2, ptr %fields_15, align 8
+  %data_ = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 6, i32 1
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %data_, i8 0, i64 72, i1 false)
+  %statusStr_.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 6, i32 1, i32 0, i32 1
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %statusStr_.i) #16
+  %statusMsg_.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 6, i32 1, i32 0, i32 2
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %statusMsg_.i) #16
+  br label %if.end27
+
+if.then24:                                        ; preds = %entry
+  %exception = tail call ptr @__cxa_allocate_exception(i64 16) #16
+  invoke void @_ZNSt13runtime_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception, ptr noundef nonnull @.str.11)
+          to label %invoke.cont26 unwind label %lpad25
+
+invoke.cont26:                                    ; preds = %if.then24
+  tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTISt13runtime_error, ptr nonnull @_ZNSt13runtime_errorD1Ev) #20
+  unreachable
+
+lpad25:                                           ; preds = %if.then24
+  %1 = landingpad { ptr, i32 }
+          cleanup
+  tail call void @__cxa_free_exception(ptr %exception) #16
+  resume { ptr, i32 } %1
+
+if.end27:                                         ; preds = %entry, %if.then
+  %data_29 = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 6, i32 1
+  ret ptr %data_29
+}
+
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
@@ -1744,8 +1707,8 @@ attributes #15 = { nocallback nofree nosync nounwind willreturn memory(argmem: r
 attributes #16 = { nounwind }
 attributes #17 = { builtin nounwind }
 attributes #18 = { noreturn nounwind }
-attributes #19 = { noreturn }
-attributes #20 = { builtin allocsize(0) }
+attributes #19 = { builtin allocsize(0) }
+attributes #20 = { noreturn }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

@@ -333,6 +333,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::_Sp_counted_ptr_inplace<arrow::DenseUnionScalar, std::allocator<void>, __gnu_cxx::_S_atomic>::_Impl" = type { %"struct.__gnu_cxx::__aligned_buffer.601" }
 %"struct.__gnu_cxx::__aligned_buffer.601" = type { %"union.std::aligned_storage<88, 8>::type" }
 %"union.std::aligned_storage<88, 8>::type" = type { [88 x i8] }
+%"struct.arrow::internal::StringConverter" = type { i8 }
 %"struct.arrow::internal::StringConverter.628" = type { i8 }
 %"struct.arrow::internal::StringConverter.630" = type { i8 }
 %"struct.arrow::internal::StringConverter.632" = type { i8 }
@@ -1425,6 +1426,8 @@ $_ZN5arrow15ScalarParseImpl5VisitERKNS_14DictionaryTypeE = comdat any
 $_ZN5arrow6Status8FromArgsIJRA25_KcRKNS_8DataTypeEEEES0_NS_10StatusCodeEDpOT_ = comdat any
 
 $_ZN5arrow15ScalarParseImpl6FinishIRbEENS_6StatusEOT_ = comdat any
+
+$_ZN5arrow8internal15StringConverterINS_11BooleanTypeEvE7ConvertERKS2_PKcmPb = comdat any
 
 $_ZN5arrow4util13StringBuilderIJRA16_KcRSt17basic_string_viewIcSt11char_traitsIcEERA21_S2_RKNS_11BooleanTypeEEEENSt7__cxx1112basic_stringIcS7_SaIcEEEDpOT_ = comdat any
 
@@ -45379,120 +45382,35 @@ return:                                           ; preds = %sw.epilog, %sw.bb84
 define linkonce_odr void @_ZN5arrow15ScalarParseImpl5VisitINS_11BooleanTypeEvEENS_6StatusERKT_(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(72) %t) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i = alloca %"class.std::__cxx11::basic_string", align 8
+  %ref.tmp.i = alloca %"struct.arrow::internal::StringConverter", align 1
   %value = alloca i8, align 1
   %s_ = getelementptr inbounds %"struct.arrow::ScalarParseImpl", ptr %this, i64 0, i32 1
   %_M_str.i = getelementptr inbounds %"struct.arrow::ScalarParseImpl", ptr %this, i64 0, i32 1, i32 1
   %0 = load ptr, ptr %_M_str.i, align 8
   %1 = load i64, ptr %s_, align 8
-  switch i64 %1, label %if.then [
-    i64 1, label %if.then.i
-    i64 4, label %if.then11.i
-    i64 5, label %if.then41.i
-  ]
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i)
+  %call.i = call noundef zeroext i1 @_ZN5arrow8internal15StringConverterINS_11BooleanTypeEvE7ConvertERKS2_PKcmPb(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(72) %t, ptr noundef %0, i64 noundef %1, ptr noundef nonnull %value)
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i)
+  br i1 %call.i, label %if.end, label %if.then
 
-if.then.i:                                        ; preds = %entry
-  %2 = load i8, ptr %0, align 1
-  switch i8 %2, label %if.then [
-    i8 48, label %if.then3.i
-    i8 49, label %if.then7.i
-  ]
-
-if.then3.i:                                       ; preds = %if.then.i
-  store i8 0, ptr %value, align 1
-  br label %if.end
-
-if.then7.i:                                       ; preds = %if.then.i
-  store i8 1, ptr %value, align 1
-  br label %if.end
-
-if.then11.i:                                      ; preds = %entry
-  store i8 1, ptr %value, align 1
-  %3 = load i8, ptr %0, align 1
-  switch i8 %3, label %if.then [
-    i8 116, label %land.lhs.true.i
-    i8 84, label %land.lhs.true.i
-  ]
-
-land.lhs.true.i:                                  ; preds = %if.then11.i, %if.then11.i
-  %arrayidx18.i = getelementptr inbounds i8, ptr %0, i64 1
-  %4 = load i8, ptr %arrayidx18.i, align 1
-  switch i8 %4, label %if.then [
-    i8 114, label %land.lhs.true25.i
-    i8 82, label %land.lhs.true25.i
-  ]
-
-land.lhs.true25.i:                                ; preds = %land.lhs.true.i, %land.lhs.true.i
-  %arrayidx26.i = getelementptr inbounds i8, ptr %0, i64 2
-  %5 = load i8, ptr %arrayidx26.i, align 1
-  switch i8 %5, label %if.then [
-    i8 117, label %land.rhs.i
-    i8 85, label %land.rhs.i
-  ]
-
-land.rhs.i:                                       ; preds = %land.lhs.true25.i, %land.lhs.true25.i
-  %arrayidx33.i = getelementptr inbounds i8, ptr %0, i64 3
-  %6 = load i8, ptr %arrayidx33.i, align 1
-  %7 = and i8 %6, -33
-  %spec.select.i = icmp eq i8 %7, 69
-  br i1 %spec.select.i, label %if.end, label %if.then
-
-if.then41.i:                                      ; preds = %entry
-  store i8 0, ptr %value, align 1
-  %8 = load i8, ptr %0, align 1
-  switch i8 %8, label %if.then [
-    i8 102, label %land.lhs.true49.i
-    i8 70, label %land.lhs.true49.i
-  ]
-
-land.lhs.true49.i:                                ; preds = %if.then41.i, %if.then41.i
-  %arrayidx50.i = getelementptr inbounds i8, ptr %0, i64 1
-  %9 = load i8, ptr %arrayidx50.i, align 1
-  switch i8 %9, label %if.then [
-    i8 97, label %land.lhs.true57.i
-    i8 65, label %land.lhs.true57.i
-  ]
-
-land.lhs.true57.i:                                ; preds = %land.lhs.true49.i, %land.lhs.true49.i
-  %arrayidx58.i = getelementptr inbounds i8, ptr %0, i64 2
-  %10 = load i8, ptr %arrayidx58.i, align 1
-  switch i8 %10, label %if.then [
-    i8 108, label %land.lhs.true65.i
-    i8 76, label %land.lhs.true65.i
-  ]
-
-land.lhs.true65.i:                                ; preds = %land.lhs.true57.i, %land.lhs.true57.i
-  %arrayidx66.i = getelementptr inbounds i8, ptr %0, i64 3
-  %11 = load i8, ptr %arrayidx66.i, align 1
-  switch i8 %11, label %if.then [
-    i8 115, label %_ZN5arrow8internal15StringConverterINS_11BooleanTypeEvE7ConvertERKS2_PKcmPb.exit
-    i8 83, label %_ZN5arrow8internal15StringConverterINS_11BooleanTypeEvE7ConvertERKS2_PKcmPb.exit
-  ]
-
-_ZN5arrow8internal15StringConverterINS_11BooleanTypeEvE7ConvertERKS2_PKcmPb.exit: ; preds = %land.lhs.true65.i, %land.lhs.true65.i
-  %arrayidx74.i = getelementptr inbounds i8, ptr %0, i64 4
-  %12 = load i8, ptr %arrayidx74.i, align 1
-  %13 = and i8 %12, -33
-  %spec.select25.i = icmp eq i8 %13, 69
-  br i1 %spec.select25.i, label %if.end, label %if.then
-
-if.then:                                          ; preds = %entry, %land.lhs.true65.i, %land.lhs.true57.i, %land.lhs.true49.i, %if.then41.i, %land.lhs.true25.i, %land.lhs.true.i, %if.then11.i, %if.then.i, %land.rhs.i, %_ZN5arrow8internal15StringConverterINS_11BooleanTypeEvE7ConvertERKS2_PKcmPb.exit
+if.then:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i), !noalias !1238
   call void @_ZN5arrow4util13StringBuilderIJRA16_KcRSt17basic_string_viewIcSt11char_traitsIcEERA21_S2_RKNS_11BooleanTypeEEEENSt7__cxx1112basic_stringIcS7_SaIcEEEDpOT_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i.i, ptr noundef nonnull align 1 dereferenceable(16) @.str.68, ptr noundef nonnull align 8 dereferenceable(16) %s_, ptr noundef nonnull align 1 dereferenceable(21) @.str.69, ptr noundef nonnull align 8 dereferenceable(72) %t), !noalias !1241
   invoke void @_ZN5arrow6StatusC1ENS_10StatusCodeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %agg.result, i8 noundef signext 4, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i)
           to label %_ZN5arrow6Status7InvalidIJRA16_KcRSt17basic_string_viewIcSt11char_traitsIcEERA21_S2_RKNS_11BooleanTypeEEEES0_DpOT_.exit unwind label %lpad.i.i
 
 lpad.i.i:                                         ; preds = %if.then
-  %14 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i) #21
-  resume { ptr, i32 } %14
+  resume { ptr, i32 } %2
 
 _ZN5arrow6Status7InvalidIJRA16_KcRSt17basic_string_viewIcSt11char_traitsIcEERA21_S2_RKNS_11BooleanTypeEEEES0_DpOT_.exit: ; preds = %if.then
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i), !noalias !1238
   br label %return
 
-if.end:                                           ; preds = %if.then7.i, %if.then3.i, %land.rhs.i, %_ZN5arrow8internal15StringConverterINS_11BooleanTypeEvE7ConvertERKS2_PKcmPb.exit
+if.end:                                           ; preds = %entry
   call void @_ZN5arrow15ScalarParseImpl6FinishIRbEENS_6StatusEOT_(ptr sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 1 dereferenceable(1) %value)
   br label %return
 
@@ -46670,6 +46588,105 @@ ehcleanup:                                        ; preds = %lpad.i, %lpad2
   %.pn = phi { ptr, i32 } [ %17, %lpad2 ], [ %5, %lpad.i ]
   call void @_ZNSt10shared_ptrIN5arrow8DataTypeEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp) #21
   resume { ptr, i32 } %.pn
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef zeroext i1 @_ZN5arrow8internal15StringConverterINS_11BooleanTypeEvE7ConvertERKS2_PKcmPb(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %s, i64 noundef %length, ptr noundef %out) local_unnamed_addr #3 comdat align 2 {
+entry:
+  switch i64 %length, label %return [
+    i64 1, label %if.then
+    i64 4, label %if.then11
+    i64 5, label %if.then41
+  ]
+
+if.then:                                          ; preds = %entry
+  %1 = load i8, ptr %s, align 1
+  switch i8 %1, label %return [
+    i8 48, label %if.then3
+    i8 49, label %if.then7
+  ]
+
+if.then3:                                         ; preds = %if.then
+  store i8 0, ptr %out, align 1
+  br label %return
+
+if.then7:                                         ; preds = %if.then
+  store i8 1, ptr %out, align 1
+  br label %return
+
+if.then11:                                        ; preds = %entry
+  store i8 1, ptr %out, align 1
+  %2 = load i8, ptr %s, align 1
+  switch i8 %2, label %return [
+    i8 116, label %land.lhs.true
+    i8 84, label %land.lhs.true
+  ]
+
+land.lhs.true:                                    ; preds = %if.then11, %if.then11
+  %arrayidx18 = getelementptr inbounds i8, ptr %s, i64 1
+  %3 = load i8, ptr %arrayidx18, align 1
+  switch i8 %3, label %return [
+    i8 114, label %land.lhs.true25
+    i8 82, label %land.lhs.true25
+  ]
+
+land.lhs.true25:                                  ; preds = %land.lhs.true, %land.lhs.true
+  %arrayidx26 = getelementptr inbounds i8, ptr %s, i64 2
+  %4 = load i8, ptr %arrayidx26, align 1
+  switch i8 %4, label %return [
+    i8 117, label %land.rhs
+    i8 85, label %land.rhs
+  ]
+
+land.rhs:                                         ; preds = %land.lhs.true25, %land.lhs.true25
+  %arrayidx33 = getelementptr inbounds i8, ptr %s, i64 3
+  %5 = load i8, ptr %arrayidx33, align 1
+  %6 = and i8 %5, -33
+  %spec.select = icmp eq i8 %6, 69
+  br label %return
+
+if.then41:                                        ; preds = %entry
+  store i8 0, ptr %out, align 1
+  %7 = load i8, ptr %s, align 1
+  switch i8 %7, label %return [
+    i8 102, label %land.lhs.true49
+    i8 70, label %land.lhs.true49
+  ]
+
+land.lhs.true49:                                  ; preds = %if.then41, %if.then41
+  %arrayidx50 = getelementptr inbounds i8, ptr %s, i64 1
+  %8 = load i8, ptr %arrayidx50, align 1
+  switch i8 %8, label %return [
+    i8 97, label %land.lhs.true57
+    i8 65, label %land.lhs.true57
+  ]
+
+land.lhs.true57:                                  ; preds = %land.lhs.true49, %land.lhs.true49
+  %arrayidx58 = getelementptr inbounds i8, ptr %s, i64 2
+  %9 = load i8, ptr %arrayidx58, align 1
+  switch i8 %9, label %return [
+    i8 108, label %land.lhs.true65
+    i8 76, label %land.lhs.true65
+  ]
+
+land.lhs.true65:                                  ; preds = %land.lhs.true57, %land.lhs.true57
+  %arrayidx66 = getelementptr inbounds i8, ptr %s, i64 3
+  %10 = load i8, ptr %arrayidx66, align 1
+  switch i8 %10, label %return [
+    i8 115, label %land.rhs73
+    i8 83, label %land.rhs73
+  ]
+
+land.rhs73:                                       ; preds = %land.lhs.true65, %land.lhs.true65
+  %arrayidx74 = getelementptr inbounds i8, ptr %s, i64 4
+  %11 = load i8, ptr %arrayidx74, align 1
+  %12 = and i8 %11, -33
+  %spec.select25 = icmp eq i8 %12, 69
+  br label %return
+
+return:                                           ; preds = %land.rhs73, %land.rhs, %entry, %if.then41, %land.lhs.true49, %land.lhs.true57, %land.lhs.true65, %if.then11, %land.lhs.true, %land.lhs.true25, %if.then, %if.then7, %if.then3
+  %retval.0 = phi i1 [ true, %if.then3 ], [ true, %if.then7 ], [ false, %if.then ], [ false, %if.then11 ], [ false, %land.lhs.true ], [ false, %land.lhs.true25 ], [ %spec.select, %land.rhs ], [ false, %if.then41 ], [ false, %land.lhs.true49 ], [ false, %land.lhs.true57 ], [ false, %land.lhs.true65 ], [ %spec.select25, %land.rhs73 ], [ false, %entry ]
+  ret i1 %retval.0
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -111057,7 +111074,7 @@ if.then.i:                                        ; preds = %entry
 _ZNKSt6vectorISt10shared_ptrIN5arrow6ScalarEESaIS3_EE12_M_check_lenEmPKc.exit: ; preds = %entry
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 4
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
-  %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
+  %add.i = add nsw i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
   %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 576460752303423487)
   %cond.i = select i1 %cmp7.i, i64 576460752303423487, i64 %2

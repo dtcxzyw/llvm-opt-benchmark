@@ -91,7 +91,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.48 = private unnamed_addr constant [39 x i8] c"vhostfd(s)= is not valid without vhost\00", align 1
 
 ; Function Attrs: nofree nounwind sspstrong uwtable
-define dso_local i64 @tap_read_packet(i32 noundef %tapfd, ptr nocapture noundef %buf, i32 noundef %maxlen) local_unnamed_addr #0 {
+define dso_local noundef i64 @tap_read_packet(i32 noundef %tapfd, ptr nocapture noundef %buf, i32 noundef %maxlen) local_unnamed_addr #0 {
 entry:
   %conv = sext i32 %maxlen to i64
   %call = tail call i64 @read(i32 noundef %tapfd, ptr noundef %buf, i64 noundef %conv) #15
@@ -123,7 +123,7 @@ if.end:                                           ; preds = %entry
 declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @net_init_bridge(ptr nocapture noundef readonly %netdev, ptr noundef %name, ptr noundef %peer, ptr noundef %errp) local_unnamed_addr #2 {
+define dso_local noundef i32 @net_init_bridge(ptr nocapture noundef readonly %netdev, ptr noundef %name, ptr noundef %peer, ptr noundef %errp) local_unnamed_addr #2 {
 entry:
   %type = getelementptr inbounds %struct.Netdev, ptr %netdev, i64 0, i32 1
   %0 = load i32, ptr %type, align 8
@@ -1547,8 +1547,6 @@ declare void @qemu_add_exit_notifier(ptr noundef) local_unnamed_addr #4
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @tap_receive(ptr noundef %nc, ptr noundef %buf, i64 noundef %size) #2 {
 entry:
-  %iov.i = alloca [2 x %struct.iovec], align 16
-  %hdr.i = alloca %struct.virtio_net_hdr_mrg_rxbuf, align 2
   %iov = alloca [1 x %struct.iovec], align 16
   %host_vnet_hdr_len = getelementptr inbounds %struct.TAPState, ptr %nc, i64 0, i32 12
   %0 = load i32, ptr %host_vnet_hdr_len, align 8
@@ -1560,58 +1558,10 @@ land.lhs.true:                                    ; preds = %entry
   %1 = load i8, ptr %using_vnet_hdr, align 2
   %2 = and i8 %1, 1
   %tobool2.not = icmp eq i8 %2, 0
-  br i1 %tobool2.not, label %if.end.i, label %if.end
+  br i1 %tobool2.not, label %if.then, label %if.end
 
-if.end.i:                                         ; preds = %land.lhs.true
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %iov.i)
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %hdr.i)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(12) %hdr.i, i8 0, i64 12, i1 false)
-  store ptr %hdr.i, ptr %iov.i, align 16
-  %conv.i = zext i32 %0 to i64
-  %iov_len.i = getelementptr inbounds %struct.iovec, ptr %iov.i, i64 0, i32 1
-  store i64 %conv.i, ptr %iov_len.i, align 8
-  %arrayidx6.i = getelementptr inbounds [2 x %struct.iovec], ptr %iov.i, i64 0, i64 1
-  store ptr %buf, ptr %arrayidx6.i, align 16
-  %iov_len10.i = getelementptr inbounds [2 x %struct.iovec], ptr %iov.i, i64 0, i64 1, i32 1
-  store i64 %size, ptr %iov_len10.i, align 8
-  %fd.i.i = getelementptr inbounds %struct.TAPState, ptr %nc, i64 0, i32 1
-  br label %do.body.i.i
-
-do.body.i.i:                                      ; preds = %land.rhs.i.i, %if.end.i
-  %3 = load i32, ptr %fd.i.i, align 8
-  %call.i.i = call i64 @writev(i32 noundef %3, ptr noundef nonnull %iov.i, i32 noundef 2) #15
-  %cmp.i.i = icmp eq i64 %call.i.i, -1
-  br i1 %cmp.i.i, label %land.rhs.i.i, label %tap_receive_raw.exit
-
-land.rhs.i.i:                                     ; preds = %do.body.i.i
-  %call1.i.i = tail call ptr @__errno_location() #17
-  %4 = load i32, ptr %call1.i.i, align 4
-  switch i32 %4, label %tap_receive_raw.exit [
-    i32 4, label %do.body.i.i
-    i32 11, label %if.then.i.i
-  ]
-
-if.then.i.i:                                      ; preds = %land.rhs.i.i
-  %write_poll.i.i.i = getelementptr inbounds %struct.TAPState, ptr %nc, i64 0, i32 6
-  store i8 1, ptr %write_poll.i.i.i, align 1
-  %5 = load i32, ptr %fd.i.i, align 8
-  %read_poll.i.i.i.i = getelementptr inbounds %struct.TAPState, ptr %nc, i64 0, i32 5
-  %6 = load i8, ptr %read_poll.i.i.i.i, align 4
-  %enabled4.i.i.phi.trans.insert.i.i = getelementptr inbounds %struct.TAPState, ptr %nc, i64 0, i32 10
-  %.pre.i.i = load i8, ptr %enabled4.i.i.phi.trans.insert.i.i, align 1
-  %.pre5.i.i = and i8 %.pre.i.i, 1
-  %7 = and i8 %.pre5.i.i, %6
-  %.not.not.i.i = icmp eq i8 %7, 0
-  %cond.i.i.i.i = select i1 %.not.not.i.i, ptr null, ptr @tap_send
-  %tobool5.not.i.i.i.i = icmp eq i8 %.pre5.i.i, 0
-  %8 = select i1 %tobool5.not.i.i.i.i, ptr null, ptr @tap_writable
-  call void @qemu_set_fd_handler(i32 noundef %5, ptr noundef %cond.i.i.i.i, ptr noundef %8, ptr noundef nonnull %nc) #15
-  br label %tap_receive_raw.exit
-
-tap_receive_raw.exit:                             ; preds = %do.body.i.i, %land.rhs.i.i, %if.then.i.i
-  %retval.0.i.i = phi i64 [ 0, %if.then.i.i ], [ -1, %land.rhs.i.i ], [ %call.i.i, %do.body.i.i ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %iov.i)
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %hdr.i)
+if.then:                                          ; preds = %land.lhs.true
+  %call = tail call i64 @tap_receive_raw(ptr noundef nonnull %nc, ptr noundef %buf, i64 noundef %size)
   br label %return
 
 if.end:                                           ; preds = %land.lhs.true, %entry
@@ -1622,38 +1572,38 @@ if.end:                                           ; preds = %land.lhs.true, %ent
   br label %do.body.i
 
 do.body.i:                                        ; preds = %land.rhs.i, %if.end
-  %9 = load i32, ptr %fd.i, align 8
-  %call.i = call i64 @writev(i32 noundef %9, ptr noundef nonnull %iov, i32 noundef 1) #15
+  %3 = load i32, ptr %fd.i, align 8
+  %call.i = call i64 @writev(i32 noundef %3, ptr noundef nonnull %iov, i32 noundef 1) #15
   %cmp.i = icmp eq i64 %call.i, -1
   br i1 %cmp.i, label %land.rhs.i, label %return
 
 land.rhs.i:                                       ; preds = %do.body.i
   %call1.i = tail call ptr @__errno_location() #17
-  %10 = load i32, ptr %call1.i, align 4
-  switch i32 %10, label %return [
+  %4 = load i32, ptr %call1.i, align 4
+  switch i32 %4, label %return [
     i32 4, label %do.body.i
-    i32 11, label %if.then.i6
+    i32 11, label %if.then.i
   ]
 
-if.then.i6:                                       ; preds = %land.rhs.i
+if.then.i:                                        ; preds = %land.rhs.i
   %write_poll.i.i = getelementptr inbounds %struct.TAPState, ptr %nc, i64 0, i32 6
   store i8 1, ptr %write_poll.i.i, align 1
-  %11 = load i32, ptr %fd.i, align 8
+  %5 = load i32, ptr %fd.i, align 8
   %read_poll.i.i.i = getelementptr inbounds %struct.TAPState, ptr %nc, i64 0, i32 5
-  %12 = load i8, ptr %read_poll.i.i.i, align 4
+  %6 = load i8, ptr %read_poll.i.i.i, align 4
   %enabled4.i.i.phi.trans.insert.i = getelementptr inbounds %struct.TAPState, ptr %nc, i64 0, i32 10
   %.pre.i = load i8, ptr %enabled4.i.i.phi.trans.insert.i, align 1
   %.pre5.i = and i8 %.pre.i, 1
-  %13 = and i8 %.pre5.i, %12
-  %.not.not.i = icmp eq i8 %13, 0
+  %7 = and i8 %.pre5.i, %6
+  %.not.not.i = icmp eq i8 %7, 0
   %cond.i.i.i = select i1 %.not.not.i, ptr null, ptr @tap_send
   %tobool5.not.i.i.i = icmp eq i8 %.pre5.i, 0
-  %14 = select i1 %tobool5.not.i.i.i, ptr null, ptr @tap_writable
-  call void @qemu_set_fd_handler(i32 noundef %11, ptr noundef %cond.i.i.i, ptr noundef %14, ptr noundef nonnull %nc) #15
+  %8 = select i1 %tobool5.not.i.i.i, ptr null, ptr @tap_writable
+  call void @qemu_set_fd_handler(i32 noundef %5, ptr noundef %cond.i.i.i, ptr noundef %8, ptr noundef nonnull %nc) #15
   br label %return
 
-return:                                           ; preds = %land.rhs.i, %do.body.i, %if.then.i6, %tap_receive_raw.exit
-  %retval.0 = phi i64 [ %retval.0.i.i, %tap_receive_raw.exit ], [ 0, %if.then.i6 ], [ %call.i, %do.body.i ], [ -1, %land.rhs.i ]
+return:                                           ; preds = %land.rhs.i, %do.body.i, %if.then.i, %if.then
+  %retval.0 = phi i64 [ %call, %if.then ], [ 0, %if.then.i ], [ %call.i, %do.body.i ], [ -1, %land.rhs.i ]
   ret i64 %retval.0
 }
 
@@ -2296,7 +2246,7 @@ while.body:                                       ; preds = %if.else, %entry
   %packets.0 = phi i32 [ 0, %entry ], [ %inc, %if.else ]
   store i64 60, ptr %min_pktsz, align 8
   %1 = load i32, ptr %fd, align 8
-  %call.i = call i64 @read(i32 noundef %1, ptr noundef nonnull %buf1, i64 noundef 69632) #15
+  %call.i = call noundef i64 @read(i32 noundef %1, ptr noundef nonnull %buf1, i64 noundef 69632) #15
   %conv = trunc i64 %call.i to i32
   %cmp = icmp slt i32 %conv, 1
   br i1 %cmp, label %while.end, label %if.end

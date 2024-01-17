@@ -11043,14 +11043,14 @@ entry:
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %handler, i8 0, i64 48, i1 false)
   %client1.i = getelementptr inbounds %struct.zrange_result_handler, ptr %handler, i64 0, i32 1
   store ptr %c, ptr %client1.i, align 8
-  %beginResultEmission3.i = getelementptr inbounds %struct.zrange_result_handler, ptr %handler, i64 0, i32 7
-  store ptr @zrangeResultBeginStore, ptr %beginResultEmission3.i, align 8
-  %finalizeResultEmission4.i = getelementptr inbounds %struct.zrange_result_handler, ptr %handler, i64 0, i32 8
-  store ptr @zrangeResultFinalizeStore, ptr %finalizeResultEmission4.i, align 8
-  %emitResultFromCBuffer5.i = getelementptr inbounds %struct.zrange_result_handler, ptr %handler, i64 0, i32 9
-  store ptr @zrangeResultEmitCBufferForStore, ptr %emitResultFromCBuffer5.i, align 8
-  %emitResultFromLongLong6.i = getelementptr inbounds %struct.zrange_result_handler, ptr %handler, i64 0, i32 10
-  store ptr @zrangeResultEmitLongLongForStore, ptr %emitResultFromLongLong6.i, align 8
+  %2 = getelementptr inbounds %struct.zrange_result_handler, ptr %handler, i64 0, i32 7
+  store ptr @zrangeResultBeginStore, ptr %2, align 8
+  %3 = getelementptr inbounds %struct.zrange_result_handler, ptr %handler, i64 0, i32 8
+  store ptr @zrangeResultFinalizeStore, ptr %3, align 8
+  %4 = getelementptr inbounds %struct.zrange_result_handler, ptr %handler, i64 0, i32 9
+  store ptr @zrangeResultEmitCBufferForStore, ptr %4, align 8
+  %5 = getelementptr inbounds %struct.zrange_result_handler, ptr %handler, i64 0, i32 10
+  store ptr @zrangeResultEmitLongLongForStore, ptr %5, align 8
   %dstkey1.i = getelementptr inbounds %struct.zrange_result_handler, ptr %handler, i64 0, i32 2
   store ptr %1, ptr %dstkey1.i, align 8
   call void @zrangeGenericCommand(ptr noundef nonnull %handler, i32 noundef 2, i32 noundef 1, i32 noundef 0, i32 noundef 0)
@@ -11366,14 +11366,14 @@ entry:
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %handler, i8 0, i64 48, i1 false)
   %client1.i = getelementptr inbounds %struct.zrange_result_handler, ptr %handler, i64 0, i32 1
   store ptr %c, ptr %client1.i, align 8
-  %beginResultEmission3.i = getelementptr inbounds %struct.zrange_result_handler, ptr %handler, i64 0, i32 7
-  store ptr @zrangeResultBeginClient, ptr %beginResultEmission3.i, align 8
-  %finalizeResultEmission4.i = getelementptr inbounds %struct.zrange_result_handler, ptr %handler, i64 0, i32 8
-  store ptr @zrangeResultFinalizeClient, ptr %finalizeResultEmission4.i, align 8
-  %emitResultFromCBuffer5.i = getelementptr inbounds %struct.zrange_result_handler, ptr %handler, i64 0, i32 9
-  store ptr @zrangeResultEmitCBufferToClient, ptr %emitResultFromCBuffer5.i, align 8
-  %emitResultFromLongLong6.i = getelementptr inbounds %struct.zrange_result_handler, ptr %handler, i64 0, i32 10
-  store ptr @zrangeResultEmitLongLongToClient, ptr %emitResultFromLongLong6.i, align 8
+  %0 = getelementptr inbounds %struct.zrange_result_handler, ptr %handler, i64 0, i32 7
+  store ptr @zrangeResultBeginClient, ptr %0, align 8
+  %1 = getelementptr inbounds %struct.zrange_result_handler, ptr %handler, i64 0, i32 8
+  store ptr @zrangeResultFinalizeClient, ptr %1, align 8
+  %2 = getelementptr inbounds %struct.zrange_result_handler, ptr %handler, i64 0, i32 9
+  store ptr @zrangeResultEmitCBufferToClient, ptr %2, align 8
+  %3 = getelementptr inbounds %struct.zrange_result_handler, ptr %handler, i64 0, i32 10
+  store ptr @zrangeResultEmitLongLongToClient, ptr %3, align 8
   call void @zrangeGenericCommand(ptr noundef nonnull %handler, i32 noundef 1, i32 noundef 0, i32 noundef 0, i32 noundef 0)
   ret void
 }
@@ -11385,14 +11385,14 @@ entry:
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %handler, i8 0, i64 48, i1 false)
   %client1.i = getelementptr inbounds %struct.zrange_result_handler, ptr %handler, i64 0, i32 1
   store ptr %c, ptr %client1.i, align 8
-  %beginResultEmission3.i = getelementptr inbounds %struct.zrange_result_handler, ptr %handler, i64 0, i32 7
-  store ptr @zrangeResultBeginClient, ptr %beginResultEmission3.i, align 8
-  %finalizeResultEmission4.i = getelementptr inbounds %struct.zrange_result_handler, ptr %handler, i64 0, i32 8
-  store ptr @zrangeResultFinalizeClient, ptr %finalizeResultEmission4.i, align 8
-  %emitResultFromCBuffer5.i = getelementptr inbounds %struct.zrange_result_handler, ptr %handler, i64 0, i32 9
-  store ptr @zrangeResultEmitCBufferToClient, ptr %emitResultFromCBuffer5.i, align 8
-  %emitResultFromLongLong6.i = getelementptr inbounds %struct.zrange_result_handler, ptr %handler, i64 0, i32 10
-  store ptr @zrangeResultEmitLongLongToClient, ptr %emitResultFromLongLong6.i, align 8
+  %0 = getelementptr inbounds %struct.zrange_result_handler, ptr %handler, i64 0, i32 7
+  store ptr @zrangeResultBeginClient, ptr %0, align 8
+  %1 = getelementptr inbounds %struct.zrange_result_handler, ptr %handler, i64 0, i32 8
+  store ptr @zrangeResultFinalizeClient, ptr %1, align 8
+  %2 = getelementptr inbounds %struct.zrange_result_handler, ptr %handler, i64 0, i32 9
+  store ptr @zrangeResultEmitCBufferToClient, ptr %2, align 8
+  %3 = getelementptr inbounds %struct.zrange_result_handler, ptr %handler, i64 0, i32 10
+  store ptr @zrangeResultEmitLongLongToClient, ptr %3, align 8
   call void @zrangeGenericCommand(ptr noundef nonnull %handler, i32 noundef 1, i32 noundef 0, i32 noundef 1, i32 noundef 2)
   ret void
 }
@@ -11880,14 +11880,14 @@ entry:
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %handler, i8 0, i64 48, i1 false)
   %client1.i = getelementptr inbounds %struct.zrange_result_handler, ptr %handler, i64 0, i32 1
   store ptr %c, ptr %client1.i, align 8
-  %beginResultEmission3.i = getelementptr inbounds %struct.zrange_result_handler, ptr %handler, i64 0, i32 7
-  store ptr @zrangeResultBeginClient, ptr %beginResultEmission3.i, align 8
-  %finalizeResultEmission4.i = getelementptr inbounds %struct.zrange_result_handler, ptr %handler, i64 0, i32 8
-  store ptr @zrangeResultFinalizeClient, ptr %finalizeResultEmission4.i, align 8
-  %emitResultFromCBuffer5.i = getelementptr inbounds %struct.zrange_result_handler, ptr %handler, i64 0, i32 9
-  store ptr @zrangeResultEmitCBufferToClient, ptr %emitResultFromCBuffer5.i, align 8
-  %emitResultFromLongLong6.i = getelementptr inbounds %struct.zrange_result_handler, ptr %handler, i64 0, i32 10
-  store ptr @zrangeResultEmitLongLongToClient, ptr %emitResultFromLongLong6.i, align 8
+  %0 = getelementptr inbounds %struct.zrange_result_handler, ptr %handler, i64 0, i32 7
+  store ptr @zrangeResultBeginClient, ptr %0, align 8
+  %1 = getelementptr inbounds %struct.zrange_result_handler, ptr %handler, i64 0, i32 8
+  store ptr @zrangeResultFinalizeClient, ptr %1, align 8
+  %2 = getelementptr inbounds %struct.zrange_result_handler, ptr %handler, i64 0, i32 9
+  store ptr @zrangeResultEmitCBufferToClient, ptr %2, align 8
+  %3 = getelementptr inbounds %struct.zrange_result_handler, ptr %handler, i64 0, i32 10
+  store ptr @zrangeResultEmitLongLongToClient, ptr %3, align 8
   call void @zrangeGenericCommand(ptr noundef nonnull %handler, i32 noundef 1, i32 noundef 0, i32 noundef 2, i32 noundef 1)
   ret void
 }
@@ -11899,14 +11899,14 @@ entry:
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %handler, i8 0, i64 48, i1 false)
   %client1.i = getelementptr inbounds %struct.zrange_result_handler, ptr %handler, i64 0, i32 1
   store ptr %c, ptr %client1.i, align 8
-  %beginResultEmission3.i = getelementptr inbounds %struct.zrange_result_handler, ptr %handler, i64 0, i32 7
-  store ptr @zrangeResultBeginClient, ptr %beginResultEmission3.i, align 8
-  %finalizeResultEmission4.i = getelementptr inbounds %struct.zrange_result_handler, ptr %handler, i64 0, i32 8
-  store ptr @zrangeResultFinalizeClient, ptr %finalizeResultEmission4.i, align 8
-  %emitResultFromCBuffer5.i = getelementptr inbounds %struct.zrange_result_handler, ptr %handler, i64 0, i32 9
-  store ptr @zrangeResultEmitCBufferToClient, ptr %emitResultFromCBuffer5.i, align 8
-  %emitResultFromLongLong6.i = getelementptr inbounds %struct.zrange_result_handler, ptr %handler, i64 0, i32 10
-  store ptr @zrangeResultEmitLongLongToClient, ptr %emitResultFromLongLong6.i, align 8
+  %0 = getelementptr inbounds %struct.zrange_result_handler, ptr %handler, i64 0, i32 7
+  store ptr @zrangeResultBeginClient, ptr %0, align 8
+  %1 = getelementptr inbounds %struct.zrange_result_handler, ptr %handler, i64 0, i32 8
+  store ptr @zrangeResultFinalizeClient, ptr %1, align 8
+  %2 = getelementptr inbounds %struct.zrange_result_handler, ptr %handler, i64 0, i32 9
+  store ptr @zrangeResultEmitCBufferToClient, ptr %2, align 8
+  %3 = getelementptr inbounds %struct.zrange_result_handler, ptr %handler, i64 0, i32 10
+  store ptr @zrangeResultEmitLongLongToClient, ptr %3, align 8
   call void @zrangeGenericCommand(ptr noundef nonnull %handler, i32 noundef 1, i32 noundef 0, i32 noundef 2, i32 noundef 2)
   ret void
 }
@@ -13030,14 +13030,14 @@ entry:
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %handler, i8 0, i64 48, i1 false)
   %client1.i = getelementptr inbounds %struct.zrange_result_handler, ptr %handler, i64 0, i32 1
   store ptr %c, ptr %client1.i, align 8
-  %beginResultEmission3.i = getelementptr inbounds %struct.zrange_result_handler, ptr %handler, i64 0, i32 7
-  store ptr @zrangeResultBeginClient, ptr %beginResultEmission3.i, align 8
-  %finalizeResultEmission4.i = getelementptr inbounds %struct.zrange_result_handler, ptr %handler, i64 0, i32 8
-  store ptr @zrangeResultFinalizeClient, ptr %finalizeResultEmission4.i, align 8
-  %emitResultFromCBuffer5.i = getelementptr inbounds %struct.zrange_result_handler, ptr %handler, i64 0, i32 9
-  store ptr @zrangeResultEmitCBufferToClient, ptr %emitResultFromCBuffer5.i, align 8
-  %emitResultFromLongLong6.i = getelementptr inbounds %struct.zrange_result_handler, ptr %handler, i64 0, i32 10
-  store ptr @zrangeResultEmitLongLongToClient, ptr %emitResultFromLongLong6.i, align 8
+  %0 = getelementptr inbounds %struct.zrange_result_handler, ptr %handler, i64 0, i32 7
+  store ptr @zrangeResultBeginClient, ptr %0, align 8
+  %1 = getelementptr inbounds %struct.zrange_result_handler, ptr %handler, i64 0, i32 8
+  store ptr @zrangeResultFinalizeClient, ptr %1, align 8
+  %2 = getelementptr inbounds %struct.zrange_result_handler, ptr %handler, i64 0, i32 9
+  store ptr @zrangeResultEmitCBufferToClient, ptr %2, align 8
+  %3 = getelementptr inbounds %struct.zrange_result_handler, ptr %handler, i64 0, i32 10
+  store ptr @zrangeResultEmitLongLongToClient, ptr %3, align 8
   call void @zrangeGenericCommand(ptr noundef nonnull %handler, i32 noundef 1, i32 noundef 0, i32 noundef 3, i32 noundef 1)
   ret void
 }
@@ -13049,14 +13049,14 @@ entry:
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %handler, i8 0, i64 48, i1 false)
   %client1.i = getelementptr inbounds %struct.zrange_result_handler, ptr %handler, i64 0, i32 1
   store ptr %c, ptr %client1.i, align 8
-  %beginResultEmission3.i = getelementptr inbounds %struct.zrange_result_handler, ptr %handler, i64 0, i32 7
-  store ptr @zrangeResultBeginClient, ptr %beginResultEmission3.i, align 8
-  %finalizeResultEmission4.i = getelementptr inbounds %struct.zrange_result_handler, ptr %handler, i64 0, i32 8
-  store ptr @zrangeResultFinalizeClient, ptr %finalizeResultEmission4.i, align 8
-  %emitResultFromCBuffer5.i = getelementptr inbounds %struct.zrange_result_handler, ptr %handler, i64 0, i32 9
-  store ptr @zrangeResultEmitCBufferToClient, ptr %emitResultFromCBuffer5.i, align 8
-  %emitResultFromLongLong6.i = getelementptr inbounds %struct.zrange_result_handler, ptr %handler, i64 0, i32 10
-  store ptr @zrangeResultEmitLongLongToClient, ptr %emitResultFromLongLong6.i, align 8
+  %0 = getelementptr inbounds %struct.zrange_result_handler, ptr %handler, i64 0, i32 7
+  store ptr @zrangeResultBeginClient, ptr %0, align 8
+  %1 = getelementptr inbounds %struct.zrange_result_handler, ptr %handler, i64 0, i32 8
+  store ptr @zrangeResultFinalizeClient, ptr %1, align 8
+  %2 = getelementptr inbounds %struct.zrange_result_handler, ptr %handler, i64 0, i32 9
+  store ptr @zrangeResultEmitCBufferToClient, ptr %2, align 8
+  %3 = getelementptr inbounds %struct.zrange_result_handler, ptr %handler, i64 0, i32 10
+  store ptr @zrangeResultEmitLongLongToClient, ptr %3, align 8
   call void @zrangeGenericCommand(ptr noundef nonnull %handler, i32 noundef 1, i32 noundef 0, i32 noundef 3, i32 noundef 2)
   ret void
 }
@@ -13146,55 +13146,17 @@ if.end:                                           ; preds = %lor.lhs.false
   %5 = load ptr, ptr %arrayidx4, align 8
   %ptr = getelementptr inbounds %struct.redisObject, ptr %5, i64 0, i32 2
   %6 = load ptr, ptr %ptr, align 8
-  %tobool1.i.not = icmp eq ptr %6, null
-  br i1 %tobool1.i.not, label %if.then7, label %if.end.i
+  %call5 = call i32 @zsetScore(ptr noundef nonnull %call, ptr noundef %6, ptr noundef nonnull %score), !range !39
+  %cmp6 = icmp eq i32 %call5, -1
+  br i1 %cmp6, label %if.then7, label %if.else
 
-if.end.i:                                         ; preds = %if.end
-  %bf.load.i = load i32, ptr %call, align 8
-  %bf.lshr.i = lshr i32 %bf.load.i, 4
-  %bf.clear.i = and i32 %bf.lshr.i, 15
-  switch i32 %bf.clear.i, label %if.else17.i [
-    i32 11, label %if.then2.i
-    i32 7, label %if.then10.i
-  ]
-
-if.then2.i:                                       ; preds = %if.end.i
-  %ptr.i = getelementptr inbounds %struct.redisObject, ptr %call, i64 0, i32 2
-  %7 = load ptr, ptr %ptr.i, align 8
-  %call.i = call ptr @zzlFind(ptr noundef %7, ptr noundef nonnull %6, ptr noundef nonnull %score)
-  %cmp3.i = icmp eq ptr %call.i, null
-  br i1 %cmp3.i, label %if.then7, label %if.then2.i.if.else_crit_edge
-
-if.then2.i.if.else_crit_edge:                     ; preds = %if.then2.i
-  %.pre = load double, ptr %score, align 8
-  br label %if.else
-
-if.then10.i:                                      ; preds = %if.end.i
-  %ptr11.i = getelementptr inbounds %struct.redisObject, ptr %call, i64 0, i32 2
-  %8 = load ptr, ptr %ptr11.i, align 8
-  %9 = load ptr, ptr %8, align 8
-  %call12.i = tail call ptr @dictFind(ptr noundef %9, ptr noundef nonnull %6) #19
-  %cmp13.i = icmp eq ptr %call12.i, null
-  br i1 %cmp13.i, label %if.then7, label %if.end15.i
-
-if.end15.i:                                       ; preds = %if.then10.i
-  %call16.i = tail call ptr @dictGetVal(ptr noundef nonnull %call12.i) #19
-  %10 = load double, ptr %call16.i, align 8
-  store double %10, ptr %score, align 8
-  br label %if.else
-
-if.else17.i:                                      ; preds = %if.end.i
-  tail call void (ptr, i32, ptr, ...) @_serverPanic(ptr noundef nonnull @.str.1, i32 noundef 1374, ptr noundef nonnull @.str.9) #19
-  tail call void @abort() #20
-  unreachable
-
-if.then7:                                         ; preds = %if.end, %if.then2.i, %if.then10.i
+if.then7:                                         ; preds = %if.end
   call void @addReplyNull(ptr noundef nonnull %c) #19
   br label %if.end8
 
-if.else:                                          ; preds = %if.then2.i.if.else_crit_edge, %if.end15.i
-  %11 = phi double [ %.pre, %if.then2.i.if.else_crit_edge ], [ %10, %if.end15.i ]
-  call void @addReplyDouble(ptr noundef nonnull %c, double noundef %11) #19
+if.else:                                          ; preds = %if.end
+  %7 = load double, ptr %score, align 8
+  call void @addReplyDouble(ptr noundef nonnull %c, double noundef %7) #19
   br label %if.end8
 
 if.end8:                                          ; preds = %entry, %lor.lhs.false, %if.else, %if.then7
@@ -13223,18 +13185,17 @@ if.end:                                           ; preds = %entry
   %conv = sext i32 %sub to i64
   tail call void @addReplyArrayLen(ptr noundef nonnull %c, i64 noundef %conv) #19
   %4 = load i32, ptr %argc, align 8
-  %cmp15 = icmp sgt i32 %4, 2
-  br i1 %cmp15, label %for.body.lr.ph, label %for.end
+  %cmp13 = icmp sgt i32 %4, 2
+  br i1 %cmp13, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %if.end
   %cmp4 = icmp eq ptr %call, null
-  %ptr11.i = getelementptr inbounds %struct.redisObject, ptr %call, i64 0, i32 2
   br i1 %cmp4, label %for.body.us, label %for.body
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %for.body.us
-  %j.016.us = phi i32 [ %inc.us, %for.body.us ], [ 2, %for.body.lr.ph ]
+  %j.014.us = phi i32 [ %inc.us, %for.body.us ], [ 2, %for.body.lr.ph ]
   tail call void @addReplyNull(ptr noundef nonnull %c) #19
-  %inc.us = add nuw nsw i32 %j.016.us, 1
+  %inc.us = add nuw nsw i32 %j.014.us, 1
   %5 = load i32, ptr %argc, align 8
   %cmp.us = icmp slt i32 %inc.us, %5
   br i1 %cmp.us, label %for.body.us, label %for.end, !llvm.loop !89
@@ -13246,60 +13207,24 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %7 = load ptr, ptr %arrayidx7, align 8
   %ptr = getelementptr inbounds %struct.redisObject, ptr %7, i64 0, i32 2
   %8 = load ptr, ptr %ptr, align 8
-  %tobool1.i.not = icmp eq ptr %8, null
-  br i1 %tobool1.i.not, label %if.then11, label %if.end.i
+  %call8 = call i32 @zsetScore(ptr noundef nonnull %call, ptr noundef %8, ptr noundef nonnull %score), !range !39
+  %cmp9 = icmp eq i32 %call8, -1
+  br i1 %cmp9, label %if.then11, label %if.else
 
-if.end.i:                                         ; preds = %for.body
-  %bf.load.i = load i32, ptr %call, align 8
-  %bf.lshr.i = lshr i32 %bf.load.i, 4
-  %bf.clear.i = and i32 %bf.lshr.i, 15
-  switch i32 %bf.clear.i, label %if.else17.i [
-    i32 11, label %if.then2.i
-    i32 7, label %if.then10.i
-  ]
-
-if.then2.i:                                       ; preds = %if.end.i
-  %9 = load ptr, ptr %ptr11.i, align 8
-  %call.i = call ptr @zzlFind(ptr noundef %9, ptr noundef nonnull %8, ptr noundef nonnull %score)
-  %cmp3.i = icmp eq ptr %call.i, null
-  br i1 %cmp3.i, label %if.then11, label %if.then2.i.if.else_crit_edge
-
-if.then2.i.if.else_crit_edge:                     ; preds = %if.then2.i
-  %.pre = load double, ptr %score, align 8
-  br label %if.else
-
-if.then10.i:                                      ; preds = %if.end.i
-  %10 = load ptr, ptr %ptr11.i, align 8
-  %11 = load ptr, ptr %10, align 8
-  %call12.i = call ptr @dictFind(ptr noundef %11, ptr noundef nonnull %8) #19
-  %cmp13.i = icmp eq ptr %call12.i, null
-  br i1 %cmp13.i, label %if.then11, label %if.end15.i
-
-if.end15.i:                                       ; preds = %if.then10.i
-  %call16.i = call ptr @dictGetVal(ptr noundef nonnull %call12.i) #19
-  %12 = load double, ptr %call16.i, align 8
-  store double %12, ptr %score, align 8
-  br label %if.else
-
-if.else17.i:                                      ; preds = %if.end.i
-  call void (ptr, i32, ptr, ...) @_serverPanic(ptr noundef nonnull @.str.1, i32 noundef 1374, ptr noundef nonnull @.str.9) #19
-  call void @abort() #20
-  unreachable
-
-if.then11:                                        ; preds = %if.then10.i, %if.then2.i, %for.body
+if.then11:                                        ; preds = %for.body
   call void @addReplyNull(ptr noundef nonnull %c) #19
   br label %for.inc
 
-if.else:                                          ; preds = %if.then2.i.if.else_crit_edge, %if.end15.i
-  %13 = phi double [ %.pre, %if.then2.i.if.else_crit_edge ], [ %12, %if.end15.i ]
-  call void @addReplyDouble(ptr noundef nonnull %c, double noundef %13) #19
+if.else:                                          ; preds = %for.body
+  %9 = load double, ptr %score, align 8
+  call void @addReplyDouble(ptr noundef nonnull %c, double noundef %9) #19
   br label %for.inc
 
 for.inc:                                          ; preds = %if.then11, %if.else
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %14 = load i32, ptr %argc, align 8
-  %15 = sext i32 %14 to i64
-  %cmp = icmp slt i64 %indvars.iv.next, %15
+  %10 = load i32, ptr %argc, align 8
+  %11 = sext i32 %10 to i64
+  %cmp = icmp slt i64 %indvars.iv.next, %11
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !89
 
 for.end:                                          ; preds = %for.inc, %for.body.us, %if.end, %entry

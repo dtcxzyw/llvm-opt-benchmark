@@ -64,7 +64,7 @@ $_ZN5folly15throw_exceptionISt12out_of_rangeEEvOT_ = comdat any
 
 $_ZNSt12out_of_rangeC2EOS_ = comdat any
 
-$_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN5folly5RangeIPKcEESt6vectorIS6_SaIS6_EEEENS0_5__ops10_Iter_predIN5boost3_bi6bind_tIbPFbRKS6_SI_RKSt6localeENSF_5list3INSF_5valueIS6_EENSE_3argILi1EEENSP_ISJ_EEEEEEEEET_SX_SX_T0_ = comdat any
+$_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN5folly5RangeIPKcEESt6vectorIS6_SaIS6_EEEENS0_5__ops10_Iter_predIN5boost3_bi6bind_tIbPFbRKS6_SI_RKSt6localeENSF_5list3INSF_5valueIS6_EENSE_3argILi1EEENSP_ISJ_EEEEEEEEET_SX_SX_T0_St26random_access_iterator_tag = comdat any
 
 @_ZStL8__ioinit = internal global %"class.std::ios_base::Init" zeroinitializer, align 1
 @__dso_handle = external hidden global i8
@@ -978,6 +978,7 @@ declare void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8)) u
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr ptr @_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPN5folly5RangeIPKcEESt6vectorIS6_SaIS6_EEEEN5boost3_bi6bind_tIbPFbRKS6_SG_RKSt6localeENSD_5list3INSD_5valueIS6_EENSC_3argILi1EEENSN_ISH_EEEEEEET_SU_SU_T0_(ptr %__first.coerce, ptr %__last.coerce, ptr noundef %__pred) local_unnamed_addr #3 comdat personality ptr @__gxx_personality_v0 {
 invoke.cont:
+  %agg.tmp3.i = alloca %"struct.__gnu_cxx::__ops::_Iter_pred", align 8
   %agg.tmp.i = alloca %"class.boost::_bi::bind_t", align 8
   %agg.tmp3 = alloca %"struct.__gnu_cxx::__ops::_Iter_pred", align 8
   %agg.tmp4 = alloca %"class.boost::_bi::bind_t", align 8
@@ -1005,20 +1006,30 @@ invoke.cont:
   call void @_ZNSt6localeC1ERKS_(ptr noundef nonnull align 8 dereferenceable(8) %a3_.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %a3_.i.i.i.i) #17
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %a3_.i.i.i.i) #17
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i)
-  %call = invoke ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN5folly5RangeIPKcEESt6vectorIS6_SaIS6_EEEENS0_5__ops10_Iter_predIN5boost3_bi6bind_tIbPFbRKS6_SI_RKSt6localeENSF_5list3INSF_5valueIS6_EENSE_3argILi1EEENSP_ISJ_EEEEEEEEET_SX_SX_T0_(ptr %__first.coerce, ptr %__last.coerce, ptr noundef nonnull %agg.tmp3)
-          to label %invoke.cont8 unwind label %lpad7
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp3.i)
+  %3 = load ptr, ptr %agg.tmp3, align 8
+  store ptr %3, ptr %agg.tmp3.i, align 8
+  %l_.i.i.i2 = getelementptr inbounds %"class.boost::_bi::bind_t", ptr %agg.tmp3.i, i64 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %l_.i.i.i2, ptr noundef nonnull align 8 dereferenceable(16) %l_.i.i.i, i64 16, i1 false)
+  %a3_.i.i.i.i.i3 = getelementptr inbounds %"class.boost::_bi::bind_t", ptr %agg.tmp3.i, i64 0, i32 1, i32 0, i32 1
+  call void @_ZNSt6localeC1ERKS_(ptr noundef nonnull align 8 dereferenceable(8) %a3_.i.i.i.i.i3, ptr noundef nonnull align 8 dereferenceable(8) %a3_.i.i.i.i.i) #17
+  %call.i = invoke ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN5folly5RangeIPKcEESt6vectorIS6_SaIS6_EEEENS0_5__ops10_Iter_predIN5boost3_bi6bind_tIbPFbRKS6_SI_RKSt6localeENSF_5list3INSF_5valueIS6_EENSE_3argILi1EEENSP_ISJ_EEEEEEEEET_SX_SX_T0_St26random_access_iterator_tag(ptr %__first.coerce, ptr %__last.coerce, ptr noundef nonnull %agg.tmp3.i)
+          to label %invoke.cont8 unwind label %lpad.i
+
+lpad.i:                                           ; preds = %invoke.cont
+  %4 = landingpad { ptr, i32 }
+          cleanup
+  call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %a3_.i.i.i.i.i3) #17
+  call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %a3_.i.i.i.i.i) #17
+  call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %a3_.i.i.i) #17
+  resume { ptr, i32 } %4
 
 invoke.cont8:                                     ; preds = %invoke.cont
+  call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %a3_.i.i.i.i.i3) #17
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp3.i)
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %a3_.i.i.i.i.i) #17
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %a3_.i.i.i) #17
-  ret ptr %call
-
-lpad7:                                            ; preds = %invoke.cont
-  %3 = landingpad { ptr, i32 }
-          cleanup
-  call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %a3_.i.i.i.i.i) #17
-  call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %a3_.i.i.i) #17
-  resume { ptr, i32 } %3
+  ret ptr %call.i
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1420,136 +1431,101 @@ declare noundef nonnull align 8 dereferenceable(570) ptr @_ZSt9use_facetISt5ctyp
 declare void @_ZNSt6localeC1ERKS_(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN5folly5RangeIPKcEESt6vectorIS6_SaIS6_EEEENS0_5__ops10_Iter_predIN5boost3_bi6bind_tIbPFbRKS6_SI_RKSt6localeENSF_5list3INSF_5valueIS6_EENSE_3argILi1EEENSP_ISJ_EEEEEEEEET_SX_SX_T0_(ptr %__first.coerce, ptr %__last.coerce, ptr noundef %__pred) local_unnamed_addr #3 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN5folly5RangeIPKcEESt6vectorIS6_SaIS6_EEEENS0_5__ops10_Iter_predIN5boost3_bi6bind_tIbPFbRKS6_SI_RKSt6localeENSF_5list3INSF_5valueIS6_EENSE_3argILi1EEENSP_ISJ_EEEEEEEEET_SX_SX_T0_St26random_access_iterator_tag(ptr %__first.coerce, ptr %__last.coerce, ptr noundef %__pred) local_unnamed_addr #3 comdat {
 entry:
-  %agg.tmp3 = alloca %"struct.__gnu_cxx::__ops::_Iter_pred", align 8
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %__last.coerce to i64
+  %sub.ptr.rhs.cast.i = ptrtoint ptr %__first.coerce to i64
+  %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
+  %shr = ashr i64 %sub.ptr.sub.i, 6
+  %cmp47 = icmp sgt i64 %shr, 0
+  br i1 %cmp47, label %for.body.lr.ph, label %for.end
+
+for.body.lr.ph:                                   ; preds = %entry
+  %l_.i.i = getelementptr inbounds %"class.boost::_bi::bind_t", ptr %__pred, i64 0, i32 1
+  %a3_.i.i.i = getelementptr inbounds %"class.boost::_bi::bind_t", ptr %__pred, i64 0, i32 1, i32 0, i32 1
+  br label %for.body
+
+for.body:                                         ; preds = %for.body.lr.ph, %if.end21
+  %__trip_count.049 = phi i64 [ %shr, %for.body.lr.ph ], [ %dec, %if.end21 ]
+  %__first.sroa.0.048 = phi ptr [ %__first.coerce, %for.body.lr.ph ], [ %incdec.ptr.i20, %if.end21 ]
   %0 = load ptr, ptr %__pred, align 8
-  store ptr %0, ptr %agg.tmp3, align 8
-  %l_.i.i = getelementptr inbounds %"class.boost::_bi::bind_t", ptr %agg.tmp3, i64 0, i32 1
-  %l_3.i.i = getelementptr inbounds %"class.boost::_bi::bind_t", ptr %__pred, i64 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %l_.i.i, ptr noundef nonnull align 8 dereferenceable(16) %l_3.i.i, i64 16, i1 false)
-  %a3_.i.i.i.i = getelementptr inbounds %"class.boost::_bi::bind_t", ptr %agg.tmp3, i64 0, i32 1, i32 0, i32 1
-  %a3_2.i.i.i.i = getelementptr inbounds %"class.boost::_bi::bind_t", ptr %__pred, i64 0, i32 1, i32 0, i32 1
-  call void @_ZNSt6localeC1ERKS_(ptr noundef nonnull align 8 dereferenceable(8) %a3_.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %a3_2.i.i.i.i) #17
-  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %__last.coerce to i64
-  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %__first.coerce to i64
-  %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
-  %shr.i = ashr i64 %sub.ptr.sub.i.i, 6
-  %cmp47.i = icmp sgt i64 %shr.i, 0
-  br i1 %cmp47.i, label %for.body.i, label %for.end.i
+  %call5.i.i.i = tail call noundef zeroext i1 %0(ptr noundef nonnull align 8 dereferenceable(16) %l_.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__first.sroa.0.048, ptr noundef nonnull align 8 dereferenceable(8) %a3_.i.i.i)
+  br i1 %call5.i.i.i, label %return, label %if.end
 
-for.body.i:                                       ; preds = %entry, %if.end21.i
-  %__trip_count.049.i = phi i64 [ %dec.i, %if.end21.i ], [ %shr.i, %entry ]
-  %__first.sroa.0.048.i = phi ptr [ %incdec.ptr.i20.i, %if.end21.i ], [ %__first.coerce, %entry ]
-  %1 = load ptr, ptr %agg.tmp3, align 8
-  %call5.i.i.i.i2 = invoke noundef zeroext i1 %1(ptr noundef nonnull align 8 dereferenceable(16) %l_.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__first.sroa.0.048.i, ptr noundef nonnull align 8 dereferenceable(8) %a3_.i.i.i.i)
-          to label %call5.i.i.i.i.noexc unwind label %lpad.loopexit
+if.end:                                           ; preds = %for.body
+  %incdec.ptr.i = getelementptr inbounds %"class.folly::Range", ptr %__first.sroa.0.048, i64 1
+  %1 = load ptr, ptr %__pred, align 8
+  %call5.i.i.i11 = tail call noundef zeroext i1 %1(ptr noundef nonnull align 8 dereferenceable(16) %l_.i.i, ptr noundef nonnull align 8 dereferenceable(16) %incdec.ptr.i, ptr noundef nonnull align 8 dereferenceable(8) %a3_.i.i.i)
+  br i1 %call5.i.i.i11, label %return, label %if.end9
 
-call5.i.i.i.i.noexc:                              ; preds = %for.body.i
-  br i1 %call5.i.i.i.i2, label %invoke.cont7, label %if.end.i
+if.end9:                                          ; preds = %if.end
+  %incdec.ptr.i12 = getelementptr inbounds %"class.folly::Range", ptr %__first.sroa.0.048, i64 2
+  %2 = load ptr, ptr %__pred, align 8
+  %call5.i.i.i15 = tail call noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(16) %l_.i.i, ptr noundef nonnull align 8 dereferenceable(16) %incdec.ptr.i12, ptr noundef nonnull align 8 dereferenceable(8) %a3_.i.i.i)
+  br i1 %call5.i.i.i15, label %return, label %if.end15
 
-if.end.i:                                         ; preds = %call5.i.i.i.i.noexc
-  %incdec.ptr.i.i = getelementptr inbounds %"class.folly::Range", ptr %__first.sroa.0.048.i, i64 1
-  %2 = load ptr, ptr %agg.tmp3, align 8
-  %call5.i.i.i11.i3 = invoke noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(16) %l_.i.i, ptr noundef nonnull align 8 dereferenceable(16) %incdec.ptr.i.i, ptr noundef nonnull align 8 dereferenceable(8) %a3_.i.i.i.i)
-          to label %call5.i.i.i11.i.noexc unwind label %lpad.loopexit
+if.end15:                                         ; preds = %if.end9
+  %incdec.ptr.i16 = getelementptr inbounds %"class.folly::Range", ptr %__first.sroa.0.048, i64 3
+  %3 = load ptr, ptr %__pred, align 8
+  %call5.i.i.i19 = tail call noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(16) %l_.i.i, ptr noundef nonnull align 8 dereferenceable(16) %incdec.ptr.i16, ptr noundef nonnull align 8 dereferenceable(8) %a3_.i.i.i)
+  br i1 %call5.i.i.i19, label %return, label %if.end21
 
-call5.i.i.i11.i.noexc:                            ; preds = %if.end.i
-  br i1 %call5.i.i.i11.i3, label %invoke.cont7, label %if.end9.i
+if.end21:                                         ; preds = %if.end15
+  %incdec.ptr.i20 = getelementptr inbounds %"class.folly::Range", ptr %__first.sroa.0.048, i64 4
+  %dec = add nsw i64 %__trip_count.049, -1
+  %cmp = icmp sgt i64 %__trip_count.049, 1
+  br i1 %cmp, label %for.body, label %for.end.loopexit, !llvm.loop !34
 
-if.end9.i:                                        ; preds = %call5.i.i.i11.i.noexc
-  %incdec.ptr.i12.i = getelementptr inbounds %"class.folly::Range", ptr %__first.sroa.0.048.i, i64 2
-  %3 = load ptr, ptr %agg.tmp3, align 8
-  %call5.i.i.i15.i4 = invoke noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(16) %l_.i.i, ptr noundef nonnull align 8 dereferenceable(16) %incdec.ptr.i12.i, ptr noundef nonnull align 8 dereferenceable(8) %a3_.i.i.i.i)
-          to label %call5.i.i.i15.i.noexc unwind label %lpad.loopexit
+for.end.loopexit:                                 ; preds = %if.end21
+  %.pre = ptrtoint ptr %incdec.ptr.i20 to i64
+  %.pre50 = sub i64 %sub.ptr.lhs.cast.i, %.pre
+  br label %for.end
 
-call5.i.i.i15.i.noexc:                            ; preds = %if.end9.i
-  br i1 %call5.i.i.i15.i4, label %invoke.cont7, label %if.end15.i
-
-if.end15.i:                                       ; preds = %call5.i.i.i15.i.noexc
-  %incdec.ptr.i16.i = getelementptr inbounds %"class.folly::Range", ptr %__first.sroa.0.048.i, i64 3
-  %4 = load ptr, ptr %agg.tmp3, align 8
-  %call5.i.i.i19.i5 = invoke noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(16) %l_.i.i, ptr noundef nonnull align 8 dereferenceable(16) %incdec.ptr.i16.i, ptr noundef nonnull align 8 dereferenceable(8) %a3_.i.i.i.i)
-          to label %call5.i.i.i19.i.noexc unwind label %lpad.loopexit
-
-call5.i.i.i19.i.noexc:                            ; preds = %if.end15.i
-  br i1 %call5.i.i.i19.i5, label %invoke.cont7, label %if.end21.i
-
-if.end21.i:                                       ; preds = %call5.i.i.i19.i.noexc
-  %incdec.ptr.i20.i = getelementptr inbounds %"class.folly::Range", ptr %__first.sroa.0.048.i, i64 4
-  %dec.i = add nsw i64 %__trip_count.049.i, -1
-  %cmp.i = icmp sgt i64 %__trip_count.049.i, 1
-  br i1 %cmp.i, label %for.body.i, label %for.end.loopexit.i, !llvm.loop !34
-
-for.end.loopexit.i:                               ; preds = %if.end21.i
-  %.pre.i = ptrtoint ptr %incdec.ptr.i20.i to i64
-  %.pre50.i = sub i64 %sub.ptr.lhs.cast.i.i, %.pre.i
-  br label %for.end.i
-
-for.end.i:                                        ; preds = %for.end.loopexit.i, %entry
-  %sub.ptr.sub.i23.pre-phi.i = phi i64 [ %.pre50.i, %for.end.loopexit.i ], [ %sub.ptr.sub.i.i, %entry ]
-  %__first.sroa.0.0.lcssa.i = phi ptr [ %incdec.ptr.i20.i, %for.end.loopexit.i ], [ %__first.coerce, %entry ]
-  %sub.ptr.div.i24.i = ashr exact i64 %sub.ptr.sub.i23.pre-phi.i, 4
-  switch i64 %sub.ptr.div.i24.i, label %invoke.cont7 [
-    i64 3, label %sw.bb.i
-    i64 2, label %sw.bb30.i
-    i64 1, label %sw.bb37.i
+for.end:                                          ; preds = %for.end.loopexit, %entry
+  %sub.ptr.sub.i23.pre-phi = phi i64 [ %.pre50, %for.end.loopexit ], [ %sub.ptr.sub.i, %entry ]
+  %__first.sroa.0.0.lcssa = phi ptr [ %incdec.ptr.i20, %for.end.loopexit ], [ %__first.coerce, %entry ]
+  %sub.ptr.div.i24 = ashr exact i64 %sub.ptr.sub.i23.pre-phi, 4
+  switch i64 %sub.ptr.div.i24, label %return [
+    i64 3, label %sw.bb
+    i64 2, label %sw.bb30
+    i64 1, label %sw.bb37
   ]
 
-sw.bb.i:                                          ; preds = %for.end.i
-  %5 = load ptr, ptr %agg.tmp3, align 8
-  %call5.i.i.i27.i6 = invoke noundef zeroext i1 %5(ptr noundef nonnull align 8 dereferenceable(16) %l_.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__first.sroa.0.0.lcssa.i, ptr noundef nonnull align 8 dereferenceable(8) %a3_.i.i.i.i)
-          to label %call5.i.i.i27.i.noexc unwind label %lpad.loopexit.split-lp
+sw.bb:                                            ; preds = %for.end
+  %l_.i.i25 = getelementptr inbounds %"class.boost::_bi::bind_t", ptr %__pred, i64 0, i32 1
+  %4 = load ptr, ptr %__pred, align 8
+  %a3_.i.i.i26 = getelementptr inbounds %"class.boost::_bi::bind_t", ptr %__pred, i64 0, i32 1, i32 0, i32 1
+  %call5.i.i.i27 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(16) %l_.i.i25, ptr noundef nonnull align 8 dereferenceable(16) %__first.sroa.0.0.lcssa, ptr noundef nonnull align 8 dereferenceable(8) %a3_.i.i.i26)
+  br i1 %call5.i.i.i27, label %return, label %if.end28
 
-call5.i.i.i27.i.noexc:                            ; preds = %sw.bb.i
-  br i1 %call5.i.i.i27.i6, label %invoke.cont7, label %if.end28.i
+if.end28:                                         ; preds = %sw.bb
+  %incdec.ptr.i28 = getelementptr inbounds %"class.folly::Range", ptr %__first.sroa.0.0.lcssa, i64 1
+  br label %sw.bb30
 
-if.end28.i:                                       ; preds = %call5.i.i.i27.i.noexc
-  %incdec.ptr.i28.i = getelementptr inbounds %"class.folly::Range", ptr %__first.sroa.0.0.lcssa.i, i64 1
-  br label %sw.bb30.i
+sw.bb30:                                          ; preds = %if.end28, %for.end
+  %__first.sroa.0.1 = phi ptr [ %__first.sroa.0.0.lcssa, %for.end ], [ %incdec.ptr.i28, %if.end28 ]
+  %l_.i.i29 = getelementptr inbounds %"class.boost::_bi::bind_t", ptr %__pred, i64 0, i32 1
+  %5 = load ptr, ptr %__pred, align 8
+  %a3_.i.i.i30 = getelementptr inbounds %"class.boost::_bi::bind_t", ptr %__pred, i64 0, i32 1, i32 0, i32 1
+  %call5.i.i.i31 = tail call noundef zeroext i1 %5(ptr noundef nonnull align 8 dereferenceable(16) %l_.i.i29, ptr noundef nonnull align 8 dereferenceable(16) %__first.sroa.0.1, ptr noundef nonnull align 8 dereferenceable(8) %a3_.i.i.i30)
+  br i1 %call5.i.i.i31, label %return, label %if.end35
 
-sw.bb30.i:                                        ; preds = %if.end28.i, %for.end.i
-  %__first.sroa.0.1.i = phi ptr [ %__first.sroa.0.0.lcssa.i, %for.end.i ], [ %incdec.ptr.i28.i, %if.end28.i ]
-  %6 = load ptr, ptr %agg.tmp3, align 8
-  %call5.i.i.i31.i7 = invoke noundef zeroext i1 %6(ptr noundef nonnull align 8 dereferenceable(16) %l_.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__first.sroa.0.1.i, ptr noundef nonnull align 8 dereferenceable(8) %a3_.i.i.i.i)
-          to label %call5.i.i.i31.i.noexc unwind label %lpad.loopexit.split-lp
+if.end35:                                         ; preds = %sw.bb30
+  %incdec.ptr.i32 = getelementptr inbounds %"class.folly::Range", ptr %__first.sroa.0.1, i64 1
+  br label %sw.bb37
 
-call5.i.i.i31.i.noexc:                            ; preds = %sw.bb30.i
-  br i1 %call5.i.i.i31.i7, label %invoke.cont7, label %if.end35.i
+sw.bb37:                                          ; preds = %if.end35, %for.end
+  %__first.sroa.0.2 = phi ptr [ %__first.sroa.0.0.lcssa, %for.end ], [ %incdec.ptr.i32, %if.end35 ]
+  %l_.i.i33 = getelementptr inbounds %"class.boost::_bi::bind_t", ptr %__pred, i64 0, i32 1
+  %6 = load ptr, ptr %__pred, align 8
+  %a3_.i.i.i34 = getelementptr inbounds %"class.boost::_bi::bind_t", ptr %__pred, i64 0, i32 1, i32 0, i32 1
+  %call5.i.i.i35 = tail call noundef zeroext i1 %6(ptr noundef nonnull align 8 dereferenceable(16) %l_.i.i33, ptr noundef nonnull align 8 dereferenceable(16) %__first.sroa.0.2, ptr noundef nonnull align 8 dereferenceable(8) %a3_.i.i.i34)
+  %spec.select = select i1 %call5.i.i.i35, ptr %__first.sroa.0.2, ptr %__last.coerce
+  br label %return
 
-if.end35.i:                                       ; preds = %call5.i.i.i31.i.noexc
-  %incdec.ptr.i32.i = getelementptr inbounds %"class.folly::Range", ptr %__first.sroa.0.1.i, i64 1
-  br label %sw.bb37.i
-
-sw.bb37.i:                                        ; preds = %if.end35.i, %for.end.i
-  %__first.sroa.0.2.i = phi ptr [ %__first.sroa.0.0.lcssa.i, %for.end.i ], [ %incdec.ptr.i32.i, %if.end35.i ]
-  %7 = load ptr, ptr %agg.tmp3, align 8
-  %call5.i.i.i35.i8 = invoke noundef zeroext i1 %7(ptr noundef nonnull align 8 dereferenceable(16) %l_.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__first.sroa.0.2.i, ptr noundef nonnull align 8 dereferenceable(8) %a3_.i.i.i.i)
-          to label %call5.i.i.i35.i.noexc unwind label %lpad.loopexit.split-lp
-
-call5.i.i.i35.i.noexc:                            ; preds = %sw.bb37.i
-  %spec.select.i = select i1 %call5.i.i.i35.i8, ptr %__first.sroa.0.2.i, ptr %__last.coerce
-  br label %invoke.cont7
-
-invoke.cont7:                                     ; preds = %call5.i.i.i19.i.noexc, %call5.i.i.i15.i.noexc, %call5.i.i.i11.i.noexc, %call5.i.i.i.i.noexc, %call5.i.i.i35.i.noexc, %call5.i.i.i31.i.noexc, %call5.i.i.i27.i.noexc, %for.end.i
-  %retval.sroa.0.0.in.sroa.speculated.i = phi ptr [ %__first.sroa.0.0.lcssa.i, %call5.i.i.i27.i.noexc ], [ %__first.sroa.0.1.i, %call5.i.i.i31.i.noexc ], [ %__last.coerce, %for.end.i ], [ %spec.select.i, %call5.i.i.i35.i.noexc ], [ %__first.sroa.0.048.i, %call5.i.i.i.i.noexc ], [ %incdec.ptr.i.i, %call5.i.i.i11.i.noexc ], [ %incdec.ptr.i12.i, %call5.i.i.i15.i.noexc ], [ %incdec.ptr.i16.i, %call5.i.i.i19.i.noexc ]
-  call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %a3_.i.i.i.i) #17
-  ret ptr %retval.sroa.0.0.in.sroa.speculated.i
-
-lpad.loopexit:                                    ; preds = %for.body.i, %if.end.i, %if.end9.i, %if.end15.i
-  %lpad.loopexit11 = landingpad { ptr, i32 }
-          cleanup
-  br label %lpad
-
-lpad.loopexit.split-lp:                           ; preds = %sw.bb.i, %sw.bb30.i, %sw.bb37.i
-  %lpad.loopexit.split-lp12 = landingpad { ptr, i32 }
-          cleanup
-  br label %lpad
-
-lpad:                                             ; preds = %lpad.loopexit.split-lp, %lpad.loopexit
-  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit11, %lpad.loopexit ], [ %lpad.loopexit.split-lp12, %lpad.loopexit.split-lp ]
-  call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %a3_.i.i.i.i) #17
-  resume { ptr, i32 } %lpad.phi
+return:                                           ; preds = %if.end15, %if.end9, %if.end, %for.body, %sw.bb37, %for.end, %sw.bb30, %sw.bb
+  %retval.sroa.0.0.in.sroa.speculated = phi ptr [ %__first.sroa.0.0.lcssa, %sw.bb ], [ %__first.sroa.0.1, %sw.bb30 ], [ %__last.coerce, %for.end ], [ %spec.select, %sw.bb37 ], [ %incdec.ptr.i16, %if.end15 ], [ %incdec.ptr.i12, %if.end9 ], [ %incdec.ptr.i, %if.end ], [ %__first.sroa.0.048, %for.body ]
+  ret ptr %retval.sroa.0.0.in.sroa.speculated
 }
 
 ; Function Attrs: uwtable

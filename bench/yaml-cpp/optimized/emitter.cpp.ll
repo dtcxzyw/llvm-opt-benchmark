@@ -3054,107 +3054,25 @@ entry:
 
 if.end:                                           ; preds = %entry
   tail call void @_ZN4YAML7Emitter11PrepareNodeENS_15EmitterNodeType5valueE(ptr noundef nonnull align 8 dereferenceable(72) %this, i32 noundef 2)
+  %call2 = tail call noundef ptr @_ZNK4YAML7Emitter19ComputeFullBoolNameEb(ptr noundef nonnull align 8 dereferenceable(72) %this, i1 noundef zeroext %b)
   %3 = load ptr, ptr %this, align 8
-  %m_boolLengthFmt.i.i = getelementptr inbounds %"class.YAML::EmitterState", ptr %3, i64 0, i32 5
-  %4 = load i32, ptr %m_boolLengthFmt.i.i, align 4
-  %cmp.i = icmp eq i32 %4, 20
-  br i1 %cmp.i, label %cond.end.thread.i, label %cond.end.i
+  %m_boolLengthFmt.i = getelementptr inbounds %"class.YAML::EmitterState", ptr %3, i64 0, i32 5
+  %4 = load i32, ptr %m_boolLengthFmt.i, align 4
+  %cmp = icmp eq i32 %4, 20
+  br i1 %cmp, label %if.then5, label %if.else
 
-cond.end.thread.i:                                ; preds = %if.end
-  %m_boolCaseFmt.i13.i = getelementptr inbounds %"class.YAML::EmitterState", ptr %3, i64 0, i32 6
-  %5 = load i32, ptr %m_boolCaseFmt.i13.i, align 4
-  br label %sw.bb.i
-
-cond.end.i:                                       ; preds = %if.end
-  %m_boolFmt.i.i = getelementptr inbounds %"class.YAML::EmitterState", ptr %3, i64 0, i32 4
-  %6 = load i32, ptr %m_boolFmt.i.i, align 4
-  %m_boolCaseFmt.i.i = getelementptr inbounds %"class.YAML::EmitterState", ptr %3, i64 0, i32 6
-  %7 = load i32, ptr %m_boolCaseFmt.i.i, align 4
-  switch i32 %6, label %sw.epilog42.i [
-    i32 13, label %sw.bb.i
-    i32 15, label %sw.bb17.i
-    i32 14, label %sw.bb29.i
-  ]
-
-sw.bb.i:                                          ; preds = %cond.end.i, %cond.end.thread.i
-  %8 = phi i32 [ %5, %cond.end.thread.i ], [ %7, %cond.end.i ]
-  switch i32 %8, label %sw.epilog42.i [
-    i32 16, label %sw.bb9.i
-    i32 18, label %sw.bb11.i
-    i32 17, label %sw.bb14.i
-  ]
-
-sw.bb9.i:                                         ; preds = %sw.bb.i
-  %cond10.i = select i1 %b, ptr @.str.17, ptr @.str.18
-  br label %_ZNK4YAML7Emitter19ComputeFullBoolNameEb.exit
-
-sw.bb11.i:                                        ; preds = %sw.bb.i
-  %cond13.i = select i1 %b, ptr @.str.19, ptr @.str.20
-  br label %_ZNK4YAML7Emitter19ComputeFullBoolNameEb.exit
-
-sw.bb14.i:                                        ; preds = %sw.bb.i
-  %cond16.i = select i1 %b, ptr @.str.21, ptr @.str.22
-  br label %_ZNK4YAML7Emitter19ComputeFullBoolNameEb.exit
-
-sw.bb17.i:                                        ; preds = %cond.end.i
-  switch i32 %7, label %sw.epilog42.i [
-    i32 16, label %sw.bb18.i
-    i32 18, label %sw.bb21.i
-    i32 17, label %sw.bb24.i
-  ]
-
-sw.bb18.i:                                        ; preds = %sw.bb17.i
-  %cond20.i = select i1 %b, ptr @.str.23, ptr @.str.24
-  br label %if.else
-
-sw.bb21.i:                                        ; preds = %sw.bb17.i
-  %cond23.i = select i1 %b, ptr @.str.25, ptr @.str.26
-  br label %if.else
-
-sw.bb24.i:                                        ; preds = %sw.bb17.i
-  %cond26.i = select i1 %b, ptr @.str.27, ptr @.str.28
-  br label %if.else
-
-sw.bb29.i:                                        ; preds = %cond.end.i
-  switch i32 %7, label %sw.epilog42.i [
-    i32 16, label %sw.bb30.i
-    i32 18, label %sw.bb33.i
-    i32 17, label %sw.bb36.i
-  ]
-
-sw.bb30.i:                                        ; preds = %sw.bb29.i
-  %cond32.i = select i1 %b, ptr @.str.29, ptr @.str.30
-  br label %if.else
-
-sw.bb33.i:                                        ; preds = %sw.bb29.i
-  %cond35.i = select i1 %b, ptr @.str.31, ptr @.str.32
-  br label %if.else
-
-sw.bb36.i:                                        ; preds = %sw.bb29.i
-  %cond38.i = select i1 %b, ptr @.str.33, ptr @.str.34
-  br label %if.else
-
-sw.epilog42.i:                                    ; preds = %sw.bb29.i, %sw.bb17.i, %sw.bb.i, %cond.end.i
-  %.str.35..str.36.i = select i1 %b, ptr @.str.35, ptr @.str.36
-  br label %_ZNK4YAML7Emitter19ComputeFullBoolNameEb.exit
-
-_ZNK4YAML7Emitter19ComputeFullBoolNameEb.exit:    ; preds = %sw.bb9.i, %sw.bb11.i, %sw.bb14.i, %sw.epilog42.i
-  %retval.0.i = phi ptr [ %.str.35..str.36.i, %sw.epilog42.i ], [ %cond16.i, %sw.bb14.i ], [ %cond13.i, %sw.bb11.i ], [ %cond10.i, %sw.bb9.i ]
-  br i1 %cmp.i, label %if.then5, label %if.else
-
-if.then5:                                         ; preds = %_ZNK4YAML7Emitter19ComputeFullBoolNameEb.exit
+if.then5:                                         ; preds = %if.end
   %m_stream = getelementptr inbounds %"class.YAML::Emitter", ptr %this, i64 0, i32 1
-  %9 = load i8, ptr %retval.0.i, align 1
+  %5 = load i8, ptr %call2, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ch.addr.i)
-  store i8 %9, ptr %ch.addr.i, align 1
+  store i8 %5, ptr %ch.addr.i, align 1
   call void @_ZN4YAML15ostream_wrapper5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(57) %m_stream, ptr noundef nonnull %ch.addr.i, i64 noundef 1)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ch.addr.i)
   br label %if.end12
 
-if.else:                                          ; preds = %sw.bb36.i, %sw.bb33.i, %sw.bb30.i, %sw.bb24.i, %sw.bb21.i, %sw.bb18.i, %_ZNK4YAML7Emitter19ComputeFullBoolNameEb.exit
-  %retval.0.i4 = phi ptr [ %retval.0.i, %_ZNK4YAML7Emitter19ComputeFullBoolNameEb.exit ], [ %cond20.i, %sw.bb18.i ], [ %cond23.i, %sw.bb21.i ], [ %cond26.i, %sw.bb24.i ], [ %cond32.i, %sw.bb30.i ], [ %cond35.i, %sw.bb33.i ], [ %cond38.i, %sw.bb36.i ]
+if.else:                                          ; preds = %if.end
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp8) #15
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef %retval.0.i4, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp8)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull %call2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp8)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.else
@@ -3168,24 +3086,24 @@ invoke.cont10:                                    ; preds = %invoke.cont
   br label %if.end12
 
 lpad:                                             ; preds = %if.else
-  %10 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 lpad9:                                            ; preds = %invoke.cont
-  %11 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #15
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad9, %lpad
-  %.pn = phi { ptr, i32 } [ %11, %lpad9 ], [ %10, %lpad ]
+  %.pn = phi { ptr, i32 } [ %7, %lpad9 ], [ %6, %lpad ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp8) #15
   resume { ptr, i32 } %.pn
 
 if.end12:                                         ; preds = %invoke.cont10, %if.then5
-  %12 = load ptr, ptr %this, align 8
-  call void @_ZN4YAML12EmitterState13StartedScalarEv(ptr noundef nonnull align 8 dereferenceable(224) %12)
+  %8 = load ptr, ptr %this, align 8
+  call void @_ZN4YAML12EmitterState13StartedScalarEv(ptr noundef nonnull align 8 dereferenceable(224) %8)
   br label %return
 
 return:                                           ; preds = %entry, %if.end12

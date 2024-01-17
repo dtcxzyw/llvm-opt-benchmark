@@ -124,7 +124,7 @@ return:                                           ; preds = %entry, %if.end6, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @rsa_sign_init(ptr noundef %vprsactx, ptr noundef %vrsa, ptr noundef %params) #0 {
+define internal noundef i32 @rsa_sign_init(ptr noundef %vprsactx, ptr noundef %vrsa, ptr noundef %params) #0 {
 entry:
   %call = tail call i32 @ossl_prov_is_running() #11
   %tobool.not = icmp eq i32 %call, 0
@@ -140,7 +140,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @rsa_sign(ptr nocapture noundef %vprsactx, ptr noundef %sig, ptr nocapture noundef writeonly %siglen, i64 noundef %sigsize, ptr noundef %tbs, i64 noundef %tbslen) #0 {
+define internal noundef i32 @rsa_sign(ptr nocapture noundef %vprsactx, ptr noundef %sig, ptr nocapture noundef writeonly %siglen, i64 noundef %sigsize, ptr noundef %tbs, i64 noundef %tbslen) #0 {
 entry:
   %sltmp = alloca i32, align 4
   %sltmp56 = alloca i32, align 4
@@ -420,7 +420,7 @@ return:                                           ; preds = %if.end91, %rsa_get_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @rsa_verify_init(ptr noundef %vprsactx, ptr noundef %vrsa, ptr noundef %params) #0 {
+define internal noundef i32 @rsa_verify_init(ptr noundef %vprsactx, ptr noundef %vrsa, ptr noundef %params) #0 {
 entry:
   %call = tail call i32 @ossl_prov_is_running() #11
   %tobool.not = icmp eq i32 %call, 0
@@ -624,7 +624,7 @@ return:                                           ; preds = %lor.lhs.false, %if.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @rsa_verify_recover_init(ptr noundef %vprsactx, ptr noundef %vrsa, ptr noundef %params) #0 {
+define internal noundef i32 @rsa_verify_recover_init(ptr noundef %vprsactx, ptr noundef %vrsa, ptr noundef %params) #0 {
 entry:
   %call = tail call i32 @ossl_prov_is_running() #11
   %tobool.not = icmp eq i32 %call, 0
@@ -640,7 +640,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @rsa_verify_recover(ptr nocapture noundef %vprsactx, ptr noundef %rout, ptr nocapture noundef writeonly %routlen, i64 noundef %routsize, ptr noundef %sig, i64 noundef %siglen) #0 {
+define internal noundef i32 @rsa_verify_recover(ptr nocapture noundef %vprsactx, ptr noundef %rout, ptr nocapture noundef writeonly %routlen, i64 noundef %routsize, ptr noundef %sig, i64 noundef %siglen) #0 {
 entry:
   %sltmp = alloca i64, align 8
   %call = tail call i32 @ossl_prov_is_running() #11
@@ -811,7 +811,7 @@ return:                                           ; preds = %setup_tbuf.exit, %e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @rsa_digest_sign_init(ptr noundef %vprsactx, ptr noundef %mdname, ptr noundef %vrsa, ptr noundef %params) #0 {
+define internal noundef i32 @rsa_digest_sign_init(ptr noundef %vprsactx, ptr noundef %mdname, ptr noundef %vrsa, ptr noundef %params) #0 {
 entry:
   %call = tail call i32 @ossl_prov_is_running() #11
   %tobool.not = icmp eq i32 %call, 0
@@ -848,7 +848,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @rsa_digest_sign_final(ptr noundef %vprsactx, ptr noundef %sig, ptr nocapture noundef writeonly %siglen, i64 noundef %sigsize) #0 {
+define internal noundef i32 @rsa_digest_sign_final(ptr noundef %vprsactx, ptr noundef %sig, ptr nocapture noundef writeonly %siglen, i64 noundef %sigsize) #0 {
 entry:
   %digest = alloca [64 x i8], align 16
   %dlen = alloca i32, align 4
@@ -913,7 +913,7 @@ return:                                           ; preds = %if.end.i, %rsa_get_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @rsa_digest_verify_init(ptr noundef %vprsactx, ptr noundef %mdname, ptr noundef %vrsa, ptr noundef %params) #0 {
+define internal noundef i32 @rsa_digest_verify_init(ptr noundef %vprsactx, ptr noundef %mdname, ptr noundef %vrsa, ptr noundef %params) #0 {
 entry:
   %call = tail call i32 @ossl_prov_is_running() #11
   %tobool.not = icmp eq i32 %call, 0
@@ -1127,7 +1127,7 @@ return:                                           ; preds = %if.end46, %if.then4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @rsa_get_ctx_params(ptr noundef %vprsactx, ptr noundef %params) #0 {
+define internal noundef i32 @rsa_get_ctx_params(ptr noundef %vprsactx, ptr noundef %params) #0 {
 entry:
   %pkt.i = alloca %struct.wpacket_st, align 8
   %pss_params.i = alloca %struct.rsa_pss_params_30_st, align 4
@@ -1463,13 +1463,13 @@ return:                                           ; preds = %rsa_generate_signat
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal nonnull ptr @rsa_gettable_ctx_params(ptr nocapture readnone %vprsactx, ptr nocapture readnone %provctx) #1 {
+define internal noundef nonnull ptr @rsa_gettable_ctx_params(ptr nocapture readnone %vprsactx, ptr nocapture readnone %provctx) #1 {
 entry:
   ret ptr @known_gettable_ctx_params
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @rsa_set_ctx_params(ptr noundef %vprsactx, ptr noundef %params) #0 {
+define internal noundef i32 @rsa_set_ctx_params(ptr noundef %vprsactx, ptr noundef %params) #0 {
 entry:
   %pad_mode = alloca i32, align 4
   %saltlen = alloca i32, align 4
@@ -1866,7 +1866,7 @@ return:                                           ; preds = %if.else175, %if.the
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal nonnull ptr @rsa_settable_ctx_params(ptr noundef readonly %vprsactx, ptr nocapture readnone %provctx) #2 {
+define internal noundef nonnull ptr @rsa_settable_ctx_params(ptr noundef readonly %vprsactx, ptr nocapture readnone %provctx) #2 {
 entry:
   %cmp.not = icmp eq ptr %vprsactx, null
   br i1 %cmp.not, label %if.end, label %land.lhs.true
@@ -1965,7 +1965,7 @@ declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_a
 declare ptr @ossl_prov_ctx_get0_libctx(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @rsa_signverify_init(ptr noundef %vprsactx, ptr noundef %vrsa, ptr noundef %params, i32 noundef %operation) unnamed_addr #0 {
+define internal fastcc noundef i32 @rsa_signverify_init(ptr noundef %vprsactx, ptr noundef %vrsa, ptr noundef %params, i32 noundef %operation) unnamed_addr #0 {
 entry:
   %call = tail call i32 @ossl_prov_is_running() #11
   %tobool = icmp eq i32 %call, 0
@@ -2148,7 +2148,7 @@ declare ptr @ossl_rsa_oaeppss_nid2name(i32 noundef) local_unnamed_addr #3
 declare i64 @OPENSSL_strlcpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @rsa_setup_mgf1_md(ptr noundef %ctx, ptr noundef %mdname, ptr noundef %mdprops) unnamed_addr #0 {
+define internal fastcc noundef i32 @rsa_setup_mgf1_md(ptr noundef %ctx, ptr noundef %mdname, ptr noundef %mdprops) unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %mdprops, null
   br i1 %cmp, label %if.then, label %if.end
@@ -2178,41 +2178,9 @@ if.end3:                                          ; preds = %if.end
   br i1 %cmp6, label %if.then10, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end3
-  %pad_mode.i = getelementptr inbounds %struct.PROV_RSA_CTX, ptr %ctx, i64 0, i32 9
-  %3 = load i32, ptr %pad_mode.i, align 8
-  switch i32 %3, label %if.end12 [
-    i32 3, label %if.then8
-    i32 5, label %sw.bb2.i
-    i32 6, label %sw.bb6.i
-  ]
-
-sw.bb2.i:                                         ; preds = %lor.lhs.false
-  %call.i = tail call i32 @RSA_X931_hash_id(i32 noundef %call5) #11
-  %cmp3.i = icmp eq i32 %call.i, -1
-  br i1 %cmp3.i, label %if.then8, label %if.end12
-
-sw.bb6.i:                                         ; preds = %lor.lhs.false
-  %min_saltlen.i = getelementptr inbounds %struct.PROV_RSA_CTX, ptr %ctx, i64 0, i32 14
-  %4 = load i32, ptr %min_saltlen.i, align 4
-  %cmp7.not.i = icmp eq i32 %4, -1
-  %cmp12.not.i = icmp eq ptr %mdname, null
-  %or.cond = or i1 %cmp12.not.i, %cmp7.not.i
-  br i1 %or.cond, label %if.end12, label %land.lhs.true13.i
-
-land.lhs.true13.i:                                ; preds = %sw.bb6.i
-  %mgf1_md.i = getelementptr inbounds %struct.PROV_RSA_CTX, ptr %ctx, i64 0, i32 10
-  %5 = load ptr, ptr %mgf1_md.i, align 8
-  %call14.i = tail call i32 @EVP_MD_is_a(ptr noundef %5, ptr noundef nonnull %mdname) #11
-  %tobool15.not.i = icmp eq i32 %call14.i, 0
-  br i1 %tobool15.not.i, label %if.then8, label %if.end12
-
-if.then8:                                         ; preds = %lor.lhs.false, %land.lhs.true13.i, %sw.bb2.i
-  %.sink8.i = phi i32 [ 135, %sw.bb2.i ], [ 144, %land.lhs.true13.i ], [ 129, %lor.lhs.false ]
-  %.sink.i = phi i32 [ 170, %sw.bb2.i ], [ 174, %land.lhs.true13.i ], [ 168, %lor.lhs.false ]
-  tail call void @ERR_new() #11
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink8.i, ptr noundef nonnull @__func__.rsa_check_padding) #11
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 57, i32 noundef %.sink.i, ptr noundef null) #11
-  br label %if.end11
+  %call7 = tail call fastcc i32 @rsa_check_padding(ptr noundef nonnull %ctx, ptr noundef null, ptr noundef %mdname, i32 noundef %call5), !range !4
+  %tobool.not = icmp eq i32 %call7, 0
+  br i1 %tobool.not, label %if.end11, label %if.end12
 
 if.then10:                                        ; preds = %if.end3
   tail call void @ERR_new() #11
@@ -2220,11 +2188,11 @@ if.then10:                                        ; preds = %if.end3
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 57, i32 noundef 174, ptr noundef nonnull @.str.6, ptr noundef %mdname) #11
   br label %if.end11
 
-if.end11:                                         ; preds = %if.then8, %if.then10
+if.end11:                                         ; preds = %lor.lhs.false, %if.then10
   tail call void @EVP_MD_free(ptr noundef nonnull %call) #11
   br label %return
 
-if.end12:                                         ; preds = %lor.lhs.false, %sw.bb6.i, %land.lhs.true13.i, %sw.bb2.i
+if.end12:                                         ; preds = %lor.lhs.false
   %mgf1_mdname = getelementptr inbounds %struct.PROV_RSA_CTX, ptr %ctx, i64 0, i32 12
   %call13 = tail call i64 @OPENSSL_strlcpy(ptr noundef nonnull %mgf1_mdname, ptr noundef %mdname, i64 noundef 50) #11
   %cmp14 = icmp ugt i64 %call13, 49
@@ -2239,8 +2207,8 @@ if.then15:                                        ; preds = %if.end12
 
 if.end16:                                         ; preds = %if.end12
   %mgf1_md = getelementptr inbounds %struct.PROV_RSA_CTX, ptr %ctx, i64 0, i32 10
-  %6 = load ptr, ptr %mgf1_md, align 8
-  tail call void @EVP_MD_free(ptr noundef %6) #11
+  %3 = load ptr, ptr %mgf1_md, align 8
+  tail call void @EVP_MD_free(ptr noundef %3) #11
   store ptr %call, ptr %mgf1_md, align 8
   %mgf1_mdnid = getelementptr inbounds %struct.PROV_RSA_CTX, ptr %ctx, i64 0, i32 11
   store i32 %call5, ptr %mgf1_mdnid, align 8
@@ -2256,7 +2224,7 @@ return:                                           ; preds = %if.end16, %if.then1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @rsa_setup_md(ptr noundef %ctx, ptr noundef %mdname, ptr noundef %mdprops) unnamed_addr #0 {
+define internal fastcc noundef i32 @rsa_setup_md(ptr noundef %ctx, ptr noundef %mdname, ptr noundef %mdprops) unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %mdprops, null
   br i1 %cmp, label %if.then, label %if.then2
@@ -2396,7 +2364,7 @@ return:                                           ; preds = %if.end56, %if.then5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @rsa_check_parameters(ptr nocapture noundef %prsactx, i32 noundef %min_saltlen) unnamed_addr #0 {
+define internal fastcc noundef i32 @rsa_check_parameters(ptr nocapture noundef %prsactx, i32 noundef %min_saltlen) unnamed_addr #0 {
 entry:
   %pad_mode = getelementptr inbounds %struct.PROV_RSA_CTX, ptr %prsactx, i64 0, i32 9
   %0 = load i32, ptr %pad_mode, align 8
@@ -2443,7 +2411,7 @@ declare ptr @EVP_MD_fetch(ptr noundef, ptr noundef, ptr noundef) local_unnamed_a
 declare i32 @ossl_digest_rsa_sign_get_md_nid(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @rsa_check_padding(ptr nocapture noundef readonly %prsactx, ptr noundef %mdname, ptr noundef %mgf1_mdname, i32 noundef %mdnid) unnamed_addr #0 {
+define internal fastcc noundef i32 @rsa_check_padding(ptr nocapture noundef readonly %prsactx, ptr noundef %mdname, ptr noundef %mgf1_mdname, i32 noundef %mdnid) unnamed_addr #0 {
 entry:
   %pad_mode = getelementptr inbounds %struct.PROV_RSA_CTX, ptr %prsactx, i64 0, i32 9
   %0 = load i32, ptr %pad_mode, align 8
@@ -2592,7 +2560,7 @@ declare i32 @RSA_verify_PKCS1_PSS_mgf1(ptr noundef, ptr noundef, ptr noundef, pt
 declare i32 @ossl_rsa_verify(i32 noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @rsa_digest_signverify_init(ptr noundef %vprsactx, ptr noundef %mdname, ptr noundef %vrsa, ptr noundef %params, i32 noundef %operation) unnamed_addr #0 {
+define internal fastcc noundef i32 @rsa_digest_signverify_init(ptr noundef %vprsactx, ptr noundef %mdname, ptr noundef %vrsa, ptr noundef %params, i32 noundef %operation) unnamed_addr #0 {
 entry:
   %call = tail call i32 @ossl_prov_is_running() #11
   %tobool.not = icmp eq i32 %call, 0

@@ -117,10 +117,10 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.pbrt::CoatedDiffuseMaterial" = type <{ %"class.pbrt::FloatTexture", ptr, %"class.pbrt::SpectrumTexture", %"class.pbrt::SpectrumTexture", %"class.pbrt::FloatTexture", %"class.pbrt::FloatTexture", %"class.pbrt::FloatTexture", %"class.pbrt::FloatTexture", %"class.pbrt::Spectrum", i8, [3 x i8], i32, i32, [4 x i8] }>
 %"class.pbrt::ConductorMaterial" = type <{ %"class.pbrt::FloatTexture", ptr, %"class.pbrt::SpectrumTexture", %"class.pbrt::SpectrumTexture", %"class.pbrt::SpectrumTexture", %"class.pbrt::FloatTexture", %"class.pbrt::FloatTexture", i8, [7 x i8] }>
 %"class.pbrt::DiffuseTransmissionMaterial" = type <{ %"class.pbrt::FloatTexture", ptr, %"class.pbrt::SpectrumTexture", %"class.pbrt::SpectrumTexture", float, [4 x i8] }>
-%"class.pbrt::HairMaterial" = type { %"class.pbrt::SpectrumTexture", %"class.pbrt::SpectrumTexture", %"class.pbrt::FloatTexture", %"class.pbrt::FloatTexture", %"class.pbrt::FloatTexture", %"class.pbrt::FloatTexture", %"class.pbrt::FloatTexture", %"class.pbrt::FloatTexture" }
 %"class.pbrt::SubsurfaceMaterial" = type { %"class.pbrt::FloatTexture", ptr, %"class.pbrt::SpectrumTexture", %"class.pbrt::SpectrumTexture", %"class.pbrt::SpectrumTexture", %"class.pbrt::SpectrumTexture", float, float, %"class.pbrt::FloatTexture", %"class.pbrt::FloatTexture", i8, %"struct.pbrt::BSSRDFTable" }
 %"struct.pbrt::BSSRDFTable" = type { %"class.pstd::vector", %"class.pstd::vector", %"class.pstd::vector", %"class.pstd::vector", %"class.pstd::vector" }
 %"class.pbrt::CoatedConductorMaterial" = type <{ %"class.pbrt::FloatTexture", ptr, %"class.pbrt::FloatTexture", %"class.pbrt::FloatTexture", %"class.pbrt::FloatTexture", %"class.pbrt::Spectrum", %"class.pbrt::FloatTexture", %"class.pbrt::SpectrumTexture", %"class.pbrt::FloatTexture", %"class.pbrt::FloatTexture", %"class.pbrt::SpectrumTexture", %"class.pbrt::SpectrumTexture", %"class.pbrt::SpectrumTexture", i8, [3 x i8], i32, i32, [4 x i8] }>
+%"class.pbrt::HairMaterial" = type { %"class.pbrt::SpectrumTexture", %"class.pbrt::SpectrumTexture", %"class.pbrt::FloatTexture", %"class.pbrt::FloatTexture", %"class.pbrt::FloatTexture", %"class.pbrt::FloatTexture", %"class.pbrt::FloatTexture", %"class.pbrt::FloatTexture" }
 %"struct.pbrt::SOA<pbrt::MaterialEvalWorkItem<pbrt::MeasuredMaterial>>::GetSetIndirector" = type { ptr, i32 }
 %"struct.pbrt::MaterialEvalWorkItem.211" = type { ptr, %"class.pbrt::Point3fi", %"class.pbrt::Normal3", %"class.pbrt::Vector3", %"class.pbrt::Vector3", float, i32, %"class.pbrt::Normal3", %"class.pbrt::Vector3", %"class.pbrt::Vector3", %"class.pbrt::Normal3", %"class.pbrt::Normal3", %"class.pbrt::Point2", i32, %"class.pbrt::SampledWavelengths", i32, i32, %"class.pbrt::Vector3", %"class.pbrt::SampledSpectrum", %"class.pbrt::SampledSpectrum", float, %"struct.pbrt::MediumInterface" }
 %"struct.pbrt::SOA<pbrt::MaterialEvalWorkItem<pbrt::HairMaterial>>::GetSetIndirector" = type { ptr, i32 }
@@ -302,6 +302,8 @@ $_ZN4pbrt6detail8DispatchIRZNKS_8Material19CanEvaluateTexturesINS_21BasicTexture
 $_ZN4pbrt6detail8DispatchIRZNKS_8Material19CanEvaluateTexturesINS_21BasicTextureEvaluatorEEEbT_EUlS5_E_bNS_18SubsurfaceMaterialENS_22ThinDielectricMaterialENS_11MixMaterialEEET0_OS5_PKvi = comdat any
 
 $_ZNK4pbrt23CoatedConductorMaterial19CanEvaluateTexturesINS_21BasicTextureEvaluatorEEEbT_ = comdat any
+
+$_ZNK4pbrt12HairMaterial19CanEvaluateTexturesINS_21BasicTextureEvaluatorEEEbT_ = comdat any
 
 $_ZN4pbrt6detail8DispatchIRZNS_28EnqueueWorkAfterIntersectionENS_11RayWorkItemENS_6MediumEfNS_18SurfaceInteractionEPNS_17MediumSampleQueueEPNS_8RayQueueEPNS_9WorkQueueINS_20HitAreaLightWorkItemEEEPNS_14MultiWorkQueueINS_8TypePackIJNS_20MaterialEvalWorkItemINS_21CoatedDiffuseMaterialEEENSF_INS_23CoatedConductorMaterialEEENSF_INS_17ConductorMaterialEEENSF_INS_18DielectricMaterialEEENSF_INS_15DiffuseMaterialEEENSF_INS_27DiffuseTransmissionMaterialEEENSF_INS_12HairMaterialEEENSF_INS_16MeasuredMaterialEEENSF_INS_18SubsurfaceMaterialEEENSF_INS_22ThinDielectricMaterialEEENSF_INS_11MixMaterialEEEEEEEES14_EUlT_E_vSG_SI_SK_SM_SO_SQ_SS_SU_JSW_SY_S10_EvEET0_OS15_Pvi = comdat any
 
@@ -4621,8 +4623,6 @@ declare float @llvm.fabs.f32(float) #3
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef zeroext i1 @_ZN4pbrt6detail8DispatchIRZNKS_8Material19CanEvaluateTexturesINS_21BasicTextureEvaluatorEEEbT_EUlS5_E_bNS_21CoatedDiffuseMaterialENS_23CoatedConductorMaterialENS_17ConductorMaterialENS_18DielectricMaterialENS_15DiffuseMaterialENS_27DiffuseTransmissionMaterialENS_12HairMaterialENS_16MeasuredMaterialEJNS_18SubsurfaceMaterialENS_22ThinDielectricMaterialENS_11MixMaterialEEvEET0_OS5_PKvi(ptr noundef nonnull align 8 dereferenceable(8) %func, ptr noundef %ptr, i32 noundef %index) local_unnamed_addr #1 comdat {
 entry:
-  %ref.tmp.i.i80 = alloca [6 x %"class.pbrt::FloatTexture"], align 8
-  %ref.tmp7.i.i = alloca [2 x %"class.pbrt::SpectrumTexture"], align 16
   %ref.tmp.i.i66 = alloca [2 x %"class.pbrt::SpectrumTexture"], align 16
   %ref.tmp.i.i44 = alloca [2 x %"class.pbrt::FloatTexture"], align 16
   %ref.tmp.i.i18 = alloca [2 x %"class.pbrt::FloatTexture"], align 16
@@ -4858,67 +4858,7 @@ _ZZNK4pbrt8Material19CanEvaluateTexturesINS_21BasicTextureEvaluatorEEEbT_ENKUlS3
   br label %return
 
 sw.bb11:                                          ; preds = %entry
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i.i80)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp7.i.i)
-  %eumelanin.i.i = getelementptr inbounds %"class.pbrt::HairMaterial", ptr %ptr, i64 0, i32 2
-  %14 = load <4 x i64>, ptr %eumelanin.i.i, align 8
-  store <4 x i64> %14, ptr %ref.tmp.i.i80, align 8
-  %arrayinit.element4.i.i = getelementptr inbounds %"class.pbrt::FloatTexture", ptr %ref.tmp.i.i80, i64 4
-  %beta_n.i.i = getelementptr inbounds %"class.pbrt::HairMaterial", ptr %ptr, i64 0, i32 6
-  %15 = load <2 x i64>, ptr %beta_n.i.i, align 8
-  store <2 x i64> %15, ptr %arrayinit.element4.i.i, align 8
-  %16 = load <2 x i64>, ptr %ptr, align 8
-  store <2 x i64> %16, ptr %ref.tmp7.i.i, align 16
-  br label %for.body.i.i.i86
-
-for.body.i.i.i86:                                 ; preds = %for.inc.i.i.i93, %sw.bb11
-  %__begin2.038.i.idx.i.i87 = phi i64 [ %__begin2.038.i.add.i.i94, %for.inc.i.i.i93 ], [ 0, %sw.bb11 ]
-  %__begin2.038.i.ptr.i.i88 = getelementptr inbounds i8, ptr %ref.tmp.i.i80, i64 %__begin2.038.i.idx.i.i87
-  %17 = load i64, ptr %__begin2.038.i.ptr.i.i88, align 8
-  %and.i.i.i.i89 = and i64 %17, 144115188075855871
-  %cmp.i.not.i.i.i90 = icmp eq i64 %and.i.i.i.i89, 0
-  br i1 %cmp.i.not.i.i.i90, label %for.inc.i.i.i93, label %land.lhs.true.i.i.i91
-
-land.lhs.true.i.i.i91:                            ; preds = %for.body.i.i.i86
-  %shr.i.mask.i.i.i.i92 = and i64 %17, -144115188075855872
-  switch i64 %shr.i.mask.i.i.i.i92, label %_ZZNK4pbrt8Material19CanEvaluateTexturesINS_21BasicTextureEvaluatorEEEbT_ENKUlS3_E_clIPKNS_12HairMaterialEEEDaS3_.exit [
-    i64 864691128455135232, label %for.inc.i.i.i93
-    i64 144115188075855872, label %for.inc.i.i.i93
-    i64 1729382256910270464, label %for.inc.i.i.i93
-    i64 288230376151711744, label %for.inc.i.i.i93
-  ]
-
-for.inc.i.i.i93:                                  ; preds = %land.lhs.true.i.i.i91, %land.lhs.true.i.i.i91, %land.lhs.true.i.i.i91, %land.lhs.true.i.i.i91, %for.body.i.i.i86
-  %__begin2.038.i.add.i.i94 = add nuw nsw i64 %__begin2.038.i.idx.i.i87, 8
-  %cmp.not.i.i.i95 = icmp eq i64 %__begin2.038.i.add.i.i94, 48
-  br i1 %cmp.not.i.i.i95, label %for.body18.i.i.i96, label %for.body.i.i.i86
-
-for.body18.i.i.i96:                               ; preds = %for.inc.i.i.i93, %for.inc30.i.i.i103
-  %__begin212.040.i.idx.i.i97 = phi i64 [ %__begin212.040.i.add.i.i104, %for.inc30.i.i.i103 ], [ 0, %for.inc.i.i.i93 ]
-  %__begin212.040.i.ptr.i.i98 = getelementptr inbounds i8, ptr %ref.tmp7.i.i, i64 %__begin212.040.i.idx.i.i97
-  %18 = load i64, ptr %__begin212.040.i.ptr.i.i98, align 8
-  %and.i16.i.i.i99 = and i64 %18, 144115188075855871
-  %cmp.i17.not.i.i.i100 = icmp eq i64 %and.i16.i.i.i99, 0
-  br i1 %cmp.i17.not.i.i.i100, label %for.inc30.i.i.i103, label %land.lhs.true20.i.i.i101
-
-land.lhs.true20.i.i.i101:                         ; preds = %for.body18.i.i.i96
-  %shr.i.mask.i18.i.i.i102 = and i64 %18, -144115188075855872
-  switch i64 %shr.i.mask.i18.i.i.i102, label %_ZZNK4pbrt8Material19CanEvaluateTexturesINS_21BasicTextureEvaluatorEEEbT_ENKUlS3_E_clIPKNS_12HairMaterialEEEDaS3_.exit [
-    i64 864691128455135232, label %for.inc30.i.i.i103
-    i64 144115188075855872, label %for.inc30.i.i.i103
-    i64 1729382256910270464, label %for.inc30.i.i.i103
-    i64 288230376151711744, label %for.inc30.i.i.i103
-  ]
-
-for.inc30.i.i.i103:                               ; preds = %land.lhs.true20.i.i.i101, %land.lhs.true20.i.i.i101, %land.lhs.true20.i.i.i101, %land.lhs.true20.i.i.i101, %for.body18.i.i.i96
-  %__begin212.040.i.add.i.i104 = add nuw nsw i64 %__begin212.040.i.idx.i.i97, 8
-  %cmp17.not.i.i.i105 = icmp eq i64 %__begin212.040.i.add.i.i104, 16
-  br i1 %cmp17.not.i.i.i105, label %_ZZNK4pbrt8Material19CanEvaluateTexturesINS_21BasicTextureEvaluatorEEEbT_ENKUlS3_E_clIPKNS_12HairMaterialEEEDaS3_.exit, label %for.body18.i.i.i96
-
-_ZZNK4pbrt8Material19CanEvaluateTexturesINS_21BasicTextureEvaluatorEEEbT_ENKUlS3_E_clIPKNS_12HairMaterialEEEDaS3_.exit: ; preds = %land.lhs.true.i.i.i91, %land.lhs.true20.i.i.i101, %for.inc30.i.i.i103
-  %retval.0.i.i.i106 = phi i1 [ false, %land.lhs.true20.i.i.i101 ], [ true, %for.inc30.i.i.i103 ], [ false, %land.lhs.true.i.i.i91 ]
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i.i80)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp7.i.i)
+  %call.i80 = tail call noundef zeroext i1 @_ZNK4pbrt12HairMaterial19CanEvaluateTexturesINS_21BasicTextureEvaluatorEEEbT_(ptr noundef nonnull align 8 dereferenceable(64) %ptr)
   br label %return
 
 sw.default:                                       ; preds = %entry
@@ -4926,8 +4866,8 @@ sw.default:                                       ; preds = %entry
   %call15 = tail call noundef zeroext i1 @_ZN4pbrt6detail8DispatchIRZNKS_8Material19CanEvaluateTexturesINS_21BasicTextureEvaluatorEEEbT_EUlS5_E_bNS_18SubsurfaceMaterialENS_22ThinDielectricMaterialENS_11MixMaterialEEET0_OS5_PKvi(ptr noundef nonnull align 8 dereferenceable(8) %func, ptr noundef %ptr, i32 noundef %sub)
   br label %return
 
-return:                                           ; preds = %entry, %for.inc30.i.i.i64, %land.lhs.true20.i.i.i62, %sw.default, %_ZZNK4pbrt8Material19CanEvaluateTexturesINS_21BasicTextureEvaluatorEEEbT_ENKUlS3_E_clIPKNS_12HairMaterialEEEDaS3_.exit, %_ZZNK4pbrt8Material19CanEvaluateTexturesINS_21BasicTextureEvaluatorEEEbT_ENKUlS3_E_clIPKNS_27DiffuseTransmissionMaterialEEEDaS3_.exit, %_ZZNK4pbrt8Material19CanEvaluateTexturesINS_21BasicTextureEvaluatorEEEbT_ENKUlS3_E_clIPKNS_18DielectricMaterialEEEDaS3_.exit, %_ZZNK4pbrt8Material19CanEvaluateTexturesINS_21BasicTextureEvaluatorEEEbT_ENKUlS3_E_clIPKNS_17ConductorMaterialEEEDaS3_.exit, %sw.bb1, %_ZZNK4pbrt8Material19CanEvaluateTexturesINS_21BasicTextureEvaluatorEEEbT_ENKUlS3_E_clIPKNS_21CoatedDiffuseMaterialEEEDaS3_.exit
-  %retval.0 = phi i1 [ %call15, %sw.default ], [ %retval.0.i.i.i106, %_ZZNK4pbrt8Material19CanEvaluateTexturesINS_21BasicTextureEvaluatorEEEbT_ENKUlS3_E_clIPKNS_12HairMaterialEEEDaS3_.exit ], [ %retval.0.i.i.i79, %_ZZNK4pbrt8Material19CanEvaluateTexturesINS_21BasicTextureEvaluatorEEEbT_ENKUlS3_E_clIPKNS_27DiffuseTransmissionMaterialEEEDaS3_.exit ], [ %retval.0.i.i.i58, %_ZZNK4pbrt8Material19CanEvaluateTexturesINS_21BasicTextureEvaluatorEEEbT_ENKUlS3_E_clIPKNS_18DielectricMaterialEEEDaS3_.exit ], [ %retval.0.i.i.i43, %_ZZNK4pbrt8Material19CanEvaluateTexturesINS_21BasicTextureEvaluatorEEEbT_ENKUlS3_E_clIPKNS_17ConductorMaterialEEEDaS3_.exit ], [ %call.i, %sw.bb1 ], [ %retval.0.i.i.i, %_ZZNK4pbrt8Material19CanEvaluateTexturesINS_21BasicTextureEvaluatorEEEbT_ENKUlS3_E_clIPKNS_21CoatedDiffuseMaterialEEEDaS3_.exit ], [ true, %for.inc30.i.i.i64 ], [ false, %land.lhs.true20.i.i.i62 ], [ true, %entry ]
+return:                                           ; preds = %entry, %for.inc30.i.i.i64, %land.lhs.true20.i.i.i62, %sw.default, %sw.bb11, %_ZZNK4pbrt8Material19CanEvaluateTexturesINS_21BasicTextureEvaluatorEEEbT_ENKUlS3_E_clIPKNS_27DiffuseTransmissionMaterialEEEDaS3_.exit, %_ZZNK4pbrt8Material19CanEvaluateTexturesINS_21BasicTextureEvaluatorEEEbT_ENKUlS3_E_clIPKNS_18DielectricMaterialEEEDaS3_.exit, %_ZZNK4pbrt8Material19CanEvaluateTexturesINS_21BasicTextureEvaluatorEEEbT_ENKUlS3_E_clIPKNS_17ConductorMaterialEEEDaS3_.exit, %sw.bb1, %_ZZNK4pbrt8Material19CanEvaluateTexturesINS_21BasicTextureEvaluatorEEEbT_ENKUlS3_E_clIPKNS_21CoatedDiffuseMaterialEEEDaS3_.exit
+  %retval.0 = phi i1 [ %call15, %sw.default ], [ %call.i80, %sw.bb11 ], [ %retval.0.i.i.i79, %_ZZNK4pbrt8Material19CanEvaluateTexturesINS_21BasicTextureEvaluatorEEEbT_ENKUlS3_E_clIPKNS_27DiffuseTransmissionMaterialEEEDaS3_.exit ], [ %retval.0.i.i.i58, %_ZZNK4pbrt8Material19CanEvaluateTexturesINS_21BasicTextureEvaluatorEEEbT_ENKUlS3_E_clIPKNS_18DielectricMaterialEEEDaS3_.exit ], [ %retval.0.i.i.i43, %_ZZNK4pbrt8Material19CanEvaluateTexturesINS_21BasicTextureEvaluatorEEEbT_ENKUlS3_E_clIPKNS_17ConductorMaterialEEEDaS3_.exit ], [ %call.i, %sw.bb1 ], [ %retval.0.i.i.i, %_ZZNK4pbrt8Material19CanEvaluateTexturesINS_21BasicTextureEvaluatorEEEbT_ENKUlS3_E_clIPKNS_21CoatedDiffuseMaterialEEEDaS3_.exit ], [ true, %for.inc30.i.i.i64 ], [ false, %land.lhs.true20.i.i.i62 ], [ true, %entry ]
   ret i1 %retval.0
 }
 
@@ -5100,6 +5040,71 @@ land.lhs.true20.i:                                ; preds = %for.body18.i
 for.inc30.i:                                      ; preds = %land.lhs.true20.i, %land.lhs.true20.i, %land.lhs.true20.i, %land.lhs.true20.i, %for.body18.i
   %__begin212.040.i.add = add nuw nsw i64 %__begin212.040.i.idx, 8
   %cmp17.not.i = icmp eq i64 %__begin212.040.i.add, 32
+  br i1 %cmp17.not.i, label %_ZNK4pbrt21BasicTextureEvaluator11CanEvaluateESt16initializer_listINS_12FloatTextureEES1_INS_15SpectrumTextureEE.exit, label %for.body18.i
+
+_ZNK4pbrt21BasicTextureEvaluator11CanEvaluateESt16initializer_listINS_12FloatTextureEES1_INS_15SpectrumTextureEE.exit: ; preds = %land.lhs.true.i, %land.lhs.true20.i, %for.inc30.i
+  %retval.0.i = phi i1 [ false, %land.lhs.true20.i ], [ true, %for.inc30.i ], [ false, %land.lhs.true.i ]
+  ret i1 %retval.0.i
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local noundef zeroext i1 @_ZNK4pbrt12HairMaterial19CanEvaluateTexturesINS_21BasicTextureEvaluatorEEEbT_(ptr noundef nonnull align 8 dereferenceable(64) %this) local_unnamed_addr #1 comdat align 2 {
+entry:
+  %ref.tmp = alloca [6 x %"class.pbrt::FloatTexture"], align 8
+  %ref.tmp7 = alloca [2 x %"class.pbrt::SpectrumTexture"], align 16
+  %eumelanin = getelementptr inbounds %"class.pbrt::HairMaterial", ptr %this, i64 0, i32 2
+  %0 = load <4 x i64>, ptr %eumelanin, align 8
+  store <4 x i64> %0, ptr %ref.tmp, align 8
+  %arrayinit.element4 = getelementptr inbounds %"class.pbrt::FloatTexture", ptr %ref.tmp, i64 4
+  %beta_n = getelementptr inbounds %"class.pbrt::HairMaterial", ptr %this, i64 0, i32 6
+  %1 = load <2 x i64>, ptr %beta_n, align 8
+  store <2 x i64> %1, ptr %arrayinit.element4, align 8
+  %2 = load <2 x i64>, ptr %this, align 8
+  store <2 x i64> %2, ptr %ref.tmp7, align 16
+  br label %for.body.i
+
+for.body.i:                                       ; preds = %for.inc.i, %entry
+  %__begin2.038.i.idx = phi i64 [ %__begin2.038.i.add, %for.inc.i ], [ 0, %entry ]
+  %__begin2.038.i.ptr = getelementptr inbounds i8, ptr %ref.tmp, i64 %__begin2.038.i.idx
+  %3 = load i64, ptr %__begin2.038.i.ptr, align 8
+  %and.i.i = and i64 %3, 144115188075855871
+  %cmp.i.not.i = icmp eq i64 %and.i.i, 0
+  br i1 %cmp.i.not.i, label %for.inc.i, label %land.lhs.true.i
+
+land.lhs.true.i:                                  ; preds = %for.body.i
+  %shr.i.mask.i.i = and i64 %3, -144115188075855872
+  switch i64 %shr.i.mask.i.i, label %_ZNK4pbrt21BasicTextureEvaluator11CanEvaluateESt16initializer_listINS_12FloatTextureEES1_INS_15SpectrumTextureEE.exit [
+    i64 864691128455135232, label %for.inc.i
+    i64 144115188075855872, label %for.inc.i
+    i64 1729382256910270464, label %for.inc.i
+    i64 288230376151711744, label %for.inc.i
+  ]
+
+for.inc.i:                                        ; preds = %land.lhs.true.i, %land.lhs.true.i, %land.lhs.true.i, %land.lhs.true.i, %for.body.i
+  %__begin2.038.i.add = add nuw nsw i64 %__begin2.038.i.idx, 8
+  %cmp.not.i = icmp eq i64 %__begin2.038.i.add, 48
+  br i1 %cmp.not.i, label %for.body18.i, label %for.body.i
+
+for.body18.i:                                     ; preds = %for.inc.i, %for.inc30.i
+  %__begin212.040.i.idx = phi i64 [ %__begin212.040.i.add, %for.inc30.i ], [ 0, %for.inc.i ]
+  %__begin212.040.i.ptr = getelementptr inbounds i8, ptr %ref.tmp7, i64 %__begin212.040.i.idx
+  %4 = load i64, ptr %__begin212.040.i.ptr, align 8
+  %and.i16.i = and i64 %4, 144115188075855871
+  %cmp.i17.not.i = icmp eq i64 %and.i16.i, 0
+  br i1 %cmp.i17.not.i, label %for.inc30.i, label %land.lhs.true20.i
+
+land.lhs.true20.i:                                ; preds = %for.body18.i
+  %shr.i.mask.i18.i = and i64 %4, -144115188075855872
+  switch i64 %shr.i.mask.i18.i, label %_ZNK4pbrt21BasicTextureEvaluator11CanEvaluateESt16initializer_listINS_12FloatTextureEES1_INS_15SpectrumTextureEE.exit [
+    i64 864691128455135232, label %for.inc30.i
+    i64 144115188075855872, label %for.inc30.i
+    i64 1729382256910270464, label %for.inc30.i
+    i64 288230376151711744, label %for.inc30.i
+  ]
+
+for.inc30.i:                                      ; preds = %land.lhs.true20.i, %land.lhs.true20.i, %land.lhs.true20.i, %land.lhs.true20.i, %for.body18.i
+  %__begin212.040.i.add = add nuw nsw i64 %__begin212.040.i.idx, 8
+  %cmp17.not.i = icmp eq i64 %__begin212.040.i.add, 16
   br i1 %cmp17.not.i, label %_ZNK4pbrt21BasicTextureEvaluator11CanEvaluateESt16initializer_listINS_12FloatTextureEES1_INS_15SpectrumTextureEE.exit, label %for.body18.i
 
 _ZNK4pbrt21BasicTextureEvaluator11CanEvaluateESt16initializer_listINS_12FloatTextureEES1_INS_15SpectrumTextureEE.exit: ; preds = %land.lhs.true.i, %land.lhs.true20.i, %for.inc30.i
@@ -14531,7 +14536,7 @@ _ZNK4pbrt22DenselySampledSpectrum6SampleERKNS_18SampledWavelengthsE.exit52: ; pr
   ret void
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define internal fastcc noundef zeroext i1 @"_ZZN4pbrt18TraceTransmittanceIZZNKS_12CPUAggregate17IntersectShadowTrEiPNS_9WorkQueueINS_17ShadowRayWorkItemEEEPNS_3SOAINS_16PixelSampleStateEEEENK3$_0clEiEUlNS_3RayEfE_ZZNKS1_17IntersectShadowTrEiS5_S9_ENKSA_clEiEUlNS_6Point3IfEEE_EEvS3_S9_T_T0_ENKUlSE_NS_16MediumPropertiesENS_15SampledSpectrumESJ_E_clESE_SI_SJ_SJ_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, ptr nocapture noundef readonly %mp, <2 x float> %sigma_maj.coerce0, <2 x float> %sigma_maj.coerce1, <2 x float> %T_maj.coerce0, <2 x float> %T_maj.coerce1) unnamed_addr #15 align 2 {
 entry:
   %ret.i135 = alloca %"class.pbrt::SampledSpectrum", align 8
@@ -22626,7 +22631,7 @@ if.else.i.i.i:                                    ; preds = %while.end.i.i.i
   ret void
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvlEZNK4pbrt12CPUAggregate18IntersectOneRandomEiPNS1_22SubsurfaceScatterQueueEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %__op, label %sw.epilog [
@@ -23069,8 +23074,8 @@ attributes #11 = { mustprogress noreturn uwtable "frame-pointer"="all" "min-lega
 attributes #12 = { mustprogress nofree nounwind willreturn memory(write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
 attributes #13 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
 attributes #14 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
-attributes #15 = { mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
-attributes #16 = { mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
+attributes #15 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
+attributes #16 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
 attributes #17 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
 attributes #18 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
 attributes #19 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

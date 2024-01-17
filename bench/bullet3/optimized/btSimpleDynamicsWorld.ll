@@ -201,91 +201,36 @@ define dso_local noundef i32 @_ZN21btSimpleDynamicsWorld14stepSimulationEfif(ptr
 entry:
   %predictedTrans.i = alloca %class.btTransform, align 4
   %infoGlobal = alloca %struct.btContactSolverInfo, align 8
-  %m_size.i.i = getelementptr inbounds %class.btCollisionWorld, ptr %this, i64 0, i32 1, i32 2
-  %0 = load i32, ptr %m_size.i.i, align 4
-  %cmp14.i = icmp sgt i32 %0, 0
-  br i1 %cmp14.i, label %for.body.lr.ph.i, label %_ZN21btSimpleDynamicsWorld25predictUnconstraintMotionEf.exit
-
-for.body.lr.ph.i:                                 ; preds = %entry
-  %m_data.i.i = getelementptr inbounds %class.btCollisionWorld, ptr %this, i64 0, i32 1, i32 5
-  br label %for.body.i
-
-for.body.i:                                       ; preds = %for.inc.i, %for.body.lr.ph.i
-  %1 = phi i32 [ %0, %for.body.lr.ph.i ], [ %7, %for.inc.i ]
-  %indvars.iv.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %for.inc.i ]
-  %2 = load ptr, ptr %m_data.i.i, align 8
-  %arrayidx.i.i = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv.i
-  %3 = load ptr, ptr %arrayidx.i.i, align 8
-  %m_internalType.i.i.i = getelementptr inbounds %class.btCollisionObject, ptr %3, i64 0, i32 24
-  %4 = load i32, ptr %m_internalType.i.i.i, align 8
-  %and.i.i = and i32 %4, 2
-  %tobool.not.i.i = icmp eq i32 %and.i.i, 0
-  %tobool.not13.i = icmp eq ptr %3, null
-  %tobool.not.i = or i1 %tobool.not13.i, %tobool.not.i.i
-  br i1 %tobool.not.i, label %for.inc.i, label %if.then.i
-
-if.then.i:                                        ; preds = %for.body.i
-  %m_collisionFlags.i.i = getelementptr inbounds %class.btCollisionObject, ptr %3, i64 0, i32 12
-  %5 = load i32, ptr %m_collisionFlags.i.i, align 8
-  %and.i12.i = and i32 %5, 1
-  %cmp.i.not.i = icmp eq i32 %and.i12.i, 0
-  br i1 %cmp.i.not.i, label %if.then6.i, label %for.inc.i
-
-if.then6.i:                                       ; preds = %if.then.i
-  %m_activationState1.i.i.i = getelementptr inbounds %class.btCollisionObject, ptr %3, i64 0, i32 16
-  %6 = load i32, ptr %m_activationState1.i.i.i, align 8
-  switch i32 %6, label %if.then8.i [
-    i32 6, label %for.inc.i
-    i32 2, label %for.inc.i
-    i32 5, label %for.inc.i
-  ]
-
-if.then8.i:                                       ; preds = %if.then6.i
-  tail call void @_ZN11btRigidBody12applyGravityEv(ptr noundef nonnull align 8 dereferenceable(744) %3)
-  tail call void @_ZN11btRigidBody19integrateVelocitiesEf(ptr noundef nonnull align 8 dereferenceable(744) %3, float noundef %timeStep)
-  tail call void @_ZN11btRigidBody12applyDampingEf(ptr noundef nonnull align 8 dereferenceable(744) %3, float noundef %timeStep)
-  %m_interpolationWorldTransform.i.i = getelementptr inbounds %class.btCollisionObject, ptr %3, i64 0, i32 2
-  tail call void @_ZN11btRigidBody26predictIntegratedTransformEfR11btTransform(ptr noundef nonnull align 8 dereferenceable(744) %3, float noundef %timeStep, ptr noundef nonnull align 4 dereferenceable(64) %m_interpolationWorldTransform.i.i)
-  %.pre.i = load i32, ptr %m_size.i.i, align 4
-  br label %for.inc.i
-
-for.inc.i:                                        ; preds = %if.then8.i, %if.then6.i, %if.then6.i, %if.then6.i, %if.then.i, %for.body.i
-  %7 = phi i32 [ %1, %if.then6.i ], [ %1, %if.then6.i ], [ %1, %if.then6.i ], [ %1, %for.body.i ], [ %.pre.i, %if.then8.i ], [ %1, %if.then.i ]
-  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %8 = sext i32 %7 to i64
-  %cmp.i = icmp slt i64 %indvars.iv.next.i, %8
-  br i1 %cmp.i, label %for.body.i, label %_ZN21btSimpleDynamicsWorld25predictUnconstraintMotionEf.exit, !llvm.loop !5
-
-_ZN21btSimpleDynamicsWorld25predictUnconstraintMotionEf.exit: ; preds = %for.inc.i, %entry
+  tail call void @_ZN21btSimpleDynamicsWorld25predictUnconstraintMotionEf(ptr noundef nonnull align 8 dereferenceable(308) %this, float noundef %timeStep)
   %m_dispatchInfo.i = getelementptr inbounds %class.btCollisionWorld, ptr %this, i64 0, i32 3
   store float %timeStep, ptr %m_dispatchInfo.i, align 8
   %m_stepCount = getelementptr inbounds %class.btCollisionWorld, ptr %this, i64 0, i32 3, i32 1
   store i32 0, ptr %m_stepCount, align 4
   %vtable = load ptr, ptr %this, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 5
-  %9 = load ptr, ptr %vfn, align 8
-  %call2 = tail call noundef ptr %9(ptr noundef nonnull align 8 dereferenceable(121) %this)
+  %0 = load ptr, ptr %vfn, align 8
+  %call2 = tail call noundef ptr %0(ptr noundef nonnull align 8 dereferenceable(121) %this)
   %m_debugDraw = getelementptr inbounds %class.btCollisionWorld, ptr %this, i64 0, i32 3, i32 6
   store ptr %call2, ptr %m_debugDraw, align 8
   %vtable3 = load ptr, ptr %this, align 8
   %vfn4 = getelementptr inbounds ptr, ptr %vtable3, i64 12
-  %10 = load ptr, ptr %vfn4, align 8
-  tail call void %10(ptr noundef nonnull align 8 dereferenceable(121) %this)
+  %1 = load ptr, ptr %vfn4, align 8
+  tail call void %1(ptr noundef nonnull align 8 dereferenceable(121) %this)
   %m_dispatcher1 = getelementptr inbounds %class.btCollisionWorld, ptr %this, i64 0, i32 2
-  %11 = load ptr, ptr %m_dispatcher1, align 8
-  %vtable5 = load ptr, ptr %11, align 8
+  %2 = load ptr, ptr %m_dispatcher1, align 8
+  %vtable5 = load ptr, ptr %2, align 8
   %vfn6 = getelementptr inbounds ptr, ptr %vtable5, i64 9
-  %12 = load ptr, ptr %vfn6, align 8
-  %call7 = tail call noundef i32 %12(ptr noundef nonnull align 8 dereferenceable(8) %11)
+  %3 = load ptr, ptr %vfn6, align 8
+  %call7 = tail call noundef i32 %3(ptr noundef nonnull align 8 dereferenceable(8) %2)
   %tobool.not = icmp eq i32 %call7, 0
   br i1 %tobool.not, label %if.end, label %if.then
 
-if.then:                                          ; preds = %_ZN21btSimpleDynamicsWorld25predictUnconstraintMotionEf.exit
-  %13 = load ptr, ptr %m_dispatcher1, align 8
-  %vtable9 = load ptr, ptr %13, align 8
+if.then:                                          ; preds = %entry
+  %4 = load ptr, ptr %m_dispatcher1, align 8
+  %vtable9 = load ptr, ptr %4, align 8
   %vfn10 = getelementptr inbounds ptr, ptr %vtable9, i64 11
-  %14 = load ptr, ptr %vfn10, align 8
-  %call11 = tail call noundef ptr %14(ptr noundef nonnull align 8 dereferenceable(20816) %13)
+  %5 = load ptr, ptr %vfn10, align 8
+  %call11 = tail call noundef ptr %5(ptr noundef nonnull align 8 dereferenceable(20816) %4)
   store <2 x float> <float 0x3FE3333340000000, float 1.000000e+00>, ptr %infoGlobal, align 8
   %m_friction.i = getelementptr inbounds %struct.btContactSolverInfoData, ptr %infoGlobal, i64 0, i32 2
   store float 0x3FD3333340000000, ptr %m_friction.i, align 8
@@ -324,97 +269,99 @@ if.then:                                          ; preds = %_ZN21btSimpleDynami
   store i32 1, ptr %m_numNonContactInnerIterations.i, align 4
   store float %timeStep, ptr %m_timeStep.i, align 4
   %m_constraintSolver = getelementptr inbounds %class.btSimpleDynamicsWorld, ptr %this, i64 0, i32 1
-  %15 = load ptr, ptr %m_constraintSolver, align 8
-  %vtable13 = load ptr, ptr %15, align 8
+  %6 = load ptr, ptr %m_constraintSolver, align 8
+  %vtable13 = load ptr, ptr %6, align 8
   %vfn14 = getelementptr inbounds ptr, ptr %vtable13, i64 2
-  %16 = load ptr, ptr %vfn14, align 8
-  tail call void %16(ptr noundef nonnull align 8 dereferenceable(8) %15, i32 noundef 0, i32 noundef %call7)
-  %17 = load ptr, ptr %m_constraintSolver, align 8
+  %7 = load ptr, ptr %vfn14, align 8
+  tail call void %7(ptr noundef nonnull align 8 dereferenceable(8) %6, i32 noundef 0, i32 noundef %call7)
+  %8 = load ptr, ptr %m_constraintSolver, align 8
   %m_data.i = getelementptr inbounds %class.btCollisionWorld, ptr %this, i64 0, i32 1, i32 5
-  %18 = load ptr, ptr %m_data.i, align 8
-  %19 = load i32, ptr %m_size.i.i, align 4
+  %9 = load ptr, ptr %m_data.i, align 8
+  %m_size.i.i = getelementptr inbounds %class.btCollisionWorld, ptr %this, i64 0, i32 1, i32 2
+  %10 = load i32, ptr %m_size.i.i, align 4
   %m_debugDrawer = getelementptr inbounds %class.btCollisionWorld, ptr %this, i64 0, i32 5
-  %20 = load ptr, ptr %m_debugDrawer, align 8
-  %21 = load ptr, ptr %m_dispatcher1, align 8
-  %vtable20 = load ptr, ptr %17, align 8
+  %11 = load ptr, ptr %m_debugDrawer, align 8
+  %12 = load ptr, ptr %m_dispatcher1, align 8
+  %vtable20 = load ptr, ptr %8, align 8
   %vfn21 = getelementptr inbounds ptr, ptr %vtable20, i64 3
-  %22 = load ptr, ptr %vfn21, align 8
-  %call22 = call noundef float %22(ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull %18, i32 noundef %19, ptr noundef %call11, i32 noundef %call7, ptr noundef null, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(128) %infoGlobal, ptr noundef %20, ptr noundef %21)
-  %23 = load ptr, ptr %m_constraintSolver, align 8
-  %24 = load ptr, ptr %m_debugDrawer, align 8
-  %vtable25 = load ptr, ptr %23, align 8
+  %13 = load ptr, ptr %vfn21, align 8
+  %call22 = call noundef float %13(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull %9, i32 noundef %10, ptr noundef %call11, i32 noundef %call7, ptr noundef null, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(128) %infoGlobal, ptr noundef %11, ptr noundef %12)
+  %14 = load ptr, ptr %m_constraintSolver, align 8
+  %15 = load ptr, ptr %m_debugDrawer, align 8
+  %vtable25 = load ptr, ptr %14, align 8
   %vfn26 = getelementptr inbounds ptr, ptr %vtable25, i64 4
-  %25 = load ptr, ptr %vfn26, align 8
-  call void %25(ptr noundef nonnull align 8 dereferenceable(8) %23, ptr noundef nonnull align 4 dereferenceable(128) %infoGlobal, ptr noundef %24)
+  %16 = load ptr, ptr %vfn26, align 8
+  call void %16(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull align 4 dereferenceable(128) %infoGlobal, ptr noundef %15)
   br label %if.end
 
-if.end:                                           ; preds = %if.then, %_ZN21btSimpleDynamicsWorld25predictUnconstraintMotionEf.exit
+if.end:                                           ; preds = %if.then, %entry
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %predictedTrans.i)
-  %26 = load i32, ptr %m_size.i.i, align 4
-  %cmp9.i = icmp sgt i32 %26, 0
-  br i1 %cmp9.i, label %for.body.lr.ph.i10, label %_ZN21btSimpleDynamicsWorld19integrateTransformsEf.exit
+  %m_size.i.i8 = getelementptr inbounds %class.btCollisionWorld, ptr %this, i64 0, i32 1, i32 2
+  %17 = load i32, ptr %m_size.i.i8, align 4
+  %cmp9.i = icmp sgt i32 %17, 0
+  br i1 %cmp9.i, label %for.body.lr.ph.i, label %_ZN21btSimpleDynamicsWorld19integrateTransformsEf.exit
 
-for.body.lr.ph.i10:                               ; preds = %if.end
-  %m_data.i.i11 = getelementptr inbounds %class.btCollisionWorld, ptr %this, i64 0, i32 1, i32 5
-  br label %for.body.i12
+for.body.lr.ph.i:                                 ; preds = %if.end
+  %m_data.i.i = getelementptr inbounds %class.btCollisionWorld, ptr %this, i64 0, i32 1, i32 5
+  br label %for.body.i
 
-for.body.i12:                                     ; preds = %for.inc.i21, %for.body.lr.ph.i10
-  %27 = phi i32 [ %26, %for.body.lr.ph.i10 ], [ %33, %for.inc.i21 ]
-  %indvars.iv.i13 = phi i64 [ 0, %for.body.lr.ph.i10 ], [ %indvars.iv.next.i22, %for.inc.i21 ]
-  %28 = load ptr, ptr %m_data.i.i11, align 8
-  %arrayidx.i.i14 = getelementptr inbounds ptr, ptr %28, i64 %indvars.iv.i13
-  %29 = load ptr, ptr %arrayidx.i.i14, align 8
-  %m_internalType.i.i.i15 = getelementptr inbounds %class.btCollisionObject, ptr %29, i64 0, i32 24
-  %30 = load i32, ptr %m_internalType.i.i.i15, align 8
-  %and.i.i16 = and i32 %30, 2
-  %tobool.not.i.i17 = icmp eq i32 %and.i.i16, 0
-  %tobool.not8.i = icmp eq ptr %29, null
-  %tobool.not.i18 = or i1 %tobool.not8.i, %tobool.not.i.i17
-  br i1 %tobool.not.i18, label %for.inc.i21, label %if.then.i19
+for.body.i:                                       ; preds = %for.inc.i, %for.body.lr.ph.i
+  %18 = phi i32 [ %17, %for.body.lr.ph.i ], [ %24, %for.inc.i ]
+  %indvars.iv.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %for.inc.i ]
+  %19 = load ptr, ptr %m_data.i.i, align 8
+  %arrayidx.i.i = getelementptr inbounds ptr, ptr %19, i64 %indvars.iv.i
+  %20 = load ptr, ptr %arrayidx.i.i, align 8
+  %m_internalType.i.i.i = getelementptr inbounds %class.btCollisionObject, ptr %20, i64 0, i32 24
+  %21 = load i32, ptr %m_internalType.i.i.i, align 8
+  %and.i.i = and i32 %21, 2
+  %tobool.not.i.i = icmp eq i32 %and.i.i, 0
+  %tobool.not8.i = icmp eq ptr %20, null
+  %tobool.not.i = or i1 %tobool.not8.i, %tobool.not.i.i
+  br i1 %tobool.not.i, label %for.inc.i, label %if.then.i
 
-if.then.i19:                                      ; preds = %for.body.i12
-  %m_activationState1.i.i.i20 = getelementptr inbounds %class.btCollisionObject, ptr %29, i64 0, i32 16
-  %31 = load i32, ptr %m_activationState1.i.i.i20, align 8
-  switch i32 %31, label %land.lhs.true.i [
-    i32 6, label %for.inc.i21
-    i32 2, label %for.inc.i21
-    i32 5, label %for.inc.i21
+if.then.i:                                        ; preds = %for.body.i
+  %m_activationState1.i.i.i = getelementptr inbounds %class.btCollisionObject, ptr %20, i64 0, i32 16
+  %22 = load i32, ptr %m_activationState1.i.i.i, align 8
+  switch i32 %22, label %land.lhs.true.i [
+    i32 6, label %for.inc.i
+    i32 2, label %for.inc.i
+    i32 5, label %for.inc.i
   ]
 
-land.lhs.true.i:                                  ; preds = %if.then.i19
-  %m_collisionFlags.i.i24 = getelementptr inbounds %class.btCollisionObject, ptr %29, i64 0, i32 12
-  %32 = load i32, ptr %m_collisionFlags.i.i24, align 8
-  %and.i7.i = and i32 %32, 1
-  %cmp.i.not.i25 = icmp eq i32 %and.i7.i, 0
-  br i1 %cmp.i.not.i25, label %if.then7.i, label %for.inc.i21
+land.lhs.true.i:                                  ; preds = %if.then.i
+  %m_collisionFlags.i.i = getelementptr inbounds %class.btCollisionObject, ptr %20, i64 0, i32 12
+  %23 = load i32, ptr %m_collisionFlags.i.i, align 8
+  %and.i7.i = and i32 %23, 1
+  %cmp.i.not.i = icmp eq i32 %and.i7.i, 0
+  br i1 %cmp.i.not.i, label %if.then7.i, label %for.inc.i
 
 if.then7.i:                                       ; preds = %land.lhs.true.i
-  call void @_ZN11btRigidBody26predictIntegratedTransformEfR11btTransform(ptr noundef nonnull align 8 dereferenceable(744) %29, float noundef %timeStep, ptr noundef nonnull align 4 dereferenceable(64) %predictedTrans.i)
-  call void @_ZN11btRigidBody18proceedToTransformERK11btTransform(ptr noundef nonnull align 8 dereferenceable(744) %29, ptr noundef nonnull align 4 dereferenceable(64) %predictedTrans.i)
-  %.pre.i26 = load i32, ptr %m_size.i.i, align 4
-  br label %for.inc.i21
+  call void @_ZN11btRigidBody26predictIntegratedTransformEfR11btTransform(ptr noundef nonnull align 8 dereferenceable(744) %20, float noundef %timeStep, ptr noundef nonnull align 4 dereferenceable(64) %predictedTrans.i)
+  call void @_ZN11btRigidBody18proceedToTransformERK11btTransform(ptr noundef nonnull align 8 dereferenceable(744) %20, ptr noundef nonnull align 4 dereferenceable(64) %predictedTrans.i)
+  %.pre.i = load i32, ptr %m_size.i.i8, align 4
+  br label %for.inc.i
 
-for.inc.i21:                                      ; preds = %if.then7.i, %land.lhs.true.i, %if.then.i19, %if.then.i19, %if.then.i19, %for.body.i12
-  %33 = phi i32 [ %27, %if.then.i19 ], [ %27, %if.then.i19 ], [ %27, %if.then.i19 ], [ %27, %for.body.i12 ], [ %.pre.i26, %if.then7.i ], [ %27, %land.lhs.true.i ]
-  %indvars.iv.next.i22 = add nuw nsw i64 %indvars.iv.i13, 1
-  %34 = sext i32 %33 to i64
-  %cmp.i23 = icmp slt i64 %indvars.iv.next.i22, %34
-  br i1 %cmp.i23, label %for.body.i12, label %_ZN21btSimpleDynamicsWorld19integrateTransformsEf.exit, !llvm.loop !7
+for.inc.i:                                        ; preds = %if.then7.i, %land.lhs.true.i, %if.then.i, %if.then.i, %if.then.i, %for.body.i
+  %24 = phi i32 [ %18, %if.then.i ], [ %18, %if.then.i ], [ %18, %if.then.i ], [ %18, %for.body.i ], [ %.pre.i, %if.then7.i ], [ %18, %land.lhs.true.i ]
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
+  %25 = sext i32 %24 to i64
+  %cmp.i = icmp slt i64 %indvars.iv.next.i, %25
+  br i1 %cmp.i, label %for.body.i, label %_ZN21btSimpleDynamicsWorld19integrateTransformsEf.exit, !llvm.loop !5
 
-_ZN21btSimpleDynamicsWorld19integrateTransformsEf.exit: ; preds = %for.inc.i21, %if.end
+_ZN21btSimpleDynamicsWorld19integrateTransformsEf.exit: ; preds = %for.inc.i, %if.end
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %predictedTrans.i)
   %vtable27 = load ptr, ptr %this, align 8
   %vfn28 = getelementptr inbounds ptr, ptr %vtable27, i64 2
-  %35 = load ptr, ptr %vfn28, align 8
-  call void %35(ptr noundef nonnull align 8 dereferenceable(308) %this)
+  %26 = load ptr, ptr %vfn28, align 8
+  call void %26(ptr noundef nonnull align 8 dereferenceable(308) %this)
   %vtable29 = load ptr, ptr %this, align 8
   %vfn30 = getelementptr inbounds ptr, ptr %vtable29, i64 21
-  %36 = load ptr, ptr %vfn30, align 8
-  call void %36(ptr noundef nonnull align 8 dereferenceable(308) %this)
+  %27 = load ptr, ptr %vfn30, align 8
+  call void %27(ptr noundef nonnull align 8 dereferenceable(308) %this)
   %vtable31 = load ptr, ptr %this, align 8
   %vfn32 = getelementptr inbounds ptr, ptr %vtable31, i64 31
-  %37 = load ptr, ptr %vfn32, align 8
-  call void %37(ptr noundef nonnull align 8 dereferenceable(308) %this)
+  %28 = load ptr, ptr %vfn32, align 8
+  call void %28(ptr noundef nonnull align 8 dereferenceable(308) %this)
   ret i32 1
 }
 
@@ -474,7 +421,7 @@ for.inc:                                          ; preds = %if.then6, %if.then6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %8 = sext i32 %7 to i64
   %cmp = icmp slt i64 %indvars.iv.next, %8
-  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !5
+  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !7
 
 for.end:                                          ; preds = %for.inc, %entry
   ret void
@@ -534,13 +481,13 @@ for.inc:                                          ; preds = %if.then, %if.then, 
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %8 = sext i32 %7 to i64
   %cmp = icmp slt i64 %indvars.iv.next, %8
-  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !7
+  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !5
 
 for.end:                                          ; preds = %for.inc, %entry
   ret void
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define dso_local void @_ZN21btSimpleDynamicsWorld11clearForcesEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(308) %this) unnamed_addr #6 align 2 {
 entry:
   %m_size.i = getelementptr inbounds %class.btCollisionWorld, ptr %this, i64 0, i32 1, i32 2
@@ -1023,7 +970,7 @@ attributes #2 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal
 attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
