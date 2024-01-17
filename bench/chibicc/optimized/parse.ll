@@ -7186,6 +7186,8 @@ if.then118.i:                                     ; preds = %lor.lhs.false.i, %i
   store i32 42, ptr %call.i.i139, align 16
   %tok2.i.i140 = getelementptr inbounds %struct.Node, ptr %call.i.i139, i64 0, i32 3
   store ptr %tok, ptr %tok2.i.i140, align 8
+  %val1.i141 = getelementptr inbounds %struct.Node, ptr %call.i.i139, i64 0, i32 33
+  store i64 0, ptr %val1.i141, align 8
   br label %primary.exit
 
 if.end120.i:                                      ; preds = %lor.lhs.false.i

@@ -1883,6 +1883,7 @@ _ZN7obj_refI4expr11ast_managerED2Ev.exit:         ; preds = %lor.lhs.false.i.i5,
   %32 = load i32, ptr %arrayidx10.i.i11, align 4
   %inc.i.i12 = add i32 %32, 1
   store i32 %inc.i.i12, ptr %arrayidx10.i.i11, align 4
+  store ptr null, ptr %ref.tmp, align 8
   br label %if.end
 
 lpad:                                             ; preds = %if.then.i.i13

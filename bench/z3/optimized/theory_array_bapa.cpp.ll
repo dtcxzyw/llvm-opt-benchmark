@@ -2167,39 +2167,46 @@ sw.bb.i.i:                                        ; preds = %invoke.cont
 
 sw.bb9.i.i:                                       ; preds = %invoke.cont
   invoke void @_ZN3smt7context11assign_coreEN3sat7literalENS_15b_justificationEb(ptr noundef nonnull align 8 dereferenceable(11616) %6, i32 %call4, ptr nonnull inttoptr (i64 2 to ptr), i1 noundef zeroext false)
-          to label %invoke.cont7 unwind label %lpad
+          to label %sw.bb9.i.i.invoke.cont7_crit_edge unwind label %lpad
 
-invoke.cont7:                                     ; preds = %invoke.cont, %sw.bb.i.i, %sw.bb9.i.i
+sw.bb9.i.i.invoke.cont7_crit_edge:                ; preds = %sw.bb9.i.i
+  %.pre = load ptr, ptr %has_size, align 8
+  br label %invoke.cont7
+
+invoke.cont7:                                     ; preds = %sw.bb9.i.i.invoke.cont7_crit_edge, %invoke.cont, %sw.bb.i.i
+  %9 = phi ptr [ %.pre, %sw.bb9.i.i.invoke.cont7_crit_edge ], [ %call.i, %invoke.cont ], [ %call.i, %sw.bb.i.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i)
-  br i1 %tobool.not.i.i, label %_ZN7obj_refI3app11ast_managerED2Ev.exit, label %if.then.i.i.i
+  %tobool.not.i.i4 = icmp eq ptr %9, null
+  br i1 %tobool.not.i.i4, label %_ZN7obj_refI3app11ast_managerED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont7
-  %m_ref_count.i.i.i.i5 = getelementptr inbounds %class.ast, ptr %call.i, i64 0, i32 2
-  %9 = load i32, ptr %m_ref_count.i.i.i.i5, align 4
-  %dec.i.i.i.i = add i32 %9, -1
+  %10 = load ptr, ptr %m_manager.i2, align 8
+  %m_ref_count.i.i.i.i5 = getelementptr inbounds %class.ast, ptr %9, i64 0, i32 2
+  %11 = load i32, ptr %m_ref_count.i.i.i.i5, align 4
+  %dec.i.i.i.i = add i32 %11, -1
   store i32 %dec.i.i.i.i, ptr %m_ref_count.i.i.i.i5, align 4
   %cmp.i.i.i = icmp eq i32 %dec.i.i.i.i, 0
   br i1 %cmp.i.i.i, label %if.then2.i.i.i, label %_ZN7obj_refI3app11ast_managerED2Ev.exit
 
 if.then2.i.i.i:                                   ; preds = %if.then.i.i.i
-  invoke void @_ZN11ast_manager11delete_nodeEP3ast(ptr noundef nonnull align 8 dereferenceable(976) %3, ptr noundef nonnull %call.i)
+  invoke void @_ZN11ast_manager11delete_nodeEP3ast(ptr noundef nonnull align 8 dereferenceable(976) %10, ptr noundef nonnull %9)
           to label %_ZN7obj_refI3app11ast_managerED2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then2.i.i.i
-  %10 = landingpad { ptr, i32 }
+  %12 = landingpad { ptr, i32 }
           catch ptr null
-  %11 = extractvalue { ptr, i32 } %10, 0
-  call void @__clang_call_terminate(ptr %11) #17
+  %13 = extractvalue { ptr, i32 } %12, 0
+  call void @__clang_call_terminate(ptr %13) #17
   unreachable
 
 _ZN7obj_refI3app11ast_managerED2Ev.exit:          ; preds = %invoke.cont7, %if.then.i.i.i, %if.then2.i.i.i
   ret void
 
 lpad:                                             ; preds = %sw.bb9.i.i, %sw.bb.i.i, %_ZN7obj_refI3app11ast_managerEC2EPS0_RS1_.exit
-  %12 = landingpad { ptr, i32 }
+  %14 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN7obj_refI3app11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %has_size) #16
-  resume { ptr, i32 } %12
+  resume { ptr, i32 } %14
 }
 
 ; Function Attrs: mustprogress uwtable
