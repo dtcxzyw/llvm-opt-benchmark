@@ -39855,12 +39855,14 @@ for.body.lr.ph:                                   ; preds = %entry
   %packed.i = getelementptr inbounds %"class.entt::basic_sparse_set", ptr %this, i64 0, i32 2
   %3 = load ptr, ptr %packed.i, align 8
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %3 to i64
+  %_M_finish.i.i.promoted = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !55
   br label %for.body
 
 for.cond.cleanup:                                 ; preds = %invoke.cont, %entry
   ret void
 
 for.body:                                         ; preds = %invoke.cont, %for.body.lr.ph
+  %add.ptr.i.i19.i1 = phi ptr [ %_M_finish.i.i.promoted, %for.body.lr.ph ], [ %add.ptr.i.i19.i, %invoke.cont ]
   %first.sroa.3.033 = phi i64 [ %first.coerce1, %for.body.lr.ph ], [ %dec.i, %invoke.cont ]
   %gep = getelementptr i32, ptr %invariant.gep, i64 %first.sroa.3.033
   %4 = load i32, ptr %gep, align 4, !tbaa !60
@@ -39889,33 +39891,32 @@ if.then.i.i.i:                                    ; preds = %for.body
   unreachable
 
 invoke.cont:                                      ; preds = %for.body
-  %9 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !55
-  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %9 to i64
+  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %add.ptr.i.i19.i1 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 2
   %sub = add nsw i64 %sub.ptr.div.i.i, -1
   %div4.i14 = lshr i64 %sub, 10
   %add.ptr.i.i15 = getelementptr inbounds ptr, ptr %2, i64 %div4.i14
-  %10 = load ptr, ptr %add.ptr.i.i15, align 8, !tbaa !55
+  %9 = load ptr, ptr %add.ptr.i.i15, align 8, !tbaa !55
   %and.i.i16 = and i64 %sub, 1023
-  %arrayidx.i17 = getelementptr inbounds %"struct.test::throwing_type", ptr %10, i64 %and.i.i16
-  %11 = load i8, ptr %arrayidx.i17, align 1, !tbaa !513, !range !53, !noalias !624, !noundef !54
-  store i8 %11, ptr %arrayidx.i, align 1, !tbaa !513, !noalias !624
-  %add.ptr.i.i19.i = getelementptr inbounds i32, ptr %9, i64 -1
-  %12 = load i32, ptr %add.ptr.i.i19.i, align 4, !tbaa !60
-  %and1.i.i = and i32 %12, -1048576
+  %arrayidx.i17 = getelementptr inbounds %"struct.test::throwing_type", ptr %9, i64 %and.i.i16
+  %10 = load i8, ptr %arrayidx.i17, align 1, !tbaa !513, !range !53, !noalias !624, !noundef !54
+  store i8 %10, ptr %arrayidx.i, align 1, !tbaa !513, !noalias !624
+  %add.ptr.i.i19.i = getelementptr inbounds i32, ptr %add.ptr.i.i19.i1, i64 -1
+  %11 = load i32, ptr %add.ptr.i.i19.i, align 4, !tbaa !60
+  %and1.i.i = and i32 %11, -1048576
   %or.i.i = or disjoint i32 %and1.i.i, %and.i.i
-  %and.i.i22.i = and i32 %12, 1048575
+  %and.i.i22.i = and i32 %11, 1048575
   %conv.i23.i = zext nneg i32 %and.i.i22.i to i64
   %div5.i25.i = lshr i64 %conv.i23.i, 12
   %add.ptr.i.i26.i = getelementptr inbounds ptr, ptr %1, i64 %div5.i25.i
-  %13 = load ptr, ptr %add.ptr.i.i26.i, align 8, !tbaa !55
+  %12 = load ptr, ptr %add.ptr.i.i26.i, align 8, !tbaa !55
   %and.i6.i27.i = and i64 %conv.i23.i, 4095
-  %arrayidx.i28.i = getelementptr inbounds i32, ptr %13, i64 %and.i6.i27.i
+  %arrayidx.i28.i = getelementptr inbounds i32, ptr %12, i64 %and.i6.i27.i
   store i32 %or.i.i, ptr %arrayidx.i28.i, align 4, !tbaa !60
-  %14 = load i32, ptr %add.ptr.i.i19.i, align 4, !tbaa !60
+  %13 = load i32, ptr %add.ptr.i.i19.i, align 4, !tbaa !60
   %add.ptr.i.i28 = getelementptr inbounds i32, ptr %3, i64 %conv.i
-  store i32 %14, ptr %add.ptr.i.i28, align 4, !tbaa !60
+  store i32 %13, ptr %add.ptr.i.i28, align 4, !tbaa !60
   store i32 -1, ptr %arrayidx.i.i, align 4, !tbaa !60
   store ptr %add.ptr.i.i19.i, ptr %_M_finish.i.i, align 8, !tbaa !41
   %dec.i = add nsw i64 %first.sroa.3.033, -1
@@ -115224,9 +115225,11 @@ for.body.lr.ph.i:                                 ; preds = %if.then
   %packed.i.i = getelementptr inbounds %"class.entt::basic_sparse_set", ptr %this, i64 0, i32 2
   %6 = load ptr, ptr %packed.i.i, align 8
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %6 to i64
+  %_M_finish.i.i.promoted.i = load ptr, ptr %_M_finish.i.i.i4, align 8, !tbaa !55
   br label %for.body.i5
 
 for.body.i5:                                      ; preds = %invoke.cont.i, %for.body.lr.ph.i
+  %add.ptr.i.i19.i1.i = phi ptr [ %_M_finish.i.i.promoted.i, %for.body.lr.ph.i ], [ %add.ptr.i.i19.i.i, %invoke.cont.i ]
   %first.sroa.3.033.i = phi i64 [ %first.coerce1, %for.body.lr.ph.i ], [ %dec.i.i, %invoke.cont.i ]
   %gep.i = getelementptr i32, ptr %invariant.gep.i, i64 %first.sroa.3.033.i
   %7 = load i32, ptr %gep.i, align 4, !tbaa !60
@@ -115255,53 +115258,52 @@ if.then.i.i.i.i:                                  ; preds = %for.body.i5
   unreachable
 
 invoke.cont.i:                                    ; preds = %for.body.i5
-  %12 = load ptr, ptr %_M_finish.i.i.i4, align 8, !tbaa !55
-  %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %12 to i64
+  %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %add.ptr.i.i19.i1.i to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
   %sub.ptr.div.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i, 2
   %sub.i9 = add nsw i64 %sub.ptr.div.i.i.i, -1
   %div4.i14.i = lshr i64 %sub.i9, 10
   %add.ptr.i.i15.i = getelementptr inbounds ptr, ptr %5, i64 %div4.i14.i
-  %13 = load ptr, ptr %add.ptr.i.i15.i, align 8, !tbaa !55
+  %12 = load ptr, ptr %add.ptr.i.i15.i, align 8, !tbaa !55
   %and.i.i16.i = and i64 %sub.i9, 1023
-  %arrayidx.i17.i = getelementptr inbounds %"struct.test::throwing_type", ptr %13, i64 %and.i.i16.i
-  %14 = load i8, ptr %arrayidx.i17.i, align 1, !tbaa !513, !range !53, !noalias !1896, !noundef !54
-  store i8 %14, ptr %arrayidx.i.i, align 1, !tbaa !513, !noalias !1896
-  %add.ptr.i.i19.i.i = getelementptr inbounds i32, ptr %12, i64 -1
-  %15 = load i32, ptr %add.ptr.i.i19.i.i, align 4, !tbaa !60
-  %and1.i.i.i = and i32 %15, -1048576
+  %arrayidx.i17.i = getelementptr inbounds %"struct.test::throwing_type", ptr %12, i64 %and.i.i16.i
+  %13 = load i8, ptr %arrayidx.i17.i, align 1, !tbaa !513, !range !53, !noalias !1896, !noundef !54
+  store i8 %13, ptr %arrayidx.i.i, align 1, !tbaa !513, !noalias !1896
+  %add.ptr.i.i19.i.i = getelementptr inbounds i32, ptr %add.ptr.i.i19.i1.i, i64 -1
+  %14 = load i32, ptr %add.ptr.i.i19.i.i, align 4, !tbaa !60
+  %and1.i.i.i = and i32 %14, -1048576
   %or.i.i.i = or disjoint i32 %and1.i.i.i, %and.i.i.i
-  %and.i.i22.i.i = and i32 %15, 1048575
+  %and.i.i22.i.i = and i32 %14, 1048575
   %conv.i23.i.i = zext nneg i32 %and.i.i22.i.i to i64
   %div5.i25.i.i = lshr i64 %conv.i23.i.i, 12
   %add.ptr.i.i26.i.i = getelementptr inbounds ptr, ptr %4, i64 %div5.i25.i.i
-  %16 = load ptr, ptr %add.ptr.i.i26.i.i, align 8, !tbaa !55
+  %15 = load ptr, ptr %add.ptr.i.i26.i.i, align 8, !tbaa !55
   %and.i6.i27.i.i = and i64 %conv.i23.i.i, 4095
-  %arrayidx.i28.i.i = getelementptr inbounds i32, ptr %16, i64 %and.i6.i27.i.i
+  %arrayidx.i28.i.i = getelementptr inbounds i32, ptr %15, i64 %and.i6.i27.i.i
   store i32 %or.i.i.i, ptr %arrayidx.i28.i.i, align 4, !tbaa !60
-  %17 = load i32, ptr %add.ptr.i.i19.i.i, align 4, !tbaa !60
+  %16 = load i32, ptr %add.ptr.i.i19.i.i, align 4, !tbaa !60
   %add.ptr.i.i28.i = getelementptr inbounds i32, ptr %6, i64 %conv.i.i
-  store i32 %17, ptr %add.ptr.i.i28.i, align 4, !tbaa !60
+  store i32 %16, ptr %add.ptr.i.i28.i, align 4, !tbaa !60
   store i32 -1, ptr %arrayidx.i.i.i, align 4, !tbaa !60
   store ptr %add.ptr.i.i19.i.i, ptr %_M_finish.i.i.i4, align 8, !tbaa !41
   %dec.i.i = add nsw i64 %first.sroa.3.033.i, -1
   %cmp.i.i.not.i = icmp eq i64 %dec.i.i, %last.coerce1
   br i1 %cmp.i.i.not.i, label %if.end, label %for.body.i5, !llvm.loop !629
 
-for.body:                                         ; preds = %invoke.cont.i35, %for.body.lr.ph
-  %first.sroa.3.022 = phi i64 [ %first.coerce1, %for.body.lr.ph ], [ %dec.i, %invoke.cont.i35 ]
-  %18 = load ptr, ptr %first.coerce0, align 8, !tbaa !42
-  %19 = getelementptr i32, ptr %18, i64 %first.sroa.3.022
-  %add.ptr.i.i = getelementptr i32, ptr %19, i64 -1
-  %20 = load i32, ptr %add.ptr.i.i, align 4, !tbaa !60
-  %21 = load ptr, ptr %_M_finish.i.i.i, align 8, !tbaa !95
-  %22 = load ptr, ptr %destruction, align 8, !tbaa !74
-  %tobool.not8.i = icmp eq ptr %21, %22
+for.body:                                         ; preds = %invoke.cont.i37, %for.body.lr.ph
+  %first.sroa.3.022 = phi i64 [ %first.coerce1, %for.body.lr.ph ], [ %dec.i, %invoke.cont.i37 ]
+  %17 = load ptr, ptr %first.coerce0, align 8, !tbaa !42
+  %18 = getelementptr i32, ptr %17, i64 %first.sroa.3.022
+  %add.ptr.i.i = getelementptr i32, ptr %18, i64 -1
+  %19 = load i32, ptr %add.ptr.i.i, align 4, !tbaa !60
+  %20 = load ptr, ptr %_M_finish.i.i.i, align 8, !tbaa !95
+  %21 = load ptr, ptr %destruction, align 8, !tbaa !74
+  %tobool.not8.i = icmp eq ptr %20, %21
   br i1 %tobool.not8.i, label %_ZNK4entt4sighIFvRNS_14basic_registryINS_6entityESaIS2_EEES2_ESaIN4test13throwing_typeEEE7publishES5_S2_.exit, label %for.body.preheader.i
 
 for.body.preheader.i:                             ; preds = %for.body
-  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %21 to i64
-  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %22 to i64
+  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %20 to i64
+  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %21 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 4
   br label %for.body.i
@@ -115309,116 +115311,116 @@ for.body.preheader.i:                             ; preds = %for.body
 for.body.i:                                       ; preds = %for.body.i, %for.body.preheader.i
   %pos.09.i = phi i64 [ %sub.i, %for.body.i ], [ %sub.ptr.div.i.i, %for.body.preheader.i ]
   %sub.i = add i64 %pos.09.i, -1
-  %23 = load ptr, ptr %destruction, align 8, !tbaa !74
-  %add.ptr.i.i14 = getelementptr inbounds %"class.entt::delegate.125", ptr %23, i64 %sub.i
-  %fn.i.i = getelementptr inbounds %"class.entt::delegate.125", ptr %23, i64 %sub.i, i32 1
-  %24 = load ptr, ptr %fn.i.i, align 8, !tbaa !75
-  %25 = load ptr, ptr %add.ptr.i.i14, align 8, !tbaa !77
-  tail call void %24(ptr noundef %25, ptr noundef nonnull align 8 dereferenceable(320) %0, i32 noundef %20)
+  %22 = load ptr, ptr %destruction, align 8, !tbaa !74
+  %add.ptr.i.i14 = getelementptr inbounds %"class.entt::delegate.125", ptr %22, i64 %sub.i
+  %fn.i.i = getelementptr inbounds %"class.entt::delegate.125", ptr %22, i64 %sub.i, i32 1
+  %23 = load ptr, ptr %fn.i.i, align 8, !tbaa !75
+  %24 = load ptr, ptr %add.ptr.i.i14, align 8, !tbaa !77
+  tail call void %23(ptr noundef %24, ptr noundef nonnull align 8 dereferenceable(320) %0, i32 noundef %19)
   %tobool.not.i = icmp eq i64 %sub.i, 0
   br i1 %tobool.not.i, label %_ZNK4entt4sighIFvRNS_14basic_registryINS_6entityESaIS2_EEES2_ESaIN4test13throwing_typeEEE7publishES5_S2_.exit, label %for.body.i, !llvm.loop !523
 
 _ZNK4entt4sighIFvRNS_14basic_registryINS_6entityESaIS2_EEES2_ESaIN4test13throwing_typeEEE7publishES5_S2_.exit: ; preds = %for.body.i, %for.body
-  %and.i.i.i.i = and i32 %20, 1048575
+  %and.i.i.i.i = and i32 %19, 1048575
   %conv.i.i.i = zext nneg i32 %and.i.i.i.i to i64
   %div11.i.i.i = lshr i64 %conv.i.i.i, 12
-  %26 = load ptr, ptr %_M_finish.i.i.i.i, align 8, !tbaa !142
-  %27 = load ptr, ptr %sparse.i.i.i, align 8, !tbaa !80
-  %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %26 to i64
-  %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %27 to i64
+  %25 = load ptr, ptr %_M_finish.i.i.i.i, align 8, !tbaa !142
+  %26 = load ptr, ptr %sparse.i.i.i, align 8, !tbaa !80
+  %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %25 to i64
+  %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %26 to i64
   %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
   %sub.ptr.div.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i, 3
   %cmp.i.i.i15 = icmp ult i64 %div11.i.i.i, %sub.ptr.div.i.i.i.i
   br i1 %cmp.i.i.i15, label %land.lhs.true.i.i.i, label %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE4findES1_.exit
 
 land.lhs.true.i.i.i:                              ; preds = %_ZNK4entt4sighIFvRNS_14basic_registryINS_6entityESaIS2_EEES2_ESaIN4test13throwing_typeEEE7publishES5_S2_.exit
-  %add.ptr.i.i.i.i = getelementptr inbounds ptr, ptr %27, i64 %div11.i.i.i
-  %28 = load ptr, ptr %add.ptr.i.i.i.i, align 8, !tbaa !55
-  %tobool.not.i.i.i = icmp eq ptr %28, null
+  %add.ptr.i.i.i.i = getelementptr inbounds ptr, ptr %26, i64 %div11.i.i.i
+  %27 = load ptr, ptr %add.ptr.i.i.i.i, align 8, !tbaa !55
+  %tobool.not.i.i.i = icmp eq ptr %27, null
   br i1 %tobool.not.i.i.i, label %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE4findES1_.exit, label %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i
 
 _ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i: ; preds = %land.lhs.true.i.i.i
   %and.i13.i.i.i = and i64 %conv.i.i.i, 4095
-  %add.ptr.i.i.i = getelementptr inbounds i32, ptr %28, i64 %and.i13.i.i.i
-  %and.i.i = and i32 %20, -1048576
-  %29 = load i32, ptr %add.ptr.i.i.i, align 4, !tbaa !60
-  %xor.i.i = xor i32 %29, %and.i.i
+  %add.ptr.i.i.i = getelementptr inbounds i32, ptr %27, i64 %and.i13.i.i.i
+  %and.i.i = and i32 %19, -1048576
+  %28 = load i32, ptr %add.ptr.i.i.i, align 4, !tbaa !60
+  %xor.i.i = xor i32 %28, %and.i.i
   %cmp.i.i16 = icmp ult i32 %xor.i.i, 1048575
   br i1 %cmp.i.i16, label %cond.true.i, label %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE4findES1_.exit
 
 cond.true.i:                                      ; preds = %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i
-  %and.i.i.i6.i = and i32 %29, 1048575
+  %and.i.i.i6.i = and i32 %28, 1048575
   %narrow.i.i = add nuw nsw i32 %and.i.i.i6.i, 1
   %inc.i.i.i = zext nneg i32 %narrow.i.i to i64
   br label %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE4findES1_.exit
 
 _ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE4findES1_.exit: ; preds = %cond.true.i, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i, %land.lhs.true.i.i.i, %_ZNK4entt4sighIFvRNS_14basic_registryINS_6entityESaIS2_EEES2_ESaIN4test13throwing_typeEEE7publishES5_S2_.exit
   %inc.i.i.pn.i = phi i64 [ %inc.i.i.i, %cond.true.i ], [ 0, %_ZNK4entt4sighIFvRNS_14basic_registryINS_6entityESaIS2_EEES2_ESaIN4test13throwing_typeEEE7publishES5_S2_.exit ], [ 0, %land.lhs.true.i.i.i ], [ 0, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i ]
-  %30 = load ptr, ptr %packed.i.i.pn.i, align 8
-  %invariant.gep.i11 = getelementptr i32, ptr %30, i64 -1
-  %31 = load ptr, ptr %payload.i.i13, align 8, !tbaa !539
-  %gep.i19 = getelementptr i32, ptr %invariant.gep.i11, i64 %inc.i.i.pn.i
-  %32 = load i32, ptr %gep.i19, align 4, !tbaa !60
-  %and.i.i.i.i20 = and i32 %32, 1048575
-  %conv.i.i.i21 = zext nneg i32 %and.i.i.i.i20 to i64
-  %div5.i.i.i22 = lshr i64 %conv.i.i.i21, 12
-  %add.ptr.i.i.i.i23 = getelementptr inbounds ptr, ptr %27, i64 %div5.i.i.i22
-  %33 = load ptr, ptr %add.ptr.i.i.i.i23, align 8, !tbaa !55
-  %and.i6.i.i.i24 = and i64 %conv.i.i.i21, 4095
-  %arrayidx.i.i.i25 = getelementptr inbounds i32, ptr %33, i64 %and.i6.i.i.i24
-  %34 = load i32, ptr %arrayidx.i.i.i25, align 4, !tbaa !60
-  %and.i.i.i26 = and i32 %34, 1048575
-  %conv.i.i27 = zext nneg i32 %and.i.i.i26 to i64
-  %div4.i.i28 = lshr i64 %conv.i.i27, 10
-  %add.ptr.i.i11.i29 = getelementptr inbounds ptr, ptr %31, i64 %div4.i.i28
-  %35 = load ptr, ptr %add.ptr.i.i11.i29, align 8, !tbaa !55
-  %and.i.i12.i30 = and i64 %conv.i.i27, 1023
-  %arrayidx.i.i31 = getelementptr inbounds %"struct.test::throwing_type", ptr %35, i64 %and.i.i12.i30
-  %36 = load i8, ptr %arrayidx.i.i31, align 1, !tbaa !513, !range !53, !noalias !1901, !noundef !54
-  %tobool.not.i.i.i.i32 = icmp eq i8 %36, 0
-  br i1 %tobool.not.i.i.i.i32, label %invoke.cont.i35, label %if.then.i.i.i.i33
+  %29 = load ptr, ptr %packed.i.i.pn.i, align 8
+  %invariant.gep.i11 = getelementptr i32, ptr %29, i64 -1
+  %30 = load ptr, ptr %payload.i.i13, align 8, !tbaa !539
+  %gep.i21 = getelementptr i32, ptr %invariant.gep.i11, i64 %inc.i.i.pn.i
+  %31 = load i32, ptr %gep.i21, align 4, !tbaa !60
+  %and.i.i.i.i22 = and i32 %31, 1048575
+  %conv.i.i.i23 = zext nneg i32 %and.i.i.i.i22 to i64
+  %div5.i.i.i24 = lshr i64 %conv.i.i.i23, 12
+  %add.ptr.i.i.i.i25 = getelementptr inbounds ptr, ptr %26, i64 %div5.i.i.i24
+  %32 = load ptr, ptr %add.ptr.i.i.i.i25, align 8, !tbaa !55
+  %and.i6.i.i.i26 = and i64 %conv.i.i.i23, 4095
+  %arrayidx.i.i.i27 = getelementptr inbounds i32, ptr %32, i64 %and.i6.i.i.i26
+  %33 = load i32, ptr %arrayidx.i.i.i27, align 4, !tbaa !60
+  %and.i.i.i28 = and i32 %33, 1048575
+  %conv.i.i29 = zext nneg i32 %and.i.i.i28 to i64
+  %div4.i.i30 = lshr i64 %conv.i.i29, 10
+  %add.ptr.i.i11.i31 = getelementptr inbounds ptr, ptr %30, i64 %div4.i.i30
+  %34 = load ptr, ptr %add.ptr.i.i11.i31, align 8, !tbaa !55
+  %and.i.i12.i32 = and i64 %conv.i.i29, 1023
+  %arrayidx.i.i33 = getelementptr inbounds %"struct.test::throwing_type", ptr %34, i64 %and.i.i12.i32
+  %35 = load i8, ptr %arrayidx.i.i33, align 1, !tbaa !513, !range !53, !noalias !1901, !noundef !54
+  %tobool.not.i.i.i.i34 = icmp eq i8 %35, 0
+  br i1 %tobool.not.i.i.i.i34, label %invoke.cont.i37, label %if.then.i.i.i.i35
 
-if.then.i.i.i.i33:                                ; preds = %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE4findES1_.exit
-  %exception.i.i.i.i34 = tail call ptr @__cxa_allocate_exception(i64 1) #22, !noalias !1901
-  tail call void @__cxa_throw(ptr %exception.i.i.i.i34, ptr nonnull @_ZTIN4test23throwing_type_exceptionE, ptr null) #25
+if.then.i.i.i.i35:                                ; preds = %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE4findES1_.exit
+  %exception.i.i.i.i36 = tail call ptr @__cxa_allocate_exception(i64 1) #22, !noalias !1901
+  tail call void @__cxa_throw(ptr %exception.i.i.i.i36, ptr nonnull @_ZTIN4test23throwing_type_exceptionE, ptr null) #25
   unreachable
 
-invoke.cont.i35:                                  ; preds = %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE4findES1_.exit
-  %sub.ptr.rhs.cast.i.i.i16 = ptrtoint ptr %30 to i64
-  %37 = load ptr, ptr %_M_finish.i.i.i14, align 8, !tbaa !55
-  %sub.ptr.lhs.cast.i.i.i36 = ptrtoint ptr %37 to i64
-  %sub.ptr.sub.i.i.i37 = sub i64 %sub.ptr.lhs.cast.i.i.i36, %sub.ptr.rhs.cast.i.i.i16
-  %sub.ptr.div.i.i.i38 = ashr exact i64 %sub.ptr.sub.i.i.i37, 2
-  %sub.i39 = add nsw i64 %sub.ptr.div.i.i.i38, -1
-  %div4.i14.i40 = lshr i64 %sub.i39, 10
-  %add.ptr.i.i15.i41 = getelementptr inbounds ptr, ptr %31, i64 %div4.i14.i40
-  %38 = load ptr, ptr %add.ptr.i.i15.i41, align 8, !tbaa !55
-  %and.i.i16.i42 = and i64 %sub.i39, 1023
-  %arrayidx.i17.i43 = getelementptr inbounds %"struct.test::throwing_type", ptr %38, i64 %and.i.i16.i42
-  %39 = load i8, ptr %arrayidx.i17.i43, align 1, !tbaa !513, !range !53, !noalias !1901, !noundef !54
-  store i8 %39, ptr %arrayidx.i.i31, align 1, !tbaa !513, !noalias !1901
-  %add.ptr.i.i19.i.i44 = getelementptr inbounds i32, ptr %37, i64 -1
-  %40 = load i32, ptr %add.ptr.i.i19.i.i44, align 4, !tbaa !60
-  %and1.i.i.i45 = and i32 %40, -1048576
-  %or.i.i.i46 = or disjoint i32 %and1.i.i.i45, %and.i.i.i26
-  %and.i.i22.i.i47 = and i32 %40, 1048575
-  %conv.i23.i.i48 = zext nneg i32 %and.i.i22.i.i47 to i64
-  %div5.i25.i.i49 = lshr i64 %conv.i23.i.i48, 12
-  %add.ptr.i.i26.i.i50 = getelementptr inbounds ptr, ptr %27, i64 %div5.i25.i.i49
-  %41 = load ptr, ptr %add.ptr.i.i26.i.i50, align 8, !tbaa !55
-  %and.i6.i27.i.i51 = and i64 %conv.i23.i.i48, 4095
-  %arrayidx.i28.i.i52 = getelementptr inbounds i32, ptr %41, i64 %and.i6.i27.i.i51
-  store i32 %or.i.i.i46, ptr %arrayidx.i28.i.i52, align 4, !tbaa !60
-  %42 = load i32, ptr %add.ptr.i.i19.i.i44, align 4, !tbaa !60
-  %add.ptr.i.i28.i53 = getelementptr inbounds i32, ptr %30, i64 %conv.i.i27
-  store i32 %42, ptr %add.ptr.i.i28.i53, align 4, !tbaa !60
-  store i32 -1, ptr %arrayidx.i.i.i25, align 4, !tbaa !60
-  store ptr %add.ptr.i.i19.i.i44, ptr %_M_finish.i.i.i14, align 8, !tbaa !41
+invoke.cont.i37:                                  ; preds = %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE4findES1_.exit
+  %_M_finish.i.i.promoted.i17 = load ptr, ptr %_M_finish.i.i.i14, align 8, !tbaa !55
+  %sub.ptr.rhs.cast.i.i.i16 = ptrtoint ptr %29 to i64
+  %sub.ptr.lhs.cast.i.i.i38 = ptrtoint ptr %_M_finish.i.i.promoted.i17 to i64
+  %sub.ptr.sub.i.i.i39 = sub i64 %sub.ptr.lhs.cast.i.i.i38, %sub.ptr.rhs.cast.i.i.i16
+  %sub.ptr.div.i.i.i40 = ashr exact i64 %sub.ptr.sub.i.i.i39, 2
+  %sub.i41 = add nsw i64 %sub.ptr.div.i.i.i40, -1
+  %div4.i14.i42 = lshr i64 %sub.i41, 10
+  %add.ptr.i.i15.i43 = getelementptr inbounds ptr, ptr %30, i64 %div4.i14.i42
+  %36 = load ptr, ptr %add.ptr.i.i15.i43, align 8, !tbaa !55
+  %and.i.i16.i44 = and i64 %sub.i41, 1023
+  %arrayidx.i17.i45 = getelementptr inbounds %"struct.test::throwing_type", ptr %36, i64 %and.i.i16.i44
+  %37 = load i8, ptr %arrayidx.i17.i45, align 1, !tbaa !513, !range !53, !noalias !1901, !noundef !54
+  store i8 %37, ptr %arrayidx.i.i33, align 1, !tbaa !513, !noalias !1901
+  %add.ptr.i.i19.i.i46 = getelementptr inbounds i32, ptr %_M_finish.i.i.promoted.i17, i64 -1
+  %38 = load i32, ptr %add.ptr.i.i19.i.i46, align 4, !tbaa !60
+  %and1.i.i.i47 = and i32 %38, -1048576
+  %or.i.i.i48 = or disjoint i32 %and1.i.i.i47, %and.i.i.i28
+  %and.i.i22.i.i49 = and i32 %38, 1048575
+  %conv.i23.i.i50 = zext nneg i32 %and.i.i22.i.i49 to i64
+  %div5.i25.i.i51 = lshr i64 %conv.i23.i.i50, 12
+  %add.ptr.i.i26.i.i52 = getelementptr inbounds ptr, ptr %26, i64 %div5.i25.i.i51
+  %39 = load ptr, ptr %add.ptr.i.i26.i.i52, align 8, !tbaa !55
+  %and.i6.i27.i.i53 = and i64 %conv.i23.i.i50, 4095
+  %arrayidx.i28.i.i54 = getelementptr inbounds i32, ptr %39, i64 %and.i6.i27.i.i53
+  store i32 %or.i.i.i48, ptr %arrayidx.i28.i.i54, align 4, !tbaa !60
+  %40 = load i32, ptr %add.ptr.i.i19.i.i46, align 4, !tbaa !60
+  %add.ptr.i.i28.i55 = getelementptr inbounds i32, ptr %29, i64 %conv.i.i29
+  store i32 %40, ptr %add.ptr.i.i28.i55, align 4, !tbaa !60
+  store i32 -1, ptr %arrayidx.i.i.i27, align 4, !tbaa !60
+  store ptr %add.ptr.i.i19.i.i46, ptr %_M_finish.i.i.i14, align 8, !tbaa !41
   %dec.i = add nsw i64 %first.sroa.3.022, -1
   %cmp.i.i.not = icmp eq i64 %dec.i, %last.coerce1
   br i1 %cmp.i.i.not, label %if.end, label %for.body, !llvm.loop !1906
 
-if.end:                                           ; preds = %invoke.cont.i35, %invoke.cont.i, %if.then, %for.cond.preheader
+if.end:                                           ; preds = %invoke.cont.i37, %invoke.cont.i, %if.then, %for.cond.preheader
   ret void
 }
 
