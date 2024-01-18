@@ -43,7 +43,7 @@ entry:
   %7 = load i8, ptr %incdec.ptr28, align 1
   %conv35 = zext i8 %7 to i32
   %or37 = or disjoint i32 %or32, %conv35
-  %arrayidx39 = getelementptr inbounds [2 x i32], ptr %d, i64 0, i64 1
+  %arrayidx39 = getelementptr inbounds i8, ptr %d, i64 4
   store i32 %or37, ptr %arrayidx39, align 4
   %tobool.not = icmp eq i32 %enc, 0
   br i1 %tobool.not, label %if.else, label %if.then

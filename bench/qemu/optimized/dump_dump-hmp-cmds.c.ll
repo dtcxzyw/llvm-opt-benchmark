@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.QEnumLookup = type { ptr, ptr, i32 }
-%struct.DumpQueryResult = type { i32, i64, i64 }
 
 @.str = private unnamed_addr constant [7 x i8] c"windmp\00", align 1
 @.str.1 = private unnamed_addr constant [7 x i8] c"paging\00", align 1
@@ -148,7 +147,7 @@ if.end:                                           ; preds = %land.lhs.true
   br i1 %cmp5, label %if.then6, label %if.end16
 
 if.then6:                                         ; preds = %if.end
-  %total = getelementptr inbounds %struct.DumpQueryResult, ptr %call, i64 0, i32 2
+  %total = getelementptr inbounds i8, ptr %call, i64 16
   %2 = load i64, ptr %total, align 8
   %cmp7.not = icmp eq i64 %2, 0
   br i1 %cmp7.not, label %if.else9, label %if.end10
@@ -158,7 +157,7 @@ if.else9:                                         ; preds = %if.then6
   unreachable
 
 if.end10:                                         ; preds = %if.then6
-  %completed = getelementptr inbounds %struct.DumpQueryResult, ptr %call, i64 0, i32 1
+  %completed = getelementptr inbounds i8, ptr %call, i64 8
   %3 = load i64, ptr %completed, align 8
   %conv = sitofp i64 %3 to double
   %mul = fmul double %conv, 1.000000e+02

@@ -25,7 +25,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.14 = private unnamed_addr constant [9 x i8] c"expected\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @setup_tests() local_unnamed_addr #0 {
+define dso_local noundef i32 @setup_tests() local_unnamed_addr #0 {
 entry:
   tail call void @add_all_tests(ptr noundef nonnull @.str, ptr noundef nonnull @test_rc4_encrypt, i32 noundef 6, i32 noundef 1) #3
   tail call void @add_all_tests(ptr noundef nonnull @.str.1, ptr noundef nonnull @test_rc4_end_processing, i32 noundef 20, i32 noundef 1) #3
@@ -45,7 +45,7 @@ entry:
   %arrayidx = getelementptr inbounds [6 x [30 x i8]], ptr @keys, i64 0, i64 %idxprom
   %0 = load i8, ptr %arrayidx, align 2
   %conv = zext i8 %0 to i32
-  %arrayidx4 = getelementptr inbounds [6 x [30 x i8]], ptr @keys, i64 0, i64 %idxprom, i64 1
+  %arrayidx4 = getelementptr inbounds i8, ptr %arrayidx, i64 1
   call void @RC4_set_key(ptr noundef nonnull %key, i32 noundef %conv, ptr noundef nonnull %arrayidx4) #3
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(512) %obuf, i8 0, i64 512, i1 false)
   %arrayidx6 = getelementptr inbounds [6 x i8], ptr @data_len, i64 0, i64 %idxprom

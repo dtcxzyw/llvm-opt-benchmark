@@ -224,7 +224,7 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %tobool.not.i = icmp eq i32 %enc, 0
-  %0 = getelementptr inbounds [33 x i8], ptr %ovec.i, i64 0, i64 16
+  %0 = getelementptr inbounds i8, ptr %ovec.i, i64 16
   br i1 %tobool.not.i, label %for.body.us, label %for.body
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %cfbr_encrypt_block.exit.us

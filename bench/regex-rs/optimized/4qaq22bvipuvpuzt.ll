@@ -12,7 +12,7 @@ define noundef i32 @"_ZN103_$LT$core..iter..sources..repeat..Repeat$LT$A$GT$$u20
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define void @"_ZN103_$LT$core..iter..sources..repeat..Repeat$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h2c5809d4bbb0d8d3E"(ptr nocapture writeonly sret({ i64, { i64, i64 } }) align 8 %0, ptr nocapture readnone align 4 %1) unnamed_addr #1 {
   store i64 -1, ptr %0, align 8
-  %3 = getelementptr inbounds { i64, { i64, i64 } }, ptr %0, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 0, ptr %3, align 8
   ret void
 }

@@ -26,7 +26,7 @@ define void @_ZN12regex_syntax3ast7visitor7Visitor5start17hf7a676ca8c41104dE(ptr
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define void @_ZN12regex_syntax3ast7visitor7Visitor15visit_concat_in17h81133ce9c0f52e4eE(ptr nocapture writeonly sret({ [72 x i8], i8, [7 x i8] }) align 8 %0, ptr nocapture readnone align 8 %1) unnamed_addr #3 {
-  %3 = getelementptr inbounds { [72 x i8], i8, [7 x i8] }, ptr %0, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %0, i64 72
   store i8 7, ptr %3, align 8
   ret void
 }

@@ -8,10 +8,10 @@ define hidden void @"_ZN4core3str21_$LT$impl$u20$str$GT$12char_indices17h4495e2d
   %4 = getelementptr inbounds i8, ptr %1, i64 %2
   %5 = icmp ne ptr %1, null
   tail call void @llvm.assume(i1 %5)
-  %6 = getelementptr inbounds { { ptr, ptr }, i64 }, ptr %0, i64 0, i32 1
+  %6 = getelementptr inbounds i8, ptr %0, i64 16
   store i64 0, ptr %6, align 8
   store ptr %1, ptr %0, align 8
-  %7 = getelementptr inbounds { ptr, ptr }, ptr %0, i64 0, i32 1
+  %7 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %4, ptr %7, align 8
   ret void
 }

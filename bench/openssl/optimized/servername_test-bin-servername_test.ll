@@ -49,7 +49,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.39 = private unnamed_addr constant [57 x i8] c"SSL_get_servername(serverssl, TLSEXT_NAMETYPE_host_name)\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @setup_tests() local_unnamed_addr #0 {
+define dso_local noundef i32 @setup_tests() local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @test_skip_common_options() #4
   %tobool.not = icmp eq i32 %call, 0
@@ -644,7 +644,7 @@ lor.lhs.false.i113:                               ; preds = %lor.lhs.false81
 if.end.i122:                                      ; preds = %lor.lhs.false.i113
   %add.ptr.i2.i.i123 = getelementptr inbounds i8, ptr %pkt4.sroa.0.1, i64 2
   store ptr %add.ptr.i2.i.i123, ptr %pkt5, align 8
-  %remaining.i126 = getelementptr inbounds %struct.PACKET, ptr %pkt5, i64 0, i32 1
+  %remaining.i126 = getelementptr inbounds i8, ptr %pkt5, i64 8
   store i64 %or.i.i.i119, ptr %remaining.i126, align 8
   br label %PACKET_get_length_prefixed_2.exit128
 

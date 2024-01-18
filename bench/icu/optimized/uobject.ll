@@ -151,7 +151,7 @@ entry:
 
 delete.notnull:                                   ; preds = %entry
   %vtable = load ptr, ptr %obj, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
   %0 = load ptr, ptr %vfn, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(8) %obj) #7
   br label %delete.end

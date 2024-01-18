@@ -5,7 +5,7 @@ target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define i32 @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1bcf7546238df93eE"(ptr align 4 %0) unnamed_addr #0 {
-  %2 = getelementptr inbounds { { i32, i32, i8, [3 x i8] }, {} }, ptr %0, i64 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %0, i64 12
   %3 = tail call i32 @_ZN4core4iter6traits8iterator8Iterator8find_map17h2221ae32f47e9038E(ptr align 4 %0, ptr nonnull align 1 %2), !range !5
   ret i32 %3
 }

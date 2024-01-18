@@ -56,7 +56,7 @@ for.body:                                         ; preds = %entry, %for.body
 
 for.end:                                          ; preds = %for.body
   store i32 0, ptr %in, align 8
-  %arrayidx31 = getelementptr inbounds [2 x i32], ptr %in, i64 0, i64 1
+  %arrayidx31 = getelementptr inbounds i8, ptr %in, i64 4
   store i32 0, ptr %arrayidx31, align 4
   br label %for.body35
 
@@ -71,7 +71,7 @@ for.body35:                                       ; preds = %for.end, %for.body3
   br i1 %cmp33, label %for.body35, label %for.end45, !llvm.loop !6
 
 for.end45:                                        ; preds = %for.body35
-  %S = getelementptr inbounds %struct.bf_key_st, ptr %key, i64 0, i32 1
+  %S = getelementptr inbounds i8, ptr %key, i64 72
   br label %for.body50
 
 for.body50:                                       ; preds = %for.end45, %for.body50

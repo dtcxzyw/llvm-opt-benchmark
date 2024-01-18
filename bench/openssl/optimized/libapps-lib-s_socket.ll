@@ -28,7 +28,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.15 = private unnamed_addr constant [192 x i8] c"assertion failed: (family == AF_UNSPEC || family == BIO_ADDRINFO_family(res)) && (type == 0 || type == BIO_ADDRINFO_socktype(res)) && (protocol == 0 || protocol == BIO_ADDRINFO_protocol(res))\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define i32 @init_client(ptr nocapture noundef %sock, ptr noundef %host, ptr noundef %port, ptr noundef %bindhost, ptr noundef %bindport, i32 noundef %family, i32 noundef %type, i32 noundef %protocol, i32 noundef %tfo, i32 noundef %doconn, ptr noundef writeonly %ba_ret) local_unnamed_addr #0 {
+define noundef i32 @init_client(ptr nocapture noundef %sock, ptr noundef %host, ptr noundef %port, ptr noundef %bindhost, ptr noundef %bindport, i32 noundef %family, i32 noundef %type, i32 noundef %protocol, i32 noundef %tfo, i32 noundef %doconn, ptr noundef writeonly %ba_ret) local_unnamed_addr #0 {
 entry:
   %res = alloca ptr, align 8
   %bindaddr = alloca ptr, align 8
@@ -647,7 +647,7 @@ if.then79:                                        ; preds = %if.end76
 
 if.end80:                                         ; preds = %if.then79, %if.end76
   %cmp81 = icmp eq i32 %type, 1
-  %tv_usec = getelementptr inbounds %struct.timeval, ptr %timeout, i64 0, i32 1
+  %tv_usec = getelementptr inbounds i8, ptr %timeout, i64 8
   br i1 %cmp81, label %for.cond.us, label %for.cond
 
 for.cond.us:                                      ; preds = %if.end80, %do.end124.us

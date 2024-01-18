@@ -14,7 +14,7 @@ define void @_ZN12aho_corasick3dfa7Builder5build17hde1b0ac974da7399E(ptr sret({ 
   %8 = alloca { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { ptr, [2 x i64] }, { [256 x i8] }, i64, i64, { i32, i32, i32, i32 }, i8, [7 x i8] }, align 8
   call void @_ZN12aho_corasick3nfa13noncontiguous7Builder5build17h81d7b82d46be7d2fE(ptr nonnull sret({ [432 x i8], i8, [7 x i8] }) align 8 %6, ptr align 8 %1, ptr align 8 %2, i64 %3)
   call void @"_ZN79_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h1da57a608fe07d33E"(ptr nonnull sret({ [432 x i8], i8, [7 x i8] }) align 8 %7, ptr nonnull align 8 %6)
-  %9 = getelementptr inbounds { [432 x i8], i8, [7 x i8] }, ptr %7, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %7, i64 432
   %10 = load i8, ptr %9, align 8, !range !5, !noundef !6
   %.not = icmp eq i8 %10, 3
   br i1 %.not, label %12, label %11
@@ -60,7 +60,7 @@ define void @_ZN12aho_corasick3dfa7Builder5build17hfdfdf94f164a7917E(ptr sret({ 
   %8 = alloca { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { ptr, [2 x i64] }, { [256 x i8] }, i64, i64, { i32, i32, i32, i32 }, i8, [7 x i8] }, align 8
   call void @_ZN12aho_corasick3nfa13noncontiguous7Builder5build17h5495c7ef8d82a177E(ptr nonnull sret({ [432 x i8], i8, [7 x i8] }) align 8 %6, ptr align 8 %1, ptr align 8 %2, i64 %3)
   call void @"_ZN79_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h1da57a608fe07d33E"(ptr nonnull sret({ [432 x i8], i8, [7 x i8] }) align 8 %7, ptr nonnull align 8 %6)
-  %9 = getelementptr inbounds { [432 x i8], i8, [7 x i8] }, ptr %7, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %7, i64 432
   %10 = load i8, ptr %9, align 8, !range !5, !noundef !6
   %.not = icmp eq i8 %10, 3
   br i1 %.not, label %12, label %11

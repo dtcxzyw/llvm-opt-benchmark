@@ -37,7 +37,7 @@ define i8 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20binary_search_by_key2
   tail call void @llvm.assume(i1 %5)
   %6 = tail call i8 @"_ZN14regex_automata3nfa8thompson12literal_trie11LiteralTrie16get_or_add_state28_$u7b$$u7b$closure$u7d$$u7d$17h57ebecdaa44af160E"(ptr nonnull align 1 %4, ptr nonnull align 4 %1)
   store i8 %6, ptr %3, align 1
-  %7 = getelementptr inbounds { ptr, ptr }, ptr %0, i64 0, i32 1
+  %7 = getelementptr inbounds i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8, !nonnull !5, !align !6, !noundef !5
   %9 = call i8 @"_ZN4core3cmp5impls47_$LT$impl$u20$core..cmp..Ord$u20$for$u20$u8$GT$3cmp17hb9d135c4a56d0950E"(ptr nonnull align 1 %3, ptr nonnull align 1 %8), !range !7
   ret i8 %9

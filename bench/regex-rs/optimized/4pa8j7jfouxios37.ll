@@ -112,7 +112,7 @@ define void @_ZN14regex_automata4util9prefilter5teddy5Teddy3new17h454029e1f06636
           to label %47 unwind label %35
 
 47:                                               ; preds = %46
-  %48 = getelementptr inbounds { [416 x i8], i8, [7 x i8] }, ptr %8, i64 0, i32 1
+  %48 = getelementptr inbounds i8, ptr %8, i64 416
   %49 = load i8, ptr %48, align 8, !range !6, !noundef !5
   %.not8 = icmp eq i8 %49, 3
   br i1 %.not8, label %51, label %50
@@ -242,7 +242,7 @@ define void @_ZN14regex_automata4util9prefilter5teddy5Teddy3new17h47b999ea4db4a7
           to label %47 unwind label %35
 
 47:                                               ; preds = %46
-  %48 = getelementptr inbounds { [416 x i8], i8, [7 x i8] }, ptr %8, i64 0, i32 1
+  %48 = getelementptr inbounds i8, ptr %8, i64 416
   %49 = load i8, ptr %48, align 8, !range !6, !noundef !5
   %.not8 = icmp eq i8 %49, 3
   br i1 %.not8, label %51, label %50

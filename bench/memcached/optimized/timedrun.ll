@@ -30,7 +30,7 @@ if.then:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %arrayidx = getelementptr inbounds ptr, ptr %argv, i64 1
+  %arrayidx = getelementptr inbounds i8, ptr %argv, i64 8
   %2 = load ptr, ptr %arrayidx, align 8
   %call = tail call i32 @atoi(ptr nocapture noundef %2) #12
   %call1 = tail call i32 @alarm(i32 noundef %call) #13
@@ -45,7 +45,7 @@ sw.bb.i:                                          ; preds = %if.end
   br label %spawn_and_wait.exit
 
 sw.bb1.i:                                         ; preds = %if.end
-  %add.ptr = getelementptr inbounds ptr, ptr %argv, i64 2
+  %add.ptr = getelementptr inbounds i8, ptr %argv, i64 16
   %3 = load ptr, ptr %add.ptr, align 8
   %call2.i = tail call i32 @execvp(ptr noundef %3, ptr noundef nonnull %add.ptr) #13
   tail call void @perror(ptr noundef nonnull @.str.2) #10

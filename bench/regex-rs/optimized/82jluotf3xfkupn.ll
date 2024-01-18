@@ -6,9 +6,9 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define hidden i64 @"_ZN86_$LT$regex_syntax..hir..translate..TranslatorBuilder$u20$as$u20$core..clone..Clone$GT$5clone17h34adc23323c50cf0E"(ptr nocapture readonly align 1 %0) unnamed_addr #0 {
   %2 = load i8, ptr %0, align 1, !range !5, !noundef !6
-  %3 = getelementptr inbounds { i8, { i8, i8, i8, i8, i8, i8 }, i8 }, ptr %0, i64 0, i32 2
+  %3 = getelementptr inbounds i8, ptr %0, i64 7
   %4 = load i8, ptr %3, align 1, !noundef !6
-  %5 = getelementptr inbounds { i8, { i8, i8, i8, i8, i8, i8 }, i8 }, ptr %0, i64 0, i32 1
+  %5 = getelementptr inbounds i8, ptr %0, i64 1
   %.val = load i48, ptr %5, align 1
   %.sroa.3.0.insert.ext = zext i8 %4 to i64
   %.sroa.3.0.insert.shift = shl nuw i64 %.sroa.3.0.insert.ext, 56

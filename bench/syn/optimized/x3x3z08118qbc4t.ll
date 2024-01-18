@@ -63,7 +63,7 @@ define hidden void @_ZN3syn6bigint6BigInt9to_string17heac49526d30d9ea8E(ptr noca
   %21 = extractvalue { ptr, ptr } %19, 0
   %22 = extractvalue { ptr, ptr } %19, 1
   store ptr %21, ptr %3, align 8
-  %23 = getelementptr inbounds { ptr, ptr }, ptr %3, i64 0, i32 1
+  %23 = getelementptr inbounds i8, ptr %3, i64 8
   store ptr %22, ptr %23, align 8
   br label %.backedge
 
@@ -178,7 +178,7 @@ define void @"_ZN77_$LT$syn..bigint..BigInt$u20$as$u20$core..ops..arith..MulAssi
   %20 = extractvalue { ptr, ptr } %19, 0
   %21 = extractvalue { ptr, ptr } %19, 1
   store ptr %20, ptr %3, align 8
-  %22 = getelementptr inbounds { ptr, ptr }, ptr %3, i64 0, i32 1
+  %22 = getelementptr inbounds i8, ptr %3, i64 8
   store ptr %21, ptr %22, align 8
   %23 = call align 1 ptr @"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h96d5c952605d9b38E"(ptr nonnull align 8 %3)
   %24 = icmp eq ptr %23, null

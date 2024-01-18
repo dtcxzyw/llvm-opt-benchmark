@@ -8,9 +8,9 @@ define void @"_ZN3std4sync5mutex14Mutex$LT$T$GT$3new17h2a6b004570de045aE"(ptr no
   %.sroa.04 = alloca { { ptr, i64 }, i64 }, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.04, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
   store i32 0, ptr %0, align 8
-  %3 = getelementptr inbounds { { { i32 } }, { { i8 } }, [3 x i8], { { { ptr, i64 }, i64 } } }, ptr %0, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %0, i64 4
   store i8 0, ptr %3, align 4
-  %4 = getelementptr inbounds { { { i32 } }, { { i8 } }, [3 x i8], { { { ptr, i64 }, i64 } } }, ptr %0, i64 0, i32 3
+  %4 = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.04, i64 24, i1 false)
   ret void
 }

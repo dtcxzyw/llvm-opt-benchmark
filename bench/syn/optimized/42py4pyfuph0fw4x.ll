@@ -10,7 +10,7 @@ define hidden void @"_ZN3syn8lifetime7parsing71_$LT$impl$u20$syn..parse..Parse$u
   %3 = alloca { [24 x i8], i8, [31 x i8] }, align 8
   %4 = tail call align 8 ptr @"_ZN66_$LT$syn..parse..StepCursor$u20$as$u20$core..ops..deref..Deref$GT$5deref17h53f065b65b32a41aE"(ptr align 8 %1)
   %5 = load ptr, ptr %4, align 8, !noundef !5
-  %6 = getelementptr inbounds { ptr, ptr }, ptr %4, i64 0, i32 1
+  %6 = getelementptr inbounds i8, ptr %4, i64 8
   %7 = load ptr, ptr %6, align 8, !noundef !5
   call void @_ZN3syn6buffer6Cursor8lifetime17h2c49a00a2b9967ffE(ptr nonnull sret({ [24 x i8], i8, [31 x i8] }) align 8 %3, ptr %5, ptr %7)
   %8 = icmp ne ptr %1, null

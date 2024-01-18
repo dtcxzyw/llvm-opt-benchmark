@@ -5,7 +5,7 @@ target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define void @_ZN4core4iter6traits8iterator8Iterator9enumerate17h62d27ad96c30f71fE(ptr nocapture writeonly sret({ i64, { { [4 x i8], { i8, i8 } } }, [2 x i8] }) align 8 %0, i48 %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds { i64, { { [4 x i8], { i8, i8 } } }, [2 x i8] }, ptr %0, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %0, i64 8
   store i48 %1, ptr %3, align 8
   store i64 0, ptr %0, align 8
   ret void

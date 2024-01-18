@@ -23,7 +23,7 @@ define { i64, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$5rfind17h78701dd4948d3d
   call void @"_ZN88_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..ReverseSearcher$GT$15next_match_back17hfdf449dfbb5308acE"(ptr nonnull sret({ i64, [2 x i64] }) align 8 %5, ptr nonnull align 8 %4)
   %6 = load i64, ptr %5, align 8, !range !5, !noundef !6
   %.not = icmp eq i64 %6, 0
-  %7 = getelementptr inbounds { [1 x i64], { i64, i64 } }, ptr %5, i64 0, i32 1
+  %7 = getelementptr inbounds i8, ptr %5, i64 8
   %8 = load i64, ptr %7, align 8
   %.sroa.3.0 = select i1 %.not, i64 undef, i64 %8
   %9 = insertvalue { i64, i64 } poison, i64 %6, 0

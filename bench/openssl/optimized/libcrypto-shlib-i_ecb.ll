@@ -6,7 +6,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str = private unnamed_addr constant [10 x i8] c"idea(int)\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @IDEA_options() local_unnamed_addr #0 {
+define noundef nonnull ptr @IDEA_options() local_unnamed_addr #0 {
 entry:
   ret ptr @.str
 }
@@ -51,7 +51,7 @@ entry:
   %7 = load i8, ptr %incdec.ptr18, align 1
   %conv23 = zext i8 %7 to i64
   %or24 = or disjoint i64 %or21, %conv23
-  %arrayidx25 = getelementptr inbounds [2 x i64], ptr %d, i64 0, i64 1
+  %arrayidx25 = getelementptr inbounds i8, ptr %d, i64 8
   store i64 %or24, ptr %arrayidx25, align 8
   call void @IDEA_encrypt(ptr noundef nonnull %d, ptr noundef %ks) #3
   %8 = load i64, ptr %d, align 16

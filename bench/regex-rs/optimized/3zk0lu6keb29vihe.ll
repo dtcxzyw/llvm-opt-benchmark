@@ -8,9 +8,9 @@ target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: nonlazybind uwtable
 define { i8, i8 } @"_ZN4core6escape24EscapeIterInner$LT$_$GT$4next17hc52dfa0b116e0b5aE"(ptr nocapture align 1 %0) unnamed_addr #0 {
-  %2 = getelementptr inbounds { [4 x i8], { i8, i8 } }, ptr %0, i64 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %0, i64 4
   %3 = load i8, ptr %2, align 1, !noundef !5
-  %4 = getelementptr inbounds { [4 x i8], { i8, i8 } }, ptr %0, i64 0, i32 1, i32 1
+  %4 = getelementptr inbounds i8, ptr %0, i64 5
   %5 = load i8, ptr %4, align 1, !noundef !5
   %.not = icmp ult i8 %3, %5
   br i1 %.not, label %6, label %.critedge

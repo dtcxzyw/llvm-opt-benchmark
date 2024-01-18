@@ -31,8 +31,8 @@ for.body:                                         ; preds = %entry, %for.body
   %1 = load ptr, ptr %lib.015, align 8
   tail call void @lua_pushstring(ptr noundef %L, ptr noundef %1) #2
   tail call void @lua_call(ptr noundef %L, i32 noundef 1, i32 noundef 0) #2
-  %incdec.ptr = getelementptr inbounds %struct.luaL_Reg, ptr %lib.015, i64 1
-  %func = getelementptr inbounds %struct.luaL_Reg, ptr %lib.015, i64 1, i32 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %lib.015, i64 16
+  %func = getelementptr inbounds i8, ptr %lib.015, i64 24
   %2 = load ptr, ptr %func, align 8
   %tobool.not = icmp eq ptr %2, null
   br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !4

@@ -6,7 +6,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define hidden { i32, i32 } @"_ZN75_$LT$memchr..arch..all..rabinkarp..Finder$u20$as$u20$core..clone..Clone$GT$5clone17h218b275cd7936cf5E"(ptr nocapture readonly align 4 %0) unnamed_addr #0 {
   %.val = load i32, ptr %0, align 4, !noundef !5
-  %2 = getelementptr inbounds { i32, i32 }, ptr %0, i64 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %0, i64 4
   %3 = load i32, ptr %2, align 4, !noundef !5
   %4 = insertvalue { i32, i32 } poison, i32 %.val, 0
   %5 = insertvalue { i32, i32 } %4, i32 %3, 1

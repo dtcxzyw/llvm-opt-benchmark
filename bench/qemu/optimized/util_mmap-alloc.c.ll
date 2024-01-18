@@ -79,7 +79,7 @@ do.end:                                           ; preds = %do.body
   br i1 %cmp5, label %if.then6, label %if.end7
 
 if.then6:                                         ; preds = %do.end
-  %f_bsize = getelementptr inbounds %struct.statfs, ptr %fs, i64 0, i32 1
+  %f_bsize = getelementptr inbounds i8, ptr %fs, i64 8
   %2 = load i64, ptr %f_bsize, align 8
   br label %return
 
@@ -172,7 +172,7 @@ qemu_fd_getpagesize.exit.thread.i.i:              ; preds = %land.rhs.i.i.i, %do
   br label %if.end.i.i
 
 qemu_fd_getpagesize.exit.i.i:                     ; preds = %do.end.i.i.i
-  %f_bsize.i.i.i = getelementptr inbounds %struct.statfs, ptr %fs.i.i.i, i64 0, i32 1
+  %f_bsize.i.i.i = getelementptr inbounds i8, ptr %fs.i.i.i, i64 8
   %6 = load i64, ptr %f_bsize.i.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %fs.i.i.i)
   %cmp.not.i.i = icmp eq i64 %6, %conv.i.i

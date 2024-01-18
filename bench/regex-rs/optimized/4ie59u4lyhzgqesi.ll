@@ -14,9 +14,9 @@ define void @"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17hc610310a04f3690
   %7 = tail call { i64, i64 } @"_ZN3std11collections4hash3map11RandomState3new28_$u7b$$u7b$closure$u7d$$u7d$17h661ea0b4c5399b7fE"(ptr nonnull align 8 %4)
   %8 = extractvalue { i64, i64 } %7, 0
   %9 = extractvalue { i64, i64 } %7, 1
-  %10 = getelementptr inbounds { [1 x i64], { i64, i64 } }, ptr %0, i64 0, i32 1
+  %10 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %8, ptr %10, align 8
-  %11 = getelementptr inbounds { [1 x i64], { i64, i64 } }, ptr %0, i64 0, i32 1, i32 1
+  %11 = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %9, ptr %11, align 8
   br label %12
 

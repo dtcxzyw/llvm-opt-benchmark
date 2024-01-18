@@ -73,7 +73,7 @@ declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN5eastl16late_constructedINS_8Internal5mutexELb1ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  %mpValue = getelementptr inbounds %"class.eastl::late_constructed", ptr %this, i64 0, i32 1
+  %mpValue = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load ptr, ptr %mpValue, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.then

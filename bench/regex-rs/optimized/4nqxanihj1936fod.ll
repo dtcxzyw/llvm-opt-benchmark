@@ -11,7 +11,7 @@ define void @_ZN14regex_automata4util9prefilter6memmem6Memmem3new17h0b0c6ca2b597
   br i1 %7, label %10, label %8
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds { [32 x i64], i64, [3 x i64] }, ptr %0, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %0, i64 256
   store i64 2, ptr %9, align 32
   br label %14
 
@@ -36,7 +36,7 @@ define void @_ZN14regex_automata4util9prefilter6memmem6Memmem3new17hfeac8dea2165
   br i1 %7, label %10, label %8
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds { [32 x i64], i64, [3 x i64] }, ptr %0, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %0, i64 256
   store i64 2, ptr %9, align 32
   br label %14
 

@@ -8,7 +8,7 @@ define void @_ZN5regex8builders6string12RegexBuilder3new17h20f9ab62f0d0516aE(ptr
   %4 = alloca [1 x { ptr, i64 }], align 8
   %5 = alloca { { { i64, i64 }, { i64, i64 }, { i64, i64 }, { i64, i64 }, { i64, i64 }, { [16 x i8], i8, [7 x i8] }, { i8, i8 }, i8, i8, i8, i8, i8, i8, i8, i8, i8, [5 x i8] }, { i32, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, [2 x i8] }, { { ptr, i64 }, i64 } }, align 8
   store ptr %1, ptr %4, align 8
-  %6 = getelementptr inbounds { ptr, i64 }, ptr %4, i64 0, i32 1
+  %6 = getelementptr inbounds i8, ptr %4, i64 8
   store i64 %2, ptr %6, align 8
   call void @_ZN5regex8builders7Builder3new17h1b70a2de55bbf53fE(ptr nonnull sret({ { { i64, i64 }, { i64, i64 }, { i64, i64 }, { i64, i64 }, { i64, i64 }, { [16 x i8], i8, [7 x i8] }, { i8, i8 }, i8, i8, i8, i8, i8, i8, i8, i8, i8, [5 x i8] }, { i32, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, [2 x i8] }, { { ptr, i64 }, i64 } }) align 8 %5, ptr nonnull align 8 %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %0, ptr noundef nonnull align 8 dereferenceable(160) %5, i64 160, i1 false)

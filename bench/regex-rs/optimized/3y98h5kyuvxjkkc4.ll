@@ -58,7 +58,7 @@ define zeroext i1 @"_ZN67_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..fm
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define { ptr, i64 } @"_ZN74_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..deref..Deref$GT$5deref17h66c6501bf066fcbeE"(ptr nocapture readonly align 8 %0) unnamed_addr #2 {
   %2 = load ptr, ptr %0, align 8, !nonnull !5, !align !7, !noundef !5
-  %3 = getelementptr inbounds { ptr, i64 }, ptr %0, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8, !noundef !5
   %5 = insertvalue { ptr, i64 } poison, ptr %2, 0
   %6 = insertvalue { ptr, i64 } %5, i64 %4, 1
@@ -71,7 +71,7 @@ define { ptr, i64 } @"_ZN79_$LT$alloc..boxed..Box$LT$$u5b$T$u5d$$C$A$GT$$u20$as$
   %3 = getelementptr i8, ptr %0, i64 16
   tail call void @"_ZN59_$LT$alloc..alloc..Global$u20$as$u20$core..clone..Clone$GT$5clone17hec502b0374b37229E"(ptr align 1 %3)
   %4 = load ptr, ptr %0, align 8, !nonnull !5, !align !7, !noundef !5
-  %5 = getelementptr inbounds { ptr, i64 }, ptr %0, i64 0, i32 1
+  %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8, !noundef !5
   call void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h2eaf21e8ab3eaf70E"(ptr nonnull sret({ { ptr, i64 }, i64 }) align 8 %2, ptr nonnull align 1 %4, i64 %6)
   %7 = call { ptr, i64 } @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16into_boxed_slice17h9e7aad1b095d0168E"(ptr nonnull align 8 %2)

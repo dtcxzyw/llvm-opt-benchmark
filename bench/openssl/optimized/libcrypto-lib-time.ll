@@ -31,7 +31,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp3, label %if.then4, label %if.else
 
 if.then4:                                         ; preds = %if.end
-  %tv_usec = getelementptr inbounds %struct.timeval, ptr %t, i64 0, i32 1
+  %tv_usec = getelementptr inbounds i8, ptr %t, i64 8
   %2 = load i64, ptr %tv_usec, align 8
   %mul = mul i64 %2, 1000
   %cmp5.inv = icmp sgt i64 %2, 0
@@ -40,7 +40,7 @@ if.then4:                                         ; preds = %if.end
 
 if.else:                                          ; preds = %if.end
   %mul9 = mul i64 %1, 1000000
-  %tv_usec10 = getelementptr inbounds %struct.timeval, ptr %t, i64 0, i32 1
+  %tv_usec10 = getelementptr inbounds i8, ptr %t, i64 8
   %3 = load i64, ptr %tv_usec10, align 8
   %add = add i64 %3, %mul9
   %mul11 = mul i64 %add, 1000

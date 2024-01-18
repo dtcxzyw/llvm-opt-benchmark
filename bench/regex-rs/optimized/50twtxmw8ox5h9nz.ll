@@ -17,9 +17,9 @@ define hidden void @"_ZN87_$LT$aho_corasick..nfa..noncontiguous..Transition$u20$
   %2 = tail call i32 @"_ZN82_$LT$aho_corasick..util..primitives..StateID$u20$as$u20$core..default..Default$GT$7default17h7579e07e3ed1072cE"()
   %3 = tail call i32 @"_ZN82_$LT$aho_corasick..util..primitives..StateID$u20$as$u20$core..default..Default$GT$7default17h7579e07e3ed1072cE"()
   store i8 0, ptr %0, align 1
-  %4 = getelementptr inbounds <{ i8, i32, i32 }>, ptr %0, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %0, i64 1
   store i32 %2, ptr %4, align 1
-  %5 = getelementptr inbounds <{ i8, i32, i32 }>, ptr %0, i64 0, i32 2
+  %5 = getelementptr inbounds i8, ptr %0, i64 5
   store i32 %3, ptr %5, align 1
   ret void
 }

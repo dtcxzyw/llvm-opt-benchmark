@@ -13,9 +13,9 @@ define void @"_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u20$as$u2
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define void @_ZN4core4iter6traits8iterator8Iterator9enumerate17hb57ceef6050a6e6bE(ptr nocapture writeonly sret({ { ptr, ptr }, i64 }) align 8 %0, ptr %1, ptr %2) unnamed_addr #1 {
   store ptr %1, ptr %0, align 8
-  %4 = getelementptr inbounds { ptr, ptr }, ptr %0, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %2, ptr %4, align 8
-  %5 = getelementptr inbounds { { ptr, ptr }, i64 }, ptr %0, i64 0, i32 1
+  %5 = getelementptr inbounds i8, ptr %0, i64 16
   store i64 0, ptr %5, align 8
   ret void
 }

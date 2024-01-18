@@ -5,10 +5,10 @@ target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define hidden void @"_ZN74_$LT$regex_syntax..parser..ParserBuilder$u20$as$u20$core..clone..Clone$GT$5clone17hc18a6e592253c7e5E"(ptr nocapture writeonly sret({ { i8, { i8, i8, i8, i8, i8, i8 }, i8 }, { i32, i8, i8, [2 x i8] } }) align 4 %0, ptr align 4 %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds { { i8, { i8, i8, i8, i8, i8, i8 }, i8 }, { i32, i8, i8, [2 x i8] } }, ptr %1, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = tail call i64 @"_ZN78_$LT$regex_syntax..ast..parse..ParserBuilder$u20$as$u20$core..clone..Clone$GT$5clone17h2b42714d617d93a6E"(ptr nonnull align 4 %3)
   %5 = tail call i64 @"_ZN86_$LT$regex_syntax..hir..translate..TranslatorBuilder$u20$as$u20$core..clone..Clone$GT$5clone17h34adc23323c50cf0E"(ptr align 1 %1)
-  %6 = getelementptr inbounds { { i8, { i8, i8, i8, i8, i8, i8 }, i8 }, { i32, i8, i8, [2 x i8] } }, ptr %0, i64 0, i32 1
+  %6 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %4, ptr %6, align 4
   store i64 %5, ptr %0, align 4
   ret void

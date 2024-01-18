@@ -46,13 +46,13 @@ default.unreachable1:                             ; preds = %2
   br label %18
 
 10:                                               ; preds = %2
-  %11 = getelementptr inbounds { i8, i8 }, ptr %0, i64 0, i32 1
+  %11 = getelementptr inbounds i8, ptr %0, i64 1
   store ptr %11, ptr %4, align 8
   %12 = call zeroext i1 @_ZN4core3fmt9Formatter26debug_struct_field1_finish17hef868d06a7970157E(ptr align 8 %1, ptr nonnull align 1 @anon.7261f42cd21f003e026f37a0058528c4.4, i64 17, ptr nonnull align 1 @anon.7261f42cd21f003e026f37a0058528c4.5, i64 3, ptr nonnull align 1 %4, ptr nonnull align 8 @anon.7261f42cd21f003e026f37a0058528c4.6)
   br label %18
 
 13:                                               ; preds = %2
-  %14 = getelementptr inbounds { i8, i8 }, ptr %0, i64 0, i32 1
+  %14 = getelementptr inbounds i8, ptr %0, i64 1
   store ptr %14, ptr %3, align 8
   %15 = call zeroext i1 @_ZN4core3fmt9Formatter26debug_struct_field1_finish17hef868d06a7970157E(ptr align 8 %1, ptr nonnull align 1 @anon.7261f42cd21f003e026f37a0058528c4.7, i64 22, ptr nonnull align 1 @anon.7261f42cd21f003e026f37a0058528c4.5, i64 3, ptr nonnull align 1 %3, ptr nonnull align 8 @anon.7261f42cd21f003e026f37a0058528c4.6)
   br label %18

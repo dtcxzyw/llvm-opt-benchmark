@@ -13,7 +13,7 @@ entry:
   %call.i = call i32 @gettimeofday(ptr noundef nonnull %tv.i, ptr noundef null) #3
   %0 = load i64, ptr %tv.i, align 8
   %mul.i = mul i64 %0, 1000000000
-  %tv_usec.i = getelementptr inbounds %struct.timeval, ptr %tv.i, i64 0, i32 1
+  %tv_usec.i = getelementptr inbounds i8, ptr %tv.i, i64 8
   %1 = load i64, ptr %tv_usec.i, align 8
   %mul1.i = mul i64 %1, 1000
   %add.i = add i64 %mul1.i, %mul.i

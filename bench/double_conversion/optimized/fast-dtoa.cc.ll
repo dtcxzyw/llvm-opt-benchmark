@@ -152,7 +152,7 @@ if.end.i:                                         ; preds = %_ZNK17double_conver
   %sh_prom.i39.i = zext nneg i32 %sub21.i38.sink.i to i64
   %shl22.i40.i = shl i64 %m_minus.sroa.0.0.i36.sink.i, %sh_prom.i39.i
   store i64 0, ptr %ten_mk.i, align 8
-  %e_.i49.i = getelementptr inbounds %"class.double_conversion::DiyFp", ptr %ten_mk.i, i64 0, i32 1
+  %e_.i49.i = getelementptr inbounds i8, ptr %ten_mk.i, i64 8
   store i32 0, ptr %e_.i49.i, align 8
   %sub.i = sub nsw i32 -113, %e.0.lcssa.i.i
   %sub6.i = sub nsw i32 -85, %e.0.lcssa.i.i
@@ -452,7 +452,7 @@ _ZNK17double_conversion6Double17AsNormalizedDiyFpEv.exit.i16: ; preds = %while.b
   %e.0.lcssa.i.i18 = phi i32 [ %sub.i.i.i15, %sw.bb1 ], [ %32, %while.body.preheader.i.i73 ]
   %shl3.i.i19 = shl i64 %f.0.lcssa.i.i17, 11
   store i64 0, ptr %ten_mk.i7, align 8
-  %e_.i.i = getelementptr inbounds %"class.double_conversion::DiyFp", ptr %ten_mk.i7, i64 0, i32 1
+  %e_.i.i = getelementptr inbounds i8, ptr %ten_mk.i7, i64 8
   store i32 0, ptr %e_.i.i, align 8
   %sub.i20 = sub nsw i32 -113, %e.0.lcssa.i.i18
   %sub4.i = sub nsw i32 -85, %e.0.lcssa.i.i18

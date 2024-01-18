@@ -20,7 +20,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call.i = call i32 @fstat64(i32 noundef %call, ptr noundef nonnull %s) #5
+  %call.i = call noundef i32 @fstat64(i32 noundef %call, ptr noundef nonnull %s) #5
   %tobool.not = icmp eq i32 %call.i, 0
   br i1 %tobool.not, label %if.end5, label %if.then2
 
@@ -32,7 +32,7 @@ if.then2:                                         ; preds = %if.end
   br label %return
 
 if.end5:                                          ; preds = %if.end
-  %st_mode = getelementptr inbounds %struct.stat, ptr %s, i64 0, i32 3
+  %st_mode = getelementptr inbounds i8, ptr %s, i64 24
   %1 = load i32, ptr %st_mode, align 8
   %and = and i32 %1, 61440
   %cmp6 = icmp eq i32 %and, 8192

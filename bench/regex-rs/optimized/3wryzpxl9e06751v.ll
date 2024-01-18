@@ -20,7 +20,7 @@ define hidden { ptr, i64 } @"_ZN12aho_corasick4util6search106_$LT$impl$u20$core.
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define hidden noundef zeroext i1 @_ZN12aho_corasick4util6search5Input12get_anchored17h85ec550568b3daa4E(ptr nocapture readonly align 8 %0) unnamed_addr #1 {
-  %2 = getelementptr inbounds { { i64, i64 }, { ptr, i64 }, i8, i8, [6 x i8] }, ptr %0, i64 0, i32 2
+  %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i8, ptr %2, align 8, !range !5, !noundef !6
   %4 = icmp ne i8 %3, 0
   ret i1 %4
@@ -28,7 +28,7 @@ define hidden noundef zeroext i1 @_ZN12aho_corasick4util6search5Input12get_ancho
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define hidden void @_ZN12aho_corasick4util6search5Input8anchored17hdfddad9e03939e4aE(ptr nocapture writeonly sret({ { i64, i64 }, { ptr, i64 }, i8, i8, [6 x i8] }) align 8 %0, ptr nocapture align 8 %1, i1 zeroext %2) unnamed_addr #2 {
-  %4 = getelementptr inbounds { { i64, i64 }, { ptr, i64 }, i8, i8, [6 x i8] }, ptr %1, i64 0, i32 2
+  %4 = getelementptr inbounds i8, ptr %1, i64 32
   %5 = zext i1 %2 to i8
   store i8 %5, ptr %4, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %1, i64 40, i1 false)

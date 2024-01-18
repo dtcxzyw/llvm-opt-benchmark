@@ -16,7 +16,7 @@ target triple = "x86_64-unknown-linux-gnu"
 define void @_ZN7rocksdb15NewWritableFileEPNS_10FileSystemERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt10unique_ptrINS_14FSWritableFileESt14default_deleteISB_EERKNS_11FileOptionsE(ptr noalias sret(%"class.rocksdb::IOStatus") align 8 %agg.result, ptr noundef %fs, ptr noundef nonnull align 8 dereferenceable(32) %fname, ptr noundef %result, ptr noundef nonnull align 8 dereferenceable(146) %options) local_unnamed_addr #0 {
 entry:
   %vtable = load ptr, ptr %fs, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 23
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 184
   %0 = load ptr, ptr %vfn, align 8
   tail call void %0(ptr sret(%"class.rocksdb::IOStatus") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %fs, ptr noundef nonnull align 8 dereferenceable(32) %fname, ptr noundef nonnull align 8 dereferenceable(146) %options, ptr noundef %result, ptr noundef null)
   ret void

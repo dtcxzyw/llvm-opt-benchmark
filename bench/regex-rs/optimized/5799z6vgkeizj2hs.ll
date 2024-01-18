@@ -11,7 +11,7 @@ define hidden { i64, i64 } @_ZN4core5slice4sort10merge_sort8collapse17hffabeea75
 5:                                                ; preds = %3
   %6 = add i64 %1, -1
   %7 = getelementptr inbounds [0 x { i64, i64 }], ptr %0, i64 0, i64 %6
-  %8 = getelementptr inbounds [0 x { i64, i64 }], ptr %0, i64 0, i64 %6, i32 1
+  %8 = getelementptr inbounds i8, ptr %7, i64 8
   %9 = load i64, ptr %8, align 8, !noundef !5
   %10 = load i64, ptr %7, align 8, !noundef !5
   %11 = add i64 %10, %9

@@ -6,7 +6,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define hidden { i8, i8 } @"_ZN68_$LT$regex_syntax..utf8..Utf8Range$u20$as$u20$core..clone..Clone$GT$5clone17h73046c43d0b71f2fE"(ptr nocapture readonly align 1 %0) unnamed_addr #0 {
   %2 = load i8, ptr %0, align 1, !noundef !5
-  %3 = getelementptr inbounds { i8, i8 }, ptr %0, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %0, i64 1
   %4 = load i8, ptr %3, align 1, !noundef !5
   %5 = insertvalue { i8, i8 } poison, i8 %2, 0
   %6 = insertvalue { i8, i8 } %5, i8 %4, 1

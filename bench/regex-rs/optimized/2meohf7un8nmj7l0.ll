@@ -46,7 +46,7 @@ define void @"_ZN80_$LT$alloc..borrow..Cow$LT$str$GT$$u20$as$u20$regex..regex..s
   %.fca.0.extract = extractvalue { ptr, i64 } %6, 0
   store ptr %.fca.0.extract, ptr %4, align 8
   %.fca.1.extract = extractvalue { ptr, i64 } %6, 1
-  %.fca.1.gep = getelementptr inbounds { ptr, i64 }, ptr %4, i64 0, i32 1
+  %.fca.1.gep = getelementptr inbounds i8, ptr %4, i64 8
   store i64 %.fca.1.extract, ptr %.fca.1.gep, align 8
   call void @"_ZN58_$LT$$RF$str$u20$as$u20$regex..regex..string..Replacer$GT$14replace_append17h7084fdcb9c68e25fE"(ptr nonnull align 8 %4, ptr align 8 %1, ptr align 8 %2)
   ret void
@@ -67,7 +67,7 @@ define void @"_ZN84_$LT$$RF$alloc..borrow..Cow$LT$str$GT$$u20$as$u20$regex..rege
   %.fca.0.extract = extractvalue { ptr, i64 } %6, 0
   store ptr %.fca.0.extract, ptr %4, align 8
   %.fca.1.extract = extractvalue { ptr, i64 } %6, 1
-  %.fca.1.gep = getelementptr inbounds { ptr, i64 }, ptr %4, i64 0, i32 1
+  %.fca.1.gep = getelementptr inbounds i8, ptr %4, i64 8
   store i64 %.fca.1.extract, ptr %.fca.1.gep, align 8
   call void @"_ZN58_$LT$$RF$str$u20$as$u20$regex..regex..string..Replacer$GT$14replace_append17h7084fdcb9c68e25fE"(ptr nonnull align 8 %4, ptr align 8 %1, ptr align 8 %2)
   ret void

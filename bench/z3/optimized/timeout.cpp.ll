@@ -11,7 +11,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::ios_base" = type { ptr, i64, i64, i32, i32, i32, ptr, %"struct.std::ios_base::_Words", [8 x %"struct.std::ios_base::_Words"], i32, ptr, %"class.std::locale" }
 %"struct.std::ios_base::_Words" = type { ptr, i64 }
 %"class.std::locale" = type { ptr }
-%class.event_handler = type <{ ptr, i32, [4 x i8] }>
 
 $_ZN8z3_errorD2Ev = comdat any
 
@@ -115,7 +114,7 @@ entry:
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN12_GLOBAL__N_112g_timeout_ehclE22event_handler_caller_t(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %this, i32 noundef %caller_id) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_caller_id = getelementptr inbounds %class.event_handler, ptr %this, i64 0, i32 1
+  %m_caller_id = getelementptr inbounds i8, ptr %this, i64 8
   store i32 %caller_id, ptr %m_caller_id, align 8
   %call = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, ptr noundef nonnull @.str)
   %call2 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5flushEv(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout)

@@ -128,7 +128,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.115 = private unnamed_addr constant [30 x i8] c"Error signing raw input data\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @pkeyutl_main(i32 noundef %argc, ptr noundef %argv) local_unnamed_addr #0 {
+define dso_local noundef i32 @pkeyutl_main(i32 noundef %argc, ptr noundef %argv) local_unnamed_addr #0 {
 entry:
   %pkey = alloca ptr, align 8
   %buf_in = alloca ptr, align 8
@@ -640,7 +640,7 @@ if.then260:                                       ; preds = %if.end257
 if.then264:                                       ; preds = %if.then260
   %call265 = call i32 @stat(ptr noundef nonnull %infile.0, ptr noundef nonnull %st) #5
   %cmp266 = icmp eq i32 %call265, 0
-  %st_size = getelementptr inbounds %struct.stat, ptr %st, i64 0, i32 8
+  %st_size = getelementptr inbounds i8, ptr %st, i64 48
   %19 = load i64, ptr %st_size, align 8
   %cmp269 = icmp slt i64 %19, 2147483648
   %or.cond7 = select i1 %cmp266, i1 %cmp269, i1 false

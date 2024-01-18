@@ -46,7 +46,7 @@ define void @_ZN12regex_syntax11escape_into17hf5b3d0efe0b035e0E(ptr align 1 %0, 
   %10 = extractvalue { ptr, ptr } %9, 0
   %11 = extractvalue { ptr, ptr } %9, 1
   store ptr %10, ptr %4, align 8
-  %12 = getelementptr inbounds { ptr, ptr }, ptr %4, i64 0, i32 1
+  %12 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %11, ptr %12, align 8
   %13 = call i32 @"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h89993158a85d87e7E"(ptr nonnull align 8 %4), !range !5
   %14 = icmp eq i32 %13, 1114112

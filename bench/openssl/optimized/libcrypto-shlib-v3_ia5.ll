@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.v3_ext_method = type { i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.asn1_string_st = type { i32, i32, ptr, i64 }
 
 @ossl_v3_ns_ia5_list = local_unnamed_addr constant [8 x %struct.v3_ext_method] [%struct.v3_ext_method { i32 72, i32 0, ptr @ASN1_IA5STRING_it, ptr null, ptr null, ptr null, ptr null, ptr @i2s_ASN1_IA5STRING, ptr @s2i_ASN1_IA5STRING, ptr null, ptr null, ptr null, ptr null, ptr null }, %struct.v3_ext_method { i32 73, i32 0, ptr @ASN1_IA5STRING_it, ptr null, ptr null, ptr null, ptr null, ptr @i2s_ASN1_IA5STRING, ptr @s2i_ASN1_IA5STRING, ptr null, ptr null, ptr null, ptr null, ptr null }, %struct.v3_ext_method { i32 74, i32 0, ptr @ASN1_IA5STRING_it, ptr null, ptr null, ptr null, ptr null, ptr @i2s_ASN1_IA5STRING, ptr @s2i_ASN1_IA5STRING, ptr null, ptr null, ptr null, ptr null, ptr null }, %struct.v3_ext_method { i32 75, i32 0, ptr @ASN1_IA5STRING_it, ptr null, ptr null, ptr null, ptr null, ptr @i2s_ASN1_IA5STRING, ptr @s2i_ASN1_IA5STRING, ptr null, ptr null, ptr null, ptr null, ptr null }, %struct.v3_ext_method { i32 76, i32 0, ptr @ASN1_IA5STRING_it, ptr null, ptr null, ptr null, ptr null, ptr @i2s_ASN1_IA5STRING, ptr @s2i_ASN1_IA5STRING, ptr null, ptr null, ptr null, ptr null, ptr null }, %struct.v3_ext_method { i32 77, i32 0, ptr @ASN1_IA5STRING_it, ptr null, ptr null, ptr null, ptr null, ptr @i2s_ASN1_IA5STRING, ptr @s2i_ASN1_IA5STRING, ptr null, ptr null, ptr null, ptr null, ptr null }, %struct.v3_ext_method { i32 78, i32 0, ptr @ASN1_IA5STRING_it, ptr null, ptr null, ptr null, ptr null, ptr @i2s_ASN1_IA5STRING, ptr @s2i_ASN1_IA5STRING, ptr null, ptr null, ptr null, ptr null, ptr null }, %struct.v3_ext_method { i32 -1, i32 0, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null }], align 16
 @.str = private unnamed_addr constant [32 x i8] c"../openssl/crypto/x509/v3_ia5.c\00", align 1
@@ -31,7 +30,7 @@ if.end:                                           ; preds = %lor.lhs.false
   br i1 %cmp3, label %return, label %if.end6
 
 if.end6:                                          ; preds = %if.end
-  %data = getelementptr inbounds %struct.asn1_string_st, ptr %ia5, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %ia5, i64 8
   %1 = load ptr, ptr %data, align 8
   %2 = load i32, ptr %ia5, align 8
   %conv8 = sext i32 %2 to i64

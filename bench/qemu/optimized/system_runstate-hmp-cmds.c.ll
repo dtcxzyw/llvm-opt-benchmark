@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.QEnumLookup = type { ptr, ptr, i32 }
-%struct.StatusInfo = type { i8, i8, i32 }
 
 @.str = private unnamed_addr constant [14 x i8] c"VM status: %s\00", align 1
 @.str.1 = private unnamed_addr constant [8 x i8] c"running\00", align 1
@@ -37,7 +36,7 @@ entry:
   br i1 %tobool3.not, label %land.lhs.true, label %if.end
 
 land.lhs.true:                                    ; preds = %entry
-  %status = getelementptr inbounds %struct.StatusInfo, ptr %call, i64 0, i32 2
+  %status = getelementptr inbounds i8, ptr %call, i64 4
   %4 = load i32, ptr %status, align 4
   %cmp.not = icmp eq i32 %4, 4
   br i1 %cmp.not, label %if.end, label %if.then

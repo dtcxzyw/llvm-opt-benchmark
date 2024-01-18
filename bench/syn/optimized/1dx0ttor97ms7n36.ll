@@ -8,7 +8,7 @@ define hidden void @"_ZN3syn11restriction8printing88_$LT$impl$u20$quote..to_toke
   %3 = icmp ne ptr %0, null
   tail call void @llvm.assume(i1 %3)
   tail call void @"_ZN76_$LT$core..option..Option$LT$T$GT$$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17h04283a690c62d5faE"(ptr nonnull align 4 %0, ptr align 8 %1)
-  %4 = getelementptr inbounds { { i32, i32 }, ptr, i32, { { { [2 x i32], i32 }, {} } } }, ptr %0, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @"_ZN73_$LT$alloc..boxed..Box$LT$T$GT$$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17h303cba842a9d5fc9E"(ptr nonnull align 8 %4, ptr align 8 %1)
   ret void
 }

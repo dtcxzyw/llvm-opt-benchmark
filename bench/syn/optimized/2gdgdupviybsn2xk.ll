@@ -7,12 +7,12 @@ target triple = "x86_64-unknown-linux-gnu"
 define void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h5f00a3e1e58557a3E"(ptr align 8 %0) unnamed_addr #0 {
   %2 = alloca { ptr, ptr }, align 8
   %3 = load ptr, ptr %0, align 8, !nonnull !5, !noundef !5
-  %4 = getelementptr inbounds { { i64 }, { i64 }, { i64, { ptr, i64 }, { { i32 } }, [1 x i32] } }, ptr %3, i64 0, i32 2
+  %4 = getelementptr inbounds i8, ptr %3, i64 16
   tail call void @"_ZN4core3ptr39drop_in_place$LT$std..thread..Inner$GT$17h125f1707eadae4e0E"(ptr nonnull align 8 %4)
   %5 = load ptr, ptr %0, align 8, !nonnull !5, !noundef !5
   %6 = getelementptr i8, ptr %0, i64 8
   store ptr %5, ptr %2, align 8
-  %7 = getelementptr inbounds { ptr, ptr }, ptr %2, i64 0, i32 1
+  %7 = getelementptr inbounds i8, ptr %2, i64 8
   store ptr %6, ptr %7, align 8
   call void @"_ZN4core3ptr91drop_in_place$LT$alloc..sync..Weak$LT$std..thread..Inner$C$$RF$alloc..alloc..Global$GT$$GT$17h33e6bf0e1150d9feE"(ptr nonnull align 8 %2)
   ret void

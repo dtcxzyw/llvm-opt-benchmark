@@ -22,7 +22,7 @@ define hidden zeroext i1 @"_ZN63_$LT$regex_syntax..error..Error$u20$as$u20$core.
   br label %11
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds { [1 x i64], { { { { ptr, i64 }, i64 } }, { { i64, i64, i64 }, { i64, i64, i64 } }, i8, [7 x i8] } }, ptr %0, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %9, ptr %3, align 8
   %10 = call zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17h4a66e96f470c4e9dE(ptr align 8 %1, ptr nonnull align 1 @anon.d07d78e85fb29fc976cd7fed85bd7546.2, i64 9, ptr nonnull align 1 %3, ptr nonnull align 8 @anon.d07d78e85fb29fc976cd7fed85bd7546.3)
   br label %11

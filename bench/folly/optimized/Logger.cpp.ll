@@ -139,7 +139,7 @@ entry:
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %function_.i = getelementptr inbounds %"class.folly::detail::ScopeGuardImpl", ptr %this, i64 0, i32 1
+  %function_.i = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %function_.i, align 8, !tbaa !23
   invoke void @_ZN5folly8LoggerDB15cleanupHandlersEv(ptr noundef nonnull align 8 dereferenceable(232) %1)
           to label %if.end unwind label %lpad.i.i

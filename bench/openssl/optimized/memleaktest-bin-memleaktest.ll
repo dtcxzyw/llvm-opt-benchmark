@@ -9,7 +9,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.3 = private unnamed_addr constant [7 x i8] c"freeit\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @main(i32 noundef %argc, ptr nocapture noundef readonly %argv) local_unnamed_addr #0 {
+define dso_local noundef i32 @main(i32 noundef %argc, ptr nocapture noundef readonly %argv) local_unnamed_addr #0 {
 entry:
   %call = tail call noalias ptr @CRYPTO_malloc(i64 noundef 3, ptr noundef nonnull @.str, i32 noundef 49) #4
   %call1 = tail call i32 @test_ptr(ptr noundef nonnull @.str, i32 noundef 50, ptr noundef nonnull @.str.1, ptr noundef %call) #4
@@ -18,7 +18,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %call, ptr noundef nonnull align 1 dereferenceable(3) @.str.2, i64 3, i1 false) #4
-  %arrayidx = getelementptr inbounds ptr, ptr %argv, i64 1
+  %arrayidx = getelementptr inbounds i8, ptr %argv, i64 8
   %0 = load ptr, ptr %arrayidx, align 8
   %tobool3.not = icmp eq ptr %0, null
   br i1 %tobool3.not, label %return, label %land.lhs.true

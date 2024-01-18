@@ -381,9 +381,9 @@ cleanup.thread:                                   ; preds = %if.then5.i, %if.the
   %ret.sroa.10.0 = phi ptr [ %add.ptr36.i.i, %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit32.i.i ], [ %__first.addr.0.i.i.i.i.i, %if.else.i ], [ %add.ptr.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i26 ], [ %incdec.ptr.i.i.i.i.i24, %if.then.i.i.i.i.i ], [ %spec.select, %if.then5.i ]
   %ret.sroa.16.0 = phi ptr [ %add.ptr39.i.i, %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit32.i.i ], [ %add.ptr.i.i.i, %if.else.i ], [ %add.ptr.i.i.i, %if.then.i.i.i.i.i.i.i.i.i26 ], [ %add.ptr.i.i.i, %if.then.i.i.i.i.i ], [ %add.ptr.i.i.i, %if.then5.i ]
   store ptr %ret.sroa.0.0, ptr %agg.result, align 8
-  %_M_finish.i.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data", ptr %agg.result, i64 0, i32 1
+  %_M_finish.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr %ret.sroa.10.0, ptr %_M_finish.i.i.i.i, align 8
-  %_M_end_of_storage.i.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data", ptr %agg.result, i64 0, i32 2
+  %_M_end_of_storage.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   store ptr %ret.sroa.16.0, ptr %_M_end_of_storage.i.i.i.i, align 8
   br label %return
 
