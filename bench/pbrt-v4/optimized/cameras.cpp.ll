@@ -9019,7 +9019,7 @@ return:                                           ; preds = %if.then39, %_ZN4pbr
   ret { <2 x float>, <2 x float> } %.fca.1.insert
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local void @_ZNK4pbrt15RealisticCamera15SampleExitPupilENS_6Point2IfEES2_(ptr noalias nocapture writeonly sret(%"class.pstd::optional.67") align 4 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(1128) %this, <2 x float> %pFilm.coerce, <2 x float> %uLens.coerce) local_unnamed_addr #10 align 2 {
 entry:
   %0 = fmul <2 x float> %pFilm.coerce, %pFilm.coerce
@@ -11282,8 +11282,8 @@ init:                                             ; preds = %init.check
 init.end:                                         ; preds = %init, %init.check, %entry
   %4 = load i64, ptr @_ZZNK4pbrt15RealisticCamera19TestExitPupilBoundsEvE3rng.0, align 8
   %mul.i.i = mul i64 %4, 6364136223846793005
-  %.b97 = load i1, ptr @_ZZNK4pbrt15RealisticCamera19TestExitPupilBoundsEvE3rng.1, align 8
-  %5 = select i1 %.b97, i64 -2720673578348880933, i64 0
+  %.b89 = load i1, ptr @_ZZNK4pbrt15RealisticCamera19TestExitPupilBoundsEvE3rng.1, align 8
+  %5 = select i1 %.b89, i64 -2720673578348880933, i64 0
   %add.i.i = add i64 %mul.i.i, %5
   store i64 %add.i.i, ptr @_ZZNK4pbrt15RealisticCamera19TestExitPupilBoundsEvE3rng.0, align 8
   %6 = lshr i64 %4, 45
@@ -11292,11 +11292,7 @@ init.end:                                         ; preds = %init, %init.check, 
   %conv.i.i = trunc i64 %shr3.i.i to i32
   %shr4.i.i = lshr i64 %4, 59
   %conv5.i.i = trunc i64 %shr4.i.i to i32
-  %shr6.i.i = lshr i32 %conv.i.i, %conv5.i.i
-  %add7.i.i = sub nsw i32 0, %conv5.i.i
-  %and.i.i = and i32 %add7.i.i, 31
-  %shl.i.i = shl i32 %conv.i.i, %and.i.i
-  %or.i.i = or i32 %shr6.i.i, %shl.i.i
+  %or.i.i = tail call noundef i32 @llvm.fshr.i32(i32 %conv.i.i, i32 %conv.i.i, i32 %conv5.i.i)
   %conv.i = uitofp i32 %or.i.i to float
   %mul.i = fmul float %conv.i, 0x3DF0000000000000
   %cmp.i.i = fcmp olt float %mul.i, 0x3FEFFFFFE0000000
@@ -11350,21 +11346,21 @@ if.end:                                           ; preds = %if.then, %init.end
   %medium6.i = getelementptr inbounds %"class.pbrt::Ray", ptr %testRay, i64 0, i32 3
   %medium.i = getelementptr inbounds %"class.pbrt::Ray", ptr %testOut, i64 0, i32 3
   %pupilBounds.sroa.0.0.vec.extract = extractelement <2 x float> %pupilBounds.sroa.0.0, i64 0
-  %pupilBounds.sroa.7.8.vec.extract81 = extractelement <2 x float> %pupilBounds.sroa.7.0, i64 0
+  %pupilBounds.sroa.7.8.vec.extract73 = extractelement <2 x float> %pupilBounds.sroa.7.0, i64 0
   %pupilBounds.sroa.0.4.vec.extract = extractelement <2 x float> %pupilBounds.sroa.0.0, i64 1
-  %pupilBounds.sroa.7.12.vec.extract83 = extractelement <2 x float> %pupilBounds.sroa.7.0, i64 1
+  %pupilBounds.sroa.7.12.vec.extract75 = extractelement <2 x float> %pupilBounds.sroa.7.0, i64 1
   br label %for.body
 
 for.body:                                         ; preds = %if.end, %for.inc
-  %i.092 = phi i32 [ 0, %if.end ], [ %inc, %for.inc ]
+  %i.084 = phi i32 [ 0, %if.end ], [ %inc, %for.inc ]
   %16 = load i64, ptr @_ZZNK4pbrt15RealisticCamera19TestExitPupilBoundsEvE3rng.0, align 8
   %mul.i.i13 = mul i64 %16, 6364136223846793005
   %.b = load i1, ptr @_ZZNK4pbrt15RealisticCamera19TestExitPupilBoundsEvE3rng.1, align 8
   %17 = select i1 %.b, i64 -2720673578348880933, i64 0
   %add.i.i14 = add i64 %mul.i.i13, %17
-  %mul.i.i28 = mul i64 %add.i.i14, 6364136223846793005
-  %add.i.i29 = add i64 %mul.i.i28, %17
-  store i64 %add.i.i29, ptr @_ZZNK4pbrt15RealisticCamera19TestExitPupilBoundsEvE3rng.0, align 8
+  %mul.i.i24 = mul i64 %add.i.i14, 6364136223846793005
+  %add.i.i25 = add i64 %mul.i.i24, %17
+  store i64 %add.i.i25, ptr @_ZZNK4pbrt15RealisticCamera19TestExitPupilBoundsEvE3rng.0, align 8
   %18 = insertelement <2 x i64> poison, i64 %16, i64 0
   %19 = insertelement <2 x i64> %18, i64 %add.i.i14, i64 1
   %20 = lshr <2 x i64> %19, <i64 27, i64 45>
@@ -11373,45 +11369,41 @@ for.body:                                         ; preds = %if.end, %for.inc
   %23 = trunc <2 x i64> %22 to <2 x i32>
   %24 = lshr <2 x i64> %19, <i64 59, i64 59>
   %25 = trunc <2 x i64> %24 to <2 x i32>
-  %26 = lshr <2 x i32> %23, %25
-  %27 = sub nsw <2 x i32> zeroinitializer, %25
-  %28 = and <2 x i32> %27, <i32 31, i32 31>
-  %29 = shl <2 x i32> %23, %28
-  %30 = or <2 x i32> %26, %29
-  %31 = uitofp <2 x i32> %30 to <2 x float>
-  %32 = fmul <2 x float> %31, <float 0x3DF0000000000000, float 0x3DF0000000000000>
-  %33 = fcmp olt <2 x float> %32, <float 0x3FEFFFFFE0000000, float 0x3FEFFFFFE0000000>
-  %34 = select <2 x i1> %33, <2 x float> %32, <2 x float> <float 0x3FEFFFFFE0000000, float 0x3FEFFFFFE0000000>
-  %35 = fmul <2 x float> %34, <float 2.000000e+00, float 2.000000e+00>
-  %36 = fadd <2 x float> %35, <float -1.000000e+00, float -1.000000e+00>
-  %37 = extractelement <2 x float> %36, i64 0
-  %cmp.i44 = fcmp oeq float %37, 0.000000e+00
-  %38 = extractelement <2 x float> %36, i64 1
-  %cmp6.i = fcmp oeq float %38, 0.000000e+00
-  %or.cond.i = select i1 %cmp.i44, i1 %cmp6.i, i1 false
+  %26 = call <2 x i32> @llvm.fshr.v2i32(<2 x i32> %23, <2 x i32> %23, <2 x i32> %25)
+  %27 = uitofp <2 x i32> %26 to <2 x float>
+  %28 = fmul <2 x float> %27, <float 0x3DF0000000000000, float 0x3DF0000000000000>
+  %29 = fcmp olt <2 x float> %28, <float 0x3FEFFFFFE0000000, float 0x3FEFFFFFE0000000>
+  %30 = select <2 x i1> %29, <2 x float> %28, <2 x float> <float 0x3FEFFFFFE0000000, float 0x3FEFFFFFE0000000>
+  %31 = fmul <2 x float> %30, <float 2.000000e+00, float 2.000000e+00>
+  %32 = fadd <2 x float> %31, <float -1.000000e+00, float -1.000000e+00>
+  %33 = extractelement <2 x float> %32, i64 0
+  %cmp.i36 = fcmp oeq float %33, 0.000000e+00
+  %34 = extractelement <2 x float> %32, i64 1
+  %cmp6.i = fcmp oeq float %34, 0.000000e+00
+  %or.cond.i = and i1 %cmp.i36, %cmp6.i
   br i1 %or.cond.i, label %_ZN4pbrt27SampleUniformDiskConcentricENS_6Point2IfEE.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %for.body
-  %39 = call <2 x float> @llvm.fabs.v2f32(<2 x float> %36)
-  %shift = shufflevector <2 x float> %39, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
-  %40 = fcmp ogt <2 x float> %39, %shift
-  %cmp11.i = extractelement <2 x i1> %40, i64 0
+  %35 = call <2 x float> @llvm.fabs.v2f32(<2 x float> %32)
+  %shift = shufflevector <2 x float> %35, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
+  %36 = fcmp ogt <2 x float> %35, %shift
+  %cmp11.i = extractelement <2 x i1> %36, i64 0
   br i1 %cmp11.i, label %if.then12.i, label %if.else.i
 
 if.then12.i:                                      ; preds = %if.end.i
-  %div.i = fdiv float %38, %37
-  %mul.i45 = fmul float %div.i, 0x3FE921FB60000000
+  %div.i = fdiv float %34, %33
+  %mul.i37 = fmul float %div.i, 0x3FE921FB60000000
   br label %if.end21.i
 
 if.else.i:                                        ; preds = %if.end.i
-  %div19.i = fdiv float %37, %38
+  %div19.i = fdiv float %33, %34
   %mul20.i = fmul float %div19.i, 0x3FE921FB60000000
   %sub.i = fsub float 0x3FF921FB60000000, %mul20.i
   br label %if.end21.i
 
 if.end21.i:                                       ; preds = %if.else.i, %if.then12.i
-  %r.0.i = phi float [ %37, %if.then12.i ], [ %38, %if.else.i ]
-  %theta.0.i = phi float [ %mul.i45, %if.then12.i ], [ %sub.i, %if.else.i ]
+  %r.0.i = phi float [ %33, %if.then12.i ], [ %34, %if.else.i ]
+  %theta.0.i = phi float [ %mul.i37, %if.then12.i ], [ %sub.i, %if.else.i ]
   %call.i.i = call noundef float @cosf(float noundef %theta.0.i) #25
   %call.i19.i = call noundef float @sinf(float noundef %theta.0.i) #25
   %mul.i.i22.i = fmul float %r.0.i, %call.i.i
@@ -11422,17 +11414,17 @@ if.end21.i:                                       ; preds = %if.else.i, %if.then
 
 _ZN4pbrt27SampleUniformDiskConcentricENS_6Point2IfEE.exit: ; preds = %for.body, %if.end21.i
   %retval.sroa.0.0.i = phi <2 x float> [ %retval.sroa.0.4.vec.insert.i.i25.i, %if.end21.i ], [ zeroinitializer, %for.body ]
-  %41 = load ptr, ptr %ptr.i.i, align 8
-  %42 = load i64, ptr %nStored.i.i, align 8
-  %43 = getelementptr %"struct.pbrt::RealisticCamera::LensElementInterface", ptr %41, i64 %42
-  %apertureRadius.i = getelementptr %"struct.pbrt::RealisticCamera::LensElementInterface", ptr %43, i64 -1, i32 3
-  %44 = load float, ptr %apertureRadius.i, align 4
-  %pd.sroa.0.0.vec.extract66 = extractelement <2 x float> %retval.sroa.0.0.i, i64 0
-  %mul.i46 = fmul float %pd.sroa.0.0.vec.extract66, %44
-  %pd.sroa.0.4.vec.extract71 = extractelement <2 x float> %retval.sroa.0.0.i, i64 1
-  %mul2.i = fmul float %pd.sroa.0.4.vec.extract71, %44
-  %sub.i49 = fsub float %mul.i46, %div
-  %retval.sroa.0.0.vec.insert.i = insertelement <2 x float> poison, float %sub.i49, i64 0
+  %37 = load ptr, ptr %ptr.i.i, align 8
+  %38 = load i64, ptr %nStored.i.i, align 8
+  %39 = getelementptr %"struct.pbrt::RealisticCamera::LensElementInterface", ptr %37, i64 %38
+  %apertureRadius.i = getelementptr %"struct.pbrt::RealisticCamera::LensElementInterface", ptr %39, i64 -1, i32 3
+  %40 = load float, ptr %apertureRadius.i, align 4
+  %pd.sroa.0.0.vec.extract58 = extractelement <2 x float> %retval.sroa.0.0.i, i64 0
+  %mul.i38 = fmul float %pd.sroa.0.0.vec.extract58, %40
+  %pd.sroa.0.4.vec.extract63 = extractelement <2 x float> %retval.sroa.0.0.i, i64 1
+  %mul2.i = fmul float %pd.sroa.0.4.vec.extract63, %40
+  %sub.i41 = fsub float %mul.i38, %div
+  %retval.sroa.0.0.vec.insert.i = insertelement <2 x float> poison, float %sub.i41, i64 0
   %retval.sroa.0.4.vec.insert.i = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i, float %mul2.i, i64 1
   store <2 x float> %pFilm.sroa.0.4.vec.insert, ptr %testRay, align 8
   store float 0.000000e+00, ptr %o.sroa.2.0.o3.sroa_idx.i, align 8
@@ -11446,34 +11438,34 @@ _ZN4pbrt27SampleUniformDiskConcentricENS_6Point2IfEE.exit: ; preds = %for.body, 
   br i1 %tobool43, label %if.end45, label %for.inc
 
 if.end45:                                         ; preds = %_ZN4pbrt27SampleUniformDiskConcentricENS_6Point2IfEE.exit
-  %cmp.i53 = fcmp oge float %mul.i46, %pupilBounds.sroa.0.0.vec.extract
-  %cmp4.i = fcmp ole float %mul.i46, %pupilBounds.sroa.7.8.vec.extract81
-  %or.cond.i55.not = select i1 %cmp.i53, i1 %cmp4.i, i1 false
+  %cmp.i45 = fcmp oge float %mul.i38, %pupilBounds.sroa.0.0.vec.extract
+  %cmp4.i = fcmp ole float %mul.i38, %pupilBounds.sroa.7.8.vec.extract73
+  %or.cond.i47.not = select i1 %cmp.i45, i1 %cmp4.i, i1 false
   %cmp8.i = fcmp oge float %mul2.i, %pupilBounds.sroa.0.4.vec.extract
-  %or.cond = select i1 %or.cond.i55.not, i1 %cmp8.i, i1 false
-  %cmp12.i = fcmp ole float %mul2.i, %pupilBounds.sroa.7.12.vec.extract83
-  %or.cond91 = select i1 %or.cond, i1 %cmp12.i, i1 false
-  br i1 %or.cond91, label %for.inc, label %if.then49
+  %or.cond = select i1 %or.cond.i47.not, i1 %cmp8.i, i1 false
+  %cmp12.i = fcmp ole float %mul2.i, %pupilBounds.sroa.7.12.vec.extract75
+  %or.cond83 = select i1 %or.cond, i1 %cmp12.i, i1 false
+  br i1 %or.cond83, label %for.inc, label %if.then49
 
 if.then49:                                        ; preds = %if.end45
-  %45 = load ptr, ptr @stderr, align 8
-  %conv51 = fpext float %mul.i46 to double
+  %41 = load ptr, ptr @stderr, align 8
+  %conv51 = fpext float %mul.i38 to double
   %conv53 = fpext float %mul2.i to double
   %conv55 = fpext float %pupilBounds.sroa.0.0.vec.extract to double
   %conv58 = fpext float %pupilBounds.sroa.0.4.vec.extract to double
-  %conv60 = fpext float %pupilBounds.sroa.7.8.vec.extract81 to double
-  %conv63 = fpext float %pupilBounds.sroa.7.12.vec.extract83 to double
-  %call64 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %45, ptr noundef nonnull @.str.73, double noundef %conv51, double noundef %conv53, double noundef %conv55, double noundef %conv58, double noundef %conv60, double noundef %conv63) #28
+  %conv60 = fpext float %pupilBounds.sroa.7.8.vec.extract73 to double
+  %conv63 = fpext float %pupilBounds.sroa.7.12.vec.extract75 to double
+  %call64 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %41, ptr noundef nonnull @.str.73, double noundef %conv51, double noundef %conv53, double noundef %conv55, double noundef %conv58, double noundef %conv60, double noundef %conv63) #28
   %conv65 = sitofp i32 %.sroa.speculated to float
-  %46 = load i64, ptr %nStored.i, align 8
-  %conv68 = uitofp i64 %46 to float
+  %42 = load i64, ptr %nStored.i, align 8
+  %conv68 = uitofp i64 %42 to float
   %div69 = fdiv float %conv65, %conv68
   %mul70 = fmul float %retval.0.i.i.i, %div69
   %div71 = fmul float %mul70, 5.000000e-01
   call void @_ZNK4pbrt15RealisticCamera15RenderExitPupilEffPKc(ptr noundef nonnull align 8 dereferenceable(1128) %this, float noundef %div71, float noundef 0.000000e+00, ptr noundef nonnull @.str.74)
   %conv73 = sitofp i32 %add to float
-  %47 = load i64, ptr %nStored.i, align 8
-  %conv76 = uitofp i64 %47 to float
+  %43 = load i64, ptr %nStored.i, align 8
+  %conv76 = uitofp i64 %43 to float
   %div77 = fdiv float %conv73, %conv76
   %mul78 = fmul float %retval.0.i.i.i, %div77
   %div79 = fmul float %mul78, 5.000000e-01
@@ -11483,13 +11475,13 @@ if.then49:                                        ; preds = %if.end45
   unreachable
 
 for.inc:                                          ; preds = %if.end45, %_ZN4pbrt27SampleUniformDiskConcentricENS_6Point2IfEE.exit
-  %inc = add nuw nsw i32 %i.092, 1
+  %inc = add nuw nsw i32 %i.084, 1
   %exitcond.not = icmp eq i32 %inc, 1000
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !157
 
 for.end:                                          ; preds = %for.inc
-  %48 = load ptr, ptr @stderr, align 8
-  %fputc = call i32 @fputc(i32 46, ptr %48)
+  %44 = load ptr, ptr @stderr, align 8
+  %fputc = call i32 @fputc(i32 46, ptr %44)
   ret void
 }
 
@@ -22809,7 +22801,7 @@ entry:
   ret void
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvlEZN4pbrt15RealisticCameraC1ENS1_20CameraBaseParametersERSt6vectorIfSaIfEEffNS1_5ImageEN4pstd3pmr21polymorphic_allocatorISt4byteEEE3$_0E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #19 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %__op, label %sw.epilog [
@@ -26924,32 +26916,38 @@ declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #12
 ; Function Attrs: nofree nounwind
 declare noundef i32 @fputc(i32 noundef, ptr nocapture noundef) local_unnamed_addr #12
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.fshr.i32(i32, i32, i32) #21
+
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #21
+declare void @llvm.experimental.noalias.scope.decl(metadata) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #22
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #22
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.sqrt.f32(float) #23
+declare float @llvm.sqrt.f32(float) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #23
+declare i32 @llvm.smin.i32(i32, i32) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <2 x float> @llvm.sqrt.v2f32(<2 x float>) #23
+declare <2 x float> @llvm.sqrt.v2f32(<2 x float>) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <2 x float> @llvm.fabs.v2f32(<2 x float>) #23
+declare <2 x float> @llvm.fabs.v2f32(<2 x float>) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <2 x float> @llvm.fma.v2f32(<2 x float>, <2 x float>, <2 x float>) #23
+declare <2 x float> @llvm.fma.v2f32(<2 x float>, <2 x float>, <2 x float>) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <2 x float> @llvm.floor.v2f32(<2 x float>) #23
+declare <2 x float> @llvm.floor.v2f32(<2 x float>) #21
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare <2 x i32> @llvm.fshr.v2i32(<2 x i32>, <2 x i32>, <2 x i32>) #21
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
@@ -26961,7 +26959,7 @@ attributes #6 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stac
 attributes #7 = { mustprogress noreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
 attributes #8 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
 attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
-attributes #10 = { mustprogress nofree nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
+attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
 attributes #11 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
 attributes #12 = { nofree nounwind }
 attributes #13 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
@@ -26970,11 +26968,11 @@ attributes #15 = { mustprogress nocallback nofree nosync nounwind speculatable w
 attributes #16 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
 attributes #17 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
 attributes #18 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
-attributes #19 = { mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
+attributes #19 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
 attributes #20 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
-attributes #21 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #22 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #23 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #21 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #22 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #23 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #24 = { noreturn }
 attributes #25 = { nounwind }
 attributes #26 = { builtin nounwind }
