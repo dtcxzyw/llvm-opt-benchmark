@@ -1,0 +1,38 @@
+; ModuleID = 'bench/regex-rs/original/vjs6nth2q4g375u.ll'
+source_filename = "bench/regex-rs/original/vjs6nth2q4g375u.ll"
+target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
+target triple = "x86_64-unknown-linux-gnu"
+
+; Function Attrs: inlinehint mustprogress nofree nounwind nonlazybind willreturn memory(argmem: read) uwtable
+define hidden i8 @"_ZN49_$LT$u8$u20$as$u20$core..slice..cmp..SliceOrd$GT$7compare17h539234d042cf84b6E"(ptr nocapture readonly align 1 %0, i64 %1, ptr nocapture readonly align 1 %2, i64 %3) unnamed_addr #0 {
+  %5 = sub i64 %1, %3
+  %. = tail call i64 @llvm.umin.i64(i64 %1, i64 %3)
+  %6 = tail call i32 @memcmp(ptr %0, ptr %2, i64 %.)
+  %7 = sext i32 %6 to i64
+  %8 = icmp eq i32 %6, 0
+  %spec.store.select = select i1 %8, i64 %5, i64 %7
+  %9 = icmp slt i64 %spec.store.select, 0
+  %10 = icmp ne i64 %spec.store.select, 0
+  %.10 = zext i1 %10 to i8
+  %.05 = select i1 %9, i8 -1, i8 %.10
+  ret i8 %.05
+}
+
+; Function Attrs: mustprogress nofree nounwind nonlazybind willreturn memory(argmem: read)
+declare i32 @memcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #1
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umin.i64(i64, i64) #2
+
+attributes #0 = { inlinehint mustprogress nofree nounwind nonlazybind willreturn memory(argmem: read) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #1 = { mustprogress nofree nounwind nonlazybind willreturn memory(argmem: read) }
+attributes #2 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+
+!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.ident = !{!4}
+
+!0 = !{i32 8, !"PIC Level", i32 2}
+!1 = !{i32 2, !"RtLibUseGOT", i32 1}
+!2 = !{i32 2, !"Dwarf Version", i32 4}
+!3 = !{i32 2, !"Debug Info Version", i32 3}
+!4 = !{!"rustc version 1.75.0 (82e1608df 2023-12-21)"}

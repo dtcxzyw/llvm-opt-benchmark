@@ -223,3 +223,6 @@
 [submodule "bench/syn/syn"]
 	path = bench/syn/syn
 	url = git@github.com:dtolnay/syn.git
+[submodule "bench/regex-rs/regex"]
+	path = bench/regex-rs/regex
+	url = git@github.com:rust-lang/regex.git
