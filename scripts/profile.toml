@@ -1,0 +1,12 @@
+[profile.opt-bench]
+opt-level = 0
+debug = true
+strip = "none"
+debug-assertions = false
+overflow-checks = false
+lto = false
+panic = 'unwind'
+incremental = true
+codegen-units = 1000000
+rpath = false
+inherits = "release"

@@ -220,3 +220,6 @@
 [submodule "bench/mold/mold"]
 	path = bench/mold/mold
 	url = git@github.com:rui314/mold.git
+[submodule "bench/syn/syn"]
+	path = bench/syn/syn
+	url = git@github.com:dtolnay/syn.git
