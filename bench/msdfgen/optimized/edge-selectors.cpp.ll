@@ -1,0 +1,2184 @@
+; ModuleID = 'bench/msdfgen/original/edge-selectors.cpp.ll'
+source_filename = "bench/msdfgen/original/edge-selectors.cpp.ll"
+target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
+target triple = "x86_64-unknown-linux-gnu"
+
+%"class.msdfgen::TrueDistanceSelector" = type { %"struct.msdfgen::Vector2", %"class.msdfgen::SignedDistance" }
+%"struct.msdfgen::Vector2" = type { double, double }
+%"class.msdfgen::SignedDistance" = type { double, double }
+%"struct.msdfgen::TrueDistanceSelector::EdgeCache" = type { %"struct.msdfgen::Vector2", double }
+%"class.msdfgen::PseudoDistanceSelectorBase" = type { %"class.msdfgen::SignedDistance", double, double, ptr, double }
+%"struct.msdfgen::PseudoDistanceSelectorBase::EdgeCache" = type { %"struct.msdfgen::Vector2", double, double, double, double, double }
+%"class.msdfgen::PseudoDistanceSelector" = type { %"class.msdfgen::PseudoDistanceSelectorBase", %"struct.msdfgen::Vector2" }
+%"class.msdfgen::MultiDistanceSelector" = type { %"struct.msdfgen::Vector2", %"class.msdfgen::PseudoDistanceSelectorBase", %"class.msdfgen::PseudoDistanceSelectorBase", %"class.msdfgen::PseudoDistanceSelectorBase" }
+%"class.msdfgen::EdgeSegment" = type <{ ptr, i32, [4 x i8] }>
+%"struct.msdfgen::MultiDistance" = type { double, double, double }
+%"struct.msdfgen::MultiAndTrueDistance" = type { %"struct.msdfgen::MultiDistance", double }
+
+@_ZN7msdfgen20TrueDistanceSelector9EdgeCacheC1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN7msdfgen20TrueDistanceSelector9EdgeCacheC2Ev
+@_ZN7msdfgen26PseudoDistanceSelectorBase9EdgeCacheC1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN7msdfgen26PseudoDistanceSelectorBase9EdgeCacheC2Ev
+@_ZN7msdfgen26PseudoDistanceSelectorBaseC1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN7msdfgen26PseudoDistanceSelectorBaseC2Ev
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
+define dso_local void @_ZN7msdfgen20TrueDistanceSelector9EdgeCacheC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %this) unnamed_addr #0 align 2 {
+entry:
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %this, i8 0, i64 24, i1 false)
+  ret void
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
+define dso_local void @_ZN7msdfgen20TrueDistanceSelector5resetERKNS_7Vector2E(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %p) local_unnamed_addr #1 align 2 {
+entry:
+  %agg.tmp.sroa.0.0.copyload = load double, ptr %p, align 8
+  %agg.tmp.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %p, i64 8
+  %agg.tmp.sroa.2.0.copyload = load double, ptr %agg.tmp.sroa.2.0..sroa_idx, align 8
+  %agg.tmp2.sroa.0.0.copyload = load double, ptr %this, align 8
+  %agg.tmp2.sroa.2.0.p3.sroa_idx = getelementptr inbounds i8, ptr %this, i64 8
+  %agg.tmp2.sroa.2.0.copyload = load double, ptr %agg.tmp2.sroa.2.0.p3.sroa_idx, align 8
+  %sub.i = fsub double %agg.tmp.sroa.0.0.copyload, %agg.tmp2.sroa.0.0.copyload
+  %sub3.i = fsub double %agg.tmp.sroa.2.0.copyload, %agg.tmp2.sroa.2.0.copyload
+  %mul4.i = fmul double %sub3.i, %sub3.i
+  %0 = tail call double @llvm.fmuladd.f64(double %sub.i, double %sub.i, double %mul4.i)
+  %sqrt.i = tail call noundef double @llvm.sqrt.f64(double %0)
+  %mul = fmul double %sqrt.i, 1.001000e+00
+  %minDistance = getelementptr inbounds %"class.msdfgen::TrueDistanceSelector", ptr %this, i64 0, i32 1
+  %1 = load double, ptr %minDistance, align 8
+  %cmp.i = fcmp ogt double %1, 0.000000e+00
+  %conv = select i1 %cmp.i, double 1.000000e+00, double -1.000000e+00
+  %2 = tail call double @llvm.fmuladd.f64(double %conv, double %mul, double %1)
+  store double %2, ptr %minDistance, align 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %p, i64 16, i1 false)
+  ret void
+}
+
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.fmuladd.f64(double, double, double) #3
+
+; Function Attrs: mustprogress uwtable
+define dso_local void @_ZN7msdfgen20TrueDistanceSelector7addEdgeERNS0_9EdgeCacheEPKNS_11EdgeSegmentES5_S5_(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this, ptr nocapture noundef nonnull align 8 dereferenceable(24) %cache, ptr nocapture noundef readnone %prevEdge, ptr noundef %edge, ptr nocapture noundef readnone %nextEdge) local_unnamed_addr #4 align 2 {
+entry:
+  %dummy = alloca double, align 8
+  %agg.tmp.sroa.0.0.copyload = load double, ptr %this, align 8
+  %agg.tmp.sroa.2.0.p.sroa_idx = getelementptr inbounds i8, ptr %this, i64 8
+  %agg.tmp.sroa.2.0.copyload = load double, ptr %agg.tmp.sroa.2.0.p.sroa_idx, align 8
+  %agg.tmp2.sroa.0.0.copyload = load double, ptr %cache, align 8
+  %agg.tmp2.sroa.2.0.point.sroa_idx = getelementptr inbounds i8, ptr %cache, i64 8
+  %agg.tmp2.sroa.2.0.copyload = load double, ptr %agg.tmp2.sroa.2.0.point.sroa_idx, align 8
+  %sub.i = fsub double %agg.tmp.sroa.0.0.copyload, %agg.tmp2.sroa.0.0.copyload
+  %sub3.i = fsub double %agg.tmp.sroa.2.0.copyload, %agg.tmp2.sroa.2.0.copyload
+  %mul4.i = fmul double %sub3.i, %sub3.i
+  %0 = tail call double @llvm.fmuladd.f64(double %sub.i, double %sub.i, double %mul4.i)
+  %sqrt.i = tail call noundef double @llvm.sqrt.f64(double %0)
+  %mul = fmul double %sqrt.i, 1.001000e+00
+  %absDistance = getelementptr inbounds %"struct.msdfgen::TrueDistanceSelector::EdgeCache", ptr %cache, i64 0, i32 1
+  %1 = load double, ptr %absDistance, align 8
+  %sub = fsub double %1, %mul
+  %minDistance = getelementptr inbounds %"class.msdfgen::TrueDistanceSelector", ptr %this, i64 0, i32 1
+  %2 = load double, ptr %minDistance, align 8
+  %3 = tail call double @llvm.fabs.f64(double %2)
+  %cmp = fcmp ugt double %sub, %3
+  br i1 %cmp, label %if.end18, label %if.then
+
+if.then:                                          ; preds = %entry
+  %vtable = load ptr, ptr %edge, align 8
+  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 8
+  %4 = load ptr, ptr %vfn, align 8
+  %call7 = call { double, double } %4(ptr noundef nonnull align 8 dereferenceable(12) %edge, double %agg.tmp.sroa.0.0.copyload, double %agg.tmp.sroa.2.0.copyload, ptr noundef nonnull align 8 dereferenceable(8) %dummy)
+  %5 = extractvalue { double, double } %call7, 0
+  %6 = extractvalue { double, double } %call7, 1
+  %agg.tmp9.sroa.0.0.copyload = load double, ptr %minDistance, align 8
+  %agg.tmp9.sroa.2.0.minDistance10.sroa_idx = getelementptr inbounds %"class.msdfgen::TrueDistanceSelector", ptr %this, i64 0, i32 1, i32 1
+  %7 = call double @llvm.fabs.f64(double %5)
+  %8 = call double @llvm.fabs.f64(double %agg.tmp9.sroa.0.0.copyload)
+  %cmp.i = fcmp olt double %7, %8
+  br i1 %cmp.i, label %if.then12, label %_ZN7msdfgenltENS_14SignedDistanceES0_.exit
+
+_ZN7msdfgenltENS_14SignedDistanceES0_.exit:       ; preds = %if.then
+  %agg.tmp9.sroa.2.0.copyload = load double, ptr %agg.tmp9.sroa.2.0.minDistance10.sroa_idx, align 8
+  %cmp4.i = fcmp oeq double %7, %8
+  %cmp6.i = fcmp olt double %6, %agg.tmp9.sroa.2.0.copyload
+  %9 = select i1 %cmp4.i, i1 %cmp6.i, i1 false
+  br i1 %9, label %if.then12, label %if.end
+
+if.then12:                                        ; preds = %if.then, %_ZN7msdfgenltENS_14SignedDistanceES0_.exit
+  store double %5, ptr %minDistance, align 8
+  store double %6, ptr %agg.tmp9.sroa.2.0.minDistance10.sroa_idx, align 8
+  br label %if.end
+
+if.end:                                           ; preds = %if.then12, %_ZN7msdfgenltENS_14SignedDistanceES0_.exit
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %cache, ptr noundef nonnull align 8 dereferenceable(16) %this, i64 16, i1 false)
+  store double %7, ptr %absDistance, align 8
+  br label %if.end18
+
+if.end18:                                         ; preds = %if.end, %entry
+  ret void
+}
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.fabs.f64(double) #3
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
+define dso_local void @_ZN7msdfgen20TrueDistanceSelector5mergeERKS0_(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %other) local_unnamed_addr #1 align 2 {
+entry:
+  %minDistance = getelementptr inbounds %"class.msdfgen::TrueDistanceSelector", ptr %other, i64 0, i32 1
+  %agg.tmp.sroa.0.0.copyload = load double, ptr %minDistance, align 8
+  %minDistance3 = getelementptr inbounds %"class.msdfgen::TrueDistanceSelector", ptr %this, i64 0, i32 1
+  %agg.tmp2.sroa.0.0.copyload = load double, ptr %minDistance3, align 8
+  %0 = tail call double @llvm.fabs.f64(double %agg.tmp.sroa.0.0.copyload)
+  %1 = tail call double @llvm.fabs.f64(double %agg.tmp2.sroa.0.0.copyload)
+  %cmp.i = fcmp olt double %0, %1
+  br i1 %cmp.i, label %if.then, label %_ZN7msdfgenltENS_14SignedDistanceES0_.exit
+
+_ZN7msdfgenltENS_14SignedDistanceES0_.exit:       ; preds = %entry
+  %agg.tmp2.sroa.2.0.minDistance3.sroa_idx = getelementptr inbounds %"class.msdfgen::TrueDistanceSelector", ptr %this, i64 0, i32 1, i32 1
+  %agg.tmp2.sroa.2.0.copyload = load double, ptr %agg.tmp2.sroa.2.0.minDistance3.sroa_idx, align 8
+  %agg.tmp.sroa.2.0.minDistance.sroa_idx = getelementptr inbounds %"class.msdfgen::TrueDistanceSelector", ptr %other, i64 0, i32 1, i32 1
+  %agg.tmp.sroa.2.0.copyload = load double, ptr %agg.tmp.sroa.2.0.minDistance.sroa_idx, align 8
+  %cmp4.i = fcmp oeq double %0, %1
+  %cmp6.i = fcmp olt double %agg.tmp.sroa.2.0.copyload, %agg.tmp2.sroa.2.0.copyload
+  %2 = select i1 %cmp4.i, i1 %cmp6.i, i1 false
+  br i1 %2, label %if.then, label %if.end
+
+if.then:                                          ; preds = %entry, %_ZN7msdfgenltENS_14SignedDistanceES0_.exit
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %minDistance3, ptr noundef nonnull align 8 dereferenceable(16) %minDistance, i64 16, i1 false)
+  br label %if.end
+
+if.end:                                           ; preds = %if.then, %_ZN7msdfgenltENS_14SignedDistanceES0_.exit
+  ret void
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
+define dso_local noundef double @_ZNK7msdfgen20TrueDistanceSelector8distanceEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this) local_unnamed_addr #5 align 2 {
+entry:
+  %minDistance = getelementptr inbounds %"class.msdfgen::TrueDistanceSelector", ptr %this, i64 0, i32 1
+  %0 = load double, ptr %minDistance, align 8
+  ret double %0
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
+define dso_local void @_ZN7msdfgen26PseudoDistanceSelectorBase9EdgeCacheC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) %this) unnamed_addr #0 align 2 {
+entry:
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %this, i8 0, i64 56, i1 false)
+  ret void
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
+define dso_local noundef zeroext i1 @_ZN7msdfgen26PseudoDistanceSelectorBase17getPseudoDistanceERdRKNS_7Vector2ES4_(ptr nocapture noundef nonnull align 8 dereferenceable(8) %distance, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %ep, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %edgeDir) local_unnamed_addr #1 align 2 {
+entry:
+  %agg.tmp.sroa.0.0.copyload = load double, ptr %ep, align 8
+  %agg.tmp.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %ep, i64 8
+  %agg.tmp.sroa.2.0.copyload = load double, ptr %agg.tmp.sroa.2.0..sroa_idx, align 8
+  %agg.tmp1.sroa.0.0.copyload = load double, ptr %edgeDir, align 8
+  %agg.tmp1.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %edgeDir, i64 8
+  %agg.tmp1.sroa.2.0.copyload = load double, ptr %agg.tmp1.sroa.2.0..sroa_idx, align 8
+  %mul3.i = fmul double %agg.tmp.sroa.2.0.copyload, %agg.tmp1.sroa.2.0.copyload
+  %0 = tail call noundef double @llvm.fmuladd.f64(double %agg.tmp.sroa.0.0.copyload, double %agg.tmp1.sroa.0.0.copyload, double %mul3.i)
+  %cmp = fcmp ogt double %0, 0.000000e+00
+  br i1 %cmp, label %if.then, label %return
+
+if.then:                                          ; preds = %entry
+  %1 = fneg double %agg.tmp.sroa.2.0.copyload
+  %neg.i = fmul double %agg.tmp1.sroa.0.0.copyload, %1
+  %2 = tail call noundef double @llvm.fmuladd.f64(double %agg.tmp.sroa.0.0.copyload, double %agg.tmp1.sroa.2.0.copyload, double %neg.i)
+  %3 = tail call double @llvm.fabs.f64(double %2)
+  %4 = load double, ptr %distance, align 8
+  %5 = tail call double @llvm.fabs.f64(double %4)
+  %cmp5 = fcmp olt double %3, %5
+  br i1 %cmp5, label %if.then6, label %return
+
+if.then6:                                         ; preds = %if.then
+  store double %2, ptr %distance, align 8
+  br label %return
+
+return:                                           ; preds = %entry, %if.then, %if.then6
+  %retval.0 = phi i1 [ true, %if.then6 ], [ false, %if.then ], [ false, %entry ]
+  ret i1 %retval.0
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
+define dso_local void @_ZN7msdfgen26PseudoDistanceSelectorBaseC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) %this) unnamed_addr #0 align 2 {
+entry:
+  store <2 x double> <double 0xFFEFFFFFFFFFFFFF, double 0.000000e+00>, ptr %this, align 8
+  %minNegativePseudoDistance = getelementptr inbounds %"class.msdfgen::PseudoDistanceSelectorBase", ptr %this, i64 0, i32 1
+  store <2 x double> <double 0xFFEFFFFFFFFFFFFF, double 0x7FEFFFFFFFFFFFFF>, ptr %minNegativePseudoDistance, align 8
+  %nearEdge = getelementptr inbounds %"class.msdfgen::PseudoDistanceSelectorBase", ptr %this, i64 0, i32 3
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %nearEdge, i8 0, i64 16, i1 false)
+  ret void
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
+define dso_local void @_ZN7msdfgen26PseudoDistanceSelectorBase5resetEd(ptr nocapture noundef nonnull align 8 dereferenceable(48) %this, double noundef %delta) local_unnamed_addr #1 align 2 {
+entry:
+  %0 = load double, ptr %this, align 8
+  %cmp.i = fcmp ogt double %0, 0.000000e+00
+  %conv = select i1 %cmp.i, double 1.000000e+00, double -1.000000e+00
+  %1 = tail call double @llvm.fmuladd.f64(double %conv, double %delta, double %0)
+  store double %1, ptr %this, align 8
+  %2 = tail call double @llvm.fabs.f64(double %1)
+  %fneg = fneg double %2
+  %minNegativePseudoDistance = getelementptr inbounds %"class.msdfgen::PseudoDistanceSelectorBase", ptr %this, i64 0, i32 1
+  store double %fneg, ptr %minNegativePseudoDistance, align 8
+  %minPositivePseudoDistance = getelementptr inbounds %"class.msdfgen::PseudoDistanceSelectorBase", ptr %this, i64 0, i32 2
+  store double %2, ptr %minPositivePseudoDistance, align 8
+  %nearEdge = getelementptr inbounds %"class.msdfgen::PseudoDistanceSelectorBase", ptr %this, i64 0, i32 3
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %nearEdge, i8 0, i64 16, i1 false)
+  ret void
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
+define dso_local noundef zeroext i1 @_ZNK7msdfgen26PseudoDistanceSelectorBase14isEdgeRelevantERKNS0_9EdgeCacheEPKNS_11EdgeSegmentERKNS_7Vector2E(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %cache, ptr nocapture noundef readnone %edge, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %p) local_unnamed_addr #5 align 2 {
+entry:
+  %agg.tmp.sroa.0.0.copyload = load double, ptr %p, align 8
+  %agg.tmp.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %p, i64 8
+  %agg.tmp.sroa.2.0.copyload = load double, ptr %agg.tmp.sroa.2.0..sroa_idx, align 8
+  %agg.tmp2.sroa.0.0.copyload = load double, ptr %cache, align 8
+  %agg.tmp2.sroa.2.0.point.sroa_idx = getelementptr inbounds i8, ptr %cache, i64 8
+  %agg.tmp2.sroa.2.0.copyload = load double, ptr %agg.tmp2.sroa.2.0.point.sroa_idx, align 8
+  %sub.i = fsub double %agg.tmp.sroa.0.0.copyload, %agg.tmp2.sroa.0.0.copyload
+  %sub3.i = fsub double %agg.tmp.sroa.2.0.copyload, %agg.tmp2.sroa.2.0.copyload
+  %mul4.i = fmul double %sub3.i, %sub3.i
+  %0 = tail call double @llvm.fmuladd.f64(double %sub.i, double %sub.i, double %mul4.i)
+  %sqrt.i = tail call noundef double @llvm.sqrt.f64(double %0)
+  %mul = fmul double %sqrt.i, 1.001000e+00
+  %absDistance = getelementptr inbounds %"struct.msdfgen::PseudoDistanceSelectorBase::EdgeCache", ptr %cache, i64 0, i32 1
+  %1 = load double, ptr %absDistance, align 8
+  %sub = fsub double %1, %mul
+  %2 = load double, ptr %this, align 8
+  %3 = tail call double @llvm.fabs.f64(double %2)
+  %cmp = fcmp ugt double %sub, %3
+  br i1 %cmp, label %lor.lhs.false, label %lor.end
+
+lor.lhs.false:                                    ; preds = %entry
+  %aDomainDistance = getelementptr inbounds %"struct.msdfgen::PseudoDistanceSelectorBase::EdgeCache", ptr %cache, i64 0, i32 2
+  %4 = load double, ptr %aDomainDistance, align 8
+  %5 = tail call double @llvm.fabs.f64(double %4)
+  %cmp4 = fcmp olt double %5, %mul
+  br i1 %cmp4, label %lor.end, label %lor.lhs.false5
+
+lor.lhs.false5:                                   ; preds = %lor.lhs.false
+  %bDomainDistance = getelementptr inbounds %"struct.msdfgen::PseudoDistanceSelectorBase::EdgeCache", ptr %cache, i64 0, i32 3
+  %6 = load double, ptr %bDomainDistance, align 8
+  %7 = tail call double @llvm.fabs.f64(double %6)
+  %cmp6 = fcmp olt double %7, %mul
+  br i1 %cmp6, label %lor.end, label %lor.lhs.false7
+
+lor.lhs.false7:                                   ; preds = %lor.lhs.false5
+  %cmp9 = fcmp ogt double %4, 0.000000e+00
+  br i1 %cmp9, label %land.lhs.true, label %lor.rhs
+
+land.lhs.true:                                    ; preds = %lor.lhs.false7
+  %aPseudoDistance = getelementptr inbounds %"struct.msdfgen::PseudoDistanceSelectorBase::EdgeCache", ptr %cache, i64 0, i32 4
+  %8 = load double, ptr %aPseudoDistance, align 8
+  %cmp10 = fcmp olt double %8, 0.000000e+00
+  br i1 %cmp10, label %cond.true, label %cond.false
+
+cond.true:                                        ; preds = %land.lhs.true
+  %add = fadd double %mul, %8
+  %minNegativePseudoDistance = getelementptr inbounds %"class.msdfgen::PseudoDistanceSelectorBase", ptr %this, i64 0, i32 1
+  %9 = load double, ptr %minNegativePseudoDistance, align 8
+  %cmp12 = fcmp ult double %add, %9
+  br i1 %cmp12, label %lor.rhs, label %lor.end
+
+cond.false:                                       ; preds = %land.lhs.true
+  %sub14 = fsub double %8, %mul
+  %minPositivePseudoDistance = getelementptr inbounds %"class.msdfgen::PseudoDistanceSelectorBase", ptr %this, i64 0, i32 2
+  %10 = load double, ptr %minPositivePseudoDistance, align 8
+  %cmp15 = fcmp ugt double %sub14, %10
+  br i1 %cmp15, label %lor.rhs, label %lor.end
+
+lor.rhs:                                          ; preds = %cond.false, %cond.true, %lor.lhs.false7
+  %cmp17 = fcmp ogt double %6, 0.000000e+00
+  br i1 %cmp17, label %land.rhs, label %lor.end
+
+land.rhs:                                         ; preds = %lor.rhs
+  %bPseudoDistance = getelementptr inbounds %"struct.msdfgen::PseudoDistanceSelectorBase::EdgeCache", ptr %cache, i64 0, i32 5
+  %11 = load double, ptr %bPseudoDistance, align 8
+  %cmp18 = fcmp olt double %11, 0.000000e+00
+  br i1 %cmp18, label %cond.true19, label %cond.false24
+
+cond.true19:                                      ; preds = %land.rhs
+  %add21 = fadd double %mul, %11
+  %minNegativePseudoDistance22 = getelementptr inbounds %"class.msdfgen::PseudoDistanceSelectorBase", ptr %this, i64 0, i32 1
+  %12 = load double, ptr %minNegativePseudoDistance22, align 8
+  %cmp23 = fcmp oge double %add21, %12
+  br label %lor.end
+
+cond.false24:                                     ; preds = %land.rhs
+  %sub26 = fsub double %11, %mul
+  %minPositivePseudoDistance27 = getelementptr inbounds %"class.msdfgen::PseudoDistanceSelectorBase", ptr %this, i64 0, i32 2
+  %13 = load double, ptr %minPositivePseudoDistance27, align 8
+  %cmp28 = fcmp ole double %sub26, %13
+  br label %lor.end
+
+lor.end:                                          ; preds = %lor.rhs, %cond.false24, %cond.true19, %cond.false, %cond.true, %lor.lhs.false5, %lor.lhs.false, %entry
+  %14 = phi i1 [ true, %cond.false ], [ true, %cond.true ], [ true, %lor.lhs.false5 ], [ true, %lor.lhs.false ], [ true, %entry ], [ false, %lor.rhs ], [ %cmp23, %cond.true19 ], [ %cmp28, %cond.false24 ]
+  ret i1 %14
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
+define dso_local void @_ZN7msdfgen26PseudoDistanceSelectorBase19addEdgeTrueDistanceEPKNS_11EdgeSegmentERKNS_14SignedDistanceEd(ptr nocapture noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %edge, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %distance, double noundef %param) local_unnamed_addr #1 align 2 {
+entry:
+  %agg.tmp.sroa.0.0.copyload = load double, ptr %distance, align 8
+  %agg.tmp2.sroa.0.0.copyload = load double, ptr %this, align 8
+  %0 = tail call double @llvm.fabs.f64(double %agg.tmp.sroa.0.0.copyload)
+  %1 = tail call double @llvm.fabs.f64(double %agg.tmp2.sroa.0.0.copyload)
+  %cmp.i = fcmp olt double %0, %1
+  br i1 %cmp.i, label %if.then, label %_ZN7msdfgenltENS_14SignedDistanceES0_.exit
+
+_ZN7msdfgenltENS_14SignedDistanceES0_.exit:       ; preds = %entry
+  %agg.tmp2.sroa.2.0.minTrueDistance.sroa_idx = getelementptr inbounds i8, ptr %this, i64 8
+  %agg.tmp2.sroa.2.0.copyload = load double, ptr %agg.tmp2.sroa.2.0.minTrueDistance.sroa_idx, align 8
+  %agg.tmp.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %distance, i64 8
+  %agg.tmp.sroa.2.0.copyload = load double, ptr %agg.tmp.sroa.2.0..sroa_idx, align 8
+  %cmp4.i = fcmp oeq double %0, %1
+  %cmp6.i = fcmp olt double %agg.tmp.sroa.2.0.copyload, %agg.tmp2.sroa.2.0.copyload
+  %2 = select i1 %cmp4.i, i1 %cmp6.i, i1 false
+  br i1 %2, label %if.then, label %if.end
+
+if.then:                                          ; preds = %entry, %_ZN7msdfgenltENS_14SignedDistanceES0_.exit
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %distance, i64 16, i1 false)
+  %nearEdge = getelementptr inbounds %"class.msdfgen::PseudoDistanceSelectorBase", ptr %this, i64 0, i32 3
+  store ptr %edge, ptr %nearEdge, align 8
+  %nearEdgeParam = getelementptr inbounds %"class.msdfgen::PseudoDistanceSelectorBase", ptr %this, i64 0, i32 4
+  store double %param, ptr %nearEdgeParam, align 8
+  br label %if.end
+
+if.end:                                           ; preds = %if.then, %_ZN7msdfgenltENS_14SignedDistanceES0_.exit
+  ret void
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
+define dso_local void @_ZN7msdfgen26PseudoDistanceSelectorBase21addEdgePseudoDistanceEd(ptr nocapture noundef nonnull align 8 dereferenceable(48) %this, double noundef %distance) local_unnamed_addr #1 align 2 {
+entry:
+  %cmp = fcmp ugt double %distance, 0.000000e+00
+  br i1 %cmp, label %if.end, label %land.lhs.true
+
+land.lhs.true:                                    ; preds = %entry
+  %minNegativePseudoDistance = getelementptr inbounds %"class.msdfgen::PseudoDistanceSelectorBase", ptr %this, i64 0, i32 1
+  %0 = load double, ptr %minNegativePseudoDistance, align 8
+  %cmp2 = fcmp olt double %0, %distance
+  br i1 %cmp2, label %if.then, label %if.end
+
+if.then:                                          ; preds = %land.lhs.true
+  store double %distance, ptr %minNegativePseudoDistance, align 8
+  br label %if.end
+
+if.end:                                           ; preds = %if.then, %land.lhs.true, %entry
+  %cmp4 = fcmp ult double %distance, 0.000000e+00
+  br i1 %cmp4, label %if.end9, label %land.lhs.true5
+
+land.lhs.true5:                                   ; preds = %if.end
+  %minPositivePseudoDistance = getelementptr inbounds %"class.msdfgen::PseudoDistanceSelectorBase", ptr %this, i64 0, i32 2
+  %1 = load double, ptr %minPositivePseudoDistance, align 8
+  %cmp6 = fcmp ogt double %1, %distance
+  br i1 %cmp6, label %if.then7, label %if.end9
+
+if.then7:                                         ; preds = %land.lhs.true5
+  store double %distance, ptr %minPositivePseudoDistance, align 8
+  br label %if.end9
+
+if.end9:                                          ; preds = %if.then7, %land.lhs.true5, %if.end
+  ret void
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
+define dso_local void @_ZN7msdfgen26PseudoDistanceSelectorBase5mergeERKS0_(ptr nocapture noundef nonnull align 8 dereferenceable(48) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %other) local_unnamed_addr #1 align 2 {
+entry:
+  %agg.tmp.sroa.0.0.copyload = load double, ptr %other, align 8
+  %agg.tmp2.sroa.0.0.copyload = load double, ptr %this, align 8
+  %0 = tail call double @llvm.fabs.f64(double %agg.tmp.sroa.0.0.copyload)
+  %1 = tail call double @llvm.fabs.f64(double %agg.tmp2.sroa.0.0.copyload)
+  %cmp.i = fcmp olt double %0, %1
+  br i1 %cmp.i, label %if.then, label %_ZN7msdfgenltENS_14SignedDistanceES0_.exit
+
+_ZN7msdfgenltENS_14SignedDistanceES0_.exit:       ; preds = %entry
+  %agg.tmp2.sroa.2.0.minTrueDistance3.sroa_idx = getelementptr inbounds i8, ptr %this, i64 8
+  %agg.tmp2.sroa.2.0.copyload = load double, ptr %agg.tmp2.sroa.2.0.minTrueDistance3.sroa_idx, align 8
+  %agg.tmp.sroa.2.0.minTrueDistance.sroa_idx = getelementptr inbounds i8, ptr %other, i64 8
+  %agg.tmp.sroa.2.0.copyload = load double, ptr %agg.tmp.sroa.2.0.minTrueDistance.sroa_idx, align 8
+  %cmp4.i = fcmp oeq double %0, %1
+  %cmp6.i = fcmp olt double %agg.tmp.sroa.2.0.copyload, %agg.tmp2.sroa.2.0.copyload
+  %2 = select i1 %cmp4.i, i1 %cmp6.i, i1 false
+  br i1 %2, label %if.then, label %if.end
+
+if.then:                                          ; preds = %entry, %_ZN7msdfgenltENS_14SignedDistanceES0_.exit
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %other, i64 16, i1 false)
+  %nearEdge = getelementptr inbounds %"class.msdfgen::PseudoDistanceSelectorBase", ptr %other, i64 0, i32 3
+  %3 = load ptr, ptr %nearEdge, align 8
+  %nearEdge6 = getelementptr inbounds %"class.msdfgen::PseudoDistanceSelectorBase", ptr %this, i64 0, i32 3
+  store ptr %3, ptr %nearEdge6, align 8
+  %nearEdgeParam = getelementptr inbounds %"class.msdfgen::PseudoDistanceSelectorBase", ptr %other, i64 0, i32 4
+  %4 = load double, ptr %nearEdgeParam, align 8
+  %nearEdgeParam7 = getelementptr inbounds %"class.msdfgen::PseudoDistanceSelectorBase", ptr %this, i64 0, i32 4
+  store double %4, ptr %nearEdgeParam7, align 8
+  br label %if.end
+
+if.end:                                           ; preds = %if.then, %_ZN7msdfgenltENS_14SignedDistanceES0_.exit
+  %minNegativePseudoDistance = getelementptr inbounds %"class.msdfgen::PseudoDistanceSelectorBase", ptr %other, i64 0, i32 1
+  %5 = load double, ptr %minNegativePseudoDistance, align 8
+  %minNegativePseudoDistance8 = getelementptr inbounds %"class.msdfgen::PseudoDistanceSelectorBase", ptr %this, i64 0, i32 1
+  %6 = load double, ptr %minNegativePseudoDistance8, align 8
+  %cmp = fcmp ogt double %5, %6
+  br i1 %cmp, label %if.then9, label %if.end12
+
+if.then9:                                         ; preds = %if.end
+  store double %5, ptr %minNegativePseudoDistance8, align 8
+  br label %if.end12
+
+if.end12:                                         ; preds = %if.then9, %if.end
+  %minPositivePseudoDistance = getelementptr inbounds %"class.msdfgen::PseudoDistanceSelectorBase", ptr %other, i64 0, i32 2
+  %7 = load double, ptr %minPositivePseudoDistance, align 8
+  %minPositivePseudoDistance13 = getelementptr inbounds %"class.msdfgen::PseudoDistanceSelectorBase", ptr %this, i64 0, i32 2
+  %8 = load double, ptr %minPositivePseudoDistance13, align 8
+  %cmp14 = fcmp olt double %7, %8
+  br i1 %cmp14, label %if.then15, label %if.end18
+
+if.then15:                                        ; preds = %if.end12
+  store double %7, ptr %minPositivePseudoDistance13, align 8
+  br label %if.end18
+
+if.end18:                                         ; preds = %if.then15, %if.end12
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define dso_local noundef double @_ZNK7msdfgen26PseudoDistanceSelectorBase15computeDistanceERKNS_7Vector2E(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %p) local_unnamed_addr #4 align 2 {
+entry:
+  %distance2 = alloca %"class.msdfgen::SignedDistance", align 8
+  %0 = load double, ptr %this, align 8
+  %cmp = fcmp olt double %0, 0.000000e+00
+  %minNegativePseudoDistance = getelementptr inbounds %"class.msdfgen::PseudoDistanceSelectorBase", ptr %this, i64 0, i32 1
+  %minPositivePseudoDistance = getelementptr inbounds %"class.msdfgen::PseudoDistanceSelectorBase", ptr %this, i64 0, i32 2
+  %minNegativePseudoDistance.val = load double, ptr %minNegativePseudoDistance, align 8
+  %minPositivePseudoDistance.val = load double, ptr %minPositivePseudoDistance, align 8
+  %cond = select i1 %cmp, double %minNegativePseudoDistance.val, double %minPositivePseudoDistance.val
+  %nearEdge = getelementptr inbounds %"class.msdfgen::PseudoDistanceSelectorBase", ptr %this, i64 0, i32 3
+  %1 = load ptr, ptr %nearEdge, align 8
+  %tobool.not = icmp eq ptr %1, null
+  br i1 %tobool.not, label %if.end9, label %if.then
+
+if.then:                                          ; preds = %entry
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %distance2, ptr noundef nonnull align 8 dereferenceable(16) %this, i64 16, i1 false)
+  %agg.tmp.sroa.0.0.copyload = load double, ptr %p, align 8
+  %agg.tmp.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %p, i64 8
+  %agg.tmp.sroa.2.0.copyload = load double, ptr %agg.tmp.sroa.2.0..sroa_idx, align 8
+  %nearEdgeParam = getelementptr inbounds %"class.msdfgen::PseudoDistanceSelectorBase", ptr %this, i64 0, i32 4
+  %2 = load double, ptr %nearEdgeParam, align 8
+  %vtable = load ptr, ptr %1, align 8
+  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 9
+  %3 = load ptr, ptr %vfn, align 8
+  call void %3(ptr noundef nonnull align 8 dereferenceable(12) %1, ptr noundef nonnull align 8 dereferenceable(16) %distance2, double %agg.tmp.sroa.0.0.copyload, double %agg.tmp.sroa.2.0.copyload, double noundef %2)
+  %4 = load double, ptr %distance2, align 8
+  %5 = call double @llvm.fabs.f64(double %4)
+  %6 = call double @llvm.fabs.f64(double %cond)
+  %cmp6 = fcmp olt double %5, %6
+  br i1 %cmp6, label %if.then7, label %if.end9
+
+if.then7:                                         ; preds = %if.then
+  br label %if.end9
+
+if.end9:                                          ; preds = %if.then, %if.then7, %entry
+  %minDistance.0 = phi double [ %4, %if.then7 ], [ %cond, %if.then ], [ %cond, %entry ]
+  ret double %minDistance.0
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
+define dso_local { double, double } @_ZNK7msdfgen26PseudoDistanceSelectorBase12trueDistanceEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this) local_unnamed_addr #5 align 2 {
+entry:
+  %retval.sroa.0.0.copyload = load double, ptr %this, align 8
+  %retval.sroa.2.0.minTrueDistance.sroa_idx = getelementptr inbounds i8, ptr %this, i64 8
+  %retval.sroa.2.0.copyload = load double, ptr %retval.sroa.2.0.minTrueDistance.sroa_idx, align 8
+  %.fca.0.insert = insertvalue { double, double } poison, double %retval.sroa.0.0.copyload, 0
+  %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %retval.sroa.2.0.copyload, 1
+  ret { double, double } %.fca.1.insert
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
+define dso_local void @_ZN7msdfgen22PseudoDistanceSelector5resetERKNS_7Vector2E(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %p) local_unnamed_addr #1 align 2 {
+entry:
+  %agg.tmp.sroa.0.0.copyload = load double, ptr %p, align 8
+  %agg.tmp.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %p, i64 8
+  %agg.tmp.sroa.2.0.copyload = load double, ptr %agg.tmp.sroa.2.0..sroa_idx, align 8
+  %p3 = getelementptr inbounds %"class.msdfgen::PseudoDistanceSelector", ptr %this, i64 0, i32 1
+  %agg.tmp2.sroa.0.0.copyload = load double, ptr %p3, align 8
+  %agg.tmp2.sroa.2.0.p3.sroa_idx = getelementptr inbounds %"class.msdfgen::PseudoDistanceSelector", ptr %this, i64 0, i32 1, i32 1
+  %agg.tmp2.sroa.2.0.copyload = load double, ptr %agg.tmp2.sroa.2.0.p3.sroa_idx, align 8
+  %sub.i = fsub double %agg.tmp.sroa.0.0.copyload, %agg.tmp2.sroa.0.0.copyload
+  %sub3.i = fsub double %agg.tmp.sroa.2.0.copyload, %agg.tmp2.sroa.2.0.copyload
+  %mul4.i = fmul double %sub3.i, %sub3.i
+  %0 = tail call double @llvm.fmuladd.f64(double %sub.i, double %sub.i, double %mul4.i)
+  %sqrt.i = tail call noundef double @llvm.sqrt.f64(double %0)
+  %mul = fmul double %sqrt.i, 1.001000e+00
+  %1 = load double, ptr %this, align 8
+  %cmp.i.i = fcmp ogt double %1, 0.000000e+00
+  %conv.i = select i1 %cmp.i.i, double 1.000000e+00, double -1.000000e+00
+  %2 = tail call double @llvm.fmuladd.f64(double %conv.i, double %mul, double %1)
+  store double %2, ptr %this, align 8
+  %3 = tail call double @llvm.fabs.f64(double %2)
+  %fneg.i = fneg double %3
+  %minNegativePseudoDistance.i = getelementptr inbounds %"class.msdfgen::PseudoDistanceSelectorBase", ptr %this, i64 0, i32 1
+  store double %fneg.i, ptr %minNegativePseudoDistance.i, align 8
+  %minPositivePseudoDistance.i = getelementptr inbounds %"class.msdfgen::PseudoDistanceSelectorBase", ptr %this, i64 0, i32 2
+  store double %3, ptr %minPositivePseudoDistance.i, align 8
+  %nearEdge.i = getelementptr inbounds %"class.msdfgen::PseudoDistanceSelectorBase", ptr %this, i64 0, i32 3
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %nearEdge.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %p3, ptr noundef nonnull align 8 dereferenceable(16) %p, i64 16, i1 false)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define dso_local void @_ZN7msdfgen22PseudoDistanceSelector7addEdgeERNS_26PseudoDistanceSelectorBase9EdgeCacheEPKNS_11EdgeSegmentES6_S6_(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this, ptr nocapture noundef nonnull align 8 dereferenceable(56) %cache, ptr noundef %prevEdge, ptr noundef %edge, ptr noundef %nextEdge) local_unnamed_addr #4 align 2 {
+entry:
+  %param = alloca double, align 8
+  %p = getelementptr inbounds %"class.msdfgen::PseudoDistanceSelector", ptr %this, i64 0, i32 1
+  %agg.tmp.sroa.0.0.copyload.i = load double, ptr %p, align 8
+  %agg.tmp.sroa.2.0..sroa_idx.i = getelementptr inbounds %"class.msdfgen::PseudoDistanceSelector", ptr %this, i64 0, i32 1, i32 1
+  %agg.tmp.sroa.2.0.copyload.i = load double, ptr %agg.tmp.sroa.2.0..sroa_idx.i, align 8
+  %agg.tmp2.sroa.0.0.copyload.i = load double, ptr %cache, align 8
+  %agg.tmp2.sroa.2.0.point.sroa_idx.i = getelementptr inbounds i8, ptr %cache, i64 8
+  %agg.tmp2.sroa.2.0.copyload.i = load double, ptr %agg.tmp2.sroa.2.0.point.sroa_idx.i, align 8
+  %sub.i.i = fsub double %agg.tmp.sroa.0.0.copyload.i, %agg.tmp2.sroa.0.0.copyload.i
+  %sub3.i.i = fsub double %agg.tmp.sroa.2.0.copyload.i, %agg.tmp2.sroa.2.0.copyload.i
+  %mul4.i.i = fmul double %sub3.i.i, %sub3.i.i
+  %0 = tail call double @llvm.fmuladd.f64(double %sub.i.i, double %sub.i.i, double %mul4.i.i)
+  %sqrt.i.i = tail call noundef double @llvm.sqrt.f64(double %0)
+  %mul.i = fmul double %sqrt.i.i, 1.001000e+00
+  %absDistance.i = getelementptr inbounds %"struct.msdfgen::PseudoDistanceSelectorBase::EdgeCache", ptr %cache, i64 0, i32 1
+  %1 = load double, ptr %absDistance.i, align 8
+  %sub.i = fsub double %1, %mul.i
+  %2 = load double, ptr %this, align 8
+  %3 = tail call double @llvm.fabs.f64(double %2)
+  %cmp.i = fcmp ugt double %sub.i, %3
+  br i1 %cmp.i, label %lor.lhs.false.i, label %if.then
+
+lor.lhs.false.i:                                  ; preds = %entry
+  %aDomainDistance.i = getelementptr inbounds %"struct.msdfgen::PseudoDistanceSelectorBase::EdgeCache", ptr %cache, i64 0, i32 2
+  %4 = load double, ptr %aDomainDistance.i, align 8
+  %5 = tail call double @llvm.fabs.f64(double %4)
+  %cmp4.i = fcmp olt double %5, %mul.i
+  br i1 %cmp4.i, label %if.then, label %lor.lhs.false5.i
+
+lor.lhs.false5.i:                                 ; preds = %lor.lhs.false.i
+  %bDomainDistance.i = getelementptr inbounds %"struct.msdfgen::PseudoDistanceSelectorBase::EdgeCache", ptr %cache, i64 0, i32 3
+  %6 = load double, ptr %bDomainDistance.i, align 8
+  %7 = tail call double @llvm.fabs.f64(double %6)
+  %cmp6.i = fcmp olt double %7, %mul.i
+  br i1 %cmp6.i, label %if.then, label %lor.lhs.false7.i
+
+lor.lhs.false7.i:                                 ; preds = %lor.lhs.false5.i
+  %cmp9.i = fcmp ogt double %4, 0.000000e+00
+  br i1 %cmp9.i, label %land.lhs.true.i, label %lor.rhs.i
+
+land.lhs.true.i:                                  ; preds = %lor.lhs.false7.i
+  %aPseudoDistance.i = getelementptr inbounds %"struct.msdfgen::PseudoDistanceSelectorBase::EdgeCache", ptr %cache, i64 0, i32 4
+  %8 = load double, ptr %aPseudoDistance.i, align 8
+  %cmp10.i = fcmp olt double %8, 0.000000e+00
+  br i1 %cmp10.i, label %cond.true.i, label %cond.false.i
+
+cond.true.i:                                      ; preds = %land.lhs.true.i
+  %add.i = fadd double %mul.i, %8
+  %minNegativePseudoDistance.i = getelementptr inbounds %"class.msdfgen::PseudoDistanceSelectorBase", ptr %this, i64 0, i32 1
+  %9 = load double, ptr %minNegativePseudoDistance.i, align 8
+  %cmp12.i = fcmp ult double %add.i, %9
+  br i1 %cmp12.i, label %lor.rhs.i, label %if.then
+
+cond.false.i:                                     ; preds = %land.lhs.true.i
+  %sub14.i = fsub double %8, %mul.i
+  %minPositivePseudoDistance.i = getelementptr inbounds %"class.msdfgen::PseudoDistanceSelectorBase", ptr %this, i64 0, i32 2
+  %10 = load double, ptr %minPositivePseudoDistance.i, align 8
+  %cmp15.i = fcmp ugt double %sub14.i, %10
+  br i1 %cmp15.i, label %lor.rhs.i, label %if.then
+
+lor.rhs.i:                                        ; preds = %cond.false.i, %cond.true.i, %lor.lhs.false7.i
+  %cmp17.i = fcmp ogt double %6, 0.000000e+00
+  br i1 %cmp17.i, label %land.rhs.i, label %if.end72
+
+land.rhs.i:                                       ; preds = %lor.rhs.i
+  %bPseudoDistance.i = getelementptr inbounds %"struct.msdfgen::PseudoDistanceSelectorBase::EdgeCache", ptr %cache, i64 0, i32 5
+  %11 = load double, ptr %bPseudoDistance.i, align 8
+  %cmp18.i = fcmp olt double %11, 0.000000e+00
+  br i1 %cmp18.i, label %cond.true19.i, label %_ZNK7msdfgen26PseudoDistanceSelectorBase14isEdgeRelevantERKNS0_9EdgeCacheEPKNS_11EdgeSegmentERKNS_7Vector2E.exit
+
+cond.true19.i:                                    ; preds = %land.rhs.i
+  %add21.i = fadd double %mul.i, %11
+  %minNegativePseudoDistance22.i = getelementptr inbounds %"class.msdfgen::PseudoDistanceSelectorBase", ptr %this, i64 0, i32 1
+  %12 = load double, ptr %minNegativePseudoDistance22.i, align 8
+  %cmp23.i = fcmp ult double %add21.i, %12
+  br i1 %cmp23.i, label %if.end72, label %if.then
+
+_ZNK7msdfgen26PseudoDistanceSelectorBase14isEdgeRelevantERKNS0_9EdgeCacheEPKNS_11EdgeSegmentERKNS_7Vector2E.exit: ; preds = %land.rhs.i
+  %sub26.i = fsub double %11, %mul.i
+  %minPositivePseudoDistance27.i = getelementptr inbounds %"class.msdfgen::PseudoDistanceSelectorBase", ptr %this, i64 0, i32 2
+  %13 = load double, ptr %minPositivePseudoDistance27.i, align 8
+  %cmp28.i = fcmp ugt double %sub26.i, %13
+  br i1 %cmp28.i, label %if.end72, label %if.then
+
+if.then:                                          ; preds = %entry, %lor.lhs.false.i, %lor.lhs.false5.i, %cond.true.i, %cond.false.i, %cond.true19.i, %_ZNK7msdfgen26PseudoDistanceSelectorBase14isEdgeRelevantERKNS0_9EdgeCacheEPKNS_11EdgeSegmentERKNS_7Vector2E.exit
+  %vtable = load ptr, ptr %edge, align 8
+  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 8
+  %14 = load ptr, ptr %vfn, align 8
+  %call3 = call { double, double } %14(ptr noundef nonnull align 8 dereferenceable(12) %edge, double %agg.tmp.sroa.0.0.copyload.i, double %agg.tmp.sroa.2.0.copyload.i, ptr noundef nonnull align 8 dereferenceable(8) %param)
+  %15 = extractvalue { double, double } %call3, 0
+  %16 = extractvalue { double, double } %call3, 1
+  %17 = load double, ptr %param, align 8
+  %agg.tmp2.sroa.0.0.copyload.i16 = load double, ptr %this, align 8
+  %18 = call double @llvm.fabs.f64(double %15)
+  %19 = call double @llvm.fabs.f64(double %agg.tmp2.sroa.0.0.copyload.i16)
+  %cmp.i.i = fcmp olt double %18, %19
+  br i1 %cmp.i.i, label %if.then.i, label %_ZN7msdfgenltENS_14SignedDistanceES0_.exit.i
+
+_ZN7msdfgenltENS_14SignedDistanceES0_.exit.i:     ; preds = %if.then
+  %agg.tmp2.sroa.2.0.minTrueDistance.sroa_idx.i = getelementptr inbounds i8, ptr %this, i64 8
+  %agg.tmp2.sroa.2.0.copyload.i17 = load double, ptr %agg.tmp2.sroa.2.0.minTrueDistance.sroa_idx.i, align 8
+  %cmp4.i.i = fcmp oeq double %18, %19
+  %cmp6.i.i = fcmp olt double %16, %agg.tmp2.sroa.2.0.copyload.i17
+  %20 = select i1 %cmp4.i.i, i1 %cmp6.i.i, i1 false
+  br i1 %20, label %if.then.i, label %_ZN7msdfgen26PseudoDistanceSelectorBase19addEdgeTrueDistanceEPKNS_11EdgeSegmentERKNS_14SignedDistanceEd.exit
+
+if.then.i:                                        ; preds = %_ZN7msdfgenltENS_14SignedDistanceES0_.exit.i, %if.then
+  store double %15, ptr %this, align 8
+  %distance.sroa.6.0.this.sroa_idx = getelementptr inbounds i8, ptr %this, i64 8
+  store double %16, ptr %distance.sroa.6.0.this.sroa_idx, align 8
+  %nearEdge.i = getelementptr inbounds %"class.msdfgen::PseudoDistanceSelectorBase", ptr %this, i64 0, i32 3
+  store ptr %edge, ptr %nearEdge.i, align 8
+  %nearEdgeParam.i = getelementptr inbounds %"class.msdfgen::PseudoDistanceSelectorBase", ptr %this, i64 0, i32 4
+  store double %17, ptr %nearEdgeParam.i, align 8
+  br label %_ZN7msdfgen26PseudoDistanceSelectorBase19addEdgeTrueDistanceEPKNS_11EdgeSegmentERKNS_14SignedDistanceEd.exit
+
+_ZN7msdfgen26PseudoDistanceSelectorBase19addEdgeTrueDistanceEPKNS_11EdgeSegmentERKNS_14SignedDistanceEd.exit: ; preds = %_ZN7msdfgenltENS_14SignedDistanceES0_.exit.i, %if.then.i
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %cache, ptr noundef nonnull align 8 dereferenceable(16) %p, i64 16, i1 false)
+  store double %18, ptr %absDistance.i, align 8
+  %agg.tmp6.sroa.0.0.copyload = load double, ptr %p, align 8
+  %agg.tmp6.sroa.2.0.copyload = load double, ptr %agg.tmp.sroa.2.0..sroa_idx.i, align 8
+  %vtable9 = load ptr, ptr %edge, align 8
+  %vfn10 = getelementptr inbounds ptr, ptr %vtable9, i64 5
+  %21 = load ptr, ptr %vfn10, align 8
+  %call11 = call { double, double } %21(ptr noundef nonnull align 8 dereferenceable(12) %edge, double noundef 0.000000e+00)
+  %22 = extractvalue { double, double } %call11, 0
+  %23 = extractvalue { double, double } %call11, 1
+  %sub.i20 = fsub double %agg.tmp6.sroa.0.0.copyload, %22
+  %sub3.i = fsub double %agg.tmp6.sroa.2.0.copyload, %23
+  %agg.tmp13.sroa.0.0.copyload = load double, ptr %p, align 8
+  %agg.tmp13.sroa.2.0.copyload = load double, ptr %agg.tmp.sroa.2.0..sroa_idx.i, align 8
+  %vtable16 = load ptr, ptr %edge, align 8
+  %vfn17 = getelementptr inbounds ptr, ptr %vtable16, i64 5
+  %24 = load ptr, ptr %vfn17, align 8
+  %call18 = call { double, double } %24(ptr noundef nonnull align 8 dereferenceable(12) %edge, double noundef 1.000000e+00)
+  %25 = extractvalue { double, double } %call18, 0
+  %26 = extractvalue { double, double } %call18, 1
+  %sub.i21 = fsub double %agg.tmp13.sroa.0.0.copyload, %25
+  %sub3.i22 = fsub double %agg.tmp13.sroa.2.0.copyload, %26
+  %vtable20 = load ptr, ptr %edge, align 8
+  %vfn21 = getelementptr inbounds ptr, ptr %vtable20, i64 6
+  %27 = load ptr, ptr %vfn21, align 8
+  %call22 = call { double, double } %27(ptr noundef nonnull align 8 dereferenceable(12) %edge, double noundef 0.000000e+00)
+  %28 = extractvalue { double, double } %call22, 0
+  %29 = extractvalue { double, double } %call22, 1
+  %vtable25 = load ptr, ptr %edge, align 8
+  %vfn26 = getelementptr inbounds ptr, ptr %vtable25, i64 6
+  %30 = load ptr, ptr %vfn26, align 8
+  %call27 = call { double, double } %30(ptr noundef nonnull align 8 dereferenceable(12) %edge, double noundef 1.000000e+00)
+  %31 = extractvalue { double, double } %call27, 0
+  %32 = extractvalue { double, double } %call27, 1
+  %vtable30 = load ptr, ptr %prevEdge, align 8
+  %vfn31 = getelementptr inbounds ptr, ptr %vtable30, i64 6
+  %33 = load ptr, ptr %vfn31, align 8
+  %call32 = call { double, double } %33(ptr noundef nonnull align 8 dereferenceable(12) %prevEdge, double noundef 1.000000e+00)
+  %34 = extractvalue { double, double } %call32, 0
+  %35 = extractvalue { double, double } %call32, 1
+  %36 = insertelement <2 x double> poison, double %29, i64 0
+  %37 = insertelement <2 x double> %36, double %35, i64 1
+  %38 = fmul <2 x double> %37, %37
+  %39 = insertelement <2 x double> poison, double %28, i64 0
+  %40 = insertelement <2 x double> %39, double %34, i64 1
+  %41 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %40, <2 x double> %40, <2 x double> %38)
+  %42 = call <2 x double> @llvm.sqrt.v2f64(<2 x double> %41)
+  %43 = fcmp une <2 x double> %42, zeroinitializer
+  %44 = fdiv <2 x double> %40, %42
+  %45 = fdiv <2 x double> %37, %42
+  %46 = select <2 x i1> %43, <2 x double> %45, <2 x double> zeroinitializer
+  %47 = select <2 x i1> %43, <2 x double> %44, <2 x double> zeroinitializer
+  %vtable35 = load ptr, ptr %nextEdge, align 8
+  %vfn36 = getelementptr inbounds ptr, ptr %vtable35, i64 6
+  %48 = load ptr, ptr %vfn36, align 8
+  %call37 = call { double, double } %48(ptr noundef nonnull align 8 dereferenceable(12) %nextEdge, double noundef 0.000000e+00)
+  %49 = extractvalue { double, double } %call37, 0
+  %50 = extractvalue { double, double } %call37, 1
+  %51 = insertelement <2 x double> poison, double %32, i64 0
+  %52 = insertelement <2 x double> %51, double %50, i64 1
+  %53 = fmul <2 x double> %52, %52
+  %54 = insertelement <2 x double> poison, double %31, i64 0
+  %55 = insertelement <2 x double> %54, double %49, i64 1
+  %56 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %55, <2 x double> %55, <2 x double> %53)
+  %57 = call <2 x double> @llvm.sqrt.v2f64(<2 x double> %56)
+  %58 = fcmp une <2 x double> %57, zeroinitializer
+  %59 = fdiv <2 x double> %55, %57
+  %60 = fdiv <2 x double> %52, %57
+  %61 = select <2 x i1> %58, <2 x double> %60, <2 x double> zeroinitializer
+  %62 = select <2 x i1> %58, <2 x double> %59, <2 x double> zeroinitializer
+  %63 = shufflevector <2 x double> %62, <2 x double> %47, <2 x i32> <i32 0, i32 2>
+  %64 = shufflevector <2 x double> %62, <2 x double> %47, <2 x i32> <i32 1, i32 3>
+  %65 = fadd <2 x double> %63, %64
+  %66 = shufflevector <2 x double> %61, <2 x double> %46, <2 x i32> <i32 0, i32 2>
+  %67 = shufflevector <2 x double> %61, <2 x double> %46, <2 x i32> <i32 1, i32 3>
+  %68 = fadd <2 x double> %66, %67
+  %69 = fmul <2 x double> %68, %68
+  %70 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %65, <2 x double> %65, <2 x double> %69)
+  %71 = call <2 x double> @llvm.sqrt.v2f64(<2 x double> %70)
+  %72 = extractelement <2 x double> %71, i64 1
+  %73 = extractelement <2 x double> %65, i64 1
+  %div.i66 = fdiv double %73, %72
+  %74 = extractelement <2 x double> %68, i64 1
+  %div2.i67 = fdiv double %74, %72
+  %75 = fcmp une <2 x double> %71, zeroinitializer
+  %76 = extractelement <2 x i1> %75, i64 1
+  %retval.sroa.3.0.i68 = select i1 %76, double %div2.i67, double 0.000000e+00
+  %retval.sroa.0.0.i69 = select i1 %76, double %div.i66, double 0.000000e+00
+  %mul3.i = fmul double %sub3.i, %retval.sroa.3.0.i68
+  %77 = call noundef double @llvm.fmuladd.f64(double %sub.i20, double %retval.sroa.0.0.i69, double %mul3.i)
+  %78 = extractelement <2 x double> %71, i64 0
+  %79 = extractelement <2 x double> %65, i64 0
+  %div.i80 = fdiv double %79, %78
+  %80 = extractelement <2 x double> %68, i64 0
+  %div2.i81 = fdiv double %80, %78
+  %81 = extractelement <2 x i1> %75, i64 0
+  %retval.sroa.3.0.i82 = select i1 %81, double %div2.i81, double 0.000000e+00
+  %retval.sroa.0.0.i83 = select i1 %81, double %div.i80, double 0.000000e+00
+  %mul3.i86 = fmul double %sub3.i22, %retval.sroa.3.0.i82
+  %82 = call noundef double @llvm.fmuladd.f64(double %sub.i21, double %retval.sroa.0.0.i83, double %mul3.i86)
+  %fneg = fneg double %82
+  %cmp = fcmp ogt double %77, 0.000000e+00
+  br i1 %cmp, label %if.then55, label %if.end63
+
+if.then55:                                        ; preds = %_ZN7msdfgen26PseudoDistanceSelectorBase19addEdgeTrueDistanceEPKNS_11EdgeSegmentERKNS_14SignedDistanceEd.exit
+  %83 = extractelement <2 x double> %47, i64 0
+  %fneg.i = fneg double %83
+  %84 = extractelement <2 x double> %46, i64 0
+  %fneg1.i = fneg double %84
+  %mul3.i.i = fmul double %sub3.i, %fneg1.i
+  %85 = call noundef double @llvm.fmuladd.f64(double %sub.i20, double %fneg.i, double %mul3.i.i)
+  %cmp.i92 = fcmp ogt double %85, 0.000000e+00
+  br i1 %cmp.i92, label %if.then.i93, label %if.end
+
+if.then.i93:                                      ; preds = %if.then55
+  %neg.i.i = fmul double %sub3.i, %83
+  %86 = call noundef double @llvm.fmuladd.f64(double %sub.i20, double %fneg1.i, double %neg.i.i)
+  %87 = call double @llvm.fabs.f64(double %86)
+  %cmp5.i = fcmp olt double %87, %18
+  br i1 %cmp5.i, label %if.then61, label %if.end
+
+if.then61:                                        ; preds = %if.then.i93
+  %fneg62 = fneg double %86
+  %cmp.i94 = fcmp ult double %86, 0.000000e+00
+  br i1 %cmp.i94, label %if.end.i, label %land.lhs.true.i95
+
+land.lhs.true.i95:                                ; preds = %if.then61
+  %minNegativePseudoDistance.i96 = getelementptr inbounds %"class.msdfgen::PseudoDistanceSelectorBase", ptr %this, i64 0, i32 1
+  %88 = load double, ptr %minNegativePseudoDistance.i96, align 8
+  %cmp2.i = fcmp olt double %88, %fneg62
+  br i1 %cmp2.i, label %if.then.i100, label %if.end.i
+
+if.then.i100:                                     ; preds = %land.lhs.true.i95
+  store double %fneg62, ptr %minNegativePseudoDistance.i96, align 8
+  br label %if.end.i
+
+if.end.i:                                         ; preds = %if.then.i100, %land.lhs.true.i95, %if.then61
+  %cmp4.i97 = fcmp ugt double %86, 0.000000e+00
+  br i1 %cmp4.i97, label %if.end, label %land.lhs.true5.i
+
+land.lhs.true5.i:                                 ; preds = %if.end.i
+  %minPositivePseudoDistance.i98 = getelementptr inbounds %"class.msdfgen::PseudoDistanceSelectorBase", ptr %this, i64 0, i32 2
+  %89 = load double, ptr %minPositivePseudoDistance.i98, align 8
+  %cmp6.i99 = fcmp ogt double %89, %fneg62
+  br i1 %cmp6.i99, label %if.then7.i, label %if.end
+
+if.then7.i:                                       ; preds = %land.lhs.true5.i
+  store double %fneg62, ptr %minPositivePseudoDistance.i98, align 8
+  br label %if.end
+
+if.end:                                           ; preds = %if.then55, %if.then.i93, %if.then7.i, %land.lhs.true5.i, %if.end.i
+  %pd.1 = phi double [ %fneg62, %if.end.i ], [ %fneg62, %land.lhs.true5.i ], [ %fneg62, %if.then7.i ], [ %15, %if.then.i93 ], [ %15, %if.then55 ]
+  %aPseudoDistance = getelementptr inbounds %"struct.msdfgen::PseudoDistanceSelectorBase::EdgeCache", ptr %cache, i64 0, i32 4
+  store double %pd.1, ptr %aPseudoDistance, align 8
+  br label %if.end63
+
+if.end63:                                         ; preds = %if.end, %_ZN7msdfgen26PseudoDistanceSelectorBase19addEdgeTrueDistanceEPKNS_11EdgeSegmentERKNS_14SignedDistanceEd.exit
+  %cmp64 = fcmp olt double %82, 0.000000e+00
+  br i1 %cmp64, label %if.then65, label %if.end71
+
+if.then65:                                        ; preds = %if.end63
+  %90 = extractelement <2 x double> %61, i64 0
+  %mul3.i.i107 = fmul double %sub3.i22, %90
+  %91 = extractelement <2 x double> %62, i64 0
+  %92 = call noundef double @llvm.fmuladd.f64(double %sub.i21, double %91, double %mul3.i.i107)
+  %cmp.i108 = fcmp ogt double %92, 0.000000e+00
+  br i1 %cmp.i108, label %if.then.i110, label %if.end70
+
+if.then.i110:                                     ; preds = %if.then65
+  %93 = fneg double %sub3.i22
+  %neg.i.i111 = fmul double %91, %93
+  %94 = call noundef double @llvm.fmuladd.f64(double %sub.i21, double %90, double %neg.i.i111)
+  %95 = call double @llvm.fabs.f64(double %94)
+  %cmp5.i112 = fcmp olt double %95, %18
+  br i1 %cmp5.i112, label %if.then69, label %if.end70
+
+if.then69:                                        ; preds = %if.then.i110
+  %cmp.i115 = fcmp ugt double %94, 0.000000e+00
+  br i1 %cmp.i115, label %if.end.i119, label %land.lhs.true.i116
+
+land.lhs.true.i116:                               ; preds = %if.then69
+  %minNegativePseudoDistance.i117 = getelementptr inbounds %"class.msdfgen::PseudoDistanceSelectorBase", ptr %this, i64 0, i32 1
+  %96 = load double, ptr %minNegativePseudoDistance.i117, align 8
+  %cmp2.i118 = fcmp olt double %96, %94
+  br i1 %cmp2.i118, label %if.then.i125, label %if.end.i119
+
+if.then.i125:                                     ; preds = %land.lhs.true.i116
+  store double %94, ptr %minNegativePseudoDistance.i117, align 8
+  br label %if.end.i119
+
+if.end.i119:                                      ; preds = %if.then.i125, %land.lhs.true.i116, %if.then69
+  %cmp4.i120 = fcmp ult double %94, 0.000000e+00
+  br i1 %cmp4.i120, label %if.end70, label %land.lhs.true5.i121
+
+land.lhs.true5.i121:                              ; preds = %if.end.i119
+  %minPositivePseudoDistance.i122 = getelementptr inbounds %"class.msdfgen::PseudoDistanceSelectorBase", ptr %this, i64 0, i32 2
+  %97 = load double, ptr %minPositivePseudoDistance.i122, align 8
+  %cmp6.i123 = fcmp ogt double %97, %94
+  br i1 %cmp6.i123, label %if.then7.i124, label %if.end70
+
+if.then7.i124:                                    ; preds = %land.lhs.true5.i121
+  store double %94, ptr %minPositivePseudoDistance.i122, align 8
+  br label %if.end70
+
+if.end70:                                         ; preds = %if.then65, %if.then.i110, %if.then7.i124, %land.lhs.true5.i121, %if.end.i119
+  %pd66.0138 = phi double [ %94, %if.end.i119 ], [ %94, %land.lhs.true5.i121 ], [ %94, %if.then7.i124 ], [ %15, %if.then.i110 ], [ %15, %if.then65 ]
+  %bPseudoDistance = getelementptr inbounds %"struct.msdfgen::PseudoDistanceSelectorBase::EdgeCache", ptr %cache, i64 0, i32 5
+  store double %pd66.0138, ptr %bPseudoDistance, align 8
+  br label %if.end71
+
+if.end71:                                         ; preds = %if.end70, %if.end63
+  %aDomainDistance = getelementptr inbounds %"struct.msdfgen::PseudoDistanceSelectorBase::EdgeCache", ptr %cache, i64 0, i32 2
+  store double %77, ptr %aDomainDistance, align 8
+  %bDomainDistance = getelementptr inbounds %"struct.msdfgen::PseudoDistanceSelectorBase::EdgeCache", ptr %cache, i64 0, i32 3
+  store double %fneg, ptr %bDomainDistance, align 8
+  br label %if.end72
+
+if.end72:                                         ; preds = %lor.rhs.i, %cond.true19.i, %if.end71, %_ZNK7msdfgen26PseudoDistanceSelectorBase14isEdgeRelevantERKNS0_9EdgeCacheEPKNS_11EdgeSegmentERKNS_7Vector2E.exit
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define dso_local noundef double @_ZNK7msdfgen22PseudoDistanceSelector8distanceEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this) local_unnamed_addr #4 align 2 {
+entry:
+  %distance2.i = alloca %"class.msdfgen::SignedDistance", align 8
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %distance2.i)
+  %0 = load double, ptr %this, align 8
+  %cmp.i = fcmp olt double %0, 0.000000e+00
+  %minNegativePseudoDistance.i = getelementptr inbounds %"class.msdfgen::PseudoDistanceSelectorBase", ptr %this, i64 0, i32 1
+  %minPositivePseudoDistance.i = getelementptr inbounds %"class.msdfgen::PseudoDistanceSelectorBase", ptr %this, i64 0, i32 2
+  %minNegativePseudoDistance.val.i = load double, ptr %minNegativePseudoDistance.i, align 8
+  %minPositivePseudoDistance.val.i = load double, ptr %minPositivePseudoDistance.i, align 8
+  %cond.i = select i1 %cmp.i, double %minNegativePseudoDistance.val.i, double %minPositivePseudoDistance.val.i
+  %nearEdge.i = getelementptr inbounds %"class.msdfgen::PseudoDistanceSelectorBase", ptr %this, i64 0, i32 3
+  %1 = load ptr, ptr %nearEdge.i, align 8
+  %tobool.not.i = icmp eq ptr %1, null
+  br i1 %tobool.not.i, label %_ZNK7msdfgen26PseudoDistanceSelectorBase15computeDistanceERKNS_7Vector2E.exit, label %if.then.i
+
+if.then.i:                                        ; preds = %entry
+  %p = getelementptr inbounds %"class.msdfgen::PseudoDistanceSelector", ptr %this, i64 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %distance2.i, ptr noundef nonnull align 8 dereferenceable(16) %this, i64 16, i1 false)
+  %agg.tmp.sroa.0.0.copyload.i = load double, ptr %p, align 8
+  %agg.tmp.sroa.2.0..sroa_idx.i = getelementptr inbounds %"class.msdfgen::PseudoDistanceSelector", ptr %this, i64 0, i32 1, i32 1
+  %agg.tmp.sroa.2.0.copyload.i = load double, ptr %agg.tmp.sroa.2.0..sroa_idx.i, align 8
+  %nearEdgeParam.i = getelementptr inbounds %"class.msdfgen::PseudoDistanceSelectorBase", ptr %this, i64 0, i32 4
+  %2 = load double, ptr %nearEdgeParam.i, align 8
+  %vtable.i = load ptr, ptr %1, align 8
+  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 9
+  %3 = load ptr, ptr %vfn.i, align 8
+  call void %3(ptr noundef nonnull align 8 dereferenceable(12) %1, ptr noundef nonnull align 8 dereferenceable(16) %distance2.i, double %agg.tmp.sroa.0.0.copyload.i, double %agg.tmp.sroa.2.0.copyload.i, double noundef %2)
+  %4 = load double, ptr %distance2.i, align 8
+  %5 = call double @llvm.fabs.f64(double %4)
+  %6 = call double @llvm.fabs.f64(double %cond.i)
+  %cmp6.i = fcmp olt double %5, %6
+  br i1 %cmp6.i, label %if.then7.i, label %_ZNK7msdfgen26PseudoDistanceSelectorBase15computeDistanceERKNS_7Vector2E.exit
+
+if.then7.i:                                       ; preds = %if.then.i
+  br label %_ZNK7msdfgen26PseudoDistanceSelectorBase15computeDistanceERKNS_7Vector2E.exit
+
+_ZNK7msdfgen26PseudoDistanceSelectorBase15computeDistanceERKNS_7Vector2E.exit: ; preds = %entry, %if.then.i, %if.then7.i
+  %minDistance.0.i = phi double [ %4, %if.then7.i ], [ %cond.i, %if.then.i ], [ %cond.i, %entry ]
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %distance2.i)
+  ret double %minDistance.0.i
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
+define dso_local void @_ZN7msdfgen21MultiDistanceSelector5resetERKNS_7Vector2E(ptr nocapture noundef nonnull align 8 dereferenceable(160) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %p) local_unnamed_addr #1 align 2 {
+entry:
+  %agg.tmp.sroa.0.0.copyload = load double, ptr %p, align 8
+  %agg.tmp.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %p, i64 8
+  %agg.tmp.sroa.2.0.copyload = load double, ptr %agg.tmp.sroa.2.0..sroa_idx, align 8
+  %agg.tmp2.sroa.0.0.copyload = load double, ptr %this, align 8
+  %agg.tmp2.sroa.2.0.p3.sroa_idx = getelementptr inbounds i8, ptr %this, i64 8
+  %agg.tmp2.sroa.2.0.copyload = load double, ptr %agg.tmp2.sroa.2.0.p3.sroa_idx, align 8
+  %sub.i = fsub double %agg.tmp.sroa.0.0.copyload, %agg.tmp2.sroa.0.0.copyload
+  %sub3.i = fsub double %agg.tmp.sroa.2.0.copyload, %agg.tmp2.sroa.2.0.copyload
+  %mul4.i = fmul double %sub3.i, %sub3.i
+  %0 = tail call double @llvm.fmuladd.f64(double %sub.i, double %sub.i, double %mul4.i)
+  %sqrt.i = tail call noundef double @llvm.sqrt.f64(double %0)
+  %mul = fmul double %sqrt.i, 1.001000e+00
+  %r = getelementptr inbounds %"class.msdfgen::MultiDistanceSelector", ptr %this, i64 0, i32 1
+  %1 = load double, ptr %r, align 8
+  %cmp.i.i = fcmp ogt double %1, 0.000000e+00
+  %conv.i = select i1 %cmp.i.i, double 1.000000e+00, double -1.000000e+00
+  %2 = tail call double @llvm.fmuladd.f64(double %conv.i, double %mul, double %1)
+  store double %2, ptr %r, align 8
+  %3 = tail call double @llvm.fabs.f64(double %2)
+  %fneg.i = fneg double %3
+  %minNegativePseudoDistance.i = getelementptr inbounds %"class.msdfgen::MultiDistanceSelector", ptr %this, i64 0, i32 1, i32 1
+  store double %fneg.i, ptr %minNegativePseudoDistance.i, align 8
+  %minPositivePseudoDistance.i = getelementptr inbounds %"class.msdfgen::MultiDistanceSelector", ptr %this, i64 0, i32 1, i32 2
+  store double %3, ptr %minPositivePseudoDistance.i, align 8
+  %nearEdge.i = getelementptr inbounds %"class.msdfgen::MultiDistanceSelector", ptr %this, i64 0, i32 1, i32 3
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %nearEdge.i, i8 0, i64 16, i1 false)
+  %g = getelementptr inbounds %"class.msdfgen::MultiDistanceSelector", ptr %this, i64 0, i32 2
+  %4 = load double, ptr %g, align 8
+  %cmp.i.i4 = fcmp ogt double %4, 0.000000e+00
+  %conv.i5 = select i1 %cmp.i.i4, double 1.000000e+00, double -1.000000e+00
+  %5 = tail call double @llvm.fmuladd.f64(double %conv.i5, double %mul, double %4)
+  store double %5, ptr %g, align 8
+  %6 = tail call double @llvm.fabs.f64(double %5)
+  %fneg.i6 = fneg double %6
+  %minNegativePseudoDistance.i7 = getelementptr inbounds %"class.msdfgen::MultiDistanceSelector", ptr %this, i64 0, i32 2, i32 1
+  store double %fneg.i6, ptr %minNegativePseudoDistance.i7, align 8
+  %minPositivePseudoDistance.i8 = getelementptr inbounds %"class.msdfgen::MultiDistanceSelector", ptr %this, i64 0, i32 2, i32 2
+  store double %6, ptr %minPositivePseudoDistance.i8, align 8
+  %nearEdge.i9 = getelementptr inbounds %"class.msdfgen::MultiDistanceSelector", ptr %this, i64 0, i32 2, i32 3
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %nearEdge.i9, i8 0, i64 16, i1 false)
+  %b = getelementptr inbounds %"class.msdfgen::MultiDistanceSelector", ptr %this, i64 0, i32 3
+  %7 = load double, ptr %b, align 8
+  %cmp.i.i10 = fcmp ogt double %7, 0.000000e+00
+  %conv.i11 = select i1 %cmp.i.i10, double 1.000000e+00, double -1.000000e+00
+  %8 = tail call double @llvm.fmuladd.f64(double %conv.i11, double %mul, double %7)
+  store double %8, ptr %b, align 8
+  %9 = tail call double @llvm.fabs.f64(double %8)
+  %fneg.i12 = fneg double %9
+  %minNegativePseudoDistance.i13 = getelementptr inbounds %"class.msdfgen::MultiDistanceSelector", ptr %this, i64 0, i32 3, i32 1
+  store double %fneg.i12, ptr %minNegativePseudoDistance.i13, align 8
+  %minPositivePseudoDistance.i14 = getelementptr inbounds %"class.msdfgen::MultiDistanceSelector", ptr %this, i64 0, i32 3, i32 2
+  store double %9, ptr %minPositivePseudoDistance.i14, align 8
+  %nearEdge.i15 = getelementptr inbounds %"class.msdfgen::MultiDistanceSelector", ptr %this, i64 0, i32 3, i32 3
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %nearEdge.i15, i8 0, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %p, i64 16, i1 false)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define dso_local void @_ZN7msdfgen21MultiDistanceSelector7addEdgeERNS_26PseudoDistanceSelectorBase9EdgeCacheEPKNS_11EdgeSegmentES6_S6_(ptr noundef nonnull align 8 dereferenceable(160) %this, ptr nocapture noundef nonnull align 8 dereferenceable(56) %cache, ptr noundef %prevEdge, ptr noundef %edge, ptr noundef %nextEdge) local_unnamed_addr #4 align 2 {
+entry:
+  %param = alloca double, align 8
+  %color = getelementptr inbounds %"class.msdfgen::EdgeSegment", ptr %edge, i64 0, i32 1
+  %0 = load i32, ptr %color, align 8
+  %and = and i32 %0, 1
+  %tobool.not = icmp eq i32 %and, 0
+  br i1 %tobool.not, label %lor.lhs.false, label %land.lhs.true
+
+land.lhs.true:                                    ; preds = %entry
+  %r = getelementptr inbounds %"class.msdfgen::MultiDistanceSelector", ptr %this, i64 0, i32 1
+  %agg.tmp.sroa.0.0.copyload.i = load double, ptr %this, align 8
+  %agg.tmp.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %this, i64 8
+  %agg.tmp.sroa.2.0.copyload.i = load double, ptr %agg.tmp.sroa.2.0..sroa_idx.i, align 8
+  %agg.tmp2.sroa.0.0.copyload.i = load double, ptr %cache, align 8
+  %agg.tmp2.sroa.2.0.point.sroa_idx.i = getelementptr inbounds i8, ptr %cache, i64 8
+  %agg.tmp2.sroa.2.0.copyload.i = load double, ptr %agg.tmp2.sroa.2.0.point.sroa_idx.i, align 8
+  %sub.i.i = fsub double %agg.tmp.sroa.0.0.copyload.i, %agg.tmp2.sroa.0.0.copyload.i
+  %sub3.i.i = fsub double %agg.tmp.sroa.2.0.copyload.i, %agg.tmp2.sroa.2.0.copyload.i
+  %mul4.i.i = fmul double %sub3.i.i, %sub3.i.i
+  %1 = tail call double @llvm.fmuladd.f64(double %sub.i.i, double %sub.i.i, double %mul4.i.i)
+  %sqrt.i.i = tail call noundef double @llvm.sqrt.f64(double %1)
+  %mul.i = fmul double %sqrt.i.i, 1.001000e+00
+  %absDistance.i = getelementptr inbounds %"struct.msdfgen::PseudoDistanceSelectorBase::EdgeCache", ptr %cache, i64 0, i32 1
+  %2 = load double, ptr %absDistance.i, align 8
+  %sub.i = fsub double %2, %mul.i
+  %3 = load double, ptr %r, align 8
+  %4 = tail call double @llvm.fabs.f64(double %3)
+  %cmp.i = fcmp ugt double %sub.i, %4
+  br i1 %cmp.i, label %lor.lhs.false.i, label %if.then
+
+lor.lhs.false.i:                                  ; preds = %land.lhs.true
+  %aDomainDistance.i = getelementptr inbounds %"struct.msdfgen::PseudoDistanceSelectorBase::EdgeCache", ptr %cache, i64 0, i32 2
+  %5 = load double, ptr %aDomainDistance.i, align 8
+  %6 = tail call double @llvm.fabs.f64(double %5)
+  %cmp4.i = fcmp olt double %6, %mul.i
+  br i1 %cmp4.i, label %if.then, label %lor.lhs.false5.i
+
+lor.lhs.false5.i:                                 ; preds = %lor.lhs.false.i
+  %bDomainDistance.i = getelementptr inbounds %"struct.msdfgen::PseudoDistanceSelectorBase::EdgeCache", ptr %cache, i64 0, i32 3
+  %7 = load double, ptr %bDomainDistance.i, align 8
+  %8 = tail call double @llvm.fabs.f64(double %7)
+  %cmp6.i = fcmp olt double %8, %mul.i
+  br i1 %cmp6.i, label %if.then, label %lor.lhs.false7.i
+
+lor.lhs.false7.i:                                 ; preds = %lor.lhs.false5.i
+  %cmp9.i = fcmp ogt double %5, 0.000000e+00
+  br i1 %cmp9.i, label %land.lhs.true.i, label %lor.rhs.i
+
+land.lhs.true.i:                                  ; preds = %lor.lhs.false7.i
+  %aPseudoDistance.i = getelementptr inbounds %"struct.msdfgen::PseudoDistanceSelectorBase::EdgeCache", ptr %cache, i64 0, i32 4
+  %9 = load double, ptr %aPseudoDistance.i, align 8
+  %cmp10.i = fcmp olt double %9, 0.000000e+00
+  br i1 %cmp10.i, label %cond.true.i, label %cond.false.i
+
+cond.true.i:                                      ; preds = %land.lhs.true.i
+  %add.i = fadd double %mul.i, %9
+  %minNegativePseudoDistance.i = getelementptr inbounds %"class.msdfgen::MultiDistanceSelector", ptr %this, i64 0, i32 1, i32 1
+  %10 = load double, ptr %minNegativePseudoDistance.i, align 8
+  %cmp12.i = fcmp ult double %add.i, %10
+  br i1 %cmp12.i, label %lor.rhs.i, label %if.then
+
+cond.false.i:                                     ; preds = %land.lhs.true.i
+  %sub14.i = fsub double %9, %mul.i
+  %minPositivePseudoDistance.i = getelementptr inbounds %"class.msdfgen::MultiDistanceSelector", ptr %this, i64 0, i32 1, i32 2
+  %11 = load double, ptr %minPositivePseudoDistance.i, align 8
+  %cmp15.i = fcmp ugt double %sub14.i, %11
+  br i1 %cmp15.i, label %lor.rhs.i, label %if.then
+
+lor.rhs.i:                                        ; preds = %cond.false.i, %cond.true.i, %lor.lhs.false7.i
+  %cmp17.i = fcmp ogt double %7, 0.000000e+00
+  br i1 %cmp17.i, label %land.rhs.i, label %lor.lhs.false
+
+land.rhs.i:                                       ; preds = %lor.rhs.i
+  %bPseudoDistance.i = getelementptr inbounds %"struct.msdfgen::PseudoDistanceSelectorBase::EdgeCache", ptr %cache, i64 0, i32 5
+  %12 = load double, ptr %bPseudoDistance.i, align 8
+  %cmp18.i = fcmp olt double %12, 0.000000e+00
+  br i1 %cmp18.i, label %cond.true19.i, label %_ZNK7msdfgen26PseudoDistanceSelectorBase14isEdgeRelevantERKNS0_9EdgeCacheEPKNS_11EdgeSegmentERKNS_7Vector2E.exit
+
+cond.true19.i:                                    ; preds = %land.rhs.i
+  %add21.i = fadd double %mul.i, %12
+  %minNegativePseudoDistance22.i = getelementptr inbounds %"class.msdfgen::MultiDistanceSelector", ptr %this, i64 0, i32 1, i32 1
+  %13 = load double, ptr %minNegativePseudoDistance22.i, align 8
+  %cmp23.i = fcmp ult double %add21.i, %13
+  br i1 %cmp23.i, label %lor.lhs.false, label %if.then
+
+_ZNK7msdfgen26PseudoDistanceSelectorBase14isEdgeRelevantERKNS0_9EdgeCacheEPKNS_11EdgeSegmentERKNS_7Vector2E.exit: ; preds = %land.rhs.i
+  %sub26.i = fsub double %12, %mul.i
+  %minPositivePseudoDistance27.i = getelementptr inbounds %"class.msdfgen::MultiDistanceSelector", ptr %this, i64 0, i32 1, i32 2
+  %14 = load double, ptr %minPositivePseudoDistance27.i, align 8
+  %cmp28.i = fcmp ugt double %sub26.i, %14
+  br i1 %cmp28.i, label %lor.lhs.false, label %if.then
+
+lor.lhs.false:                                    ; preds = %lor.rhs.i, %cond.true19.i, %_ZNK7msdfgen26PseudoDistanceSelectorBase14isEdgeRelevantERKNS0_9EdgeCacheEPKNS_11EdgeSegmentERKNS_7Vector2E.exit, %entry
+  %and3 = and i32 %0, 2
+  %tobool4.not = icmp eq i32 %and3, 0
+  br i1 %tobool4.not, label %lor.lhs.false8, label %land.lhs.true5
+
+land.lhs.true5:                                   ; preds = %lor.lhs.false
+  %g = getelementptr inbounds %"class.msdfgen::MultiDistanceSelector", ptr %this, i64 0, i32 2
+  %agg.tmp.sroa.0.0.copyload.i33 = load double, ptr %this, align 8
+  %agg.tmp.sroa.2.0..sroa_idx.i34 = getelementptr inbounds i8, ptr %this, i64 8
+  %agg.tmp.sroa.2.0.copyload.i35 = load double, ptr %agg.tmp.sroa.2.0..sroa_idx.i34, align 8
+  %agg.tmp2.sroa.0.0.copyload.i36 = load double, ptr %cache, align 8
+  %agg.tmp2.sroa.2.0.point.sroa_idx.i37 = getelementptr inbounds i8, ptr %cache, i64 8
+  %agg.tmp2.sroa.2.0.copyload.i38 = load double, ptr %agg.tmp2.sroa.2.0.point.sroa_idx.i37, align 8
+  %sub.i.i39 = fsub double %agg.tmp.sroa.0.0.copyload.i33, %agg.tmp2.sroa.0.0.copyload.i36
+  %sub3.i.i40 = fsub double %agg.tmp.sroa.2.0.copyload.i35, %agg.tmp2.sroa.2.0.copyload.i38
+  %mul4.i.i41 = fmul double %sub3.i.i40, %sub3.i.i40
+  %15 = tail call double @llvm.fmuladd.f64(double %sub.i.i39, double %sub.i.i39, double %mul4.i.i41)
+  %sqrt.i.i42 = tail call noundef double @llvm.sqrt.f64(double %15)
+  %mul.i43 = fmul double %sqrt.i.i42, 1.001000e+00
+  %absDistance.i44 = getelementptr inbounds %"struct.msdfgen::PseudoDistanceSelectorBase::EdgeCache", ptr %cache, i64 0, i32 1
+  %16 = load double, ptr %absDistance.i44, align 8
+  %sub.i45 = fsub double %16, %mul.i43
+  %17 = load double, ptr %g, align 8
+  %18 = tail call double @llvm.fabs.f64(double %17)
+  %cmp.i46 = fcmp ugt double %sub.i45, %18
+  br i1 %cmp.i46, label %lor.lhs.false.i47, label %if.then
+
+lor.lhs.false.i47:                                ; preds = %land.lhs.true5
+  %aDomainDistance.i48 = getelementptr inbounds %"struct.msdfgen::PseudoDistanceSelectorBase::EdgeCache", ptr %cache, i64 0, i32 2
+  %19 = load double, ptr %aDomainDistance.i48, align 8
+  %20 = tail call double @llvm.fabs.f64(double %19)
+  %cmp4.i49 = fcmp olt double %20, %mul.i43
+  br i1 %cmp4.i49, label %if.then, label %lor.lhs.false5.i50
+
+lor.lhs.false5.i50:                               ; preds = %lor.lhs.false.i47
+  %bDomainDistance.i51 = getelementptr inbounds %"struct.msdfgen::PseudoDistanceSelectorBase::EdgeCache", ptr %cache, i64 0, i32 3
+  %21 = load double, ptr %bDomainDistance.i51, align 8
+  %22 = tail call double @llvm.fabs.f64(double %21)
+  %cmp6.i52 = fcmp olt double %22, %mul.i43
+  br i1 %cmp6.i52, label %if.then, label %lor.lhs.false7.i53
+
+lor.lhs.false7.i53:                               ; preds = %lor.lhs.false5.i50
+  %cmp9.i54 = fcmp ogt double %19, 0.000000e+00
+  br i1 %cmp9.i54, label %land.lhs.true.i68, label %lor.rhs.i55
+
+land.lhs.true.i68:                                ; preds = %lor.lhs.false7.i53
+  %aPseudoDistance.i69 = getelementptr inbounds %"struct.msdfgen::PseudoDistanceSelectorBase::EdgeCache", ptr %cache, i64 0, i32 4
+  %23 = load double, ptr %aPseudoDistance.i69, align 8
+  %cmp10.i70 = fcmp olt double %23, 0.000000e+00
+  br i1 %cmp10.i70, label %cond.true.i75, label %cond.false.i71
+
+cond.true.i75:                                    ; preds = %land.lhs.true.i68
+  %add.i76 = fadd double %mul.i43, %23
+  %minNegativePseudoDistance.i77 = getelementptr inbounds %"class.msdfgen::MultiDistanceSelector", ptr %this, i64 0, i32 2, i32 1
+  %24 = load double, ptr %minNegativePseudoDistance.i77, align 8
+  %cmp12.i78 = fcmp ult double %add.i76, %24
+  br i1 %cmp12.i78, label %lor.rhs.i55, label %if.then
+
+cond.false.i71:                                   ; preds = %land.lhs.true.i68
+  %sub14.i72 = fsub double %23, %mul.i43
+  %minPositivePseudoDistance.i73 = getelementptr inbounds %"class.msdfgen::MultiDistanceSelector", ptr %this, i64 0, i32 2, i32 2
+  %25 = load double, ptr %minPositivePseudoDistance.i73, align 8
+  %cmp15.i74 = fcmp ugt double %sub14.i72, %25
+  br i1 %cmp15.i74, label %lor.rhs.i55, label %if.then
+
+lor.rhs.i55:                                      ; preds = %cond.false.i71, %cond.true.i75, %lor.lhs.false7.i53
+  %cmp17.i56 = fcmp ogt double %21, 0.000000e+00
+  br i1 %cmp17.i56, label %land.rhs.i57, label %lor.lhs.false8
+
+land.rhs.i57:                                     ; preds = %lor.rhs.i55
+  %bPseudoDistance.i58 = getelementptr inbounds %"struct.msdfgen::PseudoDistanceSelectorBase::EdgeCache", ptr %cache, i64 0, i32 5
+  %26 = load double, ptr %bPseudoDistance.i58, align 8
+  %cmp18.i59 = fcmp olt double %26, 0.000000e+00
+  br i1 %cmp18.i59, label %cond.true19.i64, label %_ZNK7msdfgen26PseudoDistanceSelectorBase14isEdgeRelevantERKNS0_9EdgeCacheEPKNS_11EdgeSegmentERKNS_7Vector2E.exit79
+
+cond.true19.i64:                                  ; preds = %land.rhs.i57
+  %add21.i65 = fadd double %mul.i43, %26
+  %minNegativePseudoDistance22.i66 = getelementptr inbounds %"class.msdfgen::MultiDistanceSelector", ptr %this, i64 0, i32 2, i32 1
+  %27 = load double, ptr %minNegativePseudoDistance22.i66, align 8
+  %cmp23.i67 = fcmp ult double %add21.i65, %27
+  br i1 %cmp23.i67, label %lor.lhs.false8, label %if.then
+
+_ZNK7msdfgen26PseudoDistanceSelectorBase14isEdgeRelevantERKNS0_9EdgeCacheEPKNS_11EdgeSegmentERKNS_7Vector2E.exit79: ; preds = %land.rhs.i57
+  %sub26.i61 = fsub double %26, %mul.i43
+  %minPositivePseudoDistance27.i62 = getelementptr inbounds %"class.msdfgen::MultiDistanceSelector", ptr %this, i64 0, i32 2, i32 2
+  %28 = load double, ptr %minPositivePseudoDistance27.i62, align 8
+  %cmp28.i63 = fcmp ugt double %sub26.i61, %28
+  br i1 %cmp28.i63, label %lor.lhs.false8, label %if.then
+
+lor.lhs.false8:                                   ; preds = %lor.rhs.i55, %cond.true19.i64, %_ZNK7msdfgen26PseudoDistanceSelectorBase14isEdgeRelevantERKNS0_9EdgeCacheEPKNS_11EdgeSegmentERKNS_7Vector2E.exit79, %lor.lhs.false
+  %and10 = and i32 %0, 4
+  %tobool11.not = icmp eq i32 %and10, 0
+  br i1 %tobool11.not, label %if.end139, label %land.lhs.true12
+
+land.lhs.true12:                                  ; preds = %lor.lhs.false8
+  %b = getelementptr inbounds %"class.msdfgen::MultiDistanceSelector", ptr %this, i64 0, i32 3
+  %agg.tmp.sroa.0.0.copyload.i80 = load double, ptr %this, align 8
+  %agg.tmp.sroa.2.0..sroa_idx.i81 = getelementptr inbounds i8, ptr %this, i64 8
+  %agg.tmp.sroa.2.0.copyload.i82 = load double, ptr %agg.tmp.sroa.2.0..sroa_idx.i81, align 8
+  %agg.tmp2.sroa.0.0.copyload.i83 = load double, ptr %cache, align 8
+  %agg.tmp2.sroa.2.0.point.sroa_idx.i84 = getelementptr inbounds i8, ptr %cache, i64 8
+  %agg.tmp2.sroa.2.0.copyload.i85 = load double, ptr %agg.tmp2.sroa.2.0.point.sroa_idx.i84, align 8
+  %sub.i.i86 = fsub double %agg.tmp.sroa.0.0.copyload.i80, %agg.tmp2.sroa.0.0.copyload.i83
+  %sub3.i.i87 = fsub double %agg.tmp.sroa.2.0.copyload.i82, %agg.tmp2.sroa.2.0.copyload.i85
+  %mul4.i.i88 = fmul double %sub3.i.i87, %sub3.i.i87
+  %29 = tail call double @llvm.fmuladd.f64(double %sub.i.i86, double %sub.i.i86, double %mul4.i.i88)
+  %sqrt.i.i89 = tail call noundef double @llvm.sqrt.f64(double %29)
+  %mul.i90 = fmul double %sqrt.i.i89, 1.001000e+00
+  %absDistance.i91 = getelementptr inbounds %"struct.msdfgen::PseudoDistanceSelectorBase::EdgeCache", ptr %cache, i64 0, i32 1
+  %30 = load double, ptr %absDistance.i91, align 8
+  %sub.i92 = fsub double %30, %mul.i90
+  %31 = load double, ptr %b, align 8
+  %32 = tail call double @llvm.fabs.f64(double %31)
+  %cmp.i93 = fcmp ugt double %sub.i92, %32
+  br i1 %cmp.i93, label %lor.lhs.false.i94, label %if.then
+
+lor.lhs.false.i94:                                ; preds = %land.lhs.true12
+  %aDomainDistance.i95 = getelementptr inbounds %"struct.msdfgen::PseudoDistanceSelectorBase::EdgeCache", ptr %cache, i64 0, i32 2
+  %33 = load double, ptr %aDomainDistance.i95, align 8
+  %34 = tail call double @llvm.fabs.f64(double %33)
+  %cmp4.i96 = fcmp olt double %34, %mul.i90
+  br i1 %cmp4.i96, label %if.then, label %lor.lhs.false5.i97
+
+lor.lhs.false5.i97:                               ; preds = %lor.lhs.false.i94
+  %bDomainDistance.i98 = getelementptr inbounds %"struct.msdfgen::PseudoDistanceSelectorBase::EdgeCache", ptr %cache, i64 0, i32 3
+  %35 = load double, ptr %bDomainDistance.i98, align 8
+  %36 = tail call double @llvm.fabs.f64(double %35)
+  %cmp6.i99 = fcmp olt double %36, %mul.i90
+  br i1 %cmp6.i99, label %if.then, label %lor.lhs.false7.i100
+
+lor.lhs.false7.i100:                              ; preds = %lor.lhs.false5.i97
+  %cmp9.i101 = fcmp ogt double %33, 0.000000e+00
+  br i1 %cmp9.i101, label %land.lhs.true.i115, label %lor.rhs.i102
+
+land.lhs.true.i115:                               ; preds = %lor.lhs.false7.i100
+  %aPseudoDistance.i116 = getelementptr inbounds %"struct.msdfgen::PseudoDistanceSelectorBase::EdgeCache", ptr %cache, i64 0, i32 4
+  %37 = load double, ptr %aPseudoDistance.i116, align 8
+  %cmp10.i117 = fcmp olt double %37, 0.000000e+00
+  br i1 %cmp10.i117, label %cond.true.i122, label %cond.false.i118
+
+cond.true.i122:                                   ; preds = %land.lhs.true.i115
+  %add.i123 = fadd double %mul.i90, %37
+  %minNegativePseudoDistance.i124 = getelementptr inbounds %"class.msdfgen::MultiDistanceSelector", ptr %this, i64 0, i32 3, i32 1
+  %38 = load double, ptr %minNegativePseudoDistance.i124, align 8
+  %cmp12.i125 = fcmp ult double %add.i123, %38
+  br i1 %cmp12.i125, label %lor.rhs.i102, label %if.then
+
+cond.false.i118:                                  ; preds = %land.lhs.true.i115
+  %sub14.i119 = fsub double %37, %mul.i90
+  %minPositivePseudoDistance.i120 = getelementptr inbounds %"class.msdfgen::MultiDistanceSelector", ptr %this, i64 0, i32 3, i32 2
+  %39 = load double, ptr %minPositivePseudoDistance.i120, align 8
+  %cmp15.i121 = fcmp ugt double %sub14.i119, %39
+  br i1 %cmp15.i121, label %lor.rhs.i102, label %if.then
+
+lor.rhs.i102:                                     ; preds = %cond.false.i118, %cond.true.i122, %lor.lhs.false7.i100
+  %cmp17.i103 = fcmp ogt double %35, 0.000000e+00
+  br i1 %cmp17.i103, label %land.rhs.i104, label %if.end139
+
+land.rhs.i104:                                    ; preds = %lor.rhs.i102
+  %bPseudoDistance.i105 = getelementptr inbounds %"struct.msdfgen::PseudoDistanceSelectorBase::EdgeCache", ptr %cache, i64 0, i32 5
+  %40 = load double, ptr %bPseudoDistance.i105, align 8
+  %cmp18.i106 = fcmp olt double %40, 0.000000e+00
+  br i1 %cmp18.i106, label %cond.true19.i111, label %_ZNK7msdfgen26PseudoDistanceSelectorBase14isEdgeRelevantERKNS0_9EdgeCacheEPKNS_11EdgeSegmentERKNS_7Vector2E.exit126
+
+cond.true19.i111:                                 ; preds = %land.rhs.i104
+  %add21.i112 = fadd double %mul.i90, %40
+  %minNegativePseudoDistance22.i113 = getelementptr inbounds %"class.msdfgen::MultiDistanceSelector", ptr %this, i64 0, i32 3, i32 1
+  %41 = load double, ptr %minNegativePseudoDistance22.i113, align 8
+  %cmp23.i114 = fcmp ult double %add21.i112, %41
+  br i1 %cmp23.i114, label %if.end139, label %if.then
+
+_ZNK7msdfgen26PseudoDistanceSelectorBase14isEdgeRelevantERKNS0_9EdgeCacheEPKNS_11EdgeSegmentERKNS_7Vector2E.exit126: ; preds = %land.rhs.i104
+  %sub26.i108 = fsub double %40, %mul.i90
+  %minPositivePseudoDistance27.i109 = getelementptr inbounds %"class.msdfgen::MultiDistanceSelector", ptr %this, i64 0, i32 3, i32 2
+  %42 = load double, ptr %minPositivePseudoDistance27.i109, align 8
+  %cmp28.i110 = fcmp ugt double %sub26.i108, %42
+  br i1 %cmp28.i110, label %if.end139, label %if.then
+
+if.then:                                          ; preds = %land.lhs.true12, %lor.lhs.false.i94, %lor.lhs.false5.i97, %cond.true.i122, %cond.false.i118, %land.lhs.true5, %lor.lhs.false.i47, %lor.lhs.false5.i50, %cond.true.i75, %cond.false.i71, %land.lhs.true, %lor.lhs.false.i, %lor.lhs.false5.i, %cond.true.i, %cond.false.i, %cond.true19.i111, %cond.true19.i64, %cond.true19.i, %_ZNK7msdfgen26PseudoDistanceSelectorBase14isEdgeRelevantERKNS0_9EdgeCacheEPKNS_11EdgeSegmentERKNS_7Vector2E.exit126, %_ZNK7msdfgen26PseudoDistanceSelectorBase14isEdgeRelevantERKNS0_9EdgeCacheEPKNS_11EdgeSegmentERKNS_7Vector2E.exit79, %_ZNK7msdfgen26PseudoDistanceSelectorBase14isEdgeRelevantERKNS0_9EdgeCacheEPKNS_11EdgeSegmentERKNS_7Vector2E.exit
+  %agg.tmp.sroa.2.0.copyload = phi double [ %agg.tmp.sroa.2.0.copyload.i82, %land.lhs.true12 ], [ %agg.tmp.sroa.2.0.copyload.i82, %lor.lhs.false.i94 ], [ %agg.tmp.sroa.2.0.copyload.i82, %lor.lhs.false5.i97 ], [ %agg.tmp.sroa.2.0.copyload.i82, %cond.true.i122 ], [ %agg.tmp.sroa.2.0.copyload.i82, %cond.false.i118 ], [ %agg.tmp.sroa.2.0.copyload.i35, %land.lhs.true5 ], [ %agg.tmp.sroa.2.0.copyload.i35, %lor.lhs.false.i47 ], [ %agg.tmp.sroa.2.0.copyload.i35, %lor.lhs.false5.i50 ], [ %agg.tmp.sroa.2.0.copyload.i35, %cond.true.i75 ], [ %agg.tmp.sroa.2.0.copyload.i35, %cond.false.i71 ], [ %agg.tmp.sroa.2.0.copyload.i, %land.lhs.true ], [ %agg.tmp.sroa.2.0.copyload.i, %lor.lhs.false.i ], [ %agg.tmp.sroa.2.0.copyload.i, %lor.lhs.false5.i ], [ %agg.tmp.sroa.2.0.copyload.i, %cond.true.i ], [ %agg.tmp.sroa.2.0.copyload.i, %cond.false.i ], [ %agg.tmp.sroa.2.0.copyload.i82, %cond.true19.i111 ], [ %agg.tmp.sroa.2.0.copyload.i35, %cond.true19.i64 ], [ %agg.tmp.sroa.2.0.copyload.i, %cond.true19.i ], [ %agg.tmp.sroa.2.0.copyload.i82, %_ZNK7msdfgen26PseudoDistanceSelectorBase14isEdgeRelevantERKNS0_9EdgeCacheEPKNS_11EdgeSegmentERKNS_7Vector2E.exit126 ], [ %agg.tmp.sroa.2.0.copyload.i35, %_ZNK7msdfgen26PseudoDistanceSelectorBase14isEdgeRelevantERKNS0_9EdgeCacheEPKNS_11EdgeSegmentERKNS_7Vector2E.exit79 ], [ %agg.tmp.sroa.2.0.copyload.i, %_ZNK7msdfgen26PseudoDistanceSelectorBase14isEdgeRelevantERKNS0_9EdgeCacheEPKNS_11EdgeSegmentERKNS_7Vector2E.exit ]
+  %agg.tmp.sroa.0.0.copyload = phi double [ %agg.tmp.sroa.0.0.copyload.i80, %land.lhs.true12 ], [ %agg.tmp.sroa.0.0.copyload.i80, %lor.lhs.false.i94 ], [ %agg.tmp.sroa.0.0.copyload.i80, %lor.lhs.false5.i97 ], [ %agg.tmp.sroa.0.0.copyload.i80, %cond.true.i122 ], [ %agg.tmp.sroa.0.0.copyload.i80, %cond.false.i118 ], [ %agg.tmp.sroa.0.0.copyload.i33, %land.lhs.true5 ], [ %agg.tmp.sroa.0.0.copyload.i33, %lor.lhs.false.i47 ], [ %agg.tmp.sroa.0.0.copyload.i33, %lor.lhs.false5.i50 ], [ %agg.tmp.sroa.0.0.copyload.i33, %cond.true.i75 ], [ %agg.tmp.sroa.0.0.copyload.i33, %cond.false.i71 ], [ %agg.tmp.sroa.0.0.copyload.i, %land.lhs.true ], [ %agg.tmp.sroa.0.0.copyload.i, %lor.lhs.false.i ], [ %agg.tmp.sroa.0.0.copyload.i, %lor.lhs.false5.i ], [ %agg.tmp.sroa.0.0.copyload.i, %cond.true.i ], [ %agg.tmp.sroa.0.0.copyload.i, %cond.false.i ], [ %agg.tmp.sroa.0.0.copyload.i80, %cond.true19.i111 ], [ %agg.tmp.sroa.0.0.copyload.i33, %cond.true19.i64 ], [ %agg.tmp.sroa.0.0.copyload.i, %cond.true19.i ], [ %agg.tmp.sroa.0.0.copyload.i80, %_ZNK7msdfgen26PseudoDistanceSelectorBase14isEdgeRelevantERKNS0_9EdgeCacheEPKNS_11EdgeSegmentERKNS_7Vector2E.exit126 ], [ %agg.tmp.sroa.0.0.copyload.i33, %_ZNK7msdfgen26PseudoDistanceSelectorBase14isEdgeRelevantERKNS0_9EdgeCacheEPKNS_11EdgeSegmentERKNS_7Vector2E.exit79 ], [ %agg.tmp.sroa.0.0.copyload.i, %_ZNK7msdfgen26PseudoDistanceSelectorBase14isEdgeRelevantERKNS0_9EdgeCacheEPKNS_11EdgeSegmentERKNS_7Vector2E.exit ]
+  %agg.tmp.sroa.2.0.p15.sroa_idx = getelementptr inbounds i8, ptr %this, i64 8
+  %vtable = load ptr, ptr %edge, align 8
+  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 8
+  %43 = load ptr, ptr %vfn, align 8
+  %call16 = call { double, double } %43(ptr noundef nonnull align 8 dereferenceable(12) %edge, double %agg.tmp.sroa.0.0.copyload, double %agg.tmp.sroa.2.0.copyload, ptr noundef nonnull align 8 dereferenceable(8) %param)
+  %44 = extractvalue { double, double } %call16, 0
+  %45 = extractvalue { double, double } %call16, 1
+  %46 = load i32, ptr %color, align 8
+  %and18 = and i32 %46, 1
+  %tobool19.not = icmp eq i32 %and18, 0
+  br i1 %tobool19.not, label %if.end, label %if.then20
+
+if.then20:                                        ; preds = %if.then
+  %r21 = getelementptr inbounds %"class.msdfgen::MultiDistanceSelector", ptr %this, i64 0, i32 1
+  %47 = load double, ptr %param, align 8
+  %agg.tmp2.sroa.0.0.copyload.i128 = load double, ptr %r21, align 8
+  %48 = call double @llvm.fabs.f64(double %44)
+  %49 = call double @llvm.fabs.f64(double %agg.tmp2.sroa.0.0.copyload.i128)
+  %cmp.i.i = fcmp olt double %48, %49
+  br i1 %cmp.i.i, label %if.then.i, label %_ZN7msdfgenltENS_14SignedDistanceES0_.exit.i
+
+_ZN7msdfgenltENS_14SignedDistanceES0_.exit.i:     ; preds = %if.then20
+  %agg.tmp2.sroa.2.0.minTrueDistance.sroa_idx.i = getelementptr inbounds %"class.msdfgen::MultiDistanceSelector", ptr %this, i64 0, i32 1, i32 0, i32 1
+  %agg.tmp2.sroa.2.0.copyload.i129 = load double, ptr %agg.tmp2.sroa.2.0.minTrueDistance.sroa_idx.i, align 8
+  %cmp4.i.i = fcmp oeq double %48, %49
+  %cmp6.i.i = fcmp olt double %45, %agg.tmp2.sroa.2.0.copyload.i129
+  %50 = select i1 %cmp4.i.i, i1 %cmp6.i.i, i1 false
+  br i1 %50, label %if.then.i, label %if.end
+
+if.then.i:                                        ; preds = %_ZN7msdfgenltENS_14SignedDistanceES0_.exit.i, %if.then20
+  store double %44, ptr %r21, align 8
+  %distance.sroa.10.0.r21.sroa_idx = getelementptr inbounds %"class.msdfgen::MultiDistanceSelector", ptr %this, i64 0, i32 1, i32 0, i32 1
+  store double %45, ptr %distance.sroa.10.0.r21.sroa_idx, align 8
+  %nearEdge.i = getelementptr inbounds %"class.msdfgen::MultiDistanceSelector", ptr %this, i64 0, i32 1, i32 3
+  store ptr %edge, ptr %nearEdge.i, align 8
+  %nearEdgeParam.i = getelementptr inbounds %"class.msdfgen::MultiDistanceSelector", ptr %this, i64 0, i32 1, i32 4
+  store double %47, ptr %nearEdgeParam.i, align 8
+  %.pre = load i32, ptr %color, align 8
+  br label %if.end
+
+if.end:                                           ; preds = %if.then.i, %_ZN7msdfgenltENS_14SignedDistanceES0_.exit.i, %if.then
+  %51 = phi i32 [ %.pre, %if.then.i ], [ %46, %_ZN7msdfgenltENS_14SignedDistanceES0_.exit.i ], [ %46, %if.then ]
+  %and23 = and i32 %51, 2
+  %tobool24.not = icmp eq i32 %and23, 0
+  br i1 %tobool24.not, label %if.end27, label %if.then25
+
+if.then25:                                        ; preds = %if.end
+  %g26 = getelementptr inbounds %"class.msdfgen::MultiDistanceSelector", ptr %this, i64 0, i32 2
+  %52 = load double, ptr %param, align 8
+  %agg.tmp2.sroa.0.0.copyload.i133 = load double, ptr %g26, align 8
+  %53 = call double @llvm.fabs.f64(double %44)
+  %54 = call double @llvm.fabs.f64(double %agg.tmp2.sroa.0.0.copyload.i133)
+  %cmp.i.i134 = fcmp olt double %53, %54
+  br i1 %cmp.i.i134, label %if.then.i142, label %_ZN7msdfgenltENS_14SignedDistanceES0_.exit.i135
+
+_ZN7msdfgenltENS_14SignedDistanceES0_.exit.i135:  ; preds = %if.then25
+  %agg.tmp2.sroa.2.0.minTrueDistance.sroa_idx.i136 = getelementptr inbounds %"class.msdfgen::MultiDistanceSelector", ptr %this, i64 0, i32 2, i32 0, i32 1
+  %agg.tmp2.sroa.2.0.copyload.i137 = load double, ptr %agg.tmp2.sroa.2.0.minTrueDistance.sroa_idx.i136, align 8
+  %cmp4.i.i140 = fcmp oeq double %53, %54
+  %cmp6.i.i141 = fcmp olt double %45, %agg.tmp2.sroa.2.0.copyload.i137
+  %55 = select i1 %cmp4.i.i140, i1 %cmp6.i.i141, i1 false
+  br i1 %55, label %if.then.i142, label %if.end27
+
+if.then.i142:                                     ; preds = %_ZN7msdfgenltENS_14SignedDistanceES0_.exit.i135, %if.then25
+  store double %44, ptr %g26, align 8
+  %distance.sroa.10.0.g26.sroa_idx = getelementptr inbounds %"class.msdfgen::MultiDistanceSelector", ptr %this, i64 0, i32 2, i32 0, i32 1
+  store double %45, ptr %distance.sroa.10.0.g26.sroa_idx, align 8
+  %nearEdge.i143 = getelementptr inbounds %"class.msdfgen::MultiDistanceSelector", ptr %this, i64 0, i32 2, i32 3
+  store ptr %edge, ptr %nearEdge.i143, align 8
+  %nearEdgeParam.i144 = getelementptr inbounds %"class.msdfgen::MultiDistanceSelector", ptr %this, i64 0, i32 2, i32 4
+  store double %52, ptr %nearEdgeParam.i144, align 8
+  %.pre339 = load i32, ptr %color, align 8
+  br label %if.end27
+
+if.end27:                                         ; preds = %if.then.i142, %_ZN7msdfgenltENS_14SignedDistanceES0_.exit.i135, %if.end
+  %56 = phi i32 [ %.pre339, %if.then.i142 ], [ %51, %_ZN7msdfgenltENS_14SignedDistanceES0_.exit.i135 ], [ %51, %if.end ]
+  %and29 = and i32 %56, 4
+  %tobool30.not = icmp eq i32 %and29, 0
+  br i1 %tobool30.not, label %if.end27.if.end33_crit_edge, label %if.then31
+
+if.end27.if.end33_crit_edge:                      ; preds = %if.end27
+  %.pre340 = call double @llvm.fabs.f64(double %44)
+  br label %if.end33
+
+if.then31:                                        ; preds = %if.end27
+  %b32 = getelementptr inbounds %"class.msdfgen::MultiDistanceSelector", ptr %this, i64 0, i32 3
+  %57 = load double, ptr %param, align 8
+  %agg.tmp2.sroa.0.0.copyload.i147 = load double, ptr %b32, align 8
+  %58 = call double @llvm.fabs.f64(double %44)
+  %59 = call double @llvm.fabs.f64(double %agg.tmp2.sroa.0.0.copyload.i147)
+  %cmp.i.i148 = fcmp olt double %58, %59
+  br i1 %cmp.i.i148, label %if.then.i156, label %_ZN7msdfgenltENS_14SignedDistanceES0_.exit.i149
+
+_ZN7msdfgenltENS_14SignedDistanceES0_.exit.i149:  ; preds = %if.then31
+  %agg.tmp2.sroa.2.0.minTrueDistance.sroa_idx.i150 = getelementptr inbounds %"class.msdfgen::MultiDistanceSelector", ptr %this, i64 0, i32 3, i32 0, i32 1
+  %agg.tmp2.sroa.2.0.copyload.i151 = load double, ptr %agg.tmp2.sroa.2.0.minTrueDistance.sroa_idx.i150, align 8
+  %cmp4.i.i154 = fcmp oeq double %58, %59
+  %cmp6.i.i155 = fcmp olt double %45, %agg.tmp2.sroa.2.0.copyload.i151
+  %60 = select i1 %cmp4.i.i154, i1 %cmp6.i.i155, i1 false
+  br i1 %60, label %if.then.i156, label %if.end33
+
+if.then.i156:                                     ; preds = %_ZN7msdfgenltENS_14SignedDistanceES0_.exit.i149, %if.then31
+  store double %44, ptr %b32, align 8
+  %distance.sroa.10.0.b32.sroa_idx = getelementptr inbounds %"class.msdfgen::MultiDistanceSelector", ptr %this, i64 0, i32 3, i32 0, i32 1
+  store double %45, ptr %distance.sroa.10.0.b32.sroa_idx, align 8
+  %nearEdge.i157 = getelementptr inbounds %"class.msdfgen::MultiDistanceSelector", ptr %this, i64 0, i32 3, i32 3
+  store ptr %edge, ptr %nearEdge.i157, align 8
+  %nearEdgeParam.i158 = getelementptr inbounds %"class.msdfgen::MultiDistanceSelector", ptr %this, i64 0, i32 3, i32 4
+  store double %57, ptr %nearEdgeParam.i158, align 8
+  br label %if.end33
+
+if.end33:                                         ; preds = %if.end27.if.end33_crit_edge, %if.then.i156, %_ZN7msdfgenltENS_14SignedDistanceES0_.exit.i149
+  %.pre-phi = phi double [ %.pre340, %if.end27.if.end33_crit_edge ], [ %58, %if.then.i156 ], [ %58, %_ZN7msdfgenltENS_14SignedDistanceES0_.exit.i149 ]
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %cache, ptr noundef nonnull align 8 dereferenceable(16) %this, i64 16, i1 false)
+  %absDistance = getelementptr inbounds %"struct.msdfgen::PseudoDistanceSelectorBase::EdgeCache", ptr %cache, i64 0, i32 1
+  store double %.pre-phi, ptr %absDistance, align 8
+  %agg.tmp36.sroa.0.0.copyload = load double, ptr %this, align 8
+  %agg.tmp36.sroa.2.0.copyload = load double, ptr %agg.tmp.sroa.2.0.p15.sroa_idx, align 8
+  %vtable39 = load ptr, ptr %edge, align 8
+  %vfn40 = getelementptr inbounds ptr, ptr %vtable39, i64 5
+  %61 = load ptr, ptr %vfn40, align 8
+  %call41 = call { double, double } %61(ptr noundef nonnull align 8 dereferenceable(12) %edge, double noundef 0.000000e+00)
+  %62 = extractvalue { double, double } %call41, 0
+  %63 = extractvalue { double, double } %call41, 1
+  %sub.i160 = fsub double %agg.tmp36.sroa.0.0.copyload, %62
+  %sub3.i = fsub double %agg.tmp36.sroa.2.0.copyload, %63
+  %agg.tmp43.sroa.0.0.copyload = load double, ptr %this, align 8
+  %agg.tmp43.sroa.2.0.copyload = load double, ptr %agg.tmp.sroa.2.0.p15.sroa_idx, align 8
+  %vtable46 = load ptr, ptr %edge, align 8
+  %vfn47 = getelementptr inbounds ptr, ptr %vtable46, i64 5
+  %64 = load ptr, ptr %vfn47, align 8
+  %call48 = call { double, double } %64(ptr noundef nonnull align 8 dereferenceable(12) %edge, double noundef 1.000000e+00)
+  %65 = extractvalue { double, double } %call48, 0
+  %66 = extractvalue { double, double } %call48, 1
+  %sub.i161 = fsub double %agg.tmp43.sroa.0.0.copyload, %65
+  %sub3.i162 = fsub double %agg.tmp43.sroa.2.0.copyload, %66
+  %vtable50 = load ptr, ptr %edge, align 8
+  %vfn51 = getelementptr inbounds ptr, ptr %vtable50, i64 6
+  %67 = load ptr, ptr %vfn51, align 8
+  %call52 = call { double, double } %67(ptr noundef nonnull align 8 dereferenceable(12) %edge, double noundef 0.000000e+00)
+  %68 = extractvalue { double, double } %call52, 0
+  %69 = extractvalue { double, double } %call52, 1
+  %vtable55 = load ptr, ptr %edge, align 8
+  %vfn56 = getelementptr inbounds ptr, ptr %vtable55, i64 6
+  %70 = load ptr, ptr %vfn56, align 8
+  %call57 = call { double, double } %70(ptr noundef nonnull align 8 dereferenceable(12) %edge, double noundef 1.000000e+00)
+  %71 = extractvalue { double, double } %call57, 0
+  %72 = extractvalue { double, double } %call57, 1
+  %vtable60 = load ptr, ptr %prevEdge, align 8
+  %vfn61 = getelementptr inbounds ptr, ptr %vtable60, i64 6
+  %73 = load ptr, ptr %vfn61, align 8
+  %call62 = call { double, double } %73(ptr noundef nonnull align 8 dereferenceable(12) %prevEdge, double noundef 1.000000e+00)
+  %74 = extractvalue { double, double } %call62, 0
+  %75 = extractvalue { double, double } %call62, 1
+  %76 = insertelement <2 x double> poison, double %69, i64 0
+  %77 = insertelement <2 x double> %76, double %75, i64 1
+  %78 = fmul <2 x double> %77, %77
+  %79 = insertelement <2 x double> poison, double %68, i64 0
+  %80 = insertelement <2 x double> %79, double %74, i64 1
+  %81 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %80, <2 x double> %80, <2 x double> %78)
+  %82 = call <2 x double> @llvm.sqrt.v2f64(<2 x double> %81)
+  %83 = fcmp une <2 x double> %82, zeroinitializer
+  %84 = fdiv <2 x double> %80, %82
+  %85 = fdiv <2 x double> %77, %82
+  %86 = select <2 x i1> %83, <2 x double> %85, <2 x double> zeroinitializer
+  %87 = select <2 x i1> %83, <2 x double> %84, <2 x double> zeroinitializer
+  %vtable65 = load ptr, ptr %nextEdge, align 8
+  %vfn66 = getelementptr inbounds ptr, ptr %vtable65, i64 6
+  %88 = load ptr, ptr %vfn66, align 8
+  %call67 = call { double, double } %88(ptr noundef nonnull align 8 dereferenceable(12) %nextEdge, double noundef 0.000000e+00)
+  %89 = extractvalue { double, double } %call67, 0
+  %90 = extractvalue { double, double } %call67, 1
+  %91 = insertelement <2 x double> poison, double %72, i64 0
+  %92 = insertelement <2 x double> %91, double %90, i64 1
+  %93 = fmul <2 x double> %92, %92
+  %94 = insertelement <2 x double> poison, double %71, i64 0
+  %95 = insertelement <2 x double> %94, double %89, i64 1
+  %96 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %95, <2 x double> %95, <2 x double> %93)
+  %97 = call <2 x double> @llvm.sqrt.v2f64(<2 x double> %96)
+  %98 = fcmp une <2 x double> %97, zeroinitializer
+  %99 = fdiv <2 x double> %95, %97
+  %100 = fdiv <2 x double> %92, %97
+  %101 = select <2 x i1> %98, <2 x double> %100, <2 x double> zeroinitializer
+  %102 = select <2 x i1> %98, <2 x double> %99, <2 x double> zeroinitializer
+  %103 = shufflevector <2 x double> %102, <2 x double> %87, <2 x i32> <i32 0, i32 2>
+  %104 = shufflevector <2 x double> %102, <2 x double> %87, <2 x i32> <i32 1, i32 3>
+  %105 = fadd <2 x double> %103, %104
+  %106 = shufflevector <2 x double> %101, <2 x double> %86, <2 x i32> <i32 0, i32 2>
+  %107 = shufflevector <2 x double> %101, <2 x double> %86, <2 x i32> <i32 1, i32 3>
+  %108 = fadd <2 x double> %106, %107
+  %109 = fmul <2 x double> %108, %108
+  %110 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %105, <2 x double> %105, <2 x double> %109)
+  %111 = call <2 x double> @llvm.sqrt.v2f64(<2 x double> %110)
+  %112 = extractelement <2 x double> %111, i64 1
+  %113 = extractelement <2 x double> %105, i64 1
+  %div.i206 = fdiv double %113, %112
+  %114 = extractelement <2 x double> %108, i64 1
+  %div2.i207 = fdiv double %114, %112
+  %115 = fcmp une <2 x double> %111, zeroinitializer
+  %116 = extractelement <2 x i1> %115, i64 1
+  %retval.sroa.3.0.i208 = select i1 %116, double %div2.i207, double 0.000000e+00
+  %retval.sroa.0.0.i209 = select i1 %116, double %div.i206, double 0.000000e+00
+  %mul3.i = fmul double %sub3.i, %retval.sroa.3.0.i208
+  %117 = call noundef double @llvm.fmuladd.f64(double %sub.i160, double %retval.sroa.0.0.i209, double %mul3.i)
+  %118 = extractelement <2 x double> %111, i64 0
+  %119 = extractelement <2 x double> %105, i64 0
+  %div.i220 = fdiv double %119, %118
+  %120 = extractelement <2 x double> %108, i64 0
+  %div2.i221 = fdiv double %120, %118
+  %121 = extractelement <2 x i1> %115, i64 0
+  %retval.sroa.3.0.i222 = select i1 %121, double %div2.i221, double 0.000000e+00
+  %retval.sroa.0.0.i223 = select i1 %121, double %div.i220, double 0.000000e+00
+  %mul3.i226 = fmul double %sub3.i162, %retval.sroa.3.0.i222
+  %122 = call noundef double @llvm.fmuladd.f64(double %sub.i161, double %retval.sroa.0.0.i223, double %mul3.i226)
+  %fneg = fneg double %122
+  %cmp = fcmp ogt double %117, 0.000000e+00
+  br i1 %cmp, label %if.then85, label %if.end112
+
+if.then85:                                        ; preds = %if.end33
+  %123 = extractelement <2 x double> %87, i64 0
+  %fneg.i = fneg double %123
+  %124 = extractelement <2 x double> %86, i64 0
+  %fneg1.i = fneg double %124
+  %mul3.i.i = fmul double %sub3.i, %fneg1.i
+  %125 = call noundef double @llvm.fmuladd.f64(double %sub.i160, double %fneg.i, double %mul3.i.i)
+  %cmp.i232 = fcmp ogt double %125, 0.000000e+00
+  br i1 %cmp.i232, label %if.then.i233, label %if.end111
+
+if.then.i233:                                     ; preds = %if.then85
+  %neg.i.i = fmul double %sub3.i, %123
+  %126 = call noundef double @llvm.fmuladd.f64(double %sub.i160, double %fneg1.i, double %neg.i.i)
+  %127 = call double @llvm.fabs.f64(double %126)
+  %cmp5.i = fcmp olt double %127, %.pre-phi
+  br i1 %cmp5.i, label %if.then91, label %if.end111
+
+if.then91:                                        ; preds = %if.then.i233
+  %fneg92 = fneg double %126
+  %128 = load i32, ptr %color, align 8
+  %and94 = and i32 %128, 1
+  %tobool95.not = icmp eq i32 %and94, 0
+  br i1 %tobool95.not, label %if.end98, label %if.then96
+
+if.then96:                                        ; preds = %if.then91
+  %cmp.i234 = fcmp ult double %126, 0.000000e+00
+  br i1 %cmp.i234, label %if.end.i, label %land.lhs.true.i235
+
+land.lhs.true.i235:                               ; preds = %if.then96
+  %minNegativePseudoDistance.i236 = getelementptr inbounds %"class.msdfgen::MultiDistanceSelector", ptr %this, i64 0, i32 1, i32 1
+  %129 = load double, ptr %minNegativePseudoDistance.i236, align 8
+  %cmp2.i = fcmp olt double %129, %fneg92
+  br i1 %cmp2.i, label %if.then.i240, label %if.end.i
+
+if.then.i240:                                     ; preds = %land.lhs.true.i235
+  store double %fneg92, ptr %minNegativePseudoDistance.i236, align 8
+  br label %if.end.i
+
+if.end.i:                                         ; preds = %if.then.i240, %land.lhs.true.i235, %if.then96
+  %cmp4.i237 = fcmp ugt double %126, 0.000000e+00
+  br i1 %cmp4.i237, label %if.end98, label %land.lhs.true5.i
+
+land.lhs.true5.i:                                 ; preds = %if.end.i
+  %minPositivePseudoDistance.i238 = getelementptr inbounds %"class.msdfgen::MultiDistanceSelector", ptr %this, i64 0, i32 1, i32 2
+  %130 = load double, ptr %minPositivePseudoDistance.i238, align 8
+  %cmp6.i239 = fcmp ogt double %130, %fneg92
+  br i1 %cmp6.i239, label %if.then7.i, label %if.end98
+
+if.then7.i:                                       ; preds = %land.lhs.true5.i
+  store double %fneg92, ptr %minPositivePseudoDistance.i238, align 8
+  br label %if.end98
+
+if.end98:                                         ; preds = %if.then7.i, %land.lhs.true5.i, %if.end.i, %if.then91
+  %131 = load i32, ptr %color, align 8
+  %and100 = and i32 %131, 2
+  %tobool101.not = icmp eq i32 %and100, 0
+  br i1 %tobool101.not, label %if.end104, label %if.then102
+
+if.then102:                                       ; preds = %if.end98
+  %cmp.i241 = fcmp ult double %126, 0.000000e+00
+  br i1 %cmp.i241, label %if.end.i245, label %land.lhs.true.i242
+
+land.lhs.true.i242:                               ; preds = %if.then102
+  %minNegativePseudoDistance.i243 = getelementptr inbounds %"class.msdfgen::MultiDistanceSelector", ptr %this, i64 0, i32 2, i32 1
+  %132 = load double, ptr %minNegativePseudoDistance.i243, align 8
+  %cmp2.i244 = fcmp olt double %132, %fneg92
+  br i1 %cmp2.i244, label %if.then.i251, label %if.end.i245
+
+if.then.i251:                                     ; preds = %land.lhs.true.i242
+  store double %fneg92, ptr %minNegativePseudoDistance.i243, align 8
+  br label %if.end.i245
+
+if.end.i245:                                      ; preds = %if.then.i251, %land.lhs.true.i242, %if.then102
+  %cmp4.i246 = fcmp ugt double %126, 0.000000e+00
+  br i1 %cmp4.i246, label %if.end104, label %land.lhs.true5.i247
+
+land.lhs.true5.i247:                              ; preds = %if.end.i245
+  %minPositivePseudoDistance.i248 = getelementptr inbounds %"class.msdfgen::MultiDistanceSelector", ptr %this, i64 0, i32 2, i32 2
+  %133 = load double, ptr %minPositivePseudoDistance.i248, align 8
+  %cmp6.i249 = fcmp ogt double %133, %fneg92
+  br i1 %cmp6.i249, label %if.then7.i250, label %if.end104
+
+if.then7.i250:                                    ; preds = %land.lhs.true5.i247
+  store double %fneg92, ptr %minPositivePseudoDistance.i248, align 8
+  br label %if.end104
+
+if.end104:                                        ; preds = %if.then7.i250, %land.lhs.true5.i247, %if.end.i245, %if.end98
+  %134 = load i32, ptr %color, align 8
+  %and106 = and i32 %134, 4
+  %tobool107.not = icmp eq i32 %and106, 0
+  br i1 %tobool107.not, label %if.end111, label %if.then108
+
+if.then108:                                       ; preds = %if.end104
+  %cmp.i253 = fcmp ult double %126, 0.000000e+00
+  br i1 %cmp.i253, label %if.end.i257, label %land.lhs.true.i254
+
+land.lhs.true.i254:                               ; preds = %if.then108
+  %minNegativePseudoDistance.i255 = getelementptr inbounds %"class.msdfgen::MultiDistanceSelector", ptr %this, i64 0, i32 3, i32 1
+  %135 = load double, ptr %minNegativePseudoDistance.i255, align 8
+  %cmp2.i256 = fcmp olt double %135, %fneg92
+  br i1 %cmp2.i256, label %if.then.i263, label %if.end.i257
+
+if.then.i263:                                     ; preds = %land.lhs.true.i254
+  store double %fneg92, ptr %minNegativePseudoDistance.i255, align 8
+  br label %if.end.i257
+
+if.end.i257:                                      ; preds = %if.then.i263, %land.lhs.true.i254, %if.then108
+  %cmp4.i258 = fcmp ugt double %126, 0.000000e+00
+  br i1 %cmp4.i258, label %if.end111, label %land.lhs.true5.i259
+
+land.lhs.true5.i259:                              ; preds = %if.end.i257
+  %minPositivePseudoDistance.i260 = getelementptr inbounds %"class.msdfgen::MultiDistanceSelector", ptr %this, i64 0, i32 3, i32 2
+  %136 = load double, ptr %minPositivePseudoDistance.i260, align 8
+  %cmp6.i261 = fcmp ogt double %136, %fneg92
+  br i1 %cmp6.i261, label %if.then7.i262, label %if.end111
+
+if.then7.i262:                                    ; preds = %land.lhs.true5.i259
+  store double %fneg92, ptr %minPositivePseudoDistance.i260, align 8
+  br label %if.end111
+
+if.end111:                                        ; preds = %if.then85, %if.then.i233, %if.then7.i262, %land.lhs.true5.i259, %if.end.i257, %if.end104
+  %pd.1 = phi double [ %fneg92, %if.end104 ], [ %fneg92, %if.end.i257 ], [ %fneg92, %land.lhs.true5.i259 ], [ %fneg92, %if.then7.i262 ], [ %44, %if.then.i233 ], [ %44, %if.then85 ]
+  %aPseudoDistance = getelementptr inbounds %"struct.msdfgen::PseudoDistanceSelectorBase::EdgeCache", ptr %cache, i64 0, i32 4
+  store double %pd.1, ptr %aPseudoDistance, align 8
+  br label %if.end112
+
+if.end112:                                        ; preds = %if.end111, %if.end33
+  %cmp113 = fcmp olt double %122, 0.000000e+00
+  br i1 %cmp113, label %if.then114, label %if.end138
+
+if.then114:                                       ; preds = %if.end112
+  %137 = extractelement <2 x double> %101, i64 0
+  %mul3.i.i271 = fmul double %sub3.i162, %137
+  %138 = extractelement <2 x double> %102, i64 0
+  %139 = call noundef double @llvm.fmuladd.f64(double %sub.i161, double %138, double %mul3.i.i271)
+  %cmp.i272 = fcmp ogt double %139, 0.000000e+00
+  br i1 %cmp.i272, label %if.then.i274, label %if.end137
+
+if.then.i274:                                     ; preds = %if.then114
+  %140 = fneg double %sub3.i162
+  %neg.i.i275 = fmul double %138, %140
+  %141 = call noundef double @llvm.fmuladd.f64(double %sub.i161, double %137, double %neg.i.i275)
+  %142 = call double @llvm.fabs.f64(double %141)
+  %cmp5.i276 = fcmp olt double %142, %.pre-phi
+  br i1 %cmp5.i276, label %if.then118, label %if.end137
+
+if.then118:                                       ; preds = %if.then.i274
+  %143 = load i32, ptr %color, align 8
+  %and120 = and i32 %143, 1
+  %tobool121.not = icmp eq i32 %and120, 0
+  br i1 %tobool121.not, label %if.end124, label %if.then122
+
+if.then122:                                       ; preds = %if.then118
+  %cmp.i279 = fcmp ugt double %141, 0.000000e+00
+  br i1 %cmp.i279, label %if.end.i283, label %land.lhs.true.i280
+
+land.lhs.true.i280:                               ; preds = %if.then122
+  %minNegativePseudoDistance.i281 = getelementptr inbounds %"class.msdfgen::MultiDistanceSelector", ptr %this, i64 0, i32 1, i32 1
+  %144 = load double, ptr %minNegativePseudoDistance.i281, align 8
+  %cmp2.i282 = fcmp olt double %144, %141
+  br i1 %cmp2.i282, label %if.then.i289, label %if.end.i283
+
+if.then.i289:                                     ; preds = %land.lhs.true.i280
+  store double %141, ptr %minNegativePseudoDistance.i281, align 8
+  br label %if.end.i283
+
+if.end.i283:                                      ; preds = %if.then.i289, %land.lhs.true.i280, %if.then122
+  %cmp4.i284 = fcmp ult double %141, 0.000000e+00
+  br i1 %cmp4.i284, label %if.end124, label %land.lhs.true5.i285
+
+land.lhs.true5.i285:                              ; preds = %if.end.i283
+  %minPositivePseudoDistance.i286 = getelementptr inbounds %"class.msdfgen::MultiDistanceSelector", ptr %this, i64 0, i32 1, i32 2
+  %145 = load double, ptr %minPositivePseudoDistance.i286, align 8
+  %cmp6.i287 = fcmp ogt double %145, %141
+  br i1 %cmp6.i287, label %if.then7.i288, label %if.end124
+
+if.then7.i288:                                    ; preds = %land.lhs.true5.i285
+  store double %141, ptr %minPositivePseudoDistance.i286, align 8
+  br label %if.end124
+
+if.end124:                                        ; preds = %if.then7.i288, %land.lhs.true5.i285, %if.end.i283, %if.then118
+  %146 = load i32, ptr %color, align 8
+  %and126 = and i32 %146, 2
+  %tobool127.not = icmp eq i32 %and126, 0
+  br i1 %tobool127.not, label %if.end130, label %if.then128
+
+if.then128:                                       ; preds = %if.end124
+  %cmp.i291 = fcmp ugt double %141, 0.000000e+00
+  br i1 %cmp.i291, label %if.end.i295, label %land.lhs.true.i292
+
+land.lhs.true.i292:                               ; preds = %if.then128
+  %minNegativePseudoDistance.i293 = getelementptr inbounds %"class.msdfgen::MultiDistanceSelector", ptr %this, i64 0, i32 2, i32 1
+  %147 = load double, ptr %minNegativePseudoDistance.i293, align 8
+  %cmp2.i294 = fcmp olt double %147, %141
+  br i1 %cmp2.i294, label %if.then.i301, label %if.end.i295
+
+if.then.i301:                                     ; preds = %land.lhs.true.i292
+  store double %141, ptr %minNegativePseudoDistance.i293, align 8
+  br label %if.end.i295
+
+if.end.i295:                                      ; preds = %if.then.i301, %land.lhs.true.i292, %if.then128
+  %cmp4.i296 = fcmp ult double %141, 0.000000e+00
+  br i1 %cmp4.i296, label %if.end130, label %land.lhs.true5.i297
+
+land.lhs.true5.i297:                              ; preds = %if.end.i295
+  %minPositivePseudoDistance.i298 = getelementptr inbounds %"class.msdfgen::MultiDistanceSelector", ptr %this, i64 0, i32 2, i32 2
+  %148 = load double, ptr %minPositivePseudoDistance.i298, align 8
+  %cmp6.i299 = fcmp ogt double %148, %141
+  br i1 %cmp6.i299, label %if.then7.i300, label %if.end130
+
+if.then7.i300:                                    ; preds = %land.lhs.true5.i297
+  store double %141, ptr %minPositivePseudoDistance.i298, align 8
+  br label %if.end130
+
+if.end130:                                        ; preds = %if.then7.i300, %land.lhs.true5.i297, %if.end.i295, %if.end124
+  %149 = load i32, ptr %color, align 8
+  %and132 = and i32 %149, 4
+  %tobool133.not = icmp eq i32 %and132, 0
+  br i1 %tobool133.not, label %if.end137, label %if.then134
+
+if.then134:                                       ; preds = %if.end130
+  %cmp.i303 = fcmp ugt double %141, 0.000000e+00
+  br i1 %cmp.i303, label %if.end.i307, label %land.lhs.true.i304
+
+land.lhs.true.i304:                               ; preds = %if.then134
+  %minNegativePseudoDistance.i305 = getelementptr inbounds %"class.msdfgen::MultiDistanceSelector", ptr %this, i64 0, i32 3, i32 1
+  %150 = load double, ptr %minNegativePseudoDistance.i305, align 8
+  %cmp2.i306 = fcmp olt double %150, %141
+  br i1 %cmp2.i306, label %if.then.i313, label %if.end.i307
+
+if.then.i313:                                     ; preds = %land.lhs.true.i304
+  store double %141, ptr %minNegativePseudoDistance.i305, align 8
+  br label %if.end.i307
+
+if.end.i307:                                      ; preds = %if.then.i313, %land.lhs.true.i304, %if.then134
+  %cmp4.i308 = fcmp ult double %141, 0.000000e+00
+  br i1 %cmp4.i308, label %if.end137, label %land.lhs.true5.i309
+
+land.lhs.true5.i309:                              ; preds = %if.end.i307
+  %minPositivePseudoDistance.i310 = getelementptr inbounds %"class.msdfgen::MultiDistanceSelector", ptr %this, i64 0, i32 3, i32 2
+  %151 = load double, ptr %minPositivePseudoDistance.i310, align 8
+  %cmp6.i311 = fcmp ogt double %151, %141
+  br i1 %cmp6.i311, label %if.then7.i312, label %if.end137
+
+if.then7.i312:                                    ; preds = %land.lhs.true5.i309
+  store double %141, ptr %minPositivePseudoDistance.i310, align 8
+  br label %if.end137
+
+if.end137:                                        ; preds = %if.then114, %if.then.i274, %if.then7.i312, %land.lhs.true5.i309, %if.end.i307, %if.end130
+  %pd115.0336 = phi double [ %141, %if.end130 ], [ %141, %if.end.i307 ], [ %141, %land.lhs.true5.i309 ], [ %141, %if.then7.i312 ], [ %44, %if.then.i274 ], [ %44, %if.then114 ]
+  %bPseudoDistance = getelementptr inbounds %"struct.msdfgen::PseudoDistanceSelectorBase::EdgeCache", ptr %cache, i64 0, i32 5
+  store double %pd115.0336, ptr %bPseudoDistance, align 8
+  br label %if.end138
+
+if.end138:                                        ; preds = %if.end137, %if.end112
+  %aDomainDistance = getelementptr inbounds %"struct.msdfgen::PseudoDistanceSelectorBase::EdgeCache", ptr %cache, i64 0, i32 2
+  store double %117, ptr %aDomainDistance, align 8
+  %bDomainDistance = getelementptr inbounds %"struct.msdfgen::PseudoDistanceSelectorBase::EdgeCache", ptr %cache, i64 0, i32 3
+  store double %fneg, ptr %bDomainDistance, align 8
+  br label %if.end139
+
+if.end139:                                        ; preds = %lor.rhs.i102, %cond.true19.i111, %if.end138, %_ZNK7msdfgen26PseudoDistanceSelectorBase14isEdgeRelevantERKNS0_9EdgeCacheEPKNS_11EdgeSegmentERKNS_7Vector2E.exit126, %lor.lhs.false8
+  ret void
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
+define dso_local void @_ZN7msdfgen21MultiDistanceSelector5mergeERKS0_(ptr nocapture noundef nonnull align 8 dereferenceable(160) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(160) %other) local_unnamed_addr #1 align 2 {
+entry:
+  %r = getelementptr inbounds %"class.msdfgen::MultiDistanceSelector", ptr %this, i64 0, i32 1
+  %r2 = getelementptr inbounds %"class.msdfgen::MultiDistanceSelector", ptr %other, i64 0, i32 1
+  %agg.tmp.sroa.0.0.copyload.i = load double, ptr %r2, align 8
+  %agg.tmp2.sroa.0.0.copyload.i = load double, ptr %r, align 8
+  %0 = tail call double @llvm.fabs.f64(double %agg.tmp.sroa.0.0.copyload.i)
+  %1 = tail call double @llvm.fabs.f64(double %agg.tmp2.sroa.0.0.copyload.i)
+  %cmp.i.i = fcmp olt double %0, %1
+  br i1 %cmp.i.i, label %if.then.i, label %_ZN7msdfgenltENS_14SignedDistanceES0_.exit.i
+
+_ZN7msdfgenltENS_14SignedDistanceES0_.exit.i:     ; preds = %entry
+  %agg.tmp2.sroa.2.0.minTrueDistance3.sroa_idx.i = getelementptr inbounds %"class.msdfgen::MultiDistanceSelector", ptr %this, i64 0, i32 1, i32 0, i32 1
+  %agg.tmp2.sroa.2.0.copyload.i = load double, ptr %agg.tmp2.sroa.2.0.minTrueDistance3.sroa_idx.i, align 8
+  %agg.tmp.sroa.2.0.minTrueDistance.sroa_idx.i = getelementptr inbounds %"class.msdfgen::MultiDistanceSelector", ptr %other, i64 0, i32 1, i32 0, i32 1
+  %agg.tmp.sroa.2.0.copyload.i = load double, ptr %agg.tmp.sroa.2.0.minTrueDistance.sroa_idx.i, align 8
+  %cmp4.i.i = fcmp oeq double %0, %1
+  %cmp6.i.i = fcmp olt double %agg.tmp.sroa.2.0.copyload.i, %agg.tmp2.sroa.2.0.copyload.i
+  %2 = select i1 %cmp4.i.i, i1 %cmp6.i.i, i1 false
+  br i1 %2, label %if.then.i, label %if.end.i
+
+if.then.i:                                        ; preds = %_ZN7msdfgenltENS_14SignedDistanceES0_.exit.i, %entry
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %r, ptr noundef nonnull align 8 dereferenceable(16) %r2, i64 16, i1 false)
+  %nearEdge.i = getelementptr inbounds %"class.msdfgen::MultiDistanceSelector", ptr %other, i64 0, i32 1, i32 3
+  %3 = load ptr, ptr %nearEdge.i, align 8
+  %nearEdge6.i = getelementptr inbounds %"class.msdfgen::MultiDistanceSelector", ptr %this, i64 0, i32 1, i32 3
+  store ptr %3, ptr %nearEdge6.i, align 8
+  %nearEdgeParam.i = getelementptr inbounds %"class.msdfgen::MultiDistanceSelector", ptr %other, i64 0, i32 1, i32 4
+  %4 = load double, ptr %nearEdgeParam.i, align 8
+  %nearEdgeParam7.i = getelementptr inbounds %"class.msdfgen::MultiDistanceSelector", ptr %this, i64 0, i32 1, i32 4
+  store double %4, ptr %nearEdgeParam7.i, align 8
+  br label %if.end.i
+
+if.end.i:                                         ; preds = %if.then.i, %_ZN7msdfgenltENS_14SignedDistanceES0_.exit.i
+  %minNegativePseudoDistance.i = getelementptr inbounds %"class.msdfgen::MultiDistanceSelector", ptr %other, i64 0, i32 1, i32 1
+  %5 = load double, ptr %minNegativePseudoDistance.i, align 8
+  %minNegativePseudoDistance8.i = getelementptr inbounds %"class.msdfgen::MultiDistanceSelector", ptr %this, i64 0, i32 1, i32 1
+  %6 = load double, ptr %minNegativePseudoDistance8.i, align 8
+  %cmp.i = fcmp ogt double %5, %6
+  br i1 %cmp.i, label %if.then9.i, label %if.end12.i
+
+if.then9.i:                                       ; preds = %if.end.i
+  store double %5, ptr %minNegativePseudoDistance8.i, align 8
+  br label %if.end12.i
+
+if.end12.i:                                       ; preds = %if.then9.i, %if.end.i
+  %minPositivePseudoDistance.i = getelementptr inbounds %"class.msdfgen::MultiDistanceSelector", ptr %other, i64 0, i32 1, i32 2
+  %7 = load double, ptr %minPositivePseudoDistance.i, align 8
+  %minPositivePseudoDistance13.i = getelementptr inbounds %"class.msdfgen::MultiDistanceSelector", ptr %this, i64 0, i32 1, i32 2
+  %8 = load double, ptr %minPositivePseudoDistance13.i, align 8
+  %cmp14.i = fcmp olt double %7, %8
+  br i1 %cmp14.i, label %if.then15.i, label %_ZN7msdfgen26PseudoDistanceSelectorBase5mergeERKS0_.exit
+
+if.then15.i:                                      ; preds = %if.end12.i
+  store double %7, ptr %minPositivePseudoDistance13.i, align 8
+  br label %_ZN7msdfgen26PseudoDistanceSelectorBase5mergeERKS0_.exit
+
+_ZN7msdfgen26PseudoDistanceSelectorBase5mergeERKS0_.exit: ; preds = %if.end12.i, %if.then15.i
+  %g = getelementptr inbounds %"class.msdfgen::MultiDistanceSelector", ptr %this, i64 0, i32 2
+  %g3 = getelementptr inbounds %"class.msdfgen::MultiDistanceSelector", ptr %other, i64 0, i32 2
+  %agg.tmp.sroa.0.0.copyload.i3 = load double, ptr %g3, align 8
+  %agg.tmp2.sroa.0.0.copyload.i4 = load double, ptr %g, align 8
+  %9 = tail call double @llvm.fabs.f64(double %agg.tmp.sroa.0.0.copyload.i3)
+  %10 = tail call double @llvm.fabs.f64(double %agg.tmp2.sroa.0.0.copyload.i4)
+  %cmp.i.i5 = fcmp olt double %9, %10
+  br i1 %cmp.i.i5, label %if.then.i23, label %_ZN7msdfgenltENS_14SignedDistanceES0_.exit.i6
+
+_ZN7msdfgenltENS_14SignedDistanceES0_.exit.i6:    ; preds = %_ZN7msdfgen26PseudoDistanceSelectorBase5mergeERKS0_.exit
+  %agg.tmp2.sroa.2.0.minTrueDistance3.sroa_idx.i7 = getelementptr inbounds %"class.msdfgen::MultiDistanceSelector", ptr %this, i64 0, i32 2, i32 0, i32 1
+  %agg.tmp2.sroa.2.0.copyload.i8 = load double, ptr %agg.tmp2.sroa.2.0.minTrueDistance3.sroa_idx.i7, align 8
+  %agg.tmp.sroa.2.0.minTrueDistance.sroa_idx.i9 = getelementptr inbounds %"class.msdfgen::MultiDistanceSelector", ptr %other, i64 0, i32 2, i32 0, i32 1
+  %agg.tmp.sroa.2.0.copyload.i10 = load double, ptr %agg.tmp.sroa.2.0.minTrueDistance.sroa_idx.i9, align 8
+  %cmp4.i.i11 = fcmp oeq double %9, %10
+  %cmp6.i.i12 = fcmp olt double %agg.tmp.sroa.2.0.copyload.i10, %agg.tmp2.sroa.2.0.copyload.i8
+  %11 = select i1 %cmp4.i.i11, i1 %cmp6.i.i12, i1 false
+  br i1 %11, label %if.then.i23, label %if.end.i13
+
+if.then.i23:                                      ; preds = %_ZN7msdfgenltENS_14SignedDistanceES0_.exit.i6, %_ZN7msdfgen26PseudoDistanceSelectorBase5mergeERKS0_.exit
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %g, ptr noundef nonnull align 8 dereferenceable(16) %g3, i64 16, i1 false)
+  %nearEdge.i24 = getelementptr inbounds %"class.msdfgen::MultiDistanceSelector", ptr %other, i64 0, i32 2, i32 3
+  %12 = load ptr, ptr %nearEdge.i24, align 8
+  %nearEdge6.i25 = getelementptr inbounds %"class.msdfgen::MultiDistanceSelector", ptr %this, i64 0, i32 2, i32 3
+  store ptr %12, ptr %nearEdge6.i25, align 8
+  %nearEdgeParam.i26 = getelementptr inbounds %"class.msdfgen::MultiDistanceSelector", ptr %other, i64 0, i32 2, i32 4
+  %13 = load double, ptr %nearEdgeParam.i26, align 8
+  %nearEdgeParam7.i27 = getelementptr inbounds %"class.msdfgen::MultiDistanceSelector", ptr %this, i64 0, i32 2, i32 4
+  store double %13, ptr %nearEdgeParam7.i27, align 8
+  br label %if.end.i13
+
+if.end.i13:                                       ; preds = %if.then.i23, %_ZN7msdfgenltENS_14SignedDistanceES0_.exit.i6
+  %minNegativePseudoDistance.i14 = getelementptr inbounds %"class.msdfgen::MultiDistanceSelector", ptr %other, i64 0, i32 2, i32 1
+  %14 = load double, ptr %minNegativePseudoDistance.i14, align 8
+  %minNegativePseudoDistance8.i15 = getelementptr inbounds %"class.msdfgen::MultiDistanceSelector", ptr %this, i64 0, i32 2, i32 1
+  %15 = load double, ptr %minNegativePseudoDistance8.i15, align 8
+  %cmp.i16 = fcmp ogt double %14, %15
+  br i1 %cmp.i16, label %if.then9.i22, label %if.end12.i17
+
+if.then9.i22:                                     ; preds = %if.end.i13
+  store double %14, ptr %minNegativePseudoDistance8.i15, align 8
+  br label %if.end12.i17
+
+if.end12.i17:                                     ; preds = %if.then9.i22, %if.end.i13
+  %minPositivePseudoDistance.i18 = getelementptr inbounds %"class.msdfgen::MultiDistanceSelector", ptr %other, i64 0, i32 2, i32 2
+  %16 = load double, ptr %minPositivePseudoDistance.i18, align 8
+  %minPositivePseudoDistance13.i19 = getelementptr inbounds %"class.msdfgen::MultiDistanceSelector", ptr %this, i64 0, i32 2, i32 2
+  %17 = load double, ptr %minPositivePseudoDistance13.i19, align 8
+  %cmp14.i20 = fcmp olt double %16, %17
+  br i1 %cmp14.i20, label %if.then15.i21, label %_ZN7msdfgen26PseudoDistanceSelectorBase5mergeERKS0_.exit28
+
+if.then15.i21:                                    ; preds = %if.end12.i17
+  store double %16, ptr %minPositivePseudoDistance13.i19, align 8
+  br label %_ZN7msdfgen26PseudoDistanceSelectorBase5mergeERKS0_.exit28
+
+_ZN7msdfgen26PseudoDistanceSelectorBase5mergeERKS0_.exit28: ; preds = %if.end12.i17, %if.then15.i21
+  %b = getelementptr inbounds %"class.msdfgen::MultiDistanceSelector", ptr %this, i64 0, i32 3
+  %b4 = getelementptr inbounds %"class.msdfgen::MultiDistanceSelector", ptr %other, i64 0, i32 3
+  %agg.tmp.sroa.0.0.copyload.i29 = load double, ptr %b4, align 8
+  %agg.tmp2.sroa.0.0.copyload.i30 = load double, ptr %b, align 8
+  %18 = tail call double @llvm.fabs.f64(double %agg.tmp.sroa.0.0.copyload.i29)
+  %19 = tail call double @llvm.fabs.f64(double %agg.tmp2.sroa.0.0.copyload.i30)
+  %cmp.i.i31 = fcmp olt double %18, %19
+  br i1 %cmp.i.i31, label %if.then.i49, label %_ZN7msdfgenltENS_14SignedDistanceES0_.exit.i32
+
+_ZN7msdfgenltENS_14SignedDistanceES0_.exit.i32:   ; preds = %_ZN7msdfgen26PseudoDistanceSelectorBase5mergeERKS0_.exit28
+  %agg.tmp2.sroa.2.0.minTrueDistance3.sroa_idx.i33 = getelementptr inbounds %"class.msdfgen::MultiDistanceSelector", ptr %this, i64 0, i32 3, i32 0, i32 1
+  %agg.tmp2.sroa.2.0.copyload.i34 = load double, ptr %agg.tmp2.sroa.2.0.minTrueDistance3.sroa_idx.i33, align 8
+  %agg.tmp.sroa.2.0.minTrueDistance.sroa_idx.i35 = getelementptr inbounds %"class.msdfgen::MultiDistanceSelector", ptr %other, i64 0, i32 3, i32 0, i32 1
+  %agg.tmp.sroa.2.0.copyload.i36 = load double, ptr %agg.tmp.sroa.2.0.minTrueDistance.sroa_idx.i35, align 8
+  %cmp4.i.i37 = fcmp oeq double %18, %19
+  %cmp6.i.i38 = fcmp olt double %agg.tmp.sroa.2.0.copyload.i36, %agg.tmp2.sroa.2.0.copyload.i34
+  %20 = select i1 %cmp4.i.i37, i1 %cmp6.i.i38, i1 false
+  br i1 %20, label %if.then.i49, label %if.end.i39
+
+if.then.i49:                                      ; preds = %_ZN7msdfgenltENS_14SignedDistanceES0_.exit.i32, %_ZN7msdfgen26PseudoDistanceSelectorBase5mergeERKS0_.exit28
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %b, ptr noundef nonnull align 8 dereferenceable(16) %b4, i64 16, i1 false)
+  %nearEdge.i50 = getelementptr inbounds %"class.msdfgen::MultiDistanceSelector", ptr %other, i64 0, i32 3, i32 3
+  %21 = load ptr, ptr %nearEdge.i50, align 8
+  %nearEdge6.i51 = getelementptr inbounds %"class.msdfgen::MultiDistanceSelector", ptr %this, i64 0, i32 3, i32 3
+  store ptr %21, ptr %nearEdge6.i51, align 8
+  %nearEdgeParam.i52 = getelementptr inbounds %"class.msdfgen::MultiDistanceSelector", ptr %other, i64 0, i32 3, i32 4
+  %22 = load double, ptr %nearEdgeParam.i52, align 8
+  %nearEdgeParam7.i53 = getelementptr inbounds %"class.msdfgen::MultiDistanceSelector", ptr %this, i64 0, i32 3, i32 4
+  store double %22, ptr %nearEdgeParam7.i53, align 8
+  br label %if.end.i39
+
+if.end.i39:                                       ; preds = %if.then.i49, %_ZN7msdfgenltENS_14SignedDistanceES0_.exit.i32
+  %minNegativePseudoDistance.i40 = getelementptr inbounds %"class.msdfgen::MultiDistanceSelector", ptr %other, i64 0, i32 3, i32 1
+  %23 = load double, ptr %minNegativePseudoDistance.i40, align 8
+  %minNegativePseudoDistance8.i41 = getelementptr inbounds %"class.msdfgen::MultiDistanceSelector", ptr %this, i64 0, i32 3, i32 1
+  %24 = load double, ptr %minNegativePseudoDistance8.i41, align 8
+  %cmp.i42 = fcmp ogt double %23, %24
+  br i1 %cmp.i42, label %if.then9.i48, label %if.end12.i43
+
+if.then9.i48:                                     ; preds = %if.end.i39
+  store double %23, ptr %minNegativePseudoDistance8.i41, align 8
+  br label %if.end12.i43
+
+if.end12.i43:                                     ; preds = %if.then9.i48, %if.end.i39
+  %minPositivePseudoDistance.i44 = getelementptr inbounds %"class.msdfgen::MultiDistanceSelector", ptr %other, i64 0, i32 3, i32 2
+  %25 = load double, ptr %minPositivePseudoDistance.i44, align 8
+  %minPositivePseudoDistance13.i45 = getelementptr inbounds %"class.msdfgen::MultiDistanceSelector", ptr %this, i64 0, i32 3, i32 2
+  %26 = load double, ptr %minPositivePseudoDistance13.i45, align 8
+  %cmp14.i46 = fcmp olt double %25, %26
+  br i1 %cmp14.i46, label %if.then15.i47, label %_ZN7msdfgen26PseudoDistanceSelectorBase5mergeERKS0_.exit54
+
+if.then15.i47:                                    ; preds = %if.end12.i43
+  store double %25, ptr %minPositivePseudoDistance13.i45, align 8
+  br label %_ZN7msdfgen26PseudoDistanceSelectorBase5mergeERKS0_.exit54
+
+_ZN7msdfgen26PseudoDistanceSelectorBase5mergeERKS0_.exit54: ; preds = %if.end12.i43, %if.then15.i47
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define dso_local void @_ZNK7msdfgen21MultiDistanceSelector8distanceEv(ptr noalias nocapture writeonly sret(%"struct.msdfgen::MultiDistance") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(160) %this) local_unnamed_addr #4 align 2 {
+entry:
+  %distance2.i21 = alloca %"class.msdfgen::SignedDistance", align 8
+  %distance2.i1 = alloca %"class.msdfgen::SignedDistance", align 8
+  %distance2.i = alloca %"class.msdfgen::SignedDistance", align 8
+  %r = getelementptr inbounds %"class.msdfgen::MultiDistanceSelector", ptr %this, i64 0, i32 1
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %distance2.i)
+  %0 = load double, ptr %r, align 8
+  %cmp.i = fcmp olt double %0, 0.000000e+00
+  %minNegativePseudoDistance.i = getelementptr inbounds %"class.msdfgen::MultiDistanceSelector", ptr %this, i64 0, i32 1, i32 1
+  %minPositivePseudoDistance.i = getelementptr inbounds %"class.msdfgen::MultiDistanceSelector", ptr %this, i64 0, i32 1, i32 2
+  %minNegativePseudoDistance.val.i = load double, ptr %minNegativePseudoDistance.i, align 8
+  %minPositivePseudoDistance.val.i = load double, ptr %minPositivePseudoDistance.i, align 8
+  %cond.i = select i1 %cmp.i, double %minNegativePseudoDistance.val.i, double %minPositivePseudoDistance.val.i
+  %nearEdge.i = getelementptr inbounds %"class.msdfgen::MultiDistanceSelector", ptr %this, i64 0, i32 1, i32 3
+  %1 = load ptr, ptr %nearEdge.i, align 8
+  %tobool.not.i = icmp eq ptr %1, null
+  br i1 %tobool.not.i, label %_ZNK7msdfgen26PseudoDistanceSelectorBase15computeDistanceERKNS_7Vector2E.exit, label %if.then.i
+
+if.then.i:                                        ; preds = %entry
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %distance2.i, ptr noundef nonnull align 8 dereferenceable(16) %r, i64 16, i1 false)
+  %agg.tmp.sroa.0.0.copyload.i = load double, ptr %this, align 8
+  %agg.tmp.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %this, i64 8
+  %agg.tmp.sroa.2.0.copyload.i = load double, ptr %agg.tmp.sroa.2.0..sroa_idx.i, align 8
+  %nearEdgeParam.i = getelementptr inbounds %"class.msdfgen::MultiDistanceSelector", ptr %this, i64 0, i32 1, i32 4
+  %2 = load double, ptr %nearEdgeParam.i, align 8
+  %vtable.i = load ptr, ptr %1, align 8
+  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 9
+  %3 = load ptr, ptr %vfn.i, align 8
+  call void %3(ptr noundef nonnull align 8 dereferenceable(12) %1, ptr noundef nonnull align 8 dereferenceable(16) %distance2.i, double %agg.tmp.sroa.0.0.copyload.i, double %agg.tmp.sroa.2.0.copyload.i, double noundef %2)
+  %4 = load double, ptr %distance2.i, align 8
+  %5 = call double @llvm.fabs.f64(double %4)
+  %6 = call double @llvm.fabs.f64(double %cond.i)
+  %cmp6.i = fcmp olt double %5, %6
+  br i1 %cmp6.i, label %if.then7.i, label %_ZNK7msdfgen26PseudoDistanceSelectorBase15computeDistanceERKNS_7Vector2E.exit
+
+if.then7.i:                                       ; preds = %if.then.i
+  br label %_ZNK7msdfgen26PseudoDistanceSelectorBase15computeDistanceERKNS_7Vector2E.exit
+
+_ZNK7msdfgen26PseudoDistanceSelectorBase15computeDistanceERKNS_7Vector2E.exit: ; preds = %entry, %if.then.i, %if.then7.i
+  %minDistance.0.i = phi double [ %4, %if.then7.i ], [ %cond.i, %if.then.i ], [ %cond.i, %entry ]
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %distance2.i)
+  store double %minDistance.0.i, ptr %agg.result, align 8
+  %g = getelementptr inbounds %"class.msdfgen::MultiDistanceSelector", ptr %this, i64 0, i32 2
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %distance2.i1)
+  %7 = load double, ptr %g, align 8
+  %cmp.i2 = fcmp olt double %7, 0.000000e+00
+  %minNegativePseudoDistance.i3 = getelementptr inbounds %"class.msdfgen::MultiDistanceSelector", ptr %this, i64 0, i32 2, i32 1
+  %minPositivePseudoDistance.i4 = getelementptr inbounds %"class.msdfgen::MultiDistanceSelector", ptr %this, i64 0, i32 2, i32 2
+  %minNegativePseudoDistance.val.i5 = load double, ptr %minNegativePseudoDistance.i3, align 8
+  %minPositivePseudoDistance.val.i6 = load double, ptr %minPositivePseudoDistance.i4, align 8
+  %cond.i7 = select i1 %cmp.i2, double %minNegativePseudoDistance.val.i5, double %minPositivePseudoDistance.val.i6
+  %nearEdge.i8 = getelementptr inbounds %"class.msdfgen::MultiDistanceSelector", ptr %this, i64 0, i32 2, i32 3
+  %8 = load ptr, ptr %nearEdge.i8, align 8
+  %tobool.not.i9 = icmp eq ptr %8, null
+  br i1 %tobool.not.i9, label %_ZNK7msdfgen26PseudoDistanceSelectorBase15computeDistanceERKNS_7Vector2E.exit20, label %if.then.i10
+
+if.then.i10:                                      ; preds = %_ZNK7msdfgen26PseudoDistanceSelectorBase15computeDistanceERKNS_7Vector2E.exit
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %distance2.i1, ptr noundef nonnull align 8 dereferenceable(16) %g, i64 16, i1 false)
+  %agg.tmp.sroa.0.0.copyload.i11 = load double, ptr %this, align 8
+  %agg.tmp.sroa.2.0..sroa_idx.i12 = getelementptr inbounds i8, ptr %this, i64 8
+  %agg.tmp.sroa.2.0.copyload.i13 = load double, ptr %agg.tmp.sroa.2.0..sroa_idx.i12, align 8
+  %nearEdgeParam.i14 = getelementptr inbounds %"class.msdfgen::MultiDistanceSelector", ptr %this, i64 0, i32 2, i32 4
+  %9 = load double, ptr %nearEdgeParam.i14, align 8
+  %vtable.i15 = load ptr, ptr %8, align 8
+  %vfn.i16 = getelementptr inbounds ptr, ptr %vtable.i15, i64 9
+  %10 = load ptr, ptr %vfn.i16, align 8
+  call void %10(ptr noundef nonnull align 8 dereferenceable(12) %8, ptr noundef nonnull align 8 dereferenceable(16) %distance2.i1, double %agg.tmp.sroa.0.0.copyload.i11, double %agg.tmp.sroa.2.0.copyload.i13, double noundef %9)
+  %11 = load double, ptr %distance2.i1, align 8
+  %12 = call double @llvm.fabs.f64(double %11)
+  %13 = call double @llvm.fabs.f64(double %cond.i7)
+  %cmp6.i17 = fcmp olt double %12, %13
+  br i1 %cmp6.i17, label %if.then7.i19, label %_ZNK7msdfgen26PseudoDistanceSelectorBase15computeDistanceERKNS_7Vector2E.exit20
+
+if.then7.i19:                                     ; preds = %if.then.i10
+  br label %_ZNK7msdfgen26PseudoDistanceSelectorBase15computeDistanceERKNS_7Vector2E.exit20
+
+_ZNK7msdfgen26PseudoDistanceSelectorBase15computeDistanceERKNS_7Vector2E.exit20: ; preds = %_ZNK7msdfgen26PseudoDistanceSelectorBase15computeDistanceERKNS_7Vector2E.exit, %if.then.i10, %if.then7.i19
+  %minDistance.0.i18 = phi double [ %11, %if.then7.i19 ], [ %cond.i7, %if.then.i10 ], [ %cond.i7, %_ZNK7msdfgen26PseudoDistanceSelectorBase15computeDistanceERKNS_7Vector2E.exit ]
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %distance2.i1)
+  %g5 = getelementptr inbounds %"struct.msdfgen::MultiDistance", ptr %agg.result, i64 0, i32 1
+  store double %minDistance.0.i18, ptr %g5, align 8
+  %b = getelementptr inbounds %"class.msdfgen::MultiDistanceSelector", ptr %this, i64 0, i32 3
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %distance2.i21)
+  %14 = load double, ptr %b, align 8
+  %cmp.i22 = fcmp olt double %14, 0.000000e+00
+  %minNegativePseudoDistance.i23 = getelementptr inbounds %"class.msdfgen::MultiDistanceSelector", ptr %this, i64 0, i32 3, i32 1
+  %minPositivePseudoDistance.i24 = getelementptr inbounds %"class.msdfgen::MultiDistanceSelector", ptr %this, i64 0, i32 3, i32 2
+  %minNegativePseudoDistance.val.i25 = load double, ptr %minNegativePseudoDistance.i23, align 8
+  %minPositivePseudoDistance.val.i26 = load double, ptr %minPositivePseudoDistance.i24, align 8
+  %cond.i27 = select i1 %cmp.i22, double %minNegativePseudoDistance.val.i25, double %minPositivePseudoDistance.val.i26
+  %nearEdge.i28 = getelementptr inbounds %"class.msdfgen::MultiDistanceSelector", ptr %this, i64 0, i32 3, i32 3
+  %15 = load ptr, ptr %nearEdge.i28, align 8
+  %tobool.not.i29 = icmp eq ptr %15, null
+  br i1 %tobool.not.i29, label %_ZNK7msdfgen26PseudoDistanceSelectorBase15computeDistanceERKNS_7Vector2E.exit40, label %if.then.i30
+
+if.then.i30:                                      ; preds = %_ZNK7msdfgen26PseudoDistanceSelectorBase15computeDistanceERKNS_7Vector2E.exit20
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %distance2.i21, ptr noundef nonnull align 8 dereferenceable(16) %b, i64 16, i1 false)
+  %agg.tmp.sroa.0.0.copyload.i31 = load double, ptr %this, align 8
+  %agg.tmp.sroa.2.0..sroa_idx.i32 = getelementptr inbounds i8, ptr %this, i64 8
+  %agg.tmp.sroa.2.0.copyload.i33 = load double, ptr %agg.tmp.sroa.2.0..sroa_idx.i32, align 8
+  %nearEdgeParam.i34 = getelementptr inbounds %"class.msdfgen::MultiDistanceSelector", ptr %this, i64 0, i32 3, i32 4
+  %16 = load double, ptr %nearEdgeParam.i34, align 8
+  %vtable.i35 = load ptr, ptr %15, align 8
+  %vfn.i36 = getelementptr inbounds ptr, ptr %vtable.i35, i64 9
+  %17 = load ptr, ptr %vfn.i36, align 8
+  call void %17(ptr noundef nonnull align 8 dereferenceable(12) %15, ptr noundef nonnull align 8 dereferenceable(16) %distance2.i21, double %agg.tmp.sroa.0.0.copyload.i31, double %agg.tmp.sroa.2.0.copyload.i33, double noundef %16)
+  %18 = load double, ptr %distance2.i21, align 8
+  %19 = call double @llvm.fabs.f64(double %18)
+  %20 = call double @llvm.fabs.f64(double %cond.i27)
+  %cmp6.i37 = fcmp olt double %19, %20
+  br i1 %cmp6.i37, label %if.then7.i39, label %_ZNK7msdfgen26PseudoDistanceSelectorBase15computeDistanceERKNS_7Vector2E.exit40
+
+if.then7.i39:                                     ; preds = %if.then.i30
+  br label %_ZNK7msdfgen26PseudoDistanceSelectorBase15computeDistanceERKNS_7Vector2E.exit40
+
+_ZNK7msdfgen26PseudoDistanceSelectorBase15computeDistanceERKNS_7Vector2E.exit40: ; preds = %_ZNK7msdfgen26PseudoDistanceSelectorBase15computeDistanceERKNS_7Vector2E.exit20, %if.then.i30, %if.then7.i39
+  %minDistance.0.i38 = phi double [ %18, %if.then7.i39 ], [ %cond.i27, %if.then.i30 ], [ %cond.i27, %_ZNK7msdfgen26PseudoDistanceSelectorBase15computeDistanceERKNS_7Vector2E.exit20 ]
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %distance2.i21)
+  %b8 = getelementptr inbounds %"struct.msdfgen::MultiDistance", ptr %agg.result, i64 0, i32 2
+  store double %minDistance.0.i38, ptr %b8, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
+define dso_local { double, double } @_ZNK7msdfgen21MultiDistanceSelector12trueDistanceEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(160) %this) local_unnamed_addr #5 align 2 {
+entry:
+  %r = getelementptr inbounds %"class.msdfgen::MultiDistanceSelector", ptr %this, i64 0, i32 1
+  %retval.sroa.0.0.copyload.i = load double, ptr %r, align 8
+  %g = getelementptr inbounds %"class.msdfgen::MultiDistanceSelector", ptr %this, i64 0, i32 2
+  %retval.sroa.0.0.copyload.i1 = load double, ptr %g, align 8
+  %retval.sroa.2.0.minTrueDistance.sroa_idx.i2 = getelementptr inbounds %"class.msdfgen::MultiDistanceSelector", ptr %this, i64 0, i32 2, i32 0, i32 1
+  %retval.sroa.2.0.copyload.i3 = load double, ptr %retval.sroa.2.0.minTrueDistance.sroa_idx.i2, align 8
+  %0 = tail call double @llvm.fabs.f64(double %retval.sroa.0.0.copyload.i1)
+  %1 = tail call double @llvm.fabs.f64(double %retval.sroa.0.0.copyload.i)
+  %cmp.i = fcmp olt double %0, %1
+  br i1 %cmp.i, label %if.then, label %_ZN7msdfgenltENS_14SignedDistanceES0_.exit
+
+_ZN7msdfgenltENS_14SignedDistanceES0_.exit:       ; preds = %entry
+  %retval.sroa.2.0.minTrueDistance.sroa_idx.i = getelementptr inbounds %"class.msdfgen::MultiDistanceSelector", ptr %this, i64 0, i32 1, i32 0, i32 1
+  %retval.sroa.2.0.copyload.i = load double, ptr %retval.sroa.2.0.minTrueDistance.sroa_idx.i, align 8
+  %cmp4.i = fcmp oeq double %0, %1
+  %cmp6.i = fcmp olt double %retval.sroa.2.0.copyload.i3, %retval.sroa.2.0.copyload.i
+  %2 = select i1 %cmp4.i, i1 %cmp6.i, i1 false
+  br i1 %2, label %if.then, label %if.end
+
+if.then:                                          ; preds = %entry, %_ZN7msdfgenltENS_14SignedDistanceES0_.exit
+  br label %if.end
+
+if.end:                                           ; preds = %if.then, %_ZN7msdfgenltENS_14SignedDistanceES0_.exit
+  %.pre-phi = phi double [ %0, %if.then ], [ %1, %_ZN7msdfgenltENS_14SignedDistanceES0_.exit ]
+  %retval.sroa.0.0 = phi double [ %retval.sroa.0.0.copyload.i1, %if.then ], [ %retval.sroa.0.0.copyload.i, %_ZN7msdfgenltENS_14SignedDistanceES0_.exit ]
+  %retval.sroa.6.0 = phi double [ %retval.sroa.2.0.copyload.i3, %if.then ], [ %retval.sroa.2.0.copyload.i, %_ZN7msdfgenltENS_14SignedDistanceES0_.exit ]
+  %b = getelementptr inbounds %"class.msdfgen::MultiDistanceSelector", ptr %this, i64 0, i32 3
+  %retval.sroa.0.0.copyload.i11 = load double, ptr %b, align 8
+  %retval.sroa.2.0.minTrueDistance.sroa_idx.i12 = getelementptr inbounds %"class.msdfgen::MultiDistanceSelector", ptr %this, i64 0, i32 3, i32 0, i32 1
+  %retval.sroa.2.0.copyload.i13 = load double, ptr %retval.sroa.2.0.minTrueDistance.sroa_idx.i12, align 8
+  %3 = tail call double @llvm.fabs.f64(double %retval.sroa.0.0.copyload.i11)
+  %cmp.i16 = fcmp olt double %3, %.pre-phi
+  br i1 %cmp.i16, label %if.then11, label %_ZN7msdfgenltENS_14SignedDistanceES0_.exit20
+
+_ZN7msdfgenltENS_14SignedDistanceES0_.exit20:     ; preds = %if.end
+  %cmp4.i18 = fcmp oeq double %3, %.pre-phi
+  %cmp6.i19 = fcmp olt double %retval.sroa.2.0.copyload.i13, %retval.sroa.6.0
+  %4 = select i1 %cmp4.i18, i1 %cmp6.i19, i1 false
+  br i1 %4, label %if.then11, label %if.end15
+
+if.then11:                                        ; preds = %if.end, %_ZN7msdfgenltENS_14SignedDistanceES0_.exit20
+  br label %if.end15
+
+if.end15:                                         ; preds = %if.then11, %_ZN7msdfgenltENS_14SignedDistanceES0_.exit20
+  %retval.sroa.0.1 = phi double [ %retval.sroa.0.0.copyload.i11, %if.then11 ], [ %retval.sroa.0.0, %_ZN7msdfgenltENS_14SignedDistanceES0_.exit20 ]
+  %retval.sroa.6.1 = phi double [ %retval.sroa.2.0.copyload.i13, %if.then11 ], [ %retval.sroa.6.0, %_ZN7msdfgenltENS_14SignedDistanceES0_.exit20 ]
+  %.fca.0.insert = insertvalue { double, double } poison, double %retval.sroa.0.1, 0
+  %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %retval.sroa.6.1, 1
+  ret { double, double } %.fca.1.insert
+}
+
+; Function Attrs: mustprogress uwtable
+define dso_local void @_ZNK7msdfgen28MultiAndTrueDistanceSelector8distanceEv(ptr noalias nocapture writeonly sret(%"struct.msdfgen::MultiAndTrueDistance") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(160) %this) local_unnamed_addr #4 align 2 {
+entry:
+  %multiDistance = alloca %"struct.msdfgen::MultiDistance", align 16
+  call void @_ZNK7msdfgen21MultiDistanceSelector8distanceEv(ptr nonnull sret(%"struct.msdfgen::MultiDistance") align 8 %multiDistance, ptr noundef nonnull align 8 dereferenceable(160) %this)
+  %0 = load <2 x double>, ptr %multiDistance, align 16
+  store <2 x double> %0, ptr %agg.result, align 8
+  %b = getelementptr inbounds %"struct.msdfgen::MultiDistance", ptr %multiDistance, i64 0, i32 2
+  %1 = load double, ptr %b, align 16
+  %b4 = getelementptr inbounds %"struct.msdfgen::MultiDistance", ptr %agg.result, i64 0, i32 2
+  store double %1, ptr %b4, align 8
+  %r.i = getelementptr inbounds %"class.msdfgen::MultiDistanceSelector", ptr %this, i64 0, i32 1
+  %retval.sroa.0.0.copyload.i.i = load double, ptr %r.i, align 8
+  %g.i = getelementptr inbounds %"class.msdfgen::MultiDistanceSelector", ptr %this, i64 0, i32 2
+  %retval.sroa.0.0.copyload.i1.i = load double, ptr %g.i, align 8
+  %retval.sroa.2.0.minTrueDistance.sroa_idx.i2.i = getelementptr inbounds %"class.msdfgen::MultiDistanceSelector", ptr %this, i64 0, i32 2, i32 0, i32 1
+  %retval.sroa.2.0.copyload.i3.i = load double, ptr %retval.sroa.2.0.minTrueDistance.sroa_idx.i2.i, align 8
+  %2 = tail call double @llvm.fabs.f64(double %retval.sroa.0.0.copyload.i1.i)
+  %3 = tail call double @llvm.fabs.f64(double %retval.sroa.0.0.copyload.i.i)
+  %cmp.i.i = fcmp olt double %2, %3
+  br i1 %cmp.i.i, label %if.then.i, label %_ZN7msdfgenltENS_14SignedDistanceES0_.exit.i
+
+_ZN7msdfgenltENS_14SignedDistanceES0_.exit.i:     ; preds = %entry
+  %retval.sroa.2.0.minTrueDistance.sroa_idx.i.i = getelementptr inbounds %"class.msdfgen::MultiDistanceSelector", ptr %this, i64 0, i32 1, i32 0, i32 1
+  %retval.sroa.2.0.copyload.i.i = load double, ptr %retval.sroa.2.0.minTrueDistance.sroa_idx.i.i, align 8
+  %cmp4.i.i = fcmp oeq double %2, %3
+  %cmp6.i.i = fcmp olt double %retval.sroa.2.0.copyload.i3.i, %retval.sroa.2.0.copyload.i.i
+  %4 = select i1 %cmp4.i.i, i1 %cmp6.i.i, i1 false
+  br i1 %4, label %if.then.i, label %if.end.i
+
+if.then.i:                                        ; preds = %_ZN7msdfgenltENS_14SignedDistanceES0_.exit.i, %entry
+  br label %if.end.i
+
+if.end.i:                                         ; preds = %if.then.i, %_ZN7msdfgenltENS_14SignedDistanceES0_.exit.i
+  %.pre-phi.i = phi double [ %2, %if.then.i ], [ %3, %_ZN7msdfgenltENS_14SignedDistanceES0_.exit.i ]
+  %retval.sroa.0.0.i = phi double [ %retval.sroa.0.0.copyload.i1.i, %if.then.i ], [ %retval.sroa.0.0.copyload.i.i, %_ZN7msdfgenltENS_14SignedDistanceES0_.exit.i ]
+  %retval.sroa.6.0.i = phi double [ %retval.sroa.2.0.copyload.i3.i, %if.then.i ], [ %retval.sroa.2.0.copyload.i.i, %_ZN7msdfgenltENS_14SignedDistanceES0_.exit.i ]
+  %b.i = getelementptr inbounds %"class.msdfgen::MultiDistanceSelector", ptr %this, i64 0, i32 3
+  %retval.sroa.0.0.copyload.i11.i = load double, ptr %b.i, align 8
+  %5 = tail call double @llvm.fabs.f64(double %retval.sroa.0.0.copyload.i11.i)
+  %cmp.i16.i = fcmp olt double %5, %.pre-phi.i
+  br i1 %cmp.i16.i, label %if.then11.i, label %_ZN7msdfgenltENS_14SignedDistanceES0_.exit20.i
+
+_ZN7msdfgenltENS_14SignedDistanceES0_.exit20.i:   ; preds = %if.end.i
+  %retval.sroa.2.0.minTrueDistance.sroa_idx.i12.i = getelementptr inbounds %"class.msdfgen::MultiDistanceSelector", ptr %this, i64 0, i32 3, i32 0, i32 1
+  %retval.sroa.2.0.copyload.i13.i = load double, ptr %retval.sroa.2.0.minTrueDistance.sroa_idx.i12.i, align 8
+  %cmp4.i18.i = fcmp oeq double %5, %.pre-phi.i
+  %cmp6.i19.i = fcmp olt double %retval.sroa.2.0.copyload.i13.i, %retval.sroa.6.0.i
+  %6 = select i1 %cmp4.i18.i, i1 %cmp6.i19.i, i1 false
+  br i1 %6, label %if.then11.i, label %_ZNK7msdfgen21MultiDistanceSelector12trueDistanceEv.exit
+
+if.then11.i:                                      ; preds = %_ZN7msdfgenltENS_14SignedDistanceES0_.exit20.i, %if.end.i
+  br label %_ZNK7msdfgen21MultiDistanceSelector12trueDistanceEv.exit
+
+_ZNK7msdfgen21MultiDistanceSelector12trueDistanceEv.exit: ; preds = %_ZN7msdfgenltENS_14SignedDistanceES0_.exit20.i, %if.then11.i
+  %retval.sroa.0.1.i = phi double [ %retval.sroa.0.0.copyload.i11.i, %if.then11.i ], [ %retval.sroa.0.0.i, %_ZN7msdfgenltENS_14SignedDistanceES0_.exit20.i ]
+  %a = getelementptr inbounds %"struct.msdfgen::MultiAndTrueDistance", ptr %agg.result, i64 0, i32 1
+  store double %retval.sroa.0.1.i, ptr %a, align 8
+  ret void
+}
+
+; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.sqrt.f64(double) #7
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare <2 x double> @llvm.fmuladd.v2f64(<2 x double>, <2 x double>, <2 x double>) #7
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare <2 x double> @llvm.sqrt.v2f64(<2 x double>) #7
+
+attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #4 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #8 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+
+!llvm.module.flags = !{!0, !1, !2, !3, !4}
+
+!0 = !{i32 1, !"wchar_size", i32 4}
+!1 = !{i32 8, !"PIC Level", i32 2}
+!2 = !{i32 7, !"PIE Level", i32 2}
+!3 = !{i32 7, !"uwtable", i32 2}
+!4 = !{i32 7, !"frame-pointer", i32 2}

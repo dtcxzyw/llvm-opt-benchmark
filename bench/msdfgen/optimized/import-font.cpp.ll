@@ -1,0 +1,1144 @@
+; ModuleID = 'bench/msdfgen/original/import-font.cpp.ll'
+source_filename = "bench/msdfgen/original/import-font.cpp.ll"
+target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
+target triple = "x86_64-unknown-linux-gnu"
+
+%"class.msdfgen::FontHandle" = type <{ ptr, i8, [7 x i8] }>
+%"struct.msdfgen::FtContext" = type { %"struct.msdfgen::Vector2", ptr, ptr }
+%"struct.msdfgen::Vector2" = type { double, double }
+%struct.FT_Outline_Funcs_ = type { ptr, ptr, ptr, ptr, i32, i64 }
+%"struct.std::_Vector_base<msdfgen::Contour, std::allocator<msdfgen::Contour>>::_Vector_impl_data" = type { ptr, ptr, ptr }
+%"struct.std::_Vector_base<msdfgen::EdgeHolder, std::allocator<msdfgen::EdgeHolder>>::_Vector_impl_data" = type { ptr, ptr, ptr }
+%"class.msdfgen::EdgeHolder" = type { ptr }
+%"class.msdfgen::Contour" = type { %"class.std::vector.0" }
+%"class.std::vector.0" = type { %"struct.std::_Vector_base.1" }
+%"struct.std::_Vector_base.1" = type { %"struct.std::_Vector_base<msdfgen::EdgeHolder, std::allocator<msdfgen::EdgeHolder>>::_Vector_impl" }
+%"struct.std::_Vector_base<msdfgen::EdgeHolder, std::allocator<msdfgen::EdgeHolder>>::_Vector_impl" = type { %"struct.std::_Vector_base<msdfgen::EdgeHolder, std::allocator<msdfgen::EdgeHolder>>::_Vector_impl_data" }
+%"class.msdfgen::Shape" = type <{ %"class.std::vector", i8, [7 x i8] }>
+%"class.std::vector" = type { %"struct.std::_Vector_base" }
+%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<msdfgen::Contour, std::allocator<msdfgen::Contour>>::_Vector_impl" }
+%"struct.std::_Vector_base<msdfgen::Contour, std::allocator<msdfgen::Contour>>::_Vector_impl" = type { %"struct.std::_Vector_base<msdfgen::Contour, std::allocator<msdfgen::Contour>>::_Vector_impl_data" }
+%struct.FT_FaceRec_ = type { i64, i64, i64, i64, i64, ptr, ptr, i32, ptr, i32, ptr, %struct.FT_Generic_, %struct.FT_BBox_, i16, i16, i16, i16, i16, i16, i16, i16, ptr, ptr, ptr, ptr, ptr, ptr, %struct.FT_ListRec_, %struct.FT_Generic_, ptr, ptr }
+%struct.FT_BBox_ = type { i64, i64, i64, i64 }
+%struct.FT_ListRec_ = type { ptr, ptr }
+%struct.FT_Generic_ = type { ptr, ptr }
+%"struct.msdfgen::FontMetrics" = type { double, double, double, double, double, double }
+%struct.FT_GlyphSlotRec_ = type { ptr, ptr, ptr, i32, %struct.FT_Generic_, %struct.FT_Glyph_Metrics_, i64, i64, %struct.FT_Vector_, i32, %struct.FT_Bitmap_, i32, i32, %struct.FT_Outline_, i32, ptr, ptr, i64, i64, i64, ptr, ptr }
+%struct.FT_Glyph_Metrics_ = type { i64, i64, i64, i64, i64, i64, i64, i64 }
+%struct.FT_Vector_ = type { i64, i64 }
+%struct.FT_Bitmap_ = type { i32, i32, i32, ptr, i16, i8, i8, ptr }
+%struct.FT_Outline_ = type { i16, i16, ptr, ptr, ptr, i32 }
+%struct.FT_MM_Var_ = type { i32, i32, i32, ptr, ptr }
+%struct.FT_Var_Axis_ = type { ptr, i64, i64, i64, i64, i32 }
+%"struct.std::_Vector_base<msdfgen::FontVariationAxis, std::allocator<msdfgen::FontVariationAxis>>::_Vector_impl_data" = type { ptr, ptr, ptr }
+%"struct.msdfgen::FontVariationAxis" = type { ptr, double, double, double }
+
+$_ZNSt6vectorIN7msdfgen17FontVariationAxisESaIS1_EE17_M_default_appendEm = comdat any
+
+@.str.1 = private unnamed_addr constant [26 x i8] c"vector::_M_default_append\00", align 1
+
+@_ZN7msdfgen10GlyphIndexC1Ej = dso_local unnamed_addr alias void (ptr, i32), ptr @_ZN7msdfgen10GlyphIndexC2Ej
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
+define dso_local void @_ZN7msdfgen10GlyphIndexC2Ej(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %this, i32 noundef %index) unnamed_addr #0 align 2 {
+entry:
+  store i32 %index, ptr %this, align 4
+  ret void
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
+define dso_local noundef i32 @_ZNK7msdfgen10GlyphIndex8getIndexEv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %this) local_unnamed_addr #1 align 2 {
+entry:
+  %0 = load i32, ptr %this, align 4
+  ret i32 %0
+}
+
+; Function Attrs: mustprogress uwtable
+define dso_local noundef ptr @_ZN7msdfgen18initializeFreetypeEv() local_unnamed_addr #2 {
+entry:
+  %call = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #16
+  %call1 = tail call i32 @FT_Init_FreeType(ptr noundef nonnull %call)
+  %tobool.not = icmp eq i32 %call1, 0
+  br i1 %tobool.not, label %return, label %delete.notnull
+
+delete.notnull:                                   ; preds = %entry
+  tail call void @_ZdlPv(ptr noundef nonnull %call) #17
+  br label %return
+
+return:                                           ; preds = %entry, %delete.notnull
+  %retval.0 = phi ptr [ null, %delete.notnull ], [ %call, %entry ]
+  ret ptr %retval.0
+}
+
+; Function Attrs: nobuiltin allocsize(0)
+declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #3
+
+declare i32 @FT_Init_FreeType(ptr noundef) local_unnamed_addr #4
+
+; Function Attrs: nobuiltin nounwind
+declare void @_ZdlPv(ptr noundef) local_unnamed_addr #5
+
+; Function Attrs: mustprogress uwtable
+define dso_local void @_ZN7msdfgen20deinitializeFreetypeEPNS_14FreetypeHandleE(ptr noundef %library) local_unnamed_addr #2 {
+entry:
+  %0 = load ptr, ptr %library, align 8
+  %call = tail call i32 @FT_Done_FreeType(ptr noundef %0)
+  tail call void @_ZdlPv(ptr noundef %library) #17
+  ret void
+}
+
+declare i32 @FT_Done_FreeType(ptr noundef) local_unnamed_addr #4
+
+; Function Attrs: mustprogress uwtable
+define dso_local noalias noundef nonnull ptr @_ZN7msdfgen17adoptFreetypeFontEP11FT_FaceRec_(ptr noundef %ftFace) local_unnamed_addr #2 {
+entry:
+  %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #16
+  store ptr %ftFace, ptr %call, align 8
+  %ownership = getelementptr inbounds %"class.msdfgen::FontHandle", ptr %call, i64 0, i32 1
+  store i8 0, ptr %ownership, align 8
+  ret ptr %call
+}
+
+; Function Attrs: mustprogress uwtable
+define dso_local noundef i32 @_ZN7msdfgen19readFreetypeOutlineERNS_5ShapeEP11FT_Outline_(ptr noundef nonnull align 8 dereferenceable(25) %output, ptr noundef %outline) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+entry:
+  %context = alloca %"struct.msdfgen::FtContext", align 8
+  %ftFunctions = alloca %struct.FT_Outline_Funcs_, align 8
+  %0 = load ptr, ptr %output, align 8
+  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<msdfgen::Contour, std::allocator<msdfgen::Contour>>::_Vector_impl_data", ptr %output, i64 0, i32 1
+  %1 = load ptr, ptr %_M_finish.i.i, align 8
+  %tobool.not.i.i = icmp eq ptr %1, %0
+  br i1 %tobool.not.i.i, label %_ZNSt6vectorIN7msdfgen7ContourESaIS1_EE5clearEv.exit, label %for.body.i.i.i.i.i
+
+for.body.i.i.i.i.i:                               ; preds = %entry, %_ZSt8_DestroyIN7msdfgen7ContourEEvPT_.exit.i.i.i.i.i
+  %__first.addr.04.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %_ZSt8_DestroyIN7msdfgen7ContourEEvPT_.exit.i.i.i.i.i ], [ %0, %entry ]
+  %2 = load ptr, ptr %__first.addr.04.i.i.i.i.i, align 8
+  %_M_finish.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<msdfgen::EdgeHolder, std::allocator<msdfgen::EdgeHolder>>::_Vector_impl_data", ptr %__first.addr.04.i.i.i.i.i, i64 0, i32 1
+  %3 = load ptr, ptr %_M_finish.i.i.i.i.i.i.i.i, align 8
+  %cmp.not3.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %2, %3
+  br i1 %cmp.not3.i.i.i.i.i.i.i.i.i.i.i, label %invoke.cont.i.i.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i.i.i.i.i
+
+for.body.i.i.i.i.i.i.i.i.i.i.i:                   ; preds = %for.body.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.i.i.i
+  %__first.addr.04.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.i.i.i ], [ %2, %for.body.i.i.i.i.i ]
+  tail call void @_ZN7msdfgen10EdgeHolderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %__first.addr.04.i.i.i.i.i.i.i.i.i.i.i) #18
+  %incdec.ptr.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.msdfgen::EdgeHolder", ptr %__first.addr.04.i.i.i.i.i.i.i.i.i.i.i, i64 1
+  %cmp.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i.i.i.i.i, %3
+  br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i.i, label %invoke.contthread-pre-split.i.i.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i.i.i.i.i, !llvm.loop !5
+
+invoke.contthread-pre-split.i.i.i.i.i.i.i.i:      ; preds = %for.body.i.i.i.i.i.i.i.i.i.i.i
+  %.pr.i.i.i.i.i.i.i.i = load ptr, ptr %__first.addr.04.i.i.i.i.i, align 8
+  br label %invoke.cont.i.i.i.i.i.i.i.i
+
+invoke.cont.i.i.i.i.i.i.i.i:                      ; preds = %invoke.contthread-pre-split.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i
+  %4 = phi ptr [ %.pr.i.i.i.i.i.i.i.i, %invoke.contthread-pre-split.i.i.i.i.i.i.i.i ], [ %2, %for.body.i.i.i.i.i ]
+  %tobool.not.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %4, null
+  br i1 %tobool.not.i.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIN7msdfgen7ContourEEvPT_.exit.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i
+
+if.then.i.i.i.i.i.i.i.i.i.i:                      ; preds = %invoke.cont.i.i.i.i.i.i.i.i
+  tail call void @_ZdlPv(ptr noundef nonnull %4) #17
+  br label %_ZSt8_DestroyIN7msdfgen7ContourEEvPT_.exit.i.i.i.i.i
+
+_ZSt8_DestroyIN7msdfgen7ContourEEvPT_.exit.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i.i.i, %invoke.cont.i.i.i.i.i.i.i.i
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds %"class.msdfgen::Contour", ptr %__first.addr.04.i.i.i.i.i, i64 1
+  %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %1
+  br i1 %cmp.not.i.i.i.i.i, label %invoke.cont.i.i, label %for.body.i.i.i.i.i, !llvm.loop !7
+
+invoke.cont.i.i:                                  ; preds = %_ZSt8_DestroyIN7msdfgen7ContourEEvPT_.exit.i.i.i.i.i
+  store ptr %0, ptr %_M_finish.i.i, align 8
+  br label %_ZNSt6vectorIN7msdfgen7ContourESaIS1_EE5clearEv.exit
+
+_ZNSt6vectorIN7msdfgen7ContourESaIS1_EE5clearEv.exit: ; preds = %entry, %invoke.cont.i.i
+  %inverseYAxis = getelementptr inbounds %"class.msdfgen::Shape", ptr %output, i64 0, i32 1
+  store i8 0, ptr %inverseYAxis, align 8
+  %shape = getelementptr inbounds %"struct.msdfgen::FtContext", ptr %context, i64 0, i32 1
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %context, i8 0, i64 32, i1 false)
+  store ptr %output, ptr %shape, align 8
+  store ptr @_ZN7msdfgenL8ftMoveToEPK10FT_Vector_Pv, ptr %ftFunctions, align 8
+  %line_to = getelementptr inbounds %struct.FT_Outline_Funcs_, ptr %ftFunctions, i64 0, i32 1
+  store ptr @_ZN7msdfgenL8ftLineToEPK10FT_Vector_Pv, ptr %line_to, align 8
+  %conic_to = getelementptr inbounds %struct.FT_Outline_Funcs_, ptr %ftFunctions, i64 0, i32 2
+  store ptr @_ZN7msdfgenL9ftConicToEPK10FT_Vector_S2_Pv, ptr %conic_to, align 8
+  %cubic_to = getelementptr inbounds %struct.FT_Outline_Funcs_, ptr %ftFunctions, i64 0, i32 3
+  store ptr @_ZN7msdfgenL9ftCubicToEPK10FT_Vector_S2_S2_Pv, ptr %cubic_to, align 8
+  %shift = getelementptr inbounds %struct.FT_Outline_Funcs_, ptr %ftFunctions, i64 0, i32 4
+  store i32 0, ptr %shift, align 8
+  %delta = getelementptr inbounds %struct.FT_Outline_Funcs_, ptr %ftFunctions, i64 0, i32 5
+  store i64 0, ptr %delta, align 8
+  %call = call i32 @FT_Outline_Decompose(ptr noundef %outline, ptr noundef nonnull %ftFunctions, ptr noundef nonnull %context)
+  %5 = load ptr, ptr %output, align 8
+  %6 = load ptr, ptr %_M_finish.i.i, align 8
+  %cmp.i.i = icmp eq ptr %5, %6
+  br i1 %cmp.i.i, label %if.end, label %land.lhs.true
+
+land.lhs.true:                                    ; preds = %_ZNSt6vectorIN7msdfgen7ContourESaIS1_EE5clearEv.exit
+  %add.ptr.i.i = getelementptr inbounds %"class.msdfgen::Contour", ptr %6, i64 -1
+  %7 = load ptr, ptr %add.ptr.i.i, align 8
+  %_M_finish.i.i8 = getelementptr %"class.msdfgen::Contour", ptr %6, i64 -1, i32 0, i32 0, i32 0, i32 0, i32 1
+  %8 = load ptr, ptr %_M_finish.i.i8, align 8
+  %cmp.i.i9 = icmp eq ptr %7, %8
+  br i1 %cmp.i.i9, label %if.then, label %if.end
+
+if.then:                                          ; preds = %land.lhs.true
+  store ptr %add.ptr.i.i, ptr %_M_finish.i.i, align 8
+  %9 = load ptr, ptr %add.ptr.i.i, align 8
+  %10 = load ptr, ptr %_M_finish.i.i8, align 8
+  %cmp.not3.i.i.i.i.i.i.i.i = icmp eq ptr %9, %10
+  br i1 %cmp.not3.i.i.i.i.i.i.i.i, label %invoke.cont.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i.i
+
+for.body.i.i.i.i.i.i.i.i:                         ; preds = %if.then, %for.body.i.i.i.i.i.i.i.i
+  %__first.addr.04.i.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i ], [ %9, %if.then ]
+  call void @_ZN7msdfgen10EdgeHolderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %__first.addr.04.i.i.i.i.i.i.i.i) #18
+  %incdec.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.msdfgen::EdgeHolder", ptr %__first.addr.04.i.i.i.i.i.i.i.i, i64 1
+  %cmp.not.i.i.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i.i, %10
+  br i1 %cmp.not.i.i.i.i.i.i.i.i, label %invoke.contthread-pre-split.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i.i, !llvm.loop !5
+
+invoke.contthread-pre-split.i.i.i.i.i:            ; preds = %for.body.i.i.i.i.i.i.i.i
+  %.pr.i.i.i.i.i = load ptr, ptr %add.ptr.i.i, align 8
+  br label %invoke.cont.i.i.i.i.i
+
+invoke.cont.i.i.i.i.i:                            ; preds = %invoke.contthread-pre-split.i.i.i.i.i, %if.then
+  %11 = phi ptr [ %.pr.i.i.i.i.i, %invoke.contthread-pre-split.i.i.i.i.i ], [ %9, %if.then ]
+  %tobool.not.i.i.i.i.i.i.i = icmp eq ptr %11, null
+  br i1 %tobool.not.i.i.i.i.i.i.i, label %if.end, label %if.then.i.i.i.i.i.i.i
+
+if.then.i.i.i.i.i.i.i:                            ; preds = %invoke.cont.i.i.i.i.i
+  call void @_ZdlPv(ptr noundef nonnull %11) #17
+  br label %if.end
+
+if.end:                                           ; preds = %if.then.i.i.i.i.i.i.i, %invoke.cont.i.i.i.i.i, %land.lhs.true, %_ZNSt6vectorIN7msdfgen7ContourESaIS1_EE5clearEv.exit
+  ret i32 %call
+}
+
+; Function Attrs: mustprogress uwtable
+define internal noundef i32 @_ZN7msdfgenL8ftMoveToEPK10FT_Vector_Pv(ptr nocapture noundef readonly %to, ptr nocapture noundef %user) #2 {
+entry:
+  %contour = getelementptr inbounds %"struct.msdfgen::FtContext", ptr %user, i64 0, i32 2
+  %0 = load ptr, ptr %contour, align 8
+  %tobool.not = icmp eq ptr %0, null
+  br i1 %tobool.not, label %if.then, label %land.lhs.true
+
+land.lhs.true:                                    ; preds = %entry
+  %1 = load ptr, ptr %0, align 8
+  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<msdfgen::EdgeHolder, std::allocator<msdfgen::EdgeHolder>>::_Vector_impl_data", ptr %0, i64 0, i32 1
+  %2 = load ptr, ptr %_M_finish.i.i, align 8
+  %cmp.i.i = icmp eq ptr %1, %2
+  br i1 %cmp.i.i, label %if.end, label %if.then
+
+if.then:                                          ; preds = %land.lhs.true, %entry
+  %shape = getelementptr inbounds %"struct.msdfgen::FtContext", ptr %user, i64 0, i32 1
+  %3 = load ptr, ptr %shape, align 8
+  %call2 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZN7msdfgen5Shape10addContourEv(ptr noundef nonnull align 8 dereferenceable(25) %3)
+  store ptr %call2, ptr %contour, align 8
+  br label %if.end
+
+if.end:                                           ; preds = %if.then, %land.lhs.true
+  %4 = load <2 x i64>, ptr %to, align 8
+  %5 = sitofp <2 x i64> %4 to <2 x double>
+  %6 = fmul <2 x double> %5, <double 1.562500e-02, double 1.562500e-02>
+  store <2 x double> %6, ptr %user, align 8
+  ret i32 0
+}
+
+; Function Attrs: mustprogress uwtable
+define internal noundef i32 @_ZN7msdfgenL8ftLineToEPK10FT_Vector_Pv(ptr nocapture noundef readonly %to, ptr nocapture noundef %user) #2 personality ptr @__gxx_personality_v0 {
+entry:
+  %ref.tmp = alloca %"class.msdfgen::EdgeHolder", align 8
+  %0 = load <2 x i64>, ptr %to, align 8
+  %1 = sitofp <2 x i64> %0 to <2 x double>
+  %2 = fmul <2 x double> %1, <double 1.562500e-02, double 1.562500e-02>
+  %agg.tmp1.sroa.0.0.copyload = load double, ptr %user, align 8
+  %agg.tmp1.sroa.2.0.position.sroa_idx = getelementptr inbounds i8, ptr %user, i64 8
+  %agg.tmp1.sroa.2.0.copyload = load double, ptr %agg.tmp1.sroa.2.0.position.sroa_idx, align 8
+  %3 = extractelement <2 x double> %2, i64 0
+  %cmp.i = fcmp une double %3, %agg.tmp1.sroa.0.0.copyload
+  %4 = extractelement <2 x double> %2, i64 1
+  %cmp3.i = fcmp une double %4, %agg.tmp1.sroa.2.0.copyload
+  %5 = select i1 %cmp.i, i1 true, i1 %cmp3.i
+  br i1 %5, label %if.then, label %if.end
+
+if.then:                                          ; preds = %entry
+  %contour = getelementptr inbounds %"struct.msdfgen::FtContext", ptr %user, i64 0, i32 2
+  %6 = load ptr, ptr %contour, align 8
+  %call.i = tail call noundef ptr @_ZN7msdfgen11EdgeSegment6createENS_7Vector2ES1_NS_9EdgeColorE(double %agg.tmp1.sroa.0.0.copyload, double %agg.tmp1.sroa.2.0.copyload, double %3, double %4, i32 noundef 7)
+  store ptr %call.i, ptr %ref.tmp, align 8
+  invoke void @_ZN7msdfgen7Contour7addEdgeEONS_10EdgeHolderE(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp)
+          to label %invoke.cont unwind label %lpad
+
+invoke.cont:                                      ; preds = %if.then
+  call void @_ZN7msdfgen10EdgeHolderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #18
+  store <2 x double> %2, ptr %user, align 8
+  br label %if.end
+
+lpad:                                             ; preds = %if.then
+  %7 = landingpad { ptr, i32 }
+          cleanup
+  call void @_ZN7msdfgen10EdgeHolderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #18
+  resume { ptr, i32 } %7
+
+if.end:                                           ; preds = %invoke.cont, %entry
+  ret i32 0
+}
+
+; Function Attrs: mustprogress uwtable
+define internal noundef i32 @_ZN7msdfgenL9ftConicToEPK10FT_Vector_S2_Pv(ptr nocapture noundef readonly %control, ptr nocapture noundef readonly %to, ptr nocapture noundef %user) #2 personality ptr @__gxx_personality_v0 {
+entry:
+  %ref.tmp = alloca %"class.msdfgen::EdgeHolder", align 8
+  %0 = load <2 x i64>, ptr %to, align 8
+  %1 = sitofp <2 x i64> %0 to <2 x double>
+  %2 = fmul <2 x double> %1, <double 1.562500e-02, double 1.562500e-02>
+  %agg.tmp1.sroa.0.0.copyload = load double, ptr %user, align 8
+  %agg.tmp1.sroa.2.0.position.sroa_idx = getelementptr inbounds i8, ptr %user, i64 8
+  %agg.tmp1.sroa.2.0.copyload = load double, ptr %agg.tmp1.sroa.2.0.position.sroa_idx, align 8
+  %3 = extractelement <2 x double> %2, i64 0
+  %cmp.i = fcmp une double %3, %agg.tmp1.sroa.0.0.copyload
+  %4 = extractelement <2 x double> %2, i64 1
+  %cmp3.i = fcmp une double %4, %agg.tmp1.sroa.2.0.copyload
+  %5 = select i1 %cmp.i, i1 true, i1 %cmp3.i
+  br i1 %5, label %if.then, label %if.end
+
+if.then:                                          ; preds = %entry
+  %contour = getelementptr inbounds %"struct.msdfgen::FtContext", ptr %user, i64 0, i32 2
+  %6 = load ptr, ptr %contour, align 8
+  %control.val = load i64, ptr %control, align 8
+  %7 = getelementptr i8, ptr %control, i64 8
+  %control.val5 = load i64, ptr %7, align 8
+  %conv.i6 = sitofp i64 %control.val to double
+  %mul.i7 = fmul double %conv.i6, 1.562500e-02
+  %conv1.i8 = sitofp i64 %control.val5 to double
+  %mul2.i9 = fmul double %conv1.i8, 1.562500e-02
+  %call.i = tail call noundef ptr @_ZN7msdfgen11EdgeSegment6createENS_7Vector2ES1_S1_NS_9EdgeColorE(double %agg.tmp1.sroa.0.0.copyload, double %agg.tmp1.sroa.2.0.copyload, double %mul.i7, double %mul2.i9, double %3, double %4, i32 noundef 7)
+  store ptr %call.i, ptr %ref.tmp, align 8
+  invoke void @_ZN7msdfgen7Contour7addEdgeEONS_10EdgeHolderE(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp)
+          to label %invoke.cont unwind label %lpad
+
+invoke.cont:                                      ; preds = %if.then
+  call void @_ZN7msdfgen10EdgeHolderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #18
+  store <2 x double> %2, ptr %user, align 8
+  br label %if.end
+
+lpad:                                             ; preds = %if.then
+  %8 = landingpad { ptr, i32 }
+          cleanup
+  call void @_ZN7msdfgen10EdgeHolderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #18
+  resume { ptr, i32 } %8
+
+if.end:                                           ; preds = %invoke.cont, %entry
+  ret i32 0
+}
+
+; Function Attrs: mustprogress uwtable
+define internal noundef i32 @_ZN7msdfgenL9ftCubicToEPK10FT_Vector_S2_S2_Pv(ptr nocapture noundef readonly %control1, ptr nocapture noundef readonly %control2, ptr nocapture noundef readonly %to, ptr nocapture noundef %user) #2 personality ptr @__gxx_personality_v0 {
+entry:
+  %ref.tmp = alloca %"class.msdfgen::EdgeHolder", align 8
+  %0 = load <2 x i64>, ptr %to, align 8
+  %1 = sitofp <2 x i64> %0 to <2 x double>
+  %2 = fmul <2 x double> %1, <double 1.562500e-02, double 1.562500e-02>
+  %agg.tmp1.sroa.0.0.copyload = load double, ptr %user, align 8
+  %agg.tmp1.sroa.2.0.position.sroa_idx = getelementptr inbounds i8, ptr %user, i64 8
+  %agg.tmp1.sroa.2.0.copyload = load double, ptr %agg.tmp1.sroa.2.0.position.sroa_idx, align 8
+  %3 = extractelement <2 x double> %2, i64 0
+  %cmp.i = fcmp une double %3, %agg.tmp1.sroa.0.0.copyload
+  %4 = extractelement <2 x double> %2, i64 1
+  %cmp3.i = fcmp une double %4, %agg.tmp1.sroa.2.0.copyload
+  %5 = select i1 %cmp.i, i1 true, i1 %cmp3.i
+  %control1.val9.pre = load i64, ptr %control1, align 8
+  %.phi.trans.insert = getelementptr i8, ptr %control1, i64 8
+  %control1.val10.pre = load i64, ptr %.phi.trans.insert, align 8
+  br i1 %5, label %entry.if.then_crit_edge, label %lor.lhs.false
+
+entry.if.then_crit_edge:                          ; preds = %entry
+  %control2.val11.pre = load i64, ptr %control2, align 8
+  %.phi.trans.insert45 = getelementptr i8, ptr %control2, i64 8
+  %control2.val12.pre = load i64, ptr %.phi.trans.insert45, align 8
+  %.pre = sitofp i64 %control1.val9.pre to double
+  %.pre47 = fmul double %.pre, 1.562500e-02
+  %.pre48 = sitofp i64 %control1.val10.pre to double
+  %.pre49 = fmul double %.pre48, 1.562500e-02
+  %.pre50 = sitofp i64 %control2.val11.pre to double
+  %.pre51 = fmul double %.pre50, 1.562500e-02
+  %.pre52 = sitofp i64 %control2.val12.pre to double
+  %.pre53 = fmul double %.pre52, 1.562500e-02
+  br label %if.then
+
+lor.lhs.false:                                    ; preds = %entry
+  %conv.i13 = sitofp i64 %control1.val9.pre to double
+  %mul.i14 = fmul double %conv.i13, 1.562500e-02
+  %conv1.i15 = sitofp i64 %control1.val10.pre to double
+  %mul2.i16 = fmul double %conv1.i15, 1.562500e-02
+  %sub.i = fsub double %mul.i14, %3
+  %sub3.i = fsub double %mul2.i16, %4
+  %control2.val = load i64, ptr %control2, align 8
+  %6 = getelementptr i8, ptr %control2, i64 8
+  %control2.val8 = load i64, ptr %6, align 8
+  %conv.i21 = sitofp i64 %control2.val to double
+  %mul.i22 = fmul double %conv.i21, 1.562500e-02
+  %conv1.i23 = sitofp i64 %control2.val8 to double
+  %mul2.i24 = fmul double %conv1.i23, 1.562500e-02
+  %sub.i27 = fsub double %mul.i22, %3
+  %sub3.i28 = fsub double %mul2.i24, %4
+  %7 = fneg double %sub3.i
+  %neg.i = fmul double %sub.i27, %7
+  %8 = tail call noundef double @llvm.fmuladd.f64(double %sub.i, double %sub3.i28, double %neg.i)
+  %tobool = fcmp une double %8, 0.000000e+00
+  br i1 %tobool, label %if.then, label %if.end
+
+if.then:                                          ; preds = %entry.if.then_crit_edge, %lor.lhs.false
+  %mul2.i40.pre-phi = phi double [ %.pre53, %entry.if.then_crit_edge ], [ %mul2.i24, %lor.lhs.false ]
+  %mul.i38.pre-phi = phi double [ %.pre51, %entry.if.then_crit_edge ], [ %mul.i22, %lor.lhs.false ]
+  %mul2.i34.pre-phi = phi double [ %.pre49, %entry.if.then_crit_edge ], [ %mul2.i16, %lor.lhs.false ]
+  %mul.i32.pre-phi = phi double [ %.pre47, %entry.if.then_crit_edge ], [ %mul.i14, %lor.lhs.false ]
+  %contour = getelementptr inbounds %"struct.msdfgen::FtContext", ptr %user, i64 0, i32 2
+  %9 = load ptr, ptr %contour, align 8
+  %call.i = tail call noundef ptr @_ZN7msdfgen11EdgeSegment6createENS_7Vector2ES1_S1_S1_NS_9EdgeColorE(double %agg.tmp1.sroa.0.0.copyload, double %agg.tmp1.sroa.2.0.copyload, double %mul.i32.pre-phi, double %mul2.i34.pre-phi, double %mul.i38.pre-phi, double %mul2.i40.pre-phi, double %3, double %4, i32 noundef 7)
+  store ptr %call.i, ptr %ref.tmp, align 8
+  invoke void @_ZN7msdfgen7Contour7addEdgeEONS_10EdgeHolderE(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp)
+          to label %invoke.cont unwind label %lpad
+
+invoke.cont:                                      ; preds = %if.then
+  call void @_ZN7msdfgen10EdgeHolderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #18
+  store <2 x double> %2, ptr %user, align 8
+  br label %if.end
+
+lpad:                                             ; preds = %if.then
+  %10 = landingpad { ptr, i32 }
+          cleanup
+  call void @_ZN7msdfgen10EdgeHolderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #18
+  resume { ptr, i32 } %10
+
+if.end:                                           ; preds = %invoke.cont, %lor.lhs.false
+  ret i32 0
+}
+
+declare i32 @FT_Outline_Decompose(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+
+; Function Attrs: mustprogress uwtable
+define dso_local noundef ptr @_ZN7msdfgen8loadFontEPNS_14FreetypeHandleEPKc(ptr noundef readonly %library, ptr noundef %filename) local_unnamed_addr #2 {
+entry:
+  %tobool.not = icmp eq ptr %library, null
+  br i1 %tobool.not, label %return, label %if.end
+
+if.end:                                           ; preds = %entry
+  %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #16
+  %0 = load ptr, ptr %library, align 8
+  %call2 = tail call i32 @FT_New_Face(ptr noundef %0, ptr noundef %filename, i64 noundef 0, ptr noundef nonnull %call)
+  %tobool3.not = icmp eq i32 %call2, 0
+  br i1 %tobool3.not, label %if.end5, label %delete.notnull
+
+delete.notnull:                                   ; preds = %if.end
+  tail call void @_ZdlPv(ptr noundef nonnull %call) #17
+  br label %return
+
+if.end5:                                          ; preds = %if.end
+  %ownership = getelementptr inbounds %"class.msdfgen::FontHandle", ptr %call, i64 0, i32 1
+  store i8 1, ptr %ownership, align 8
+  br label %return
+
+return:                                           ; preds = %entry, %if.end5, %delete.notnull
+  %retval.0 = phi ptr [ null, %delete.notnull ], [ %call, %if.end5 ], [ null, %entry ]
+  ret ptr %retval.0
+}
+
+declare i32 @FT_New_Face(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #4
+
+; Function Attrs: mustprogress uwtable
+define dso_local noundef ptr @_ZN7msdfgen12loadFontDataEPNS_14FreetypeHandleEPKhi(ptr noundef readonly %library, ptr noundef %data, i32 noundef %length) local_unnamed_addr #2 {
+entry:
+  %tobool.not = icmp eq ptr %library, null
+  br i1 %tobool.not, label %return, label %if.end
+
+if.end:                                           ; preds = %entry
+  %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #16
+  %0 = load ptr, ptr %library, align 8
+  %conv = sext i32 %length to i64
+  %call2 = tail call i32 @FT_New_Memory_Face(ptr noundef %0, ptr noundef %data, i64 noundef %conv, i64 noundef 0, ptr noundef nonnull %call)
+  %tobool3.not = icmp eq i32 %call2, 0
+  br i1 %tobool3.not, label %if.end5, label %delete.notnull
+
+delete.notnull:                                   ; preds = %if.end
+  tail call void @_ZdlPv(ptr noundef nonnull %call) #17
+  br label %return
+
+if.end5:                                          ; preds = %if.end
+  %ownership = getelementptr inbounds %"class.msdfgen::FontHandle", ptr %call, i64 0, i32 1
+  store i8 1, ptr %ownership, align 8
+  br label %return
+
+return:                                           ; preds = %entry, %if.end5, %delete.notnull
+  %retval.0 = phi ptr [ null, %delete.notnull ], [ %call, %if.end5 ], [ null, %entry ]
+  ret ptr %retval.0
+}
+
+declare i32 @FT_New_Memory_Face(ptr noundef, ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #4
+
+; Function Attrs: mustprogress uwtable
+define dso_local void @_ZN7msdfgen11destroyFontEPNS_10FontHandleE(ptr noundef %font) local_unnamed_addr #2 {
+entry:
+  %ownership = getelementptr inbounds %"class.msdfgen::FontHandle", ptr %font, i64 0, i32 1
+  %0 = load i8, ptr %ownership, align 8
+  %1 = and i8 %0, 1
+  %tobool.not = icmp eq i8 %1, 0
+  br i1 %tobool.not, label %delete.end, label %if.then
+
+if.then:                                          ; preds = %entry
+  %2 = load ptr, ptr %font, align 8
+  %call = tail call i32 @FT_Done_Face(ptr noundef %2)
+  br label %delete.end
+
+delete.end:                                       ; preds = %if.then, %entry
+  tail call void @_ZdlPv(ptr noundef nonnull %font) #17
+  ret void
+}
+
+declare i32 @FT_Done_Face(ptr noundef) local_unnamed_addr #4
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+define dso_local noundef zeroext i1 @_ZN7msdfgen14getFontMetricsERNS_11FontMetricsEPNS_10FontHandleE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) %metrics, ptr nocapture noundef readonly %font) local_unnamed_addr #6 {
+entry:
+  %0 = load ptr, ptr %font, align 8
+  %units_per_EM = getelementptr inbounds %struct.FT_FaceRec_, ptr %0, i64 0, i32 13
+  %1 = load i16, ptr %units_per_EM, align 8
+  %conv = uitofp i16 %1 to double
+  %mul = fmul double %conv, 1.562500e-02
+  store double %mul, ptr %metrics, align 8
+  %2 = load ptr, ptr %font, align 8
+  %ascender = getelementptr inbounds %struct.FT_FaceRec_, ptr %2, i64 0, i32 14
+  %3 = load i16, ptr %ascender, align 2
+  %conv2 = sitofp i16 %3 to double
+  %mul3 = fmul double %conv2, 1.562500e-02
+  %ascenderY = getelementptr inbounds %"struct.msdfgen::FontMetrics", ptr %metrics, i64 0, i32 1
+  store double %mul3, ptr %ascenderY, align 8
+  %4 = load ptr, ptr %font, align 8
+  %descender = getelementptr inbounds %struct.FT_FaceRec_, ptr %4, i64 0, i32 15
+  %5 = load i16, ptr %descender, align 4
+  %conv5 = sitofp i16 %5 to double
+  %mul6 = fmul double %conv5, 1.562500e-02
+  %descenderY = getelementptr inbounds %"struct.msdfgen::FontMetrics", ptr %metrics, i64 0, i32 2
+  store double %mul6, ptr %descenderY, align 8
+  %6 = load ptr, ptr %font, align 8
+  %height = getelementptr inbounds %struct.FT_FaceRec_, ptr %6, i64 0, i32 16
+  %7 = load i16, ptr %height, align 2
+  %conv8 = sitofp i16 %7 to double
+  %mul9 = fmul double %conv8, 1.562500e-02
+  %lineHeight = getelementptr inbounds %"struct.msdfgen::FontMetrics", ptr %metrics, i64 0, i32 3
+  store double %mul9, ptr %lineHeight, align 8
+  %8 = load ptr, ptr %font, align 8
+  %underline_position = getelementptr inbounds %struct.FT_FaceRec_, ptr %8, i64 0, i32 19
+  %9 = load i16, ptr %underline_position, align 4
+  %conv11 = sitofp i16 %9 to double
+  %mul12 = fmul double %conv11, 1.562500e-02
+  %underlineY = getelementptr inbounds %"struct.msdfgen::FontMetrics", ptr %metrics, i64 0, i32 4
+  store double %mul12, ptr %underlineY, align 8
+  %10 = load ptr, ptr %font, align 8
+  %underline_thickness = getelementptr inbounds %struct.FT_FaceRec_, ptr %10, i64 0, i32 20
+  %11 = load i16, ptr %underline_thickness, align 2
+  %conv14 = sitofp i16 %11 to double
+  %mul15 = fmul double %conv14, 1.562500e-02
+  %underlineThickness = getelementptr inbounds %"struct.msdfgen::FontMetrics", ptr %metrics, i64 0, i32 5
+  store double %mul15, ptr %underlineThickness, align 8
+  ret i1 true
+}
+
+; Function Attrs: mustprogress uwtable
+define dso_local noundef zeroext i1 @_ZN7msdfgen22getFontWhitespaceWidthERdS0_PNS_10FontHandleE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %spaceAdvance, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %tabAdvance, ptr nocapture noundef readonly %font) local_unnamed_addr #2 {
+entry:
+  %0 = load ptr, ptr %font, align 8
+  %call = tail call i32 @FT_Load_Char(ptr noundef %0, i64 noundef 32, i32 noundef 1)
+  %tobool.not = icmp eq i32 %call, 0
+  br i1 %tobool.not, label %if.end, label %return
+
+if.end:                                           ; preds = %entry
+  %1 = load ptr, ptr %font, align 8
+  %glyph = getelementptr inbounds %struct.FT_FaceRec_, ptr %1, i64 0, i32 21
+  %2 = load ptr, ptr %glyph, align 8
+  %advance = getelementptr inbounds %struct.FT_GlyphSlotRec_, ptr %2, i64 0, i32 8
+  %3 = load i64, ptr %advance, align 8
+  %conv = sitofp i64 %3 to double
+  %mul = fmul double %conv, 1.562500e-02
+  store double %mul, ptr %spaceAdvance, align 8
+  %4 = load ptr, ptr %font, align 8
+  %call3 = tail call i32 @FT_Load_Char(ptr noundef %4, i64 noundef 9, i32 noundef 1)
+  %tobool4.not = icmp eq i32 %call3, 0
+  br i1 %tobool4.not, label %if.end6, label %return
+
+if.end6:                                          ; preds = %if.end
+  %5 = load ptr, ptr %font, align 8
+  %glyph8 = getelementptr inbounds %struct.FT_FaceRec_, ptr %5, i64 0, i32 21
+  %6 = load ptr, ptr %glyph8, align 8
+  %advance9 = getelementptr inbounds %struct.FT_GlyphSlotRec_, ptr %6, i64 0, i32 8
+  %7 = load i64, ptr %advance9, align 8
+  %conv11 = sitofp i64 %7 to double
+  %mul12 = fmul double %conv11, 1.562500e-02
+  store double %mul12, ptr %tabAdvance, align 8
+  br label %return
+
+return:                                           ; preds = %if.end, %entry, %if.end6
+  %retval.0 = phi i1 [ true, %if.end6 ], [ false, %entry ], [ false, %if.end ]
+  ret i1 %retval.0
+}
+
+declare i32 @FT_Load_Char(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #4
+
+; Function Attrs: mustprogress uwtable
+define dso_local noundef zeroext i1 @_ZN7msdfgen13getGlyphIndexERNS_10GlyphIndexEPNS_10FontHandleEj(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %glyphIndex, ptr nocapture noundef readonly %font, i32 noundef %unicode) local_unnamed_addr #2 {
+entry:
+  %0 = load ptr, ptr %font, align 8
+  %conv = zext i32 %unicode to i64
+  %call = tail call i32 @FT_Get_Char_Index(ptr noundef %0, i64 noundef %conv)
+  store i32 %call, ptr %glyphIndex, align 4
+  %cmp = icmp ne i32 %call, 0
+  ret i1 %cmp
+}
+
+declare i32 @FT_Get_Char_Index(ptr noundef, i64 noundef) local_unnamed_addr #4
+
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+
+; Function Attrs: mustprogress uwtable
+define dso_local noundef zeroext i1 @_ZN7msdfgen9loadGlyphERNS_5ShapeEPNS_10FontHandleENS_10GlyphIndexEPd(ptr noundef nonnull align 8 dereferenceable(25) %output, ptr noundef readonly %font, i32 %glyphIndex.coerce, ptr noundef writeonly %advance) local_unnamed_addr #2 {
+entry:
+  %tobool.not = icmp eq ptr %font, null
+  br i1 %tobool.not, label %return, label %if.end
+
+if.end:                                           ; preds = %entry
+  %0 = load ptr, ptr %font, align 8
+  %call1 = tail call i32 @FT_Load_Glyph(ptr noundef %0, i32 noundef %glyphIndex.coerce, i32 noundef 1)
+  %tobool2.not = icmp eq i32 %call1, 0
+  br i1 %tobool2.not, label %if.end4, label %return
+
+if.end4:                                          ; preds = %if.end
+  %tobool5.not = icmp eq ptr %advance, null
+  br i1 %tobool5.not, label %if.end9, label %if.then6
+
+if.then6:                                         ; preds = %if.end4
+  %1 = load ptr, ptr %font, align 8
+  %glyph = getelementptr inbounds %struct.FT_FaceRec_, ptr %1, i64 0, i32 21
+  %2 = load ptr, ptr %glyph, align 8
+  %advance8 = getelementptr inbounds %struct.FT_GlyphSlotRec_, ptr %2, i64 0, i32 8
+  %3 = load i64, ptr %advance8, align 8
+  %conv = sitofp i64 %3 to double
+  %mul = fmul double %conv, 1.562500e-02
+  store double %mul, ptr %advance, align 8
+  br label %if.end9
+
+if.end9:                                          ; preds = %if.then6, %if.end4
+  %4 = load ptr, ptr %font, align 8
+  %glyph11 = getelementptr inbounds %struct.FT_FaceRec_, ptr %4, i64 0, i32 21
+  %5 = load ptr, ptr %glyph11, align 8
+  %outline = getelementptr inbounds %struct.FT_GlyphSlotRec_, ptr %5, i64 0, i32 13
+  %call12 = tail call noundef i32 @_ZN7msdfgen19readFreetypeOutlineERNS_5ShapeEP11FT_Outline_(ptr noundef nonnull align 8 dereferenceable(25) %output, ptr noundef nonnull %outline)
+  %tobool13.not = icmp eq i32 %call12, 0
+  br label %return
+
+return:                                           ; preds = %if.end, %entry, %if.end9
+  %retval.0 = phi i1 [ %tobool13.not, %if.end9 ], [ false, %entry ], [ false, %if.end ]
+  ret i1 %retval.0
+}
+
+declare i32 @FT_Load_Glyph(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
+
+; Function Attrs: mustprogress uwtable
+define dso_local noundef zeroext i1 @_ZN7msdfgen9loadGlyphERNS_5ShapeEPNS_10FontHandleEjPd(ptr noundef nonnull align 8 dereferenceable(25) %output, ptr nocapture noundef readonly %font, i32 noundef %unicode, ptr noundef writeonly %advance) local_unnamed_addr #2 {
+if.end.i:
+  %0 = load ptr, ptr %font, align 8
+  %conv = zext i32 %unicode to i64
+  %call = tail call i32 @FT_Get_Char_Index(ptr noundef %0, i64 noundef %conv)
+  %1 = load ptr, ptr %font, align 8
+  %call1.i = tail call i32 @FT_Load_Glyph(ptr noundef %1, i32 noundef %call, i32 noundef 1)
+  %tobool2.not.i = icmp eq i32 %call1.i, 0
+  br i1 %tobool2.not.i, label %if.end4.i, label %_ZN7msdfgen9loadGlyphERNS_5ShapeEPNS_10FontHandleENS_10GlyphIndexEPd.exit
+
+if.end4.i:                                        ; preds = %if.end.i
+  %tobool5.not.i = icmp eq ptr %advance, null
+  br i1 %tobool5.not.i, label %if.end9.i, label %if.then6.i
+
+if.then6.i:                                       ; preds = %if.end4.i
+  %2 = load ptr, ptr %font, align 8
+  %glyph.i = getelementptr inbounds %struct.FT_FaceRec_, ptr %2, i64 0, i32 21
+  %3 = load ptr, ptr %glyph.i, align 8
+  %advance8.i = getelementptr inbounds %struct.FT_GlyphSlotRec_, ptr %3, i64 0, i32 8
+  %4 = load i64, ptr %advance8.i, align 8
+  %conv.i = sitofp i64 %4 to double
+  %mul.i = fmul double %conv.i, 1.562500e-02
+  store double %mul.i, ptr %advance, align 8
+  br label %if.end9.i
+
+if.end9.i:                                        ; preds = %if.then6.i, %if.end4.i
+  %5 = load ptr, ptr %font, align 8
+  %glyph11.i = getelementptr inbounds %struct.FT_FaceRec_, ptr %5, i64 0, i32 21
+  %6 = load ptr, ptr %glyph11.i, align 8
+  %outline.i = getelementptr inbounds %struct.FT_GlyphSlotRec_, ptr %6, i64 0, i32 13
+  %call12.i = tail call noundef i32 @_ZN7msdfgen19readFreetypeOutlineERNS_5ShapeEP11FT_Outline_(ptr noundef nonnull align 8 dereferenceable(25) %output, ptr noundef nonnull %outline.i)
+  %tobool13.not.i = icmp eq i32 %call12.i, 0
+  br label %_ZN7msdfgen9loadGlyphERNS_5ShapeEPNS_10FontHandleENS_10GlyphIndexEPd.exit
+
+_ZN7msdfgen9loadGlyphERNS_5ShapeEPNS_10FontHandleENS_10GlyphIndexEPd.exit: ; preds = %if.end.i, %if.end9.i
+  %retval.0.i = phi i1 [ %tobool13.not.i, %if.end9.i ], [ false, %if.end.i ]
+  ret i1 %retval.0.i
+}
+
+; Function Attrs: mustprogress uwtable
+define dso_local noundef zeroext i1 @_ZN7msdfgen10getKerningERdPNS_10FontHandleENS_10GlyphIndexES3_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %output, ptr nocapture noundef readonly %font, i32 %glyphIndex1.coerce, i32 %glyphIndex2.coerce) local_unnamed_addr #2 {
+entry:
+  %kerning = alloca %struct.FT_Vector_, align 8
+  %0 = load ptr, ptr %font, align 8
+  %call3 = call i32 @FT_Get_Kerning(ptr noundef %0, i32 noundef %glyphIndex1.coerce, i32 noundef %glyphIndex2.coerce, i32 noundef 2, ptr noundef nonnull %kerning)
+  %tobool.not = icmp eq i32 %call3, 0
+  %1 = load i64, ptr %kerning, align 8
+  %conv = sitofp i64 %1 to double
+  %mul = fmul double %conv, 1.562500e-02
+  %storemerge = select i1 %tobool.not, double %mul, double 0.000000e+00
+  store double %storemerge, ptr %output, align 8
+  ret i1 %tobool.not
+}
+
+declare i32 @FT_Get_Kerning(ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
+
+; Function Attrs: mustprogress uwtable
+define dso_local noundef zeroext i1 @_ZN7msdfgen10getKerningERdPNS_10FontHandleEjj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %output, ptr nocapture noundef readonly %font, i32 noundef %unicode1, i32 noundef %unicode2) local_unnamed_addr #2 {
+entry:
+  %kerning.i = alloca %struct.FT_Vector_, align 8
+  %0 = load ptr, ptr %font, align 8
+  %conv = zext i32 %unicode1 to i64
+  %call = tail call i32 @FT_Get_Char_Index(ptr noundef %0, i64 noundef %conv)
+  %1 = load ptr, ptr %font, align 8
+  %conv3 = zext i32 %unicode2 to i64
+  %call4 = tail call i32 @FT_Get_Char_Index(ptr noundef %1, i64 noundef %conv3)
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %kerning.i)
+  %2 = load ptr, ptr %font, align 8
+  %call3.i = call i32 @FT_Get_Kerning(ptr noundef %2, i32 noundef %call, i32 noundef %call4, i32 noundef 2, ptr noundef nonnull %kerning.i)
+  %tobool.not.i = icmp eq i32 %call3.i, 0
+  %3 = load i64, ptr %kerning.i, align 8
+  %conv.i = sitofp i64 %3 to double
+  %mul.i = fmul double %conv.i, 1.562500e-02
+  %storemerge.i = select i1 %tobool.not.i, double %mul.i, double 0.000000e+00
+  store double %storemerge.i, ptr %output, align 8
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %kerning.i)
+  ret i1 %tobool.not.i
+}
+
+; Function Attrs: mustprogress uwtable
+define dso_local noundef zeroext i1 @_ZN7msdfgen20setFontVariationAxisEPNS_14FreetypeHandleEPNS_10FontHandleEPKcd(ptr nocapture noundef readonly %library, ptr nocapture noundef readonly %font, ptr nocapture noundef readonly %name, double noundef %coordinate) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+entry:
+  %master = alloca ptr, align 8
+  %0 = load ptr, ptr %font, align 8
+  %face_flags = getelementptr inbounds %struct.FT_FaceRec_, ptr %0, i64 0, i32 2
+  %1 = load i64, ptr %face_flags, align 8
+  %and = and i64 %1, 256
+  %tobool.not = icmp eq i64 %and, 0
+  br i1 %tobool.not, label %return, label %if.then
+
+if.then:                                          ; preds = %entry
+  store ptr null, ptr %master, align 8
+  %call = call i32 @FT_Get_MM_Var(ptr noundef nonnull %0, ptr noundef nonnull %master)
+  %tobool2.not = icmp eq i32 %call, 0
+  br i1 %tobool2.not, label %if.end, label %return
+
+if.end:                                           ; preds = %if.then
+  %2 = load ptr, ptr %master, align 8
+  %tobool4.not = icmp eq ptr %2, null
+  br i1 %tobool4.not, label %if.end36, label %land.lhs.true
+
+land.lhs.true:                                    ; preds = %if.end
+  %3 = load i32, ptr %2, align 8
+  %tobool5.not = icmp eq i32 %3, 0
+  br i1 %tobool5.not, label %if.end36, label %if.then.i.i.i.i.i
+
+if.then.i.i.i.i.i:                                ; preds = %land.lhs.true
+  %conv = zext i32 %3 to i64
+  %mul.i.i.i.i.i.i = shl nuw nsw i64 %conv, 3
+  %call5.i.i.i.i2.i.i9 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i) #16
+  store i64 0, ptr %call5.i.i.i.i2.i.i9, align 8
+  %incdec.ptr.i.i.i.i.i = getelementptr i64, ptr %call5.i.i.i.i2.i.i9, i64 1
+  %cmp.i.i.i.i.i.i.i = icmp eq i32 %3, 1
+  br i1 %cmp.i.i.i.i.i.i.i, label %invoke.cont, label %if.end.i.i.i.i.i.i.i
+
+if.end.i.i.i.i.i.i.i:                             ; preds = %if.then.i.i.i.i.i
+  %add.ptr.i.i.i = getelementptr inbounds i64, ptr %call5.i.i.i.i2.i.i9, i64 %conv
+  %4 = add nsw i64 %mul.i.i.i.i.i.i, -8
+  call void @llvm.memset.p0.i64(ptr align 8 %incdec.ptr.i.i.i.i.i, i8 0, i64 %4, i1 false)
+  br label %invoke.cont
+
+invoke.cont:                                      ; preds = %if.end.i.i.i.i.i.i.i, %if.then.i.i.i.i.i
+  %__first.addr.0.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %if.then.i.i.i.i.i ], [ %add.ptr.i.i.i, %if.end.i.i.i.i.i.i.i ]
+  %5 = load ptr, ptr %font, align 8
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %__first.addr.0.i.i.i.i.i to i64
+  %sub.ptr.rhs.cast.i = ptrtoint ptr %call5.i.i.i.i2.i.i9 to i64
+  %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
+  %sub.ptr.div.i = lshr exact i64 %sub.ptr.sub.i, 3
+  %conv10 = trunc i64 %sub.ptr.div.i to i32
+  %call14 = invoke i32 @FT_Get_Var_Design_Coordinates(ptr noundef %5, i32 noundef %conv10, ptr noundef nonnull %call5.i.i.i.i2.i.i9)
+          to label %invoke.cont13 unwind label %_ZNSt6vectorIlSaIlEED2Ev.exit
+
+invoke.cont13:                                    ; preds = %invoke.cont
+  %tobool15.not = icmp eq i32 %call14, 0
+  br i1 %tobool15.not, label %for.cond.preheader, label %if.end26
+
+for.cond.preheader:                               ; preds = %invoke.cont13
+  %6 = load ptr, ptr %master, align 8
+  %7 = load i32, ptr %6, align 8
+  %cmp28.not = icmp eq i32 %7, 0
+  br i1 %cmp28.not, label %if.end26, label %for.body.lr.ph
+
+for.body.lr.ph:                                   ; preds = %for.cond.preheader
+  %axis = getelementptr inbounds %struct.FT_MM_Var_, ptr %6, i64 0, i32 3
+  %8 = load ptr, ptr %axis, align 8
+  %wide.trip.count = zext i32 %7 to i64
+  br label %for.body
+
+for.cond:                                         ; preds = %for.body
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond.not, label %if.end26, label %for.body, !llvm.loop !8
+
+for.body:                                         ; preds = %for.body.lr.ph, %for.cond
+  %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.cond ]
+  %arrayidx = getelementptr inbounds %struct.FT_Var_Axis_, ptr %8, i64 %indvars.iv
+  %9 = load ptr, ptr %arrayidx, align 8
+  %call19 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %name, ptr noundef nonnull dereferenceable(1) %9) #19
+  %tobool20.not = icmp eq i32 %call19, 0
+  br i1 %tobool20.not, label %if.then21, label %for.cond
+
+if.then21:                                        ; preds = %for.body
+  %mul = fmul double %coordinate, 6.553600e+04
+  %conv22 = fptosi double %mul to i64
+  %add.ptr.i = getelementptr inbounds i64, ptr %call5.i.i.i.i2.i.i9, i64 %indvars.iv
+  store i64 %conv22, ptr %add.ptr.i, align 8
+  br label %if.end26
+
+_ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %if.end26, %invoke.cont
+  %10 = landingpad { ptr, i32 }
+          cleanup
+  call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i2.i.i9) #17
+  resume { ptr, i32 } %10
+
+if.end26:                                         ; preds = %for.cond, %for.cond.preheader, %if.then21, %invoke.cont13
+  %success.0 = phi i1 [ false, %invoke.cont13 ], [ true, %if.then21 ], [ false, %for.cond.preheader ], [ false, %for.cond ]
+  %11 = load ptr, ptr %font, align 8
+  %call32 = invoke i32 @FT_Set_Var_Design_Coordinates(ptr noundef %11, i32 noundef %conv10, ptr noundef nonnull %call5.i.i.i.i2.i.i9)
+          to label %_ZNSt6vectorIlSaIlEED2Ev.exit17 unwind label %_ZNSt6vectorIlSaIlEED2Ev.exit
+
+_ZNSt6vectorIlSaIlEED2Ev.exit17:                  ; preds = %if.end26
+  %tobool33.not = icmp eq i32 %call32, 0
+  %spec.select = and i1 %success.0, %tobool33.not
+  call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i2.i.i9) #17
+  %.pre = load ptr, ptr %master, align 8
+  br label %if.end36
+
+if.end36:                                         ; preds = %_ZNSt6vectorIlSaIlEED2Ev.exit17, %land.lhs.true, %if.end
+  %12 = phi ptr [ %.pre, %_ZNSt6vectorIlSaIlEED2Ev.exit17 ], [ %2, %land.lhs.true ], [ null, %if.end ]
+  %success.2 = phi i1 [ %spec.select, %_ZNSt6vectorIlSaIlEED2Ev.exit17 ], [ false, %land.lhs.true ], [ false, %if.end ]
+  %13 = load ptr, ptr %library, align 8
+  %call38 = call i32 @FT_Done_MM_Var(ptr noundef %13, ptr noundef %12)
+  br label %return
+
+return:                                           ; preds = %entry, %if.end36, %if.then
+  %retval.0 = phi i1 [ false, %if.then ], [ %success.2, %if.end36 ], [ false, %entry ]
+  ret i1 %retval.0
+}
+
+declare i32 @FT_Get_MM_Var(ptr noundef, ptr noundef) local_unnamed_addr #4
+
+declare i32 @__gxx_personality_v0(...)
+
+declare i32 @FT_Get_Var_Design_Coordinates(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
+
+; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
+declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #8
+
+declare i32 @FT_Set_Var_Design_Coordinates(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
+
+declare i32 @FT_Done_MM_Var(ptr noundef, ptr noundef) local_unnamed_addr #4
+
+; Function Attrs: mustprogress uwtable
+define dso_local noundef zeroext i1 @_ZN7msdfgen21listFontVariationAxesERSt6vectorINS_17FontVariationAxisESaIS1_EEPNS_14FreetypeHandleEPNS_10FontHandleE(ptr noundef nonnull align 8 dereferenceable(24) %axes, ptr nocapture noundef readonly %library, ptr nocapture noundef readonly %font) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+entry:
+  %master = alloca ptr, align 8
+  %0 = load ptr, ptr %font, align 8
+  %face_flags = getelementptr inbounds %struct.FT_FaceRec_, ptr %0, i64 0, i32 2
+  %1 = load i64, ptr %face_flags, align 8
+  %and = and i64 %1, 256
+  %tobool.not = icmp eq i64 %and, 0
+  br i1 %tobool.not, label %return, label %if.then
+
+if.then:                                          ; preds = %entry
+  store ptr null, ptr %master, align 8
+  %call = call i32 @FT_Get_MM_Var(ptr noundef nonnull %0, ptr noundef nonnull %master)
+  %tobool2.not = icmp eq i32 %call, 0
+  br i1 %tobool2.not, label %if.end, label %return
+
+if.end:                                           ; preds = %if.then
+  %2 = load ptr, ptr %master, align 8
+  %3 = load i32, ptr %2, align 8
+  %conv = zext i32 %3 to i64
+  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<msdfgen::FontVariationAxis, std::allocator<msdfgen::FontVariationAxis>>::_Vector_impl_data", ptr %axes, i64 0, i32 1
+  %4 = load ptr, ptr %_M_finish.i.i, align 8
+  %5 = load ptr, ptr %axes, align 8
+  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %4 to i64
+  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %5 to i64
+  %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
+  %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 5
+  %cmp.i = icmp ult i64 %sub.ptr.div.i.i, %conv
+  br i1 %cmp.i, label %if.then.i, label %if.else.i
+
+if.then.i:                                        ; preds = %if.end
+  %sub.i = sub nsw i64 %conv, %sub.ptr.div.i.i
+  call void @_ZNSt6vectorIN7msdfgen17FontVariationAxisESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %axes, i64 noundef %sub.i)
+  %.pre = load ptr, ptr %master, align 8
+  br label %_ZNSt6vectorIN7msdfgen17FontVariationAxisESaIS1_EE6resizeEm.exit
+
+if.else.i:                                        ; preds = %if.end
+  %cmp4.i = icmp ugt i64 %sub.ptr.div.i.i, %conv
+  br i1 %cmp4.i, label %if.then5.i, label %_ZNSt6vectorIN7msdfgen17FontVariationAxisESaIS1_EE6resizeEm.exit
+
+if.then5.i:                                       ; preds = %if.else.i
+  %add.ptr.i = getelementptr inbounds %"struct.msdfgen::FontVariationAxis", ptr %5, i64 %conv
+  %tobool.not.i.i = icmp eq ptr %4, %add.ptr.i
+  br i1 %tobool.not.i.i, label %_ZNSt6vectorIN7msdfgen17FontVariationAxisESaIS1_EE6resizeEm.exit, label %invoke.cont.i.i
+
+invoke.cont.i.i:                                  ; preds = %if.then5.i
+  store ptr %add.ptr.i, ptr %_M_finish.i.i, align 8
+  br label %_ZNSt6vectorIN7msdfgen17FontVariationAxisESaIS1_EE6resizeEm.exit
+
+_ZNSt6vectorIN7msdfgen17FontVariationAxisESaIS1_EE6resizeEm.exit: ; preds = %if.then.i, %if.else.i, %if.then5.i, %invoke.cont.i.i
+  %6 = phi ptr [ %.pre, %if.then.i ], [ %2, %if.else.i ], [ %2, %if.then5.i ], [ %2, %invoke.cont.i.i ]
+  %7 = load i32, ptr %6, align 8
+  %cmp13.not = icmp eq i32 %7, 0
+  br i1 %cmp13.not, label %for.end, label %for.body
+
+for.body:                                         ; preds = %_ZNSt6vectorIN7msdfgen17FontVariationAxisESaIS1_EE6resizeEm.exit, %for.body
+  %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ 0, %_ZNSt6vectorIN7msdfgen17FontVariationAxisESaIS1_EE6resizeEm.exit ]
+  %8 = phi ptr [ %20, %for.body ], [ %6, %_ZNSt6vectorIN7msdfgen17FontVariationAxisESaIS1_EE6resizeEm.exit ]
+  %9 = load ptr, ptr %axes, align 8
+  %add.ptr.i12 = getelementptr inbounds %"struct.msdfgen::FontVariationAxis", ptr %9, i64 %indvars.iv
+  %axis7 = getelementptr inbounds %struct.FT_MM_Var_, ptr %8, i64 0, i32 3
+  %10 = load ptr, ptr %axis7, align 8
+  %arrayidx = getelementptr inbounds %struct.FT_Var_Axis_, ptr %10, i64 %indvars.iv
+  %11 = load ptr, ptr %arrayidx, align 8
+  store ptr %11, ptr %add.ptr.i12, align 8
+  %12 = load ptr, ptr %axis7, align 8
+  %minimum = getelementptr inbounds %struct.FT_Var_Axis_, ptr %12, i64 %indvars.iv, i32 1
+  %13 = load i64, ptr %minimum, align 8
+  %conv12 = sitofp i64 %13 to double
+  %mul = fmul double %conv12, 0x3EF0000000000000
+  %minValue = getelementptr inbounds %"struct.msdfgen::FontVariationAxis", ptr %9, i64 %indvars.iv, i32 1
+  store double %mul, ptr %minValue, align 8
+  %14 = load ptr, ptr %master, align 8
+  %axis13 = getelementptr inbounds %struct.FT_MM_Var_, ptr %14, i64 0, i32 3
+  %15 = load ptr, ptr %axis13, align 8
+  %maximum = getelementptr inbounds %struct.FT_Var_Axis_, ptr %15, i64 %indvars.iv, i32 3
+  %16 = load i64, ptr %maximum, align 8
+  %conv16 = sitofp i64 %16 to double
+  %mul17 = fmul double %conv16, 0x3EF0000000000000
+  %maxValue = getelementptr inbounds %"struct.msdfgen::FontVariationAxis", ptr %9, i64 %indvars.iv, i32 2
+  store double %mul17, ptr %maxValue, align 8
+  %17 = load ptr, ptr %master, align 8
+  %axis18 = getelementptr inbounds %struct.FT_MM_Var_, ptr %17, i64 0, i32 3
+  %18 = load ptr, ptr %axis18, align 8
+  %def = getelementptr inbounds %struct.FT_Var_Axis_, ptr %18, i64 %indvars.iv, i32 2
+  %19 = load i64, ptr %def, align 8
+  %conv21 = sitofp i64 %19 to double
+  %mul22 = fmul double %conv21, 0x3EF0000000000000
+  %defaultValue = getelementptr inbounds %"struct.msdfgen::FontVariationAxis", ptr %9, i64 %indvars.iv, i32 3
+  store double %mul22, ptr %defaultValue, align 8
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %20 = load ptr, ptr %master, align 8
+  %21 = load i32, ptr %20, align 8
+  %22 = zext i32 %21 to i64
+  %cmp = icmp ult i64 %indvars.iv.next, %22
+  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !9
+
+for.end:                                          ; preds = %for.body, %_ZNSt6vectorIN7msdfgen17FontVariationAxisESaIS1_EE6resizeEm.exit
+  %.lcssa = phi ptr [ %6, %_ZNSt6vectorIN7msdfgen17FontVariationAxisESaIS1_EE6resizeEm.exit ], [ %20, %for.body ]
+  %23 = load ptr, ptr %library, align 8
+  %call24 = call i32 @FT_Done_MM_Var(ptr noundef %23, ptr noundef nonnull %.lcssa)
+  br label %return
+
+return:                                           ; preds = %entry, %if.then, %for.end
+  %retval.0 = phi i1 [ true, %for.end ], [ false, %if.then ], [ false, %entry ]
+  ret i1 %retval.0
+}
+
+declare noundef nonnull align 8 dereferenceable(24) ptr @_ZN7msdfgen5Shape10addContourEv(ptr noundef nonnull align 8 dereferenceable(25)) local_unnamed_addr #4
+
+declare void @_ZN7msdfgen7Contour7addEdgeEONS_10EdgeHolderE(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #4
+
+; Function Attrs: nounwind
+declare void @_ZN7msdfgen10EdgeHolderD1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #9
+
+declare noundef ptr @_ZN7msdfgen11EdgeSegment6createENS_7Vector2ES1_NS_9EdgeColorE(double, double, double, double, i32 noundef) local_unnamed_addr #4
+
+declare noundef ptr @_ZN7msdfgen11EdgeSegment6createENS_7Vector2ES1_S1_NS_9EdgeColorE(double, double, double, double, double, double, i32 noundef) local_unnamed_addr #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.fmuladd.f64(double, double, double) #10
+
+declare noundef ptr @_ZN7msdfgen11EdgeSegment6createENS_7Vector2ES1_S1_S1_NS_9EdgeColorE(double, double, double, double, double, double, double, double, i32 noundef) local_unnamed_addr #4
+
+; Function Attrs: noreturn
+declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #11
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZNSt6vectorIN7msdfgen17FontVariationAxisESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %__n) local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+entry:
+  %cmp.not = icmp eq i64 %__n, 0
+  br i1 %cmp.not, label %if.end44, label %if.then
+
+if.then:                                          ; preds = %entry
+  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<msdfgen::FontVariationAxis, std::allocator<msdfgen::FontVariationAxis>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %0 = load ptr, ptr %_M_finish.i, align 8
+  %1 = load ptr, ptr %this, align 8
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
+  %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
+  %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
+  %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 5
+  %_M_end_of_storage = getelementptr inbounds %"struct.std::_Vector_base<msdfgen::FontVariationAxis, std::allocator<msdfgen::FontVariationAxis>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %2 = load ptr, ptr %_M_end_of_storage, align 8
+  %sub.ptr.lhs.cast = ptrtoint ptr %2 to i64
+  %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.lhs.cast.i
+  %sub.ptr.div = ashr exact i64 %sub.ptr.sub, 5
+  %cmp4 = icmp ult i64 %sub.ptr.div.i, 288230376151711744
+  tail call void @llvm.assume(i1 %cmp4)
+  %sub = xor i64 %sub.ptr.div.i, 288230376151711743
+  %cmp6 = icmp ule i64 %sub.ptr.div, %sub
+  tail call void @llvm.assume(i1 %cmp6)
+  %cmp8.not = icmp ult i64 %sub.ptr.div, %__n
+  br i1 %cmp8.not, label %if.else, label %if.then.i.i.i
+
+if.then.i.i.i:                                    ; preds = %if.then
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 32, i1 false)
+  %incdec.ptr.i.i.i = getelementptr inbounds %"struct.msdfgen::FontVariationAxis", ptr %0, i64 1
+  %cmp.i.i.i.i.i = icmp eq i64 %__n, 1
+  br i1 %cmp.i.i.i.i.i, label %_ZSt27__uninitialized_default_n_aIPN7msdfgen17FontVariationAxisEmS1_ET_S3_T0_RSaIT1_E.exit, label %if.end.i.i.i.i.i
+
+if.end.i.i.i.i.i:                                 ; preds = %if.then.i.i.i
+  %add.ptr.i.i.i.i.i = getelementptr inbounds %"struct.msdfgen::FontVariationAxis", ptr %0, i64 %__n
+  br label %for.body.i.i.i.i.i.i.i
+
+for.body.i.i.i.i.i.i.i:                           ; preds = %for.body.i.i.i.i.i.i.i, %if.end.i.i.i.i.i
+  %__first.addr.04.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i ], [ %incdec.ptr.i.i.i, %if.end.i.i.i.i.i ]
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.04.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %0, i64 32, i1 false)
+  %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds %"struct.msdfgen::FontVariationAxis", ptr %__first.addr.04.i.i.i.i.i.i.i, i64 1
+  %cmp.not.i.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i, %add.ptr.i.i.i.i.i
+  br i1 %cmp.not.i.i.i.i.i.i.i, label %_ZSt27__uninitialized_default_n_aIPN7msdfgen17FontVariationAxisEmS1_ET_S3_T0_RSaIT1_E.exit, label %for.body.i.i.i.i.i.i.i, !llvm.loop !10
+
+_ZSt27__uninitialized_default_n_aIPN7msdfgen17FontVariationAxisEmS1_ET_S3_T0_RSaIT1_E.exit: ; preds = %for.body.i.i.i.i.i.i.i, %if.then.i.i.i
+  %__first.addr.0.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %if.then.i.i.i ], [ %add.ptr.i.i.i.i.i, %for.body.i.i.i.i.i.i.i ]
+  store ptr %__first.addr.0.i.i.i, ptr %_M_finish.i, align 8
+  br label %if.end44
+
+if.else:                                          ; preds = %if.then
+  %cmp.i = icmp ult i64 %sub, %__n
+  br i1 %cmp.i, label %if.then.i, label %_ZNKSt6vectorIN7msdfgen17FontVariationAxisESaIS1_EE12_M_check_lenEmPKc.exit
+
+if.then.i:                                        ; preds = %if.else
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.1) #20
+  unreachable
+
+_ZNKSt6vectorIN7msdfgen17FontVariationAxisESaIS1_EE12_M_check_lenEmPKc.exit: ; preds = %if.else
+  %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i, i64 %__n)
+  %add.i = add nuw nsw i64 %.sroa.speculated.i, %sub.ptr.div.i
+  %3 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 288230376151711743)
+  %mul.i.i.i = shl nuw nsw i64 %3, 5
+  %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #16
+  %add.ptr = getelementptr inbounds i8, ptr %call5.i.i.i, i64 %sub.ptr.sub.i
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr, i8 0, i64 32, i1 false)
+  %cmp.i.i.i.i.i23 = icmp eq i64 %__n, 1
+  br i1 %cmp.i.i.i.i.i23, label %try.cont, label %if.end.i.i.i.i.i24
+
+if.end.i.i.i.i.i24:                               ; preds = %_ZNKSt6vectorIN7msdfgen17FontVariationAxisESaIS1_EE12_M_check_lenEmPKc.exit
+  %incdec.ptr.i.i.i22 = getelementptr inbounds %"struct.msdfgen::FontVariationAxis", ptr %add.ptr, i64 1
+  %add.ptr.i.i.i.i.i25 = getelementptr inbounds %"struct.msdfgen::FontVariationAxis", ptr %add.ptr, i64 %__n
+  br label %for.body.i.i.i.i.i.i.i26
+
+for.body.i.i.i.i.i.i.i26:                         ; preds = %for.body.i.i.i.i.i.i.i26, %if.end.i.i.i.i.i24
+  %__first.addr.04.i.i.i.i.i.i.i27 = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i28, %for.body.i.i.i.i.i.i.i26 ], [ %incdec.ptr.i.i.i22, %if.end.i.i.i.i.i24 ]
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.04.i.i.i.i.i.i.i27, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr, i64 32, i1 false)
+  %incdec.ptr.i.i.i.i.i.i.i28 = getelementptr inbounds %"struct.msdfgen::FontVariationAxis", ptr %__first.addr.04.i.i.i.i.i.i.i27, i64 1
+  %cmp.not.i.i.i.i.i.i.i29 = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i28, %add.ptr.i.i.i.i.i25
+  br i1 %cmp.not.i.i.i.i.i.i.i29, label %try.cont, label %for.body.i.i.i.i.i.i.i26, !llvm.loop !10
+
+try.cont:                                         ; preds = %for.body.i.i.i.i.i.i.i26, %_ZNKSt6vectorIN7msdfgen17FontVariationAxisESaIS1_EE12_M_check_lenEmPKc.exit
+  %cmp.i.i.i = icmp sgt i64 %sub.ptr.sub.i, 0
+  br i1 %cmp.i.i.i, label %if.then.i.i.i33, label %_ZNSt6vectorIN7msdfgen17FontVariationAxisESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit
+
+if.then.i.i.i33:                                  ; preds = %try.cont
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %call5.i.i.i, ptr align 8 %1, i64 %sub.ptr.sub.i, i1 false)
+  br label %_ZNSt6vectorIN7msdfgen17FontVariationAxisESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit
+
+_ZNSt6vectorIN7msdfgen17FontVariationAxisESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ; preds = %try.cont, %if.then.i.i.i33
+  %tobool.not.i34 = icmp eq ptr %1, null
+  br i1 %tobool.not.i34, label %_ZNSt12_Vector_baseIN7msdfgen17FontVariationAxisESaIS1_EE13_M_deallocateEPS1_m.exit36, label %if.then.i35
+
+if.then.i35:                                      ; preds = %_ZNSt6vectorIN7msdfgen17FontVariationAxisESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit
+  tail call void @_ZdlPv(ptr noundef nonnull %1) #17
+  br label %_ZNSt12_Vector_baseIN7msdfgen17FontVariationAxisESaIS1_EE13_M_deallocateEPS1_m.exit36
+
+_ZNSt12_Vector_baseIN7msdfgen17FontVariationAxisESaIS1_EE13_M_deallocateEPS1_m.exit36: ; preds = %_ZNSt6vectorIN7msdfgen17FontVariationAxisESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, %if.then.i35
+  store ptr %call5.i.i.i, ptr %this, align 8
+  %add.ptr37 = getelementptr inbounds %"struct.msdfgen::FontVariationAxis", ptr %add.ptr, i64 %__n
+  store ptr %add.ptr37, ptr %_M_finish.i, align 8
+  %add.ptr40 = getelementptr inbounds %"struct.msdfgen::FontVariationAxis", ptr %call5.i.i.i, i64 %3
+  store ptr %add.ptr40, ptr %_M_end_of_storage, align 8
+  br label %if.end44
+
+if.end44:                                         ; preds = %_ZSt27__uninitialized_default_n_aIPN7msdfgen17FontVariationAxisEmS1_ET_S3_T0_RSaIT1_E.exit, %_ZNSt12_Vector_baseIN7msdfgen17FontVariationAxisESaIS1_EE13_M_deallocateEPS1_m.exit36, %entry
+  ret void
+}
+
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #12
+
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #7
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
+declare void @llvm.assume(i1 noundef) #13
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #14
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #14
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umax.i64(i64, i64) #15
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umin.i64(i64, i64) #15
+
+attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #8 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #11 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #13 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #14 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #15 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #16 = { builtin allocsize(0) }
+attributes #17 = { builtin nounwind }
+attributes #18 = { nounwind }
+attributes #19 = { nounwind willreturn memory(read) }
+attributes #20 = { noreturn }
+
+!llvm.module.flags = !{!0, !1, !2, !3, !4}
+
+!0 = !{i32 1, !"wchar_size", i32 4}
+!1 = !{i32 8, !"PIC Level", i32 2}
+!2 = !{i32 7, !"PIE Level", i32 2}
+!3 = !{i32 7, !"uwtable", i32 2}
+!4 = !{i32 7, !"frame-pointer", i32 2}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.mustprogress"}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !6}
+!9 = distinct !{!9, !6}
+!10 = distinct !{!10, !6}
