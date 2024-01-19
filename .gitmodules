@@ -235,3 +235,6 @@
 [submodule "bench/msdfgen/msdfgen"]
 	path = bench/msdfgen/msdfgen
 	url = git@github.com:Chlumsky/msdfgen.git
+[submodule "bench/serde-rs/serde"]
+	path = bench/serde-rs/serde
+	url = git@github.com:serde-rs/serde.git
