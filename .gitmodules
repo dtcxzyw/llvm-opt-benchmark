@@ -226,3 +226,6 @@
 [submodule "bench/regex-rs/regex"]
 	path = bench/regex-rs/regex
 	url = git@github.com:rust-lang/regex.git
+[submodule "bench/harfbuzz/harfbuzz"]
+	path = bench/harfbuzz/harfbuzz
+	url = git@github.com:harfbuzz/harfbuzz.git
