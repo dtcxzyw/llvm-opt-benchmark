@@ -1,0 +1,175 @@
+target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
+target triple = "x86_64-unknown-linux-gnu"
+
+%struct.strbuf = type { i64, i64, ptr }
+%struct.__sigset_t = type { [16 x i64] }
+
+@strbuf_slopbuf = external global [0 x i8], align 1
+@__const.main.tmp = private unnamed_addr constant %struct.strbuf { i64 0, i64 0, ptr @strbuf_slopbuf }, align 8
+@.str = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
+@.str.1 = private unnamed_addr constant [14 x i8] c"common-main.c\00", align 1
+@tmp_original_cwd = external global ptr, align 8
+@bug_called_must_BUG = external global i32, align 4
+@.str.2 = private unnamed_addr constant [75 x i8] c"on exit(): had bug() call(s) in this process without explicit BUG_if_bug()\00", align 1
+
+; Function Attrs: nounwind uwtable
+define dso_local i32 @main(i32 noundef %argc, ptr noundef %argv) #0 {
+entry:
+  %retval = alloca i32, align 4
+  %argc.addr = alloca i32, align 4
+  %argv.addr = alloca ptr, align 8
+  %result = alloca i32, align 4
+  %tmp = alloca %struct.strbuf, align 8
+  store i32 0, ptr %retval, align 4
+  store i32 %argc, ptr %argc.addr, align 4
+  store ptr %argv, ptr %argv.addr, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %tmp, ptr align 8 @__const.main.tmp, i64 24, i1 false)
+  call void @trace2_initialize_clock()
+  call void @sanitize_stdfds()
+  call void @restore_sigpipe_to_default()
+  %0 = load ptr, ptr %argv.addr, align 8
+  %arrayidx = getelementptr inbounds ptr, ptr %0, i64 0
+  %1 = load ptr, ptr %arrayidx, align 8
+  call void @git_resolve_executable_dir(ptr noundef %1)
+  %call = call ptr @setlocale(i32 noundef 0, ptr noundef @.str) #6
+  call void @git_setup_gettext()
+  call void @initialize_the_repository()
+  call void @attr_start()
+  call void @trace2_initialize_fl(ptr noundef @.str.1, i32 noundef 55)
+  %2 = load ptr, ptr %argv.addr, align 8
+  call void @trace2_cmd_start_fl(ptr noundef @.str.1, i32 noundef 56, ptr noundef %2)
+  call void @trace2_collect_process_info(i32 noundef 0)
+  %call1 = call i32 @strbuf_getcwd(ptr noundef %tmp)
+  %tobool = icmp ne i32 %call1, 0
+  br i1 %tobool, label %if.end, label %if.then
+
+if.then:                                          ; preds = %entry
+  %call2 = call ptr @strbuf_detach(ptr noundef %tmp, ptr noundef null)
+  store ptr %call2, ptr @tmp_original_cwd, align 8
+  br label %if.end
+
+if.end:                                           ; preds = %if.then, %entry
+  %3 = load i32, ptr %argc.addr, align 4
+  %4 = load ptr, ptr %argv.addr, align 8
+  %call3 = call i32 @cmd_main(i32 noundef %3, ptr noundef %4)
+  store i32 %call3, ptr %result, align 4
+  %5 = load i32, ptr %result, align 4
+  %call4 = call i32 @common_exit(ptr noundef @.str.1, i32 noundef 65, i32 noundef %5)
+  call void @exit(i32 noundef %call4) #7
+  unreachable
+}
+
+; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+
+declare void @trace2_initialize_clock() #2
+
+declare void @sanitize_stdfds() #2
+
+; Function Attrs: nounwind uwtable
+define internal void @restore_sigpipe_to_default() #0 {
+entry:
+  %unblock = alloca %struct.__sigset_t, align 8
+  %call = call i32 @sigemptyset(ptr noundef %unblock) #6
+  %call1 = call i32 @sigaddset(ptr noundef %unblock, i32 noundef 13) #6
+  %call2 = call i32 @sigprocmask(i32 noundef 1, ptr noundef %unblock, ptr noundef null) #6
+  %call3 = call ptr @signal(i32 noundef 13, ptr noundef null) #6
+  ret void
+}
+
+declare void @git_resolve_executable_dir(ptr noundef) #2
+
+; Function Attrs: nounwind
+declare ptr @setlocale(i32 noundef, ptr noundef) #3
+
+declare void @git_setup_gettext() #2
+
+declare void @initialize_the_repository() #2
+
+declare void @attr_start() #2
+
+declare void @trace2_initialize_fl(ptr noundef, i32 noundef) #2
+
+declare void @trace2_cmd_start_fl(ptr noundef, i32 noundef, ptr noundef) #2
+
+declare void @trace2_collect_process_info(i32 noundef) #2
+
+declare i32 @strbuf_getcwd(ptr noundef) #2
+
+declare ptr @strbuf_detach(ptr noundef, ptr noundef) #2
+
+declare i32 @cmd_main(i32 noundef, ptr noundef) #2
+
+; Function Attrs: noreturn nounwind
+declare void @exit(i32 noundef) #4
+
+; Function Attrs: nounwind uwtable
+define dso_local i32 @common_exit(ptr noundef %file, i32 noundef %line, i32 noundef %code) #0 {
+entry:
+  %file.addr = alloca ptr, align 8
+  %line.addr = alloca i32, align 4
+  %code.addr = alloca i32, align 4
+  store ptr %file, ptr %file.addr, align 8
+  store i32 %line, ptr %line.addr, align 4
+  store i32 %code, ptr %code.addr, align 4
+  %0 = load i32, ptr %code.addr, align 4
+  %and = and i32 %0, 255
+  store i32 %and, ptr %code.addr, align 4
+  call void @check_bug_if_BUG()
+  %1 = load ptr, ptr %file.addr, align 8
+  %2 = load i32, ptr %line.addr, align 4
+  %3 = load i32, ptr %code.addr, align 4
+  call void @trace2_cmd_exit_fl(ptr noundef %1, i32 noundef %2, i32 noundef %3)
+  %4 = load i32, ptr %code.addr, align 4
+  ret i32 %4
+}
+
+; Function Attrs: nounwind uwtable
+define internal void @check_bug_if_BUG() #0 {
+entry:
+  %0 = load i32, ptr @bug_called_must_BUG, align 4
+  %tobool = icmp ne i32 %0, 0
+  br i1 %tobool, label %if.end, label %if.then
+
+if.then:                                          ; preds = %entry
+  ret void
+
+if.end:                                           ; preds = %entry
+  call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef @.str.1, i32 noundef 72, ptr noundef @.str.2) #8
+  unreachable
+}
+
+declare void @trace2_cmd_exit_fl(ptr noundef, i32 noundef, i32 noundef) #2
+
+; Function Attrs: nounwind
+declare i32 @sigemptyset(ptr noundef) #3
+
+; Function Attrs: nounwind
+declare i32 @sigaddset(ptr noundef, i32 noundef) #3
+
+; Function Attrs: nounwind
+declare i32 @sigprocmask(i32 noundef, ptr noundef, ptr noundef) #3
+
+; Function Attrs: nounwind
+declare ptr @signal(i32 noundef, ptr noundef) #3
+
+; Function Attrs: noreturn
+declare void @BUG_fl(ptr noundef, i32 noundef, ptr noundef, ...) #5
+
+attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nounwind }
+attributes #7 = { noreturn nounwind }
+attributes #8 = { noreturn }
+
+!llvm.module.flags = !{!0, !1, !2, !3, !4}
+
+!0 = !{i32 1, !"wchar_size", i32 4}
+!1 = !{i32 8, !"PIC Level", i32 2}
+!2 = !{i32 7, !"PIE Level", i32 2}
+!3 = !{i32 7, !"uwtable", i32 2}
+!4 = !{i32 7, !"frame-pointer", i32 2}
