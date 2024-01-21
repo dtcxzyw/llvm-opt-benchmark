@@ -241,3 +241,6 @@
 [submodule "bench/serde-rs-json/json"]
 	path = bench/serde-rs-json/json
 	url = git@github.com:serde-rs/json.git
+[submodule "bench/kcp/kcp"]
+	path = bench/kcp/kcp
+	url = git@github.com:skywind3000/kcp.git
