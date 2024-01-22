@@ -247,3 +247,6 @@
 [submodule "bench/libquic/libquic"]
 	path = bench/libquic/libquic
 	url = git@github.com:devsisters/libquic.git
+[submodule "bench/nghttp2/nghttp2"]
+	path = bench/nghttp2/nghttp2
+	url = git@github.com:nghttp2/nghttp2.git
