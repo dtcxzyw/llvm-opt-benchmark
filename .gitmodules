@@ -244,3 +244,6 @@
 [submodule "bench/kcp/kcp"]
 	path = bench/kcp/kcp
 	url = git@github.com:skywind3000/kcp.git
+[submodule "bench/libquic/libquic"]
+	path = bench/libquic/libquic
+	url = git@github.com:devsisters/libquic.git
