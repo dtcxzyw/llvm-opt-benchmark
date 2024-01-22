@@ -253,3 +253,6 @@
 [submodule "bench/libzmq/libzmq"]
 	path = bench/libzmq/libzmq
 	url = git@github.com:zeromq/libzmq.git
+[submodule "bench/wolfssl/wolfssl"]
+	path = bench/wolfssl/wolfssl
+	url = git@github.com:wolfSSL/wolfssl.git
