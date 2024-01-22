@@ -256,3 +256,6 @@
 [submodule "bench/wolfssl/wolfssl"]
 	path = bench/wolfssl/wolfssl
 	url = git@github.com:wolfSSL/wolfssl.git
+[submodule "bench/curl/curl"]
+	path = bench/curl/curl
+	url = git@github.com:curl/curl.git
