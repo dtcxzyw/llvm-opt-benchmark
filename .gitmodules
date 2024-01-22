@@ -259,3 +259,6 @@
 [submodule "bench/curl/curl"]
 	path = bench/curl/curl
 	url = git@github.com:curl/curl.git
+[submodule "bench/libsodium/libsodium"]
+	path = bench/libsodium/libsodium
+	url = git@github.com:jedisct1/libsodium.git
