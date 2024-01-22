@@ -1,0 +1,46 @@
+; ModuleID = 'bench/libquic/original/quic_flags.cc.ll'
+source_filename = "bench/libquic/original/quic_flags.cc.ll"
+target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
+target triple = "x86_64-unknown-linux-gnu"
+
+@FLAGS_quic_allow_bbr = dso_local local_unnamed_addr global i8 0, align 1
+@FLAGS_quic_time_wait_list_seconds = dso_local local_unnamed_addr global i64 200, align 8
+@FLAGS_quic_time_wait_list_max_connections = dso_local local_unnamed_addr global i64 600000, align 8
+@FLAGS_enable_quic_stateless_reject_support = dso_local local_unnamed_addr global i8 1, align 1
+@FLAGS_quic_always_log_bugs_for_tests = dso_local local_unnamed_addr global i8 1, align 1
+@FLAGS_quic_enable_multipath = dso_local local_unnamed_addr global i8 0, align 1
+@FLAGS_quic_require_handshake_confirmation = dso_local local_unnamed_addr global i8 0, align 1
+@FLAGS_quic_disable_pacing_for_perf_tests = dso_local local_unnamed_addr global i8 0, align 1
+@FLAGS_quic_no_lower_bw_resumption_limit = dso_local local_unnamed_addr global i8 1, align 1
+@FLAGS_quic_use_old_public_reset_packets = dso_local local_unnamed_addr global i8 1, align 1
+@FLAGS_quic_use_cheap_stateless_rejects = dso_local local_unnamed_addr global i8 0, align 1
+@FLAGS_quic_respect_http2_settings_frame = dso_local local_unnamed_addr global i8 1, align 1
+@FLAGS_quic_enable_version_35 = dso_local local_unnamed_addr global i8 1, align 1
+@FLAGS_quic_enable_version_36_v2 = dso_local local_unnamed_addr global i8 1, align 1
+@FLAGS_enable_async_get_proof = dso_local local_unnamed_addr global i8 0, align 1
+@FLAGS_quic_require_handshake_confirmation_pre33 = dso_local local_unnamed_addr global i8 0, align 1
+@FLAGS_quic_close_connection_on_packet_too_large = dso_local local_unnamed_addr global i8 1, align 1
+@FLAGS_quic_remove_v33_hacks = dso_local local_unnamed_addr global i8 1, align 1
+@FLAGS_quic_use_chlo_packet_size = dso_local local_unnamed_addr global i8 1, align 1
+@FLAGS_quic_buffer_packet_till_chlo = dso_local local_unnamed_addr global i8 1, align 1
+@FLAGS_quic_simple_packet_number_length_2 = dso_local local_unnamed_addr global i8 1, align 1
+@FLAGS_quic_disable_pre_32 = dso_local local_unnamed_addr global i8 1, align 1
+@FLAGS_quic_enforce_mtu_limit = dso_local local_unnamed_addr global i8 0, align 1
+@FLAGS_graceful_emsgsize_on_mtu_probe = dso_local local_unnamed_addr global i8 1, align 1
+@FLAGS_quic_do_not_send_ack_on_emsgsize = dso_local local_unnamed_addr global i8 1, align 1
+@FLAGS_quic_postpone_multipath_flag_validation = dso_local local_unnamed_addr global i8 1, align 1
+@FLAGS_quic_better_last_send_for_timeout = dso_local local_unnamed_addr global i8 1, align 1
+@FLAGS_quic_send_scfg_ttl = dso_local local_unnamed_addr global i8 1, align 1
+@FLAGS_quic_limit_num_new_sessions_per_epoll_loop = dso_local local_unnamed_addr global i8 0, align 1
+@FLAGS_quic_reduce_sequencer_buffer_memory_life_time = dso_local local_unnamed_addr global i8 1, align 1
+@FLAGS_quic_allow_server_address_change_for_mapped_ipv4 = dso_local local_unnamed_addr global i8 1, align 1
+@FLAGS_quic_disable_pre_34 = dso_local local_unnamed_addr global i8 0, align 1
+@FLAGS_quic_packet_numbers_largest_received = dso_local local_unnamed_addr global i8 1, align 1
+
+!llvm.module.flags = !{!0, !1, !2, !3, !4}
+
+!0 = !{i32 1, !"wchar_size", i32 4}
+!1 = !{i32 8, !"PIC Level", i32 2}
+!2 = !{i32 7, !"PIE Level", i32 2}
+!3 = !{i32 7, !"uwtable", i32 2}
+!4 = !{i32 7, !"frame-pointer", i32 2}

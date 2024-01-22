@@ -1,0 +1,1271 @@
+; ModuleID = 'bench/libsodium/original/libavx2_la-argon2-fill-block-avx2.ll'
+source_filename = "bench/libsodium/original/libavx2_la-argon2-fill-block-avx2.ll"
+target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
+target triple = "x86_64-unknown-linux-gnu"
+
+%struct.block_ = type { [128 x i64] }
+%struct.Argon2_instance_t = type { ptr, ptr, i32, i32, i32, i32, i32, i32, i32, i32, i32 }
+%struct.block_region_ = type { ptr, ptr, i64 }
+
+; Function Attrs: nofree norecurse nosync nounwind ssp memory(readwrite, inaccessiblemem: none) uwtable
+define hidden void @_sodium_argon2_fill_segment_avx2(ptr noundef readonly %instance, i64 %position.coerce0, i64 %position.coerce1) local_unnamed_addr #0 {
+entry:
+  %block_XY.i = alloca [32 x <4 x i64>], align 32
+  %address_block.i = alloca %struct.block_, align 8
+  %input_block.i = alloca %struct.block_, align 8
+  %tmp_block.i = alloca %struct.block_, align 8
+  %zero_block.i = alloca [32 x <4 x i64>], align 32
+  %zero2_block.i = alloca [32 x <4 x i64>], align 32
+  %state = alloca [32 x <4 x i64>], align 32
+  %position.sroa.0.0.extract.trunc = trunc i64 %position.coerce0 to i32
+  %position.sroa.7.0.extract.shift = lshr i64 %position.coerce0, 32
+  %position.sroa.7.0.extract.trunc = trunc i64 %position.sroa.7.0.extract.shift to i32
+  %position.sroa.11.8.extract.trunc = trunc i64 %position.coerce1 to i8
+  %cmp = icmp eq ptr %instance, null
+  br i1 %cmp, label %for.end, label %if.end
+
+if.end:                                           ; preds = %entry
+  %type = getelementptr inbounds %struct.Argon2_instance_t, ptr %instance, i64 0, i32 9
+  %0 = load i32, ptr %type, align 4
+  %cmp1 = icmp eq i32 %0, 2
+  br i1 %cmp1, label %if.end6, label %if.end6.thread
+
+if.end6.thread:                                   ; preds = %if.end
+  %pseudo_rands765 = getelementptr inbounds %struct.Argon2_instance_t, ptr %instance, i64 0, i32 1
+  %1 = load ptr, ptr %pseudo_rands765, align 8
+  br label %if.then8
+
+if.end6:                                          ; preds = %if.end
+  %cmp2 = icmp ne i32 %position.sroa.0.0.extract.trunc, 0
+  %cmp3 = icmp ugt i8 %position.sroa.11.8.extract.trunc, 1
+  %or.cond = select i1 %cmp2, i1 true, i1 %cmp3
+  %pseudo_rands7 = getelementptr inbounds %struct.Argon2_instance_t, ptr %instance, i64 0, i32 1
+  %2 = load ptr, ptr %pseudo_rands7, align 8
+  br i1 %or.cond, label %if.end6.if.end9_crit_edge, label %if.then8
+
+if.end6.if.end9_crit_edge:                        ; preds = %if.end6
+  %segment_length.phi.trans.insert = getelementptr inbounds %struct.Argon2_instance_t, ptr %instance, i64 0, i32 5
+  %.pre = load i32, ptr %segment_length.phi.trans.insert, align 4
+  br label %if.end9
+
+if.then8:                                         ; preds = %if.end6.thread, %if.end6
+  %3 = phi ptr [ %1, %if.end6.thread ], [ %2, %if.end6 ]
+  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %address_block.i)
+  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %input_block.i)
+  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %tmp_block.i)
+  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %zero_block.i)
+  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %zero2_block.i)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1024) %address_block.i, i8 0, i64 1024, i1 false)
+  %4 = getelementptr inbounds i8, ptr %input_block.i, i64 56
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1024) %4, i8 0, i64 968, i1 false)
+  %conv.i = and i64 %position.coerce0, 4294967295
+  store i64 %conv.i, ptr %input_block.i, align 8
+  %arrayidx4.i = getelementptr inbounds [128 x i64], ptr %input_block.i, i64 0, i64 1
+  store i64 %position.sroa.7.0.extract.shift, ptr %arrayidx4.i, align 8
+  %conv5.i = and i64 %position.coerce1, 255
+  %arrayidx7.i = getelementptr inbounds [128 x i64], ptr %input_block.i, i64 0, i64 2
+  store i64 %conv5.i, ptr %arrayidx7.i, align 8
+  %memory_blocks.i = getelementptr inbounds %struct.Argon2_instance_t, ptr %instance, i64 0, i32 4
+  %5 = load i32, ptr %memory_blocks.i, align 8
+  %conv8.i = zext i32 %5 to i64
+  %arrayidx10.i = getelementptr inbounds [128 x i64], ptr %input_block.i, i64 0, i64 3
+  store i64 %conv8.i, ptr %arrayidx10.i, align 8
+  %passes.i = getelementptr inbounds %struct.Argon2_instance_t, ptr %instance, i64 0, i32 2
+  %6 = load i32, ptr %passes.i, align 8
+  %conv11.i = zext i32 %6 to i64
+  %arrayidx13.i = getelementptr inbounds [128 x i64], ptr %input_block.i, i64 0, i64 4
+  store i64 %conv11.i, ptr %arrayidx13.i, align 8
+  %conv14.i = zext i32 %0 to i64
+  %arrayidx16.i = getelementptr inbounds [128 x i64], ptr %input_block.i, i64 0, i64 5
+  store i64 %conv14.i, ptr %arrayidx16.i, align 8
+  %segment_length.i = getelementptr inbounds %struct.Argon2_instance_t, ptr %instance, i64 0, i32 5
+  %7 = load i32, ptr %segment_length.i, align 4
+  %cmp1712.not.i = icmp eq i32 %7, 0
+  br i1 %cmp1712.not.i, label %generate_addresses.exit, label %for.body.lr.ph.i
+
+for.body.lr.ph.i:                                 ; preds = %if.then8
+  %arrayidx24.i = getelementptr inbounds [128 x i64], ptr %input_block.i, i64 0, i64 6
+  br label %for.body.i
+
+for.body.i:                                       ; preds = %if.end.i, %for.body.lr.ph.i
+  %indvars.iv.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %if.end.i ]
+  %8 = phi i64 [ 0, %for.body.lr.ph.i ], [ %9, %if.end.i ]
+  %rem15.i = and i64 %indvars.iv.i, 127
+  %cmp19.i = icmp eq i64 %rem15.i, 0
+  br i1 %cmp19.i, label %if.then21.i, label %if.end.i
+
+if.then21.i:                                      ; preds = %for.body.i
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 32 dereferenceable(1024) %zero_block.i, i8 0, i64 1024, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 32 dereferenceable(1024) %zero2_block.i, i8 0, i64 1024, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1024) %address_block.i, i8 0, i64 1024, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1024) %tmp_block.i, i8 0, i64 1024, i1 false)
+  %inc.i = add i64 %8, 1
+  store i64 %inc.i, ptr %arrayidx24.i, align 8
+  call fastcc void @fill_block_with_xor(ptr noundef nonnull %zero_block.i, ptr noundef nonnull %input_block.i, ptr noundef nonnull %tmp_block.i)
+  call fastcc void @fill_block_with_xor(ptr noundef nonnull %zero2_block.i, ptr noundef nonnull %tmp_block.i, ptr noundef nonnull %address_block.i)
+  br label %if.end.i
+
+if.end.i:                                         ; preds = %if.then21.i, %for.body.i
+  %9 = phi i64 [ %inc.i, %if.then21.i ], [ %8, %for.body.i ]
+  %arrayidx33.i = getelementptr [128 x i64], ptr %address_block.i, i64 0, i64 %rem15.i
+  %10 = load i64, ptr %arrayidx33.i, align 8
+  %arrayidx35.i = getelementptr i64, ptr %3, i64 %indvars.iv.i
+  store i64 %10, ptr %arrayidx35.i, align 8
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
+  %11 = load i32, ptr %segment_length.i, align 4
+  %12 = zext i32 %11 to i64
+  %cmp17.i = icmp ult i64 %indvars.iv.next.i, %12
+  br i1 %cmp17.i, label %for.body.i, label %generate_addresses.exit, !llvm.loop !4
+
+generate_addresses.exit:                          ; preds = %if.end.i, %if.then8
+  %13 = phi i32 [ 0, %if.then8 ], [ %11, %if.end.i ]
+  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %address_block.i)
+  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %input_block.i)
+  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %tmp_block.i)
+  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %zero_block.i)
+  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %zero2_block.i)
+  br label %if.end9
+
+if.end9:                                          ; preds = %if.end6.if.end9_crit_edge, %generate_addresses.exit
+  %14 = phi i32 [ %13, %generate_addresses.exit ], [ %.pre, %if.end6.if.end9_crit_edge ]
+  %15 = phi ptr [ %3, %generate_addresses.exit ], [ %2, %if.end6.if.end9_crit_edge ]
+  %tobool.not67 = phi i1 [ false, %generate_addresses.exit ], [ true, %if.end6.if.end9_crit_edge ]
+  %cmp11 = icmp eq i32 %position.sroa.0.0.extract.trunc, 0
+  %cmp16 = icmp eq i8 %position.sroa.11.8.extract.trunc, 0
+  %or.cond1 = select i1 %cmp11, i1 %cmp16, i1 false
+  %spec.select37 = select i1 %or.cond1, i32 2, i32 0
+  %lane_length = getelementptr inbounds %struct.Argon2_instance_t, ptr %instance, i64 0, i32 6
+  %16 = load i32, ptr %lane_length, align 8
+  %mul = mul i32 %16, %position.sroa.7.0.extract.trunc
+  %17 = trunc i64 %position.coerce1 to i32
+  %conv21 = and i32 %17, 255
+  %segment_length = getelementptr inbounds %struct.Argon2_instance_t, ptr %instance, i64 0, i32 5
+  %mul22 = mul i32 %14, %conv21
+  %add = add i32 %mul, %spec.select37
+  %add23 = add i32 %add, %mul22
+  %rem = urem i32 %add23, %16
+  %cmp25 = icmp eq i32 %rem, 0
+  %18 = add i32 %16, -1
+  %prev_offset.0.in = select i1 %cmp25, i32 %18, i32 -1
+  %prev_offset.0 = add i32 %prev_offset.0.in, %add23
+  %19 = load ptr, ptr %instance, align 8
+  %memory = getelementptr inbounds %struct.block_region_, ptr %19, i64 0, i32 1
+  %20 = load ptr, ptr %memory, align 8
+  %idx.ext = zext i32 %prev_offset.0 to i64
+  %add.ptr = getelementptr %struct.block_, ptr %20, i64 %idx.ext
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 32 dereferenceable(1024) %state, ptr noundef nonnull align 8 dereferenceable(1024) %add.ptr, i64 1024, i1 false)
+  %cmp3469 = icmp ult i32 %spec.select37, %14
+  br i1 %cmp3469, label %for.body.lr.ph, label %for.end
+
+for.body.lr.ph:                                   ; preds = %if.end9
+  %lanes = getelementptr inbounds %struct.Argon2_instance_t, ptr %instance, i64 0, i32 7
+  %cmp52.i = icmp eq i8 %position.sroa.11.8.extract.trunc, 3
+  %add56.i = add nuw nsw i32 %conv21, 1
+  %21 = zext nneg i32 %spec.select37 to i64
+  br label %for.body
+
+for.body:                                         ; preds = %for.body.lr.ph, %for.inc
+  %indvars.iv = phi i64 [ %21, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
+  %22 = phi i32 [ %14, %for.body.lr.ph ], [ %247, %for.inc ]
+  %curr_offset.071 = phi i32 [ %add23, %for.body.lr.ph ], [ %inc100, %for.inc ]
+  %prev_offset.170 = phi i32 [ %prev_offset.0, %for.body.lr.ph ], [ %inc101, %for.inc ]
+  %23 = load i32, ptr %lane_length, align 8
+  %rem37 = urem i32 %curr_offset.071, %23
+  %cmp38 = icmp eq i32 %rem37, 1
+  %sub41 = add i32 %curr_offset.071, -1
+  %spec.select38 = select i1 %cmp38, i32 %sub41, i32 %prev_offset.170
+  br i1 %tobool.not67, label %if.else45, label %if.then44
+
+if.then44:                                        ; preds = %for.body
+  %arrayidx = getelementptr i64, ptr %15, i64 %indvars.iv
+  br label %if.end52
+
+if.else45:                                        ; preds = %for.body
+  %24 = load ptr, ptr %instance, align 8
+  %memory47 = getelementptr inbounds %struct.block_region_, ptr %24, i64 0, i32 1
+  %25 = load ptr, ptr %memory47, align 8
+  %idxprom48 = zext i32 %spec.select38 to i64
+  %arrayidx49 = getelementptr %struct.block_, ptr %25, i64 %idxprom48
+  br label %if.end52
+
+if.end52:                                         ; preds = %if.else45, %if.then44
+  %pseudo_rand.0.in = phi ptr [ %arrayidx, %if.then44 ], [ %arrayidx49, %if.else45 ]
+  %pseudo_rand.0 = load i64, ptr %pseudo_rand.0.in, align 8
+  %shr = lshr i64 %pseudo_rand.0, 32
+  %26 = load i32, ptr %lanes, align 4
+  %rem54.lhs.trunc = trunc i64 %shr to i32
+  %rem5468 = urem i32 %rem54.lhs.trunc, %26
+  %rem54.zext = zext i32 %rem5468 to i64
+  %ref_lane.0 = select i1 %or.cond1, i64 %position.sroa.7.0.extract.shift, i64 %rem54.zext
+  %cmp70.not = icmp eq i64 %ref_lane.0, %position.sroa.7.0.extract.shift
+  br i1 %cmp11, label %if.then.i, label %if.else19.i
+
+if.then.i:                                        ; preds = %if.end52
+  br i1 %cmp16, label %if.then3.i, label %if.else.i
+
+if.then3.i:                                       ; preds = %if.then.i
+  %27 = trunc i64 %indvars.iv to i32
+  %sub.i = add i32 %27, -1
+  br label %index_alpha.exit
+
+if.else.i:                                        ; preds = %if.then.i
+  %mul13.i = mul i32 %22, %conv21
+  br i1 %cmp70.not, label %if.then4.i, label %if.else9.i
+
+if.then4.i:                                       ; preds = %if.else.i
+  %28 = trunc i64 %indvars.iv to i32
+  %add.i = add i32 %28, -1
+  %sub8.i = add i32 %add.i, %mul13.i
+  br label %index_alpha.exit
+
+if.else9.i:                                       ; preds = %if.else.i
+  %cmp15.i = icmp eq i64 %indvars.iv, 0
+  %cond.i = sext i1 %cmp15.i to i32
+  %add17.i = add i32 %mul13.i, %cond.i
+  br label %index_alpha.exit
+
+if.else19.i:                                      ; preds = %if.end52
+  br i1 %cmp70.not, label %if.then21.i39, label %if.else27.i
+
+if.then21.i39:                                    ; preds = %if.else19.i
+  %29 = xor i32 %22, -1
+  %30 = trunc i64 %indvars.iv to i32
+  %add25.i = add i32 %30, %29
+  br label %if.then49.i
+
+if.else27.i:                                      ; preds = %if.else19.i
+  %cmp32.i = icmp eq i64 %indvars.iv, 0
+  %cond34.i = sext i1 %cmp32.i to i32
+  %sub30.i = sub i32 %cond34.i, %22
+  br label %if.then49.i
+
+if.then49.i:                                      ; preds = %if.else27.i, %if.then21.i39
+  %add25.i.pn = phi i32 [ %add25.i, %if.then21.i39 ], [ %sub30.i, %if.else27.i ]
+  %reference_area_size.0.i = add i32 %add25.i.pn, %23
+  br i1 %cmp52.i, label %index_alpha.exit, label %cond.false.i
+
+cond.false.i:                                     ; preds = %if.then49.i
+  %mul58.i = mul i32 %22, %add56.i
+  %31 = zext i32 %mul58.i to i64
+  br label %index_alpha.exit
+
+index_alpha.exit:                                 ; preds = %if.then3.i, %if.then4.i, %if.else9.i, %if.then49.i, %cond.false.i
+  %reference_area_size.025.i = phi i32 [ %reference_area_size.0.i, %cond.false.i ], [ %reference_area_size.0.i, %if.then49.i ], [ %add17.i, %if.else9.i ], [ %sub8.i, %if.then4.i ], [ %sub.i, %if.then3.i ]
+  %start_position.0.i = phi i64 [ %31, %cond.false.i ], [ 0, %if.then49.i ], [ 0, %if.else9.i ], [ 0, %if.then4.i ], [ 0, %if.then3.i ]
+  %sub40.i = add i32 %reference_area_size.025.i, -1
+  %conv41.i = zext i32 %sub40.i to i64
+  %conv38.i = and i64 %pseudo_rand.0, 4294967295
+  %mul39.i = mul nuw i64 %conv38.i, %conv38.i
+  %shr.i = lshr i64 %mul39.i, 32
+  %conv42.i = zext i32 %reference_area_size.025.i to i64
+  %mul43.i = mul nuw i64 %shr.i, %conv42.i
+  %shr44.i = lshr i64 %mul43.i, 32
+  %sub45.i = add nuw nsw i64 %start_position.0.i, %conv41.i
+  %add62.i = sub nsw i64 %sub45.i, %shr44.i
+  %conv64.i = zext i32 %23 to i64
+  %rem.i = urem i64 %add62.i, %conv64.i
+  %32 = load ptr, ptr %instance, align 8
+  %memory74 = getelementptr inbounds %struct.block_region_, ptr %32, i64 0, i32 1
+  %33 = load ptr, ptr %memory74, align 8
+  %mul77 = mul nuw i64 %ref_lane.0, %conv64.i
+  %add.ptr78 = getelementptr %struct.block_, ptr %33, i64 %mul77
+  %add.ptr79 = getelementptr %struct.block_, ptr %add.ptr78, i64 %rem.i
+  %idx.ext82 = zext i32 %curr_offset.071 to i64
+  %add.ptr83 = getelementptr %struct.block_, ptr %33, i64 %idx.ext82
+  br i1 %cmp11, label %if.else93, label %if.then87
+
+if.then87:                                        ; preds = %index_alpha.exit
+  call fastcc void @fill_block_with_xor(ptr noundef nonnull %state, ptr noundef %add.ptr79, ptr noundef %add.ptr83)
+  br label %for.inc
+
+if.else93:                                        ; preds = %index_alpha.exit
+  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %block_XY.i)
+  br label %for.body.i42
+
+for.body.i42:                                     ; preds = %for.body.i42, %if.else93
+  %indvars.iv.i43 = phi i64 [ 0, %if.else93 ], [ %indvars.iv.next.i45, %for.body.i42 ]
+  %arrayidx.i = getelementptr <4 x i64>, ptr %state, i64 %indvars.iv.i43
+  %34 = load <4 x i64>, ptr %arrayidx.i, align 32
+  %35 = shl nuw nsw i64 %indvars.iv.i43, 5
+  %arrayidx2.i = getelementptr i8, ptr %add.ptr79, i64 %35
+  %36 = load <4 x i64>, ptr %arrayidx2.i, align 1
+  %xor.i1811.i = xor <4 x i64> %36, %34
+  store <4 x i64> %xor.i1811.i, ptr %arrayidx.i, align 32
+  %arrayidx7.i44 = getelementptr [32 x <4 x i64>], ptr %block_XY.i, i64 0, i64 %indvars.iv.i43
+  store <4 x i64> %xor.i1811.i, ptr %arrayidx7.i44, align 32
+  %indvars.iv.next.i45 = add nuw nsw i64 %indvars.iv.i43, 1
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i45, 32
+  br i1 %exitcond.not.i, label %do.body11.i, label %for.body.i42, !llvm.loop !6
+
+do.body11.i:                                      ; preds = %for.body.i42, %do.body11.i
+  %indvars.iv905.i = phi i64 [ %indvars.iv.next906.i, %do.body11.i ], [ 0, %for.body.i42 ]
+  %37 = shl nuw nsw i64 %indvars.iv905.i, 3
+  %arrayidx14.i = getelementptr <4 x i64>, ptr %state, i64 %37
+  %38 = load <4 x i64>, ptr %arrayidx14.i, align 32
+  %39 = or disjoint i64 %37, 1
+  %arrayidx18.i = getelementptr <4 x i64>, ptr %state, i64 %39
+  %40 = load <4 x i64>, ptr %arrayidx18.i, align 32
+  %41 = and <4 x i64> %38, <i64 4294967295, i64 4294967295, i64 4294967295, i64 4294967295>
+  %42 = and <4 x i64> %40, <i64 4294967295, i64 4294967295, i64 4294967295, i64 4294967295>
+  %43 = mul nuw <4 x i64> %42, %41
+  %add.i2186.i = shl <4 x i64> %43, <i64 1, i64 1, i64 1, i64 1>
+  %add.i2183.i = add <4 x i64> %40, %38
+  %add.i2180.i = add <4 x i64> %add.i2183.i, %add.i2186.i
+  %44 = or disjoint i64 %37, 3
+  %arrayidx38.i = getelementptr <4 x i64>, ptr %state, i64 %44
+  %45 = load <4 x i64>, ptr %arrayidx38.i, align 32
+  %xor.i1808.i = xor <4 x i64> %add.i2180.i, %45
+  %46 = bitcast <4 x i64> %xor.i1808.i to <8 x i32>
+  %permil.i = shufflevector <8 x i32> %46, <8 x i32> poison, <8 x i32> <i32 1, i32 0, i32 3, i32 2, i32 5, i32 4, i32 7, i32 6>
+  %47 = bitcast <8 x i32> %permil.i to <4 x i64>
+  %48 = or disjoint i64 %37, 2
+  %arrayidx59.i = getelementptr <4 x i64>, ptr %state, i64 %48
+  %49 = load <4 x i64>, ptr %arrayidx59.i, align 32
+  %50 = and <4 x i64> %49, <i64 4294967295, i64 4294967295, i64 4294967295, i64 4294967295>
+  %51 = and <4 x i64> %47, <i64 4294967295, i64 4294967295, i64 4294967295, i64 4294967295>
+  %52 = mul nuw <4 x i64> %51, %50
+  %add.i2177.i = shl <4 x i64> %52, <i64 1, i64 1, i64 1, i64 1>
+  %add.i2174.i = add <4 x i64> %49, %47
+  %add.i2171.i = add <4 x i64> %add.i2174.i, %add.i2177.i
+  %xor.i1805.i = xor <4 x i64> %add.i2171.i, %40
+  %53 = bitcast <4 x i64> %xor.i1805.i to <32 x i8>
+  %54 = shufflevector <32 x i8> %53, <32 x i8> poison, <32 x i32> <i32 3, i32 4, i32 5, i32 6, i32 7, i32 0, i32 1, i32 2, i32 11, i32 12, i32 13, i32 14, i32 15, i32 8, i32 9, i32 10, i32 19, i32 20, i32 21, i32 22, i32 23, i32 16, i32 17, i32 18, i32 27, i32 28, i32 29, i32 30, i32 31, i32 24, i32 25, i32 26>
+  %55 = or disjoint i64 %37, 4
+  %arrayidx106.i = getelementptr <4 x i64>, ptr %state, i64 %55
+  %56 = load <4 x i64>, ptr %arrayidx106.i, align 32
+  %57 = or disjoint i64 %37, 5
+  %arrayidx110.i = getelementptr <4 x i64>, ptr %state, i64 %57
+  %58 = load <4 x i64>, ptr %arrayidx110.i, align 32
+  %59 = and <4 x i64> %56, <i64 4294967295, i64 4294967295, i64 4294967295, i64 4294967295>
+  %60 = and <4 x i64> %58, <i64 4294967295, i64 4294967295, i64 4294967295, i64 4294967295>
+  %61 = mul nuw <4 x i64> %60, %59
+  %add.i2168.i = shl <4 x i64> %61, <i64 1, i64 1, i64 1, i64 1>
+  %add.i2165.i = add <4 x i64> %58, %56
+  %add.i2162.i = add <4 x i64> %add.i2165.i, %add.i2168.i
+  %62 = or disjoint i64 %37, 7
+  %arrayidx130.i = getelementptr <4 x i64>, ptr %state, i64 %62
+  %63 = load <4 x i64>, ptr %arrayidx130.i, align 32
+  %xor.i1802.i = xor <4 x i64> %add.i2162.i, %63
+  %64 = bitcast <4 x i64> %xor.i1802.i to <8 x i32>
+  %permil144.i = shufflevector <8 x i32> %64, <8 x i32> poison, <8 x i32> <i32 1, i32 0, i32 3, i32 2, i32 5, i32 4, i32 7, i32 6>
+  %65 = bitcast <8 x i32> %permil144.i to <4 x i64>
+  %66 = or disjoint i64 %37, 6
+  %arrayidx152.i = getelementptr <4 x i64>, ptr %state, i64 %66
+  %67 = load <4 x i64>, ptr %arrayidx152.i, align 32
+  %68 = and <4 x i64> %67, <i64 4294967295, i64 4294967295, i64 4294967295, i64 4294967295>
+  %69 = and <4 x i64> %65, <i64 4294967295, i64 4294967295, i64 4294967295, i64 4294967295>
+  %70 = mul nuw <4 x i64> %69, %68
+  %add.i2159.i = shl <4 x i64> %70, <i64 1, i64 1, i64 1, i64 1>
+  %add.i2156.i = add <4 x i64> %67, %65
+  %add.i2153.i = add <4 x i64> %add.i2156.i, %add.i2159.i
+  %xor.i1799.i = xor <4 x i64> %add.i2153.i, %58
+  %71 = bitcast <4 x i64> %xor.i1799.i to <32 x i8>
+  %72 = shufflevector <32 x i8> %71, <32 x i8> poison, <32 x i32> <i32 3, i32 4, i32 5, i32 6, i32 7, i32 0, i32 1, i32 2, i32 11, i32 12, i32 13, i32 14, i32 15, i32 8, i32 9, i32 10, i32 19, i32 20, i32 21, i32 22, i32 23, i32 16, i32 17, i32 18, i32 27, i32 28, i32 29, i32 30, i32 31, i32 24, i32 25, i32 26>
+  %73 = bitcast <32 x i8> %54 to <4 x i64>
+  %74 = and <4 x i64> %add.i2180.i, <i64 4294967295, i64 4294967295, i64 4294967295, i64 4294967295>
+  %75 = and <4 x i64> %73, <i64 4294967295, i64 4294967295, i64 4294967295, i64 4294967295>
+  %76 = mul nuw <4 x i64> %75, %74
+  %add.i2150.i = shl <4 x i64> %76, <i64 1, i64 1, i64 1, i64 1>
+  %add.i2147.i = add <4 x i64> %add.i2180.i, %73
+  %add.i2144.i = add <4 x i64> %add.i2147.i, %add.i2150.i
+  %xor.i1796.i = xor <4 x i64> %add.i2144.i, %47
+  %77 = bitcast <4 x i64> %xor.i1796.i to <32 x i8>
+  %78 = shufflevector <32 x i8> %77, <32 x i8> poison, <32 x i32> <i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 0, i32 1, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 8, i32 9, i32 18, i32 19, i32 20, i32 21, i32 22, i32 23, i32 16, i32 17, i32 26, i32 27, i32 28, i32 29, i32 30, i32 31, i32 24, i32 25>
+  %79 = bitcast <32 x i8> %78 to <4 x i64>
+  %80 = and <4 x i64> %add.i2171.i, <i64 4294967295, i64 4294967295, i64 4294967295, i64 4294967295>
+  %81 = and <4 x i64> %79, <i64 4294967295, i64 4294967295, i64 4294967295, i64 4294967295>
+  %82 = mul nuw <4 x i64> %81, %80
+  %add.i2141.i = shl <4 x i64> %82, <i64 1, i64 1, i64 1, i64 1>
+  %add.i2138.i = add <4 x i64> %add.i2171.i, %79
+  %add.i2135.i = add <4 x i64> %add.i2138.i, %add.i2141.i
+  %xor.i1793.i = xor <4 x i64> %add.i2135.i, %73
+  %xor.i1790.i = tail call <4 x i64> @llvm.fshl.v4i64(<4 x i64> %xor.i1793.i, <4 x i64> %xor.i1793.i, <4 x i64> <i64 1, i64 1, i64 1, i64 1>)
+  %83 = bitcast <32 x i8> %72 to <4 x i64>
+  %84 = and <4 x i64> %add.i2162.i, <i64 4294967295, i64 4294967295, i64 4294967295, i64 4294967295>
+  %85 = and <4 x i64> %83, <i64 4294967295, i64 4294967295, i64 4294967295, i64 4294967295>
+  %86 = mul nuw <4 x i64> %85, %84
+  %add.i2129.i = shl <4 x i64> %86, <i64 1, i64 1, i64 1, i64 1>
+  %add.i2126.i = add <4 x i64> %add.i2162.i, %83
+  %add.i2123.i = add <4 x i64> %add.i2126.i, %add.i2129.i
+  %xor.i1787.i = xor <4 x i64> %add.i2123.i, %65
+  %87 = bitcast <4 x i64> %xor.i1787.i to <32 x i8>
+  %88 = shufflevector <32 x i8> %87, <32 x i8> poison, <32 x i32> <i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 0, i32 1, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 8, i32 9, i32 18, i32 19, i32 20, i32 21, i32 22, i32 23, i32 16, i32 17, i32 26, i32 27, i32 28, i32 29, i32 30, i32 31, i32 24, i32 25>
+  %89 = bitcast <32 x i8> %88 to <4 x i64>
+  %90 = and <4 x i64> %add.i2153.i, <i64 4294967295, i64 4294967295, i64 4294967295, i64 4294967295>
+  %91 = and <4 x i64> %89, <i64 4294967295, i64 4294967295, i64 4294967295, i64 4294967295>
+  %92 = mul nuw <4 x i64> %91, %90
+  %add.i2120.i = shl <4 x i64> %92, <i64 1, i64 1, i64 1, i64 1>
+  %add.i2117.i = add <4 x i64> %add.i2153.i, %89
+  %add.i2114.i = add <4 x i64> %add.i2117.i, %add.i2120.i
+  %xor.i1784.i = xor <4 x i64> %add.i2114.i, %83
+  %xor.i1781.i = tail call <4 x i64> @llvm.fshl.v4i64(<4 x i64> %xor.i1784.i, <4 x i64> %xor.i1784.i, <4 x i64> <i64 1, i64 1, i64 1, i64 1>)
+  %perm.i = shufflevector <4 x i64> %xor.i1790.i, <4 x i64> poison, <4 x i32> <i32 1, i32 2, i32 3, i32 0>
+  %perm418.i = shufflevector <4 x i64> %add.i2135.i, <4 x i64> poison, <4 x i32> <i32 2, i32 3, i32 0, i32 1>
+  %perm427.i = shufflevector <4 x i64> %79, <4 x i64> poison, <4 x i32> <i32 3, i32 0, i32 1, i32 2>
+  %perm436.i = shufflevector <4 x i64> %xor.i1781.i, <4 x i64> poison, <4 x i32> <i32 1, i32 2, i32 3, i32 0>
+  %perm445.i = shufflevector <4 x i64> %add.i2114.i, <4 x i64> poison, <4 x i32> <i32 2, i32 3, i32 0, i32 1>
+  %perm454.i = shufflevector <4 x i64> %89, <4 x i64> poison, <4 x i32> <i32 3, i32 0, i32 1, i32 2>
+  %93 = and <4 x i64> %add.i2144.i, <i64 4294967295, i64 4294967295, i64 4294967295, i64 4294967295>
+  %94 = and <4 x i64> %perm.i, <i64 4294967295, i64 4294967295, i64 4294967295, i64 4294967295>
+  %95 = mul nuw <4 x i64> %94, %93
+  %add.i2108.i = shl <4 x i64> %95, <i64 1, i64 1, i64 1, i64 1>
+  %add.i2105.i = add <4 x i64> %perm.i, %add.i2144.i
+  %add.i2102.i = add <4 x i64> %add.i2105.i, %add.i2108.i
+  %xor.i1778.i = xor <4 x i64> %add.i2102.i, %perm427.i
+  %96 = bitcast <4 x i64> %xor.i1778.i to <8 x i32>
+  %permil503.i = shufflevector <8 x i32> %96, <8 x i32> poison, <8 x i32> <i32 1, i32 0, i32 3, i32 2, i32 5, i32 4, i32 7, i32 6>
+  %97 = bitcast <8 x i32> %permil503.i to <4 x i64>
+  %98 = and <4 x i64> %perm418.i, <i64 4294967295, i64 4294967295, i64 4294967295, i64 4294967295>
+  %99 = and <4 x i64> %97, <i64 4294967295, i64 4294967295, i64 4294967295, i64 4294967295>
+  %100 = mul nuw <4 x i64> %99, %98
+  %add.i2099.i = shl <4 x i64> %100, <i64 1, i64 1, i64 1, i64 1>
+  %add.i2096.i = add <4 x i64> %perm418.i, %97
+  %add.i2093.i = add <4 x i64> %add.i2096.i, %add.i2099.i
+  %xor.i1775.i = xor <4 x i64> %add.i2093.i, %perm.i
+  %101 = bitcast <4 x i64> %xor.i1775.i to <32 x i8>
+  %102 = shufflevector <32 x i8> %101, <32 x i8> poison, <32 x i32> <i32 3, i32 4, i32 5, i32 6, i32 7, i32 0, i32 1, i32 2, i32 11, i32 12, i32 13, i32 14, i32 15, i32 8, i32 9, i32 10, i32 19, i32 20, i32 21, i32 22, i32 23, i32 16, i32 17, i32 18, i32 27, i32 28, i32 29, i32 30, i32 31, i32 24, i32 25, i32 26>
+  %103 = and <4 x i64> %add.i2123.i, <i64 4294967295, i64 4294967295, i64 4294967295, i64 4294967295>
+  %104 = and <4 x i64> %perm436.i, <i64 4294967295, i64 4294967295, i64 4294967295, i64 4294967295>
+  %105 = mul nuw <4 x i64> %104, %103
+  %add.i2090.i = shl <4 x i64> %105, <i64 1, i64 1, i64 1, i64 1>
+  %add.i2087.i = add <4 x i64> %perm436.i, %add.i2123.i
+  %add.i2084.i = add <4 x i64> %add.i2087.i, %add.i2090.i
+  %xor.i1772.i = xor <4 x i64> %add.i2084.i, %perm454.i
+  %106 = bitcast <4 x i64> %xor.i1772.i to <8 x i32>
+  %permil596.i = shufflevector <8 x i32> %106, <8 x i32> poison, <8 x i32> <i32 1, i32 0, i32 3, i32 2, i32 5, i32 4, i32 7, i32 6>
+  %107 = bitcast <8 x i32> %permil596.i to <4 x i64>
+  %108 = and <4 x i64> %perm445.i, <i64 4294967295, i64 4294967295, i64 4294967295, i64 4294967295>
+  %109 = and <4 x i64> %107, <i64 4294967295, i64 4294967295, i64 4294967295, i64 4294967295>
+  %110 = mul nuw <4 x i64> %109, %108
+  %add.i2081.i = shl <4 x i64> %110, <i64 1, i64 1, i64 1, i64 1>
+  %add.i2078.i = add <4 x i64> %perm445.i, %107
+  %add.i2075.i = add <4 x i64> %add.i2078.i, %add.i2081.i
+  %xor.i1769.i = xor <4 x i64> %add.i2075.i, %perm436.i
+  %111 = bitcast <4 x i64> %xor.i1769.i to <32 x i8>
+  %112 = shufflevector <32 x i8> %111, <32 x i8> poison, <32 x i32> <i32 3, i32 4, i32 5, i32 6, i32 7, i32 0, i32 1, i32 2, i32 11, i32 12, i32 13, i32 14, i32 15, i32 8, i32 9, i32 10, i32 19, i32 20, i32 21, i32 22, i32 23, i32 16, i32 17, i32 18, i32 27, i32 28, i32 29, i32 30, i32 31, i32 24, i32 25, i32 26>
+  %113 = bitcast <32 x i8> %102 to <4 x i64>
+  %114 = and <4 x i64> %add.i2102.i, <i64 4294967295, i64 4294967295, i64 4294967295, i64 4294967295>
+  %115 = and <4 x i64> %113, <i64 4294967295, i64 4294967295, i64 4294967295, i64 4294967295>
+  %116 = mul nuw <4 x i64> %115, %114
+  %add.i2072.i = shl <4 x i64> %116, <i64 1, i64 1, i64 1, i64 1>
+  %add.i2069.i = add <4 x i64> %add.i2102.i, %113
+  %add.i2066.i = add <4 x i64> %add.i2069.i, %add.i2072.i
+  store <4 x i64> %add.i2066.i, ptr %arrayidx14.i, align 32
+  %xor.i1766.i = xor <4 x i64> %add.i2066.i, %97
+  %117 = bitcast <4 x i64> %xor.i1766.i to <32 x i8>
+  %118 = shufflevector <32 x i8> %117, <32 x i8> poison, <32 x i32> <i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 0, i32 1, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 8, i32 9, i32 18, i32 19, i32 20, i32 21, i32 22, i32 23, i32 16, i32 17, i32 26, i32 27, i32 28, i32 29, i32 30, i32 31, i32 24, i32 25>
+  %119 = bitcast <32 x i8> %118 to <4 x i64>
+  %120 = and <4 x i64> %add.i2093.i, <i64 4294967295, i64 4294967295, i64 4294967295, i64 4294967295>
+  %121 = and <4 x i64> %119, <i64 4294967295, i64 4294967295, i64 4294967295, i64 4294967295>
+  %122 = mul nuw <4 x i64> %121, %120
+  %add.i2063.i = shl <4 x i64> %122, <i64 1, i64 1, i64 1, i64 1>
+  %add.i2060.i = add <4 x i64> %add.i2093.i, %119
+  %add.i2057.i = add <4 x i64> %add.i2060.i, %add.i2063.i
+  %xor.i1763.i = xor <4 x i64> %add.i2057.i, %113
+  %xor.i1760.i = tail call <4 x i64> @llvm.fshl.v4i64(<4 x i64> %xor.i1763.i, <4 x i64> %xor.i1763.i, <4 x i64> <i64 1, i64 1, i64 1, i64 1>)
+  %123 = bitcast <32 x i8> %112 to <4 x i64>
+  %124 = and <4 x i64> %add.i2084.i, <i64 4294967295, i64 4294967295, i64 4294967295, i64 4294967295>
+  %125 = and <4 x i64> %123, <i64 4294967295, i64 4294967295, i64 4294967295, i64 4294967295>
+  %126 = mul nuw <4 x i64> %125, %124
+  %add.i2051.i = shl <4 x i64> %126, <i64 1, i64 1, i64 1, i64 1>
+  %add.i2048.i = add <4 x i64> %add.i2084.i, %123
+  %add.i2045.i = add <4 x i64> %add.i2048.i, %add.i2051.i
+  store <4 x i64> %add.i2045.i, ptr %arrayidx106.i, align 32
+  %xor.i1757.i = xor <4 x i64> %add.i2045.i, %107
+  %127 = bitcast <4 x i64> %xor.i1757.i to <32 x i8>
+  %128 = shufflevector <32 x i8> %127, <32 x i8> poison, <32 x i32> <i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 0, i32 1, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 8, i32 9, i32 18, i32 19, i32 20, i32 21, i32 22, i32 23, i32 16, i32 17, i32 26, i32 27, i32 28, i32 29, i32 30, i32 31, i32 24, i32 25>
+  %129 = bitcast <32 x i8> %128 to <4 x i64>
+  %130 = and <4 x i64> %add.i2075.i, <i64 4294967295, i64 4294967295, i64 4294967295, i64 4294967295>
+  %131 = and <4 x i64> %129, <i64 4294967295, i64 4294967295, i64 4294967295, i64 4294967295>
+  %132 = mul nuw <4 x i64> %131, %130
+  %add.i2042.i = shl <4 x i64> %132, <i64 1, i64 1, i64 1, i64 1>
+  %add.i2039.i = add <4 x i64> %add.i2075.i, %129
+  %add.i2036.i = add <4 x i64> %add.i2039.i, %add.i2042.i
+  %xor.i1754.i = xor <4 x i64> %add.i2036.i, %123
+  %xor.i1751.i = tail call <4 x i64> @llvm.fshl.v4i64(<4 x i64> %xor.i1754.i, <4 x i64> %xor.i1754.i, <4 x i64> <i64 1, i64 1, i64 1, i64 1>)
+  %perm863.i = shufflevector <4 x i64> %xor.i1760.i, <4 x i64> poison, <4 x i32> <i32 3, i32 0, i32 1, i32 2>
+  store <4 x i64> %perm863.i, ptr %arrayidx18.i, align 32
+  %perm872.i = shufflevector <4 x i64> %add.i2057.i, <4 x i64> poison, <4 x i32> <i32 2, i32 3, i32 0, i32 1>
+  store <4 x i64> %perm872.i, ptr %arrayidx59.i, align 32
+  %perm881.i = shufflevector <4 x i64> %119, <4 x i64> poison, <4 x i32> <i32 1, i32 2, i32 3, i32 0>
+  store <4 x i64> %perm881.i, ptr %arrayidx38.i, align 32
+  %perm890.i = shufflevector <4 x i64> %xor.i1751.i, <4 x i64> poison, <4 x i32> <i32 3, i32 0, i32 1, i32 2>
+  store <4 x i64> %perm890.i, ptr %arrayidx110.i, align 32
+  %perm899.i = shufflevector <4 x i64> %add.i2036.i, <4 x i64> poison, <4 x i32> <i32 2, i32 3, i32 0, i32 1>
+  store <4 x i64> %perm899.i, ptr %arrayidx152.i, align 32
+  %perm908.i = shufflevector <4 x i64> %129, <4 x i64> poison, <4 x i32> <i32 1, i32 2, i32 3, i32 0>
+  store <4 x i64> %perm908.i, ptr %arrayidx130.i, align 32
+  %indvars.iv.next906.i = add nuw nsw i64 %indvars.iv905.i, 1
+  %exitcond916.not.i = icmp eq i64 %indvars.iv.next906.i, 4
+  br i1 %exitcond916.not.i, label %do.body922.i, label %do.body11.i, !llvm.loop !7
+
+do.body922.i:                                     ; preds = %do.body11.i, %do.body922.i
+  %indvars.iv917.i = phi i64 [ %indvars.iv.next918.i, %do.body922.i ], [ 0, %do.body11.i ]
+  %arrayidx926.i = getelementptr <4 x i64>, ptr %state, i64 %indvars.iv917.i
+  %133 = load <4 x i64>, ptr %arrayidx926.i, align 32
+  %134 = or disjoint i64 %indvars.iv917.i, 8
+  %arrayidx929.i = getelementptr <4 x i64>, ptr %state, i64 %134
+  %135 = load <4 x i64>, ptr %arrayidx929.i, align 32
+  %136 = and <4 x i64> %133, <i64 4294967295, i64 4294967295, i64 4294967295, i64 4294967295>
+  %137 = and <4 x i64> %135, <i64 4294967295, i64 4294967295, i64 4294967295, i64 4294967295>
+  %138 = mul nuw <4 x i64> %137, %136
+  %add.i2030.i = shl <4 x i64> %138, <i64 1, i64 1, i64 1, i64 1>
+  %add.i2027.i = add <4 x i64> %135, %133
+  %add.i2024.i = add <4 x i64> %add.i2027.i, %add.i2030.i
+  %139 = or disjoint i64 %indvars.iv917.i, 24
+  %arrayidx945.i = getelementptr <4 x i64>, ptr %state, i64 %139
+  %140 = load <4 x i64>, ptr %arrayidx945.i, align 32
+  %xor.i1748.i = xor <4 x i64> %add.i2024.i, %140
+  %141 = bitcast <4 x i64> %xor.i1748.i to <8 x i32>
+  %permil956.i = shufflevector <8 x i32> %141, <8 x i32> poison, <8 x i32> <i32 1, i32 0, i32 3, i32 2, i32 5, i32 4, i32 7, i32 6>
+  %142 = bitcast <8 x i32> %permil956.i to <4 x i64>
+  %143 = or disjoint i64 %indvars.iv917.i, 16
+  %arrayidx962.i = getelementptr <4 x i64>, ptr %state, i64 %143
+  %144 = load <4 x i64>, ptr %arrayidx962.i, align 32
+  %145 = and <4 x i64> %144, <i64 4294967295, i64 4294967295, i64 4294967295, i64 4294967295>
+  %146 = and <4 x i64> %142, <i64 4294967295, i64 4294967295, i64 4294967295, i64 4294967295>
+  %147 = mul nuw <4 x i64> %146, %145
+  %add.i2021.i = shl <4 x i64> %147, <i64 1, i64 1, i64 1, i64 1>
+  %add.i2018.i = add <4 x i64> %144, %142
+  %add.i2015.i = add <4 x i64> %add.i2018.i, %add.i2021.i
+  %xor.i1745.i = xor <4 x i64> %add.i2015.i, %135
+  %148 = bitcast <4 x i64> %xor.i1745.i to <32 x i8>
+  %149 = shufflevector <32 x i8> %148, <32 x i8> poison, <32 x i32> <i32 3, i32 4, i32 5, i32 6, i32 7, i32 0, i32 1, i32 2, i32 11, i32 12, i32 13, i32 14, i32 15, i32 8, i32 9, i32 10, i32 19, i32 20, i32 21, i32 22, i32 23, i32 16, i32 17, i32 18, i32 27, i32 28, i32 29, i32 30, i32 31, i32 24, i32 25, i32 26>
+  %150 = or disjoint i64 %indvars.iv917.i, 4
+  %arrayidx999.i = getelementptr <4 x i64>, ptr %state, i64 %150
+  %151 = load <4 x i64>, ptr %arrayidx999.i, align 32
+  %152 = or disjoint i64 %indvars.iv917.i, 12
+  %arrayidx1002.i = getelementptr <4 x i64>, ptr %state, i64 %152
+  %153 = load <4 x i64>, ptr %arrayidx1002.i, align 32
+  %154 = and <4 x i64> %151, <i64 4294967295, i64 4294967295, i64 4294967295, i64 4294967295>
+  %155 = and <4 x i64> %153, <i64 4294967295, i64 4294967295, i64 4294967295, i64 4294967295>
+  %156 = mul nuw <4 x i64> %155, %154
+  %add.i2012.i = shl <4 x i64> %156, <i64 1, i64 1, i64 1, i64 1>
+  %add.i2009.i = add <4 x i64> %153, %151
+  %add.i2006.i = add <4 x i64> %add.i2009.i, %add.i2012.i
+  %157 = or disjoint i64 %indvars.iv917.i, 28
+  %arrayidx1018.i = getelementptr <4 x i64>, ptr %state, i64 %157
+  %158 = load <4 x i64>, ptr %arrayidx1018.i, align 32
+  %xor.i1742.i = xor <4 x i64> %add.i2006.i, %158
+  %159 = bitcast <4 x i64> %xor.i1742.i to <8 x i32>
+  %permil1029.i = shufflevector <8 x i32> %159, <8 x i32> poison, <8 x i32> <i32 1, i32 0, i32 3, i32 2, i32 5, i32 4, i32 7, i32 6>
+  %160 = bitcast <8 x i32> %permil1029.i to <4 x i64>
+  %161 = or disjoint i64 %indvars.iv917.i, 20
+  %arrayidx1035.i = getelementptr <4 x i64>, ptr %state, i64 %161
+  %162 = load <4 x i64>, ptr %arrayidx1035.i, align 32
+  %163 = and <4 x i64> %162, <i64 4294967295, i64 4294967295, i64 4294967295, i64 4294967295>
+  %164 = and <4 x i64> %160, <i64 4294967295, i64 4294967295, i64 4294967295, i64 4294967295>
+  %165 = mul nuw <4 x i64> %164, %163
+  %add.i2003.i = shl <4 x i64> %165, <i64 1, i64 1, i64 1, i64 1>
+  %add.i2000.i = add <4 x i64> %162, %160
+  %add.i1997.i = add <4 x i64> %add.i2000.i, %add.i2003.i
+  %xor.i1739.i = xor <4 x i64> %add.i1997.i, %153
+  %166 = bitcast <4 x i64> %xor.i1739.i to <32 x i8>
+  %167 = shufflevector <32 x i8> %166, <32 x i8> poison, <32 x i32> <i32 3, i32 4, i32 5, i32 6, i32 7, i32 0, i32 1, i32 2, i32 11, i32 12, i32 13, i32 14, i32 15, i32 8, i32 9, i32 10, i32 19, i32 20, i32 21, i32 22, i32 23, i32 16, i32 17, i32 18, i32 27, i32 28, i32 29, i32 30, i32 31, i32 24, i32 25, i32 26>
+  %168 = bitcast <32 x i8> %149 to <4 x i64>
+  %169 = and <4 x i64> %add.i2024.i, <i64 4294967295, i64 4294967295, i64 4294967295, i64 4294967295>
+  %170 = and <4 x i64> %168, <i64 4294967295, i64 4294967295, i64 4294967295, i64 4294967295>
+  %171 = mul nuw <4 x i64> %170, %169
+  %add.i1994.i = shl <4 x i64> %171, <i64 1, i64 1, i64 1, i64 1>
+  %add.i1991.i = add <4 x i64> %add.i2024.i, %168
+  %add.i1988.i = add <4 x i64> %add.i1991.i, %add.i1994.i
+  %xor.i1736.i = xor <4 x i64> %add.i1988.i, %142
+  %172 = bitcast <4 x i64> %xor.i1736.i to <32 x i8>
+  %173 = shufflevector <32 x i8> %172, <32 x i8> poison, <32 x i32> <i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 0, i32 1, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 8, i32 9, i32 18, i32 19, i32 20, i32 21, i32 22, i32 23, i32 16, i32 17, i32 26, i32 27, i32 28, i32 29, i32 30, i32 31, i32 24, i32 25>
+  %174 = bitcast <32 x i8> %173 to <4 x i64>
+  %175 = and <4 x i64> %add.i2015.i, <i64 4294967295, i64 4294967295, i64 4294967295, i64 4294967295>
+  %176 = and <4 x i64> %174, <i64 4294967295, i64 4294967295, i64 4294967295, i64 4294967295>
+  %177 = mul nuw <4 x i64> %176, %175
+  %add.i1985.i = shl <4 x i64> %177, <i64 1, i64 1, i64 1, i64 1>
+  %add.i1982.i = add <4 x i64> %add.i2015.i, %174
+  %add.i1979.i = add <4 x i64> %add.i1982.i, %add.i1985.i
+  %xor.i1733.i = xor <4 x i64> %add.i1979.i, %168
+  %xor.i1730.i = tail call <4 x i64> @llvm.fshl.v4i64(<4 x i64> %xor.i1733.i, <4 x i64> %xor.i1733.i, <4 x i64> <i64 1, i64 1, i64 1, i64 1>)
+  %178 = bitcast <32 x i8> %167 to <4 x i64>
+  %179 = and <4 x i64> %add.i2006.i, <i64 4294967295, i64 4294967295, i64 4294967295, i64 4294967295>
+  %180 = and <4 x i64> %178, <i64 4294967295, i64 4294967295, i64 4294967295, i64 4294967295>
+  %181 = mul nuw <4 x i64> %180, %179
+  %add.i1973.i = shl <4 x i64> %181, <i64 1, i64 1, i64 1, i64 1>
+  %add.i1970.i = add <4 x i64> %add.i2006.i, %178
+  %add.i1967.i = add <4 x i64> %add.i1970.i, %add.i1973.i
+  %xor.i1727.i = xor <4 x i64> %add.i1967.i, %160
+  %182 = bitcast <4 x i64> %xor.i1727.i to <32 x i8>
+  %183 = shufflevector <32 x i8> %182, <32 x i8> poison, <32 x i32> <i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 0, i32 1, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 8, i32 9, i32 18, i32 19, i32 20, i32 21, i32 22, i32 23, i32 16, i32 17, i32 26, i32 27, i32 28, i32 29, i32 30, i32 31, i32 24, i32 25>
+  %184 = bitcast <32 x i8> %183 to <4 x i64>
+  %185 = and <4 x i64> %add.i1997.i, <i64 4294967295, i64 4294967295, i64 4294967295, i64 4294967295>
+  %186 = and <4 x i64> %184, <i64 4294967295, i64 4294967295, i64 4294967295, i64 4294967295>
+  %187 = mul nuw <4 x i64> %186, %185
+  %add.i1964.i = shl <4 x i64> %187, <i64 1, i64 1, i64 1, i64 1>
+  %add.i1961.i = add <4 x i64> %add.i1997.i, %184
+  %add.i1958.i = add <4 x i64> %add.i1961.i, %add.i1964.i
+  %xor.i1724.i = xor <4 x i64> %add.i1958.i, %178
+  %xor.i1721.i = tail call <4 x i64> @llvm.fshl.v4i64(<4 x i64> %xor.i1724.i, <4 x i64> %xor.i1724.i, <4 x i64> <i64 1, i64 1, i64 1, i64 1>)
+  %188 = bitcast <4 x i64> %xor.i1730.i to <8 x i32>
+  %189 = bitcast <4 x i64> %xor.i1721.i to <8 x i32>
+  %blend.i = shufflevector <8 x i32> %188, <8 x i32> %189, <8 x i32> <i32 0, i32 1, i32 10, i32 11, i32 4, i32 5, i32 14, i32 15>
+  %190 = bitcast <8 x i32> %blend.i to <4 x i64>
+  %blend1249.i = shufflevector <8 x i32> %189, <8 x i32> %188, <8 x i32> <i32 0, i32 1, i32 10, i32 11, i32 4, i32 5, i32 14, i32 15>
+  %191 = bitcast <8 x i32> %blend1249.i to <4 x i64>
+  %perm1250.i = shufflevector <4 x i64> %190, <4 x i64> poison, <4 x i32> <i32 1, i32 0, i32 3, i32 2>
+  %perm1254.i = shufflevector <4 x i64> %191, <4 x i64> poison, <4 x i32> <i32 1, i32 0, i32 3, i32 2>
+  %192 = bitcast <32 x i8> %173 to <8 x i32>
+  %193 = bitcast <32 x i8> %183 to <8 x i32>
+  %blend1276.i = shufflevector <8 x i32> %192, <8 x i32> %193, <8 x i32> <i32 0, i32 1, i32 10, i32 11, i32 4, i32 5, i32 14, i32 15>
+  %194 = bitcast <8 x i32> %blend1276.i to <4 x i64>
+  %blend1283.i = shufflevector <8 x i32> %193, <8 x i32> %192, <8 x i32> <i32 0, i32 1, i32 10, i32 11, i32 4, i32 5, i32 14, i32 15>
+  %195 = bitcast <8 x i32> %blend1283.i to <4 x i64>
+  %perm1284.i = shufflevector <4 x i64> %194, <4 x i64> poison, <4 x i32> <i32 1, i32 0, i32 3, i32 2>
+  %perm1288.i = shufflevector <4 x i64> %195, <4 x i64> poison, <4 x i32> <i32 1, i32 0, i32 3, i32 2>
+  %196 = and <4 x i64> %add.i1988.i, <i64 4294967295, i64 4294967295, i64 4294967295, i64 4294967295>
+  %197 = and <4 x i64> %perm1254.i, <i64 4294967295, i64 4294967295, i64 4294967295, i64 4294967295>
+  %198 = mul nuw <4 x i64> %197, %196
+  %add.i1952.i = shl <4 x i64> %198, <i64 1, i64 1, i64 1, i64 1>
+  %add.i1949.i = add <4 x i64> %perm1254.i, %add.i1988.i
+  %add.i1946.i = add <4 x i64> %add.i1949.i, %add.i1952.i
+  %xor.i1718.i = xor <4 x i64> %add.i1946.i, %perm1284.i
+  %199 = bitcast <4 x i64> %xor.i1718.i to <8 x i32>
+  %permil1327.i = shufflevector <8 x i32> %199, <8 x i32> poison, <8 x i32> <i32 1, i32 0, i32 3, i32 2, i32 5, i32 4, i32 7, i32 6>
+  %200 = bitcast <8 x i32> %permil1327.i to <4 x i64>
+  %201 = and <4 x i64> %add.i1958.i, <i64 4294967295, i64 4294967295, i64 4294967295, i64 4294967295>
+  %202 = and <4 x i64> %200, <i64 4294967295, i64 4294967295, i64 4294967295, i64 4294967295>
+  %203 = mul nuw <4 x i64> %202, %201
+  %add.i1943.i = shl <4 x i64> %203, <i64 1, i64 1, i64 1, i64 1>
+  %add.i1940.i = add <4 x i64> %add.i1958.i, %200
+  %add.i1937.i = add <4 x i64> %add.i1940.i, %add.i1943.i
+  %xor.i1715.i = xor <4 x i64> %add.i1937.i, %perm1254.i
+  %204 = bitcast <4 x i64> %xor.i1715.i to <32 x i8>
+  %205 = shufflevector <32 x i8> %204, <32 x i8> poison, <32 x i32> <i32 3, i32 4, i32 5, i32 6, i32 7, i32 0, i32 1, i32 2, i32 11, i32 12, i32 13, i32 14, i32 15, i32 8, i32 9, i32 10, i32 19, i32 20, i32 21, i32 22, i32 23, i32 16, i32 17, i32 18, i32 27, i32 28, i32 29, i32 30, i32 31, i32 24, i32 25, i32 26>
+  %206 = and <4 x i64> %add.i1967.i, <i64 4294967295, i64 4294967295, i64 4294967295, i64 4294967295>
+  %207 = and <4 x i64> %perm1250.i, <i64 4294967295, i64 4294967295, i64 4294967295, i64 4294967295>
+  %208 = mul nuw <4 x i64> %207, %206
+  %add.i1934.i = shl <4 x i64> %208, <i64 1, i64 1, i64 1, i64 1>
+  %add.i1931.i = add <4 x i64> %perm1250.i, %add.i1967.i
+  %add.i1928.i = add <4 x i64> %add.i1931.i, %add.i1934.i
+  %xor.i1712.i = xor <4 x i64> %add.i1928.i, %perm1288.i
+  %209 = bitcast <4 x i64> %xor.i1712.i to <8 x i32>
+  %permil1400.i = shufflevector <8 x i32> %209, <8 x i32> poison, <8 x i32> <i32 1, i32 0, i32 3, i32 2, i32 5, i32 4, i32 7, i32 6>
+  %210 = bitcast <8 x i32> %permil1400.i to <4 x i64>
+  %211 = and <4 x i64> %add.i1979.i, <i64 4294967295, i64 4294967295, i64 4294967295, i64 4294967295>
+  %212 = and <4 x i64> %210, <i64 4294967295, i64 4294967295, i64 4294967295, i64 4294967295>
+  %213 = mul nuw <4 x i64> %212, %211
+  %add.i1925.i = shl <4 x i64> %213, <i64 1, i64 1, i64 1, i64 1>
+  %add.i1922.i = add <4 x i64> %add.i1979.i, %210
+  %add.i1919.i = add <4 x i64> %add.i1922.i, %add.i1925.i
+  %xor.i1709.i = xor <4 x i64> %add.i1919.i, %perm1250.i
+  %214 = bitcast <4 x i64> %xor.i1709.i to <32 x i8>
+  %215 = shufflevector <32 x i8> %214, <32 x i8> poison, <32 x i32> <i32 3, i32 4, i32 5, i32 6, i32 7, i32 0, i32 1, i32 2, i32 11, i32 12, i32 13, i32 14, i32 15, i32 8, i32 9, i32 10, i32 19, i32 20, i32 21, i32 22, i32 23, i32 16, i32 17, i32 18, i32 27, i32 28, i32 29, i32 30, i32 31, i32 24, i32 25, i32 26>
+  %216 = bitcast <32 x i8> %205 to <4 x i64>
+  %217 = and <4 x i64> %add.i1946.i, <i64 4294967295, i64 4294967295, i64 4294967295, i64 4294967295>
+  %218 = and <4 x i64> %216, <i64 4294967295, i64 4294967295, i64 4294967295, i64 4294967295>
+  %219 = mul nuw <4 x i64> %218, %217
+  %add.i1916.i = shl <4 x i64> %219, <i64 1, i64 1, i64 1, i64 1>
+  %add.i1913.i = add <4 x i64> %add.i1946.i, %216
+  %add.i1910.i = add <4 x i64> %add.i1913.i, %add.i1916.i
+  store <4 x i64> %add.i1910.i, ptr %arrayidx926.i, align 32
+  %xor.i1706.i = xor <4 x i64> %add.i1910.i, %200
+  %220 = bitcast <4 x i64> %xor.i1706.i to <32 x i8>
+  %221 = shufflevector <32 x i8> %220, <32 x i8> poison, <32 x i32> <i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 0, i32 1, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 8, i32 9, i32 18, i32 19, i32 20, i32 21, i32 22, i32 23, i32 16, i32 17, i32 26, i32 27, i32 28, i32 29, i32 30, i32 31, i32 24, i32 25>
+  %222 = bitcast <32 x i8> %221 to <4 x i64>
+  %223 = and <4 x i64> %add.i1937.i, <i64 4294967295, i64 4294967295, i64 4294967295, i64 4294967295>
+  %224 = and <4 x i64> %222, <i64 4294967295, i64 4294967295, i64 4294967295, i64 4294967295>
+  %225 = mul nuw <4 x i64> %224, %223
+  %add.i1907.i = shl <4 x i64> %225, <i64 1, i64 1, i64 1, i64 1>
+  %add.i1904.i = add <4 x i64> %add.i1937.i, %222
+  %add.i1901.i = add <4 x i64> %add.i1904.i, %add.i1907.i
+  %xor.i1703.i = xor <4 x i64> %add.i1901.i, %216
+  %xor.i1700.i = tail call <4 x i64> @llvm.fshl.v4i64(<4 x i64> %xor.i1703.i, <4 x i64> %xor.i1703.i, <4 x i64> <i64 1, i64 1, i64 1, i64 1>)
+  %226 = bitcast <32 x i8> %215 to <4 x i64>
+  %227 = and <4 x i64> %add.i1928.i, <i64 4294967295, i64 4294967295, i64 4294967295, i64 4294967295>
+  %228 = and <4 x i64> %226, <i64 4294967295, i64 4294967295, i64 4294967295, i64 4294967295>
+  %229 = mul nuw <4 x i64> %228, %227
+  %add.i1895.i = shl <4 x i64> %229, <i64 1, i64 1, i64 1, i64 1>
+  %add.i1892.i = add <4 x i64> %add.i1928.i, %226
+  %add.i1889.i = add <4 x i64> %add.i1892.i, %add.i1895.i
+  store <4 x i64> %add.i1889.i, ptr %arrayidx999.i, align 32
+  %xor.i1697.i = xor <4 x i64> %add.i1889.i, %210
+  %230 = bitcast <4 x i64> %xor.i1697.i to <32 x i8>
+  %231 = shufflevector <32 x i8> %230, <32 x i8> poison, <32 x i32> <i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 0, i32 1, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 8, i32 9, i32 18, i32 19, i32 20, i32 21, i32 22, i32 23, i32 16, i32 17, i32 26, i32 27, i32 28, i32 29, i32 30, i32 31, i32 24, i32 25>
+  %232 = bitcast <32 x i8> %231 to <4 x i64>
+  %233 = and <4 x i64> %add.i1919.i, <i64 4294967295, i64 4294967295, i64 4294967295, i64 4294967295>
+  %234 = and <4 x i64> %232, <i64 4294967295, i64 4294967295, i64 4294967295, i64 4294967295>
+  %235 = mul nuw <4 x i64> %234, %233
+  %add.i1886.i = shl <4 x i64> %235, <i64 1, i64 1, i64 1, i64 1>
+  %add.i1883.i = add <4 x i64> %add.i1919.i, %232
+  %add.i1880.i = add <4 x i64> %add.i1883.i, %add.i1886.i
+  %xor.i1694.i = xor <4 x i64> %add.i1880.i, %226
+  %xor.i1691.i = tail call <4 x i64> @llvm.fshl.v4i64(<4 x i64> %xor.i1694.i, <4 x i64> %xor.i1694.i, <4 x i64> <i64 1, i64 1, i64 1, i64 1>)
+  %236 = bitcast <4 x i64> %xor.i1700.i to <8 x i32>
+  %237 = bitcast <4 x i64> %xor.i1691.i to <8 x i32>
+  %blend1615.i = shufflevector <8 x i32> %236, <8 x i32> %237, <8 x i32> <i32 0, i32 1, i32 10, i32 11, i32 4, i32 5, i32 14, i32 15>
+  %238 = bitcast <8 x i32> %blend1615.i to <4 x i64>
+  %blend1623.i = shufflevector <8 x i32> %237, <8 x i32> %236, <8 x i32> <i32 0, i32 1, i32 10, i32 11, i32 4, i32 5, i32 14, i32 15>
+  %239 = bitcast <8 x i32> %blend1623.i to <4 x i64>
+  %perm1624.i = shufflevector <4 x i64> %238, <4 x i64> poison, <4 x i32> <i32 1, i32 0, i32 3, i32 2>
+  store <4 x i64> %perm1624.i, ptr %arrayidx929.i, align 32
+  %perm1628.i = shufflevector <4 x i64> %239, <4 x i64> poison, <4 x i32> <i32 1, i32 0, i32 3, i32 2>
+  store <4 x i64> %perm1628.i, ptr %arrayidx1002.i, align 32
+  store <4 x i64> %add.i1880.i, ptr %arrayidx962.i, align 32
+  store <4 x i64> %add.i1901.i, ptr %arrayidx1035.i, align 32
+  %240 = bitcast <32 x i8> %221 to <8 x i32>
+  %241 = bitcast <32 x i8> %231 to <8 x i32>
+  %blend1650.i = shufflevector <8 x i32> %241, <8 x i32> %240, <8 x i32> <i32 0, i32 1, i32 10, i32 11, i32 4, i32 5, i32 14, i32 15>
+  %242 = bitcast <8 x i32> %blend1650.i to <4 x i64>
+  %blend1657.i = shufflevector <8 x i32> %240, <8 x i32> %241, <8 x i32> <i32 0, i32 1, i32 10, i32 11, i32 4, i32 5, i32 14, i32 15>
+  %243 = bitcast <8 x i32> %blend1657.i to <4 x i64>
+  %perm1658.i = shufflevector <4 x i64> %242, <4 x i64> poison, <4 x i32> <i32 1, i32 0, i32 3, i32 2>
+  store <4 x i64> %perm1658.i, ptr %arrayidx945.i, align 32
+  %perm1662.i = shufflevector <4 x i64> %243, <4 x i64> poison, <4 x i32> <i32 1, i32 0, i32 3, i32 2>
+  store <4 x i64> %perm1662.i, ptr %arrayidx1018.i, align 32
+  %indvars.iv.next918.i = add nuw nsw i64 %indvars.iv917.i, 1
+  %exitcond927.not.i = icmp eq i64 %indvars.iv.next918.i, 4
+  br i1 %exitcond927.not.i, label %for.body1673.i, label %do.body922.i, !llvm.loop !8
+
+for.body1673.i:                                   ; preds = %do.body922.i, %for.body1673.i
+  %indvars.iv928.i = phi i64 [ %indvars.iv.next929.i, %for.body1673.i ], [ 0, %do.body922.i ]
+  %arrayidx1675.i = getelementptr <4 x i64>, ptr %state, i64 %indvars.iv928.i
+  %244 = load <4 x i64>, ptr %arrayidx1675.i, align 32
+  %arrayidx1677.i = getelementptr [32 x <4 x i64>], ptr %block_XY.i, i64 0, i64 %indvars.iv928.i
+  %245 = load <4 x i64>, ptr %arrayidx1677.i, align 32
+  %xor.i.i = xor <4 x i64> %245, %244
+  store <4 x i64> %xor.i.i, ptr %arrayidx1675.i, align 32
+  %246 = shl nuw nsw i64 %indvars.iv928.i, 5
+  %arrayidx1683.i = getelementptr i8, ptr %add.ptr83, i64 %246
+  store <4 x i64> %xor.i.i, ptr %arrayidx1683.i, align 1
+  %indvars.iv.next929.i = add nuw nsw i64 %indvars.iv928.i, 1
+  %exitcond932.not.i = icmp eq i64 %indvars.iv.next929.i, 32
+  br i1 %exitcond932.not.i, label %fill_block.exit, label %for.body1673.i, !llvm.loop !9
+
+fill_block.exit:                                  ; preds = %for.body1673.i
+  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %block_XY.i)
+  br label %for.inc
+
+for.inc:                                          ; preds = %if.then87, %fill_block.exit
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %inc100 = add i32 %curr_offset.071, 1
+  %inc101 = add i32 %spec.select38, 1
+  %247 = load i32, ptr %segment_length, align 4
+  %248 = zext i32 %247 to i64
+  %cmp34 = icmp ult i64 %indvars.iv.next, %248
+  br i1 %cmp34, label %for.body, label %for.end, !llvm.loop !10
+
+for.end:                                          ; preds = %for.inc, %if.end9, %entry
+  ret void
+}
+
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+
+; Function Attrs: nofree norecurse nosync nounwind ssp memory(argmem: readwrite) uwtable
+define internal fastcc void @fill_block_with_xor(ptr nocapture noundef %state, ptr nocapture noundef readonly %ref_block, ptr nocapture noundef %next_block) unnamed_addr #2 {
+entry:
+  %block_XY = alloca [32 x <4 x i64>], align 32
+  br label %for.body
+
+for.body:                                         ; preds = %entry, %for.body
+  %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.body ]
+  %arrayidx = getelementptr <4 x i64>, ptr %state, i64 %indvars.iv
+  %0 = load <4 x i64>, ptr %arrayidx, align 32
+  %1 = shl nuw nsw i64 %indvars.iv, 5
+  %arrayidx2 = getelementptr i8, ptr %ref_block, i64 %1
+  %2 = load <4 x i64>, ptr %arrayidx2, align 1
+  %xor.i1821 = xor <4 x i64> %2, %0
+  store <4 x i64> %xor.i1821, ptr %arrayidx, align 32
+  %arrayidx10 = getelementptr i8, ptr %next_block, i64 %1
+  %3 = load <4 x i64>, ptr %arrayidx10, align 1
+  %xor.i1818 = xor <4 x i64> %3, %xor.i1821
+  %arrayidx14 = getelementptr [32 x <4 x i64>], ptr %block_XY, i64 0, i64 %indvars.iv
+  store <4 x i64> %xor.i1818, ptr %arrayidx14, align 32
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next, 32
+  br i1 %exitcond.not, label %do.body18, label %for.body, !llvm.loop !11
+
+do.body18:                                        ; preds = %for.body, %do.body18
+  %indvars.iv909 = phi i64 [ %indvars.iv.next910, %do.body18 ], [ 0, %for.body ]
+  %4 = shl nuw nsw i64 %indvars.iv909, 3
+  %arrayidx21 = getelementptr <4 x i64>, ptr %state, i64 %4
+  %5 = load <4 x i64>, ptr %arrayidx21, align 32
+  %6 = or disjoint i64 %4, 1
+  %arrayidx25 = getelementptr <4 x i64>, ptr %state, i64 %6
+  %7 = load <4 x i64>, ptr %arrayidx25, align 32
+  %8 = and <4 x i64> %5, <i64 4294967295, i64 4294967295, i64 4294967295, i64 4294967295>
+  %9 = and <4 x i64> %7, <i64 4294967295, i64 4294967295, i64 4294967295, i64 4294967295>
+  %10 = mul nuw <4 x i64> %9, %8
+  %add.i2197 = shl <4 x i64> %10, <i64 1, i64 1, i64 1, i64 1>
+  %add.i2194 = add <4 x i64> %7, %5
+  %add.i2191 = add <4 x i64> %add.i2194, %add.i2197
+  %11 = or disjoint i64 %4, 3
+  %arrayidx45 = getelementptr <4 x i64>, ptr %state, i64 %11
+  %12 = load <4 x i64>, ptr %arrayidx45, align 32
+  %xor.i1815 = xor <4 x i64> %add.i2191, %12
+  %13 = bitcast <4 x i64> %xor.i1815 to <8 x i32>
+  %permil = shufflevector <8 x i32> %13, <8 x i32> poison, <8 x i32> <i32 1, i32 0, i32 3, i32 2, i32 5, i32 4, i32 7, i32 6>
+  %14 = bitcast <8 x i32> %permil to <4 x i64>
+  %15 = or disjoint i64 %4, 2
+  %arrayidx66 = getelementptr <4 x i64>, ptr %state, i64 %15
+  %16 = load <4 x i64>, ptr %arrayidx66, align 32
+  %17 = and <4 x i64> %16, <i64 4294967295, i64 4294967295, i64 4294967295, i64 4294967295>
+  %18 = and <4 x i64> %14, <i64 4294967295, i64 4294967295, i64 4294967295, i64 4294967295>
+  %19 = mul nuw <4 x i64> %18, %17
+  %add.i2188 = shl <4 x i64> %19, <i64 1, i64 1, i64 1, i64 1>
+  %add.i2185 = add <4 x i64> %16, %14
+  %add.i2182 = add <4 x i64> %add.i2185, %add.i2188
+  %xor.i1812 = xor <4 x i64> %add.i2182, %7
+  %20 = bitcast <4 x i64> %xor.i1812 to <32 x i8>
+  %21 = shufflevector <32 x i8> %20, <32 x i8> poison, <32 x i32> <i32 3, i32 4, i32 5, i32 6, i32 7, i32 0, i32 1, i32 2, i32 11, i32 12, i32 13, i32 14, i32 15, i32 8, i32 9, i32 10, i32 19, i32 20, i32 21, i32 22, i32 23, i32 16, i32 17, i32 18, i32 27, i32 28, i32 29, i32 30, i32 31, i32 24, i32 25, i32 26>
+  %22 = or disjoint i64 %4, 4
+  %arrayidx113 = getelementptr <4 x i64>, ptr %state, i64 %22
+  %23 = load <4 x i64>, ptr %arrayidx113, align 32
+  %24 = or disjoint i64 %4, 5
+  %arrayidx117 = getelementptr <4 x i64>, ptr %state, i64 %24
+  %25 = load <4 x i64>, ptr %arrayidx117, align 32
+  %26 = and <4 x i64> %23, <i64 4294967295, i64 4294967295, i64 4294967295, i64 4294967295>
+  %27 = and <4 x i64> %25, <i64 4294967295, i64 4294967295, i64 4294967295, i64 4294967295>
+  %28 = mul nuw <4 x i64> %27, %26
+  %add.i2179 = shl <4 x i64> %28, <i64 1, i64 1, i64 1, i64 1>
+  %add.i2176 = add <4 x i64> %25, %23
+  %add.i2173 = add <4 x i64> %add.i2176, %add.i2179
+  %29 = or disjoint i64 %4, 7
+  %arrayidx137 = getelementptr <4 x i64>, ptr %state, i64 %29
+  %30 = load <4 x i64>, ptr %arrayidx137, align 32
+  %xor.i1809 = xor <4 x i64> %add.i2173, %30
+  %31 = bitcast <4 x i64> %xor.i1809 to <8 x i32>
+  %permil151 = shufflevector <8 x i32> %31, <8 x i32> poison, <8 x i32> <i32 1, i32 0, i32 3, i32 2, i32 5, i32 4, i32 7, i32 6>
+  %32 = bitcast <8 x i32> %permil151 to <4 x i64>
+  %33 = or disjoint i64 %4, 6
+  %arrayidx159 = getelementptr <4 x i64>, ptr %state, i64 %33
+  %34 = load <4 x i64>, ptr %arrayidx159, align 32
+  %35 = and <4 x i64> %34, <i64 4294967295, i64 4294967295, i64 4294967295, i64 4294967295>
+  %36 = and <4 x i64> %32, <i64 4294967295, i64 4294967295, i64 4294967295, i64 4294967295>
+  %37 = mul nuw <4 x i64> %36, %35
+  %add.i2170 = shl <4 x i64> %37, <i64 1, i64 1, i64 1, i64 1>
+  %add.i2167 = add <4 x i64> %34, %32
+  %add.i2164 = add <4 x i64> %add.i2167, %add.i2170
+  %xor.i1806 = xor <4 x i64> %add.i2164, %25
+  %38 = bitcast <4 x i64> %xor.i1806 to <32 x i8>
+  %39 = shufflevector <32 x i8> %38, <32 x i8> poison, <32 x i32> <i32 3, i32 4, i32 5, i32 6, i32 7, i32 0, i32 1, i32 2, i32 11, i32 12, i32 13, i32 14, i32 15, i32 8, i32 9, i32 10, i32 19, i32 20, i32 21, i32 22, i32 23, i32 16, i32 17, i32 18, i32 27, i32 28, i32 29, i32 30, i32 31, i32 24, i32 25, i32 26>
+  %40 = bitcast <32 x i8> %21 to <4 x i64>
+  %41 = and <4 x i64> %add.i2191, <i64 4294967295, i64 4294967295, i64 4294967295, i64 4294967295>
+  %42 = and <4 x i64> %40, <i64 4294967295, i64 4294967295, i64 4294967295, i64 4294967295>
+  %43 = mul nuw <4 x i64> %42, %41
+  %add.i2161 = shl <4 x i64> %43, <i64 1, i64 1, i64 1, i64 1>
+  %add.i2158 = add <4 x i64> %add.i2191, %40
+  %add.i2155 = add <4 x i64> %add.i2158, %add.i2161
+  %44 = bitcast <8 x i32> %permil to <4 x i64>
+  %xor.i1803 = xor <4 x i64> %add.i2155, %44
+  %45 = bitcast <4 x i64> %xor.i1803 to <32 x i8>
+  %46 = shufflevector <32 x i8> %45, <32 x i8> poison, <32 x i32> <i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 0, i32 1, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 8, i32 9, i32 18, i32 19, i32 20, i32 21, i32 22, i32 23, i32 16, i32 17, i32 26, i32 27, i32 28, i32 29, i32 30, i32 31, i32 24, i32 25>
+  %47 = bitcast <32 x i8> %46 to <4 x i64>
+  %48 = and <4 x i64> %add.i2182, <i64 4294967295, i64 4294967295, i64 4294967295, i64 4294967295>
+  %49 = and <4 x i64> %47, <i64 4294967295, i64 4294967295, i64 4294967295, i64 4294967295>
+  %50 = mul nuw <4 x i64> %49, %48
+  %add.i2152 = shl <4 x i64> %50, <i64 1, i64 1, i64 1, i64 1>
+  %add.i2149 = add <4 x i64> %add.i2182, %47
+  %add.i2146 = add <4 x i64> %add.i2149, %add.i2152
+  %xor.i1800 = xor <4 x i64> %add.i2146, %40
+  %xor.i1797 = tail call <4 x i64> @llvm.fshl.v4i64(<4 x i64> %xor.i1800, <4 x i64> %xor.i1800, <4 x i64> <i64 1, i64 1, i64 1, i64 1>)
+  %51 = bitcast <32 x i8> %39 to <4 x i64>
+  %52 = and <4 x i64> %add.i2173, <i64 4294967295, i64 4294967295, i64 4294967295, i64 4294967295>
+  %53 = and <4 x i64> %51, <i64 4294967295, i64 4294967295, i64 4294967295, i64 4294967295>
+  %54 = mul nuw <4 x i64> %53, %52
+  %add.i2140 = shl <4 x i64> %54, <i64 1, i64 1, i64 1, i64 1>
+  %add.i2137 = add <4 x i64> %add.i2173, %51
+  %add.i2134 = add <4 x i64> %add.i2137, %add.i2140
+  %55 = bitcast <8 x i32> %permil151 to <4 x i64>
+  %xor.i1794 = xor <4 x i64> %add.i2134, %55
+  %56 = bitcast <4 x i64> %xor.i1794 to <32 x i8>
+  %57 = shufflevector <32 x i8> %56, <32 x i8> poison, <32 x i32> <i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 0, i32 1, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 8, i32 9, i32 18, i32 19, i32 20, i32 21, i32 22, i32 23, i32 16, i32 17, i32 26, i32 27, i32 28, i32 29, i32 30, i32 31, i32 24, i32 25>
+  %58 = bitcast <32 x i8> %57 to <4 x i64>
+  %59 = and <4 x i64> %add.i2164, <i64 4294967295, i64 4294967295, i64 4294967295, i64 4294967295>
+  %60 = and <4 x i64> %58, <i64 4294967295, i64 4294967295, i64 4294967295, i64 4294967295>
+  %61 = mul nuw <4 x i64> %60, %59
+  %add.i2131 = shl <4 x i64> %61, <i64 1, i64 1, i64 1, i64 1>
+  %add.i2128 = add <4 x i64> %add.i2164, %58
+  %add.i2125 = add <4 x i64> %add.i2128, %add.i2131
+  %xor.i1791 = xor <4 x i64> %add.i2125, %51
+  %xor.i1788 = tail call <4 x i64> @llvm.fshl.v4i64(<4 x i64> %xor.i1791, <4 x i64> %xor.i1791, <4 x i64> <i64 1, i64 1, i64 1, i64 1>)
+  %perm = shufflevector <4 x i64> %xor.i1797, <4 x i64> poison, <4 x i32> <i32 1, i32 2, i32 3, i32 0>
+  %perm425 = shufflevector <4 x i64> %add.i2146, <4 x i64> poison, <4 x i32> <i32 2, i32 3, i32 0, i32 1>
+  %62 = bitcast <32 x i8> %46 to <4 x i64>
+  %perm434 = shufflevector <4 x i64> %62, <4 x i64> poison, <4 x i32> <i32 3, i32 0, i32 1, i32 2>
+  %perm443 = shufflevector <4 x i64> %xor.i1788, <4 x i64> poison, <4 x i32> <i32 1, i32 2, i32 3, i32 0>
+  %perm452 = shufflevector <4 x i64> %add.i2125, <4 x i64> poison, <4 x i32> <i32 2, i32 3, i32 0, i32 1>
+  %63 = bitcast <32 x i8> %57 to <4 x i64>
+  %perm461 = shufflevector <4 x i64> %63, <4 x i64> poison, <4 x i32> <i32 3, i32 0, i32 1, i32 2>
+  %64 = and <4 x i64> %add.i2155, <i64 4294967295, i64 4294967295, i64 4294967295, i64 4294967295>
+  %65 = and <4 x i64> %perm, <i64 4294967295, i64 4294967295, i64 4294967295, i64 4294967295>
+  %66 = mul nuw <4 x i64> %65, %64
+  %add.i2119 = shl <4 x i64> %66, <i64 1, i64 1, i64 1, i64 1>
+  %add.i2116 = add <4 x i64> %perm, %add.i2155
+  %add.i2113 = add <4 x i64> %add.i2116, %add.i2119
+  %xor.i1785 = xor <4 x i64> %add.i2113, %perm434
+  %67 = bitcast <4 x i64> %xor.i1785 to <8 x i32>
+  %permil510 = shufflevector <8 x i32> %67, <8 x i32> poison, <8 x i32> <i32 1, i32 0, i32 3, i32 2, i32 5, i32 4, i32 7, i32 6>
+  %68 = bitcast <8 x i32> %permil510 to <4 x i64>
+  %69 = and <4 x i64> %perm425, <i64 4294967295, i64 4294967295, i64 4294967295, i64 4294967295>
+  %70 = and <4 x i64> %68, <i64 4294967295, i64 4294967295, i64 4294967295, i64 4294967295>
+  %71 = mul nuw <4 x i64> %70, %69
+  %add.i2110 = shl <4 x i64> %71, <i64 1, i64 1, i64 1, i64 1>
+  %add.i2107 = add <4 x i64> %perm425, %68
+  %add.i2104 = add <4 x i64> %add.i2107, %add.i2110
+  %xor.i1782 = xor <4 x i64> %add.i2104, %perm
+  %72 = bitcast <4 x i64> %xor.i1782 to <32 x i8>
+  %73 = shufflevector <32 x i8> %72, <32 x i8> poison, <32 x i32> <i32 3, i32 4, i32 5, i32 6, i32 7, i32 0, i32 1, i32 2, i32 11, i32 12, i32 13, i32 14, i32 15, i32 8, i32 9, i32 10, i32 19, i32 20, i32 21, i32 22, i32 23, i32 16, i32 17, i32 18, i32 27, i32 28, i32 29, i32 30, i32 31, i32 24, i32 25, i32 26>
+  %74 = and <4 x i64> %add.i2134, <i64 4294967295, i64 4294967295, i64 4294967295, i64 4294967295>
+  %75 = and <4 x i64> %perm443, <i64 4294967295, i64 4294967295, i64 4294967295, i64 4294967295>
+  %76 = mul nuw <4 x i64> %75, %74
+  %add.i2101 = shl <4 x i64> %76, <i64 1, i64 1, i64 1, i64 1>
+  %add.i2098 = add <4 x i64> %perm443, %add.i2134
+  %add.i2095 = add <4 x i64> %add.i2098, %add.i2101
+  %xor.i1779 = xor <4 x i64> %add.i2095, %perm461
+  %77 = bitcast <4 x i64> %xor.i1779 to <8 x i32>
+  %permil603 = shufflevector <8 x i32> %77, <8 x i32> poison, <8 x i32> <i32 1, i32 0, i32 3, i32 2, i32 5, i32 4, i32 7, i32 6>
+  %78 = bitcast <8 x i32> %permil603 to <4 x i64>
+  %79 = and <4 x i64> %perm452, <i64 4294967295, i64 4294967295, i64 4294967295, i64 4294967295>
+  %80 = and <4 x i64> %78, <i64 4294967295, i64 4294967295, i64 4294967295, i64 4294967295>
+  %81 = mul nuw <4 x i64> %80, %79
+  %add.i2092 = shl <4 x i64> %81, <i64 1, i64 1, i64 1, i64 1>
+  %add.i2089 = add <4 x i64> %perm452, %78
+  %add.i2086 = add <4 x i64> %add.i2089, %add.i2092
+  %xor.i1776 = xor <4 x i64> %add.i2086, %perm443
+  %82 = bitcast <4 x i64> %xor.i1776 to <32 x i8>
+  %83 = shufflevector <32 x i8> %82, <32 x i8> poison, <32 x i32> <i32 3, i32 4, i32 5, i32 6, i32 7, i32 0, i32 1, i32 2, i32 11, i32 12, i32 13, i32 14, i32 15, i32 8, i32 9, i32 10, i32 19, i32 20, i32 21, i32 22, i32 23, i32 16, i32 17, i32 18, i32 27, i32 28, i32 29, i32 30, i32 31, i32 24, i32 25, i32 26>
+  %84 = bitcast <32 x i8> %73 to <4 x i64>
+  %85 = and <4 x i64> %add.i2113, <i64 4294967295, i64 4294967295, i64 4294967295, i64 4294967295>
+  %86 = and <4 x i64> %84, <i64 4294967295, i64 4294967295, i64 4294967295, i64 4294967295>
+  %87 = mul nuw <4 x i64> %86, %85
+  %add.i2083 = shl <4 x i64> %87, <i64 1, i64 1, i64 1, i64 1>
+  %add.i2080 = add <4 x i64> %add.i2113, %84
+  %add.i2077 = add <4 x i64> %add.i2080, %add.i2083
+  store <4 x i64> %add.i2077, ptr %arrayidx21, align 32
+  %88 = bitcast <8 x i32> %permil510 to <4 x i64>
+  %xor.i1773 = xor <4 x i64> %add.i2077, %88
+  %89 = bitcast <4 x i64> %xor.i1773 to <32 x i8>
+  %90 = shufflevector <32 x i8> %89, <32 x i8> poison, <32 x i32> <i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 0, i32 1, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 8, i32 9, i32 18, i32 19, i32 20, i32 21, i32 22, i32 23, i32 16, i32 17, i32 26, i32 27, i32 28, i32 29, i32 30, i32 31, i32 24, i32 25>
+  %91 = bitcast <32 x i8> %90 to <4 x i64>
+  %92 = and <4 x i64> %add.i2104, <i64 4294967295, i64 4294967295, i64 4294967295, i64 4294967295>
+  %93 = and <4 x i64> %91, <i64 4294967295, i64 4294967295, i64 4294967295, i64 4294967295>
+  %94 = mul nuw <4 x i64> %93, %92
+  %add.i2074 = shl <4 x i64> %94, <i64 1, i64 1, i64 1, i64 1>
+  %add.i2071 = add <4 x i64> %add.i2104, %91
+  %add.i2068 = add <4 x i64> %add.i2071, %add.i2074
+  %xor.i1770 = xor <4 x i64> %add.i2068, %84
+  %xor.i1767 = tail call <4 x i64> @llvm.fshl.v4i64(<4 x i64> %xor.i1770, <4 x i64> %xor.i1770, <4 x i64> <i64 1, i64 1, i64 1, i64 1>)
+  %95 = bitcast <32 x i8> %83 to <4 x i64>
+  %96 = and <4 x i64> %add.i2095, <i64 4294967295, i64 4294967295, i64 4294967295, i64 4294967295>
+  %97 = and <4 x i64> %95, <i64 4294967295, i64 4294967295, i64 4294967295, i64 4294967295>
+  %98 = mul nuw <4 x i64> %97, %96
+  %add.i2062 = shl <4 x i64> %98, <i64 1, i64 1, i64 1, i64 1>
+  %add.i2059 = add <4 x i64> %add.i2095, %95
+  %add.i2056 = add <4 x i64> %add.i2059, %add.i2062
+  store <4 x i64> %add.i2056, ptr %arrayidx113, align 32
+  %99 = bitcast <8 x i32> %permil603 to <4 x i64>
+  %xor.i1764 = xor <4 x i64> %add.i2056, %99
+  %100 = bitcast <4 x i64> %xor.i1764 to <32 x i8>
+  %101 = shufflevector <32 x i8> %100, <32 x i8> poison, <32 x i32> <i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 0, i32 1, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 8, i32 9, i32 18, i32 19, i32 20, i32 21, i32 22, i32 23, i32 16, i32 17, i32 26, i32 27, i32 28, i32 29, i32 30, i32 31, i32 24, i32 25>
+  %102 = bitcast <32 x i8> %101 to <4 x i64>
+  %103 = and <4 x i64> %add.i2086, <i64 4294967295, i64 4294967295, i64 4294967295, i64 4294967295>
+  %104 = and <4 x i64> %102, <i64 4294967295, i64 4294967295, i64 4294967295, i64 4294967295>
+  %105 = mul nuw <4 x i64> %104, %103
+  %add.i2053 = shl <4 x i64> %105, <i64 1, i64 1, i64 1, i64 1>
+  %add.i2050 = add <4 x i64> %add.i2086, %102
+  %add.i2047 = add <4 x i64> %add.i2050, %add.i2053
+  %xor.i1761 = xor <4 x i64> %add.i2047, %95
+  %xor.i1758 = tail call <4 x i64> @llvm.fshl.v4i64(<4 x i64> %xor.i1761, <4 x i64> %xor.i1761, <4 x i64> <i64 1, i64 1, i64 1, i64 1>)
+  %perm870 = shufflevector <4 x i64> %xor.i1767, <4 x i64> poison, <4 x i32> <i32 3, i32 0, i32 1, i32 2>
+  store <4 x i64> %perm870, ptr %arrayidx25, align 32
+  %perm879 = shufflevector <4 x i64> %add.i2068, <4 x i64> poison, <4 x i32> <i32 2, i32 3, i32 0, i32 1>
+  store <4 x i64> %perm879, ptr %arrayidx66, align 32
+  %106 = bitcast <32 x i8> %90 to <4 x i64>
+  %perm888 = shufflevector <4 x i64> %106, <4 x i64> poison, <4 x i32> <i32 1, i32 2, i32 3, i32 0>
+  store <4 x i64> %perm888, ptr %arrayidx45, align 32
+  %perm897 = shufflevector <4 x i64> %xor.i1758, <4 x i64> poison, <4 x i32> <i32 3, i32 0, i32 1, i32 2>
+  store <4 x i64> %perm897, ptr %arrayidx117, align 32
+  %perm906 = shufflevector <4 x i64> %add.i2047, <4 x i64> poison, <4 x i32> <i32 2, i32 3, i32 0, i32 1>
+  store <4 x i64> %perm906, ptr %arrayidx159, align 32
+  %107 = bitcast <32 x i8> %101 to <4 x i64>
+  %perm915 = shufflevector <4 x i64> %107, <4 x i64> poison, <4 x i32> <i32 1, i32 2, i32 3, i32 0>
+  store <4 x i64> %perm915, ptr %arrayidx137, align 32
+  %indvars.iv.next910 = add nuw nsw i64 %indvars.iv909, 1
+  %exitcond920.not = icmp eq i64 %indvars.iv.next910, 4
+  br i1 %exitcond920.not, label %do.body929, label %do.body18, !llvm.loop !12
+
+do.body929:                                       ; preds = %do.body18, %do.body929
+  %indvars.iv921 = phi i64 [ %indvars.iv.next922, %do.body929 ], [ 0, %do.body18 ]
+  %arrayidx933 = getelementptr <4 x i64>, ptr %state, i64 %indvars.iv921
+  %108 = load <4 x i64>, ptr %arrayidx933, align 32
+  %109 = or disjoint i64 %indvars.iv921, 8
+  %arrayidx936 = getelementptr <4 x i64>, ptr %state, i64 %109
+  %110 = load <4 x i64>, ptr %arrayidx936, align 32
+  %111 = and <4 x i64> %108, <i64 4294967295, i64 4294967295, i64 4294967295, i64 4294967295>
+  %112 = and <4 x i64> %110, <i64 4294967295, i64 4294967295, i64 4294967295, i64 4294967295>
+  %113 = mul nuw <4 x i64> %112, %111
+  %add.i2041 = shl <4 x i64> %113, <i64 1, i64 1, i64 1, i64 1>
+  %add.i2038 = add <4 x i64> %110, %108
+  %add.i2035 = add <4 x i64> %add.i2038, %add.i2041
+  %114 = or disjoint i64 %indvars.iv921, 24
+  %arrayidx952 = getelementptr <4 x i64>, ptr %state, i64 %114
+  %115 = load <4 x i64>, ptr %arrayidx952, align 32
+  %xor.i1755 = xor <4 x i64> %add.i2035, %115
+  %116 = bitcast <4 x i64> %xor.i1755 to <8 x i32>
+  %permil963 = shufflevector <8 x i32> %116, <8 x i32> poison, <8 x i32> <i32 1, i32 0, i32 3, i32 2, i32 5, i32 4, i32 7, i32 6>
+  %117 = bitcast <8 x i32> %permil963 to <4 x i64>
+  %118 = or disjoint i64 %indvars.iv921, 16
+  %arrayidx969 = getelementptr <4 x i64>, ptr %state, i64 %118
+  %119 = load <4 x i64>, ptr %arrayidx969, align 32
+  %120 = and <4 x i64> %119, <i64 4294967295, i64 4294967295, i64 4294967295, i64 4294967295>
+  %121 = and <4 x i64> %117, <i64 4294967295, i64 4294967295, i64 4294967295, i64 4294967295>
+  %122 = mul nuw <4 x i64> %121, %120
+  %add.i2032 = shl <4 x i64> %122, <i64 1, i64 1, i64 1, i64 1>
+  %add.i2029 = add <4 x i64> %119, %117
+  %add.i2026 = add <4 x i64> %add.i2029, %add.i2032
+  %xor.i1752 = xor <4 x i64> %add.i2026, %110
+  %123 = bitcast <4 x i64> %xor.i1752 to <32 x i8>
+  %124 = shufflevector <32 x i8> %123, <32 x i8> poison, <32 x i32> <i32 3, i32 4, i32 5, i32 6, i32 7, i32 0, i32 1, i32 2, i32 11, i32 12, i32 13, i32 14, i32 15, i32 8, i32 9, i32 10, i32 19, i32 20, i32 21, i32 22, i32 23, i32 16, i32 17, i32 18, i32 27, i32 28, i32 29, i32 30, i32 31, i32 24, i32 25, i32 26>
+  %125 = or disjoint i64 %indvars.iv921, 4
+  %arrayidx1006 = getelementptr <4 x i64>, ptr %state, i64 %125
+  %126 = load <4 x i64>, ptr %arrayidx1006, align 32
+  %127 = or disjoint i64 %indvars.iv921, 12
+  %arrayidx1009 = getelementptr <4 x i64>, ptr %state, i64 %127
+  %128 = load <4 x i64>, ptr %arrayidx1009, align 32
+  %129 = and <4 x i64> %126, <i64 4294967295, i64 4294967295, i64 4294967295, i64 4294967295>
+  %130 = and <4 x i64> %128, <i64 4294967295, i64 4294967295, i64 4294967295, i64 4294967295>
+  %131 = mul nuw <4 x i64> %130, %129
+  %add.i2023 = shl <4 x i64> %131, <i64 1, i64 1, i64 1, i64 1>
+  %add.i2020 = add <4 x i64> %128, %126
+  %add.i2017 = add <4 x i64> %add.i2020, %add.i2023
+  %132 = or disjoint i64 %indvars.iv921, 28
+  %arrayidx1025 = getelementptr <4 x i64>, ptr %state, i64 %132
+  %133 = load <4 x i64>, ptr %arrayidx1025, align 32
+  %xor.i1749 = xor <4 x i64> %add.i2017, %133
+  %134 = bitcast <4 x i64> %xor.i1749 to <8 x i32>
+  %permil1036 = shufflevector <8 x i32> %134, <8 x i32> poison, <8 x i32> <i32 1, i32 0, i32 3, i32 2, i32 5, i32 4, i32 7, i32 6>
+  %135 = bitcast <8 x i32> %permil1036 to <4 x i64>
+  %136 = or disjoint i64 %indvars.iv921, 20
+  %arrayidx1042 = getelementptr <4 x i64>, ptr %state, i64 %136
+  %137 = load <4 x i64>, ptr %arrayidx1042, align 32
+  %138 = and <4 x i64> %137, <i64 4294967295, i64 4294967295, i64 4294967295, i64 4294967295>
+  %139 = and <4 x i64> %135, <i64 4294967295, i64 4294967295, i64 4294967295, i64 4294967295>
+  %140 = mul nuw <4 x i64> %139, %138
+  %add.i2014 = shl <4 x i64> %140, <i64 1, i64 1, i64 1, i64 1>
+  %add.i2011 = add <4 x i64> %137, %135
+  %add.i2008 = add <4 x i64> %add.i2011, %add.i2014
+  %xor.i1746 = xor <4 x i64> %add.i2008, %128
+  %141 = bitcast <4 x i64> %xor.i1746 to <32 x i8>
+  %142 = shufflevector <32 x i8> %141, <32 x i8> poison, <32 x i32> <i32 3, i32 4, i32 5, i32 6, i32 7, i32 0, i32 1, i32 2, i32 11, i32 12, i32 13, i32 14, i32 15, i32 8, i32 9, i32 10, i32 19, i32 20, i32 21, i32 22, i32 23, i32 16, i32 17, i32 18, i32 27, i32 28, i32 29, i32 30, i32 31, i32 24, i32 25, i32 26>
+  %143 = bitcast <32 x i8> %124 to <4 x i64>
+  %144 = and <4 x i64> %add.i2035, <i64 4294967295, i64 4294967295, i64 4294967295, i64 4294967295>
+  %145 = and <4 x i64> %143, <i64 4294967295, i64 4294967295, i64 4294967295, i64 4294967295>
+  %146 = mul nuw <4 x i64> %145, %144
+  %add.i2005 = shl <4 x i64> %146, <i64 1, i64 1, i64 1, i64 1>
+  %add.i2002 = add <4 x i64> %add.i2035, %143
+  %add.i1999 = add <4 x i64> %add.i2002, %add.i2005
+  %147 = bitcast <8 x i32> %permil963 to <4 x i64>
+  %xor.i1743 = xor <4 x i64> %add.i1999, %147
+  %148 = bitcast <4 x i64> %xor.i1743 to <32 x i8>
+  %149 = shufflevector <32 x i8> %148, <32 x i8> poison, <32 x i32> <i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 0, i32 1, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 8, i32 9, i32 18, i32 19, i32 20, i32 21, i32 22, i32 23, i32 16, i32 17, i32 26, i32 27, i32 28, i32 29, i32 30, i32 31, i32 24, i32 25>
+  %150 = bitcast <32 x i8> %149 to <4 x i64>
+  %151 = and <4 x i64> %add.i2026, <i64 4294967295, i64 4294967295, i64 4294967295, i64 4294967295>
+  %152 = and <4 x i64> %150, <i64 4294967295, i64 4294967295, i64 4294967295, i64 4294967295>
+  %153 = mul nuw <4 x i64> %152, %151
+  %add.i1996 = shl <4 x i64> %153, <i64 1, i64 1, i64 1, i64 1>
+  %add.i1993 = add <4 x i64> %add.i2026, %150
+  %add.i1990 = add <4 x i64> %add.i1993, %add.i1996
+  %xor.i1740 = xor <4 x i64> %add.i1990, %143
+  %xor.i1737 = tail call <4 x i64> @llvm.fshl.v4i64(<4 x i64> %xor.i1740, <4 x i64> %xor.i1740, <4 x i64> <i64 1, i64 1, i64 1, i64 1>)
+  %154 = bitcast <32 x i8> %142 to <4 x i64>
+  %155 = and <4 x i64> %add.i2017, <i64 4294967295, i64 4294967295, i64 4294967295, i64 4294967295>
+  %156 = and <4 x i64> %154, <i64 4294967295, i64 4294967295, i64 4294967295, i64 4294967295>
+  %157 = mul nuw <4 x i64> %156, %155
+  %add.i1984 = shl <4 x i64> %157, <i64 1, i64 1, i64 1, i64 1>
+  %add.i1981 = add <4 x i64> %add.i2017, %154
+  %add.i1978 = add <4 x i64> %add.i1981, %add.i1984
+  %158 = bitcast <8 x i32> %permil1036 to <4 x i64>
+  %xor.i1734 = xor <4 x i64> %add.i1978, %158
+  %159 = bitcast <4 x i64> %xor.i1734 to <32 x i8>
+  %160 = shufflevector <32 x i8> %159, <32 x i8> poison, <32 x i32> <i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 0, i32 1, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 8, i32 9, i32 18, i32 19, i32 20, i32 21, i32 22, i32 23, i32 16, i32 17, i32 26, i32 27, i32 28, i32 29, i32 30, i32 31, i32 24, i32 25>
+  %161 = bitcast <32 x i8> %160 to <4 x i64>
+  %162 = and <4 x i64> %add.i2008, <i64 4294967295, i64 4294967295, i64 4294967295, i64 4294967295>
+  %163 = and <4 x i64> %161, <i64 4294967295, i64 4294967295, i64 4294967295, i64 4294967295>
+  %164 = mul nuw <4 x i64> %163, %162
+  %add.i1975 = shl <4 x i64> %164, <i64 1, i64 1, i64 1, i64 1>
+  %add.i1972 = add <4 x i64> %add.i2008, %161
+  %add.i1969 = add <4 x i64> %add.i1972, %add.i1975
+  %xor.i1731 = xor <4 x i64> %add.i1969, %154
+  %xor.i1728 = tail call <4 x i64> @llvm.fshl.v4i64(<4 x i64> %xor.i1731, <4 x i64> %xor.i1731, <4 x i64> <i64 1, i64 1, i64 1, i64 1>)
+  %165 = bitcast <4 x i64> %xor.i1737 to <8 x i32>
+  %166 = bitcast <4 x i64> %xor.i1728 to <8 x i32>
+  %blend = shufflevector <8 x i32> %165, <8 x i32> %166, <8 x i32> <i32 0, i32 1, i32 10, i32 11, i32 4, i32 5, i32 14, i32 15>
+  %167 = bitcast <8 x i32> %blend to <4 x i64>
+  %blend1256 = shufflevector <8 x i32> %166, <8 x i32> %165, <8 x i32> <i32 0, i32 1, i32 10, i32 11, i32 4, i32 5, i32 14, i32 15>
+  %168 = bitcast <8 x i32> %blend1256 to <4 x i64>
+  %perm1257 = shufflevector <4 x i64> %167, <4 x i64> poison, <4 x i32> <i32 1, i32 0, i32 3, i32 2>
+  %perm1261 = shufflevector <4 x i64> %168, <4 x i64> poison, <4 x i32> <i32 1, i32 0, i32 3, i32 2>
+  %169 = bitcast <32 x i8> %149 to <8 x i32>
+  %170 = bitcast <32 x i8> %160 to <8 x i32>
+  %blend1283 = shufflevector <8 x i32> %169, <8 x i32> %170, <8 x i32> <i32 0, i32 1, i32 10, i32 11, i32 4, i32 5, i32 14, i32 15>
+  %171 = bitcast <8 x i32> %blend1283 to <4 x i64>
+  %blend1290 = shufflevector <8 x i32> %170, <8 x i32> %169, <8 x i32> <i32 0, i32 1, i32 10, i32 11, i32 4, i32 5, i32 14, i32 15>
+  %172 = bitcast <8 x i32> %blend1290 to <4 x i64>
+  %perm1291 = shufflevector <4 x i64> %171, <4 x i64> poison, <4 x i32> <i32 1, i32 0, i32 3, i32 2>
+  %perm1295 = shufflevector <4 x i64> %172, <4 x i64> poison, <4 x i32> <i32 1, i32 0, i32 3, i32 2>
+  %173 = and <4 x i64> %add.i1999, <i64 4294967295, i64 4294967295, i64 4294967295, i64 4294967295>
+  %174 = and <4 x i64> %perm1261, <i64 4294967295, i64 4294967295, i64 4294967295, i64 4294967295>
+  %175 = mul nuw <4 x i64> %174, %173
+  %add.i1963 = shl <4 x i64> %175, <i64 1, i64 1, i64 1, i64 1>
+  %add.i1960 = add <4 x i64> %perm1261, %add.i1999
+  %add.i1957 = add <4 x i64> %add.i1960, %add.i1963
+  %xor.i1725 = xor <4 x i64> %add.i1957, %perm1291
+  %176 = bitcast <4 x i64> %xor.i1725 to <8 x i32>
+  %permil1334 = shufflevector <8 x i32> %176, <8 x i32> poison, <8 x i32> <i32 1, i32 0, i32 3, i32 2, i32 5, i32 4, i32 7, i32 6>
+  %177 = bitcast <8 x i32> %permil1334 to <4 x i64>
+  %178 = and <4 x i64> %add.i1969, <i64 4294967295, i64 4294967295, i64 4294967295, i64 4294967295>
+  %179 = and <4 x i64> %177, <i64 4294967295, i64 4294967295, i64 4294967295, i64 4294967295>
+  %180 = mul nuw <4 x i64> %179, %178
+  %add.i1954 = shl <4 x i64> %180, <i64 1, i64 1, i64 1, i64 1>
+  %add.i1951 = add <4 x i64> %add.i1969, %177
+  %add.i1948 = add <4 x i64> %add.i1951, %add.i1954
+  %xor.i1722 = xor <4 x i64> %add.i1948, %perm1261
+  %181 = bitcast <4 x i64> %xor.i1722 to <32 x i8>
+  %182 = shufflevector <32 x i8> %181, <32 x i8> poison, <32 x i32> <i32 3, i32 4, i32 5, i32 6, i32 7, i32 0, i32 1, i32 2, i32 11, i32 12, i32 13, i32 14, i32 15, i32 8, i32 9, i32 10, i32 19, i32 20, i32 21, i32 22, i32 23, i32 16, i32 17, i32 18, i32 27, i32 28, i32 29, i32 30, i32 31, i32 24, i32 25, i32 26>
+  %183 = and <4 x i64> %add.i1978, <i64 4294967295, i64 4294967295, i64 4294967295, i64 4294967295>
+  %184 = and <4 x i64> %perm1257, <i64 4294967295, i64 4294967295, i64 4294967295, i64 4294967295>
+  %185 = mul nuw <4 x i64> %184, %183
+  %add.i1945 = shl <4 x i64> %185, <i64 1, i64 1, i64 1, i64 1>
+  %add.i1942 = add <4 x i64> %perm1257, %add.i1978
+  %add.i1939 = add <4 x i64> %add.i1942, %add.i1945
+  %xor.i1719 = xor <4 x i64> %add.i1939, %perm1295
+  %186 = bitcast <4 x i64> %xor.i1719 to <8 x i32>
+  %permil1407 = shufflevector <8 x i32> %186, <8 x i32> poison, <8 x i32> <i32 1, i32 0, i32 3, i32 2, i32 5, i32 4, i32 7, i32 6>
+  %187 = bitcast <8 x i32> %permil1407 to <4 x i64>
+  %188 = and <4 x i64> %add.i1990, <i64 4294967295, i64 4294967295, i64 4294967295, i64 4294967295>
+  %189 = and <4 x i64> %187, <i64 4294967295, i64 4294967295, i64 4294967295, i64 4294967295>
+  %190 = mul nuw <4 x i64> %189, %188
+  %add.i1936 = shl <4 x i64> %190, <i64 1, i64 1, i64 1, i64 1>
+  %add.i1933 = add <4 x i64> %add.i1990, %187
+  %add.i1930 = add <4 x i64> %add.i1933, %add.i1936
+  %xor.i1716 = xor <4 x i64> %add.i1930, %perm1257
+  %191 = bitcast <4 x i64> %xor.i1716 to <32 x i8>
+  %192 = shufflevector <32 x i8> %191, <32 x i8> poison, <32 x i32> <i32 3, i32 4, i32 5, i32 6, i32 7, i32 0, i32 1, i32 2, i32 11, i32 12, i32 13, i32 14, i32 15, i32 8, i32 9, i32 10, i32 19, i32 20, i32 21, i32 22, i32 23, i32 16, i32 17, i32 18, i32 27, i32 28, i32 29, i32 30, i32 31, i32 24, i32 25, i32 26>
+  %193 = bitcast <32 x i8> %182 to <4 x i64>
+  %194 = and <4 x i64> %add.i1957, <i64 4294967295, i64 4294967295, i64 4294967295, i64 4294967295>
+  %195 = and <4 x i64> %193, <i64 4294967295, i64 4294967295, i64 4294967295, i64 4294967295>
+  %196 = mul nuw <4 x i64> %194, %195
+  %add.i1927 = shl <4 x i64> %196, <i64 1, i64 1, i64 1, i64 1>
+  %add.i1924 = add <4 x i64> %add.i1957, %193
+  %add.i1921 = add <4 x i64> %add.i1924, %add.i1927
+  store <4 x i64> %add.i1921, ptr %arrayidx933, align 32
+  %197 = bitcast <8 x i32> %permil1334 to <4 x i64>
+  %xor.i1713 = xor <4 x i64> %add.i1921, %197
+  %198 = bitcast <4 x i64> %xor.i1713 to <32 x i8>
+  %199 = shufflevector <32 x i8> %198, <32 x i8> poison, <32 x i32> <i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 0, i32 1, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 8, i32 9, i32 18, i32 19, i32 20, i32 21, i32 22, i32 23, i32 16, i32 17, i32 26, i32 27, i32 28, i32 29, i32 30, i32 31, i32 24, i32 25>
+  %200 = bitcast <32 x i8> %199 to <4 x i64>
+  %201 = and <4 x i64> %add.i1948, <i64 4294967295, i64 4294967295, i64 4294967295, i64 4294967295>
+  %202 = and <4 x i64> %200, <i64 4294967295, i64 4294967295, i64 4294967295, i64 4294967295>
+  %203 = mul nuw <4 x i64> %201, %202
+  %add.i1918 = shl <4 x i64> %203, <i64 1, i64 1, i64 1, i64 1>
+  %add.i1915 = add <4 x i64> %add.i1948, %200
+  %add.i1912 = add <4 x i64> %add.i1915, %add.i1918
+  %xor.i1710 = xor <4 x i64> %add.i1912, %193
+  %xor.i1707 = tail call <4 x i64> @llvm.fshl.v4i64(<4 x i64> %xor.i1710, <4 x i64> %xor.i1710, <4 x i64> <i64 1, i64 1, i64 1, i64 1>)
+  %204 = bitcast <32 x i8> %192 to <4 x i64>
+  %205 = and <4 x i64> %add.i1939, <i64 4294967295, i64 4294967295, i64 4294967295, i64 4294967295>
+  %206 = and <4 x i64> %204, <i64 4294967295, i64 4294967295, i64 4294967295, i64 4294967295>
+  %207 = mul nuw <4 x i64> %206, %205
+  %add.i1906 = shl <4 x i64> %207, <i64 1, i64 1, i64 1, i64 1>
+  %add.i1903 = add <4 x i64> %add.i1939, %204
+  %add.i1900 = add <4 x i64> %add.i1903, %add.i1906
+  store <4 x i64> %add.i1900, ptr %arrayidx1006, align 32
+  %208 = bitcast <8 x i32> %permil1407 to <4 x i64>
+  %xor.i1704 = xor <4 x i64> %add.i1900, %208
+  %209 = bitcast <4 x i64> %xor.i1704 to <32 x i8>
+  %210 = shufflevector <32 x i8> %209, <32 x i8> poison, <32 x i32> <i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 0, i32 1, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 8, i32 9, i32 18, i32 19, i32 20, i32 21, i32 22, i32 23, i32 16, i32 17, i32 26, i32 27, i32 28, i32 29, i32 30, i32 31, i32 24, i32 25>
+  %211 = bitcast <32 x i8> %210 to <4 x i64>
+  %212 = and <4 x i64> %add.i1930, <i64 4294967295, i64 4294967295, i64 4294967295, i64 4294967295>
+  %213 = and <4 x i64> %211, <i64 4294967295, i64 4294967295, i64 4294967295, i64 4294967295>
+  %214 = mul nuw <4 x i64> %213, %212
+  %add.i1897 = shl <4 x i64> %214, <i64 1, i64 1, i64 1, i64 1>
+  %add.i1894 = add <4 x i64> %add.i1930, %211
+  %add.i1891 = add <4 x i64> %add.i1894, %add.i1897
+  %xor.i1701 = xor <4 x i64> %add.i1891, %204
+  %xor.i1698 = tail call <4 x i64> @llvm.fshl.v4i64(<4 x i64> %xor.i1701, <4 x i64> %xor.i1701, <4 x i64> <i64 1, i64 1, i64 1, i64 1>)
+  %215 = bitcast <4 x i64> %xor.i1707 to <8 x i32>
+  %216 = bitcast <4 x i64> %xor.i1698 to <8 x i32>
+  %blend1622 = shufflevector <8 x i32> %215, <8 x i32> %216, <8 x i32> <i32 0, i32 1, i32 10, i32 11, i32 4, i32 5, i32 14, i32 15>
+  %217 = bitcast <8 x i32> %blend1622 to <4 x i64>
+  %blend1630 = shufflevector <8 x i32> %216, <8 x i32> %215, <8 x i32> <i32 0, i32 1, i32 10, i32 11, i32 4, i32 5, i32 14, i32 15>
+  %218 = bitcast <8 x i32> %blend1630 to <4 x i64>
+  %perm1631 = shufflevector <4 x i64> %217, <4 x i64> poison, <4 x i32> <i32 1, i32 0, i32 3, i32 2>
+  store <4 x i64> %perm1631, ptr %arrayidx936, align 32
+  %perm1635 = shufflevector <4 x i64> %218, <4 x i64> poison, <4 x i32> <i32 1, i32 0, i32 3, i32 2>
+  store <4 x i64> %perm1635, ptr %arrayidx1009, align 32
+  store <4 x i64> %add.i1891, ptr %arrayidx969, align 32
+  store <4 x i64> %add.i1912, ptr %arrayidx1042, align 32
+  %219 = bitcast <32 x i8> %199 to <8 x i32>
+  %220 = bitcast <32 x i8> %210 to <8 x i32>
+  %blend1657 = shufflevector <8 x i32> %220, <8 x i32> %219, <8 x i32> <i32 0, i32 1, i32 10, i32 11, i32 4, i32 5, i32 14, i32 15>
+  %221 = bitcast <8 x i32> %blend1657 to <4 x i64>
+  %blend1664 = shufflevector <8 x i32> %219, <8 x i32> %220, <8 x i32> <i32 0, i32 1, i32 10, i32 11, i32 4, i32 5, i32 14, i32 15>
+  %222 = bitcast <8 x i32> %blend1664 to <4 x i64>
+  %perm1665 = shufflevector <4 x i64> %221, <4 x i64> poison, <4 x i32> <i32 1, i32 0, i32 3, i32 2>
+  store <4 x i64> %perm1665, ptr %arrayidx952, align 32
+  %perm1669 = shufflevector <4 x i64> %222, <4 x i64> poison, <4 x i32> <i32 1, i32 0, i32 3, i32 2>
+  store <4 x i64> %perm1669, ptr %arrayidx1025, align 32
+  %indvars.iv.next922 = add nuw nsw i64 %indvars.iv921, 1
+  %exitcond931.not = icmp eq i64 %indvars.iv.next922, 4
+  br i1 %exitcond931.not, label %for.body1680, label %do.body929, !llvm.loop !13
+
+for.body1680:                                     ; preds = %do.body929, %for.body1680
+  %indvars.iv932 = phi i64 [ %indvars.iv.next933, %for.body1680 ], [ 0, %do.body929 ]
+  %arrayidx1682 = getelementptr <4 x i64>, ptr %state, i64 %indvars.iv932
+  %223 = load <4 x i64>, ptr %arrayidx1682, align 32
+  %arrayidx1684 = getelementptr [32 x <4 x i64>], ptr %block_XY, i64 0, i64 %indvars.iv932
+  %224 = load <4 x i64>, ptr %arrayidx1684, align 32
+  %xor.i = xor <4 x i64> %224, %223
+  store <4 x i64> %xor.i, ptr %arrayidx1682, align 32
+  %225 = shl nuw nsw i64 %indvars.iv932, 5
+  %arrayidx1690 = getelementptr i8, ptr %next_block, i64 %225
+  store <4 x i64> %xor.i, ptr %arrayidx1690, align 1
+  %indvars.iv.next933 = add nuw nsw i64 %indvars.iv932, 1
+  %exitcond936.not = icmp eq i64 %indvars.iv.next933, 32
+  br i1 %exitcond936.not, label %for.end1695, label %for.body1680, !llvm.loop !14
+
+for.end1695:                                      ; preds = %for.body1680
+  ret void
+}
+
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare <4 x i64> @llvm.fshl.v4i64(<4 x i64>, <4 x i64>, <4 x i64>) #4
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #5
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
+
+attributes #0 = { nofree norecurse nosync nounwind ssp memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="256" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { nofree norecurse nosync nounwind ssp memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="256" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #5 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+
+!llvm.module.flags = !{!0, !1, !2, !3}
+
+!0 = !{i32 1, !"wchar_size", i32 4}
+!1 = !{i32 8, !"PIC Level", i32 2}
+!2 = !{i32 7, !"uwtable", i32 2}
+!3 = !{i32 7, !"frame-pointer", i32 2}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}
+!10 = distinct !{!10, !5}
+!11 = distinct !{!11, !5}
+!12 = distinct !{!12, !5}
+!13 = distinct !{!13, !5}
+!14 = distinct !{!14, !5}

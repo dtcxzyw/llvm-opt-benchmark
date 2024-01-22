@@ -1,0 +1,464 @@
+; ModuleID = 'bench/libquic/original/pkcs7_test.c.ll'
+source_filename = "bench/libquic/original/pkcs7_test.c.ll"
+target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
+target triple = "x86_64-unknown-linux-gnu"
+
+%struct.cbs_st = type { ptr, i64 }
+%struct.cbb_st = type { ptr, ptr, i64, i8, i8, i8 }
+
+@kPKCS7NSS = internal constant [2895 x i8] c"0\80\06\09*\86H\86\F7\0D\01\07\02\A0\800\80\02\01\011\000\80\06\09*\86H\86\F7\0D\01\07\01\00\00\A0\82\0B\1E0\82\03T0\82\02<\A0\03\02\01\02\02\03\024V0\0D\06\09*\86H\86\F7\0D\01\01\05\05\000B1\0B0\09\06\03U\04\06\13\02US1\160\14\06\03U\04\0A\13\0DGeoTrust Inc.1\1B0\19\06\03U\04\03\13\12GeoTrust Global CA0\1E\17\0D020521040000Z\17\0D220521040000Z0B1\0B0\09\06\03U\04\06\13\02US1\160\14\06\03U\04\0A\13\0DGeoTrust Inc.1\1B0\19\06\03U\04\03\13\12GeoTrust Global CA0\82\01\220\0D\06\09*\86H\86\F7\0D\01\01\01\05\00\03\82\01\0F\000\82\01\0A\02\82\01\01\00\DA\CC\18c0\FD\F4\17#\1AV~[\DF<l8\E4q\B7x\91\D4\BC\A1\D8L\F8\A8C\B6\03\E9M!\07\08\88\DAX/f9)\BD\05x\8B\9D8\E8\05\B7j~q\A4\E6\C4`\A6\B0\EF\80\E4\89(\0F\9E%\D6\ED\83\F3\AD\A6\91\C7\98\C9B\185\14\9D\AD\98F\92.O\CA\F1\87C\C1\16\95W-P\EF\89-\80zW\AD\F2\EE_k\D2\00\8D\B9\14\F8\14\155\D9\C0F\A3{r\C8\91\BF\C9U+\CD\D0\97>\9C&d\CC\DF\CE\83\19q\CAN\E6\D4\D5{\A9\19\CDU\DE\C8\EC\D2^8S\E5\\O\8C-\FEP#6\FCf\E6\CB\8E\A49\19\00\B7\95\029\91\0B\0E\FE8.\D1\1D\05\9A\F6M>o\0F\07\1D\AF,\1E\8F`9\E2\FA6S\139\D4^&+\DB=\A8\14\BD2\EB\18\03(R\04q\E5\AB3=\E18\BB\076\84b\9Cy\EA\160\F4_\C0+\E8qk\E4\F9\02\03\01\00\01\A3S0Q0\0F\06\03U\1D\13\01\01\FF\04\050\03\01\01\FF0\1D\06\03U\1D\0E\04\16\04\14\C0z\98h\8D\89\FB\AB\05d\0C\11}\AA}e\B8\CA\CCN0\1F\06\03U\1D#\04\180\16\80\14\C0z\98h\8D\89\FB\AB\05d\0C\11}\AA}e\B8\CA\CCN0\0D\06\09*\86H\86\F7\0D\01\01\05\05\00\03\82\01\01\005\E3)j\E5/]T\8E)P\94\9F\99\1A\14\E4\8Fx*b\94\A2'g\9E\D0\CF\1A^G\E9\C1\B2\A4\CF\DDA\1A\05N\9BK\EEJoUR\B3$\A17\0A\EBdv*.,\F3\FD;u\90\BF\FAq\D8\C7=7\D2\B5\05\95b\B9\A6\DE\89=6{8wH\97\AC\A6 \8F.\A6\C9\0C\C2\B2\99E\00\C7\CE\11Q\22\22\E0\A5\EA\B6\15H\09d\EA^Ot\F7\05>\C7\8AR\0C\DB\15\B4\BDm\9B\E5\C6\B1Th\A9\E3i\90\B6\9A\A5\0F\B8\B9? }\AEJ\B5\B8\9C\E4\1D\B6\AB\E6\94\A5\C1\C7\83\AD\DB\F5'\87\0E\04l\D5\FF\DD\A0]\ED\87R\B7+\15\02\AE9\A6jt\E9\DA\C4\E7\BCM4\1E\A9\\M3_\92\09/\88f]w\97\C7\1Dv\13\A9\D5\E5\F1\16\09\115\D5\AC\DB$qp,\98V\0B\D9\17\B4\D1\E3Q+^u\E8\D5\D0\DCO4\ED\C2\05f\80\A1\CB\E630\82\03\BA0\82\02\A2\A0\03\02\01\02\02\08>\A3\E4x\998\13\9D0\0D\06\09*\86H\86\F7\0D\01\01\05\05\000I1\0B0\09\06\03U\04\06\13\02US1\130\11\06\03U\04\0A\13\0AGoogle Inc1%0#\06\03U\04\03\13\1CGoogle Internet Authority G20\1E\17\0D140716122140Z\17\0D141014000000Z0i1\0B0\09\06\03U\04\06\13\02US1\130\11\06\03U\04\08\0C\0ACalifornia1\160\14\06\03U\04\07\0C\0DMountain View1\130\11\06\03U\04\0A\0C\0AGoogle Inc1\180\16\06\03U\04\03\0C\0Fmail.google.com0Y0\13\06\07*\86H\CE=\02\01\06\08*\86H\CE=\03\01\07\03B\00\04\B2hn?\03\9EC\85\16\B7\89\0B\16*\BE&6\DDh\0ASN @\F8\D1\DDc\CBFs\09\966\DE,Eq.\8Ay\EB@/e\83\81\DB7\03\84\A1\9A\D0\22;s8E\D3\D5\91\B2R\A3\82\01O0\82\01K0\1D\06\03U\1D%\04\160\14\06\08+\06\01\05\05\07\03\01\06\08+\06\01\05\05\07\03\020\1A\06\03U\1D\11\04\130\11\82\0Fmail.google.com0\0B\06\03U\1D\0F\04\04\03\02\07\800h\06\08+\06\01\05\05\07\01\01\04\\0Z0+\06\08+\06\01\05\05\070\02\86\1Fhttp://pki.google.com/GIAG2.crt0+\06\08+\06\01\05\05\070\01\86\1Fhttp://clients1.google.com/ocsp0\1D\06\03U\1D\0E\04\16\04\14u\C6\B0JFa\83\FF\91FE5\A7\0F\D0[\E9\DD\94\1B0\0C\06\03U\1D\13\01\01\FF\04\020\000\1F\06\03U\1D#\04\180\16\80\14J\DD\06\16\1B\BC\F6h\B5v\F5\81\B6\BBb\1A\BAZ\81/0\17\06\03U\1D \04\100\0E0\0C\06\0A+\06\01\04\01\D6y\02\05\0100\06\03U\1D\1F\04)0'0%\A0#\A0!\86\1Fhttp://pki.google.com/GIAG2.crl0\0D\06\09*\86H\86\F7\0D\01\01\05\05\00\03\82\01\01\00\7FA\F5W\18<u\F5#f\C3\F0\F2>p4V\CAx\EC\C7\81X\0D\DF\F0\FD\86\E6\E6P=\F6\09\9AM\CA`7\9A\D4\CAQ|\F0f#\EA^jo{\A6z8\97BX\1A\1BB\AE(\DE\18\7F\CCv\18X\05\BF\EA\EF\14\AD4\E5_%\AB\A1_x[o\E6i\D8t\8C\19Y\B0\1A\FB\8E\DFa\AC\EB+\0A\1C\AB0\0Dd%x\DF\81q\E3\BD\DE\9C?\DD\E9\F8\B6\98-\13\A3{\14o\E3\8B\FCN1&\BA\10\B4\12\E9\C9I`\F0\AA\1FDh\19\D2\B3\C8F\22k\E1!w\FDr3\13!'\81\E4z\C9\E4\1C\05\04s\13\DAG\FEYA\9C\11\C5\F6\B5\D0\01\CB@\19\F5\FE\B3<\1Fa\8FM\DB\81*\8A\ED\B8S\C7\19k\FA\8B\FC\E3.\12N\BD\C5D\9D\1C\7F;\09Q\D7\0A\0F\22\0A\FD\8C\90\14\ED\10\CBP\CF\A5E\CE\B0!(\CB\D6\F5n\B2>\FA5\0C=\09\0D\810\82\04\040\82\02\EC\A0\03\02\01\02\02\03\02:i0\0D\06\09*\86H\86\F7\0D\01\01\05\05\000B1\0B0\09\06\03U\04\06\13\02US1\160\14\06\03U\04\0A\13\0DGeoTrust Inc.1\1B0\19\06\03U\04\03\13\12GeoTrust Global CA0\1E\17\0D130405151555Z\17\0D150404151555Z0I1\0B0\09\06\03U\04\06\13\02US1\130\11\06\03U\04\0A\13\0AGoogle Inc1%0#\06\03U\04\03\13\1CGoogle Internet Authority G20\82\01\220\0D\06\09*\86H\86\F7\0D\01\01\01\05\00\03\82\01\0F\000\82\01\0A\02\82\01\01\00\9C*\04w\\\D8P\91:\06\A3\82\E0\D8PH\BC\89?\F1\19p\1A\88F~\E0\8F\C5\F1\89\CE!\EEZ\FEa\0D\B72D\89\A0t\0BSOU\A4\CE\82b\95\EE\EBY_\C6\E1\05\80\12\C4^\94?\BC[H8\F4S\F7$\E6\FB\91\E9\15\C4\CF\F4S\0D\F4J\FC\9FT\DE}\BE\A0ko\87\C0\D0P\1F(0\03@\DA\08sQl\7F\FF:<\A77\06\8E\BDK\11\04\EB}$\DE\E6\F9\FC1q\FB\94\D5`\F3.J\AFB\D2\CB\EA\C4j\1A\B2\CCS\DD\15K\8B\1F\C8\19a\1F\CD\9D\A8>c+\845ie\84\C8\19\C5F\22\F8S\95\BE\E3\80J\10\C6*\EC\BA\97 \11\C79\99\10\04\A0\F0az\95%\8CNRu\E2\B6\ED\08\CA\14\FC\CE\22j\B3N\CFF\03\97\97\03~\C0\B1\DE{\AFE3\CF\BA>q\B7\DE\F4%%\C2\0D5\89\9D\9D\FB\0E\11y\89\1E7\C5\AF\8Eri\02\03\01\00\01\A3\81\FB0\81\F80\1F\06\03U\1D#\04\180\16\80\14\C0z\98h\8D\89\FB\AB\05d\0C\11}\AA}e\B8\CA\CCN0\1D\06\03U\1D\0E\04\16\04\14J\DD\06\16\1B\BC\F6h\B5v\F5\81\B6\BBb\1A\BAZ\81/0\12\06\03U\1D\13\01\01\FF\04\080\06\01\01\FF\02\01\000\0E\06\03U\1D\0F\01\01\FF\04\04\03\02\01\060:\06\03U\1D\1F\043010/\A0-\A0+\86)http://crl.geotrust.com/crls/gtglobal.crl0=\06\08+\06\01\05\05\07\01\01\0410/0-\06\08+\06\01\05\05\070\01\86!http://gtglobal-ocsp.geotrust.com0\17\06\03U\1D \04\100\0E0\0C\06\0A+\06\01\04\01\D6y\02\05\010\0D\06\09*\86H\86\F7\0D\01\01\05\05\00\03\82\01\01\006\D7\06\80\11'\AD*\14\9B8w\B3#\A0uX\BB\B1~\83B\BAr\DA\1E\D8\8E6\06\97\E0\F0\95;7\FD\1BBX\FE\22\C8k\BD8^\D1;%n\12\EB^gvF@\90\DA\14\C8x\0D\ED\95f\DA\8E\86o\80\A1\BAV2\95\86\DC\DCj\CA\04\8C[\7F\F6\BF\CCo\85\03X\C3hQ\13\CD\FD\C8\F7y=\995\F0V\A3\BD\E0Y\EDOD\09\A3\9E8z\F6F\D1\1D\12\9DO\BE\D0@\FCU\FE\06^<\DA\1CV\BD\96Q{oW*\DB\A2\AA\96\DC\8Ct\C2\95\BE\F0n\95\13\FF\17\F0<\AC\B2\10\8D\CCs\FB\E8\8F\02\C6\F0\FB3\B3\95;\E3\C2\CBhXs\DB\A8$b;\065\9D\0D\A93\BDx\03\90.Lx]P:\81\D4\EE\A0\C8p8\DC\B2\F9g\FA\87@]a\C0Q\8Fk\83k\CD\05:\CA\E1\A7\05x\FC\CA\DA\94\D0,\08=~\16y\C8\A0P $T3q1\00\00\00\00\00\00\00", align 16
+@kPKCS7Windows = internal constant [693 x i8] c"0\82\02\B1\06\09*\86H\86\F7\0D\01\07\02\A0\82\02\A20\82\02\9E\02\01\011\000\0B\06\09*\86H\86\F7\0D\01\07\01\A0\82\02\860\82\02\820\82\01\EB\A0\03\02\01\02\02\01\040\0D\06\09*\86H\86\F7\0D\01\01\04\05\000S1\0B0\09\06\03U\04\06\13\02US1\1C0\1A\06\03U\04\0A\13\13Equifax Secure Inc.1&0$\06\03U\04\03\13\1DEquifax Secure eBusiness CA-10\1E\17\0D990621040000Z\17\0D200621040000Z0S1\0B0\09\06\03U\04\06\13\02US1\1C0\1A\06\03U\04\0A\13\13Equifax Secure Inc.1&0$\06\03U\04\03\13\1DEquifax Secure eBusiness CA-10\81\9F0\0D\06\09*\86H\86\F7\0D\01\01\01\05\00\03\81\8D\000\81\89\02\81\81\00\CE/\19\BC\17\B7w\DE\93\A9_Z\0D\17O4\1A\0C\98\F4\22\D9Y\D4\C4hF\F0\B45\C5\85\03 \C6\AFE\A5!QEA\EB\16X62o\E2Pbd\F9\FDQ\9C\AA$\D9\F4\9D\83*\87\0A!\D3\1284l\8D\00nZ\A0\D9B\EE\1A!\95\F9RLUZ\C5\0F8OF\FAm\F8.5\D6\1D|\EB\E2\F0\B0u\80\C8\A9\13\AC\BE\88\EF:n\AB_*8b\02\B0\12{\FE\8F\A6\03\02\03\01\00\01\A3f0d0\11\06\09`\86H\01\86\F8B\01\01\04\04\03\02\00\070\0F\06\03U\1D\13\01\01\FF\04\050\03\01\01\FF0\1F\06\03U\1D#\04\180\16\80\14Jx2R\11\DBY\166^\DF\C1\146@jG|L\A10\1D\06\03U\1D\0E\04\16\04\14Jx2R\11\DBY\166^\DF\C1\146@jG|L\A10\0D\06\09*\86H\86\F7\0D\01\01\04\05\00\03\81\81\00u[\A8\9B\03\11\E6\E9VL\CD\F9\A9L\C0\0D\9A\F3\CCei\E6%v\CCY\B7\D6T\C3\1D\CD\99\AC\19\DD\B4\85\D5\E0=\FCb \A7\84KXe\F1\E2\F9\95!?\F5\D4~X\1EG\87T>X\A1\B5\B5\F8*\EFq\E7\BC\C3\F6\B1IF\E2\D7\A0k\E5Vz\9A'\98|Fb\14\E7\C9\FCn\03\12y\808\1DH\82\8D\FC\17\FE*\96+\B5b\A6\A6=\BD\7F\92Y\CDZ*\82\B27y1\00", align 16
+@kOpenSSLCRL = internal constant [905 x i8] c"0\82\03\85\06\09*\86H\86\F7\0D\01\07\02\A0\82\03v0\82\03r\02\01\011\000\0B\06\09*\86H\86\F7\0D\01\07\01\A0\00\A1\82\03X0\82\03T0\82\02\BD0\0D\06\09*\86H\86\F7\0D\01\01\05\05\000N1\0B0\09\06\03U\04\06\13\02US1\100\0E\06\03U\04\0A\13\07Equifax1-0+\06\03U\04\0B\13$Equifax Secure Certificate Authority\17\0D150227012300Z\17\0D150309012300Z0\82\02<0\14\02\03\0FX\E4\17\0D140427081922Z0\14\02\03\14v\19\17\0D140618150003Z0\14\02\03\0F\9A\FB\17\0D140429180917Z0\14\02\03\14\8B\C0\17\0D140709194633Z0\14\02\03\14\E4\9C\17\0D140416233935Z0\14\02\03\0F\86\07\17\0D140521155053Z0\14\02\03\12\E2)\17\0D140617185515Z0\14\02\03\0DBf\17\0D120627171053Z0\14\02\03\03\1E3\17\0D020515130611Z0\14\02\03\12\E2#\17\0D140606204021Z0\14\02\03\13\9C\AB\17\0D100729164439Z0\14\02\03\12\C6\0A\17\0D140606222139Z0\14\02\03\03%\85\17\0D020514181157Z0\14\02\03\14\86\E6\17\0D140725020038Z0\14\02\03\13\9C\A1\17\0D100729164732Z0\14\02\03\15M\\\17\0D140430000442Z0\14\02\03\0F\FA-\17\0D140617185011Z0\14\02\03\13uU\17\0D150118022133Z0\14\02\03\0FV\96\17\0D140624123102Z0\14\02\03\0B\80\8A\17\0D120627171025Z0\14\02\03\0F\94\16\17\0D100301134531Z0\14\02\03\14\16\B3\17\0D140618143256Z0\14\02\03\0A\E1\85\17\0D120627171017Z0\14\02\03\14\CC>\17\0D140711125531Z0\14\02\03\10[\CB\17\0D100730213120Z0\14\02\03\15j\1F\17\0D140226123519Z0\0D\06\09*\86H\86\F7\0D\01\01\05\05\00\03\81\81\00\1D\\'\07\11\03\F2\00\BD\F4F>q\FD\10\84\83\D9\D2\D2\19\A0 \F7\1AC=\AC\DA3\FC\B7B`\1A\A4\A8\B2\07\\Q\16\C0B\80\0A\0F\F0G[Kx\90\AF\C7\ACH\F8\CA<\13^\F6\D1\88\AEU\A3\0C\8AbG)\F8r\B8$\17\AF\B2\06\1E\A7rv\AB\96\1D\E0|\D4\0CB\82=J\8E\15w/<*\8C:\04\10U\DC\BB\BA\B1\91\EE{\E7#\C5q\13\AEk!5\D3d\F0\00T1\00", align 16
+@kPEMCert = internal constant [1429 x i8] c"-----BEGIN PKCS7-----\0AMIID+wYJKoZIhvcNAQcCoIID7DCCA+gCAQExADALBgkqhkiG9w0BBwGgggPQMIID\0AzDCCArSgAwIBAgIIWesoywKxoNQwDQYJKoZIhvcNAQELBQAwSTELMAkGA1UEBhMC\0AVVMxEzARBgNVBAoTCkdvb2dsZSBJbmMxJTAjBgNVBAMTHEdvb2dsZSBJbnRlcm5l\0AdCBBdXRob3JpdHkgRzIwHhcNMTUwMjExMTQxNTA2WhcNMTUwNTEyMDAwMDAwWjBp\0AMQswCQYDVQQGEwJVUzETMBEGA1UECAwKQ2FsaWZvcm5pYTEWMBQGA1UEBwwNTW91\0AbnRhaW4gVmlldzETMBEGA1UECgwKR29vZ2xlIEluYzEYMBYGA1UEAwwPbWFpbC5n\0Ab29nbGUuY29tMFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAE7MdALmCkcRRf/tzQ\0Aa8eu3J7S5CTQa5ns0ReF9ktlbB1RL56BVGAu4p7BrT32D6gDpiggXq3gxN81A0TG\0AC2yICKOCAWEwggFdMB0GA1UdJQQWMBQGCCsGAQUFBwMBBggrBgEFBQcDAjAsBgNV\0AHREEJTAjgg9tYWlsLmdvb2dsZS5jb22CEGluYm94Lmdvb2dsZS5jb20wCwYDVR0P\0ABAQDAgeAMGgGCCsGAQUFBwEBBFwwWjArBggrBgEFBQcwAoYfaHR0cDovL3BraS5n\0Ab29nbGUuY29tL0dJQUcyLmNydDArBggrBgEFBQcwAYYfaHR0cDovL2NsaWVudHMx\0ALmdvb2dsZS5jb20vb2NzcDAdBgNVHQ4EFgQUQqsYsRoWLiG6qmV2N1mpYaHawxAw\0ADAYDVR0TAQH/BAIwADAfBgNVHSMEGDAWgBRK3QYWG7z2aLV29YG2u2IaulqBLzAX\0ABgNVHSAEEDAOMAwGCisGAQQB1nkCBQEwMAYDVR0fBCkwJzAloCOgIYYfaHR0cDov\0AL3BraS5nb29nbGUuY29tL0dJQUcyLmNybDANBgkqhkiG9w0BAQsFAAOCAQEAKNh3\0AisNuGBisPKVlekOsZR6S8oP/fS/xt6Hqvg0EwFXvhxoJ40rxAB2LMykY17e+ln3P\0AMwBBlRkwY1btcDT15JwzgaZb38rq/r+Pkb5Qgmx/InA/pw0QHDtwHQp5uXZuvu6p\0AJ/SlCwyq7EOvByWdVQcMU/dhGa3idXEkn/zwfqcG6YjdWKoDmXWZYv3RiP3wJcRB\0A9+3U1wOe3uebnZLRWO6/w0to1XY8TFHklyw5rwIE5sbxOx5N3Ne8+GgPrUDvGAz0\0ArAUKnh3b7GNXL1qlZh2qkhB6rUzvtPpg397Asg3xVtExCHOk4zPqzzicttoEbVVy\0A0T8rIMUNwC4Beh4JVjEA\0A-----END PKCS7-----\0A\00", align 16
+@kPEMCRL = internal constant [1270 x i8] c"-----BEGIN PKCS7-----\0AMIIDhQYJKoZIhvcNAQcCoIIDdjCCA3ICAQExADALBgkqhkiG9w0BBwGgAKGCA1gw\0AggNUMIICvTANBgkqhkiG9w0BAQUFADBOMQswCQYDVQQGEwJVUzEQMA4GA1UEChMH\0ARXF1aWZheDEtMCsGA1UECxMkRXF1aWZheCBTZWN1cmUgQ2VydGlmaWNhdGUgQXV0\0AaG9yaXR5Fw0xNTAyMjcwMTIzMDBaFw0xNTAzMDkwMTIzMDBaMIICPDAUAgMPWOQX\0ADTE0MDQyNzA4MTkyMlowFAIDFHYZFw0xNDA2MTgxNTAwMDNaMBQCAw+a+xcNMTQw\0ANDI5MTgwOTE3WjAUAgMUi8AXDTE0MDcwOTE5NDYzM1owFAIDFOScFw0xNDA0MTYy\0AMzM5MzVaMBQCAw+GBxcNMTQwNTIxMTU1MDUzWjAUAgMS4ikXDTE0MDYxNzE4NTUx\0ANVowFAIDDUJmFw0xMjA2MjcxNzEwNTNaMBQCAwMeMxcNMDIwNTE1MTMwNjExWjAU\0AAgMS4iMXDTE0MDYwNjIwNDAyMVowFAIDE5yrFw0xMDA3MjkxNjQ0MzlaMBQCAxLG\0AChcNMTQwNjA2MjIyMTM5WjAUAgMDJYUXDTAyMDUxNDE4MTE1N1owFAIDFIbmFw0x\0ANDA3MjUwMjAwMzhaMBQCAxOcoRcNMTAwNzI5MTY0NzMyWjAUAgMVTVwXDTE0MDQz\0AMDAwMDQ0MlowFAIDD/otFw0xNDA2MTcxODUwMTFaMBQCAxN1VRcNMTUwMTE4MDIy\0AMTMzWjAUAgMPVpYXDTE0MDYyNDEyMzEwMlowFAIDC4CKFw0xMjA2MjcxNzEwMjVa\0AMBQCAw+UFhcNMTAwMzAxMTM0NTMxWjAUAgMUFrMXDTE0MDYxODE0MzI1NlowFAID\0ACuGFFw0xMjA2MjcxNzEwMTdaMBQCAxTMPhcNMTQwNzExMTI1NTMxWjAUAgMQW8sX\0ADTEwMDczMDIxMzEyMFowFAIDFWofFw0xNDAyMjYxMjM1MTlaMA0GCSqGSIb3DQEB\0ABQUAA4GBAB1cJwcRA/IAvfRGPnH9EISD2dLSGaAg9xpDPazaM/y3QmAapKiyB1xR\0AFsBCgAoP8EdbS3iQr8esSPjKPBNe9tGIrlWjDIpiRyn4crgkF6+yBh6ncnarlh3g\0AfNQMQoI9So4Vdy88Kow6BBBV3Lu6sZHue+cjxXETrmshNdNk8ABUMQA=\0A-----END PKCS7-----\0A\00", align 16
+@stderr = external local_unnamed_addr global ptr, align 8
+@.str.1 = private unnamed_addr constant [32 x i8] c"PKCS7_get_certificates failed.\0A\00", align 1
+@.str.2 = private unnamed_addr constant [35 x i8] c"PKCS7_bundle_certificates failed.\0A\00", align 1
+@.str.3 = private unnamed_addr constant [40 x i8] c"PKCS7_get_certificates reparse failed.\0A\00", align 1
+@.str.4 = private unnamed_addr constant [36 x i8] c"Number of certs in results differ.\0A\00", align 1
+@.str.5 = private unnamed_addr constant [26 x i8] c"Certificate %zu differs.\0A\00", align 1
+@.str.6 = private unnamed_addr constant [51 x i8] c"PKCS7_bundle_certificates failed the second time.\0A\00", align 1
+@.str.7 = private unnamed_addr constant [30 x i8] c"Serialisation is not stable.\0A\00", align 1
+@.str.8 = private unnamed_addr constant [24 x i8] c"PKCS7_get_CRLs failed.\0A\00", align 1
+@.str.9 = private unnamed_addr constant [27 x i8] c"PKCS7_bundle_CRLs failed.\0A\00", align 1
+@.str.10 = private unnamed_addr constant [32 x i8] c"PKCS7_get_CRLs reparse failed.\0A\00", align 1
+@.str.11 = private unnamed_addr constant [35 x i8] c"Number of CRLs in results differ.\0A\00", align 1
+@.str.12 = private unnamed_addr constant [18 x i8] c"CRL %zu differs.\0A\00", align 1
+@.str.13 = private unnamed_addr constant [43 x i8] c"PKCS7_bundle_CRLs failed the second time.\0A\00", align 1
+@.str.14 = private unnamed_addr constant [36 x i8] c"PKCS7_get_PEM_certificates failed.\0A\00", align 1
+@.str.15 = private unnamed_addr constant [65 x i8] c"Bad number of certificates from PKCS7_get_PEM_certificates: %zu\0A\00", align 1
+@.str.16 = private unnamed_addr constant [28 x i8] c"PKCS7_get_PEM_CRLs failed.\0A\00", align 1
+@.str.17 = private unnamed_addr constant [49 x i8] c"Bad number of CRLs from PKCS7_get_PEM_CRLs: %zu\0A\00", align 1
+@str = private unnamed_addr constant [5 x i8] c"PASS\00", align 1
+
+; Function Attrs: nounwind uwtable
+define hidden noundef i32 @main() local_unnamed_addr #0 {
+entry:
+  %pkcs7.i = alloca %struct.cbs_st, align 8
+  %cbb.i = alloca %struct.cbb_st, align 8
+  %result_data.i = alloca ptr, align 8
+  %result2_data.i = alloca ptr, align 8
+  %result_len.i = alloca i64, align 8
+  %result2_len.i = alloca i64, align 8
+  tail call void @CRYPTO_library_init() #7
+  %call = tail call fastcc i32 @test_cert_reparse(ptr noundef nonnull @kPKCS7NSS, i64 noundef 2895), !range !7
+  %tobool.not = icmp eq i32 %call, 0
+  br i1 %tobool.not, label %return, label %lor.lhs.false
+
+lor.lhs.false:                                    ; preds = %entry
+  %call1 = tail call fastcc i32 @test_cert_reparse(ptr noundef nonnull @kPKCS7Windows, i64 noundef 693), !range !7
+  %tobool2.not = icmp eq i32 %call1, 0
+  br i1 %tobool2.not, label %return, label %lor.lhs.false3
+
+lor.lhs.false3:                                   ; preds = %lor.lhs.false
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %pkcs7.i)
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %cbb.i)
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %result_data.i)
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %result2_data.i)
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %result_len.i)
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %result2_len.i)
+  %call.i = tail call ptr @sk_new_null() #7
+  %call1.i = tail call ptr @sk_new_null() #7
+  call void @CBS_init(ptr noundef nonnull %pkcs7.i, ptr noundef nonnull @kOpenSSLCRL, i64 noundef 905) #7
+  %call2.i = call i32 @PKCS7_get_CRLs(ptr noundef %call.i, ptr noundef nonnull %pkcs7.i) #7
+  %tobool.not.i = icmp eq i32 %call2.i, 0
+  br i1 %tobool.not.i, label %if.then.i, label %if.end.i
+
+if.then.i:                                        ; preds = %lor.lhs.false3
+  %0 = load ptr, ptr @stderr, align 8
+  %1 = call i64 @fwrite(ptr nonnull @.str.8, i64 23, i64 1, ptr %0) #8
+  br label %test_crl_reparse.exit.thread
+
+if.end.i:                                         ; preds = %lor.lhs.false3
+  %call4.i = call i32 @CBB_init(ptr noundef nonnull %cbb.i, i64 noundef 905) #7
+  %call5.i = call i32 @PKCS7_bundle_CRLs(ptr noundef nonnull %cbb.i, ptr noundef %call.i) #7
+  %tobool6.not.i = icmp eq i32 %call5.i, 0
+  br i1 %tobool6.not.i, label %if.then9.i, label %lor.lhs.false.i
+
+lor.lhs.false.i:                                  ; preds = %if.end.i
+  %call7.i = call i32 @CBB_finish(ptr noundef nonnull %cbb.i, ptr noundef nonnull %result_data.i, ptr noundef nonnull %result_len.i) #7
+  %tobool8.not.i = icmp eq i32 %call7.i, 0
+  br i1 %tobool8.not.i, label %if.then9.i, label %if.end11.i
+
+if.then9.i:                                       ; preds = %lor.lhs.false.i, %if.end.i
+  %2 = load ptr, ptr @stderr, align 8
+  %3 = call i64 @fwrite(ptr nonnull @.str.9, i64 26, i64 1, ptr %2) #8
+  br label %test_crl_reparse.exit.thread
+
+if.end11.i:                                       ; preds = %lor.lhs.false.i
+  %4 = load ptr, ptr %result_data.i, align 8
+  %5 = load i64, ptr %result_len.i, align 8
+  call void @CBS_init(ptr noundef nonnull %pkcs7.i, ptr noundef %4, i64 noundef %5) #7
+  %call12.i = call i32 @PKCS7_get_CRLs(ptr noundef %call1.i, ptr noundef nonnull %pkcs7.i) #7
+  %tobool13.not.i = icmp eq i32 %call12.i, 0
+  br i1 %tobool13.not.i, label %if.then14.i, label %if.end16.i
+
+if.then14.i:                                      ; preds = %if.end11.i
+  %6 = load ptr, ptr @stderr, align 8
+  %7 = call i64 @fwrite(ptr nonnull @.str.10, i64 31, i64 1, ptr %6) #8
+  br label %test_crl_reparse.exit.thread
+
+if.end16.i:                                       ; preds = %if.end11.i
+  %call17.i = call i64 @sk_num(ptr noundef %call.i) #7
+  %call18.i = call i64 @sk_num(ptr noundef %call.i) #7
+  %cmp.not.i = icmp eq i64 %call17.i, %call18.i
+  br i1 %cmp.not.i, label %for.cond.preheader.i, label %if.then19.i
+
+for.cond.preheader.i:                             ; preds = %if.end16.i
+  %call222.i = call i64 @sk_num(ptr noundef %call.i) #7
+  %cmp233.not.i = icmp eq i64 %call222.i, 0
+  br i1 %cmp233.not.i, label %for.end.i, label %for.body.i
+
+if.then19.i:                                      ; preds = %if.end16.i
+  %8 = load ptr, ptr @stderr, align 8
+  %9 = call i64 @fwrite(ptr nonnull @.str.11, i64 34, i64 1, ptr %8) #8
+  br label %test_crl_reparse.exit.thread
+
+for.body.i:                                       ; preds = %for.cond.preheader.i, %for.inc.i
+  %i.04.i = phi i64 [ %inc.i, %for.inc.i ], [ 0, %for.cond.preheader.i ]
+  %call24.i = call ptr @sk_value(ptr noundef %call.i, i64 noundef %i.04.i) #7
+  %call25.i = call ptr @sk_value(ptr noundef %call1.i, i64 noundef %i.04.i) #7
+  %call26.i = call i32 @X509_CRL_cmp(ptr noundef %call24.i, ptr noundef %call25.i) #7
+  %cmp27.not.i = icmp eq i32 %call26.i, 0
+  br i1 %cmp27.not.i, label %for.inc.i, label %if.then28.i
+
+if.then28.i:                                      ; preds = %for.body.i
+  %10 = load ptr, ptr @stderr, align 8
+  %call29.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %10, ptr noundef nonnull @.str.12, i64 noundef %i.04.i) #8
+  br label %test_crl_reparse.exit.thread
+
+for.inc.i:                                        ; preds = %for.body.i
+  %inc.i = add nuw i64 %i.04.i, 1
+  %call22.i = call i64 @sk_num(ptr noundef %call.i) #7
+  %cmp23.i = icmp ult i64 %inc.i, %call22.i
+  br i1 %cmp23.i, label %for.body.i, label %for.end.i, !llvm.loop !8
+
+for.end.i:                                        ; preds = %for.inc.i, %for.cond.preheader.i
+  %call31.i = call i32 @CBB_init(ptr noundef nonnull %cbb.i, i64 noundef 905) #7
+  %call32.i = call i32 @PKCS7_bundle_CRLs(ptr noundef nonnull %cbb.i, ptr noundef %call1.i) #7
+  %tobool33.not.i = icmp eq i32 %call32.i, 0
+  br i1 %tobool33.not.i, label %if.then37.i, label %lor.lhs.false34.i
+
+lor.lhs.false34.i:                                ; preds = %for.end.i
+  %call35.i = call i32 @CBB_finish(ptr noundef nonnull %cbb.i, ptr noundef nonnull %result2_data.i, ptr noundef nonnull %result2_len.i) #7
+  %tobool36.not.i = icmp eq i32 %call35.i, 0
+  br i1 %tobool36.not.i, label %if.then37.i, label %if.end39.i
+
+if.then37.i:                                      ; preds = %lor.lhs.false34.i, %for.end.i
+  %11 = load ptr, ptr @stderr, align 8
+  %12 = call i64 @fwrite(ptr nonnull @.str.13, i64 42, i64 1, ptr %11) #8
+  br label %test_crl_reparse.exit.thread
+
+if.end39.i:                                       ; preds = %lor.lhs.false34.i
+  %13 = load i64, ptr %result_len.i, align 8
+  %14 = load i64, ptr %result2_len.i, align 8
+  %cmp40.not.i = icmp eq i64 %13, %14
+  br i1 %cmp40.not.i, label %lor.lhs.false41.i, label %if.then44.i
+
+lor.lhs.false41.i:                                ; preds = %if.end39.i
+  %15 = load ptr, ptr %result_data.i, align 8
+  %16 = load ptr, ptr %result2_data.i, align 8
+  %bcmp.i = call i32 @bcmp(ptr %15, ptr %16, i64 %13)
+  %cmp43.not.i = icmp eq i32 %bcmp.i, 0
+  br i1 %cmp43.not.i, label %lor.lhs.false6, label %if.then44.i
+
+if.then44.i:                                      ; preds = %lor.lhs.false41.i, %if.end39.i
+  %17 = load ptr, ptr @stderr, align 8
+  %18 = call i64 @fwrite(ptr nonnull @.str.7, i64 29, i64 1, ptr %17) #8
+  br label %test_crl_reparse.exit.thread
+
+test_crl_reparse.exit.thread:                     ; preds = %if.then19.i, %if.then28.i, %if.then44.i, %if.then37.i, %if.then14.i, %if.then9.i, %if.then.i
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %pkcs7.i)
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %cbb.i)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %result_data.i)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %result2_data.i)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %result_len.i)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %result2_len.i)
+  br label %return
+
+lor.lhs.false6:                                   ; preds = %lor.lhs.false41.i
+  call void @free(ptr noundef %15) #7
+  %19 = load ptr, ptr %result2_data.i, align 8
+  call void @free(ptr noundef %19) #7
+  call void @sk_pop_free(ptr noundef %call.i, ptr noundef nonnull @X509_CRL_free) #7
+  call void @sk_pop_free(ptr noundef %call1.i, ptr noundef nonnull @X509_CRL_free) #7
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %pkcs7.i)
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %cbb.i)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %result_data.i)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %result2_data.i)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %result_len.i)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %result2_len.i)
+  %call1.i1 = call ptr @BIO_new_mem_buf(ptr noundef nonnull @kPEMCert, i32 noundef 1428) #7
+  %call2.i2 = call ptr @sk_new_null() #7
+  %call3.i = call i32 @PKCS7_get_PEM_certificates(ptr noundef %call2.i2, ptr noundef %call1.i1) #7
+  %tobool.not.i3 = icmp eq i32 %call3.i, 0
+  br i1 %tobool.not.i3, label %if.then.i8, label %if.end.i4
+
+if.then.i8:                                       ; preds = %lor.lhs.false6
+  %20 = load ptr, ptr @stderr, align 8
+  %21 = call i64 @fwrite(ptr nonnull @.str.14, i64 35, i64 1, ptr %20) #8
+  br label %return
+
+if.end.i4:                                        ; preds = %lor.lhs.false6
+  %call5.i5 = call i64 @sk_num(ptr noundef %call2.i2) #7
+  %cmp.not.i6 = icmp eq i64 %call5.i5, 1
+  br i1 %cmp.not.i6, label %lor.lhs.false9, label %if.then7.i
+
+if.then7.i:                                       ; preds = %if.end.i4
+  %22 = load ptr, ptr @stderr, align 8
+  %call8.i = call i64 @sk_num(ptr noundef %call2.i2) #7
+  %call9.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %22, ptr noundef nonnull @.str.15, i64 noundef %call8.i) #8
+  br label %return
+
+lor.lhs.false9:                                   ; preds = %if.end.i4
+  %call11.i = call i32 @BIO_free(ptr noundef %call1.i1) #7
+  call void @sk_pop_free(ptr noundef %call2.i2, ptr noundef nonnull @X509_free) #7
+  %call1.i9 = call ptr @BIO_new_mem_buf(ptr noundef nonnull @kPEMCRL, i32 noundef 1269) #7
+  %call2.i10 = call ptr @sk_new_null() #7
+  %call3.i11 = call i32 @PKCS7_get_PEM_CRLs(ptr noundef %call2.i10, ptr noundef %call1.i9) #7
+  %tobool.not.i12 = icmp eq i32 %call3.i11, 0
+  br i1 %tobool.not.i12, label %if.then.i22, label %if.end.i13
+
+if.then.i22:                                      ; preds = %lor.lhs.false9
+  %23 = load ptr, ptr @stderr, align 8
+  %24 = call i64 @fwrite(ptr nonnull @.str.16, i64 27, i64 1, ptr %23) #8
+  br label %return
+
+if.end.i13:                                       ; preds = %lor.lhs.false9
+  %call5.i14 = call i64 @sk_num(ptr noundef %call2.i10) #7
+  %cmp.not.i15 = icmp eq i64 %call5.i14, 1
+  br i1 %cmp.not.i15, label %if.end, label %if.then7.i16
+
+if.then7.i16:                                     ; preds = %if.end.i13
+  %25 = load ptr, ptr @stderr, align 8
+  %call8.i17 = call i64 @sk_num(ptr noundef %call2.i10) #7
+  %call9.i18 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %25, ptr noundef nonnull @.str.17, i64 noundef %call8.i17) #8
+  br label %return
+
+if.end:                                           ; preds = %if.end.i13
+  %call11.i21 = call i32 @BIO_free(ptr noundef %call1.i9) #7
+  call void @sk_pop_free(ptr noundef %call2.i10, ptr noundef nonnull @X509_CRL_free) #7
+  %puts = call i32 @puts(ptr nonnull dereferenceable(1) @str)
+  br label %return
+
+return:                                           ; preds = %if.then.i22, %if.then7.i16, %if.then.i8, %if.then7.i, %test_crl_reparse.exit.thread, %entry, %lor.lhs.false, %if.end
+  %retval.0 = phi i32 [ 0, %if.end ], [ 1, %lor.lhs.false ], [ 1, %entry ], [ 1, %test_crl_reparse.exit.thread ], [ 1, %if.then7.i ], [ 1, %if.then.i8 ], [ 1, %if.then7.i16 ], [ 1, %if.then.i22 ]
+  ret i32 %retval.0
+}
+
+declare void @CRYPTO_library_init() local_unnamed_addr #1
+
+; Function Attrs: nounwind uwtable
+define internal fastcc noundef i32 @test_cert_reparse(ptr noundef %der_bytes, i64 noundef %der_len) unnamed_addr #0 {
+entry:
+  %pkcs7 = alloca %struct.cbs_st, align 8
+  %cbb = alloca %struct.cbb_st, align 8
+  %result_data = alloca ptr, align 8
+  %result2_data = alloca ptr, align 8
+  %result_len = alloca i64, align 8
+  %result2_len = alloca i64, align 8
+  %call = tail call ptr @sk_new_null() #7
+  %call1 = tail call ptr @sk_new_null() #7
+  call void @CBS_init(ptr noundef nonnull %pkcs7, ptr noundef %der_bytes, i64 noundef %der_len) #7
+  %call2 = call i32 @PKCS7_get_certificates(ptr noundef %call, ptr noundef nonnull %pkcs7) #7
+  %tobool.not = icmp eq i32 %call2, 0
+  br i1 %tobool.not, label %if.then, label %if.end
+
+if.then:                                          ; preds = %entry
+  %0 = load ptr, ptr @stderr, align 8
+  %1 = call i64 @fwrite(ptr nonnull @.str.1, i64 31, i64 1, ptr %0) #8
+  br label %return
+
+if.end:                                           ; preds = %entry
+  %call4 = call i32 @CBB_init(ptr noundef nonnull %cbb, i64 noundef %der_len) #7
+  %call5 = call i32 @PKCS7_bundle_certificates(ptr noundef nonnull %cbb, ptr noundef %call) #7
+  %tobool6.not = icmp eq i32 %call5, 0
+  br i1 %tobool6.not, label %if.then9, label %lor.lhs.false
+
+lor.lhs.false:                                    ; preds = %if.end
+  %call7 = call i32 @CBB_finish(ptr noundef nonnull %cbb, ptr noundef nonnull %result_data, ptr noundef nonnull %result_len) #7
+  %tobool8.not = icmp eq i32 %call7, 0
+  br i1 %tobool8.not, label %if.then9, label %if.end11
+
+if.then9:                                         ; preds = %lor.lhs.false, %if.end
+  %2 = load ptr, ptr @stderr, align 8
+  %3 = call i64 @fwrite(ptr nonnull @.str.2, i64 34, i64 1, ptr %2) #8
+  br label %return
+
+if.end11:                                         ; preds = %lor.lhs.false
+  %4 = load ptr, ptr %result_data, align 8
+  %5 = load i64, ptr %result_len, align 8
+  call void @CBS_init(ptr noundef nonnull %pkcs7, ptr noundef %4, i64 noundef %5) #7
+  %call12 = call i32 @PKCS7_get_certificates(ptr noundef %call1, ptr noundef nonnull %pkcs7) #7
+  %tobool13.not = icmp eq i32 %call12, 0
+  br i1 %tobool13.not, label %if.then14, label %if.end16
+
+if.then14:                                        ; preds = %if.end11
+  %6 = load ptr, ptr @stderr, align 8
+  %7 = call i64 @fwrite(ptr nonnull @.str.3, i64 39, i64 1, ptr %6) #8
+  br label %return
+
+if.end16:                                         ; preds = %if.end11
+  %call17 = call i64 @sk_num(ptr noundef %call) #7
+  %call18 = call i64 @sk_num(ptr noundef %call1) #7
+  %cmp.not = icmp eq i64 %call17, %call18
+  br i1 %cmp.not, label %for.cond.preheader, label %if.then19
+
+for.cond.preheader:                               ; preds = %if.end16
+  %call2217 = call i64 @sk_num(ptr noundef %call) #7
+  %cmp2318.not = icmp eq i64 %call2217, 0
+  br i1 %cmp2318.not, label %for.end, label %for.body
+
+if.then19:                                        ; preds = %if.end16
+  %8 = load ptr, ptr @stderr, align 8
+  %9 = call i64 @fwrite(ptr nonnull @.str.4, i64 35, i64 1, ptr %8) #8
+  br label %return
+
+for.body:                                         ; preds = %for.cond.preheader, %for.inc
+  %i.019 = phi i64 [ %inc, %for.inc ], [ 0, %for.cond.preheader ]
+  %call24 = call ptr @sk_value(ptr noundef %call, i64 noundef %i.019) #7
+  %call25 = call ptr @sk_value(ptr noundef %call1, i64 noundef %i.019) #7
+  %call26 = call i32 @X509_cmp(ptr noundef %call24, ptr noundef %call25) #7
+  %cmp27.not = icmp eq i32 %call26, 0
+  br i1 %cmp27.not, label %for.inc, label %if.then28
+
+if.then28:                                        ; preds = %for.body
+  %10 = load ptr, ptr @stderr, align 8
+  %call29 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %10, ptr noundef nonnull @.str.5, i64 noundef %i.019) #8
+  br label %return
+
+for.inc:                                          ; preds = %for.body
+  %inc = add nuw i64 %i.019, 1
+  %call22 = call i64 @sk_num(ptr noundef %call) #7
+  %cmp23 = icmp ult i64 %inc, %call22
+  br i1 %cmp23, label %for.body, label %for.end, !llvm.loop !10
+
+for.end:                                          ; preds = %for.inc, %for.cond.preheader
+  %call31 = call i32 @CBB_init(ptr noundef nonnull %cbb, i64 noundef %der_len) #7
+  %call32 = call i32 @PKCS7_bundle_certificates(ptr noundef nonnull %cbb, ptr noundef %call1) #7
+  %tobool33.not = icmp eq i32 %call32, 0
+  br i1 %tobool33.not, label %if.then37, label %lor.lhs.false34
+
+lor.lhs.false34:                                  ; preds = %for.end
+  %call35 = call i32 @CBB_finish(ptr noundef nonnull %cbb, ptr noundef nonnull %result2_data, ptr noundef nonnull %result2_len) #7
+  %tobool36.not = icmp eq i32 %call35, 0
+  br i1 %tobool36.not, label %if.then37, label %if.end39
+
+if.then37:                                        ; preds = %lor.lhs.false34, %for.end
+  %11 = load ptr, ptr @stderr, align 8
+  %12 = call i64 @fwrite(ptr nonnull @.str.6, i64 50, i64 1, ptr %11) #8
+  br label %return
+
+if.end39:                                         ; preds = %lor.lhs.false34
+  %13 = load i64, ptr %result_len, align 8
+  %14 = load i64, ptr %result2_len, align 8
+  %cmp40.not = icmp eq i64 %13, %14
+  br i1 %cmp40.not, label %lor.lhs.false41, label %if.then44
+
+lor.lhs.false41:                                  ; preds = %if.end39
+  %15 = load ptr, ptr %result_data, align 8
+  %16 = load ptr, ptr %result2_data, align 8
+  %bcmp = call i32 @bcmp(ptr %15, ptr %16, i64 %13)
+  %cmp43.not = icmp eq i32 %bcmp, 0
+  br i1 %cmp43.not, label %if.end46, label %if.then44
+
+if.then44:                                        ; preds = %lor.lhs.false41, %if.end39
+  %17 = load ptr, ptr @stderr, align 8
+  %18 = call i64 @fwrite(ptr nonnull @.str.7, i64 29, i64 1, ptr %17) #8
+  br label %return
+
+if.end46:                                         ; preds = %lor.lhs.false41
+  call void @free(ptr noundef %15) #7
+  %19 = load ptr, ptr %result2_data, align 8
+  call void @free(ptr noundef %19) #7
+  call void @sk_pop_free(ptr noundef %call, ptr noundef nonnull @X509_free) #7
+  call void @sk_pop_free(ptr noundef %call1, ptr noundef nonnull @X509_free) #7
+  br label %return
+
+return:                                           ; preds = %if.end46, %if.then44, %if.then37, %if.then28, %if.then19, %if.then14, %if.then9, %if.then
+  %retval.0 = phi i32 [ 0, %if.then19 ], [ 0, %if.then28 ], [ 0, %if.then44 ], [ 1, %if.end46 ], [ 0, %if.then37 ], [ 0, %if.then14 ], [ 0, %if.then9 ], [ 0, %if.then ]
+  ret i32 %retval.0
+}
+
+declare ptr @sk_new_null() local_unnamed_addr #1
+
+declare void @CBS_init(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
+
+declare i32 @PKCS7_get_certificates(ptr noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: nofree nounwind
+declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #2
+
+declare i32 @CBB_init(ptr noundef, i64 noundef) local_unnamed_addr #1
+
+declare i32 @PKCS7_bundle_certificates(ptr noundef, ptr noundef) local_unnamed_addr #1
+
+declare i32 @CBB_finish(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+
+declare i64 @sk_num(ptr noundef) local_unnamed_addr #1
+
+declare ptr @sk_value(ptr noundef, i64 noundef) local_unnamed_addr #1
+
+declare i32 @X509_cmp(ptr noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
+declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
+
+declare void @sk_pop_free(ptr noundef, ptr noundef) local_unnamed_addr #1
+
+declare void @X509_free(ptr noundef) #1
+
+declare i32 @PKCS7_get_CRLs(ptr noundef, ptr noundef) local_unnamed_addr #1
+
+declare i32 @PKCS7_bundle_CRLs(ptr noundef, ptr noundef) local_unnamed_addr #1
+
+declare i32 @X509_CRL_cmp(ptr noundef, ptr noundef) local_unnamed_addr #1
+
+declare void @X509_CRL_free(ptr noundef) #1
+
+declare ptr @BIO_new_mem_buf(ptr noundef, i32 noundef) local_unnamed_addr #1
+
+declare i32 @PKCS7_get_PEM_certificates(ptr noundef, ptr noundef) local_unnamed_addr #1
+
+declare i32 @BIO_free(ptr noundef) local_unnamed_addr #1
+
+declare i32 @PKCS7_get_PEM_CRLs(ptr noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: nofree nounwind
+declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #4
+
+; Function Attrs: nofree nounwind
+declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #4
+
+; Function Attrs: nofree nounwind willreturn memory(argmem: read)
+declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #5
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
+
+attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nofree nounwind }
+attributes #5 = { nofree nounwind willreturn memory(argmem: read) }
+attributes #6 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #7 = { nounwind }
+attributes #8 = { cold }
+
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5, !6}
+
+!0 = !{i32 7, !"Dwarf Version", i32 5}
+!1 = !{i32 2, !"Debug Info Version", i32 3}
+!2 = !{i32 1, !"wchar_size", i32 4}
+!3 = !{i32 8, !"PIC Level", i32 2}
+!4 = !{i32 7, !"PIE Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}
+!6 = !{i32 7, !"frame-pointer", i32 2}
+!7 = !{i32 0, i32 2}
+!8 = distinct !{!8, !9}
+!9 = !{!"llvm.loop.mustprogress"}
+!10 = distinct !{!10, !9}

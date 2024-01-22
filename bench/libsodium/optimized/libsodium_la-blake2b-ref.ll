@@ -1,0 +1,986 @@
+; ModuleID = 'bench/libsodium/original/libsodium_la-blake2b-ref.ll'
+source_filename = "bench/libsodium/original/libsodium_la-blake2b-ref.ll"
+target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
+target triple = "x86_64-unknown-linux-gnu"
+
+%struct.blake2b_state = type <{ [8 x i64], [2 x i64], [2 x i64], [256 x i8], i64, i8 }>
+%struct.blake2b_param_ = type { i8, i8, i8, i8, [4 x i8], [8 x i8], i8, i8, [14 x i8], [16 x i8], [16 x i8] }
+
+@blake2b_compress = internal unnamed_addr global ptr @_sodium_blake2b_compress_ref, align 8
+@blake2b_IV = internal unnamed_addr constant [8 x i64] [i64 7640891576956012808, i64 -4942790177534073029, i64 4354685564936845355, i64 -6534734903238641935, i64 5840696475078001361, i64 -7276294671716946913, i64 2270897969802886507, i64 6620516959819538809], align 16
+
+; Function Attrs: nofree norecurse nosync nounwind ssp memory(argmem: readwrite) uwtable
+define hidden noundef i32 @_sodium_blake2b_init_param(ptr nocapture noundef %S, ptr nocapture noundef readonly %P) local_unnamed_addr #0 {
+entry:
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %S, ptr noundef nonnull align 16 dereferenceable(64) @blake2b_IV, i64 64, i1 false)
+  %t.i = getelementptr inbounds %struct.blake2b_state, ptr %S, i64 0, i32 1
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(297) %t.i, i8 0, i64 297, i1 false)
+  br label %for.body
+
+for.body:                                         ; preds = %entry, %for.body
+  %i.05 = phi i64 [ 0, %entry ], [ %inc, %for.body ]
+  %mul = shl nuw nsw i64 %i.05, 3
+  %add.ptr = getelementptr i8, ptr %P, i64 %mul
+  %add.ptr.val = load i64, ptr %add.ptr, align 1
+  %arrayidx = getelementptr [8 x i64], ptr %S, i64 0, i64 %i.05
+  %0 = load i64, ptr %arrayidx, align 1
+  %xor = xor i64 %0, %add.ptr.val
+  store i64 %xor, ptr %arrayidx, align 1
+  %inc = add nuw nsw i64 %i.05, 1
+  %exitcond.not = icmp eq i64 %inc, 8
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !5
+
+for.end:                                          ; preds = %for.body
+  ret i32 0
+}
+
+; Function Attrs: nounwind ssp uwtable
+define hidden noundef i32 @_sodium_blake2b_init(ptr nocapture noundef %S, i8 noundef zeroext %outlen) local_unnamed_addr #1 {
+entry:
+  %P = alloca [1 x %struct.blake2b_param_], align 16
+  %0 = add i8 %outlen, -65
+  %or.cond = icmp ult i8 %0, -64
+  br i1 %or.cond, label %if.then, label %if.end
+
+if.then:                                          ; preds = %entry
+  tail call void @sodium_misuse() #7
+  unreachable
+
+if.end:                                           ; preds = %entry
+  store i8 %outlen, ptr %P, align 16
+  %key_length = getelementptr inbounds %struct.blake2b_param_, ptr %P, i64 0, i32 1
+  store i8 0, ptr %key_length, align 1
+  %fanout = getelementptr inbounds %struct.blake2b_param_, ptr %P, i64 0, i32 2
+  store i8 1, ptr %fanout, align 2
+  %depth = getelementptr inbounds %struct.blake2b_param_, ptr %P, i64 0, i32 3
+  store i8 1, ptr %depth, align 1
+  %leaf_length = getelementptr inbounds %struct.blake2b_param_, ptr %P, i64 0, i32 4
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %leaf_length, i8 0, i64 60, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %S, ptr noundef nonnull align 16 dereferenceable(64) @blake2b_IV, i64 64, i1 false)
+  %t.i.i = getelementptr inbounds %struct.blake2b_state, ptr %S, i64 0, i32 1
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(297) %t.i.i, i8 0, i64 297, i1 false)
+  br label %for.body.i
+
+for.body.i:                                       ; preds = %for.body.i, %if.end
+  %i.05.i = phi i64 [ 0, %if.end ], [ %inc.i, %for.body.i ]
+  %mul.i = shl nuw nsw i64 %i.05.i, 3
+  %add.ptr.i = getelementptr i8, ptr %P, i64 %mul.i
+  %add.ptr.val.i = load i64, ptr %add.ptr.i, align 8
+  %arrayidx.i = getelementptr [8 x i64], ptr %S, i64 0, i64 %i.05.i
+  %1 = load i64, ptr %arrayidx.i, align 1
+  %xor.i = xor i64 %1, %add.ptr.val.i
+  store i64 %xor.i, ptr %arrayidx.i, align 1
+  %inc.i = add nuw nsw i64 %i.05.i, 1
+  %exitcond.not.i = icmp eq i64 %inc.i, 8
+  br i1 %exitcond.not.i, label %_sodium_blake2b_init_param.exit, label %for.body.i, !llvm.loop !5
+
+_sodium_blake2b_init_param.exit:                  ; preds = %for.body.i
+  ret i32 0
+}
+
+; Function Attrs: noreturn
+declare void @sodium_misuse() local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+
+; Function Attrs: nounwind ssp uwtable
+define hidden noundef i32 @_sodium_blake2b_init_salt_personal(ptr nocapture noundef %S, i8 noundef zeroext %outlen, ptr noundef readonly %salt, ptr noundef readonly %personal) local_unnamed_addr #1 {
+entry:
+  %P = alloca [1 x %struct.blake2b_param_], align 16
+  %0 = add i8 %outlen, -65
+  %or.cond = icmp ult i8 %0, -64
+  br i1 %or.cond, label %if.then, label %if.end
+
+if.then:                                          ; preds = %entry
+  tail call void @sodium_misuse() #7
+  unreachable
+
+if.end:                                           ; preds = %entry
+  store i8 %outlen, ptr %P, align 16
+  %key_length = getelementptr inbounds %struct.blake2b_param_, ptr %P, i64 0, i32 1
+  store i8 0, ptr %key_length, align 1
+  %fanout = getelementptr inbounds %struct.blake2b_param_, ptr %P, i64 0, i32 2
+  store i8 1, ptr %fanout, align 2
+  %depth = getelementptr inbounds %struct.blake2b_param_, ptr %P, i64 0, i32 3
+  store i8 1, ptr %depth, align 1
+  %leaf_length = getelementptr inbounds %struct.blake2b_param_, ptr %P, i64 0, i32 4
+  %cmp13.not = icmp eq ptr %salt, null
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %leaf_length, i8 0, i64 28, i1 false)
+  %salt18 = getelementptr inbounds %struct.blake2b_param_, ptr %P, i64 0, i32 9
+  br i1 %cmp13.not, label %if.else, label %if.then15
+
+if.then15:                                        ; preds = %if.end
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %salt18, ptr noundef nonnull align 1 dereferenceable(16) %salt, i64 16, i1 false)
+  br label %if.end20
+
+if.else:                                          ; preds = %if.end
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %salt18, i8 0, i64 16, i1 false)
+  br label %if.end20
+
+if.end20:                                         ; preds = %if.else, %if.then15
+  %cmp21.not = icmp eq ptr %personal, null
+  %personal28 = getelementptr inbounds %struct.blake2b_param_, ptr %P, i64 0, i32 10
+  br i1 %cmp21.not, label %if.else26, label %if.then23
+
+if.then23:                                        ; preds = %if.end20
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %personal28, ptr noundef nonnull align 1 dereferenceable(16) %personal, i64 16, i1 false)
+  br label %if.end30
+
+if.else26:                                        ; preds = %if.end20
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %personal28, i8 0, i64 16, i1 false)
+  br label %if.end30
+
+if.end30:                                         ; preds = %if.else26, %if.then23
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %S, ptr noundef nonnull align 16 dereferenceable(64) @blake2b_IV, i64 64, i1 false)
+  %t.i.i = getelementptr inbounds %struct.blake2b_state, ptr %S, i64 0, i32 1
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(297) %t.i.i, i8 0, i64 297, i1 false)
+  br label %for.body.i
+
+for.body.i:                                       ; preds = %for.body.i, %if.end30
+  %i.05.i = phi i64 [ 0, %if.end30 ], [ %inc.i, %for.body.i ]
+  %mul.i = shl nuw nsw i64 %i.05.i, 3
+  %add.ptr.i = getelementptr i8, ptr %P, i64 %mul.i
+  %add.ptr.val.i = load i64, ptr %add.ptr.i, align 8
+  %arrayidx.i = getelementptr [8 x i64], ptr %S, i64 0, i64 %i.05.i
+  %1 = load i64, ptr %arrayidx.i, align 1
+  %xor.i = xor i64 %1, %add.ptr.val.i
+  store i64 %xor.i, ptr %arrayidx.i, align 1
+  %inc.i = add nuw nsw i64 %i.05.i, 1
+  %exitcond.not.i = icmp eq i64 %inc.i, 8
+  br i1 %exitcond.not.i, label %_sodium_blake2b_init_param.exit, label %for.body.i, !llvm.loop !5
+
+_sodium_blake2b_init_param.exit:                  ; preds = %for.body.i
+  ret i32 0
+}
+
+; Function Attrs: nounwind ssp uwtable
+define hidden noundef i32 @_sodium_blake2b_init_key(ptr noundef %S, i8 noundef zeroext %outlen, ptr noundef readonly %key, i8 noundef zeroext %keylen) local_unnamed_addr #1 {
+entry:
+  %P = alloca [1 x %struct.blake2b_param_], align 16
+  %block = alloca [128 x i8], align 16
+  %0 = add i8 %outlen, -65
+  %or.cond = icmp ult i8 %0, -64
+  br i1 %or.cond, label %if.then, label %if.end
+
+if.then:                                          ; preds = %entry
+  tail call void @sodium_misuse() #7
+  unreachable
+
+if.end:                                           ; preds = %entry
+  %tobool2 = icmp eq ptr %key, null
+  %1 = add i8 %keylen, -65
+  %2 = icmp ult i8 %1, -64
+  %or.cond2 = or i1 %tobool2, %2
+  br i1 %or.cond2, label %if.then9, label %if.end10
+
+if.then9:                                         ; preds = %if.end
+  tail call void @sodium_misuse() #7
+  unreachable
+
+if.end10:                                         ; preds = %if.end
+  store i8 %outlen, ptr %P, align 16
+  %key_length = getelementptr inbounds %struct.blake2b_param_, ptr %P, i64 0, i32 1
+  store i8 %keylen, ptr %key_length, align 1
+  %fanout = getelementptr inbounds %struct.blake2b_param_, ptr %P, i64 0, i32 2
+  store i8 1, ptr %fanout, align 2
+  %depth = getelementptr inbounds %struct.blake2b_param_, ptr %P, i64 0, i32 3
+  store i8 1, ptr %depth, align 1
+  %leaf_length = getelementptr inbounds %struct.blake2b_param_, ptr %P, i64 0, i32 4
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %leaf_length, i8 0, i64 60, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %S, ptr noundef nonnull align 16 dereferenceable(64) @blake2b_IV, i64 64, i1 false)
+  %t.i.i = getelementptr inbounds %struct.blake2b_state, ptr %S, i64 0, i32 1
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(297) %t.i.i, i8 0, i64 297, i1 false)
+  br label %for.body.i
+
+for.body.i:                                       ; preds = %for.body.i, %if.end10
+  %i.05.i = phi i64 [ 0, %if.end10 ], [ %inc.i, %for.body.i ]
+  %mul.i = shl nuw nsw i64 %i.05.i, 3
+  %add.ptr.i = getelementptr i8, ptr %P, i64 %mul.i
+  %add.ptr.val.i = load i64, ptr %add.ptr.i, align 8
+  %arrayidx.i = getelementptr [8 x i64], ptr %S, i64 0, i64 %i.05.i
+  %3 = load i64, ptr %arrayidx.i, align 1
+  %xor.i = xor i64 %3, %add.ptr.val.i
+  store i64 %xor.i, ptr %arrayidx.i, align 1
+  %inc.i = add nuw nsw i64 %i.05.i, 1
+  %exitcond.not.i = icmp eq i64 %inc.i, 8
+  br i1 %exitcond.not.i, label %_sodium_blake2b_init_param.exit, label %for.body.i, !llvm.loop !5
+
+_sodium_blake2b_init_param.exit:                  ; preds = %for.body.i
+  %conv33 = zext i8 %keylen to i64
+  %4 = icmp slt i8 %keylen, 0
+  %5 = sub nsw i64 128, %conv33
+  %6 = select i1 %4, i64 0, i64 %5
+  %7 = getelementptr i8, ptr %block, i64 %conv33
+  call void @llvm.memset.p0.i64(ptr align 1 %7, i8 0, i64 %6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %block, ptr align 1 %key, i64 %conv33, i1 false)
+  %buflen.i = getelementptr inbounds %struct.blake2b_state, ptr %S, i64 0, i32 4
+  %buf15.i = getelementptr inbounds %struct.blake2b_state, ptr %S, i64 0, i32 3
+  %arrayidx.i.i = getelementptr %struct.blake2b_state, ptr %S, i64 0, i32 1, i64 1
+  %add.ptr10.i = getelementptr %struct.blake2b_state, ptr %S, i64 0, i32 3, i64 128
+  %.pre.i = load i64, ptr %buflen.i, align 1
+  br label %while.body.i
+
+while.body.i:                                     ; preds = %if.end.i, %_sodium_blake2b_init_param.exit
+  %8 = phi i64 [ %.pre.i, %_sodium_blake2b_init_param.exit ], [ %sub12.i, %if.end.i ]
+  %in.addr.029.i = phi ptr [ %block, %_sodium_blake2b_init_param.exit ], [ %in.addr.1.i, %if.end.i ]
+  %inlen.addr.028.i = phi i64 [ 128, %_sodium_blake2b_init_param.exit ], [ %sub14.i, %if.end.i ]
+  %sub.i = sub i64 256, %8
+  %cmp1.i = icmp ugt i64 %inlen.addr.028.i, %sub.i
+  %add.ptr.i11 = getelementptr i8, ptr %buf15.i, i64 %8
+  br i1 %cmp1.i, label %if.end.i, label %if.end.thread.i
+
+if.end.thread.i:                                  ; preds = %while.body.i
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr.i11, ptr noundef nonnull align 1 dereferenceable(1) %in.addr.029.i, i64 %inlen.addr.028.i, i1 false)
+  %9 = load i64, ptr %buflen.i, align 1
+  %add19.i = add i64 %9, %inlen.addr.028.i
+  store i64 %add19.i, ptr %buflen.i, align 1
+  br label %_sodium_blake2b_update.exit
+
+if.end.i:                                         ; preds = %while.body.i
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i11, ptr align 1 %in.addr.029.i, i64 %sub.i, i1 false)
+  %10 = load i64, ptr %buflen.i, align 1
+  %add.i = add i64 %10, %sub.i
+  store i64 %add.i, ptr %buflen.i, align 1
+  %11 = load i64, ptr %arrayidx.i.i, align 1
+  %conv.i.i = zext i64 %11 to i128
+  %shl.i.i = shl nuw i128 %conv.i.i, 64
+  %12 = load i64, ptr %t.i.i, align 1
+  %conv4.i.i = zext i64 %12 to i128
+  %or.i.i = or disjoint i128 %shl.i.i, %conv4.i.i
+  %add.i.i = add i128 %or.i.i, 128
+  %conv6.i.i = trunc i128 %add.i.i to i64
+  store i64 %conv6.i.i, ptr %t.i.i, align 1
+  %shr9.i.i = lshr i128 %add.i.i, 64
+  %conv10.i.i = trunc i128 %shr9.i.i to i64
+  store i64 %conv10.i.i, ptr %arrayidx.i.i, align 1
+  %13 = load ptr, ptr @blake2b_compress, align 8
+  %call5.i = tail call i32 %13(ptr noundef nonnull %S, ptr noundef nonnull %buf15.i) #8, !callees !7
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(128) %buf15.i, ptr noundef nonnull align 1 dereferenceable(128) %add.ptr10.i, i64 128, i1 false)
+  %14 = load i64, ptr %buflen.i, align 1
+  %sub12.i = add i64 %14, -128
+  %sub14.i = sub i64 %inlen.addr.028.i, %sub.i
+  store i64 %sub12.i, ptr %buflen.i, align 1
+  %in.addr.1.i = getelementptr i8, ptr %in.addr.029.i, i64 %sub.i
+  %cmp.not.i = icmp eq i64 %sub14.i, 0
+  br i1 %cmp.not.i, label %_sodium_blake2b_update.exit, label %while.body.i, !llvm.loop !8
+
+_sodium_blake2b_update.exit:                      ; preds = %if.end.i, %if.end.thread.i
+  call void @sodium_memzero(ptr noundef nonnull %block, i64 noundef 128) #8
+  ret i32 0
+}
+
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+
+; Function Attrs: nounwind ssp uwtable
+define hidden noundef i32 @_sodium_blake2b_update(ptr noundef %S, ptr nocapture noundef readonly %in, i64 noundef %inlen) local_unnamed_addr #1 {
+entry:
+  %cmp.not27 = icmp eq i64 %inlen, 0
+  br i1 %cmp.not27, label %while.end, label %while.body.lr.ph
+
+while.body.lr.ph:                                 ; preds = %entry
+  %buflen = getelementptr inbounds %struct.blake2b_state, ptr %S, i64 0, i32 4
+  %buf15 = getelementptr inbounds %struct.blake2b_state, ptr %S, i64 0, i32 3
+  %t1.i = getelementptr inbounds %struct.blake2b_state, ptr %S, i64 0, i32 1
+  %arrayidx.i = getelementptr %struct.blake2b_state, ptr %S, i64 0, i32 1, i64 1
+  %add.ptr10 = getelementptr %struct.blake2b_state, ptr %S, i64 0, i32 3, i64 128
+  %.pre = load i64, ptr %buflen, align 1
+  br label %while.body
+
+while.body:                                       ; preds = %while.body.lr.ph, %if.end
+  %0 = phi i64 [ %.pre, %while.body.lr.ph ], [ %sub12, %if.end ]
+  %in.addr.029 = phi ptr [ %in, %while.body.lr.ph ], [ %in.addr.1, %if.end ]
+  %inlen.addr.028 = phi i64 [ %inlen, %while.body.lr.ph ], [ %sub14, %if.end ]
+  %sub = sub i64 256, %0
+  %cmp1 = icmp ugt i64 %inlen.addr.028, %sub
+  %add.ptr = getelementptr i8, ptr %buf15, i64 %0
+  br i1 %cmp1, label %if.end, label %if.end.thread
+
+if.end.thread:                                    ; preds = %while.body
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr, ptr align 1 %in.addr.029, i64 %inlen.addr.028, i1 false)
+  %1 = load i64, ptr %buflen, align 1
+  %add19 = add i64 %1, %inlen.addr.028
+  store i64 %add19, ptr %buflen, align 1
+  br label %while.end
+
+if.end:                                           ; preds = %while.body
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr, ptr align 1 %in.addr.029, i64 %sub, i1 false)
+  %2 = load i64, ptr %buflen, align 1
+  %add = add i64 %2, %sub
+  store i64 %add, ptr %buflen, align 1
+  %3 = load i64, ptr %arrayidx.i, align 1
+  %conv.i = zext i64 %3 to i128
+  %shl.i = shl nuw i128 %conv.i, 64
+  %4 = load i64, ptr %t1.i, align 1
+  %conv4.i = zext i64 %4 to i128
+  %or.i = or disjoint i128 %shl.i, %conv4.i
+  %add.i = add i128 %or.i, 128
+  %conv6.i = trunc i128 %add.i to i64
+  store i64 %conv6.i, ptr %t1.i, align 1
+  %shr9.i = lshr i128 %add.i, 64
+  %conv10.i = trunc i128 %shr9.i to i64
+  store i64 %conv10.i, ptr %arrayidx.i, align 1
+  %5 = load ptr, ptr @blake2b_compress, align 8
+  %call5 = tail call i32 %5(ptr noundef nonnull %S, ptr noundef nonnull %buf15) #8, !callees !7
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(128) %buf15, ptr noundef nonnull align 1 dereferenceable(128) %add.ptr10, i64 128, i1 false)
+  %6 = load i64, ptr %buflen, align 1
+  %sub12 = add i64 %6, -128
+  %sub14 = sub i64 %inlen.addr.028, %sub
+  store i64 %sub12, ptr %buflen, align 1
+  %in.addr.1 = getelementptr i8, ptr %in.addr.029, i64 %sub
+  %cmp.not = icmp eq i64 %sub14, 0
+  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !8
+
+while.end:                                        ; preds = %if.end, %if.end.thread, %entry
+  ret i32 0
+}
+
+declare void @sodium_memzero(ptr noundef, i64 noundef) local_unnamed_addr #5
+
+; Function Attrs: nounwind ssp uwtable
+define hidden noundef i32 @_sodium_blake2b_init_key_salt_personal(ptr noundef %S, i8 noundef zeroext %outlen, ptr noundef readonly %key, i8 noundef zeroext %keylen, ptr noundef readonly %salt, ptr noundef readonly %personal) local_unnamed_addr #1 {
+entry:
+  %P = alloca [1 x %struct.blake2b_param_], align 16
+  %block = alloca [128 x i8], align 16
+  %0 = add i8 %outlen, -65
+  %or.cond = icmp ult i8 %0, -64
+  br i1 %or.cond, label %if.then, label %if.end
+
+if.then:                                          ; preds = %entry
+  tail call void @sodium_misuse() #7
+  unreachable
+
+if.end:                                           ; preds = %entry
+  %tobool2 = icmp eq ptr %key, null
+  %1 = add i8 %keylen, -65
+  %2 = icmp ult i8 %1, -64
+  %or.cond2 = or i1 %tobool2, %2
+  br i1 %or.cond2, label %if.then9, label %if.end10
+
+if.then9:                                         ; preds = %if.end
+  tail call void @sodium_misuse() #7
+  unreachable
+
+if.end10:                                         ; preds = %if.end
+  store i8 %outlen, ptr %P, align 16
+  %key_length = getelementptr inbounds %struct.blake2b_param_, ptr %P, i64 0, i32 1
+  store i8 %keylen, ptr %key_length, align 1
+  %fanout = getelementptr inbounds %struct.blake2b_param_, ptr %P, i64 0, i32 2
+  store i8 1, ptr %fanout, align 2
+  %depth = getelementptr inbounds %struct.blake2b_param_, ptr %P, i64 0, i32 3
+  store i8 1, ptr %depth, align 1
+  %leaf_length = getelementptr inbounds %struct.blake2b_param_, ptr %P, i64 0, i32 4
+  %cmp22.not = icmp eq ptr %salt, null
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %leaf_length, i8 0, i64 28, i1 false)
+  %salt27 = getelementptr inbounds %struct.blake2b_param_, ptr %P, i64 0, i32 9
+  br i1 %cmp22.not, label %if.else, label %if.then24
+
+if.then24:                                        ; preds = %if.end10
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %salt27, ptr noundef nonnull align 1 dereferenceable(16) %salt, i64 16, i1 false)
+  br label %if.end29
+
+if.else:                                          ; preds = %if.end10
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %salt27, i8 0, i64 16, i1 false)
+  br label %if.end29
+
+if.end29:                                         ; preds = %if.else, %if.then24
+  %cmp30.not = icmp eq ptr %personal, null
+  %personal37 = getelementptr inbounds %struct.blake2b_param_, ptr %P, i64 0, i32 10
+  br i1 %cmp30.not, label %if.else35, label %if.then32
+
+if.then32:                                        ; preds = %if.end29
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %personal37, ptr noundef nonnull align 1 dereferenceable(16) %personal, i64 16, i1 false)
+  br label %if.end39
+
+if.else35:                                        ; preds = %if.end29
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %personal37, i8 0, i64 16, i1 false)
+  br label %if.end39
+
+if.end39:                                         ; preds = %if.else35, %if.then32
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %S, ptr noundef nonnull align 16 dereferenceable(64) @blake2b_IV, i64 64, i1 false)
+  %t.i.i = getelementptr inbounds %struct.blake2b_state, ptr %S, i64 0, i32 1
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(297) %t.i.i, i8 0, i64 297, i1 false)
+  br label %for.body.i
+
+for.body.i:                                       ; preds = %for.body.i, %if.end39
+  %i.05.i = phi i64 [ 0, %if.end39 ], [ %inc.i, %for.body.i ]
+  %mul.i = shl nuw nsw i64 %i.05.i, 3
+  %add.ptr.i = getelementptr i8, ptr %P, i64 %mul.i
+  %add.ptr.val.i = load i64, ptr %add.ptr.i, align 8
+  %arrayidx.i = getelementptr [8 x i64], ptr %S, i64 0, i64 %i.05.i
+  %3 = load i64, ptr %arrayidx.i, align 1
+  %xor.i = xor i64 %3, %add.ptr.val.i
+  store i64 %xor.i, ptr %arrayidx.i, align 1
+  %inc.i = add nuw nsw i64 %i.05.i, 1
+  %exitcond.not.i = icmp eq i64 %inc.i, 8
+  br i1 %exitcond.not.i, label %_sodium_blake2b_init_param.exit, label %for.body.i, !llvm.loop !5
+
+_sodium_blake2b_init_param.exit:                  ; preds = %for.body.i
+  %conv48 = zext i8 %keylen to i64
+  %4 = icmp slt i8 %keylen, 0
+  %5 = sub nsw i64 128, %conv48
+  %6 = select i1 %4, i64 0, i64 %5
+  %7 = getelementptr i8, ptr %block, i64 %conv48
+  call void @llvm.memset.p0.i64(ptr align 1 %7, i8 0, i64 %6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %block, ptr align 1 %key, i64 %conv48, i1 false)
+  %buflen.i = getelementptr inbounds %struct.blake2b_state, ptr %S, i64 0, i32 4
+  %buf15.i = getelementptr inbounds %struct.blake2b_state, ptr %S, i64 0, i32 3
+  %arrayidx.i.i = getelementptr %struct.blake2b_state, ptr %S, i64 0, i32 1, i64 1
+  %add.ptr10.i = getelementptr %struct.blake2b_state, ptr %S, i64 0, i32 3, i64 128
+  %.pre.i = load i64, ptr %buflen.i, align 1
+  br label %while.body.i
+
+while.body.i:                                     ; preds = %if.end.i, %_sodium_blake2b_init_param.exit
+  %8 = phi i64 [ %.pre.i, %_sodium_blake2b_init_param.exit ], [ %sub12.i, %if.end.i ]
+  %in.addr.029.i = phi ptr [ %block, %_sodium_blake2b_init_param.exit ], [ %in.addr.1.i, %if.end.i ]
+  %inlen.addr.028.i = phi i64 [ 128, %_sodium_blake2b_init_param.exit ], [ %sub14.i, %if.end.i ]
+  %sub.i = sub i64 256, %8
+  %cmp1.i = icmp ugt i64 %inlen.addr.028.i, %sub.i
+  %add.ptr.i13 = getelementptr i8, ptr %buf15.i, i64 %8
+  br i1 %cmp1.i, label %if.end.i, label %if.end.thread.i
+
+if.end.thread.i:                                  ; preds = %while.body.i
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr.i13, ptr noundef nonnull align 1 dereferenceable(1) %in.addr.029.i, i64 %inlen.addr.028.i, i1 false)
+  %9 = load i64, ptr %buflen.i, align 1
+  %add19.i = add i64 %9, %inlen.addr.028.i
+  store i64 %add19.i, ptr %buflen.i, align 1
+  br label %_sodium_blake2b_update.exit
+
+if.end.i:                                         ; preds = %while.body.i
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i13, ptr align 1 %in.addr.029.i, i64 %sub.i, i1 false)
+  %10 = load i64, ptr %buflen.i, align 1
+  %add.i = add i64 %10, %sub.i
+  store i64 %add.i, ptr %buflen.i, align 1
+  %11 = load i64, ptr %arrayidx.i.i, align 1
+  %conv.i.i = zext i64 %11 to i128
+  %shl.i.i = shl nuw i128 %conv.i.i, 64
+  %12 = load i64, ptr %t.i.i, align 1
+  %conv4.i.i = zext i64 %12 to i128
+  %or.i.i = or disjoint i128 %shl.i.i, %conv4.i.i
+  %add.i.i = add i128 %or.i.i, 128
+  %conv6.i.i = trunc i128 %add.i.i to i64
+  store i64 %conv6.i.i, ptr %t.i.i, align 1
+  %shr9.i.i = lshr i128 %add.i.i, 64
+  %conv10.i.i = trunc i128 %shr9.i.i to i64
+  store i64 %conv10.i.i, ptr %arrayidx.i.i, align 1
+  %13 = load ptr, ptr @blake2b_compress, align 8
+  %call5.i = tail call i32 %13(ptr noundef nonnull %S, ptr noundef nonnull %buf15.i) #8, !callees !7
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(128) %buf15.i, ptr noundef nonnull align 1 dereferenceable(128) %add.ptr10.i, i64 128, i1 false)
+  %14 = load i64, ptr %buflen.i, align 1
+  %sub12.i = add i64 %14, -128
+  %sub14.i = sub i64 %inlen.addr.028.i, %sub.i
+  store i64 %sub12.i, ptr %buflen.i, align 1
+  %in.addr.1.i = getelementptr i8, ptr %in.addr.029.i, i64 %sub.i
+  %cmp.not.i = icmp eq i64 %sub14.i, 0
+  br i1 %cmp.not.i, label %_sodium_blake2b_update.exit, label %while.body.i, !llvm.loop !8
+
+_sodium_blake2b_update.exit:                      ; preds = %if.end.i, %if.end.thread.i
+  call void @sodium_memzero(ptr noundef nonnull %block, i64 noundef 128) #8
+  ret i32 0
+}
+
+; Function Attrs: nounwind ssp uwtable
+define hidden noundef i32 @_sodium_blake2b_final(ptr noundef %S, ptr nocapture noundef writeonly %out, i8 noundef zeroext %outlen) local_unnamed_addr #1 {
+entry:
+  %buffer = alloca [64 x i8], align 16
+  %0 = add i8 %outlen, -65
+  %or.cond = icmp ult i8 %0, -64
+  br i1 %or.cond, label %if.then, label %if.end
+
+if.then:                                          ; preds = %entry
+  tail call void @sodium_misuse() #7
+  unreachable
+
+if.end:                                           ; preds = %entry
+  %1 = getelementptr i8, ptr %S, i64 80
+  %S.val = load i64, ptr %1, align 1
+  %cmp.i.not = icmp eq i64 %S.val, 0
+  br i1 %cmp.i.not, label %if.end4, label %return
+
+if.end4:                                          ; preds = %if.end
+  %buflen = getelementptr inbounds %struct.blake2b_state, ptr %S, i64 0, i32 4
+  %2 = load i64, ptr %buflen, align 1
+  %cmp5 = icmp ugt i64 %2, 128
+  br i1 %cmp5, label %if.then7, label %if.end16
+
+if.then7:                                         ; preds = %if.end4
+  %t1.i = getelementptr inbounds %struct.blake2b_state, ptr %S, i64 0, i32 1
+  %arrayidx.i = getelementptr %struct.blake2b_state, ptr %S, i64 0, i32 1, i64 1
+  %3 = load i64, ptr %arrayidx.i, align 1
+  %conv.i29 = zext i64 %3 to i128
+  %shl.i = shl nuw i128 %conv.i29, 64
+  %4 = load i64, ptr %t1.i, align 1
+  %conv4.i = zext i64 %4 to i128
+  %or.i = or disjoint i128 %shl.i, %conv4.i
+  %add.i = add i128 %or.i, 128
+  %conv6.i = trunc i128 %add.i to i64
+  store i64 %conv6.i, ptr %t1.i, align 1
+  %shr9.i = lshr i128 %add.i, 64
+  %conv10.i = trunc i128 %shr9.i to i64
+  store i64 %conv10.i, ptr %arrayidx.i, align 1
+  %5 = load ptr, ptr @blake2b_compress, align 8
+  %buf = getelementptr inbounds %struct.blake2b_state, ptr %S, i64 0, i32 3
+  %call9 = tail call i32 %5(ptr noundef nonnull %S, ptr noundef nonnull %buf) #8, !callees !7
+  %6 = load i64, ptr %buflen, align 1
+  %sub = add i64 %6, -128
+  store i64 %sub, ptr %buflen, align 1
+  %add.ptr = getelementptr %struct.blake2b_state, ptr %S, i64 0, i32 3, i64 128
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %buf, ptr align 1 %add.ptr, i64 %sub, i1 false)
+  %.pre = load i64, ptr %buflen, align 1
+  br label %if.end16
+
+if.end16:                                         ; preds = %if.then7, %if.end4
+  %7 = phi i64 [ %.pre, %if.then7 ], [ %2, %if.end4 ]
+  %t1.i30 = getelementptr inbounds %struct.blake2b_state, ptr %S, i64 0, i32 1
+  %arrayidx.i31 = getelementptr %struct.blake2b_state, ptr %S, i64 0, i32 1, i64 1
+  %8 = load i64, ptr %arrayidx.i31, align 1
+  %conv.i32 = zext i64 %8 to i128
+  %shl.i33 = shl nuw i128 %conv.i32, 64
+  %9 = load i64, ptr %t1.i30, align 1
+  %conv4.i34 = zext i64 %9 to i128
+  %or.i35 = or disjoint i128 %shl.i33, %conv4.i34
+  %conv5.i = zext i64 %7 to i128
+  %add.i36 = add i128 %or.i35, %conv5.i
+  %conv6.i37 = trunc i128 %add.i36 to i64
+  store i64 %conv6.i37, ptr %t1.i30, align 1
+  %shr9.i38 = lshr i128 %add.i36, 64
+  %conv10.i39 = trunc i128 %shr9.i38 to i64
+  store i64 %conv10.i39, ptr %arrayidx.i31, align 1
+  %last_node.i = getelementptr inbounds %struct.blake2b_state, ptr %S, i64 0, i32 5
+  %10 = load i8, ptr %last_node.i, align 1
+  %tobool.not.i = icmp eq i8 %10, 0
+  br i1 %tobool.not.i, label %blake2b_set_lastblock.exit, label %if.then.i
+
+if.then.i:                                        ; preds = %if.end16
+  %arrayidx.i.i = getelementptr %struct.blake2b_state, ptr %S, i64 0, i32 2, i64 1
+  store i64 -1, ptr %arrayidx.i.i, align 1
+  br label %blake2b_set_lastblock.exit
+
+blake2b_set_lastblock.exit:                       ; preds = %if.end16, %if.then.i
+  store i64 -1, ptr %1, align 1
+  %buf20 = getelementptr inbounds %struct.blake2b_state, ptr %S, i64 0, i32 3
+  %add.ptr23 = getelementptr i8, ptr %buf20, i64 %7
+  %sub25 = sub i64 256, %7
+  tail call void @llvm.memset.p0.i64(ptr align 1 %add.ptr23, i8 0, i64 %sub25, i1 false)
+  %11 = load ptr, ptr @blake2b_compress, align 8
+  %call28 = tail call i32 %11(ptr noundef nonnull %S, ptr noundef nonnull %buf20) #8, !callees !7
+  %12 = load <2 x i64>, ptr %S, align 1
+  store <2 x i64> %12, ptr %buffer, align 16
+  %arrayidx38 = getelementptr [8 x i64], ptr %S, i64 0, i64 2
+  %13 = load <2 x i64>, ptr %arrayidx38, align 1
+  %buffer.16.buffer.16.buffer.16.add.ptr36.sroa_idx = getelementptr inbounds i8, ptr %buffer, i64 16
+  store <2 x i64> %13, ptr %buffer.16.buffer.16.buffer.16.add.ptr36.sroa_idx, align 16
+  %arrayidx46 = getelementptr [8 x i64], ptr %S, i64 0, i64 4
+  %14 = load <2 x i64>, ptr %arrayidx46, align 1
+  %buffer.32.buffer.32.buffer.32.add.ptr44.sroa_idx = getelementptr inbounds i8, ptr %buffer, i64 32
+  store <2 x i64> %14, ptr %buffer.32.buffer.32.buffer.32.add.ptr44.sroa_idx, align 16
+  %arrayidx54 = getelementptr [8 x i64], ptr %S, i64 0, i64 6
+  %15 = load <2 x i64>, ptr %arrayidx54, align 1
+  %buffer.48.buffer.48.buffer.48.add.ptr52.sroa_idx = getelementptr inbounds i8, ptr %buffer, i64 48
+  store <2 x i64> %15, ptr %buffer.48.buffer.48.buffer.48.add.ptr52.sroa_idx, align 16
+  %conv60 = zext nneg i8 %outlen to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %out, ptr nonnull align 16 %buffer, i64 %conv60, i1 false)
+  tail call void @sodium_memzero(ptr noundef nonnull %S, i64 noundef 64) #8
+  tail call void @sodium_memzero(ptr noundef nonnull %buf20, i64 noundef 256) #8
+  br label %return
+
+return:                                           ; preds = %if.end, %blake2b_set_lastblock.exit
+  %retval.0 = phi i32 [ 0, %blake2b_set_lastblock.exit ], [ -1, %if.end ]
+  ret i32 %retval.0
+}
+
+; Function Attrs: nounwind ssp uwtable
+define hidden noundef i32 @_sodium_blake2b(ptr noundef writeonly %out, ptr noundef readonly %in, ptr noundef %key, i8 noundef zeroext %outlen, i64 noundef %inlen, i8 noundef zeroext %keylen) local_unnamed_addr #1 {
+entry:
+  %P.i = alloca [1 x %struct.blake2b_param_], align 16
+  %S = alloca [1 x %struct.blake2b_state], align 64
+  %cmp = icmp eq ptr %in, null
+  %cmp1 = icmp ne i64 %inlen, 0
+  %or.cond = and i1 %cmp, %cmp1
+  br i1 %or.cond, label %if.then, label %if.end
+
+if.then:                                          ; preds = %entry
+  tail call void @sodium_misuse() #7
+  unreachable
+
+if.end:                                           ; preds = %entry
+  %cmp2 = icmp eq ptr %out, null
+  br i1 %cmp2, label %if.then3, label %if.end4
+
+if.then3:                                         ; preds = %if.end
+  tail call void @sodium_misuse() #7
+  unreachable
+
+if.end4:                                          ; preds = %if.end
+  %0 = add i8 %outlen, -65
+  %or.cond1 = icmp ult i8 %0, -64
+  br i1 %or.cond1, label %if.then7, label %if.end8
+
+if.then7:                                         ; preds = %if.end4
+  tail call void @sodium_misuse() #7
+  unreachable
+
+if.end8:                                          ; preds = %if.end4
+  %cmp9 = icmp eq ptr %key, null
+  %cmp13 = icmp ne i8 %keylen, 0
+  %or.cond2 = and i1 %cmp9, %cmp13
+  br i1 %or.cond2, label %if.then15, label %if.end16
+
+if.then15:                                        ; preds = %if.end8
+  tail call void @sodium_misuse() #7
+  unreachable
+
+if.end16:                                         ; preds = %if.end8
+  %cmp18 = icmp ugt i8 %keylen, 64
+  br i1 %cmp18, label %if.then20, label %if.end21
+
+if.then20:                                        ; preds = %if.end16
+  tail call void @sodium_misuse() #7
+  unreachable
+
+if.end21:                                         ; preds = %if.end16
+  br i1 %cmp13, label %if.then25, label %if.end.i
+
+if.then25:                                        ; preds = %if.end21
+  %call = call i32 @_sodium_blake2b_init_key(ptr noundef nonnull %S, i8 noundef zeroext %outlen, ptr noundef %key, i8 noundef zeroext %keylen)
+  br label %if.end36
+
+if.end.i:                                         ; preds = %if.end21
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %P.i)
+  store i8 %outlen, ptr %P.i, align 16
+  %key_length.i = getelementptr inbounds %struct.blake2b_param_, ptr %P.i, i64 0, i32 1
+  store i8 0, ptr %key_length.i, align 1
+  %fanout.i = getelementptr inbounds %struct.blake2b_param_, ptr %P.i, i64 0, i32 2
+  store i8 1, ptr %fanout.i, align 2
+  %depth.i = getelementptr inbounds %struct.blake2b_param_, ptr %P.i, i64 0, i32 3
+  store i8 1, ptr %depth.i, align 1
+  %leaf_length.i = getelementptr inbounds %struct.blake2b_param_, ptr %P.i, i64 0, i32 4
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %leaf_length.i, i8 0, i64 60, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(64) %S, ptr noundef nonnull align 16 dereferenceable(64) @blake2b_IV, i64 64, i1 false)
+  %t.i.i.i = getelementptr inbounds %struct.blake2b_state, ptr %S, i64 0, i32 1
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(297) %t.i.i.i, i8 0, i64 297, i1 false)
+  br label %for.body.i.i
+
+for.body.i.i:                                     ; preds = %for.body.i.i, %if.end.i
+  %i.05.i.i = phi i64 [ 0, %if.end.i ], [ %inc.i.i, %for.body.i.i ]
+  %mul.i.i = shl nuw nsw i64 %i.05.i.i, 3
+  %add.ptr.i.i = getelementptr i8, ptr %P.i, i64 %mul.i.i
+  %add.ptr.val.i.i = load i64, ptr %add.ptr.i.i, align 8
+  %arrayidx.i.i = getelementptr [8 x i64], ptr %S, i64 0, i64 %i.05.i.i
+  %1 = load i64, ptr %arrayidx.i.i, align 8
+  %xor.i.i = xor i64 %1, %add.ptr.val.i.i
+  store i64 %xor.i.i, ptr %arrayidx.i.i, align 8
+  %inc.i.i = add nuw nsw i64 %i.05.i.i, 1
+  %exitcond.not.i.i = icmp eq i64 %inc.i.i, 8
+  br i1 %exitcond.not.i.i, label %_sodium_blake2b_init.exit, label %for.body.i.i, !llvm.loop !5
+
+_sodium_blake2b_init.exit:                        ; preds = %for.body.i.i
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %P.i)
+  br label %if.end36
+
+if.end36:                                         ; preds = %_sodium_blake2b_init.exit, %if.then25
+  %cmp.not27.i = icmp eq i64 %inlen, 0
+  br i1 %cmp.not27.i, label %_sodium_blake2b_update.exit, label %while.body.lr.ph.i
+
+while.body.lr.ph.i:                               ; preds = %if.end36
+  %buflen.i = getelementptr inbounds %struct.blake2b_state, ptr %S, i64 0, i32 4
+  %buf15.i = getelementptr inbounds %struct.blake2b_state, ptr %S, i64 0, i32 3
+  %t1.i.i = getelementptr inbounds %struct.blake2b_state, ptr %S, i64 0, i32 1
+  %arrayidx.i.i14 = getelementptr inbounds %struct.blake2b_state, ptr %S, i64 0, i32 1, i64 1
+  %add.ptr10.i = getelementptr inbounds %struct.blake2b_state, ptr %S, i64 0, i32 3, i64 128
+  %.pre.i = load i64, ptr %buflen.i, align 32
+  br label %while.body.i
+
+while.body.i:                                     ; preds = %if.end.i15, %while.body.lr.ph.i
+  %2 = phi i64 [ %.pre.i, %while.body.lr.ph.i ], [ %sub12.i, %if.end.i15 ]
+  %in.addr.029.i = phi ptr [ %in, %while.body.lr.ph.i ], [ %in.addr.1.i, %if.end.i15 ]
+  %inlen.addr.028.i = phi i64 [ %inlen, %while.body.lr.ph.i ], [ %sub14.i, %if.end.i15 ]
+  %sub.i = sub i64 256, %2
+  %cmp1.i = icmp ugt i64 %inlen.addr.028.i, %sub.i
+  %add.ptr.i = getelementptr i8, ptr %buf15.i, i64 %2
+  br i1 %cmp1.i, label %if.end.i15, label %if.end.thread.i
+
+if.end.thread.i:                                  ; preds = %while.body.i
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i, ptr align 1 %in.addr.029.i, i64 %inlen.addr.028.i, i1 false)
+  %3 = load i64, ptr %buflen.i, align 32
+  %add19.i = add i64 %3, %inlen.addr.028.i
+  store i64 %add19.i, ptr %buflen.i, align 32
+  br label %_sodium_blake2b_update.exit
+
+if.end.i15:                                       ; preds = %while.body.i
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i, ptr align 1 %in.addr.029.i, i64 %sub.i, i1 false)
+  %4 = load i64, ptr %buflen.i, align 32
+  %add.i = add i64 %4, %sub.i
+  store i64 %add.i, ptr %buflen.i, align 32
+  %5 = load i64, ptr %arrayidx.i.i14, align 8
+  %conv.i.i = zext i64 %5 to i128
+  %shl.i.i = shl nuw i128 %conv.i.i, 64
+  %6 = load i64, ptr %t1.i.i, align 64
+  %conv4.i.i = zext i64 %6 to i128
+  %or.i.i = or disjoint i128 %shl.i.i, %conv4.i.i
+  %add.i.i = add i128 %or.i.i, 128
+  %conv6.i.i = trunc i128 %add.i.i to i64
+  store i64 %conv6.i.i, ptr %t1.i.i, align 64
+  %shr9.i.i = lshr i128 %add.i.i, 64
+  %conv10.i.i = trunc i128 %shr9.i.i to i64
+  store i64 %conv10.i.i, ptr %arrayidx.i.i14, align 8
+  %7 = load ptr, ptr @blake2b_compress, align 8
+  %call5.i = call i32 %7(ptr noundef nonnull %S, ptr noundef nonnull %buf15.i) #8, !callees !7
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 32 dereferenceable(128) %buf15.i, ptr noundef nonnull align 32 dereferenceable(128) %add.ptr10.i, i64 128, i1 false)
+  %8 = load i64, ptr %buflen.i, align 32
+  %sub12.i = add i64 %8, -128
+  %sub14.i = sub i64 %inlen.addr.028.i, %sub.i
+  store i64 %sub12.i, ptr %buflen.i, align 32
+  %in.addr.1.i = getelementptr i8, ptr %in.addr.029.i, i64 %sub.i
+  %cmp.not.i = icmp eq i64 %sub14.i, 0
+  br i1 %cmp.not.i, label %_sodium_blake2b_update.exit, label %while.body.i, !llvm.loop !8
+
+_sodium_blake2b_update.exit:                      ; preds = %if.end.i15, %if.end36, %if.end.thread.i
+  %call40 = call i32 @_sodium_blake2b_final(ptr noundef nonnull %S, ptr noundef nonnull %out, i8 noundef zeroext %outlen), !range !9
+  ret i32 0
+}
+
+; Function Attrs: nounwind ssp uwtable
+define hidden noundef i32 @_sodium_blake2b_salt_personal(ptr noundef writeonly %out, ptr noundef readonly %in, ptr noundef %key, i8 noundef zeroext %outlen, i64 noundef %inlen, i8 noundef zeroext %keylen, ptr noundef %salt, ptr noundef %personal) local_unnamed_addr #1 {
+entry:
+  %P.i = alloca [1 x %struct.blake2b_param_], align 16
+  %S = alloca [1 x %struct.blake2b_state], align 64
+  %cmp = icmp eq ptr %in, null
+  %cmp1 = icmp ne i64 %inlen, 0
+  %or.cond = and i1 %cmp, %cmp1
+  br i1 %or.cond, label %if.then, label %if.end
+
+if.then:                                          ; preds = %entry
+  tail call void @sodium_misuse() #7
+  unreachable
+
+if.end:                                           ; preds = %entry
+  %cmp2 = icmp eq ptr %out, null
+  br i1 %cmp2, label %if.then3, label %if.end4
+
+if.then3:                                         ; preds = %if.end
+  tail call void @sodium_misuse() #7
+  unreachable
+
+if.end4:                                          ; preds = %if.end
+  %0 = add i8 %outlen, -65
+  %or.cond1 = icmp ult i8 %0, -64
+  br i1 %or.cond1, label %if.then7, label %if.end8
+
+if.then7:                                         ; preds = %if.end4
+  tail call void @sodium_misuse() #7
+  unreachable
+
+if.end8:                                          ; preds = %if.end4
+  %cmp9 = icmp eq ptr %key, null
+  %cmp13 = icmp ne i8 %keylen, 0
+  %or.cond2 = and i1 %cmp9, %cmp13
+  br i1 %or.cond2, label %if.then15, label %if.end16
+
+if.then15:                                        ; preds = %if.end8
+  tail call void @sodium_misuse() #7
+  unreachable
+
+if.end16:                                         ; preds = %if.end8
+  %cmp18 = icmp ugt i8 %keylen, 64
+  br i1 %cmp18, label %if.then20, label %if.end21
+
+if.then20:                                        ; preds = %if.end16
+  tail call void @sodium_misuse() #7
+  unreachable
+
+if.end21:                                         ; preds = %if.end16
+  br i1 %cmp13, label %if.then25, label %if.end.i
+
+if.then25:                                        ; preds = %if.end21
+  %call = call i32 @_sodium_blake2b_init_key_salt_personal(ptr noundef nonnull %S, i8 noundef zeroext %outlen, ptr noundef %key, i8 noundef zeroext %keylen, ptr noundef %salt, ptr noundef %personal)
+  br label %if.end36
+
+if.end.i:                                         ; preds = %if.end21
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %P.i)
+  store i8 %outlen, ptr %P.i, align 16
+  %key_length.i = getelementptr inbounds %struct.blake2b_param_, ptr %P.i, i64 0, i32 1
+  store i8 0, ptr %key_length.i, align 1
+  %fanout.i = getelementptr inbounds %struct.blake2b_param_, ptr %P.i, i64 0, i32 2
+  store i8 1, ptr %fanout.i, align 2
+  %depth.i = getelementptr inbounds %struct.blake2b_param_, ptr %P.i, i64 0, i32 3
+  store i8 1, ptr %depth.i, align 1
+  %leaf_length.i = getelementptr inbounds %struct.blake2b_param_, ptr %P.i, i64 0, i32 4
+  %cmp13.not.i = icmp eq ptr %salt, null
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %leaf_length.i, i8 0, i64 28, i1 false)
+  %salt18.i = getelementptr inbounds %struct.blake2b_param_, ptr %P.i, i64 0, i32 9
+  br i1 %cmp13.not.i, label %if.else.i, label %if.then15.i
+
+if.then15.i:                                      ; preds = %if.end.i
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %salt18.i, ptr noundef nonnull align 1 dereferenceable(16) %salt, i64 16, i1 false)
+  br label %if.end20.i
+
+if.else.i:                                        ; preds = %if.end.i
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %salt18.i, i8 0, i64 16, i1 false)
+  br label %if.end20.i
+
+if.end20.i:                                       ; preds = %if.else.i, %if.then15.i
+  %cmp21.not.i = icmp eq ptr %personal, null
+  %personal28.i = getelementptr inbounds %struct.blake2b_param_, ptr %P.i, i64 0, i32 10
+  br i1 %cmp21.not.i, label %if.else26.i, label %if.then23.i
+
+if.then23.i:                                      ; preds = %if.end20.i
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %personal28.i, ptr noundef nonnull align 1 dereferenceable(16) %personal, i64 16, i1 false)
+  br label %if.end30.i
+
+if.else26.i:                                      ; preds = %if.end20.i
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %personal28.i, i8 0, i64 16, i1 false)
+  br label %if.end30.i
+
+if.end30.i:                                       ; preds = %if.else26.i, %if.then23.i
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(64) %S, ptr noundef nonnull align 16 dereferenceable(64) @blake2b_IV, i64 64, i1 false)
+  %t.i.i.i = getelementptr inbounds %struct.blake2b_state, ptr %S, i64 0, i32 1
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(297) %t.i.i.i, i8 0, i64 297, i1 false)
+  br label %for.body.i.i
+
+for.body.i.i:                                     ; preds = %for.body.i.i, %if.end30.i
+  %i.05.i.i = phi i64 [ 0, %if.end30.i ], [ %inc.i.i, %for.body.i.i ]
+  %mul.i.i = shl nuw nsw i64 %i.05.i.i, 3
+  %add.ptr.i.i = getelementptr i8, ptr %P.i, i64 %mul.i.i
+  %add.ptr.val.i.i = load i64, ptr %add.ptr.i.i, align 8
+  %arrayidx.i.i = getelementptr [8 x i64], ptr %S, i64 0, i64 %i.05.i.i
+  %1 = load i64, ptr %arrayidx.i.i, align 8
+  %xor.i.i = xor i64 %1, %add.ptr.val.i.i
+  store i64 %xor.i.i, ptr %arrayidx.i.i, align 8
+  %inc.i.i = add nuw nsw i64 %i.05.i.i, 1
+  %exitcond.not.i.i = icmp eq i64 %inc.i.i, 8
+  br i1 %exitcond.not.i.i, label %_sodium_blake2b_init_salt_personal.exit, label %for.body.i.i, !llvm.loop !5
+
+_sodium_blake2b_init_salt_personal.exit:          ; preds = %for.body.i.i
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %P.i)
+  br label %if.end36
+
+if.end36:                                         ; preds = %_sodium_blake2b_init_salt_personal.exit, %if.then25
+  %cmp.not27.i = icmp eq i64 %inlen, 0
+  br i1 %cmp.not27.i, label %_sodium_blake2b_update.exit, label %while.body.lr.ph.i
+
+while.body.lr.ph.i:                               ; preds = %if.end36
+  %buflen.i = getelementptr inbounds %struct.blake2b_state, ptr %S, i64 0, i32 4
+  %buf15.i = getelementptr inbounds %struct.blake2b_state, ptr %S, i64 0, i32 3
+  %t1.i.i = getelementptr inbounds %struct.blake2b_state, ptr %S, i64 0, i32 1
+  %arrayidx.i.i16 = getelementptr inbounds %struct.blake2b_state, ptr %S, i64 0, i32 1, i64 1
+  %add.ptr10.i = getelementptr inbounds %struct.blake2b_state, ptr %S, i64 0, i32 3, i64 128
+  %.pre.i = load i64, ptr %buflen.i, align 32
+  br label %while.body.i
+
+while.body.i:                                     ; preds = %if.end.i17, %while.body.lr.ph.i
+  %2 = phi i64 [ %.pre.i, %while.body.lr.ph.i ], [ %sub12.i, %if.end.i17 ]
+  %in.addr.029.i = phi ptr [ %in, %while.body.lr.ph.i ], [ %in.addr.1.i, %if.end.i17 ]
+  %inlen.addr.028.i = phi i64 [ %inlen, %while.body.lr.ph.i ], [ %sub14.i, %if.end.i17 ]
+  %sub.i = sub i64 256, %2
+  %cmp1.i = icmp ugt i64 %inlen.addr.028.i, %sub.i
+  %add.ptr.i = getelementptr i8, ptr %buf15.i, i64 %2
+  br i1 %cmp1.i, label %if.end.i17, label %if.end.thread.i
+
+if.end.thread.i:                                  ; preds = %while.body.i
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i, ptr align 1 %in.addr.029.i, i64 %inlen.addr.028.i, i1 false)
+  %3 = load i64, ptr %buflen.i, align 32
+  %add19.i = add i64 %3, %inlen.addr.028.i
+  store i64 %add19.i, ptr %buflen.i, align 32
+  br label %_sodium_blake2b_update.exit
+
+if.end.i17:                                       ; preds = %while.body.i
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i, ptr align 1 %in.addr.029.i, i64 %sub.i, i1 false)
+  %4 = load i64, ptr %buflen.i, align 32
+  %add.i = add i64 %4, %sub.i
+  store i64 %add.i, ptr %buflen.i, align 32
+  %5 = load i64, ptr %arrayidx.i.i16, align 8
+  %conv.i.i = zext i64 %5 to i128
+  %shl.i.i = shl nuw i128 %conv.i.i, 64
+  %6 = load i64, ptr %t1.i.i, align 64
+  %conv4.i.i = zext i64 %6 to i128
+  %or.i.i = or disjoint i128 %shl.i.i, %conv4.i.i
+  %add.i.i = add i128 %or.i.i, 128
+  %conv6.i.i = trunc i128 %add.i.i to i64
+  store i64 %conv6.i.i, ptr %t1.i.i, align 64
+  %shr9.i.i = lshr i128 %add.i.i, 64
+  %conv10.i.i = trunc i128 %shr9.i.i to i64
+  store i64 %conv10.i.i, ptr %arrayidx.i.i16, align 8
+  %7 = load ptr, ptr @blake2b_compress, align 8
+  %call5.i = call i32 %7(ptr noundef nonnull %S, ptr noundef nonnull %buf15.i) #8, !callees !7
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 32 dereferenceable(128) %buf15.i, ptr noundef nonnull align 32 dereferenceable(128) %add.ptr10.i, i64 128, i1 false)
+  %8 = load i64, ptr %buflen.i, align 32
+  %sub12.i = add i64 %8, -128
+  %sub14.i = sub i64 %inlen.addr.028.i, %sub.i
+  store i64 %sub12.i, ptr %buflen.i, align 32
+  %in.addr.1.i = getelementptr i8, ptr %in.addr.029.i, i64 %sub.i
+  %cmp.not.i = icmp eq i64 %sub14.i, 0
+  br i1 %cmp.not.i, label %_sodium_blake2b_update.exit, label %while.body.i, !llvm.loop !8
+
+_sodium_blake2b_update.exit:                      ; preds = %if.end.i17, %if.end36, %if.end.thread.i
+  %call40 = call i32 @_sodium_blake2b_final(ptr noundef nonnull %S, ptr noundef nonnull %out, i8 noundef zeroext %outlen), !range !9
+  ret i32 0
+}
+
+; Function Attrs: nounwind ssp uwtable
+define hidden noundef i32 @_sodium_blake2b_pick_best_implementation() local_unnamed_addr #1 {
+entry:
+  %call = tail call i32 @sodium_runtime_has_avx2() #8
+  %tobool.not = icmp eq i32 %call, 0
+  br i1 %tobool.not, label %if.end, label %return
+
+if.end:                                           ; preds = %entry
+  %call1 = tail call i32 @sodium_runtime_has_sse41() #8
+  %tobool2.not = icmp eq i32 %call1, 0
+  br i1 %tobool2.not, label %if.end4, label %return
+
+if.end4:                                          ; preds = %if.end
+  %call5 = tail call i32 @sodium_runtime_has_ssse3() #8
+  %tobool6.not = icmp eq i32 %call5, 0
+  %_sodium_blake2b_compress_ref._sodium_blake2b_compress_ssse3 = select i1 %tobool6.not, ptr @_sodium_blake2b_compress_ref, ptr @_sodium_blake2b_compress_ssse3
+  br label %return
+
+return:                                           ; preds = %if.end4, %if.end, %entry
+  %_sodium_blake2b_compress_ref.sink = phi ptr [ @_sodium_blake2b_compress_avx2, %entry ], [ @_sodium_blake2b_compress_sse41, %if.end ], [ %_sodium_blake2b_compress_ref._sodium_blake2b_compress_ssse3, %if.end4 ]
+  store ptr %_sodium_blake2b_compress_ref.sink, ptr @blake2b_compress, align 8
+  ret i32 0
+}
+
+declare extern_weak i32 @sodium_runtime_has_avx2() local_unnamed_addr #5
+
+declare i32 @_sodium_blake2b_compress_avx2(ptr noundef, ptr noundef) #5
+
+declare extern_weak i32 @sodium_runtime_has_sse41() local_unnamed_addr #5
+
+declare i32 @_sodium_blake2b_compress_sse41(ptr noundef, ptr noundef) #5
+
+declare extern_weak i32 @sodium_runtime_has_ssse3() local_unnamed_addr #5
+
+declare i32 @_sodium_blake2b_compress_ssse3(ptr noundef, ptr noundef) #5
+
+declare i32 @_sodium_blake2b_compress_ref(ptr noundef, ptr noundef) #5
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
+
+attributes #0 = { nofree norecurse nosync nounwind ssp memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nounwind ssp uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #7 = { noreturn nounwind }
+attributes #8 = { nounwind }
+
+!llvm.module.flags = !{!0, !1, !2, !3, !4}
+
+!0 = !{i32 1, !"wchar_size", i32 4}
+!1 = !{i32 8, !"PIC Level", i32 2}
+!2 = !{i32 7, !"PIE Level", i32 2}
+!3 = !{i32 7, !"uwtable", i32 2}
+!4 = !{i32 7, !"frame-pointer", i32 2}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.mustprogress"}
+!7 = !{ptr @_sodium_blake2b_compress_avx2, ptr @_sodium_blake2b_compress_ref, ptr @_sodium_blake2b_compress_sse41, ptr @_sodium_blake2b_compress_ssse3}
+!8 = distinct !{!8, !6}
+!9 = !{i32 -1, i32 1}

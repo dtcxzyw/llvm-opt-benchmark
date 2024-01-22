@@ -1,0 +1,410 @@
+; ModuleID = 'bench/libzmq/original/raw_encoder.cpp.ll'
+source_filename = "bench/libzmq/original/raw_encoder.cpp.ll"
+target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
+target triple = "x86_64-unknown-linux-gnu"
+
+%"class.zmq::encoder_base_t" = type { %"struct.zmq::i_encoder", ptr, i64, { i64, i64 }, i8, i64, ptr, ptr }
+%"struct.zmq::i_encoder" = type { ptr }
+
+$_ZN3zmq14encoder_base_tINS_13raw_encoder_tEE6encodeEPPhm = comdat any
+
+$_ZN3zmq14encoder_base_tINS_13raw_encoder_tEE8load_msgEPNS_5msg_tE = comdat any
+
+$_ZN3zmq14encoder_base_tINS_13raw_encoder_tEED2Ev = comdat any
+
+$_ZN3zmq14encoder_base_tINS_13raw_encoder_tEED0Ev = comdat any
+
+$_ZTSN3zmq14encoder_base_tINS_13raw_encoder_tEEE = comdat any
+
+$_ZTSN3zmq9i_encoderE = comdat any
+
+$_ZTIN3zmq9i_encoderE = comdat any
+
+$_ZTIN3zmq14encoder_base_tINS_13raw_encoder_tEEE = comdat any
+
+$_ZTVN3zmq14encoder_base_tINS_13raw_encoder_tEEE = comdat any
+
+@_ZTVN3zmq13raw_encoder_tE = unnamed_addr constant { [6 x ptr] } { [6 x ptr] [ptr null, ptr @_ZTIN3zmq13raw_encoder_tE, ptr @_ZN3zmq13raw_encoder_tD1Ev, ptr @_ZN3zmq13raw_encoder_tD0Ev, ptr @_ZN3zmq14encoder_base_tINS_13raw_encoder_tEE6encodeEPPhm, ptr @_ZN3zmq14encoder_base_tINS_13raw_encoder_tEE8load_msgEPNS_5msg_tE] }, align 8
+@_ZTVN10__cxxabiv120__si_class_type_infoE = external global [0 x ptr]
+@_ZTSN3zmq13raw_encoder_tE = constant [22 x i8] c"N3zmq13raw_encoder_tE\00", align 1
+@_ZTSN3zmq14encoder_base_tINS_13raw_encoder_tEEE = linkonce_odr constant [44 x i8] c"N3zmq14encoder_base_tINS_13raw_encoder_tEEE\00", comdat, align 1
+@_ZTVN10__cxxabiv117__class_type_infoE = external global [0 x ptr]
+@_ZTSN3zmq9i_encoderE = linkonce_odr constant [17 x i8] c"N3zmq9i_encoderE\00", comdat, align 1
+@_ZTIN3zmq9i_encoderE = linkonce_odr constant { ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv117__class_type_infoE, i64 2), ptr @_ZTSN3zmq9i_encoderE }, comdat, align 8
+@_ZTIN3zmq14encoder_base_tINS_13raw_encoder_tEEE = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN3zmq14encoder_base_tINS_13raw_encoder_tEEE, ptr @_ZTIN3zmq9i_encoderE }, comdat, align 8
+@_ZTIN3zmq13raw_encoder_tE = constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN3zmq13raw_encoder_tE, ptr @_ZTIN3zmq14encoder_base_tINS_13raw_encoder_tEEE }, align 8
+@_ZTVN3zmq14encoder_base_tINS_13raw_encoder_tEEE = linkonce_odr unnamed_addr constant { [6 x ptr] } { [6 x ptr] [ptr null, ptr @_ZTIN3zmq14encoder_base_tINS_13raw_encoder_tEEE, ptr @_ZN3zmq14encoder_base_tINS_13raw_encoder_tEED2Ev, ptr @_ZN3zmq14encoder_base_tINS_13raw_encoder_tEED0Ev, ptr @_ZN3zmq14encoder_base_tINS_13raw_encoder_tEE6encodeEPPhm, ptr @_ZN3zmq14encoder_base_tINS_13raw_encoder_tEE8load_msgEPNS_5msg_tE] }, comdat, align 8
+@stderr = external local_unnamed_addr global ptr, align 8
+@.str = private unnamed_addr constant [36 x i8] c"FATAL ERROR: OUT OF MEMORY (%s:%d)\0A\00", align 1
+@.str.1 = private unnamed_addr constant [107 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/libzmq/libzmq/src/encoder.hpp\00", align 1
+@.str.2 = private unnamed_addr constant [27 x i8] c"FATAL ERROR: OUT OF MEMORY\00", align 1
+@.str.3 = private unnamed_addr constant [12 x i8] c"%s (%s:%d)\0A\00", align 1
+@.str.4 = private unnamed_addr constant [30 x i8] c"Assertion failed: %s (%s:%d)\0A\00", align 1
+@.str.5 = private unnamed_addr constant [23 x i8] c"in_progress () == NULL\00", align 1
+
+@_ZN3zmq13raw_encoder_tC1Em = unnamed_addr alias void (ptr, i64), ptr @_ZN3zmq13raw_encoder_tC2Em
+@_ZN3zmq13raw_encoder_tD1Ev = unnamed_addr alias void (ptr), ptr @_ZN3zmq13raw_encoder_tD2Ev
+
+; Function Attrs: mustprogress uwtable
+define void @_ZN3zmq13raw_encoder_tC2Em(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) %this, i64 noundef %bufsize_) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+entry:
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3zmq14encoder_base_tINS_13raw_encoder_tEEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  %_write_pos.i = getelementptr inbounds %"class.zmq::encoder_base_t", ptr %this, i64 0, i32 1
+  %_buf_size.i = getelementptr inbounds %"class.zmq::encoder_base_t", ptr %this, i64 0, i32 5
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(33) %_write_pos.i, i8 0, i64 33, i1 false)
+  store i64 %bufsize_, ptr %_buf_size.i, align 8
+  %_buf.i = getelementptr inbounds %"class.zmq::encoder_base_t", ptr %this, i64 0, i32 6
+  %call.i = tail call noalias ptr @malloc(i64 noundef %bufsize_) #13
+  store ptr %call.i, ptr %_buf.i, align 8
+  %_in_progress.i = getelementptr inbounds %"class.zmq::encoder_base_t", ptr %this, i64 0, i32 7
+  store ptr null, ptr %_in_progress.i, align 8
+  %tobool.not.i = icmp eq ptr %call.i, null
+  br i1 %tobool.not.i, label %if.then.i, label %_ZN3zmq14encoder_base_tINS_13raw_encoder_tEEC2Em.exit
+
+if.then.i:                                        ; preds = %entry
+  %0 = load ptr, ptr @stderr, align 8
+  %call3.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 39) #14
+  %1 = load ptr, ptr @stderr, align 8
+  %call5.i = tail call i32 @fflush(ptr noundef %1)
+  tail call void @_ZN3zmq9zmq_abortEPKc(ptr noundef nonnull @.str.2)
+  br label %_ZN3zmq14encoder_base_tINS_13raw_encoder_tEEC2Em.exit
+
+_ZN3zmq14encoder_base_tINS_13raw_encoder_tEEC2Em.exit: ; preds = %entry, %if.then.i
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3zmq13raw_encoder_tE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  %_next.i = getelementptr inbounds %"class.zmq::encoder_base_t", ptr %this, i64 0, i32 3
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_write_pos.i, i8 0, i64 16, i1 false)
+  store i64 ptrtoint (ptr @_ZN3zmq13raw_encoder_t17raw_message_readyEv to i64), ptr %_next.i, align 8
+  %_next.repack1.i = getelementptr inbounds %"class.zmq::encoder_base_t", ptr %this, i64 0, i32 3, i32 1
+  store i64 0, ptr %_next.repack1.i, align 8
+  %_new_msg_flag.i = getelementptr inbounds %"class.zmq::encoder_base_t", ptr %this, i64 0, i32 4
+  store i8 1, ptr %_new_msg_flag.i, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define void @_ZN3zmq13raw_encoder_t17raw_message_readyEv(ptr nocapture noundef nonnull align 8 dereferenceable(72) %this) #0 align 2 {
+entry:
+  %_in_progress.i = getelementptr inbounds %"class.zmq::encoder_base_t", ptr %this, i64 0, i32 7
+  %0 = load ptr, ptr %_in_progress.i, align 8
+  %call2 = tail call noundef ptr @_ZN3zmq5msg_t4dataEv(ptr noundef nonnull align 8 dereferenceable(64) %0)
+  %1 = load ptr, ptr %_in_progress.i, align 8
+  %call4 = tail call noundef i64 @_ZNK3zmq5msg_t4sizeEv(ptr noundef nonnull align 8 dereferenceable(64) %1)
+  %_write_pos.i = getelementptr inbounds %"class.zmq::encoder_base_t", ptr %this, i64 0, i32 1
+  store ptr %call2, ptr %_write_pos.i, align 8
+  %_to_write.i = getelementptr inbounds %"class.zmq::encoder_base_t", ptr %this, i64 0, i32 2
+  store i64 %call4, ptr %_to_write.i, align 8
+  %_next.i = getelementptr inbounds %"class.zmq::encoder_base_t", ptr %this, i64 0, i32 3
+  store i64 ptrtoint (ptr @_ZN3zmq13raw_encoder_t17raw_message_readyEv to i64), ptr %_next.i, align 8
+  %_next.repack1.i = getelementptr inbounds %"class.zmq::encoder_base_t", ptr %this, i64 0, i32 3, i32 1
+  store i64 0, ptr %_next.repack1.i, align 8
+  %_new_msg_flag.i = getelementptr inbounds %"class.zmq::encoder_base_t", ptr %this, i64 0, i32 4
+  store i8 1, ptr %_new_msg_flag.i, align 8
+  ret void
+}
+
+declare i32 @__gxx_personality_v0(...)
+
+; Function Attrs: mustprogress nounwind willreturn uwtable
+define void @_ZN3zmq13raw_encoder_tD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #1 align 2 {
+entry:
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3zmq14encoder_base_tINS_13raw_encoder_tEEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  %_buf.i = getelementptr inbounds %"class.zmq::encoder_base_t", ptr %this, i64 0, i32 6
+  %0 = load ptr, ptr %_buf.i, align 8
+  tail call void @free(ptr noundef %0) #15
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define void @_ZN3zmq13raw_encoder_tD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #2 align 2 {
+entry:
+  tail call void @_ZN3zmq13raw_encoder_tD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #16
+  ret void
+}
+
+; Function Attrs: nobuiltin nounwind
+declare void @_ZdlPv(ptr noundef) local_unnamed_addr #3
+
+declare noundef ptr @_ZN3zmq5msg_t4dataEv(ptr noundef nonnull align 8 dereferenceable(64)) local_unnamed_addr #4
+
+declare noundef i64 @_ZNK3zmq5msg_t4sizeEv(ptr noundef nonnull align 8 dereferenceable(64)) local_unnamed_addr #4
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef i64 @_ZN3zmq14encoder_base_tINS_13raw_encoder_tEE6encodeEPPhm(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef %data_, i64 noundef %size_) unnamed_addr #0 comdat align 2 {
+entry:
+  %0 = load ptr, ptr %data_, align 8
+  %tobool.not = icmp eq ptr %0, null
+  %_buf = getelementptr inbounds %"class.zmq::encoder_base_t", ptr %this, i64 0, i32 6
+  %1 = load ptr, ptr %_buf, align 8
+  %cond = select i1 %tobool.not, ptr %1, ptr %0
+  %_buf_size = getelementptr inbounds %"class.zmq::encoder_base_t", ptr %this, i64 0, i32 5
+  %2 = load i64, ptr %_buf_size, align 8
+  %cond6 = select i1 %tobool.not, i64 %2, i64 %size_
+  %_in_progress.i = getelementptr inbounds %"class.zmq::encoder_base_t", ptr %this, i64 0, i32 7
+  %3 = load ptr, ptr %_in_progress.i, align 8
+  %cmp = icmp eq ptr %3, null
+  br i1 %cmp, label %return, label %while.cond.preheader
+
+while.cond.preheader:                             ; preds = %entry
+  %cmp728.not = icmp eq i64 %cond6, 0
+  br i1 %cmp728.not, label %while.end, label %while.body.lr.ph
+
+while.body.lr.ph:                                 ; preds = %while.cond.preheader
+  %_to_write = getelementptr inbounds %"class.zmq::encoder_base_t", ptr %this, i64 0, i32 2
+  %_new_msg_flag = getelementptr inbounds %"class.zmq::encoder_base_t", ptr %this, i64 0, i32 4
+  %_next = getelementptr inbounds %"class.zmq::encoder_base_t", ptr %this, i64 0, i32 3
+  %.elt21 = getelementptr inbounds %"class.zmq::encoder_base_t", ptr %this, i64 0, i32 3, i32 1
+  %_write_pos48 = getelementptr inbounds %"class.zmq::encoder_base_t", ptr %this, i64 0, i32 1
+  %.pre = load i64, ptr %_to_write, align 8
+  br label %while.body
+
+while.body:                                       ; preds = %while.body.lr.ph, %if.end45
+  %4 = phi i64 [ %.pre, %while.body.lr.ph ], [ %sub52, %if.end45 ]
+  %pos.029 = phi i64 [ 0, %while.body.lr.ph ], [ %add, %if.end45 ]
+  %tobool8.not = icmp eq i64 %4, 0
+  br i1 %tobool8.not, label %if.then9, label %if.end35
+
+if.then9:                                         ; preds = %while.body
+  %5 = load i8, ptr %_new_msg_flag, align 8
+  %6 = and i8 %5, 1
+  %tobool10.not = icmp eq i8 %6, 0
+  br i1 %tobool10.not, label %if.end34, label %if.then11
+
+if.then11:                                        ; preds = %if.then9
+  %7 = load ptr, ptr %_in_progress.i, align 8
+  %call12 = tail call noundef i32 @_ZN3zmq5msg_t5closeEv(ptr noundef nonnull align 8 dereferenceable(64) %7)
+  %cmp13.not = icmp eq i32 %call12, 0
+  br i1 %cmp13.not, label %do.end, label %if.then14
+
+if.then14:                                        ; preds = %if.then11
+  %call15 = tail call ptr @__errno_location() #17
+  %8 = load i32, ptr %call15, align 4
+  %call16 = tail call ptr @strerror(i32 noundef %8) #15
+  %9 = load ptr, ptr @stderr, align 8
+  %call17 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull @.str.3, ptr noundef %call16, ptr noundef nonnull @.str.1, i32 noundef 63) #14
+  %10 = load ptr, ptr @stderr, align 8
+  %call18 = tail call i32 @fflush(ptr noundef %10)
+  tail call void @_ZN3zmq9zmq_abortEPKc(ptr noundef %call16)
+  br label %do.end
+
+do.end:                                           ; preds = %if.then11, %if.then14
+  %11 = load ptr, ptr %_in_progress.i, align 8
+  %call21 = tail call noundef i32 @_ZN3zmq5msg_t4initEv(ptr noundef nonnull align 8 dereferenceable(64) %11)
+  %cmp23.not = icmp eq i32 %call21, 0
+  br i1 %cmp23.not, label %do.end32, label %if.then25
+
+if.then25:                                        ; preds = %do.end
+  %call27 = tail call ptr @__errno_location() #17
+  %12 = load i32, ptr %call27, align 4
+  %call28 = tail call ptr @strerror(i32 noundef %12) #15
+  %13 = load ptr, ptr @stderr, align 8
+  %call29 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str.3, ptr noundef %call28, ptr noundef nonnull @.str.1, i32 noundef 65) #14
+  %14 = load ptr, ptr @stderr, align 8
+  %call30 = tail call i32 @fflush(ptr noundef %14)
+  tail call void @_ZN3zmq9zmq_abortEPKc(ptr noundef %call28)
+  br label %do.end32
+
+do.end32:                                         ; preds = %do.end, %if.then25
+  store ptr null, ptr %_in_progress.i, align 8
+  br label %while.end
+
+if.end34:                                         ; preds = %if.then9
+  %.unpack = load i64, ptr %_next, align 8
+  %.unpack22 = load i64, ptr %.elt21, align 8
+  %15 = getelementptr inbounds i8, ptr %this, i64 %.unpack22
+  %16 = and i64 %.unpack, 1
+  %memptr.isvirtual.not = icmp eq i64 %16, 0
+  br i1 %memptr.isvirtual.not, label %memptr.nonvirtual, label %memptr.virtual
+
+memptr.virtual:                                   ; preds = %if.end34
+  %vtable = load ptr, ptr %15, align 8
+  %17 = getelementptr i8, ptr %vtable, i64 %.unpack
+  %18 = getelementptr i8, ptr %17, i64 -1
+  %memptr.virtualfn = load ptr, ptr %18, align 8, !nosanitize !4
+  br label %memptr.end
+
+memptr.nonvirtual:                                ; preds = %if.end34
+  %memptr.nonvirtualfn = inttoptr i64 %.unpack to ptr
+  br label %memptr.end
+
+memptr.end:                                       ; preds = %memptr.nonvirtual, %memptr.virtual
+  %19 = phi ptr [ %memptr.virtualfn, %memptr.virtual ], [ %memptr.nonvirtualfn, %memptr.nonvirtual ]
+  tail call void %19(ptr noundef nonnull align 8 dereferenceable(72) %15)
+  %.pre32.pre = load i64, ptr %_to_write, align 8
+  br label %if.end35
+
+if.end35:                                         ; preds = %memptr.end, %while.body
+  %.pre32 = phi i64 [ %.pre32.pre, %memptr.end ], [ %4, %while.body ]
+  %tobool36.not = icmp eq i64 %pos.029, 0
+  br i1 %tobool36.not, label %land.lhs.true, label %if.end35.if.end45_crit_edge
+
+if.end35.if.end45_crit_edge:                      ; preds = %if.end35
+  %.pre33 = load ptr, ptr %_write_pos48, align 8
+  br label %if.end45
+
+land.lhs.true:                                    ; preds = %if.end35
+  %20 = load ptr, ptr %data_, align 8
+  %tobool37.not = icmp ne ptr %20, null
+  %cmp40.not = icmp ult i64 %.pre32, %cond6
+  %or.cond = select i1 %tobool37.not, i1 true, i1 %cmp40.not
+  %.pre34 = load ptr, ptr %_write_pos48, align 8
+  br i1 %or.cond, label %if.end45, label %if.then41
+
+if.then41:                                        ; preds = %land.lhs.true
+  store ptr %.pre34, ptr %data_, align 8
+  %21 = load i64, ptr %_to_write, align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_write_pos48, i8 0, i64 16, i1 false)
+  br label %return
+
+if.end45:                                         ; preds = %if.end35.if.end45_crit_edge, %land.lhs.true
+  %22 = phi ptr [ %.pre33, %if.end35.if.end45_crit_edge ], [ %.pre34, %land.lhs.true ]
+  %sub = sub i64 %cond6, %pos.029
+  %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %sub, i64 %.pre32)
+  %add.ptr = getelementptr inbounds i8, ptr %cond, i64 %pos.029
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr, ptr align 1 %22, i64 %.sroa.speculated, i1 false)
+  %add = add i64 %.sroa.speculated, %pos.029
+  %23 = load ptr, ptr %_write_pos48, align 8
+  %add.ptr50 = getelementptr inbounds i8, ptr %23, i64 %.sroa.speculated
+  store ptr %add.ptr50, ptr %_write_pos48, align 8
+  %24 = load i64, ptr %_to_write, align 8
+  %sub52 = sub i64 %24, %.sroa.speculated
+  store i64 %sub52, ptr %_to_write, align 8
+  %cmp7 = icmp ult i64 %add, %cond6
+  br i1 %cmp7, label %while.body, label %while.end, !llvm.loop !5
+
+while.end:                                        ; preds = %if.end45, %while.cond.preheader, %do.end32
+  %pos.026 = phi i64 [ %pos.029, %do.end32 ], [ 0, %while.cond.preheader ], [ %add, %if.end45 ]
+  store ptr %cond, ptr %data_, align 8
+  br label %return
+
+return:                                           ; preds = %entry, %while.end, %if.then41
+  %retval.0 = phi i64 [ %21, %if.then41 ], [ %pos.026, %while.end ], [ 0, %entry ]
+  ret i64 %retval.0
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN3zmq14encoder_base_tINS_13raw_encoder_tEE8load_msgEPNS_5msg_tE(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef %msg_) unnamed_addr #0 comdat align 2 {
+entry:
+  %_in_progress.i = getelementptr inbounds %"class.zmq::encoder_base_t", ptr %this, i64 0, i32 7
+  %0 = load ptr, ptr %_in_progress.i, align 8
+  %cmp.not = icmp eq ptr %0, null
+  br i1 %cmp.not, label %do.end, label %if.then
+
+if.then:                                          ; preds = %entry
+  %1 = load ptr, ptr @stderr, align 8
+  %call2 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.1, i32 noundef 104) #14
+  %2 = load ptr, ptr @stderr, align 8
+  %call3 = tail call i32 @fflush(ptr noundef %2)
+  tail call void @_ZN3zmq9zmq_abortEPKc(ptr noundef nonnull @.str.5)
+  br label %do.end
+
+do.end:                                           ; preds = %entry, %if.then
+  store ptr %msg_, ptr %_in_progress.i, align 8
+  %_next = getelementptr inbounds %"class.zmq::encoder_base_t", ptr %this, i64 0, i32 3
+  %.unpack = load i64, ptr %_next, align 8
+  %.elt1 = getelementptr inbounds %"class.zmq::encoder_base_t", ptr %this, i64 0, i32 3, i32 1
+  %.unpack2 = load i64, ptr %.elt1, align 8
+  %3 = getelementptr inbounds i8, ptr %this, i64 %.unpack2
+  %4 = and i64 %.unpack, 1
+  %memptr.isvirtual.not = icmp eq i64 %4, 0
+  br i1 %memptr.isvirtual.not, label %memptr.nonvirtual, label %memptr.virtual
+
+memptr.virtual:                                   ; preds = %do.end
+  %vtable = load ptr, ptr %3, align 8
+  %5 = getelementptr i8, ptr %vtable, i64 %.unpack
+  %6 = getelementptr i8, ptr %5, i64 -1
+  %memptr.virtualfn = load ptr, ptr %6, align 8, !nosanitize !4
+  br label %memptr.end
+
+memptr.nonvirtual:                                ; preds = %do.end
+  %memptr.nonvirtualfn = inttoptr i64 %.unpack to ptr
+  br label %memptr.end
+
+memptr.end:                                       ; preds = %memptr.nonvirtual, %memptr.virtual
+  %7 = phi ptr [ %memptr.virtualfn, %memptr.virtual ], [ %memptr.nonvirtualfn, %memptr.nonvirtual ]
+  tail call void %7(ptr noundef nonnull align 8 dereferenceable(72) %3)
+  ret void
+}
+
+; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
+declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #5
+
+; Function Attrs: nofree nounwind
+declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #6
+
+; Function Attrs: nofree nounwind
+declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #6
+
+declare void @_ZN3zmq9zmq_abortEPKc(ptr noundef) local_unnamed_addr #4
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZN3zmq14encoder_base_tINS_13raw_encoder_tEED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #2 comdat align 2 {
+entry:
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3zmq14encoder_base_tINS_13raw_encoder_tEEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  %_buf = getelementptr inbounds %"class.zmq::encoder_base_t", ptr %this, i64 0, i32 6
+  %0 = load ptr, ptr %_buf, align 8
+  tail call void @free(ptr noundef %0) #15
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZN3zmq14encoder_base_tINS_13raw_encoder_tEED0Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #2 comdat align 2 {
+entry:
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3zmq14encoder_base_tINS_13raw_encoder_tEEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  %_buf.i = getelementptr inbounds %"class.zmq::encoder_base_t", ptr %this, i64 0, i32 6
+  %0 = load ptr, ptr %_buf.i, align 8
+  tail call void @free(ptr noundef %0) #15
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #16
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
+declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #7
+
+declare noundef i32 @_ZN3zmq5msg_t5closeEv(ptr noundef nonnull align 8 dereferenceable(64)) local_unnamed_addr #4
+
+; Function Attrs: nounwind
+declare ptr @strerror(i32 noundef) local_unnamed_addr #8
+
+; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
+declare ptr @__errno_location() local_unnamed_addr #9
+
+declare noundef i32 @_ZN3zmq5msg_t4initEv(ptr noundef nonnull align 8 dereferenceable(64)) local_unnamed_addr #4
+
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #10
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umin.i64(i64, i64) #11
+
+; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #12
+
+attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nounwind willreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #12 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #13 = { nounwind allocsize(0) }
+attributes #14 = { cold }
+attributes #15 = { nounwind }
+attributes #16 = { builtin nounwind }
+attributes #17 = { nounwind willreturn memory(none) }
+
+!llvm.module.flags = !{!0, !1, !2, !3}
+
+!0 = !{i32 1, !"wchar_size", i32 4}
+!1 = !{i32 8, !"PIC Level", i32 2}
+!2 = !{i32 7, !"uwtable", i32 2}
+!3 = !{i32 7, !"frame-pointer", i32 2}
+!4 = !{}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.mustprogress"}

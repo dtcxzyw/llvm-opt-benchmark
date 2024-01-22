@@ -1,0 +1,1148 @@
+; ModuleID = 'bench/curl/original/libcurl_la-hsts.ll'
+source_filename = "bench/curl/original/libcurl_la-hsts.ll"
+target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
+target triple = "x86_64-unknown-linux-gnu"
+
+%struct.Curl_llist_element = type { ptr, ptr, ptr }
+%struct.stsentry = type { %struct.Curl_llist_element, ptr, i8, i64 }
+%struct.hsts = type { %struct.Curl_llist, ptr, i32 }
+%struct.Curl_llist = type { ptr, ptr, ptr, i64 }
+%struct.curl_hstsentry = type { ptr, i64, i8, [18 x i8] }
+%struct.tm = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i64, ptr }
+%struct.curl_index = type { i64, i64 }
+%struct.Curl_easy = type { i32, i64, ptr, ptr, ptr, %struct.Curl_llist_element, %struct.Curl_llist_element, i32, i32, %struct.Curl_message, %struct.easy_pollset, %struct.Names, ptr, ptr, ptr, ptr, %struct.SingleRequest, %struct.UserDefined, ptr, ptr, ptr, %struct.Progress, %struct.UrlState, ptr, %struct.PureInfo, %struct.curl_tlssessioninfo }
+%struct.Curl_message = type { %struct.Curl_llist_element, %struct.CURLMsg }
+%struct.CURLMsg = type { i32, ptr, %union.anon }
+%union.anon = type { ptr }
+%struct.easy_pollset = type { [5 x i32], i32, [5 x i8] }
+%struct.Names = type { ptr, i32 }
+%struct.SingleRequest = type <{ i64, i64, i64, i64, i64, %struct.curltime, i32, i32, i32, i32, i64, i32, i32, %struct.curltime, i32, i32, ptr, i64, i64, ptr, ptr, i64, ptr, %union.anon.0, ptr, [2 x i8], i8, i16, [3 x i8] }>
+%struct.curltime = type { i64, i32 }
+%union.anon.0 = type { ptr }
+%struct.UserDefined = type <{ ptr, ptr, ptr, ptr, ptr, ptr, i16, [6 x i8], i64, i64, i64, ptr, ptr, i64, i16, i16, [4 x i8], ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i32, i32, i64, i64, i64, i64, i64, i64, i64, i64, i64, ptr, ptr, %struct.curl_mimepart, ptr, ptr, ptr, i64, i8, i8, i8, [5 x i8], %struct.ssl_config_data, %struct.ssl_config_data, ptr, i16, i8, i8, [4 x i8], %struct.ssl_general_config, i32, i32, i32, [4 x i8], ptr, ptr, i8, [7 x i8], i64, i8, i8, i8, i8, i32, ptr, ptr, ptr, i8, i8, [2 x i8], i32, [80 x ptr], [8 x ptr], i32, i32, i32, [4 x i8], ptr, i32, [4 x i8], ptr, ptr, ptr, ptr, ptr, i8, [3 x i8], i32, i32, [4 x i8], i64, ptr, ptr, i64, ptr, ptr, ptr, ptr, ptr, i8, [7 x i8], ptr, i8, [3 x i8], i32, i8, i8, i56, [6 x i8] }>
+%struct.curl_mimepart = type { ptr, ptr, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, %struct.mime_state, ptr, %struct.mime_encoder_state, i64 }
+%struct.mime_state = type { i32, ptr, i64 }
+%struct.mime_encoder_state = type { i64, i64, i64, [256 x i8] }
+%struct.ssl_config_data = type { %struct.ssl_primary_config, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i8 }
+%struct.ssl_primary_config = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i8, i32, i8, i8 }
+%struct.ssl_general_config = type { i64, i32 }
+%struct.Progress = type { i64, i64, i64, i64, i64, i64, i32, i32, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, %struct.curltime, %struct.curltime, %struct.curltime, %struct.curltime, %struct.curltime, i64, %struct.curltime, i64, [6 x i64], [6 x %struct.curltime], i32, i8 }
+%struct.UrlState = type { ptr, %struct.curltime, i64, i64, %struct.dynbuf, ptr, ptr, ptr, i64, ptr, i32, i32, i32, ptr, i64, [3 x %struct.tempbuf], i32, i32, ptr, i64, i32, ptr, %struct.digestdata, %struct.digestdata, %struct.auth, %struct.auth, %struct.Curl_async, ptr, %struct.curltime, %struct.Curl_tree, %struct.Curl_llist, [15 x %struct.time_node], ptr, i8, i64, ptr, i64, i64, i64, i64, [32 x i8], i64, ptr, ptr, ptr, %struct.urlpieces, ptr, ptr, ptr, ptr, ptr, i64, %struct.dynbuf, %struct.Curl_llist, [2 x %struct.curl_header], ptr, i32, ptr, %struct.dynamically_allocated_data, i8, i8, i8, i8, i24 }
+%struct.tempbuf = type { %struct.dynbuf, i32, i8 }
+%struct.digestdata = type { ptr, ptr, ptr, ptr, ptr, ptr, i32, i8, i8 }
+%struct.auth = type { i64, i64, i64, i8 }
+%struct.Curl_async = type { ptr, ptr, ptr, ptr, i32, i32, i8 }
+%struct.Curl_tree = type { ptr, ptr, ptr, ptr, %struct.curltime, ptr }
+%struct.time_node = type { %struct.Curl_llist_element, %struct.curltime, i32 }
+%struct.urlpieces = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
+%struct.dynbuf = type { ptr, i64, i64, i64 }
+%struct.curl_header = type { ptr, ptr, i64, i64, i32, ptr }
+%struct.dynamically_allocated_data = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
+%struct.PureInfo = type { i32, i32, i32, i64, i64, i64, i64, i64, ptr, ptr, i64, i32, [46 x i8], i32, i32, [46 x i8], i32, ptr, i32, %struct.curl_certinfo, i32, i8 }
+%struct.curl_certinfo = type { i32, ptr }
+%struct.curl_tlssessioninfo = type { i32, ptr }
+%struct.curl_slist = type { ptr, ptr }
+
+@Curl_ccalloc = external local_unnamed_addr global ptr, align 8
+@Curl_cfree = external local_unnamed_addr global ptr, align 8
+@.str = private unnamed_addr constant [9 x i8] c"max-age=\00", align 1
+@.str.1 = private unnamed_addr constant [18 x i8] c"includesubdomains\00", align 1
+@.str.2 = private unnamed_addr constant [112 x i8] c"# Your HSTS cache. https://curl.se/docs/hsts.html\0A# This file was generated by libcurl! Edit at your own risk.\0A\00", align 1
+@.str.3 = private unnamed_addr constant [34 x i8] c"%s%s \22%d%02d%02d %02d:%02d:%02d\22\0A\00", align 1
+@.str.4 = private unnamed_addr constant [2 x i8] c".\00", align 1
+@.str.5 = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
+@.str.6 = private unnamed_addr constant [11 x i8] c"%s%s \22%s\22\0A\00", align 1
+@.str.7 = private unnamed_addr constant [10 x i8] c"unlimited\00", align 1
+@.str.8 = private unnamed_addr constant [26 x i8] c"%d%02d%02d %02d:%02d:%02d\00", align 1
+@Curl_cstrdup = external local_unnamed_addr global ptr, align 8
+@.str.9 = private unnamed_addr constant [2 x i8] c"r\00", align 1
+@Curl_cmalloc = external local_unnamed_addr global ptr, align 8
+@.str.10 = private unnamed_addr constant [16 x i8] c"%256s \22%64[^\22]\22\00", align 1
+
+; Function Attrs: nounwind uwtable
+define hidden ptr @Curl_hsts_init() local_unnamed_addr #0 {
+entry:
+  %0 = load ptr, ptr @Curl_ccalloc, align 8
+  %call = tail call ptr %0(i64 noundef 1, i64 noundef 48) #9
+  %tobool.not = icmp eq ptr %call, null
+  br i1 %tobool.not, label %if.end, label %if.then
+
+if.then:                                          ; preds = %entry
+  tail call void @Curl_llist_init(ptr noundef nonnull %call, ptr noundef null) #9
+  br label %if.end
+
+if.end:                                           ; preds = %if.then, %entry
+  ret ptr %call
+}
+
+declare void @Curl_llist_init(ptr noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: nounwind uwtable
+define hidden void @Curl_hsts_cleanup(ptr nocapture noundef %hp) local_unnamed_addr #0 {
+entry:
+  %0 = load ptr, ptr %hp, align 8
+  %tobool.not = icmp eq ptr %0, null
+  br i1 %tobool.not, label %if.end, label %if.then
+
+if.then:                                          ; preds = %entry
+  %1 = load ptr, ptr %0, align 8
+  %tobool1.not7 = icmp eq ptr %1, null
+  br i1 %tobool1.not7, label %for.end, label %for.body
+
+for.body:                                         ; preds = %if.then, %for.body
+  %e.08 = phi ptr [ %3, %for.body ], [ %1, %if.then ]
+  %2 = load ptr, ptr %e.08, align 8
+  %next = getelementptr inbounds %struct.Curl_llist_element, ptr %e.08, i64 0, i32 2
+  %3 = load ptr, ptr %next, align 8
+  %4 = load ptr, ptr @Curl_cfree, align 8
+  %host.i = getelementptr inbounds %struct.stsentry, ptr %2, i64 0, i32 1
+  %5 = load ptr, ptr %host.i, align 8
+  tail call void %4(ptr noundef %5) #9
+  %6 = load ptr, ptr @Curl_cfree, align 8
+  tail call void %6(ptr noundef %2) #9
+  %tobool1.not = icmp eq ptr %3, null
+  br i1 %tobool1.not, label %for.end, label %for.body, !llvm.loop !4
+
+for.end:                                          ; preds = %for.body, %if.then
+  %7 = load ptr, ptr @Curl_cfree, align 8
+  %filename = getelementptr inbounds %struct.hsts, ptr %0, i64 0, i32 1
+  %8 = load ptr, ptr %filename, align 8
+  tail call void %7(ptr noundef %8) #9
+  %9 = load ptr, ptr @Curl_cfree, align 8
+  tail call void %9(ptr noundef nonnull %0) #9
+  store ptr null, ptr %hp, align 8
+  br label %if.end
+
+if.end:                                           ; preds = %for.end, %entry
+  ret void
+}
+
+; Function Attrs: nounwind uwtable
+define hidden noundef i32 @Curl_hsts_parse(ptr noundef %h, ptr noundef %hostname, ptr noundef %header) local_unnamed_addr #0 {
+entry:
+  %expires = alloca i64, align 8
+  %endp = alloca ptr, align 8
+  store i64 0, ptr %expires, align 8
+  %call = tail call i64 @time(ptr noundef null) #9
+  %call1 = tail call zeroext i1 @Curl_host_is_ipnum(ptr noundef %hostname) #9
+  br i1 %call1, label %return, label %do.body
+
+do.body:                                          ; preds = %entry, %while.end89
+  %gotma.0 = phi i8 [ %gotma.1, %while.end89 ], [ 0, %entry ]
+  %gotinc.0 = phi i8 [ %gotinc.1, %while.end89 ], [ 0, %entry ]
+  %subdomains.0 = phi i8 [ %subdomains.1, %while.end89 ], [ 0, %entry ]
+  %p.0 = phi ptr [ %spec.select42, %while.end89 ], [ %header, %entry ]
+  br label %while.cond
+
+while.cond:                                       ; preds = %while.body, %do.body
+  %p.1 = phi ptr [ %p.0, %do.body ], [ %incdec.ptr, %while.body ]
+  %0 = load i8, ptr %p.1, align 1
+  switch i8 %0, label %while.end [
+    i8 9, label %while.body
+    i8 32, label %while.body
+  ]
+
+while.body:                                       ; preds = %while.cond, %while.cond
+  %incdec.ptr = getelementptr inbounds i8, ptr %p.1, i64 1
+  br label %while.cond, !llvm.loop !6
+
+while.end:                                        ; preds = %while.cond
+  %call7 = call i32 @curl_strnequal(ptr noundef nonnull @.str, ptr noundef nonnull %p.1, i64 noundef 8) #9
+  %tobool8.not = icmp eq i32 %call7, 0
+  br i1 %tobool8.not, label %if.else52, label %if.then9
+
+if.then9:                                         ; preds = %while.end
+  %1 = and i8 %gotma.0, 1
+  %tobool10.not = icmp eq i8 %1, 0
+  br i1 %tobool10.not, label %if.end12, label %return
+
+if.end12:                                         ; preds = %if.then9
+  %add.ptr = getelementptr inbounds i8, ptr %p.1, i64 8
+  br label %while.cond13
+
+while.cond13:                                     ; preds = %while.body26, %if.end12
+  %p.2 = phi ptr [ %add.ptr, %if.end12 ], [ %incdec.ptr27, %while.body26 ]
+  %2 = load i8, ptr %p.2, align 1
+  switch i8 %2, label %while.end28 [
+    i8 9, label %while.body26
+    i8 32, label %while.body26
+  ]
+
+while.body26:                                     ; preds = %while.cond13, %while.cond13
+  %incdec.ptr27 = getelementptr inbounds i8, ptr %p.2, i64 1
+  br label %while.cond13, !llvm.loop !7
+
+while.end28:                                      ; preds = %while.cond13
+  %cmp30 = icmp eq i8 %2, 34
+  %spec.select.idx = zext i1 %cmp30 to i64
+  %spec.select = getelementptr inbounds i8, ptr %p.2, i64 %spec.select.idx
+  %call35 = call i32 @curlx_strtoofft(ptr noundef nonnull %spec.select, ptr noundef nonnull %endp, i32 noundef 10, ptr noundef nonnull %expires) #9
+  switch i32 %call35, label %return [
+    i32 1, label %if.then38
+    i32 0, label %if.end42
+  ]
+
+if.then38:                                        ; preds = %while.end28
+  store i64 9223372036854775807, ptr %expires, align 8
+  br label %if.end42
+
+if.end42:                                         ; preds = %while.end28, %if.then38
+  %3 = load ptr, ptr %endp, align 8
+  br i1 %cmp30, label %if.then44, label %if.end73
+
+if.then44:                                        ; preds = %if.end42
+  %4 = load i8, ptr %3, align 1
+  %cmp46.not = icmp eq i8 %4, 34
+  br i1 %cmp46.not, label %if.end49, label %return
+
+if.end49:                                         ; preds = %if.then44
+  %incdec.ptr50 = getelementptr inbounds i8, ptr %3, i64 1
+  br label %if.end73
+
+if.else52:                                        ; preds = %while.end
+  %call53 = call i32 @curl_strnequal(ptr noundef nonnull @.str.1, ptr noundef nonnull %p.1, i64 noundef 17) #9
+  %tobool54.not = icmp eq i32 %call53, 0
+  br i1 %tobool54.not, label %while.cond61, label %if.then55
+
+if.then55:                                        ; preds = %if.else52
+  %5 = and i8 %gotinc.0, 1
+  %tobool56.not = icmp eq i8 %5, 0
+  br i1 %tobool56.not, label %if.end58, label %return
+
+if.end58:                                         ; preds = %if.then55
+  %add.ptr59 = getelementptr inbounds i8, ptr %p.1, i64 17
+  br label %if.end73
+
+while.cond61:                                     ; preds = %if.else52, %while.body69
+  %p.5 = phi ptr [ %incdec.ptr70, %while.body69 ], [ %p.1, %if.else52 ]
+  %6 = load i8, ptr %p.5, align 1
+  switch i8 %6, label %while.body69 [
+    i8 0, label %if.end73
+    i8 59, label %if.end73
+  ]
+
+while.body69:                                     ; preds = %while.cond61
+  %incdec.ptr70 = getelementptr inbounds i8, ptr %p.5, i64 1
+  br label %while.cond61, !llvm.loop !8
+
+if.end73:                                         ; preds = %while.cond61, %while.cond61, %if.end42, %if.end49, %if.end58
+  %gotma.1 = phi i8 [ %gotma.0, %if.end58 ], [ 1, %if.end49 ], [ 1, %if.end42 ], [ %gotma.0, %while.cond61 ], [ %gotma.0, %while.cond61 ]
+  %gotinc.1 = phi i8 [ 1, %if.end58 ], [ %gotinc.0, %if.end49 ], [ %gotinc.0, %if.end42 ], [ %gotinc.0, %while.cond61 ], [ %gotinc.0, %while.cond61 ]
+  %subdomains.1 = phi i8 [ 1, %if.end58 ], [ %subdomains.0, %if.end49 ], [ %subdomains.0, %if.end42 ], [ %subdomains.0, %while.cond61 ], [ %subdomains.0, %while.cond61 ]
+  %p.6 = phi ptr [ %add.ptr59, %if.end58 ], [ %incdec.ptr50, %if.end49 ], [ %3, %if.end42 ], [ %p.5, %while.cond61 ], [ %p.5, %while.cond61 ]
+  br label %while.cond74
+
+while.cond74:                                     ; preds = %while.body87, %if.end73
+  %p.7 = phi ptr [ %p.6, %if.end73 ], [ %incdec.ptr88, %while.body87 ]
+  %7 = load i8, ptr %p.7, align 1
+  switch i8 %7, label %while.end89 [
+    i8 9, label %while.body87
+    i8 32, label %while.body87
+  ]
+
+while.body87:                                     ; preds = %while.cond74, %while.cond74
+  %incdec.ptr88 = getelementptr inbounds i8, ptr %p.7, i64 1
+  br label %while.cond74, !llvm.loop !9
+
+while.end89:                                      ; preds = %while.cond74
+  %cmp91 = icmp eq i8 %7, 59
+  %spec.select42.idx = zext i1 %cmp91 to i64
+  %spec.select42 = getelementptr inbounds i8, ptr %p.7, i64 %spec.select42.idx
+  %8 = load i8, ptr %spec.select42, align 1
+  %tobool96.not = icmp eq i8 %8, 0
+  br i1 %tobool96.not, label %do.end, label %do.body, !llvm.loop !10
+
+do.end:                                           ; preds = %while.end89
+  %9 = and i8 %gotma.1, 1
+  %tobool97.not = icmp eq i8 %9, 0
+  br i1 %tobool97.not, label %return, label %if.end99
+
+if.end99:                                         ; preds = %do.end
+  %10 = load i64, ptr %expires, align 8
+  %tobool100.not = icmp eq i64 %10, 0
+  br i1 %tobool100.not, label %if.then101, label %if.end106
+
+if.then101:                                       ; preds = %if.end99
+  %call102 = call ptr @Curl_hsts(ptr noundef %h, ptr noundef %hostname, i1 noundef zeroext false)
+  %tobool103.not = icmp eq ptr %call102, null
+  br i1 %tobool103.not, label %return, label %if.then104
+
+if.then104:                                       ; preds = %if.then101
+  call void @Curl_llist_remove(ptr noundef %h, ptr noundef nonnull %call102, ptr noundef null) #9
+  %11 = load ptr, ptr @Curl_cfree, align 8
+  %host.i = getelementptr inbounds %struct.stsentry, ptr %call102, i64 0, i32 1
+  %12 = load ptr, ptr %host.i, align 8
+  call void %11(ptr noundef %12) #9
+  %13 = load ptr, ptr @Curl_cfree, align 8
+  call void %13(ptr noundef nonnull %call102) #9
+  br label %return
+
+if.end106:                                        ; preds = %if.end99
+  %sub = sub nsw i64 9223372036854775807, %call
+  %cmp107 = icmp slt i64 %sub, %10
+  %add = add nsw i64 %10, %call
+  %storemerge = select i1 %cmp107, i64 9223372036854775807, i64 %add
+  store i64 %storemerge, ptr %expires, align 8
+  %call112 = call ptr @Curl_hsts(ptr noundef %h, ptr noundef %hostname, i1 noundef zeroext false)
+  %tobool113.not = icmp eq ptr %call112, null
+  br i1 %tobool113.not, label %if.else117, label %if.then114
+
+if.then114:                                       ; preds = %if.end106
+  %14 = load i64, ptr %expires, align 8
+  %expires115 = getelementptr inbounds %struct.stsentry, ptr %call112, i64 0, i32 3
+  store i64 %14, ptr %expires115, align 8
+  %15 = and i8 %subdomains.1, 1
+  %includeSubDomains = getelementptr inbounds %struct.stsentry, ptr %call112, i64 0, i32 2
+  store i8 %15, ptr %includeSubDomains, align 8
+  br label %return
+
+if.else117:                                       ; preds = %if.end106
+  %16 = and i8 %subdomains.1, 1
+  %17 = load i64, ptr %expires, align 8
+  %call.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %hostname) #10
+  %tobool.not.i = icmp eq i64 %call.i, 0
+  br i1 %tobool.not.i, label %return, label %land.lhs.true.i
+
+land.lhs.true.i:                                  ; preds = %if.else117
+  %18 = getelementptr i8, ptr %hostname, i64 %call.i
+  %arrayidx.i = getelementptr i8, ptr %18, i64 -1
+  %19 = load i8, ptr %arrayidx.i, align 1
+  %cmp.i = icmp eq i8 %19, 46
+  br i1 %cmp.i, label %if.end.i, label %if.then5.i
+
+if.end.i:                                         ; preds = %land.lhs.true.i
+  %dec.i = add i64 %call.i, -1
+  %tobool4.not.i = icmp eq i64 %dec.i, 0
+  br i1 %tobool4.not.i, label %return, label %if.then5.i
+
+if.then5.i:                                       ; preds = %if.end.i, %land.lhs.true.i
+  %hlen.020.i = phi i64 [ %dec.i, %if.end.i ], [ %call.i, %land.lhs.true.i ]
+  %20 = load ptr, ptr @Curl_ccalloc, align 8
+  %call.i.i = call ptr %20(i64 noundef 1, i64 noundef 48) #9
+  %tobool7.not.i = icmp eq ptr %call.i.i, null
+  br i1 %tobool7.not.i, label %return, label %if.end9.i
+
+if.end9.i:                                        ; preds = %if.then5.i
+  %call10.i = call ptr @Curl_memdup0(ptr noundef nonnull %hostname, i64 noundef %hlen.020.i) #9
+  %tobool11.not.i = icmp eq ptr %call10.i, null
+  br i1 %tobool11.not.i, label %if.then12.i, label %if.end13.i
+
+if.then12.i:                                      ; preds = %if.end9.i
+  %21 = load ptr, ptr @Curl_cfree, align 8
+  call void %21(ptr noundef nonnull %call.i.i) #9
+  br label %return
+
+if.end13.i:                                       ; preds = %if.end9.i
+  %host.i43 = getelementptr inbounds %struct.stsentry, ptr %call.i.i, i64 0, i32 1
+  store ptr %call10.i, ptr %host.i43, align 8
+  %expires14.i = getelementptr inbounds %struct.stsentry, ptr %call.i.i, i64 0, i32 3
+  store i64 %17, ptr %expires14.i, align 8
+  %includeSubDomains.i = getelementptr inbounds %struct.stsentry, ptr %call.i.i, i64 0, i32 2
+  store i8 %16, ptr %includeSubDomains.i, align 8
+  %tail.i = getelementptr inbounds %struct.Curl_llist, ptr %h, i64 0, i32 1
+  %22 = load ptr, ptr %tail.i, align 8
+  call void @Curl_llist_insert_next(ptr noundef %h, ptr noundef %22, ptr noundef nonnull %call.i.i, ptr noundef nonnull %call.i.i) #9
+  br label %return
+
+return:                                           ; preds = %if.then55, %if.then44, %while.end28, %if.then9, %if.end13.i, %if.then12.i, %if.then5.i, %if.end.i, %if.else117, %if.then101, %if.then104, %do.end, %entry, %if.then114
+  %retval.0 = phi i32 [ 0, %if.then114 ], [ 0, %entry ], [ 43, %do.end ], [ 0, %if.then104 ], [ 0, %if.then101 ], [ 27, %if.then12.i ], [ 27, %if.then5.i ], [ 0, %if.end13.i ], [ 0, %if.end.i ], [ 0, %if.else117 ], [ 43, %if.then9 ], [ 43, %while.end28 ], [ 43, %if.then44 ], [ 43, %if.then55 ]
+  ret i32 %retval.0
+}
+
+; Function Attrs: nounwind
+declare i64 @time(ptr noundef) local_unnamed_addr #2
+
+declare zeroext i1 @Curl_host_is_ipnum(ptr noundef) local_unnamed_addr #1
+
+declare i32 @curl_strnequal(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
+
+declare i32 @curlx_strtoofft(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: nounwind uwtable
+define hidden ptr @Curl_hsts(ptr noundef %h, ptr nocapture noundef readonly %hostname, i1 noundef zeroext %subdomain) local_unnamed_addr #0 {
+entry:
+  %buffer = alloca [257 x i8], align 16
+  %tobool.not = icmp eq ptr %h, null
+  br i1 %tobool.not, label %return, label %if.then
+
+if.then:                                          ; preds = %entry
+  %call = tail call i64 @time(ptr noundef null) #9
+  %call1 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %hostname) #10
+  %0 = add i64 %call1, -1
+  %or.cond = icmp ult i64 %0, 256
+  br i1 %or.cond, label %if.end, label %return
+
+if.end:                                           ; preds = %if.then
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %buffer, ptr align 1 %hostname, i64 %call1, i1 false)
+  %1 = getelementptr i8, ptr %hostname, i64 %call1
+  %arrayidx = getelementptr i8, ptr %1, i64 -1
+  %2 = load i8, ptr %arrayidx, align 1
+  %cmp4 = icmp eq i8 %2, 46
+  %spec.select = select i1 %cmp4, i64 %0, i64 %call1
+  %arrayidx8 = getelementptr inbounds [257 x i8], ptr %buffer, i64 0, i64 %spec.select
+  store i8 0, ptr %arrayidx8, align 1
+  %3 = load ptr, ptr %h, align 8
+  %tobool10.not28 = icmp eq ptr %3, null
+  br i1 %tobool10.not28, label %return, label %for.body.lr.ph
+
+for.body.lr.ph:                                   ; preds = %if.end
+  br i1 %subdomain, label %for.body.us, label %for.body
+
+for.body.us:                                      ; preds = %for.body.lr.ph, %for.inc.us
+  %e.029.us = phi ptr [ %5, %for.inc.us ], [ %3, %for.body.lr.ph ]
+  %4 = load ptr, ptr %e.029.us, align 8
+  %next.us = getelementptr inbounds %struct.Curl_llist_element, ptr %e.029.us, i64 0, i32 2
+  %5 = load ptr, ptr %next.us, align 8
+  %expires.us = getelementptr inbounds %struct.stsentry, ptr %4, i64 0, i32 3
+  %6 = load i64, ptr %expires.us, align 8
+  %cmp11.not.us = icmp sgt i64 %6, %call
+  br i1 %cmp11.not.us, label %if.end15.us, label %if.then13.us
+
+if.then13.us:                                     ; preds = %for.body.us
+  call void @Curl_llist_remove(ptr noundef nonnull %h, ptr noundef nonnull %4, ptr noundef null) #9
+  %7 = load ptr, ptr @Curl_cfree, align 8
+  %host.i.us = getelementptr inbounds %struct.stsentry, ptr %4, i64 0, i32 1
+  %8 = load ptr, ptr %host.i.us, align 8
+  call void %7(ptr noundef %8) #9
+  %9 = load ptr, ptr @Curl_cfree, align 8
+  call void %9(ptr noundef nonnull %4) #9
+  br label %for.inc.us
+
+if.end15.us:                                      ; preds = %for.body.us
+  %includeSubDomains.us = getelementptr inbounds %struct.stsentry, ptr %4, i64 0, i32 2
+  %10 = load i8, ptr %includeSubDomains.us, align 8
+  %11 = and i8 %10, 1
+  %tobool18.not.us = icmp eq i8 %11, 0
+  br i1 %tobool18.not.us, label %if.end39.us, label %if.then20.us
+
+if.then20.us:                                     ; preds = %if.end15.us
+  %host.us = getelementptr inbounds %struct.stsentry, ptr %4, i64 0, i32 1
+  %12 = load ptr, ptr %host.us, align 8
+  %call21.us = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %12) #10
+  %cmp22.us = icmp ult i64 %call21.us, %spec.select
+  br i1 %cmp22.us, label %if.then24.us, label %if.end39.us
+
+if.then24.us:                                     ; preds = %if.then20.us
+  %sub25.us = sub nsw i64 %spec.select, %call21.us
+  %13 = getelementptr i8, ptr %buffer, i64 %sub25.us
+  %arrayidx27.us = getelementptr i8, ptr %13, i64 -1
+  %14 = load i8, ptr %arrayidx27.us, align 1
+  %cmp29.us = icmp eq i8 %14, 46
+  br i1 %cmp29.us, label %land.lhs.true31.us, label %if.end39.us
+
+land.lhs.true31.us:                               ; preds = %if.then24.us
+  %call34.us = call i32 @curl_strnequal(ptr noundef nonnull %13, ptr noundef %12, i64 noundef %call21.us) #9
+  %tobool35.not.us = icmp eq i32 %call34.us, 0
+  br i1 %tobool35.not.us, label %if.end39.us, label %return
+
+if.end39.us:                                      ; preds = %land.lhs.true31.us, %if.then24.us, %if.then20.us, %if.end15.us
+  %host40.us = getelementptr inbounds %struct.stsentry, ptr %4, i64 0, i32 1
+  %15 = load ptr, ptr %host40.us, align 8
+  %call41.us = call i32 @curl_strequal(ptr noundef nonnull %buffer, ptr noundef %15) #9
+  %tobool42.not.us = icmp eq i32 %call41.us, 0
+  br i1 %tobool42.not.us, label %for.inc.us, label %return
+
+for.inc.us:                                       ; preds = %if.end39.us, %if.then13.us
+  %tobool10.not.us = icmp eq ptr %5, null
+  br i1 %tobool10.not.us, label %return, label %for.body.us, !llvm.loop !11
+
+for.body:                                         ; preds = %for.body.lr.ph, %for.inc
+  %e.029 = phi ptr [ %17, %for.inc ], [ %3, %for.body.lr.ph ]
+  %16 = load ptr, ptr %e.029, align 8
+  %next = getelementptr inbounds %struct.Curl_llist_element, ptr %e.029, i64 0, i32 2
+  %17 = load ptr, ptr %next, align 8
+  %expires = getelementptr inbounds %struct.stsentry, ptr %16, i64 0, i32 3
+  %18 = load i64, ptr %expires, align 8
+  %cmp11.not = icmp sgt i64 %18, %call
+  br i1 %cmp11.not, label %if.end15, label %if.then13
+
+if.then13:                                        ; preds = %for.body
+  call void @Curl_llist_remove(ptr noundef nonnull %h, ptr noundef nonnull %16, ptr noundef null) #9
+  %19 = load ptr, ptr @Curl_cfree, align 8
+  %host.i = getelementptr inbounds %struct.stsentry, ptr %16, i64 0, i32 1
+  %20 = load ptr, ptr %host.i, align 8
+  call void %19(ptr noundef %20) #9
+  %21 = load ptr, ptr @Curl_cfree, align 8
+  call void %21(ptr noundef nonnull %16) #9
+  br label %for.inc
+
+if.end15:                                         ; preds = %for.body
+  %host40 = getelementptr inbounds %struct.stsentry, ptr %16, i64 0, i32 1
+  %22 = load ptr, ptr %host40, align 8
+  %call41 = call i32 @curl_strequal(ptr noundef nonnull %buffer, ptr noundef %22) #9
+  %tobool42.not = icmp eq i32 %call41, 0
+  br i1 %tobool42.not, label %for.inc, label %return
+
+for.inc:                                          ; preds = %if.end15, %if.then13
+  %tobool10.not = icmp eq ptr %17, null
+  br i1 %tobool10.not, label %return, label %for.body, !llvm.loop !11
+
+return:                                           ; preds = %if.end15, %for.inc, %land.lhs.true31.us, %if.end39.us, %for.inc.us, %if.end, %entry, %if.then
+  %retval.0 = phi ptr [ null, %if.then ], [ null, %entry ], [ null, %if.end ], [ %4, %land.lhs.true31.us ], [ %4, %if.end39.us ], [ null, %for.inc.us ], [ %16, %if.end15 ], [ null, %for.inc ]
+  ret ptr %retval.0
+}
+
+declare void @Curl_llist_remove(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
+declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
+
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+
+declare i32 @curl_strequal(ptr noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: nounwind uwtable
+define hidden i32 @Curl_hsts_save(ptr noundef %data, ptr noundef readonly %h, ptr noundef %file) local_unnamed_addr #0 {
+entry:
+  %e.i = alloca %struct.curl_hstsentry, align 8
+  %stamp.i29 = alloca %struct.tm, align 8
+  %stamp.i = alloca %struct.tm, align 8
+  %out = alloca ptr, align 8
+  %tempstore = alloca ptr, align 8
+  %i = alloca %struct.curl_index, align 8
+  store ptr null, ptr %tempstore, align 8
+  %tobool.not = icmp eq ptr %h, null
+  br i1 %tobool.not, label %return, label %if.end
+
+if.end:                                           ; preds = %entry
+  %tobool1.not = icmp eq ptr %file, null
+  br i1 %tobool1.not, label %land.lhs.true, label %if.end5
+
+land.lhs.true:                                    ; preds = %if.end
+  %filename = getelementptr inbounds %struct.hsts, ptr %h, i64 0, i32 1
+  %0 = load ptr, ptr %filename, align 8
+  br label %if.end5
+
+if.end5:                                          ; preds = %land.lhs.true, %if.end
+  %file.addr.0 = phi ptr [ %file, %if.end ], [ %0, %land.lhs.true ]
+  %flags = getelementptr inbounds %struct.hsts, ptr %h, i64 0, i32 2
+  %1 = load i32, ptr %flags, align 8
+  %2 = and i32 %1, 2
+  %tobool6 = icmp eq i32 %2, 0
+  %tobool7 = icmp ne ptr %file.addr.0, null
+  %or.cond = and i1 %tobool7, %tobool6
+  br i1 %or.cond, label %lor.lhs.false8, label %skipsave
+
+lor.lhs.false8:                                   ; preds = %if.end5
+  %3 = load i8, ptr %file.addr.0, align 1
+  %tobool9.not = icmp eq i8 %3, 0
+  br i1 %tobool9.not, label %skipsave, label %if.end11
+
+if.end11:                                         ; preds = %lor.lhs.false8
+  %call = call i32 @Curl_fopen(ptr noundef %data, ptr noundef nonnull %file.addr.0, ptr noundef nonnull %out, ptr noundef nonnull %tempstore) #9
+  %tobool12.not = icmp eq i32 %call, 0
+  br i1 %tobool12.not, label %if.then13, label %if.end35
+
+if.then13:                                        ; preds = %if.end11
+  %4 = load ptr, ptr %out, align 8
+  %5 = call i64 @fwrite(ptr nonnull @.str.2, i64 111, i64 1, ptr %4)
+  %6 = load ptr, ptr %h, align 8
+  %tobool15.not52 = icmp eq ptr %6, null
+  br i1 %tobool15.not52, label %for.end, label %for.body.lr.ph
+
+for.body.lr.ph:                                   ; preds = %if.then13
+  %tm_year.i = getelementptr inbounds %struct.tm, ptr %stamp.i, i64 0, i32 5
+  %tm_mon.i = getelementptr inbounds %struct.tm, ptr %stamp.i, i64 0, i32 4
+  %tm_mday.i = getelementptr inbounds %struct.tm, ptr %stamp.i, i64 0, i32 3
+  %tm_hour.i = getelementptr inbounds %struct.tm, ptr %stamp.i, i64 0, i32 2
+  %tm_min.i = getelementptr inbounds %struct.tm, ptr %stamp.i, i64 0, i32 1
+  br label %for.body
+
+for.body:                                         ; preds = %for.body.lr.ph, %hsts_out.exit
+  %e.053 = phi ptr [ %6, %for.body.lr.ph ], [ %8, %hsts_out.exit ]
+  %7 = load ptr, ptr %e.053, align 8
+  %next = getelementptr inbounds %struct.Curl_llist_element, ptr %e.053, i64 0, i32 2
+  %8 = load ptr, ptr %next, align 8
+  %9 = load ptr, ptr %out, align 8
+  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %stamp.i)
+  %expires.i = getelementptr inbounds %struct.stsentry, ptr %7, i64 0, i32 3
+  %10 = load i64, ptr %expires.i, align 8
+  %cmp.not.i = icmp eq i64 %10, 9223372036854775807
+  br i1 %cmp.not.i, label %if.else.i, label %if.then.i
+
+if.then.i:                                        ; preds = %for.body
+  %call.i = call i32 @Curl_gmtime(i64 noundef %10, ptr noundef nonnull %stamp.i) #9
+  %tobool.not.i = icmp eq i32 %call.i, 0
+  br i1 %tobool.not.i, label %if.end.i, label %hsts_out.exit.thread
+
+hsts_out.exit.thread:                             ; preds = %if.then.i
+  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %stamp.i)
+  br label %for.end
+
+if.end.i:                                         ; preds = %if.then.i
+  %includeSubDomains.i = getelementptr inbounds %struct.stsentry, ptr %7, i64 0, i32 2
+  %11 = load i8, ptr %includeSubDomains.i, align 8
+  %12 = and i8 %11, 1
+  %tobool3.not.i = icmp eq i8 %12, 0
+  %cond.i = select i1 %tobool3.not.i, ptr @.str.5, ptr @.str.4
+  %host.i = getelementptr inbounds %struct.stsentry, ptr %7, i64 0, i32 1
+  %13 = load ptr, ptr %host.i, align 8
+  %14 = load i32, ptr %tm_year.i, align 4
+  %add.i = add nsw i32 %14, 1900
+  %15 = load i32, ptr %tm_mon.i, align 8
+  %add4.i = add nsw i32 %15, 1
+  %16 = load i32, ptr %tm_mday.i, align 4
+  %17 = load i32, ptr %tm_hour.i, align 8
+  %18 = load i32, ptr %tm_min.i, align 4
+  %19 = load i32, ptr %stamp.i, align 8
+  %call5.i = call i32 (ptr, ptr, ...) @curl_mfprintf(ptr noundef %9, ptr noundef nonnull @.str.3, ptr noundef nonnull %cond.i, ptr noundef %13, i32 noundef %add.i, i32 noundef %add4.i, i32 noundef %16, i32 noundef %17, i32 noundef %18, i32 noundef %19) #9
+  br label %hsts_out.exit
+
+if.else.i:                                        ; preds = %for.body
+  %includeSubDomains6.i = getelementptr inbounds %struct.stsentry, ptr %7, i64 0, i32 2
+  %20 = load i8, ptr %includeSubDomains6.i, align 8
+  %21 = and i8 %20, 1
+  %tobool7.not.i = icmp eq i8 %21, 0
+  %cond8.i = select i1 %tobool7.not.i, ptr @.str.5, ptr @.str.4
+  %host9.i = getelementptr inbounds %struct.stsentry, ptr %7, i64 0, i32 1
+  %22 = load ptr, ptr %host9.i, align 8
+  %call10.i = call i32 (ptr, ptr, ...) @curl_mfprintf(ptr noundef %9, ptr noundef nonnull @.str.6, ptr noundef nonnull %cond8.i, ptr noundef %22, ptr noundef nonnull @.str.7) #9
+  br label %hsts_out.exit
+
+hsts_out.exit:                                    ; preds = %if.end.i, %if.else.i
+  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %stamp.i)
+  %tobool15.not = icmp eq ptr %8, null
+  br i1 %tobool15.not, label %for.end, label %for.body, !llvm.loop !12
+
+for.end:                                          ; preds = %hsts_out.exit, %if.then13, %hsts_out.exit.thread
+  %result.1 = phi i32 [ %call.i, %hsts_out.exit.thread ], [ 0, %if.then13 ], [ 0, %hsts_out.exit ]
+  %23 = load ptr, ptr %out, align 8
+  %call20 = call i32 @fclose(ptr noundef %23)
+  %tobool21 = icmp eq i32 %result.1, 0
+  %24 = load ptr, ptr %tempstore, align 8
+  %tobool23 = icmp ne ptr %24, null
+  %or.cond1 = select i1 %tobool21, i1 %tobool23, i1 false
+  br i1 %or.cond1, label %land.lhs.true24, label %if.end28
+
+land.lhs.true24:                                  ; preds = %for.end
+  %call25 = call i32 @Curl_rename(ptr noundef nonnull %24, ptr noundef nonnull %file.addr.0) #9
+  %tobool26.not = icmp eq i32 %call25, 0
+  %spec.select28 = select i1 %tobool26.not, i32 0, i32 23
+  %.pre = load ptr, ptr %tempstore, align 8
+  br label %if.end28
+
+if.end28:                                         ; preds = %land.lhs.true24, %for.end
+  %25 = phi ptr [ %24, %for.end ], [ %.pre, %land.lhs.true24 ]
+  %result.2 = phi i32 [ %result.1, %for.end ], [ %spec.select28, %land.lhs.true24 ]
+  %tobool29 = icmp ne i32 %result.2, 0
+  %tobool31 = icmp ne ptr %25, null
+  %or.cond2 = select i1 %tobool29, i1 %tobool31, i1 false
+  br i1 %or.cond2, label %if.then32, label %if.end35
+
+if.then32:                                        ; preds = %if.end28
+  %call33 = call i32 @unlink(ptr noundef nonnull %25) #9
+  br label %if.end35
+
+if.end35:                                         ; preds = %if.end28, %if.then32, %if.end11
+  %result.3 = phi i32 [ %call, %if.end11 ], [ %result.2, %if.then32 ], [ %result.2, %if.end28 ]
+  %26 = load ptr, ptr @Curl_cfree, align 8
+  %27 = load ptr, ptr %tempstore, align 8
+  call void %26(ptr noundef %27) #9
+  br label %skipsave
+
+skipsave:                                         ; preds = %if.end5, %lor.lhs.false8, %if.end35
+  %result.4 = phi i32 [ %result.3, %if.end35 ], [ 0, %lor.lhs.false8 ], [ 0, %if.end5 ]
+  %hsts_write = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 17, i32 36
+  %28 = load ptr, ptr %hsts_write, align 8
+  %tobool36.not = icmp eq ptr %28, null
+  br i1 %tobool36.not, label %return, label %if.then37
+
+if.then37:                                        ; preds = %skipsave
+  %size = getelementptr inbounds %struct.Curl_llist, ptr %h, i64 0, i32 3
+  %29 = load i64, ptr %size, align 8
+  %total = getelementptr inbounds %struct.curl_index, ptr %i, i64 0, i32 1
+  store i64 %29, ptr %total, align 8
+  store i64 0, ptr %i, align 8
+  %30 = load ptr, ptr %h, align 8
+  %tobool42.not54 = icmp eq ptr %30, null
+  br i1 %tobool42.not54, label %return, label %for.body43.lr.ph
+
+for.body43.lr.ph:                                 ; preds = %if.then37
+  %namelen.i = getelementptr inbounds %struct.curl_hstsentry, ptr %e.i, i64 0, i32 1
+  %includeSubDomains2.i = getelementptr inbounds %struct.curl_hstsentry, ptr %e.i, i64 0, i32 2
+  %expire.i = getelementptr inbounds %struct.curl_hstsentry, ptr %e.i, i64 0, i32 3
+  %tm_year.i39 = getelementptr inbounds %struct.tm, ptr %stamp.i29, i64 0, i32 5
+  %tm_mon.i41 = getelementptr inbounds %struct.tm, ptr %stamp.i29, i64 0, i32 4
+  %tm_mday.i42 = getelementptr inbounds %struct.tm, ptr %stamp.i29, i64 0, i32 3
+  %tm_hour.i43 = getelementptr inbounds %struct.tm, ptr %stamp.i29, i64 0, i32 2
+  %tm_min.i44 = getelementptr inbounds %struct.tm, ptr %stamp.i29, i64 0, i32 1
+  %hsts_write_userp.i = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 17, i32 37
+  br label %for.body43
+
+for.body43:                                       ; preds = %for.body43.lr.ph, %if.end53
+  %e.155 = phi ptr [ %30, %for.body43.lr.ph ], [ %32, %if.end53 ]
+  %31 = load ptr, ptr %e.155, align 8
+  %next46 = getelementptr inbounds %struct.Curl_llist_element, ptr %e.155, i64 0, i32 2
+  %32 = load ptr, ptr %next46, align 8
+  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %e.i)
+  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %stamp.i29)
+  %host.i30 = getelementptr inbounds %struct.stsentry, ptr %31, i64 0, i32 1
+  %33 = load ptr, ptr %host.i30, align 8
+  store ptr %33, ptr %e.i, align 8
+  %call.i31 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %33) #10
+  store i64 %call.i31, ptr %namelen.i, align 8
+  %includeSubDomains.i32 = getelementptr inbounds %struct.stsentry, ptr %31, i64 0, i32 2
+  %34 = load i8, ptr %includeSubDomains.i32, align 8
+  %35 = and i8 %34, 1
+  store i8 %35, ptr %includeSubDomains2.i, align 8
+  %expires.i33 = getelementptr inbounds %struct.stsentry, ptr %31, i64 0, i32 3
+  %36 = load i64, ptr %expires.i33, align 8
+  %cmp.not.i34 = icmp eq i64 %36, 9223372036854775807
+  br i1 %cmp.not.i34, label %if.else.i46, label %if.then.i35
+
+if.then.i35:                                      ; preds = %for.body43
+  %call5.i36 = call i32 @Curl_gmtime(i64 noundef %36, ptr noundef nonnull %stamp.i29) #9
+  %tobool6.not.i = icmp eq i32 %call5.i36, 0
+  br i1 %tobool6.not.i, label %if.end.i38, label %hsts_push.exit.thread
+
+if.end.i38:                                       ; preds = %if.then.i35
+  %37 = load i32, ptr %tm_year.i39, align 4
+  %add.i40 = add nsw i32 %37, 1900
+  %38 = load i32, ptr %tm_mon.i41, align 8
+  %add8.i = add nsw i32 %38, 1
+  %39 = load i32, ptr %tm_mday.i42, align 4
+  %40 = load i32, ptr %tm_hour.i43, align 8
+  %41 = load i32, ptr %tm_min.i44, align 4
+  %42 = load i32, ptr %stamp.i29, align 8
+  %call9.i = call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef nonnull %expire.i, i64 noundef 18, ptr noundef nonnull @.str.8, i32 noundef %add.i40, i32 noundef %add8.i, i32 noundef %39, i32 noundef %40, i32 noundef %41, i32 noundef %42) #9
+  br label %if.end13.i
+
+if.else.i46:                                      ; preds = %for.body43
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %expire.i, ptr noundef nonnull align 1 dereferenceable(10) @.str.7, i64 10, i1 false) #9
+  br label %if.end13.i
+
+if.end13.i:                                       ; preds = %if.else.i46, %if.end.i38
+  %43 = load ptr, ptr %hsts_write, align 8
+  %44 = load ptr, ptr %hsts_write_userp.i, align 8
+  %call15.i = call i32 %43(ptr noundef nonnull %data, ptr noundef nonnull %e.i, ptr noundef nonnull %i, ptr noundef %44) #9
+  %cmp18.i = icmp eq i32 %call15.i, 2
+  br i1 %cmp18.i, label %hsts_push.exit.thread, label %lor.lhs.false49
+
+hsts_push.exit.thread:                            ; preds = %if.then.i35, %if.end13.i
+  %retval.0.i37.ph = phi i32 [ %call5.i36, %if.then.i35 ], [ 43, %if.end13.i ]
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %e.i)
+  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %stamp.i29)
+  br label %return
+
+lor.lhs.false49:                                  ; preds = %if.end13.i
+  %cmp16.i.not = icmp eq i32 %call15.i, 0
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %e.i)
+  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %stamp.i29)
+  br i1 %cmp16.i.not, label %if.end53, label %return
+
+if.end53:                                         ; preds = %lor.lhs.false49
+  %45 = load i64, ptr %i, align 8
+  %inc = add i64 %45, 1
+  store i64 %inc, ptr %i, align 8
+  %tobool42.not = icmp eq ptr %32, null
+  br i1 %tobool42.not, label %return, label %for.body43, !llvm.loop !13
+
+return:                                           ; preds = %if.end53, %lor.lhs.false49, %if.then37, %hsts_push.exit.thread, %skipsave, %entry
+  %retval.0 = phi i32 [ 0, %entry ], [ %result.4, %skipsave ], [ %retval.0.i37.ph, %hsts_push.exit.thread ], [ %result.4, %if.then37 ], [ 0, %lor.lhs.false49 ], [ 0, %if.end53 ]
+  ret i32 %retval.0
+}
+
+declare i32 @Curl_fopen(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: nofree nounwind
+declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #5
+
+declare i32 @Curl_rename(ptr noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: nofree nounwind
+declare noundef i32 @unlink(ptr nocapture noundef readonly) local_unnamed_addr #5
+
+; Function Attrs: nounwind uwtable
+define hidden noundef i32 @Curl_hsts_loadfile(ptr nocapture readnone %data, ptr noundef %h, ptr noundef %file) local_unnamed_addr #0 {
+entry:
+  %host.i.i = alloca [257 x i8], align 16
+  %date.i.i = alloca [65 x i8], align 16
+  %0 = load ptr, ptr @Curl_cfree, align 8
+  %filename.i = getelementptr inbounds %struct.hsts, ptr %h, i64 0, i32 1
+  %1 = load ptr, ptr %filename.i, align 8
+  tail call void %0(ptr noundef %1) #9
+  %2 = load ptr, ptr @Curl_cstrdup, align 8
+  %call.i = tail call ptr %2(ptr noundef %file) #9
+  store ptr %call.i, ptr %filename.i, align 8
+  %tobool.not.i = icmp eq ptr %call.i, null
+  br i1 %tobool.not.i, label %hsts_load.exit, label %if.end.i
+
+if.end.i:                                         ; preds = %entry
+  %call3.i = tail call noalias ptr @fopen(ptr noundef %file, ptr noundef nonnull @.str.9)
+  %tobool4.not.i = icmp eq ptr %call3.i, null
+  br i1 %tobool4.not.i, label %hsts_load.exit, label %if.then5.i
+
+if.then5.i:                                       ; preds = %if.end.i
+  %3 = load ptr, ptr @Curl_cmalloc, align 8
+  %call6.i = tail call ptr %3(i64 noundef 4095) #9
+  %tobool7.not.i = icmp eq ptr %call6.i, null
+  br i1 %tobool7.not.i, label %do.body.i, label %while.cond.preheader.i
+
+while.cond.preheader.i:                           ; preds = %if.then5.i
+  %call1019.i = tail call ptr @Curl_get_line(ptr noundef nonnull %call6.i, i32 noundef 4095, ptr noundef nonnull %call3.i) #9
+  %tobool11.not20.i = icmp eq ptr %call1019.i, null
+  br i1 %tobool11.not20.i, label %while.end26.i, label %while.cond12.preheader.lr.ph.i
+
+while.cond12.preheader.lr.ph.i:                   ; preds = %while.cond.preheader.i
+  %tail.i.i.i = getelementptr inbounds %struct.Curl_llist, ptr %h, i64 0, i32 1
+  br label %while.cond12.i
+
+while.cond12.i:                                   ; preds = %while.cond12.i.backedge, %while.cond12.preheader.lr.ph.i
+  %lineptr.0.i = phi ptr [ %call6.i, %while.cond12.preheader.lr.ph.i ], [ %lineptr.0.i.be, %while.cond12.i.backedge ]
+  %4 = load i8, ptr %lineptr.0.i, align 1
+  switch i8 %4, label %if.end24.i [
+    i8 9, label %while.body19.i
+    i8 32, label %while.body19.i
+    i8 35, label %while.cond.backedge.i
+  ]
+
+while.body19.i:                                   ; preds = %while.cond12.i, %while.cond12.i
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %lineptr.0.i, i64 1
+  br label %while.cond12.i.backedge
+
+while.cond12.i.backedge:                          ; preds = %while.body19.i, %while.cond.backedge.i
+  %lineptr.0.i.be = phi ptr [ %incdec.ptr.i, %while.body19.i ], [ %call6.i, %while.cond.backedge.i ]
+  br label %while.cond12.i, !llvm.loop !14
+
+if.end24.i:                                       ; preds = %while.cond12.i
+  call void @llvm.lifetime.start.p0(i64 257, ptr nonnull %host.i.i)
+  call void @llvm.lifetime.start.p0(i64 65, ptr nonnull %date.i.i)
+  %call.i.i = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %lineptr.0.i, ptr noundef nonnull @.str.10, ptr noundef nonnull %host.i.i, ptr noundef nonnull %date.i.i) #9
+  %cmp.i.i = icmp eq i32 %call.i.i, 2
+  br i1 %cmp.i.i, label %if.then.i.i, label %hsts_add.exit.i
+
+if.then.i.i:                                      ; preds = %if.end24.i
+  %bcmp.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(10) %date.i.i, ptr noundef nonnull dereferenceable(10) @.str.7, i64 10)
+  %tobool.not.i.i = icmp eq i32 %bcmp.i.i, 0
+  br i1 %tobool.not.i.i, label %cond.end.i.i, label %cond.true.i.i
+
+cond.true.i.i:                                    ; preds = %if.then.i.i
+  %call5.i.i = call i64 @Curl_getdate_capped(ptr noundef nonnull %date.i.i) #9
+  br label %cond.end.i.i
+
+cond.end.i.i:                                     ; preds = %cond.true.i.i, %if.then.i.i
+  %cond.i.i = phi i64 [ %call5.i.i, %cond.true.i.i ], [ 9223372036854775807, %if.then.i.i ]
+  %5 = load i8, ptr %host.i.i, align 16
+  %cmp7.i.i = icmp eq i8 %5, 46
+  %spec.select.idx.i.i = zext i1 %cmp7.i.i to i64
+  %spec.select.i.i = getelementptr inbounds i8, ptr %host.i.i, i64 %spec.select.idx.i.i
+  %call11.i.i = call ptr @Curl_hsts(ptr noundef %h, ptr noundef nonnull %spec.select.i.i, i1 noundef zeroext %cmp7.i.i)
+  %tobool12.not.i.i = icmp eq ptr %call11.i.i, null
+  br i1 %tobool12.not.i.i, label %if.then13.i.i, label %if.else.i.i
+
+if.then13.i.i:                                    ; preds = %cond.end.i.i
+  %frombool.i.i.i = zext i1 %cmp7.i.i to i8
+  %call.i.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %spec.select.i.i) #10
+  %tobool.not.i.i.i = icmp eq i64 %call.i.i.i, 0
+  br i1 %tobool.not.i.i.i, label %hsts_add.exit.i, label %land.lhs.true.i.i.i
+
+land.lhs.true.i.i.i:                              ; preds = %if.then13.i.i
+  %6 = getelementptr i8, ptr %spec.select.i.i, i64 %call.i.i.i
+  %arrayidx.i.i.i = getelementptr i8, ptr %6, i64 -1
+  %7 = load i8, ptr %arrayidx.i.i.i, align 1
+  %cmp.i.i.i = icmp eq i8 %7, 46
+  br i1 %cmp.i.i.i, label %if.end.i.i.i, label %if.then5.i.i.i
+
+if.end.i.i.i:                                     ; preds = %land.lhs.true.i.i.i
+  %dec.i.i.i = add i64 %call.i.i.i, -1
+  %tobool4.not.i.i.i = icmp eq i64 %dec.i.i.i, 0
+  br i1 %tobool4.not.i.i.i, label %hsts_add.exit.i, label %if.then5.i.i.i
+
+if.then5.i.i.i:                                   ; preds = %if.end.i.i.i, %land.lhs.true.i.i.i
+  %hlen.020.i.i.i = phi i64 [ %dec.i.i.i, %if.end.i.i.i ], [ %call.i.i.i, %land.lhs.true.i.i.i ]
+  %8 = load ptr, ptr @Curl_ccalloc, align 8
+  %call.i.i.i.i = call ptr %8(i64 noundef 1, i64 noundef 48) #9
+  %tobool7.not.i.i.i = icmp eq ptr %call.i.i.i.i, null
+  br i1 %tobool7.not.i.i.i, label %hsts_add.exit.i, label %if.end9.i.i.i
+
+if.end9.i.i.i:                                    ; preds = %if.then5.i.i.i
+  %call10.i.i.i = call ptr @Curl_memdup0(ptr noundef nonnull %spec.select.i.i, i64 noundef %hlen.020.i.i.i) #9
+  %tobool11.not.i.i.i = icmp eq ptr %call10.i.i.i, null
+  br i1 %tobool11.not.i.i.i, label %if.then12.i.i.i, label %if.end13.i.i.i
+
+if.then12.i.i.i:                                  ; preds = %if.end9.i.i.i
+  %9 = load ptr, ptr @Curl_cfree, align 8
+  call void %9(ptr noundef nonnull %call.i.i.i.i) #9
+  br label %hsts_add.exit.i
+
+if.end13.i.i.i:                                   ; preds = %if.end9.i.i.i
+  %host.i.i.i = getelementptr inbounds %struct.stsentry, ptr %call.i.i.i.i, i64 0, i32 1
+  store ptr %call10.i.i.i, ptr %host.i.i.i, align 8
+  %expires14.i.i.i = getelementptr inbounds %struct.stsentry, ptr %call.i.i.i.i, i64 0, i32 3
+  store i64 %cond.i.i, ptr %expires14.i.i.i, align 8
+  %includeSubDomains.i.i.i = getelementptr inbounds %struct.stsentry, ptr %call.i.i.i.i, i64 0, i32 2
+  store i8 %frombool.i.i.i, ptr %includeSubDomains.i.i.i, align 8
+  %10 = load ptr, ptr %tail.i.i.i, align 8
+  call void @Curl_llist_insert_next(ptr noundef %h, ptr noundef %10, ptr noundef nonnull %call.i.i.i.i, ptr noundef nonnull %call.i.i.i.i) #9
+  br label %hsts_add.exit.i
+
+if.else.i.i:                                      ; preds = %cond.end.i.i
+  %expires16.i.i = getelementptr inbounds %struct.stsentry, ptr %call11.i.i, i64 0, i32 3
+  %11 = load i64, ptr %expires16.i.i, align 8
+  %cmp17.i.i = icmp sgt i64 %cond.i.i, %11
+  br i1 %cmp17.i.i, label %if.then19.i.i, label %hsts_add.exit.i
+
+if.then19.i.i:                                    ; preds = %if.else.i.i
+  store i64 %cond.i.i, ptr %expires16.i.i, align 8
+  br label %hsts_add.exit.i
+
+hsts_add.exit.i:                                  ; preds = %if.then19.i.i, %if.else.i.i, %if.end13.i.i.i, %if.then12.i.i.i, %if.then5.i.i.i, %if.end.i.i.i, %if.then13.i.i, %if.end24.i
+  call void @llvm.lifetime.end.p0(i64 257, ptr nonnull %host.i.i)
+  call void @llvm.lifetime.end.p0(i64 65, ptr nonnull %date.i.i)
+  br label %while.cond.backedge.i
+
+while.cond.backedge.i:                            ; preds = %while.cond12.i, %hsts_add.exit.i
+  %call10.i = call ptr @Curl_get_line(ptr noundef nonnull %call6.i, i32 noundef 4095, ptr noundef nonnull %call3.i) #9
+  %tobool11.not.i = icmp eq ptr %call10.i, null
+  br i1 %tobool11.not.i, label %while.end26.i, label %while.cond12.i.backedge
+
+while.end26.i:                                    ; preds = %while.cond.backedge.i, %while.cond.preheader.i
+  %12 = load ptr, ptr @Curl_cfree, align 8
+  call void %12(ptr noundef nonnull %call6.i) #9
+  %call27.i = call i32 @fclose(ptr noundef nonnull %call3.i)
+  br label %hsts_load.exit
+
+do.body.i:                                        ; preds = %if.then5.i
+  %13 = load ptr, ptr @Curl_cfree, align 8
+  %14 = load ptr, ptr %filename.i, align 8
+  tail call void %13(ptr noundef %14) #9
+  store ptr null, ptr %filename.i, align 8
+  %call31.i = tail call i32 @fclose(ptr noundef nonnull %call3.i)
+  br label %hsts_load.exit
+
+hsts_load.exit:                                   ; preds = %entry, %if.end.i, %while.end26.i, %do.body.i
+  %retval.0.i = phi i32 [ 27, %do.body.i ], [ 27, %entry ], [ 0, %while.end26.i ], [ 0, %if.end.i ]
+  ret i32 %retval.0.i
+}
+
+; Function Attrs: nounwind uwtable
+define hidden i32 @Curl_hsts_loadcb(ptr noundef %data, ptr noundef %h) local_unnamed_addr #0 {
+entry:
+  %buffer.i = alloca [257 x i8], align 16
+  %e.i = alloca %struct.curl_hstsentry, align 8
+  %tobool.not = icmp eq ptr %h, null
+  br i1 %tobool.not, label %return, label %if.then
+
+if.then:                                          ; preds = %entry
+  call void @llvm.lifetime.start.p0(i64 257, ptr nonnull %buffer.i)
+  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %e.i)
+  %hsts_read.i = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 17, i32 34
+  %0 = load ptr, ptr %hsts_read.i, align 8
+  %tobool.not.i = icmp eq ptr %0, null
+  br i1 %tobool.not.i, label %hsts_pull.exit, label %do.body1.preheader.i
+
+do.body1.preheader.i:                             ; preds = %if.then
+  %namelen.i = getelementptr inbounds %struct.curl_hstsentry, ptr %e.i, i64 0, i32 1
+  %includeSubDomains.i = getelementptr inbounds %struct.curl_hstsentry, ptr %e.i, i64 0, i32 2
+  %expire.i = getelementptr inbounds %struct.curl_hstsentry, ptr %e.i, i64 0, i32 3
+  %hsts_read_userp.i = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 17, i32 35
+  store ptr %buffer.i, ptr %e.i, align 8
+  store i64 256, ptr %namelen.i, align 8
+  store i8 0, ptr %includeSubDomains.i, align 8
+  store i8 0, ptr %expire.i, align 1
+  store i8 0, ptr %buffer.i, align 16
+  %1 = load ptr, ptr %hsts_read_userp.i, align 8
+  %call17.i = call i32 %0(ptr noundef nonnull %data, ptr noundef nonnull %e.i, ptr noundef %1) #9
+  %cmp18.i = icmp eq i32 %call17.i, 0
+  br i1 %cmp18.i, label %do.end9.lr.ph.i, label %if.else32.i
+
+do.end9.lr.ph.i:                                  ; preds = %do.body1.preheader.i
+  %tail.i.i = getelementptr inbounds %struct.Curl_llist, ptr %h, i64 0, i32 1
+  br label %do.end9.i
+
+do.end9.i:                                        ; preds = %hsts_create.exit.i, %do.end9.lr.ph.i
+  %2 = load ptr, ptr %e.i, align 8
+  %3 = load i8, ptr %2, align 1
+  %tobool12.not.i = icmp eq i8 %3, 0
+  br i1 %tobool12.not.i, label %hsts_pull.exit, label %if.end.i
+
+if.end.i:                                         ; preds = %do.end9.i
+  %4 = load i8, ptr %expire.i, align 1
+  %tobool16.not.i = icmp eq i8 %4, 0
+  br i1 %tobool16.not.i, label %if.end21.i, label %if.then17.i
+
+if.then17.i:                                      ; preds = %if.end.i
+  %call20.i = call i64 @Curl_getdate_capped(ptr noundef nonnull %expire.i) #9
+  %.pre.i = load ptr, ptr %e.i, align 8
+  br label %if.end21.i
+
+if.end21.i:                                       ; preds = %if.then17.i, %if.end.i
+  %5 = phi ptr [ %.pre.i, %if.then17.i ], [ %2, %if.end.i ]
+  %expires.0.i = phi i64 [ %call20.i, %if.then17.i ], [ 9223372036854775807, %if.end.i ]
+  %bf.load24.i = load i8, ptr %includeSubDomains.i, align 8
+  %bf.clear25.i = and i8 %bf.load24.i, 1
+  %call.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #10
+  %tobool.not.i.i = icmp eq i64 %call.i.i, 0
+  br i1 %tobool.not.i.i, label %hsts_create.exit.i, label %land.lhs.true.i.i
+
+land.lhs.true.i.i:                                ; preds = %if.end21.i
+  %6 = getelementptr i8, ptr %5, i64 %call.i.i
+  %arrayidx.i.i = getelementptr i8, ptr %6, i64 -1
+  %7 = load i8, ptr %arrayidx.i.i, align 1
+  %cmp.i.i = icmp eq i8 %7, 46
+  br i1 %cmp.i.i, label %if.end.i.i, label %if.then5.i.i
+
+if.end.i.i:                                       ; preds = %land.lhs.true.i.i
+  %dec.i.i = add i64 %call.i.i, -1
+  %tobool4.not.i.i = icmp eq i64 %dec.i.i, 0
+  br i1 %tobool4.not.i.i, label %hsts_create.exit.i, label %if.then5.i.i
+
+if.then5.i.i:                                     ; preds = %if.end.i.i, %land.lhs.true.i.i
+  %hlen.020.i.i = phi i64 [ %dec.i.i, %if.end.i.i ], [ %call.i.i, %land.lhs.true.i.i ]
+  %8 = load ptr, ptr @Curl_ccalloc, align 8
+  %call.i.i.i = call ptr %8(i64 noundef 1, i64 noundef 48) #9
+  %tobool7.not.i.i = icmp eq ptr %call.i.i.i, null
+  br i1 %tobool7.not.i.i, label %hsts_pull.exit, label %if.end9.i.i
+
+if.end9.i.i:                                      ; preds = %if.then5.i.i
+  %call10.i.i = call ptr @Curl_memdup0(ptr noundef nonnull %5, i64 noundef %hlen.020.i.i) #9
+  %tobool11.not.i.i = icmp eq ptr %call10.i.i, null
+  br i1 %tobool11.not.i.i, label %if.then12.i.i, label %if.end13.i.i
+
+if.then12.i.i:                                    ; preds = %if.end9.i.i
+  %9 = load ptr, ptr @Curl_cfree, align 8
+  call void %9(ptr noundef nonnull %call.i.i.i) #9
+  br label %hsts_pull.exit
+
+if.end13.i.i:                                     ; preds = %if.end9.i.i
+  %host.i.i = getelementptr inbounds %struct.stsentry, ptr %call.i.i.i, i64 0, i32 1
+  store ptr %call10.i.i, ptr %host.i.i, align 8
+  %expires14.i.i = getelementptr inbounds %struct.stsentry, ptr %call.i.i.i, i64 0, i32 3
+  store i64 %expires.0.i, ptr %expires14.i.i, align 8
+  %includeSubDomains.i.i = getelementptr inbounds %struct.stsentry, ptr %call.i.i.i, i64 0, i32 2
+  store i8 %bf.clear25.i, ptr %includeSubDomains.i.i, align 8
+  %10 = load ptr, ptr %tail.i.i, align 8
+  call void @Curl_llist_insert_next(ptr noundef nonnull %h, ptr noundef %10, ptr noundef nonnull %call.i.i.i, ptr noundef nonnull %call.i.i.i) #9
+  %bf.load.pre.i = load i8, ptr %includeSubDomains.i, align 8
+  br label %hsts_create.exit.i
+
+hsts_create.exit.i:                               ; preds = %if.end13.i.i, %if.end.i.i, %if.end21.i
+  %bf.load.i = phi i8 [ %bf.load24.i, %if.end21.i ], [ %bf.load24.i, %if.end.i.i ], [ %bf.load.pre.i, %if.end13.i.i ]
+  store ptr %buffer.i, ptr %e.i, align 8
+  store i64 256, ptr %namelen.i, align 8
+  %bf.clear.i = and i8 %bf.load.i, -2
+  store i8 %bf.clear.i, ptr %includeSubDomains.i, align 8
+  store i8 0, ptr %expire.i, align 1
+  store i8 0, ptr %buffer.i, align 16
+  %11 = load ptr, ptr %hsts_read.i, align 8
+  %12 = load ptr, ptr %hsts_read_userp.i, align 8
+  %call.i = call i32 %11(ptr noundef nonnull %data, ptr noundef nonnull %e.i, ptr noundef %12) #9
+  %cmp.i = icmp eq i32 %call.i, 0
+  br i1 %cmp.i, label %do.end9.i, label %if.else32.i
+
+if.else32.i:                                      ; preds = %hsts_create.exit.i, %do.body1.preheader.i
+  %call.lcssa.i = phi i32 [ %call17.i, %do.body1.preheader.i ], [ %call.i, %hsts_create.exit.i ]
+  %cmp33.i = icmp eq i32 %call.lcssa.i, 2
+  %.mux.i = select i1 %cmp33.i, i32 42, i32 0
+  br label %hsts_pull.exit
+
+hsts_pull.exit:                                   ; preds = %do.end9.i, %if.then5.i.i, %if.then, %if.then12.i.i, %if.else32.i
+  %retval.0.i = phi i32 [ %.mux.i, %if.else32.i ], [ 0, %if.then ], [ 27, %if.then12.i.i ], [ 43, %do.end9.i ], [ 27, %if.then5.i.i ]
+  call void @llvm.lifetime.end.p0(i64 257, ptr nonnull %buffer.i)
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %e.i)
+  br label %return
+
+return:                                           ; preds = %entry, %hsts_pull.exit
+  %retval.0 = phi i32 [ %retval.0.i, %hsts_pull.exit ], [ 0, %entry ]
+  ret i32 %retval.0
+}
+
+; Function Attrs: nounwind uwtable
+define hidden void @Curl_hsts_loadfiles(ptr noundef %data) local_unnamed_addr #0 {
+entry:
+  %hstslist = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 22, i32 5
+  %0 = load ptr, ptr %hstslist, align 8
+  %tobool.not = icmp eq ptr %0, null
+  br i1 %tobool.not, label %if.end, label %if.then
+
+if.then:                                          ; preds = %entry
+  %call = tail call i32 @Curl_share_lock(ptr noundef nonnull %data, i32 noundef 7, i32 noundef 2) #9
+  %hsts = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 19
+  br label %while.body
+
+while.body:                                       ; preds = %if.then, %while.body
+  %l.08 = phi ptr [ %0, %if.then ], [ %3, %while.body ]
+  %1 = load ptr, ptr %hsts, align 8
+  %2 = load ptr, ptr %l.08, align 8
+  %call3 = tail call i32 @Curl_hsts_loadfile(ptr nonnull poison, ptr noundef %1, ptr noundef %2), !range !15
+  %next = getelementptr inbounds %struct.curl_slist, ptr %l.08, i64 0, i32 1
+  %3 = load ptr, ptr %next, align 8
+  %tobool1.not = icmp eq ptr %3, null
+  br i1 %tobool1.not, label %while.end, label %while.body, !llvm.loop !16
+
+while.end:                                        ; preds = %while.body
+  %call4 = tail call i32 @Curl_share_unlock(ptr noundef nonnull %data, i32 noundef 7) #9
+  br label %if.end
+
+if.end:                                           ; preds = %while.end, %entry
+  ret void
+}
+
+declare i32 @Curl_share_lock(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
+
+declare i32 @Curl_share_unlock(ptr noundef, i32 noundef) local_unnamed_addr #1
+
+declare ptr @Curl_memdup0(ptr noundef, i64 noundef) local_unnamed_addr #1
+
+declare void @Curl_llist_insert_next(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+
+declare i32 @Curl_gmtime(i64 noundef, ptr noundef) local_unnamed_addr #1
+
+declare i32 @curl_mfprintf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
+
+declare i32 @curl_msnprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #1
+
+; Function Attrs: nofree nounwind
+declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #5
+
+declare ptr @Curl_get_line(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: nofree nounwind
+declare noundef i32 @__isoc99_sscanf(ptr nocapture noundef readonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #5
+
+declare i64 @Curl_getdate_capped(ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: nofree nounwind
+declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #6
+
+; Function Attrs: nofree nounwind willreturn memory(argmem: read)
+declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #7
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
+
+attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nofree nounwind }
+attributes #7 = { nofree nounwind willreturn memory(argmem: read) }
+attributes #8 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #9 = { nounwind }
+attributes #10 = { nounwind willreturn memory(read) }
+
+!llvm.module.flags = !{!0, !1, !2, !3}
+
+!0 = !{i32 1, !"wchar_size", i32 4}
+!1 = !{i32 8, !"PIC Level", i32 2}
+!2 = !{i32 7, !"uwtable", i32 2}
+!3 = !{i32 7, !"frame-pointer", i32 2}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}
+!10 = distinct !{!10, !5}
+!11 = distinct !{!11, !5}
+!12 = distinct !{!12, !5}
+!13 = distinct !{!13, !5}
+!14 = distinct !{!14, !5}
+!15 = !{i32 0, i32 28}
+!16 = distinct !{!16, !5}

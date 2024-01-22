@@ -1,0 +1,1199 @@
+; ModuleID = 'bench/wolfssl/original/sha256.c.ll'
+source_filename = "bench/wolfssl/original/sha256.c.ll"
+target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
+target triple = "x86_64-unknown-linux-gnu"
+
+%struct.wc_Sha256 = type { [8 x i32], [16 x i32], i32, i32, i32, ptr, [8 x i8] }
+
+@K = internal unnamed_addr constant [64 x i32] [i32 1116352408, i32 1899447441, i32 -1245643825, i32 -373957723, i32 961987163, i32 1508970993, i32 -1841331548, i32 -1424204075, i32 -670586216, i32 310598401, i32 607225278, i32 1426881987, i32 1925078388, i32 -2132889090, i32 -1680079193, i32 -1046744716, i32 -459576895, i32 -272742522, i32 264347078, i32 604807628, i32 770255983, i32 1249150122, i32 1555081692, i32 1996064986, i32 -1740746414, i32 -1473132947, i32 -1341970488, i32 -1084653625, i32 -958395405, i32 -710438585, i32 113926993, i32 338241895, i32 666307205, i32 773529912, i32 1294757372, i32 1396182291, i32 1695183700, i32 1986661051, i32 -2117940946, i32 -1838011259, i32 -1564481375, i32 -1474664885, i32 -1035236496, i32 -949202525, i32 -778901479, i32 -694614492, i32 -200395387, i32 275423344, i32 430227734, i32 506948616, i32 659060556, i32 883997877, i32 958139571, i32 1322822218, i32 1537002063, i32 1747873779, i32 1955562222, i32 2024104815, i32 -2067236844, i32 -1933114872, i32 -1866530822, i32 -1538233109, i32 -1090935817, i32 -965641998], align 32
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
+define noundef i32 @wc_InitSha256_ex(ptr noundef writeonly %sha256, ptr noundef %heap, i32 noundef %devId) local_unnamed_addr #0 {
+entry:
+  %cmp = icmp eq ptr %sha256, null
+  br i1 %cmp, label %return, label %if.end
+
+if.end:                                           ; preds = %entry
+  store <4 x i32> <i32 1779033703, i32 -1150833019, i32 1013904242, i32 -1521486534>, ptr %sha256, align 16
+  %arrayidx9.i = getelementptr inbounds [8 x i32], ptr %sha256, i64 0, i64 4
+  store <4 x i32> <i32 1359893119, i32 -1694144372, i32 528734635, i32 1541459225>, ptr %arrayidx9.i, align 16
+  %buffLen.i = getelementptr inbounds %struct.wc_Sha256, ptr %sha256, i64 0, i32 2
+  store i32 0, ptr %buffLen.i, align 16
+  %loLen.i = getelementptr inbounds %struct.wc_Sha256, ptr %sha256, i64 0, i32 3
+  store i32 0, ptr %loLen.i, align 4
+  %hiLen.i = getelementptr inbounds %struct.wc_Sha256, ptr %sha256, i64 0, i32 4
+  store i32 0, ptr %hiLen.i, align 8
+  %heap4 = getelementptr inbounds %struct.wc_Sha256, ptr %sha256, i64 0, i32 5
+  store ptr %heap, ptr %heap4, align 16
+  br label %return
+
+return:                                           ; preds = %entry, %if.end
+  %retval.0 = phi i32 [ 0, %if.end ], [ -173, %entry ]
+  ret i32 %retval.0
+}
+
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+define noundef i32 @wc_Sha256Update(ptr noundef %sha256, ptr noundef %data, i32 noundef %len) local_unnamed_addr #1 {
+entry:
+  %cmp = icmp eq ptr %sha256, null
+  br i1 %cmp, label %return, label %lor.lhs.false
+
+lor.lhs.false:                                    ; preds = %entry
+  %cmp1 = icmp eq ptr %data, null
+  %cmp2 = icmp ne i32 %len, 0
+  %or.cond = and i1 %cmp1, %cmp2
+  br i1 %or.cond, label %return, label %if.end
+
+if.end:                                           ; preds = %lor.lhs.false
+  %cmp5 = icmp eq i32 %len, 0
+  %or.cond1 = and i1 %cmp1, %cmp5
+  br i1 %or.cond1, label %return, label %if.end7
+
+if.end7:                                          ; preds = %if.end
+  %call = tail call fastcc i32 @Sha256Update(ptr noundef nonnull %sha256, ptr noundef %data, i32 noundef %len), !range !4
+  br label %return
+
+return:                                           ; preds = %if.end, %entry, %lor.lhs.false, %if.end7
+  %retval.0 = phi i32 [ %call, %if.end7 ], [ -173, %lor.lhs.false ], [ -173, %entry ], [ 0, %if.end ]
+  ret i32 %retval.0
+}
+
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+define internal fastcc noundef i32 @Sha256Update(ptr noundef %sha256, ptr noundef readonly %data, i32 noundef %len) unnamed_addr #1 {
+entry:
+  %cmp1 = icmp eq ptr %data, null
+  %cmp2 = icmp ne i32 %len, 0
+  %or.cond = and i1 %cmp1, %cmp2
+  br i1 %or.cond, label %return, label %if.end
+
+if.end:                                           ; preds = %entry
+  %cmp5 = icmp eq i32 %len, 0
+  %or.cond1 = and i1 %cmp1, %cmp5
+  br i1 %or.cond1, label %return, label %if.end7
+
+if.end7:                                          ; preds = %if.end
+  %buffLen = getelementptr inbounds %struct.wc_Sha256, ptr %sha256, i64 0, i32 2
+  %0 = load i32, ptr %buffLen, align 16
+  %cmp8 = icmp ugt i32 %0, 63
+  br i1 %cmp8, label %return, label %if.end10
+
+if.end10:                                         ; preds = %if.end7
+  %loLen.i = getelementptr inbounds %struct.wc_Sha256, ptr %sha256, i64 0, i32 3
+  %1 = load i32, ptr %loLen.i, align 4
+  %add.i = add i32 %1, %len
+  store i32 %add.i, ptr %loLen.i, align 4
+  %cmp.i = icmp ult i32 %add.i, %1
+  br i1 %cmp.i, label %if.then.i, label %AddLength.exit
+
+if.then.i:                                        ; preds = %if.end10
+  %hiLen.i = getelementptr inbounds %struct.wc_Sha256, ptr %sha256, i64 0, i32 4
+  %2 = load i32, ptr %hiLen.i, align 8
+  %inc.i = add i32 %2, 1
+  store i32 %inc.i, ptr %hiLen.i, align 8
+  br label %AddLength.exit
+
+AddLength.exit:                                   ; preds = %if.end10, %if.then.i
+  %buffer = getelementptr inbounds %struct.wc_Sha256, ptr %sha256, i64 0, i32 1
+  %cmp12.not = icmp eq i32 %0, 0
+  br i1 %cmp12.not, label %if.end33, label %if.then13
+
+if.then13:                                        ; preds = %AddLength.exit
+  %sub = sub nuw nsw i32 64, %0
+  %cond.i = tail call noundef i32 @llvm.umin.i32(i32 %len, i32 %sub)
+  %idxprom = zext nneg i32 %0 to i64
+  %arrayidx = getelementptr inbounds i8, ptr %buffer, i64 %idxprom
+  %conv = zext nneg i32 %cond.i to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %arrayidx, ptr align 1 %data, i64 %conv, i1 false)
+  %3 = load i32, ptr %buffLen, align 16
+  %add = add i32 %3, %cond.i
+  store i32 %add, ptr %buffLen, align 16
+  %add.ptr = getelementptr inbounds i8, ptr %data, i64 %conv
+  %sub17 = sub i32 %len, %cond.i
+  %cmp19 = icmp eq i32 %add, 64
+  br i1 %cmp19, label %if.then21, label %if.end33
+
+if.then21:                                        ; preds = %if.then13
+  %4 = ptrtoint ptr %buffer to i64
+  %5 = and i64 %4, 3
+  %or.cond.i = icmp eq i64 %5, 0
+  br i1 %or.cond.i, label %for.body.i, label %for.body9.i
+
+for.body.i:                                       ; preds = %if.then21, %for.body.i
+  %indvars.iv24.i = phi i64 [ %indvars.iv.next25.i, %for.body.i ], [ 0, %if.then21 ]
+  %arrayidx.i = getelementptr inbounds i32, ptr %buffer, i64 %indvars.iv24.i
+  %6 = load i32, ptr %arrayidx.i, align 4
+  %or.i.i = tail call noundef i32 @llvm.bswap.i32(i32 %6)
+  store i32 %or.i.i, ptr %arrayidx.i, align 4
+  %indvars.iv.next25.i = add nuw nsw i64 %indvars.iv24.i, 1
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next25.i, 16
+  br i1 %exitcond.not.i, label %ByteReverseWords.exit, label %for.body.i, !llvm.loop !5
+
+for.body9.i:                                      ; preds = %if.then21, %for.body9.i
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.body9.i ], [ 0, %if.then21 ]
+  %add.ptr.i = getelementptr inbounds i8, ptr %buffer, i64 %indvars.iv.i
+  %scratch.0.copyload.i = load i32, ptr %add.ptr.i, align 1
+  %or.i16.i = tail call noundef i32 @llvm.bswap.i32(i32 %scratch.0.copyload.i)
+  store i32 %or.i16.i, ptr %add.ptr.i, align 1
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 4
+  %cmp8.i = icmp ult i64 %indvars.iv.i, 60
+  br i1 %cmp8.i, label %for.body9.i, label %ByteReverseWords.exit, !llvm.loop !7
+
+ByteReverseWords.exit:                            ; preds = %for.body9.i, %for.body.i
+  tail call fastcc void @Transform_Sha256(ptr noundef nonnull %sha256, ptr noundef nonnull %buffer)
+  store i32 0, ptr %buffLen, align 16
+  br label %if.end33
+
+if.end33:                                         ; preds = %if.then13, %ByteReverseWords.exit, %AddLength.exit
+  %len.addr.0 = phi i32 [ %sub17, %ByteReverseWords.exit ], [ %sub17, %if.then13 ], [ %len, %AddLength.exit ]
+  %data.addr.0 = phi ptr [ %add.ptr, %ByteReverseWords.exit ], [ %add.ptr, %if.then13 ], [ %data, %AddLength.exit ]
+  %cmp34.old = icmp ugt i32 %len.addr.0, 63
+  br i1 %cmp34.old, label %while.body.preheader, label %while.end
+
+while.body.preheader:                             ; preds = %if.end33
+  %7 = ptrtoint ptr %buffer to i64
+  %8 = and i64 %7, 3
+  %or.cond.i47 = icmp eq i64 %8, 0
+  br i1 %or.cond.i47, label %while.body.us, label %while.body
+
+while.body.us:                                    ; preds = %while.body.preheader, %ByteReverseWords.exit65.loopexit.us
+  %len.addr.1.us = phi i32 [ %sub39.us, %ByteReverseWords.exit65.loopexit.us ], [ %len.addr.0, %while.body.preheader ]
+  %data.addr.1.us = phi ptr [ %add.ptr38.us, %ByteReverseWords.exit65.loopexit.us ], [ %data.addr.0, %while.body.preheader ]
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %buffer, ptr noundef nonnull align 1 dereferenceable(64) %data.addr.1.us, i64 64, i1 false)
+  %add.ptr38.us = getelementptr inbounds i8, ptr %data.addr.1.us, i64 64
+  br label %for.body.i58.us
+
+for.body.i58.us:                                  ; preds = %while.body.us, %for.body.i58.us
+  %indvars.iv24.i59.us = phi i64 [ %indvars.iv.next25.i63.us, %for.body.i58.us ], [ 0, %while.body.us ]
+  %arrayidx.i60.us = getelementptr inbounds i32, ptr %buffer, i64 %indvars.iv24.i59.us
+  %9 = load i32, ptr %arrayidx.i60.us, align 4
+  %or.i.i61.us = tail call noundef i32 @llvm.bswap.i32(i32 %9)
+  store i32 %or.i.i61.us, ptr %arrayidx.i60.us, align 4
+  %indvars.iv.next25.i63.us = add nuw nsw i64 %indvars.iv24.i59.us, 1
+  %exitcond.not.i64.us = icmp eq i64 %indvars.iv.next25.i63.us, 16
+  br i1 %exitcond.not.i64.us, label %ByteReverseWords.exit65.loopexit.us, label %for.body.i58.us, !llvm.loop !5
+
+ByteReverseWords.exit65.loopexit.us:              ; preds = %for.body.i58.us
+  %sub39.us = add i32 %len.addr.1.us, -64
+  tail call fastcc void @Transform_Sha256(ptr noundef nonnull %sha256, ptr noundef nonnull %buffer)
+  %cmp34.us = icmp ugt i32 %sub39.us, 63
+  br i1 %cmp34.us, label %while.body.us, label %while.end, !llvm.loop !8
+
+while.body:                                       ; preds = %while.body.preheader, %ByteReverseWords.exit65.loopexit66
+  %len.addr.1 = phi i32 [ %sub39, %ByteReverseWords.exit65.loopexit66 ], [ %len.addr.0, %while.body.preheader ]
+  %data.addr.1 = phi ptr [ %add.ptr38, %ByteReverseWords.exit65.loopexit66 ], [ %data.addr.0, %while.body.preheader ]
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %buffer, ptr noundef nonnull align 1 dereferenceable(64) %data.addr.1, i64 64, i1 false)
+  %add.ptr38 = getelementptr inbounds i8, ptr %data.addr.1, i64 64
+  br label %for.body9.i49
+
+for.body9.i49:                                    ; preds = %while.body, %for.body9.i49
+  %indvars.iv.i50 = phi i64 [ %indvars.iv.next.i55, %for.body9.i49 ], [ 0, %while.body ]
+  %add.ptr.i51 = getelementptr inbounds i8, ptr %buffer, i64 %indvars.iv.i50
+  %scratch.0.copyload.i52 = load i32, ptr %add.ptr.i51, align 1
+  %or.i16.i53 = tail call noundef i32 @llvm.bswap.i32(i32 %scratch.0.copyload.i52)
+  store i32 %or.i16.i53, ptr %add.ptr.i51, align 1
+  %indvars.iv.next.i55 = add nuw nsw i64 %indvars.iv.i50, 4
+  %cmp8.i56 = icmp ult i64 %indvars.iv.i50, 60
+  br i1 %cmp8.i56, label %for.body9.i49, label %ByteReverseWords.exit65.loopexit66, !llvm.loop !7
+
+ByteReverseWords.exit65.loopexit66:               ; preds = %for.body9.i49
+  %sub39 = add i32 %len.addr.1, -64
+  tail call fastcc void @Transform_Sha256(ptr noundef nonnull %sha256, ptr noundef nonnull %buffer)
+  %cmp34 = icmp ugt i32 %sub39, 63
+  br i1 %cmp34, label %while.body, label %while.end, !llvm.loop !8
+
+while.end:                                        ; preds = %ByteReverseWords.exit65.loopexit66, %ByteReverseWords.exit65.loopexit.us, %if.end33
+  %len.addr.2 = phi i32 [ %len.addr.0, %if.end33 ], [ %sub39.us, %ByteReverseWords.exit65.loopexit.us ], [ %sub39, %ByteReverseWords.exit65.loopexit66 ]
+  %data.addr.2 = phi ptr [ %data.addr.0, %if.end33 ], [ %add.ptr38.us, %ByteReverseWords.exit65.loopexit.us ], [ %add.ptr38, %ByteReverseWords.exit65.loopexit66 ]
+  %cmp48.not = icmp eq i32 %len.addr.2, 0
+  br i1 %cmp48.not, label %return, label %if.then50
+
+if.then50:                                        ; preds = %while.end
+  %conv51 = zext nneg i32 %len.addr.2 to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %buffer, ptr align 1 %data.addr.2, i64 %conv51, i1 false)
+  store i32 %len.addr.2, ptr %buffLen, align 16
+  br label %return
+
+return:                                           ; preds = %while.end, %if.then50, %if.end7, %if.end, %entry
+  %retval.0 = phi i32 [ -173, %entry ], [ 0, %if.end ], [ -132, %if.end7 ], [ 0, %if.then50 ], [ 0, %while.end ]
+  ret i32 %retval.0
+}
+
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define noundef i32 @wc_Sha256FinalRaw(ptr noundef %sha256, ptr noundef writeonly %hash) local_unnamed_addr #2 {
+entry:
+  %digest = alloca [8 x i32], align 16
+  %cmp = icmp eq ptr %sha256, null
+  %cmp1 = icmp eq ptr %hash, null
+  %or.cond = or i1 %cmp, %cmp1
+  br i1 %or.cond, label %return, label %if.end
+
+if.end:                                           ; preds = %entry
+  %0 = ptrtoint ptr %sha256 to i64
+  %1 = and i64 %0, 3
+  %or.cond.i = icmp eq i64 %1, 0
+  br i1 %or.cond.i, label %for.body.i, label %for.body9.i
+
+for.body.i:                                       ; preds = %if.end, %for.body.i
+  %indvars.iv24.i = phi i64 [ %indvars.iv.next25.i, %for.body.i ], [ 0, %if.end ]
+  %arrayidx.i = getelementptr inbounds i32, ptr %sha256, i64 %indvars.iv24.i
+  %2 = load i32, ptr %arrayidx.i, align 4
+  %or.i.i = tail call noundef i32 @llvm.bswap.i32(i32 %2)
+  %arrayidx5.i = getelementptr inbounds i32, ptr %digest, i64 %indvars.iv24.i
+  store i32 %or.i.i, ptr %arrayidx5.i, align 4
+  %indvars.iv.next25.i = add nuw nsw i64 %indvars.iv24.i, 1
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next25.i, 8
+  br i1 %exitcond.not.i, label %ByteReverseWords.exit, label %for.body.i, !llvm.loop !5
+
+for.body9.i:                                      ; preds = %if.end, %for.body9.i
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.body9.i ], [ 0, %if.end ]
+  %add.ptr.i = getelementptr inbounds i8, ptr %sha256, i64 %indvars.iv.i
+  %scratch.0.copyload.i = load i32, ptr %add.ptr.i, align 1
+  %or.i16.i = tail call noundef i32 @llvm.bswap.i32(i32 %scratch.0.copyload.i)
+  %add.ptr12.i = getelementptr inbounds i8, ptr %digest, i64 %indvars.iv.i
+  store i32 %or.i16.i, ptr %add.ptr12.i, align 4
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 4
+  %cmp8.i = icmp ult i64 %indvars.iv.i, 28
+  br i1 %cmp8.i, label %for.body9.i, label %ByteReverseWords.exit, !llvm.loop !7
+
+ByteReverseWords.exit:                            ; preds = %for.body9.i, %for.body.i
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %hash, ptr noundef nonnull align 16 dereferenceable(32) %digest, i64 32, i1 false)
+  br label %return
+
+return:                                           ; preds = %entry, %ByteReverseWords.exit
+  %retval.0 = phi i32 [ 0, %ByteReverseWords.exit ], [ -173, %entry ]
+  ret i32 %retval.0
+}
+
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define noundef i32 @wc_Sha256Final(ptr noundef %sha256, ptr noundef writeonly %hash) local_unnamed_addr #2 {
+entry:
+  %cmp = icmp eq ptr %sha256, null
+  %cmp1 = icmp eq ptr %hash, null
+  %or.cond = or i1 %cmp, %cmp1
+  br i1 %or.cond, label %return, label %if.end
+
+if.end:                                           ; preds = %entry
+  %call = tail call fastcc i32 @Sha256Final(ptr noundef nonnull %sha256), !range !9
+  %cmp2.not = icmp eq i32 %call, 0
+  br i1 %cmp2.not, label %if.end4, label %return
+
+if.end4:                                          ; preds = %if.end
+  %0 = ptrtoint ptr %sha256 to i64
+  %1 = and i64 %0, 3
+  %or.cond.i = icmp eq i64 %1, 0
+  br i1 %or.cond.i, label %for.body.i, label %for.body9.i
+
+for.body.i:                                       ; preds = %if.end4, %for.body.i
+  %indvars.iv24.i = phi i64 [ %indvars.iv.next25.i, %for.body.i ], [ 0, %if.end4 ]
+  %arrayidx.i = getelementptr inbounds i32, ptr %sha256, i64 %indvars.iv24.i
+  %2 = load i32, ptr %arrayidx.i, align 4
+  %or.i.i = tail call noundef i32 @llvm.bswap.i32(i32 %2)
+  store i32 %or.i.i, ptr %arrayidx.i, align 4
+  %indvars.iv.next25.i = add nuw nsw i64 %indvars.iv24.i, 1
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next25.i, 8
+  br i1 %exitcond.not.i, label %ByteReverseWords.exit, label %for.body.i, !llvm.loop !5
+
+for.body9.i:                                      ; preds = %if.end4, %for.body9.i
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.body9.i ], [ 0, %if.end4 ]
+  %add.ptr.i = getelementptr inbounds i8, ptr %sha256, i64 %indvars.iv.i
+  %scratch.0.copyload.i = load i32, ptr %add.ptr.i, align 1
+  %or.i16.i = tail call noundef i32 @llvm.bswap.i32(i32 %scratch.0.copyload.i)
+  store i32 %or.i16.i, ptr %add.ptr.i, align 1
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 4
+  %cmp8.i = icmp ult i64 %indvars.iv.i, 28
+  br i1 %cmp8.i, label %for.body9.i, label %ByteReverseWords.exit, !llvm.loop !7
+
+ByteReverseWords.exit:                            ; preds = %for.body9.i, %for.body.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %hash, ptr noundef nonnull align 16 dereferenceable(32) %sha256, i64 32, i1 false)
+  store <4 x i32> <i32 1779033703, i32 -1150833019, i32 1013904242, i32 -1521486534>, ptr %sha256, align 16
+  %arrayidx9.i = getelementptr inbounds [8 x i32], ptr %sha256, i64 0, i64 4
+  store <4 x i32> <i32 1359893119, i32 -1694144372, i32 528734635, i32 1541459225>, ptr %arrayidx9.i, align 16
+  %buffLen.i = getelementptr inbounds %struct.wc_Sha256, ptr %sha256, i64 0, i32 2
+  store i32 0, ptr %buffLen.i, align 16
+  %loLen.i = getelementptr inbounds %struct.wc_Sha256, ptr %sha256, i64 0, i32 3
+  store i32 0, ptr %loLen.i, align 4
+  %hiLen.i = getelementptr inbounds %struct.wc_Sha256, ptr %sha256, i64 0, i32 4
+  store i32 0, ptr %hiLen.i, align 8
+  br label %return
+
+return:                                           ; preds = %if.end, %entry, %ByteReverseWords.exit
+  %retval.0 = phi i32 [ 0, %ByteReverseWords.exit ], [ -173, %entry ], [ %call, %if.end ]
+  ret i32 %retval.0
+}
+
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define internal fastcc noundef i32 @Sha256Final(ptr noundef %sha256) unnamed_addr #2 {
+entry:
+  %buffLen = getelementptr inbounds %struct.wc_Sha256, ptr %sha256, i64 0, i32 2
+  %0 = load i32, ptr %buffLen, align 16
+  %cmp1 = icmp ugt i32 %0, 63
+  br i1 %cmp1, label %return, label %if.end3
+
+if.end3:                                          ; preds = %entry
+  %buffer = getelementptr inbounds %struct.wc_Sha256, ptr %sha256, i64 0, i32 1
+  %inc = add nuw nsw i32 %0, 1
+  store i32 %inc, ptr %buffLen, align 16
+  %idxprom = zext nneg i32 %0 to i64
+  %arrayidx = getelementptr inbounds i8, ptr %buffer, i64 %idxprom
+  store i8 -128, ptr %arrayidx, align 1
+  %1 = load i32, ptr %buffLen, align 16
+  %cmp6 = icmp ugt i32 %1, 56
+  br i1 %cmp6, label %if.then7, label %if.end3.if.end24_crit_edge
+
+if.end3.if.end24_crit_edge:                       ; preds = %if.end3
+  %.pre = ptrtoint ptr %buffer to i64
+  %.pre57 = and i64 %.pre, 3
+  br label %if.end24
+
+if.then7:                                         ; preds = %if.end3
+  %idxprom9 = zext i32 %1 to i64
+  %arrayidx10 = getelementptr inbounds i8, ptr %buffer, i64 %idxprom9
+  %sub = sub i32 64, %1
+  %conv = zext i32 %sub to i64
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %arrayidx10, i8 0, i64 %conv, i1 false)
+  store i32 64, ptr %buffLen, align 16
+  %2 = ptrtoint ptr %buffer to i64
+  %3 = and i64 %2, 3
+  %or.cond.i = icmp eq i64 %3, 0
+  br i1 %or.cond.i, label %for.body.i, label %for.body9.i
+
+for.body.i:                                       ; preds = %if.then7, %for.body.i
+  %indvars.iv24.i = phi i64 [ %indvars.iv.next25.i, %for.body.i ], [ 0, %if.then7 ]
+  %arrayidx.i = getelementptr inbounds i32, ptr %buffer, i64 %indvars.iv24.i
+  %4 = load i32, ptr %arrayidx.i, align 4
+  %or.i.i = tail call noundef i32 @llvm.bswap.i32(i32 %4)
+  store i32 %or.i.i, ptr %arrayidx.i, align 4
+  %indvars.iv.next25.i = add nuw nsw i64 %indvars.iv24.i, 1
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next25.i, 16
+  br i1 %exitcond.not.i, label %ByteReverseWords.exit, label %for.body.i, !llvm.loop !5
+
+for.body9.i:                                      ; preds = %if.then7, %for.body9.i
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.body9.i ], [ 0, %if.then7 ]
+  %add.ptr.i = getelementptr inbounds i8, ptr %buffer, i64 %indvars.iv.i
+  %scratch.0.copyload.i = load i32, ptr %add.ptr.i, align 1
+  %or.i16.i = tail call noundef i32 @llvm.bswap.i32(i32 %scratch.0.copyload.i)
+  store i32 %or.i16.i, ptr %add.ptr.i, align 1
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 4
+  %cmp8.i = icmp ult i64 %indvars.iv.i, 60
+  br i1 %cmp8.i, label %for.body9.i, label %ByteReverseWords.exit, !llvm.loop !7
+
+ByteReverseWords.exit:                            ; preds = %for.body9.i, %for.body.i
+  tail call fastcc void @Transform_Sha256(ptr noundef nonnull %sha256, ptr noundef nonnull %buffer)
+  store i32 0, ptr %buffLen, align 16
+  br label %if.end24
+
+if.end24:                                         ; preds = %if.end3.if.end24_crit_edge, %ByteReverseWords.exit
+  %.pre-phi58 = phi i64 [ %.pre57, %if.end3.if.end24_crit_edge ], [ %3, %ByteReverseWords.exit ]
+  %5 = phi i32 [ %1, %if.end3.if.end24_crit_edge ], [ 0, %ByteReverseWords.exit ]
+  %idxprom26 = zext nneg i32 %5 to i64
+  %arrayidx27 = getelementptr inbounds i8, ptr %buffer, i64 %idxprom26
+  %sub29 = sub nuw nsw i32 56, %5
+  %conv30 = zext nneg i32 %sub29 to i64
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %arrayidx27, i8 0, i64 %conv30, i1 false)
+  %loLen = getelementptr inbounds %struct.wc_Sha256, ptr %sha256, i64 0, i32 3
+  %6 = load i32, ptr %loLen, align 4
+  %hiLen = getelementptr inbounds %struct.wc_Sha256, ptr %sha256, i64 0, i32 4
+  %7 = load i32, ptr %hiLen, align 8
+  %add31 = tail call i32 @llvm.fshl.i32(i32 %7, i32 %6, i32 3)
+  store i32 %add31, ptr %hiLen, align 8
+  %shl34 = shl i32 %6, 3
+  store i32 %shl34, ptr %loLen, align 4
+  %or.cond.i34 = icmp eq i64 %.pre-phi58, 0
+  br i1 %or.cond.i34, label %for.body.i45, label %for.body9.i36
+
+for.body.i45:                                     ; preds = %if.end24, %for.body.i45
+  %indvars.iv24.i46 = phi i64 [ %indvars.iv.next25.i50, %for.body.i45 ], [ 0, %if.end24 ]
+  %arrayidx.i47 = getelementptr inbounds i32, ptr %buffer, i64 %indvars.iv24.i46
+  %8 = load i32, ptr %arrayidx.i47, align 4
+  %or.i.i48 = tail call noundef i32 @llvm.bswap.i32(i32 %8)
+  store i32 %or.i.i48, ptr %arrayidx.i47, align 4
+  %indvars.iv.next25.i50 = add nuw nsw i64 %indvars.iv24.i46, 1
+  %exitcond.not.i51 = icmp eq i64 %indvars.iv.next25.i50, 16
+  br i1 %exitcond.not.i51, label %ByteReverseWords.exit52, label %for.body.i45, !llvm.loop !5
+
+for.body9.i36:                                    ; preds = %if.end24, %for.body9.i36
+  %indvars.iv.i37 = phi i64 [ %indvars.iv.next.i42, %for.body9.i36 ], [ 0, %if.end24 ]
+  %add.ptr.i38 = getelementptr inbounds i8, ptr %buffer, i64 %indvars.iv.i37
+  %scratch.0.copyload.i39 = load i32, ptr %add.ptr.i38, align 1
+  %or.i16.i40 = tail call noundef i32 @llvm.bswap.i32(i32 %scratch.0.copyload.i39)
+  store i32 %or.i16.i40, ptr %add.ptr.i38, align 1
+  %indvars.iv.next.i42 = add nuw nsw i64 %indvars.iv.i37, 4
+  %cmp8.i43 = icmp ult i64 %indvars.iv.i37, 60
+  br i1 %cmp8.i43, label %for.body9.i36, label %ByteReverseWords.exit52, !llvm.loop !7
+
+ByteReverseWords.exit52:                          ; preds = %for.body9.i36, %for.body.i45
+  %arrayidx40 = getelementptr inbounds %struct.wc_Sha256, ptr %sha256, i64 0, i32 1, i64 14
+  %9 = load <2 x i32>, ptr %loLen, align 4
+  %10 = shufflevector <2 x i32> %9, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
+  store <2 x i32> %10, ptr %arrayidx40, align 1
+  tail call fastcc void @Transform_Sha256(ptr noundef nonnull %sha256, ptr noundef nonnull %buffer)
+  br label %return
+
+return:                                           ; preds = %entry, %ByteReverseWords.exit52
+  %retval.0 = phi i32 [ 0, %ByteReverseWords.exit52 ], [ -192, %entry ]
+  ret i32 %retval.0
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
+define noundef i32 @wc_InitSha224_ex(ptr noundef writeonly %sha224, ptr noundef %heap, i32 noundef %devId) local_unnamed_addr #0 {
+entry:
+  %cmp = icmp eq ptr %sha224, null
+  br i1 %cmp, label %return, label %if.end
+
+if.end:                                           ; preds = %entry
+  %heap1 = getelementptr inbounds %struct.wc_Sha256, ptr %sha224, i64 0, i32 5
+  store ptr %heap, ptr %heap1, align 16
+  store <4 x i32> <i32 -1056596264, i32 914150663, i32 812702999, i32 -150054599>, ptr %sha224, align 16
+  %arrayidx8.i = getelementptr inbounds [8 x i32], ptr %sha224, i64 0, i64 4
+  store <4 x i32> <i32 -4191439, i32 1750603025, i32 1694076839, i32 -1090891868>, ptr %arrayidx8.i, align 16
+  %buffLen.i = getelementptr inbounds %struct.wc_Sha256, ptr %sha224, i64 0, i32 2
+  store i32 0, ptr %buffLen.i, align 16
+  %loLen.i = getelementptr inbounds %struct.wc_Sha256, ptr %sha224, i64 0, i32 3
+  store i32 0, ptr %loLen.i, align 4
+  %hiLen.i = getelementptr inbounds %struct.wc_Sha256, ptr %sha224, i64 0, i32 4
+  store i32 0, ptr %hiLen.i, align 8
+  br label %return
+
+return:                                           ; preds = %entry, %if.end
+  %retval.0 = phi i32 [ 0, %if.end ], [ -173, %entry ]
+  ret i32 %retval.0
+}
+
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+define noundef i32 @wc_Sha224Update(ptr noundef %sha224, ptr noundef %data, i32 noundef %len) local_unnamed_addr #1 {
+entry:
+  %cmp = icmp eq ptr %sha224, null
+  br i1 %cmp, label %return, label %lor.lhs.false
+
+lor.lhs.false:                                    ; preds = %entry
+  %cmp1 = icmp eq ptr %data, null
+  %cmp2 = icmp ne i32 %len, 0
+  %or.cond = and i1 %cmp1, %cmp2
+  br i1 %or.cond, label %return, label %if.end
+
+if.end:                                           ; preds = %lor.lhs.false
+  %call = tail call fastcc i32 @Sha256Update(ptr noundef nonnull %sha224, ptr noundef %data, i32 noundef %len), !range !4
+  br label %return
+
+return:                                           ; preds = %entry, %lor.lhs.false, %if.end
+  %retval.0 = phi i32 [ %call, %if.end ], [ -173, %lor.lhs.false ], [ -173, %entry ]
+  ret i32 %retval.0
+}
+
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define noundef i32 @wc_Sha224Final(ptr noundef %sha224, ptr noundef writeonly %hash) local_unnamed_addr #2 {
+entry:
+  %cmp = icmp eq ptr %sha224, null
+  %cmp1 = icmp eq ptr %hash, null
+  %or.cond = or i1 %cmp, %cmp1
+  br i1 %or.cond, label %return, label %if.end
+
+if.end:                                           ; preds = %entry
+  %call = tail call fastcc i32 @Sha256Final(ptr noundef nonnull %sha224), !range !9
+  %cmp2.not = icmp eq i32 %call, 0
+  br i1 %cmp2.not, label %if.end4, label %return
+
+if.end4:                                          ; preds = %if.end
+  %0 = ptrtoint ptr %sha224 to i64
+  %1 = and i64 %0, 3
+  %or.cond.i = icmp eq i64 %1, 0
+  br i1 %or.cond.i, label %for.body.i, label %for.body9.i
+
+for.body.i:                                       ; preds = %if.end4, %for.body.i
+  %indvars.iv24.i = phi i64 [ %indvars.iv.next25.i, %for.body.i ], [ 0, %if.end4 ]
+  %arrayidx.i = getelementptr inbounds i32, ptr %sha224, i64 %indvars.iv24.i
+  %2 = load i32, ptr %arrayidx.i, align 4
+  %or.i.i = tail call noundef i32 @llvm.bswap.i32(i32 %2)
+  store i32 %or.i.i, ptr %arrayidx.i, align 4
+  %indvars.iv.next25.i = add nuw nsw i64 %indvars.iv24.i, 1
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next25.i, 7
+  br i1 %exitcond.not.i, label %ByteReverseWords.exit, label %for.body.i, !llvm.loop !5
+
+for.body9.i:                                      ; preds = %if.end4, %for.body9.i
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.body9.i ], [ 0, %if.end4 ]
+  %add.ptr.i = getelementptr inbounds i8, ptr %sha224, i64 %indvars.iv.i
+  %scratch.0.copyload.i = load i32, ptr %add.ptr.i, align 1
+  %or.i16.i = tail call noundef i32 @llvm.bswap.i32(i32 %scratch.0.copyload.i)
+  store i32 %or.i16.i, ptr %add.ptr.i, align 1
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 4
+  %cmp8.i = icmp ult i64 %indvars.iv.i, 24
+  br i1 %cmp8.i, label %for.body9.i, label %ByteReverseWords.exit, !llvm.loop !7
+
+ByteReverseWords.exit:                            ; preds = %for.body9.i, %for.body.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(28) %hash, ptr noundef nonnull align 16 dereferenceable(28) %sha224, i64 28, i1 false)
+  store <4 x i32> <i32 -1056596264, i32 914150663, i32 812702999, i32 -150054599>, ptr %sha224, align 16
+  %arrayidx8.i = getelementptr inbounds [8 x i32], ptr %sha224, i64 0, i64 4
+  store <4 x i32> <i32 -4191439, i32 1750603025, i32 1694076839, i32 -1090891868>, ptr %arrayidx8.i, align 16
+  %buffLen.i = getelementptr inbounds %struct.wc_Sha256, ptr %sha224, i64 0, i32 2
+  store i32 0, ptr %buffLen.i, align 16
+  %loLen.i = getelementptr inbounds %struct.wc_Sha256, ptr %sha224, i64 0, i32 3
+  store i32 0, ptr %loLen.i, align 4
+  %hiLen.i = getelementptr inbounds %struct.wc_Sha256, ptr %sha224, i64 0, i32 4
+  store i32 0, ptr %hiLen.i, align 8
+  br label %return
+
+return:                                           ; preds = %if.end, %entry, %ByteReverseWords.exit
+  %retval.0 = phi i32 [ 0, %ByteReverseWords.exit ], [ -173, %entry ], [ %call, %if.end ]
+  ret i32 %retval.0
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
+define noundef i32 @wc_InitSha224(ptr noundef writeonly %sha224) local_unnamed_addr #0 {
+entry:
+  %cmp.i = icmp eq ptr %sha224, null
+  br i1 %cmp.i, label %wc_InitSha224_ex.exit, label %if.end.i
+
+if.end.i:                                         ; preds = %entry
+  %heap1.i = getelementptr inbounds %struct.wc_Sha256, ptr %sha224, i64 0, i32 5
+  store ptr null, ptr %heap1.i, align 16
+  store <4 x i32> <i32 -1056596264, i32 914150663, i32 812702999, i32 -150054599>, ptr %sha224, align 16
+  %arrayidx8.i.i = getelementptr inbounds [8 x i32], ptr %sha224, i64 0, i64 4
+  store <4 x i32> <i32 -4191439, i32 1750603025, i32 1694076839, i32 -1090891868>, ptr %arrayidx8.i.i, align 16
+  %buffLen.i.i = getelementptr inbounds %struct.wc_Sha256, ptr %sha224, i64 0, i32 2
+  store i32 0, ptr %buffLen.i.i, align 16
+  %loLen.i.i = getelementptr inbounds %struct.wc_Sha256, ptr %sha224, i64 0, i32 3
+  store i32 0, ptr %loLen.i.i, align 4
+  %hiLen.i.i = getelementptr inbounds %struct.wc_Sha256, ptr %sha224, i64 0, i32 4
+  store i32 0, ptr %hiLen.i.i, align 8
+  br label %wc_InitSha224_ex.exit
+
+wc_InitSha224_ex.exit:                            ; preds = %entry, %if.end.i
+  %retval.0.i = phi i32 [ 0, %if.end.i ], [ -173, %entry ]
+  ret i32 %retval.0.i
+}
+
+; Function Attrs: nofree norecurse nounwind uwtable
+define void @wc_Sha224Free(ptr noundef %sha224) local_unnamed_addr #4 {
+entry:
+  %cmp = icmp eq ptr %sha224, null
+  br i1 %cmp, label %return, label %if.end
+
+if.end:                                           ; preds = %entry
+  %0 = ptrtoint ptr %sha224 to i64
+  %1 = trunc i64 %0 to i32
+  %2 = sub i32 0, %1
+  %conv.i = and i32 %2, 7
+  %sub3.i = sub nuw nsw i32 128, %conv.i
+  %tobool.not12.i = icmp eq i32 %conv.i, 0
+  br i1 %tobool.not12.i, label %for.body.i.preheader, label %while.body.i
+
+for.body.i.preheader:                             ; preds = %while.body.i, %if.end
+  %w.017.i.ph = phi ptr [ %sha224, %if.end ], [ %incdec.ptr.i, %while.body.i ]
+  br label %for.body.i
+
+while.body.i:                                     ; preds = %if.end, %while.body.i
+  %l.114.i = phi i32 [ %dec.i, %while.body.i ], [ %conv.i, %if.end ]
+  %z.013.i = phi ptr [ %incdec.ptr.i, %while.body.i ], [ %sha224, %if.end ]
+  %dec.i = add nsw i32 %l.114.i, -1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %z.013.i, i64 1
+  store volatile i8 0, ptr %z.013.i, align 1
+  %tobool.not.i = icmp eq i32 %dec.i, 0
+  br i1 %tobool.not.i, label %for.body.i.preheader, label %while.body.i, !llvm.loop !10
+
+while.cond9.preheader.i:                          ; preds = %for.body.i
+  %tobool11.not20.i = icmp eq i32 %sub8.i, 0
+  br i1 %tobool11.not20.i, label %return, label %while.body12.i
+
+for.body.i:                                       ; preds = %for.body.i.preheader, %for.body.i
+  %w.017.i = phi ptr [ %incdec.ptr7.i, %for.body.i ], [ %w.017.i.ph, %for.body.i.preheader ]
+  %len.addr.016.i = phi i32 [ %sub8.i, %for.body.i ], [ %sub3.i, %for.body.i.preheader ]
+  %incdec.ptr7.i = getelementptr inbounds i64, ptr %w.017.i, i64 1
+  store volatile i64 0, ptr %w.017.i, align 8
+  %sub8.i = add nsw i32 %len.addr.016.i, -8
+  %cmp5.i = icmp ugt i32 %sub8.i, 7
+  br i1 %cmp5.i, label %for.body.i, label %while.cond9.preheader.i, !llvm.loop !11
+
+while.body12.i:                                   ; preds = %while.cond9.preheader.i, %while.body12.i
+  %z.122.i = phi ptr [ %incdec.ptr13.i, %while.body12.i ], [ %incdec.ptr7.i, %while.cond9.preheader.i ]
+  %len.addr.121.i = phi i32 [ %dec10.i, %while.body12.i ], [ %sub8.i, %while.cond9.preheader.i ]
+  %dec10.i = add i32 %len.addr.121.i, -1
+  %incdec.ptr13.i = getelementptr inbounds i8, ptr %z.122.i, i64 1
+  store volatile i8 0, ptr %z.122.i, align 1
+  %tobool11.not.i = icmp eq i32 %dec10.i, 0
+  br i1 %tobool11.not.i, label %return, label %while.body12.i, !llvm.loop !12
+
+return:                                           ; preds = %while.body12.i, %while.cond9.preheader.i, %entry
+  ret void
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
+define noundef i32 @wc_InitSha256(ptr noundef writeonly %sha256) local_unnamed_addr #0 {
+entry:
+  %cmp.i = icmp eq ptr %sha256, null
+  br i1 %cmp.i, label %wc_InitSha256_ex.exit, label %if.end.i
+
+if.end.i:                                         ; preds = %entry
+  store <4 x i32> <i32 1779033703, i32 -1150833019, i32 1013904242, i32 -1521486534>, ptr %sha256, align 16
+  %arrayidx9.i.i = getelementptr inbounds [8 x i32], ptr %sha256, i64 0, i64 4
+  store <4 x i32> <i32 1359893119, i32 -1694144372, i32 528734635, i32 1541459225>, ptr %arrayidx9.i.i, align 16
+  %buffLen.i.i = getelementptr inbounds %struct.wc_Sha256, ptr %sha256, i64 0, i32 2
+  store i32 0, ptr %buffLen.i.i, align 16
+  %loLen.i.i = getelementptr inbounds %struct.wc_Sha256, ptr %sha256, i64 0, i32 3
+  store i32 0, ptr %loLen.i.i, align 4
+  %hiLen.i.i = getelementptr inbounds %struct.wc_Sha256, ptr %sha256, i64 0, i32 4
+  store i32 0, ptr %hiLen.i.i, align 8
+  %heap4.i = getelementptr inbounds %struct.wc_Sha256, ptr %sha256, i64 0, i32 5
+  store ptr null, ptr %heap4.i, align 16
+  br label %wc_InitSha256_ex.exit
+
+wc_InitSha256_ex.exit:                            ; preds = %entry, %if.end.i
+  %retval.0.i = phi i32 [ 0, %if.end.i ], [ -173, %entry ]
+  ret i32 %retval.0.i
+}
+
+; Function Attrs: nofree norecurse nounwind uwtable
+define void @wc_Sha256Free(ptr noundef %sha256) local_unnamed_addr #4 {
+entry:
+  %cmp = icmp eq ptr %sha256, null
+  br i1 %cmp, label %return, label %if.end
+
+if.end:                                           ; preds = %entry
+  %0 = ptrtoint ptr %sha256 to i64
+  %1 = trunc i64 %0 to i32
+  %2 = sub i32 0, %1
+  %conv.i = and i32 %2, 7
+  %sub3.i = sub nuw nsw i32 128, %conv.i
+  %tobool.not12.i = icmp eq i32 %conv.i, 0
+  br i1 %tobool.not12.i, label %for.body.i.preheader, label %while.body.i
+
+for.body.i.preheader:                             ; preds = %while.body.i, %if.end
+  %w.017.i.ph = phi ptr [ %sha256, %if.end ], [ %incdec.ptr.i, %while.body.i ]
+  br label %for.body.i
+
+while.body.i:                                     ; preds = %if.end, %while.body.i
+  %l.114.i = phi i32 [ %dec.i, %while.body.i ], [ %conv.i, %if.end ]
+  %z.013.i = phi ptr [ %incdec.ptr.i, %while.body.i ], [ %sha256, %if.end ]
+  %dec.i = add nsw i32 %l.114.i, -1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %z.013.i, i64 1
+  store volatile i8 0, ptr %z.013.i, align 1
+  %tobool.not.i = icmp eq i32 %dec.i, 0
+  br i1 %tobool.not.i, label %for.body.i.preheader, label %while.body.i, !llvm.loop !10
+
+while.cond9.preheader.i:                          ; preds = %for.body.i
+  %tobool11.not20.i = icmp eq i32 %sub8.i, 0
+  br i1 %tobool11.not20.i, label %return, label %while.body12.i
+
+for.body.i:                                       ; preds = %for.body.i.preheader, %for.body.i
+  %w.017.i = phi ptr [ %incdec.ptr7.i, %for.body.i ], [ %w.017.i.ph, %for.body.i.preheader ]
+  %len.addr.016.i = phi i32 [ %sub8.i, %for.body.i ], [ %sub3.i, %for.body.i.preheader ]
+  %incdec.ptr7.i = getelementptr inbounds i64, ptr %w.017.i, i64 1
+  store volatile i64 0, ptr %w.017.i, align 8
+  %sub8.i = add nsw i32 %len.addr.016.i, -8
+  %cmp5.i = icmp ugt i32 %sub8.i, 7
+  br i1 %cmp5.i, label %for.body.i, label %while.cond9.preheader.i, !llvm.loop !11
+
+while.body12.i:                                   ; preds = %while.cond9.preheader.i, %while.body12.i
+  %z.122.i = phi ptr [ %incdec.ptr13.i, %while.body12.i ], [ %incdec.ptr7.i, %while.cond9.preheader.i ]
+  %len.addr.121.i = phi i32 [ %dec10.i, %while.body12.i ], [ %sub8.i, %while.cond9.preheader.i ]
+  %dec10.i = add i32 %len.addr.121.i, -1
+  %incdec.ptr13.i = getelementptr inbounds i8, ptr %z.122.i, i64 1
+  store volatile i8 0, ptr %z.122.i, align 1
+  %tobool11.not.i = icmp eq i32 %dec10.i, 0
+  br i1 %tobool11.not.i, label %return, label %while.body12.i, !llvm.loop !12
+
+return:                                           ; preds = %while.body12.i, %while.cond9.preheader.i, %entry
+  ret void
+}
+
+; Function Attrs: nofree norecurse nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
+define noundef i32 @wc_Sha224GetHash(ptr noundef readonly %sha224, ptr noundef writeonly %hash) local_unnamed_addr #5 {
+entry:
+  %tmpSha224 = alloca [1 x %struct.wc_Sha256], align 16
+  %cmp = icmp eq ptr %sha224, null
+  %cmp1 = icmp eq ptr %hash, null
+  %or.cond = or i1 %cmp, %cmp1
+  br i1 %or.cond, label %return, label %if.end.i4
+
+if.end.i4:                                        ; preds = %entry
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %tmpSha224, ptr noundef nonnull align 16 dereferenceable(128) %sha224, i64 128, i1 false)
+  %call.i = call fastcc i32 @Sha256Final(ptr noundef nonnull %tmpSha224), !range !9
+  %cmp2.not.i = icmp eq i32 %call.i, 0
+  br i1 %cmp2.not.i, label %for.body.i.i, label %for.body.preheader.i.i
+
+for.body.i.i:                                     ; preds = %if.end.i4, %for.body.i.i
+  %indvars.iv24.i.i = phi i64 [ %indvars.iv.next25.i.i, %for.body.i.i ], [ 0, %if.end.i4 ]
+  %arrayidx.i.i = getelementptr inbounds i32, ptr %tmpSha224, i64 %indvars.iv24.i.i
+  %0 = load i32, ptr %arrayidx.i.i, align 4
+  %or.i.i.i = call noundef i32 @llvm.bswap.i32(i32 %0)
+  store i32 %or.i.i.i, ptr %arrayidx.i.i, align 4
+  %indvars.iv.next25.i.i = add nuw nsw i64 %indvars.iv24.i.i, 1
+  %exitcond.not.i.i = icmp eq i64 %indvars.iv.next25.i.i, 7
+  br i1 %exitcond.not.i.i, label %ByteReverseWords.exit.i, label %for.body.i.i, !llvm.loop !5
+
+ByteReverseWords.exit.i:                          ; preds = %for.body.i.i
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(28) %hash, ptr noundef nonnull align 16 dereferenceable(28) %tmpSha224, i64 28, i1 false)
+  br label %for.body.preheader.i.i
+
+for.body.preheader.i.i:                           ; preds = %ByteReverseWords.exit.i, %if.end.i4
+  %retval.0.i5 = phi i32 [ 0, %ByteReverseWords.exit.i ], [ %call.i, %if.end.i4 ]
+  br label %for.body.i.i7
+
+for.body.i.i7:                                    ; preds = %for.body.i.i7, %for.body.preheader.i.i
+  %w.017.i.i = phi ptr [ %incdec.ptr7.i.i, %for.body.i.i7 ], [ %tmpSha224, %for.body.preheader.i.i ]
+  %len.addr.016.i.i = phi i32 [ %sub8.i.i, %for.body.i.i7 ], [ 128, %for.body.preheader.i.i ]
+  %incdec.ptr7.i.i = getelementptr inbounds i64, ptr %w.017.i.i, i64 1
+  store volatile i64 0, ptr %w.017.i.i, align 8
+  %sub8.i.i = add nsw i32 %len.addr.016.i.i, -8
+  %cmp5.i.i.not = icmp eq i32 %sub8.i.i, 0
+  br i1 %cmp5.i.i.not, label %return, label %for.body.i.i7, !llvm.loop !11
+
+return:                                           ; preds = %for.body.i.i7, %entry
+  %retval.0 = phi i32 [ -173, %entry ], [ %retval.0.i5, %for.body.i.i7 ]
+  ret i32 %retval.0
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
+define noundef i32 @wc_Sha224Copy(ptr noundef readonly %src, ptr noundef writeonly %dst) local_unnamed_addr #6 {
+entry:
+  %cmp = icmp eq ptr %src, null
+  %cmp1 = icmp eq ptr %dst, null
+  %or.cond = or i1 %cmp, %cmp1
+  br i1 %or.cond, label %return, label %if.end
+
+if.end:                                           ; preds = %entry
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %dst, ptr noundef nonnull align 16 dereferenceable(128) %src, i64 128, i1 false)
+  br label %return
+
+return:                                           ; preds = %entry, %if.end
+  %retval.0 = phi i32 [ 0, %if.end ], [ -173, %entry ]
+  ret i32 %retval.0
+}
+
+; Function Attrs: nofree norecurse nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
+define noundef i32 @wc_Sha256GetHash(ptr noundef readonly %sha256, ptr noundef writeonly %hash) local_unnamed_addr #5 {
+entry:
+  %tmpSha256 = alloca [1 x %struct.wc_Sha256], align 16
+  %cmp = icmp eq ptr %sha256, null
+  %cmp1 = icmp eq ptr %hash, null
+  %or.cond = or i1 %cmp, %cmp1
+  br i1 %or.cond, label %return, label %if.end.i4
+
+if.end.i4:                                        ; preds = %entry
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %tmpSha256, ptr noundef nonnull align 16 dereferenceable(128) %sha256, i64 128, i1 false)
+  %call.i = call fastcc i32 @Sha256Final(ptr noundef nonnull %tmpSha256), !range !9
+  %cmp2.not.i = icmp eq i32 %call.i, 0
+  br i1 %cmp2.not.i, label %for.body.i.i, label %for.body.preheader.i.i
+
+for.body.i.i:                                     ; preds = %if.end.i4, %for.body.i.i
+  %indvars.iv24.i.i = phi i64 [ %indvars.iv.next25.i.i, %for.body.i.i ], [ 0, %if.end.i4 ]
+  %arrayidx.i.i = getelementptr inbounds i32, ptr %tmpSha256, i64 %indvars.iv24.i.i
+  %0 = load i32, ptr %arrayidx.i.i, align 4
+  %or.i.i.i = call noundef i32 @llvm.bswap.i32(i32 %0)
+  store i32 %or.i.i.i, ptr %arrayidx.i.i, align 4
+  %indvars.iv.next25.i.i = add nuw nsw i64 %indvars.iv24.i.i, 1
+  %exitcond.not.i.i = icmp eq i64 %indvars.iv.next25.i.i, 8
+  br i1 %exitcond.not.i.i, label %ByteReverseWords.exit.i, label %for.body.i.i, !llvm.loop !5
+
+ByteReverseWords.exit.i:                          ; preds = %for.body.i.i
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %hash, ptr noundef nonnull align 16 dereferenceable(32) %tmpSha256, i64 32, i1 false)
+  br label %for.body.preheader.i.i
+
+for.body.preheader.i.i:                           ; preds = %ByteReverseWords.exit.i, %if.end.i4
+  %retval.0.i5 = phi i32 [ 0, %ByteReverseWords.exit.i ], [ %call.i, %if.end.i4 ]
+  br label %for.body.i.i7
+
+for.body.i.i7:                                    ; preds = %for.body.i.i7, %for.body.preheader.i.i
+  %w.017.i.i = phi ptr [ %incdec.ptr7.i.i, %for.body.i.i7 ], [ %tmpSha256, %for.body.preheader.i.i ]
+  %len.addr.016.i.i = phi i32 [ %sub8.i.i, %for.body.i.i7 ], [ 128, %for.body.preheader.i.i ]
+  %incdec.ptr7.i.i = getelementptr inbounds i64, ptr %w.017.i.i, i64 1
+  store volatile i64 0, ptr %w.017.i.i, align 8
+  %sub8.i.i = add nsw i32 %len.addr.016.i.i, -8
+  %cmp5.i.i.not = icmp eq i32 %sub8.i.i, 0
+  br i1 %cmp5.i.i.not, label %return, label %for.body.i.i7, !llvm.loop !11
+
+return:                                           ; preds = %for.body.i.i7, %entry
+  %retval.0 = phi i32 [ -173, %entry ], [ %retval.0.i5, %for.body.i.i7 ]
+  ret i32 %retval.0
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
+define noundef i32 @wc_Sha256Copy(ptr noundef readonly %src, ptr noundef writeonly %dst) local_unnamed_addr #6 {
+entry:
+  %cmp = icmp eq ptr %src, null
+  %cmp1 = icmp eq ptr %dst, null
+  %or.cond = or i1 %cmp, %cmp1
+  br i1 %or.cond, label %return, label %if.end
+
+if.end:                                           ; preds = %entry
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %dst, ptr noundef nonnull align 16 dereferenceable(128) %src, i64 128, i1 false)
+  br label %return
+
+return:                                           ; preds = %entry, %if.end
+  %retval.0 = phi i32 [ 0, %if.end ], [ -173, %entry ]
+  ret i32 %retval.0
+}
+
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define internal fastcc void @Transform_Sha256(ptr nocapture noundef %sha256, ptr nocapture noundef readonly %data) unnamed_addr #2 {
+entry:
+  %S = alloca [8 x i32], align 16
+  %W = alloca [64 x i32], align 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %S, ptr noundef nonnull align 4 dereferenceable(32) %sha256, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %W, ptr noundef nonnull align 4 dereferenceable(64) %data, i64 64, i1 false)
+  %.pre = load i32, ptr %W, align 16
+  br label %for.body15
+
+for.cond54.preheader:                             ; preds = %for.body15
+  %arrayidx57 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 7
+  %arrayidx58 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 4
+  %arrayidx67 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 6
+  %arrayidx69 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 5
+  %arrayidx92 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 1
+  %arrayidx93 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 2
+  %arrayidx100 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 3
+  %arrayidx57.promoted = load i32, ptr %arrayidx57, align 4
+  %arrayidx58.promoted = load i32, ptr %arrayidx58, align 16
+  %arrayidx67.promoted = load i32, ptr %arrayidx67, align 8
+  %arrayidx69.promoted = load i32, ptr %arrayidx69, align 4
+  %S.promoted = load i32, ptr %S, align 16
+  %arrayidx92.promoted = load i32, ptr %arrayidx92, align 4
+  %arrayidx93.promoted = load i32, ptr %arrayidx93, align 8
+  %arrayidx100.promoted = load i32, ptr %arrayidx100, align 4
+  br label %for.body56
+
+for.body15:                                       ; preds = %entry, %for.body15
+  %0 = phi i32 [ %.pre, %entry ], [ %6, %for.body15 ]
+  %indvars.iv = phi i64 [ 16, %entry ], [ %indvars.iv.next, %for.body15 ]
+  %1 = add nsw i64 %indvars.iv, -2
+  %arrayidx17 = getelementptr inbounds [64 x i32], ptr %W, i64 0, i64 %1
+  %2 = load i32, ptr %arrayidx17, align 4
+  %or.i = tail call i32 @llvm.fshl.i32(i32 %2, i32 %2, i32 15)
+  %or.i66 = tail call i32 @llvm.fshl.i32(i32 %2, i32 %2, i32 13)
+  %xor = xor i32 %or.i, %or.i66
+  %shr = lshr i32 %2, 10
+  %xor25 = xor i32 %xor, %shr
+  %3 = add nsw i64 %indvars.iv, -7
+  %arrayidx28 = getelementptr inbounds [64 x i32], ptr %W, i64 0, i64 %3
+  %4 = load i32, ptr %arrayidx28, align 4
+  %add = add i32 %xor25, %4
+  %5 = add nsw i64 %indvars.iv, -15
+  %arrayidx31 = getelementptr inbounds [64 x i32], ptr %W, i64 0, i64 %5
+  %6 = load i32, ptr %arrayidx31, align 4
+  %or.i69 = tail call i32 @llvm.fshl.i32(i32 %6, i32 %6, i32 25)
+  %or.i72 = tail call i32 @llvm.fshl.i32(i32 %6, i32 %6, i32 14)
+  %xor37 = xor i32 %or.i69, %or.i72
+  %shr42 = lshr i32 %6, 3
+  %xor43 = xor i32 %xor37, %shr42
+  %add44 = add i32 %add, %0
+  %add48 = add i32 %add44, %xor43
+  %arrayidx50 = getelementptr inbounds [64 x i32], ptr %W, i64 0, i64 %indvars.iv
+  store i32 %add48, ptr %arrayidx50, align 4
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next, 64
+  br i1 %exitcond.not, label %for.cond54.preheader, label %for.body15, !llvm.loop !13
+
+for.cond443.preheader:                            ; preds = %for.body56
+  store i32 %add293, ptr %arrayidx57, align 4
+  store i32 %add437, ptr %arrayidx58, align 16
+  store i32 %add341, ptr %arrayidx67, align 8
+  store i32 %add389, ptr %arrayidx69, align 4
+  store i32 %add438, ptr %S, align 16
+  store i32 %add390, ptr %arrayidx92, align 4
+  store i32 %add342, ptr %arrayidx93, align 8
+  store i32 %add294, ptr %arrayidx100, align 4
+  br label %for.body445
+
+for.body56:                                       ; preds = %for.cond54.preheader, %for.body56
+  %indvars.iv246 = phi i64 [ 0, %for.cond54.preheader ], [ %indvars.iv.next247, %for.body56 ]
+  %add293220235 = phi i32 [ %arrayidx57.promoted, %for.cond54.preheader ], [ %add293, %for.body56 ]
+  %add437221234 = phi i32 [ %arrayidx58.promoted, %for.cond54.preheader ], [ %add437, %for.body56 ]
+  %add341222233 = phi i32 [ %arrayidx67.promoted, %for.cond54.preheader ], [ %add341, %for.body56 ]
+  %add389223232 = phi i32 [ %arrayidx69.promoted, %for.cond54.preheader ], [ %add389, %for.body56 ]
+  %add438224231 = phi i32 [ %S.promoted, %for.cond54.preheader ], [ %add438, %for.body56 ]
+  %add390225230 = phi i32 [ %arrayidx92.promoted, %for.cond54.preheader ], [ %add390, %for.body56 ]
+  %add342226229 = phi i32 [ %arrayidx93.promoted, %for.cond54.preheader ], [ %add342, %for.body56 ]
+  %add294227228 = phi i32 [ %arrayidx100.promoted, %for.cond54.preheader ], [ %add294, %for.body56 ]
+  %or.i75 = tail call i32 @llvm.fshl.i32(i32 %add437221234, i32 %add437221234, i32 26)
+  %or.i78 = tail call i32 @llvm.fshl.i32(i32 %add437221234, i32 %add437221234, i32 21)
+  %xor62 = xor i32 %or.i75, %or.i78
+  %or.i81 = tail call i32 @llvm.fshl.i32(i32 %add437221234, i32 %add437221234, i32 7)
+  %xor65 = xor i32 %xor62, %or.i81
+  %add66 = add i32 %xor65, %add293220235
+  %xor71 = xor i32 %add389223232, %add341222233
+  %and72 = and i32 %xor71, %add437221234
+  %xor73 = xor i32 %and72, %add341222233
+  %arrayidx77 = getelementptr inbounds [64 x i32], ptr @K, i64 0, i64 %indvars.iv246
+  %7 = load i32, ptr %arrayidx77, align 32
+  %arrayidx81 = getelementptr inbounds [64 x i32], ptr %W, i64 0, i64 %indvars.iv246
+  %8 = load i32, ptr %arrayidx81, align 16
+  %add74 = add i32 %add66, %7
+  %add78 = add i32 %add74, %8
+  %add82 = add i32 %add78, %xor73
+  %or.i84 = tail call i32 @llvm.fshl.i32(i32 %add438224231, i32 %add438224231, i32 30)
+  %or.i87 = tail call i32 @llvm.fshl.i32(i32 %add438224231, i32 %add438224231, i32 19)
+  %xor87 = xor i32 %or.i84, %or.i87
+  %or.i90 = tail call i32 @llvm.fshl.i32(i32 %add438224231, i32 %add438224231, i32 10)
+  %xor90 = xor i32 %xor87, %or.i90
+  %or = or i32 %add390225230, %add438224231
+  %and94 = and i32 %or, %add342226229
+  %and97 = and i32 %add390225230, %add438224231
+  %or98 = or i32 %and94, %and97
+  %add101 = add i32 %add294227228, %add82
+  %add99 = add i32 %add82, %xor90
+  %add102 = add i32 %add99, %or98
+  %or.i93 = tail call i32 @llvm.fshl.i32(i32 %add101, i32 %add101, i32 26)
+  %or.i96 = tail call i32 @llvm.fshl.i32(i32 %add101, i32 %add101, i32 21)
+  %xor109 = xor i32 %or.i93, %or.i96
+  %or.i99 = tail call i32 @llvm.fshl.i32(i32 %add101, i32 %add101, i32 7)
+  %xor112 = xor i32 %xor109, %or.i99
+  %xor118 = xor i32 %add389223232, %add437221234
+  %and119 = and i32 %add101, %xor118
+  %xor120 = xor i32 %and119, %add389223232
+  %9 = or disjoint i64 %indvars.iv246, 1
+  %arrayidx124 = getelementptr inbounds [64 x i32], ptr @K, i64 0, i64 %9
+  %10 = load i32, ptr %arrayidx124, align 4
+  %arrayidx128 = getelementptr inbounds [64 x i32], ptr %W, i64 0, i64 %9
+  %11 = load i32, ptr %arrayidx128, align 4
+  %add113 = add i32 %xor120, %add341222233
+  %add121 = add i32 %add113, %10
+  %add125 = add i32 %add121, %xor112
+  %add129 = add i32 %add125, %11
+  %or.i102 = tail call i32 @llvm.fshl.i32(i32 %add102, i32 %add102, i32 30)
+  %or.i105 = tail call i32 @llvm.fshl.i32(i32 %add102, i32 %add102, i32 19)
+  %xor134 = xor i32 %or.i102, %or.i105
+  %or.i108 = tail call i32 @llvm.fshl.i32(i32 %add102, i32 %add102, i32 10)
+  %xor137 = xor i32 %xor134, %or.i108
+  %or140 = or i32 %add102, %add438224231
+  %and142 = and i32 %or140, %add390225230
+  %and145 = and i32 %add102, %add438224231
+  %or146 = or i32 %and142, %and145
+  %add147 = add i32 %xor137, %or146
+  %add149 = add i32 %add129, %add342226229
+  %add150 = add i32 %add147, %add129
+  %or.i111 = tail call i32 @llvm.fshl.i32(i32 %add149, i32 %add149, i32 26)
+  %or.i114 = tail call i32 @llvm.fshl.i32(i32 %add149, i32 %add149, i32 21)
+  %xor157 = xor i32 %or.i111, %or.i114
+  %or.i117 = tail call i32 @llvm.fshl.i32(i32 %add149, i32 %add149, i32 7)
+  %xor160 = xor i32 %xor157, %or.i117
+  %xor166 = xor i32 %add101, %add437221234
+  %and167 = and i32 %add149, %xor166
+  %xor168 = xor i32 %and167, %add437221234
+  %12 = or disjoint i64 %indvars.iv246, 2
+  %arrayidx172 = getelementptr inbounds [64 x i32], ptr @K, i64 0, i64 %12
+  %13 = load i32, ptr %arrayidx172, align 8
+  %arrayidx176 = getelementptr inbounds [64 x i32], ptr %W, i64 0, i64 %12
+  %14 = load i32, ptr %arrayidx176, align 8
+  %add161 = add i32 %13, %add389223232
+  %add169 = add i32 %add161, %14
+  %add173 = add i32 %add169, %xor168
+  %add177 = add i32 %add173, %xor160
+  %or.i120 = tail call i32 @llvm.fshl.i32(i32 %add150, i32 %add150, i32 30)
+  %or.i123 = tail call i32 @llvm.fshl.i32(i32 %add150, i32 %add150, i32 19)
+  %xor182 = xor i32 %or.i120, %or.i123
+  %or.i126 = tail call i32 @llvm.fshl.i32(i32 %add150, i32 %add150, i32 10)
+  %xor185 = xor i32 %xor182, %or.i126
+  %or188 = or i32 %add150, %add102
+  %and190 = and i32 %or188, %add438224231
+  %and193 = and i32 %add150, %add102
+  %or194 = or i32 %and190, %and193
+  %add195 = add i32 %xor185, %or194
+  %add197 = add i32 %add177, %add390225230
+  %add198 = add i32 %add195, %add177
+  %or.i129 = tail call i32 @llvm.fshl.i32(i32 %add197, i32 %add197, i32 26)
+  %or.i132 = tail call i32 @llvm.fshl.i32(i32 %add197, i32 %add197, i32 21)
+  %xor205 = xor i32 %or.i129, %or.i132
+  %or.i135 = tail call i32 @llvm.fshl.i32(i32 %add197, i32 %add197, i32 7)
+  %xor208 = xor i32 %xor205, %or.i135
+  %xor214 = xor i32 %add149, %add101
+  %and215 = and i32 %add197, %xor214
+  %xor216 = xor i32 %and215, %add101
+  %15 = or disjoint i64 %indvars.iv246, 3
+  %arrayidx220 = getelementptr inbounds [64 x i32], ptr @K, i64 0, i64 %15
+  %16 = load i32, ptr %arrayidx220, align 4
+  %arrayidx224 = getelementptr inbounds [64 x i32], ptr %W, i64 0, i64 %15
+  %17 = load i32, ptr %arrayidx224, align 4
+  %add209 = add i32 %16, %add437221234
+  %add217 = add i32 %add209, %17
+  %add221 = add i32 %add217, %xor216
+  %add225 = add i32 %add221, %xor208
+  %or.i138 = tail call i32 @llvm.fshl.i32(i32 %add198, i32 %add198, i32 30)
+  %or.i141 = tail call i32 @llvm.fshl.i32(i32 %add198, i32 %add198, i32 19)
+  %xor230 = xor i32 %or.i138, %or.i141
+  %or.i144 = tail call i32 @llvm.fshl.i32(i32 %add198, i32 %add198, i32 10)
+  %xor233 = xor i32 %xor230, %or.i144
+  %or236 = or i32 %add198, %add150
+  %and238 = and i32 %or236, %add102
+  %and241 = and i32 %add198, %add150
+  %or242 = or i32 %and238, %and241
+  %add243 = add i32 %xor233, %or242
+  %add245 = add i32 %add225, %add438224231
+  %add246 = add i32 %add243, %add225
+  %or.i147 = tail call i32 @llvm.fshl.i32(i32 %add245, i32 %add245, i32 26)
+  %or.i150 = tail call i32 @llvm.fshl.i32(i32 %add245, i32 %add245, i32 21)
+  %xor253 = xor i32 %or.i147, %or.i150
+  %or.i153 = tail call i32 @llvm.fshl.i32(i32 %add245, i32 %add245, i32 7)
+  %xor256 = xor i32 %xor253, %or.i153
+  %xor262 = xor i32 %add197, %add149
+  %and263 = and i32 %add245, %xor262
+  %xor264 = xor i32 %and263, %add149
+  %18 = or disjoint i64 %indvars.iv246, 4
+  %arrayidx268 = getelementptr inbounds [64 x i32], ptr @K, i64 0, i64 %18
+  %19 = load i32, ptr %arrayidx268, align 16
+  %arrayidx272 = getelementptr inbounds [64 x i32], ptr %W, i64 0, i64 %18
+  %20 = load i32, ptr %arrayidx272, align 16
+  %add257 = add i32 %19, %add101
+  %add265 = add i32 %add257, %20
+  %add269 = add i32 %add265, %xor264
+  %add273 = add i32 %add269, %xor256
+  %or.i156 = tail call i32 @llvm.fshl.i32(i32 %add246, i32 %add246, i32 30)
+  %or.i159 = tail call i32 @llvm.fshl.i32(i32 %add246, i32 %add246, i32 19)
+  %xor278 = xor i32 %or.i156, %or.i159
+  %or.i162 = tail call i32 @llvm.fshl.i32(i32 %add246, i32 %add246, i32 10)
+  %xor281 = xor i32 %xor278, %or.i162
+  %or284 = or i32 %add246, %add198
+  %and286 = and i32 %or284, %add150
+  %and289 = and i32 %add246, %add198
+  %or290 = or i32 %and286, %and289
+  %add291 = add i32 %xor281, %or290
+  %add293 = add i32 %add273, %add102
+  %add294 = add i32 %add291, %add273
+  %or.i165 = tail call i32 @llvm.fshl.i32(i32 %add293, i32 %add293, i32 26)
+  %or.i168 = tail call i32 @llvm.fshl.i32(i32 %add293, i32 %add293, i32 21)
+  %xor301 = xor i32 %or.i165, %or.i168
+  %or.i171 = tail call i32 @llvm.fshl.i32(i32 %add293, i32 %add293, i32 7)
+  %xor304 = xor i32 %xor301, %or.i171
+  %xor310 = xor i32 %add245, %add197
+  %and311 = and i32 %add293, %xor310
+  %xor312 = xor i32 %and311, %add197
+  %21 = or disjoint i64 %indvars.iv246, 5
+  %arrayidx316 = getelementptr inbounds [64 x i32], ptr @K, i64 0, i64 %21
+  %22 = load i32, ptr %arrayidx316, align 4
+  %arrayidx320 = getelementptr inbounds [64 x i32], ptr %W, i64 0, i64 %21
+  %23 = load i32, ptr %arrayidx320, align 4
+  %add305 = add i32 %22, %add149
+  %add313 = add i32 %add305, %23
+  %add317 = add i32 %add313, %xor312
+  %add321 = add i32 %add317, %xor304
+  %or.i174 = tail call i32 @llvm.fshl.i32(i32 %add294, i32 %add294, i32 30)
+  %or.i177 = tail call i32 @llvm.fshl.i32(i32 %add294, i32 %add294, i32 19)
+  %xor326 = xor i32 %or.i174, %or.i177
+  %or.i180 = tail call i32 @llvm.fshl.i32(i32 %add294, i32 %add294, i32 10)
+  %xor329 = xor i32 %xor326, %or.i180
+  %or332 = or i32 %add294, %add246
+  %and334 = and i32 %or332, %add198
+  %and337 = and i32 %add294, %add246
+  %or338 = or i32 %and334, %and337
+  %add339 = add i32 %xor329, %or338
+  %add341 = add i32 %add321, %add150
+  %add342 = add i32 %add339, %add321
+  %or.i183 = tail call i32 @llvm.fshl.i32(i32 %add341, i32 %add341, i32 26)
+  %or.i186 = tail call i32 @llvm.fshl.i32(i32 %add341, i32 %add341, i32 21)
+  %xor349 = xor i32 %or.i183, %or.i186
+  %or.i189 = tail call i32 @llvm.fshl.i32(i32 %add341, i32 %add341, i32 7)
+  %xor352 = xor i32 %xor349, %or.i189
+  %xor358 = xor i32 %add293, %add245
+  %and359 = and i32 %add341, %xor358
+  %xor360 = xor i32 %and359, %add245
+  %24 = or disjoint i64 %indvars.iv246, 6
+  %arrayidx364 = getelementptr inbounds [64 x i32], ptr @K, i64 0, i64 %24
+  %25 = load i32, ptr %arrayidx364, align 8
+  %arrayidx368 = getelementptr inbounds [64 x i32], ptr %W, i64 0, i64 %24
+  %26 = load i32, ptr %arrayidx368, align 8
+  %add353 = add i32 %25, %add197
+  %add361 = add i32 %add353, %26
+  %add365 = add i32 %add361, %xor360
+  %add369 = add i32 %add365, %xor352
+  %or.i192 = tail call i32 @llvm.fshl.i32(i32 %add342, i32 %add342, i32 30)
+  %or.i195 = tail call i32 @llvm.fshl.i32(i32 %add342, i32 %add342, i32 19)
+  %xor374 = xor i32 %or.i192, %or.i195
+  %or.i198 = tail call i32 @llvm.fshl.i32(i32 %add342, i32 %add342, i32 10)
+  %xor377 = xor i32 %xor374, %or.i198
+  %or380 = or i32 %add342, %add294
+  %and382 = and i32 %or380, %add246
+  %and385 = and i32 %add342, %add294
+  %or386 = or i32 %and382, %and385
+  %add387 = add i32 %xor377, %or386
+  %add389 = add i32 %add369, %add198
+  %add390 = add i32 %add387, %add369
+  %or.i201 = tail call i32 @llvm.fshl.i32(i32 %add389, i32 %add389, i32 26)
+  %or.i204 = tail call i32 @llvm.fshl.i32(i32 %add389, i32 %add389, i32 21)
+  %xor397 = xor i32 %or.i201, %or.i204
+  %or.i207 = tail call i32 @llvm.fshl.i32(i32 %add389, i32 %add389, i32 7)
+  %xor400 = xor i32 %xor397, %or.i207
+  %xor406 = xor i32 %add341, %add293
+  %and407 = and i32 %add389, %xor406
+  %xor408 = xor i32 %and407, %add293
+  %27 = or disjoint i64 %indvars.iv246, 7
+  %arrayidx412 = getelementptr inbounds [64 x i32], ptr @K, i64 0, i64 %27
+  %28 = load i32, ptr %arrayidx412, align 4
+  %arrayidx416 = getelementptr inbounds [64 x i32], ptr %W, i64 0, i64 %27
+  %29 = load i32, ptr %arrayidx416, align 4
+  %add401 = add i32 %28, %add245
+  %add409 = add i32 %add401, %29
+  %add413 = add i32 %add409, %xor408
+  %add417 = add i32 %add413, %xor400
+  %or.i210 = tail call i32 @llvm.fshl.i32(i32 %add390, i32 %add390, i32 30)
+  %or.i213 = tail call i32 @llvm.fshl.i32(i32 %add390, i32 %add390, i32 19)
+  %xor422 = xor i32 %or.i210, %or.i213
+  %or.i216 = tail call i32 @llvm.fshl.i32(i32 %add390, i32 %add390, i32 10)
+  %xor425 = xor i32 %xor422, %or.i216
+  %or428 = or i32 %add390, %add342
+  %and430 = and i32 %or428, %add294
+  %and433 = and i32 %add390, %add342
+  %or434 = or i32 %and430, %and433
+  %add435 = add i32 %xor425, %or434
+  %add437 = add i32 %add417, %add246
+  %add438 = add i32 %add435, %add417
+  %indvars.iv.next247 = add nuw nsw i64 %indvars.iv246, 8
+  %cmp55 = icmp ult i64 %indvars.iv246, 56
+  br i1 %cmp55, label %for.body56, label %for.cond443.preheader, !llvm.loop !14
+
+for.body445:                                      ; preds = %for.cond443.preheader, %for.body445
+  %indvars.iv256 = phi i64 [ 0, %for.cond443.preheader ], [ %indvars.iv.next257, %for.body445 ]
+  %arrayidx447 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 %indvars.iv256
+  %30 = load i32, ptr %arrayidx447, align 4
+  %arrayidx450 = getelementptr inbounds [8 x i32], ptr %sha256, i64 0, i64 %indvars.iv256
+  %31 = load i32, ptr %arrayidx450, align 4
+  %add451 = add i32 %31, %30
+  store i32 %add451, ptr %arrayidx450, align 4
+  %indvars.iv.next257 = add nuw nsw i64 %indvars.iv256, 1
+  %exitcond259.not = icmp eq i64 %indvars.iv.next257, 8
+  br i1 %exitcond259.not, label %for.end454, label %for.body445, !llvm.loop !15
+
+for.end454:                                       ; preds = %for.body445
+  ret void
+}
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.fshl.i32(i32, i32, i32) #8
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umin.i32(i32, i32) #8
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.bswap.i32(i32) #8
+
+attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { nofree norecurse nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nofree norecurse nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+
+!llvm.module.flags = !{!0, !1, !2, !3}
+
+!0 = !{i32 1, !"wchar_size", i32 4}
+!1 = !{i32 8, !"PIC Level", i32 2}
+!2 = !{i32 7, !"uwtable", i32 2}
+!3 = !{i32 7, !"frame-pointer", i32 2}
+!4 = !{i32 -173, i32 1}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.mustprogress"}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !6}
+!9 = !{i32 -192, i32 1}
+!10 = distinct !{!10, !6}
+!11 = distinct !{!11, !6}
+!12 = distinct !{!12, !6}
+!13 = distinct !{!13, !6}
+!14 = distinct !{!14, !6}
+!15 = distinct !{!15, !6}
