@@ -262,3 +262,6 @@
 [submodule "bench/libsodium/libsodium"]
 	path = bench/libsodium/libsodium
 	url = git@github.com:jedisct1/libsodium.git
+[submodule "bench/hyperscan/hyperscan"]
+	path = bench/hyperscan/hyperscan
+	url = git@github.com:intel/hyperscan.git
