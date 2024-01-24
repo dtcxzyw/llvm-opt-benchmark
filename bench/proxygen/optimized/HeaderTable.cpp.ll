@@ -404,15 +404,15 @@ if.then15:                                        ; preds = %if.end12
   %31 = load ptr, ptr %vfn24, align 8
   tail call void %31(ptr noundef nonnull align 8 dereferenceable(80) %this, i32 noundef %.sroa.speculated)
   %.pre = load ptr, ptr %_M_finish.i.i, align 8
-  %.pre50 = load ptr, ptr %table_.i, align 8
-  %.pre51 = ptrtoint ptr %.pre to i64
-  %.pre52 = ptrtoint ptr %.pre50 to i64
-  %.pre53 = sub i64 %.pre51, %.pre52
-  %.pre54 = ashr exact i64 %.pre53, 5
+  %.pre49 = load ptr, ptr %table_.i, align 8
+  %.pre50 = ptrtoint ptr %.pre to i64
+  %.pre51 = ptrtoint ptr %.pre49 to i64
+  %.pre52 = sub i64 %.pre50, %.pre51
+  %.pre53 = ashr exact i64 %.pre52, 5
   br label %if.end25
 
 if.end25:                                         ; preds = %if.then15, %if.end12
-  %sub.ptr.div.i.i.i.pre-phi = phi i64 [ %.pre54, %if.then15 ], [ %sub.ptr.div.i.i, %if.end12 ]
+  %sub.ptr.div.i.i.i.pre-phi = phi i64 [ %.pre53, %if.then15 ], [ %sub.ptr.div.i.i, %if.end12 ]
   %head_ = getelementptr inbounds i8, ptr %this, i64 44
   %32 = load i32, ptr %head_, align 4
   %add.i31 = add i32 %32, 1
@@ -433,57 +433,48 @@ if.then28:                                        ; preds = %if.end25
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp2.i.i)
   store ptr %header, ptr %ref.tmp.i.i, align 8, !alias.scope !13, !noalias !16
   call void @_ZN5folly3f146detail8F14TableINS1_21VectorContainerPolicyIN8proxygen15HPACKHeaderNameENSt7__cxx114listIjSaIjEEEvvvSt17integral_constantIbLb1EEEEE15tryEmplaceValueIS5_JRKSt21piecewise_construct_tSt5tupleIJRKS5_EESI_IJEEEEESt4pairINS1_11F14ItemIterIPNS1_8F14ChunkIjEEEEbERKT_DpOT0_(ptr nonnull sret(%"struct.std::pair.27") align 8 %rv.i.i, ptr noundef nonnull align 8 dereferenceable(24) %names_, ptr noundef nonnull align 8 dereferenceable(8) %header, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2.i.i), !noalias !16
-  %35 = load ptr, ptr %rv.i.i, align 8, !noalias !16
-  %cmp.i.i.i.i32 = icmp eq ptr %35, null
-  br i1 %cmp.i.i.i.i32, label %_ZN5folly3f146detail11F14BasicMapINS1_21VectorContainerPolicyIN8proxygen15HPACKHeaderNameENSt7__cxx114listIjSaIjEEEvvvSt17integral_constantIbLb1EEEEEixERKS5_.exit, label %if.else.i.i.i
-
-if.else.i.i.i:                                    ; preds = %if.then28
+  %35 = load ptr, ptr %rv.i.i, align 8, !noalias !16, !nonnull !19, !noundef !19
   %36 = load ptr, ptr %names_, align 8, !noalias !16, !nonnull !19, !noundef !19
   %37 = load i32, ptr %35, align 4, !noalias !16
   %idx.ext8.i.i.i = zext i32 %37 to i64
-  %add.ptr9.i.i.i = getelementptr inbounds %"struct.std::pair.8", ptr %36, i64 %idx.ext8.i.i.i
-  br label %_ZN5folly3f146detail11F14BasicMapINS1_21VectorContainerPolicyIN8proxygen15HPACKHeaderNameENSt7__cxx114listIjSaIjEEEvvvSt17integral_constantIbLb1EEEEEixERKS5_.exit
-
-_ZN5folly3f146detail11F14BasicMapINS1_21VectorContainerPolicyIN8proxygen15HPACKHeaderNameENSt7__cxx114listIjSaIjEEEvvvSt17integral_constantIbLb1EEEEEixERKS5_.exit: ; preds = %if.then28, %if.else.i.i.i
-  %retval.sroa.0.0.i.i.i = phi ptr [ %add.ptr9.i.i.i, %if.else.i.i.i ], [ null, %if.then28 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %rv.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp2.i.i)
-  %second.i = getelementptr inbounds i8, ptr %retval.sroa.0.0.i.i.i, i64 8
+  %second.i = getelementptr inbounds %"struct.std::pair.8", ptr %36, i64 %idx.ext8.i.i.i, i32 1
   %call5.i.i.i.i.i.i = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #27
   %_M_storage.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i, i64 16
   %38 = load i32, ptr %head_, align 4
   store i32 %38, ptr %_M_storage.i.i.i.i, align 4
   call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i, ptr noundef nonnull %second.i) #28
-  %_M_size.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.0.i.i.i, i64 24
+  %_M_size.i.i.i = getelementptr inbounds i8, ptr %second.i, i64 16
   %39 = load i64, ptr %_M_size.i.i.i, align 8
   %add.i.i.i = add i64 %39, 1
   store i64 %add.i.i.i, ptr %_M_size.i.i.i, align 8
   br label %if.end31
 
-if.end31:                                         ; preds = %_ZN5folly3f146detail11F14BasicMapINS1_21VectorContainerPolicyIN8proxygen15HPACKHeaderNameENSt7__cxx114listIjSaIjEEEvvvSt17integral_constantIbLb1EEEEEixERKS5_.exit, %if.end25
+if.end31:                                         ; preds = %if.then28, %if.end25
   %40 = load ptr, ptr %header, align 8
-  %call.i.i.i33 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %40) #28
-  %conv.i.i34 = and i64 %call.i.i.i33, 4294967295
+  %call.i.i.i32 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %40) #28
+  %conv.i.i33 = and i64 %call.i.i.i32, 4294967295
   %41 = load i64, ptr %size_.i.i.i.i, align 8
   %42 = load i8, ptr %arrayidx.i.i.i.i, align 1
-  %conv.i.i.i.i37 = zext i8 %42 to i64
-  %sub.i.i.i.i38 = sub nsw i64 23, %conv.i.i.i.i37
-  %cmp.i.i.i.i39 = icmp ult i8 %42, 24
-  %cond.i.i.i.i40 = select i1 %cmp.i.i.i.i39, i64 %sub.i.i.i.i38, i64 %41
-  %add13.i.i.i41 = add i64 %cond.i.i.i.i40, %conv.i.i34
-  %cmp.i.i.i.i.i.i.i42 = icmp ugt i64 %add13.i.i.i41, 4294967295
-  %43 = shl i64 %add13.i.i.i41, 32
+  %conv.i.i.i.i36 = zext i8 %42 to i64
+  %sub.i.i.i.i37 = sub nsw i64 23, %conv.i.i.i.i36
+  %cmp.i.i.i.i38 = icmp ult i8 %42, 24
+  %cond.i.i.i.i39 = select i1 %cmp.i.i.i.i38, i64 %sub.i.i.i.i37, i64 %41
+  %add13.i.i.i40 = add i64 %cond.i.i.i.i39, %conv.i.i33
+  %cmp.i.i.i.i.i.i.i41 = icmp ugt i64 %add13.i.i.i40, 4294967295
+  %43 = shl i64 %add13.i.i.i40, 32
   %44 = or disjoint i64 %43, 1
-  %retval.sroa.0.0.insert.insert.i.i.i.i.i43 = select i1 %cmp.i.i.i.i.i.i.i42, i64 2818, i64 %44
-  %ref.tmp11.sroa.21.0.extract.shift.i.i.i44 = lshr i64 %retval.sroa.0.0.insert.insert.i.i.i.i.i43, 32
-  %ref.tmp11.sroa.21.0.extract.trunc.i.i.i45 = trunc i64 %ref.tmp11.sroa.21.0.extract.shift.i.i.i44 to i32
-  %45 = and i64 %retval.sroa.0.0.insert.insert.i.i.i.i.i43, 3
-  %cmp.i.i1.i.i46 = icmp eq i64 %45, 1
-  %46 = add i32 %ref.tmp11.sroa.21.0.extract.trunc.i.i.i45, 32
-  %add.i47 = select i1 %cmp.i.i1.i.i46, i32 %46, i32 31
+  %retval.sroa.0.0.insert.insert.i.i.i.i.i42 = select i1 %cmp.i.i.i.i.i.i.i41, i64 2818, i64 %44
+  %ref.tmp11.sroa.21.0.extract.shift.i.i.i43 = lshr i64 %retval.sroa.0.0.insert.insert.i.i.i.i.i42, 32
+  %ref.tmp11.sroa.21.0.extract.trunc.i.i.i44 = trunc i64 %ref.tmp11.sroa.21.0.extract.shift.i.i.i43 to i32
+  %45 = and i64 %retval.sroa.0.0.insert.insert.i.i.i.i.i42, 3
+  %cmp.i.i1.i.i45 = icmp eq i64 %45, 1
+  %46 = add i32 %ref.tmp11.sroa.21.0.extract.trunc.i.i.i44, 32
+  %add.i46 = select i1 %cmp.i.i1.i.i45, i32 %46, i32 31
   %47 = load i32, ptr %bytes_, align 4
-  %add34 = add i32 %add.i47, %47
+  %add34 = add i32 %add.i46, %47
   store i32 %add34, ptr %bytes_, align 4
   %48 = load i32, ptr %head_, align 4
   %conv36 = zext i32 %48 to i64

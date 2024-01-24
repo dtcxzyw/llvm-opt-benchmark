@@ -937,8 +937,9 @@ if.end:                                           ; preds = %land.rhs.i, %invoke
   br i1 %cmp.i.i.i.i, label %_ZNK6vectorI10ptr_vectorIN20eliminate_predicates6clauseEELb1EjE4sizeEv.exit.i.i.i, label %_ZNK6vectorI10ptr_vectorIN20eliminate_predicates6clauseEELb1EjE4sizeEv.exit.thread.i.i.i
 
 _ZNK6vectorI10ptr_vectorIN20eliminate_predicates6clauseEELb1EjE4sizeEv.exit.i.i.i: ; preds = %if.end
-  %cmp.not.i.i.i = icmp eq i32 %add.i.i, 0
-  br i1 %cmp.not.i.i.i, label %invoke.cont20, label %while.cond.i.i.i.i.preheader
+  %cmp.not.i.i.i = icmp ne i32 %add.i.i, 0
+  call void @llvm.assume(i1 %cmp.not.i.i.i)
+  br label %while.cond.i.i.i.i.preheader
 
 _ZNK6vectorI10ptr_vectorIN20eliminate_predicates6clauseEELb1EjE4sizeEv.exit.thread.i.i.i: ; preds = %if.end
   %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %14, i64 -4
@@ -991,8 +992,8 @@ for.body.preheader.i.i.i.i:                       ; preds = %while.end.i.i.i.i
   %.pre.i14 = load ptr, ptr %m_use_list, align 8
   br label %invoke.cont20
 
-invoke.cont20:                                    ; preds = %for.body.preheader.i.i.i.i, %while.end.i.i.i.i, %_ZNK6vectorI10ptr_vectorIN20eliminate_predicates6clauseEELb1EjE4sizeEv.exit.thread.i.i.i, %_ZNK6vectorI10ptr_vectorIN20eliminate_predicates6clauseEELb1EjE4sizeEv.exit.i.i.i
-  %20 = phi ptr [ null, %_ZNK6vectorI10ptr_vectorIN20eliminate_predicates6clauseEELb1EjE4sizeEv.exit.i.i.i ], [ %14, %_ZNK6vectorI10ptr_vectorIN20eliminate_predicates6clauseEELb1EjE4sizeEv.exit.thread.i.i.i ], [ %.pre4.i, %while.end.i.i.i.i ], [ %.pre.i14, %for.body.preheader.i.i.i.i ]
+invoke.cont20:                                    ; preds = %for.body.preheader.i.i.i.i, %while.end.i.i.i.i, %_ZNK6vectorI10ptr_vectorIN20eliminate_predicates6clauseEELb1EjE4sizeEv.exit.thread.i.i.i
+  %20 = phi ptr [ %14, %_ZNK6vectorI10ptr_vectorIN20eliminate_predicates6clauseEELb1EjE4sizeEv.exit.thread.i.i.i ], [ %.pre4.i, %while.end.i.i.i.i ], [ %.pre.i14, %for.body.preheader.i.i.i.i ]
   %21 = load i32, ptr %4, align 4
   %mul.i.i = shl i32 %21, 1
   %conv.i.i = zext nneg i8 %12 to i32

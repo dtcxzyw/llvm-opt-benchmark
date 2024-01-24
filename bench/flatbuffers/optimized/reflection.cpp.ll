@@ -7364,25 +7364,17 @@ entry:
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr2.i, i64 %idx.neg.i.i.i.i.i.i
   %3 = load i16, ptr %add.ptr.i.i.i.i.i.i, align 2
   %cmp.i.i.i.i.i = icmp ugt i16 %3, 4
-  br i1 %cmp.i.i.i.i.i, label %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i.i, label %_ZNK10reflection5Field19KeyCompareWithValueEPKc.exit
-
-_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i.i: ; preds = %entry
+  tail call void @llvm.assume(i1 %cmp.i.i.i.i.i)
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i, i64 4
   %4 = load i16, ptr %add.ptr.i.i.i.i.i, align 2
-  %tobool.not.i.i.i.i = icmp eq i16 %4, 0
-  br i1 %tobool.not.i.i.i.i, label %_ZNK10reflection5Field19KeyCompareWithValueEPKc.exit, label %cond.true.i.i.i.i
-
-cond.true.i.i.i.i:                                ; preds = %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i.i
+  %tobool.not.i.i.i.i = icmp ne i16 %4, 0
+  tail call void @llvm.assume(i1 %tobool.not.i.i.i.i)
   %idx.ext.i.i.i.i = zext i16 %4 to i64
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr2.i, i64 %idx.ext.i.i.i.i
   %5 = load i32, ptr %add.ptr.i.i.i.i, align 4
   %idx.ext3.i.i.i.i = zext i32 %5 to i64
   %add.ptr4.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i, i64 %idx.ext3.i.i.i.i
-  br label %_ZNK10reflection5Field19KeyCompareWithValueEPKc.exit
-
-_ZNK10reflection5Field19KeyCompareWithValueEPKc.exit: ; preds = %entry, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i.i, %cond.true.i.i.i.i
-  %cond.i.i.i.i = phi ptr [ %add.ptr4.i.i.i.i, %cond.true.i.i.i.i ], [ null, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i.i ], [ null, %entry ]
-  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %cond.i.i.i.i, i64 4
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %add.ptr4.i.i.i.i, i64 4
   %call3.i = tail call noundef i32 @strcmp(ptr noundef nonnull dereferenceable(1) %add.ptr.i.i.i, ptr noundef nonnull dereferenceable(1) %1) #25
   %sub = sub nsw i32 0, %call3.i
   ret i32 %sub

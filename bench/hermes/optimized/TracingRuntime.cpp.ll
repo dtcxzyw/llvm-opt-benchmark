@@ -10793,15 +10793,13 @@ entry:
   br i1 %cmp.i.i, label %if.then.i.i, label %lor.lhs.false.i.i
 
 lor.lhs.false.i.i:                                ; preds = %entry
-  %tobool.not.i.i = icmp eq ptr %2, null
-  br i1 %tobool.not.i.i, label %_ZNSt8functionIFN8facebook3jsi5ValueERNS1_7RuntimeERKS2_PS5_mEE6targetINS1_21DecoratedHostFunctionEEEPT_v.exit, label %if.then.i.i.i
-
-if.then.i.i.i:                                    ; preds = %lor.lhs.false.i.i
+  %tobool.not.i.i = icmp ne ptr %2, null
+  tail call void @llvm.assume(i1 %tobool.not.i.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__typeinfo_result.i.i.i)
   %call.i.i.i = invoke noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(16) %__typeinfo_result.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %call, i32 noundef 0)
           to label %invoke.cont.i.i.i unwind label %terminate.lpad.i.i.i
 
-invoke.cont.i.i.i:                                ; preds = %if.then.i.i.i
+invoke.cont.i.i.i:                                ; preds = %lor.lhs.false.i.i
   %3 = load ptr, ptr %__typeinfo_result.i.i.i, align 8
   %tobool4.not.i.i.i = icmp eq ptr %3, null
   %spec.select.i.i = select i1 %tobool4.not.i.i.i, ptr @_ZTIv, ptr %3
@@ -10811,7 +10809,7 @@ invoke.cont.i.i.i:                                ; preds = %if.then.i.i.i
   %cmp.i.i.i = icmp eq ptr %4, @_ZTSN8facebook3jsi21DecoratedHostFunctionE
   br i1 %cmp.i.i.i, label %if.then.i.i, label %_ZNKSt9type_infoeqERKS_.exit.i.i
 
-terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i
+terminate.lpad.i.i.i:                             ; preds = %lor.lhs.false.i.i
   %5 = landingpad { ptr, i32 }
           catch ptr null
   %6 = extractvalue { ptr, i32 } %5, 0
@@ -10825,7 +10823,8 @@ _ZNKSt9type_infoeqERKS_.exit.i.i:                 ; preds = %invoke.cont.i.i.i
   %cond.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 %cond.idx.i.i.i.i
   %call6.i.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(39) @_ZTSN8facebook3jsi21DecoratedHostFunctionE, ptr noundef nonnull dereferenceable(1) %cond.i.i.i.i) #27
   %cmp7.i.i.i = icmp eq i32 %call6.i.i.i, 0
-  br i1 %cmp7.i.i.i, label %if.then.i.i, label %_ZNSt8functionIFN8facebook3jsi5ValueERNS1_7RuntimeERKS2_PS5_mEE6targetINS1_21DecoratedHostFunctionEEEPT_v.exit
+  call void @llvm.assume(i1 %cmp7.i.i.i)
+  br label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %_ZNKSt9type_infoeqERKS_.exit.i.i, %invoke.cont.i.i.i, %entry
   %8 = load ptr, ptr %_M_manager.i.i, align 8
@@ -10834,7 +10833,9 @@ if.then.i.i:                                      ; preds = %_ZNKSt9type_infoeqE
 
 invoke.cont.i.i:                                  ; preds = %if.then.i.i
   %9 = load ptr, ptr %__ptr.i.i, align 8
-  br label %_ZNSt8functionIFN8facebook3jsi5ValueERNS1_7RuntimeERKS2_PS5_mEE6targetINS1_21DecoratedHostFunctionEEEPT_v.exit
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__ptr.i.i)
+  %plainHF_ = getelementptr inbounds i8, ptr %9, i64 8
+  ret ptr %plainHF_
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i
   %10 = landingpad { ptr, i32 }
@@ -10842,12 +10843,6 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   %11 = extractvalue { ptr, i32 } %10, 0
   call void @__clang_call_terminate(ptr %11) #29
   unreachable
-
-_ZNSt8functionIFN8facebook3jsi5ValueERNS1_7RuntimeERKS2_PS5_mEE6targetINS1_21DecoratedHostFunctionEEEPT_v.exit: ; preds = %lor.lhs.false.i.i, %_ZNKSt9type_infoeqERKS_.exit.i.i, %invoke.cont.i.i
-  %retval.0.i.i = phi ptr [ %9, %invoke.cont.i.i ], [ null, %_ZNKSt9type_infoeqERKS_.exit.i.i ], [ null, %lor.lhs.false.i.i ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__ptr.i.i)
-  %plainHF_ = getelementptr inbounds i8, ptr %retval.0.i.i, i64 8
-  ret ptr %plainHF_
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -17431,14 +17426,14 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #23
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #23
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #24
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #24
-
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #25
+declare void @llvm.assume(i1 noundef) #24
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umax.i64(i64, i64) #25
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umin.i64(i64, i64) #25
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #26
@@ -17467,8 +17462,8 @@ attributes #20 = { mustprogress nofree nounwind willreturn memory(read, inaccess
 attributes #21 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #22 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
 attributes #23 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #24 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #25 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #24 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #25 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #26 = { nofree nounwind willreturn memory(argmem: read) }
 attributes #27 = { nounwind }
 attributes #28 = { builtin nounwind }

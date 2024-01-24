@@ -1900,8 +1900,8 @@ _ZN4node4quic6Stream11EndReadableESt8optionalImE.exit: ; preds = %sw.bb.i.i, %sw
   %65 = load ptr, ptr %self.i.i.i.i, align 8
   call void @_ZN4node4quic7Session20SendPendingDataScopeC1EPS1_(ptr noundef nonnull align 8 dereferenceable(8) %send_scope, ptr noundef nonnull %65) #26
   %66 = load ptr, ptr %session_.i, align 8, !nonnull !37, !noundef !37
-  %self.i.i.i.i33 = getelementptr inbounds i8, ptr %66, i64 16
-  %67 = load ptr, ptr %self.i.i.i.i33, align 8
+  %self.i.i.i.i31 = getelementptr inbounds i8, ptr %66, i64 16
+  %67 = load ptr, ptr %self.i.i.i.i31, align 8
   %call61 = call noundef ptr @_ZNK4node4quic7SessioncvP11ngtcp2_connEv(ptr noundef nonnull align 8 dereferenceable(2616) %67) #26
   %68 = load ptr, ptr %ptr_.i.i, align 8
   %69 = load i64, ptr %68, align 8
@@ -2188,8 +2188,8 @@ _ZNSt10unique_ptrIN4node4quic6Stream8OutboundESt14default_deleteIS3_EE5resetEPS3
   %64 = load ptr, ptr %self.i.i.i.i, align 8
   call void @_ZN4node4quic7Session20SendPendingDataScopeC1EPS1_(ptr noundef nonnull align 8 dereferenceable(8) %send_scope, ptr noundef nonnull %64) #26
   %65 = load ptr, ptr %session_.i, align 8, !nonnull !37, !noundef !37
-  %self.i.i.i.i37 = getelementptr inbounds i8, ptr %65, i64 16
-  %66 = load ptr, ptr %self.i.i.i.i37, align 8
+  %self.i.i.i.i35 = getelementptr inbounds i8, ptr %65, i64 16
+  %66 = load ptr, ptr %self.i.i.i.i35, align 8
   %call64 = call noundef ptr @_ZNK4node4quic7SessioncvP11ngtcp2_connEv(ptr noundef nonnull align 8 dereferenceable(2616) %66) #26
   %67 = load ptr, ptr %ptr_.i.i, align 8
   %68 = load i64, ptr %67, align 8
@@ -4004,8 +4004,8 @@ if.end.i.i19:                                     ; preds = %"_ZZN4node4quic6Str
   %34 = load i64, ptr %32, align 8
   %call.i.i20 = tail call noundef ptr @_ZN2v811HandleScope12CreateHandleEPNS_8internal7IsolateEm(ptr noundef %33, i64 noundef %34) #26
   %defineProperty.val4.val.pre = load ptr, ptr %realm_.i6, align 8
-  %.phi.trans.insert36 = getelementptr i8, ptr %defineProperty.val4.val.pre, i64 176
-  %defineProperty.val4.val.val.pre = load ptr, ptr %.phi.trans.insert36, align 8
+  %.phi.trans.insert34 = getelementptr i8, ptr %defineProperty.val4.val.pre, i64 176
+  %defineProperty.val4.val.val.pre = load ptr, ptr %.phi.trans.insert34, align 8
   br label %_ZNK4node13AliasedStructINS_4quic6Stream5StatsEE14GetArrayBufferEv.exit
 
 _ZNK4node13AliasedStructINS_4quic6Stream5StatsEE14GetArrayBufferEv.exit: ; preds = %"_ZZN4node4quic6StreamC1ENS_17BaseObjectPtrImplINS0_7SessionELb1EEEN2v85LocalINS5_6ObjectEEElSt10shared_ptrINS_9DataQueueEEENK3$_0clINS6_INS5_6StringEEENS6_INS5_11ArrayBufferEEEEEDaT_T0_.exit", %if.end.i.i19
@@ -4112,8 +4112,8 @@ _ZNSt10shared_ptrIN4node9DataQueueEED2Ev.exit:    ; preds = %"_ZZN4node4quic6Str
   %51 = load ptr, ptr %self.i.i.i.i, align 8
   %call62 = tail call noundef ptr @_ZNK4node4quic7SessioncvP11ngtcp2_connEv(ptr noundef nonnull align 8 dereferenceable(2616) %51) #26
   %call63 = tail call ptr @ngtcp2_conn_get_local_transport_params(ptr noundef %call62) #26
-  %ptr_.i32 = getelementptr inbounds i8, ptr %this, i64 104
-  %52 = load ptr, ptr %ptr_.i32, align 8
+  %ptr_.i30 = getelementptr inbounds i8, ptr %this, i64 104
+  %52 = load ptr, ptr %ptr_.i30, align 8
   %initial_max_data = getelementptr inbounds i8, ptr %call63, i64 200
   %53 = load i64, ptr %initial_max_data, align 8
   %memptr.offset.i = getelementptr inbounds i8, ptr %52, i64 56
@@ -4762,18 +4762,10 @@ declare ptr @ngtcp2_conn_get_local_transport_params(ptr noundef) local_unnamed_a
 define dso_local noundef nonnull align 8 dereferenceable(2616) ptr @_ZNK4node4quic6Stream7sessionEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(256) %this) local_unnamed_addr #7 align 2 {
 entry:
   %session_ = getelementptr inbounds i8, ptr %this, i64 160
-  %0 = load ptr, ptr %session_, align 8
-  %cmp.i.i.i = icmp eq ptr %0, null
-  br i1 %cmp.i.i.i, label %_ZNK4node17BaseObjectPtrImplINS_4quic7SessionELb1EEdeEv.exit, label %if.end.i.i.i
-
-if.end.i.i.i:                                     ; preds = %entry
+  %0 = load ptr, ptr %session_, align 8, !nonnull !37, !noundef !37
   %self.i.i.i = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load ptr, ptr %self.i.i.i, align 8
-  br label %_ZNK4node17BaseObjectPtrImplINS_4quic7SessionELb1EEdeEv.exit
-
-_ZNK4node17BaseObjectPtrImplINS_4quic7SessionELb1EEdeEv.exit: ; preds = %entry, %if.end.i.i.i
-  %retval.0.i.i.i = phi ptr [ %1, %if.end.i.i.i ], [ null, %entry ]
-  ret ptr %retval.0.i.i.i
+  ret ptr %1
 }
 
 declare noundef ptr @_ZNK4node4quic7SessioncvP11ngtcp2_connEv(ptr noundef nonnull align 8 dereferenceable(2616)) local_unnamed_addr #0
@@ -9395,8 +9387,8 @@ land.lhs.true23:                                  ; preds = %_ZNSt8functionIFvmE
 if.then26:                                        ; preds = %land.lhs.true23
   %session_.i9 = getelementptr inbounds i8, ptr %17, i64 160
   %20 = load ptr, ptr %session_.i9, align 8, !nonnull !37, !noundef !37
-  %self.i.i.i.i12 = getelementptr inbounds i8, ptr %20, i64 16
-  %21 = load ptr, ptr %self.i.i.i.i12, align 8
+  %self.i.i.i.i10 = getelementptr inbounds i8, ptr %20, i64 16
+  %21 = load ptr, ptr %self.i.i.i.i10, align 8
   %22 = load i64, ptr %18, align 8
   call void @_ZN4node4quic7Session12ResumeStreamEl(ptr noundef nonnull align 8 dereferenceable(2616) %21, i64 noundef %22) #26
   br label %_ZN4node16OnScopeLeaveImplIZZNS_4quic6Stream8Outbound4PullESt8functionIFviPK10ngtcp2_vecmS4_IFvmEEEEiPS5_mmENKUlT_T0_T1_T2_E_clIiPKNS_9DataQueue3VecEmS9_EEDaSD_SE_SF_SG_EUlvE_ED2Ev.exit

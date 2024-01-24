@@ -1336,15 +1336,15 @@ call.i.i.noexc:                                   ; preds = %if.then.i.i
 
 invoke.cont4:                                     ; preds = %call.i.i.noexc
   %m_size.i.i21.phi.trans.insert = getelementptr inbounds i8, ptr %this, i64 336
-  %.pre807 = load i64, ptr %m_size.i.i21.phi.trans.insert, align 8
-  %.pre806 = load i32, ptr %maxPairs.addr, align 4
+  %.pre805 = load i64, ptr %m_size.i.i21.phi.trans.insert, align 8
+  %.pre804 = load i32, ptr %maxPairs.addr, align 4
   %.pre = load i64, ptr %m_size.i16, align 8
   %inc.i = add i64 %.pre, 1
   store i64 %inc.i, ptr %m_size.i16, align 8
   %m_gpuPairs = getelementptr inbounds i8, ptr %this, i64 328
-  %conv6 = sext i32 %.pre806 to i64
+  %conv6 = sext i32 %.pre804 to i64
   %m_size.i.i21 = getelementptr inbounds i8, ptr %this, i64 336
-  %cmp3.i = icmp ult i64 %.pre807, %conv6
+  %cmp3.i = icmp ult i64 %.pre805, %conv6
   br i1 %cmp3.i, label %if.end7.i, label %invoke.cont7
 
 if.end7.i:                                        ; preds = %invoke.cont4
@@ -1934,20 +1934,20 @@ invoke.cont45:                                    ; preds = %if.end.i117
   %arrayidx3.i = getelementptr inbounds i8, ptr %lRange.i, i64 8
   store i64 64, ptr %arrayidx3.i, align 8
   %conv5.i = sext i32 %88 to i64
-  %div.i800 = lshr i64 %conv5.i, 2
+  %div.i798 = lshr i64 %conv5.i, 2
   %rem.i = and i64 %conv5.i, 3
   %tobool.not.i130 = icmp ne i64 %rem.i, 0
   %conv9.i = zext i1 %tobool.not.i130 to i64
-  %add.i131 = add nuw nsw i64 %div.i800, %conv9.i
+  %add.i131 = add nuw nsw i64 %div.i798, %conv9.i
   %.sroa.speculated8.i = call i64 @llvm.umax.i64(i64 %add.i131, i64 1)
   %mul.i = shl i64 %.sroa.speculated8.i, 2
   store i64 %mul.i, ptr %gRange.i, align 16
   %conv15.i = sext i32 %89 to i64
-  %div17.i801 = lshr i64 %conv15.i, 6
+  %div17.i799 = lshr i64 %conv15.i, 6
   %rem20.i = and i64 %conv15.i, 63
   %tobool21.not.i = icmp ne i64 %rem20.i, 0
   %conv24.i = zext i1 %tobool21.not.i to i64
-  %add25.i = add nuw nsw i64 %div17.i801, %conv24.i
+  %add25.i = add nuw nsw i64 %div17.i799, %conv24.i
   %.sroa.speculated.i = call i64 @llvm.umax.i64(i64 %add25.i, i64 1)
   %arrayidx27.i = getelementptr inbounds i8, ptr %gRange.i, i64 8
   %mul30.i = shl i64 %.sroa.speculated.i, 6
@@ -1994,11 +1994,10 @@ do.body.i.i141:                                   ; preds = %invoke.cont46
 
 .noexc145:                                        ; preds = %do.body.i.i141
   invoke void (ptr, ...) @b3OutputErrorMessageVarArgsInternal(ptr noundef nonnull @.str.24)
-          to label %invoke.cont47.thread unwind label %lpad39
+          to label %.noexc146 unwind label %lpad39
 
-invoke.cont47.thread:                             ; preds = %.noexc145
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %elem.i)
-  br label %if.end
+.noexc146:                                        ; preds = %.noexc145
+  unreachable
 
 invoke.cont47:                                    ; preds = %call3.i.i.noexc
   %.pre.i = load i32, ptr %elem.i, align 4
@@ -2032,7 +2031,7 @@ lpad39:                                           ; preds = %if.then3.i.i578, %.
   call void @_ZN12b3LauncherCLD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %launcher) #17
   br label %ehcleanup
 
-if.end:                                           ; preds = %invoke.cont47.thread, %invoke.cont50, %invoke.cont47
+if.end:                                           ; preds = %invoke.cont50, %invoke.cont47
   call void @_ZN12b3LauncherCLD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %launcher) #17
   invoke void @b3LeaveProfileZone()
           to label %if.end52thread-pre-split unwind label %terminate.lpad.i
@@ -2263,11 +2262,11 @@ invoke.cont82:                                    ; preds = %invoke.cont79
   %arrayidx3.i.i = getelementptr inbounds i8, ptr %lRange.i.i, i64 8
   store i64 1, ptr %arrayidx3.i.i, align 8
   %conv5.i.i = sext i32 %135 to i64
-  %div.i.i802 = lshr i64 %conv5.i.i, 6
+  %div.i.i800 = lshr i64 %conv5.i.i, 6
   %rem.i.i = and i64 %conv5.i.i, 63
   %tobool.not.i.i195 = icmp ne i64 %rem.i.i, 0
   %conv9.i.i = zext i1 %tobool.not.i.i195 to i64
-  %add.i.i = add nuw nsw i64 %div.i.i802, %conv9.i.i
+  %add.i.i = add nuw nsw i64 %div.i.i800, %conv9.i.i
   %.sroa.speculated8.i.i = call i64 @llvm.umax.i64(i64 %add.i.i, i64 1)
   %mul.i.i196 = shl i64 %.sroa.speculated8.i.i, 6
   store i64 %mul.i.i196, ptr %gRange.i.i, align 16
@@ -2492,11 +2491,11 @@ invoke.cont109:                                   ; preds = %invoke.cont105
   %arrayidx3.i.i246 = getelementptr inbounds i8, ptr %lRange.i.i245, i64 8
   store i64 1, ptr %arrayidx3.i.i246, align 8
   %conv5.i.i247 = sext i32 %167 to i64
-  %div.i.i248803 = lshr i64 %conv5.i.i247, 6
+  %div.i.i248801 = lshr i64 %conv5.i.i247, 6
   %rem.i.i249 = and i64 %conv5.i.i247, 63
   %tobool.not.i.i250 = icmp ne i64 %rem.i.i249, 0
   %conv9.i.i251 = zext i1 %tobool.not.i.i250 to i64
-  %add.i.i252 = add nuw nsw i64 %div.i.i248803, %conv9.i.i251
+  %add.i.i252 = add nuw nsw i64 %div.i.i248801, %conv9.i.i251
   %.sroa.speculated8.i.i253 = call i64 @llvm.umax.i64(i64 %add.i.i252, i64 1)
   %mul.i.i254 = shl i64 %.sroa.speculated8.i.i253, 6
   store i64 %mul.i.i254, ptr %gRange.i.i244, align 16
@@ -2692,11 +2691,11 @@ invoke.cont128:                                   ; preds = %invoke.cont124
   %arrayidx3.i.i302 = getelementptr inbounds i8, ptr %lRange.i.i301, i64 8
   store i64 1, ptr %arrayidx3.i.i302, align 8
   %conv5.i.i303 = sext i32 %195 to i64
-  %div.i.i304804 = lshr i64 %conv5.i.i303, 6
+  %div.i.i304802 = lshr i64 %conv5.i.i303, 6
   %rem.i.i305 = and i64 %conv5.i.i303, 63
   %tobool.not.i.i306 = icmp ne i64 %rem.i.i305, 0
   %conv9.i.i307 = zext i1 %tobool.not.i.i306 to i64
-  %add.i.i308 = add nuw nsw i64 %div.i.i304804, %conv9.i.i307
+  %add.i.i308 = add nuw nsw i64 %div.i.i304802, %conv9.i.i307
   %.sroa.speculated8.i.i309 = call i64 @llvm.umax.i64(i64 %add.i.i308, i64 1)
   %mul.i.i310 = shl i64 %.sroa.speculated8.i.i309, 6
   store i64 %mul.i.i310, ptr %gRange.i.i300, align 16
@@ -3046,11 +3045,11 @@ invoke.cont167:                                   ; preds = %if.end.i378
   %arrayidx3.i.i393 = getelementptr inbounds i8, ptr %lRange.i.i392, i64 8
   store i64 1, ptr %arrayidx3.i.i393, align 8
   %conv5.i.i394 = sext i32 %246 to i64
-  %div.i.i395805 = lshr i64 %conv5.i.i394, 6
+  %div.i.i395803 = lshr i64 %conv5.i.i394, 6
   %rem.i.i396 = and i64 %conv5.i.i394, 63
   %tobool.not.i.i397 = icmp ne i64 %rem.i.i396, 0
   %conv9.i.i398 = zext i1 %tobool.not.i.i397 to i64
-  %add.i.i399 = add nuw nsw i64 %div.i.i395805, %conv9.i.i398
+  %add.i.i399 = add nuw nsw i64 %div.i.i395803, %conv9.i.i398
   %.sroa.speculated8.i.i400 = call i64 @llvm.umax.i64(i64 %add.i.i399, i64 1)
   %mul.i.i401 = shl i64 %.sroa.speculated8.i.i400, 6
   store i64 %mul.i.i401, ptr %gRange.i.i391, align 16
@@ -3098,11 +3097,10 @@ do.body.i.i418:                                   ; preds = %invoke.cont168
 
 .noexc423:                                        ; preds = %do.body.i.i418
   invoke void (ptr, ...) @b3OutputErrorMessageVarArgsInternal(ptr noundef nonnull @.str.24)
-          to label %invoke.cont170.thread unwind label %lpad138
+          to label %.noexc424 unwind label %lpad138
 
-invoke.cont170.thread:                            ; preds = %.noexc423
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %elem.i411)
-  br label %if.end179
+.noexc424:                                        ; preds = %.noexc423
+  unreachable
 
 invoke.cont170:                                   ; preds = %call3.i.i.noexc419
   %.pre.i417 = load i32, ptr %elem.i411, align 4
@@ -3209,8 +3207,8 @@ lpad138:                                          ; preds = %if.then3.i.i778, %.
   call void @_ZN12b3LauncherCLD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %launch134) #17
   br label %ehcleanup185
 
-if.end179:                                        ; preds = %invoke.cont170.thread, %do.end178, %invoke.cont170
-  %numPairs169.0 = phi i32 [ %258, %do.end178 ], [ %.pre.i417, %invoke.cont170 ], [ undef, %invoke.cont170.thread ]
+if.end179:                                        ; preds = %do.end178, %invoke.cont170
+  %numPairs169.0 = phi i32 [ %258, %do.end178 ], [ %.pre.i417, %invoke.cont170 ]
   %conv181 = sext i32 %numPairs169.0 to i64
   %274 = load i64, ptr %m_size.i.i21, align 8
   %cmp3.i433 = icmp ult i64 %274, %conv181

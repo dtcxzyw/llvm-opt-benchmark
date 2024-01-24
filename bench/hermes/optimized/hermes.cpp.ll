@@ -20950,15 +20950,13 @@ _ZN8facebook3jsi20WithRuntimeDecoratorINS0_6detail8WithLockINS_6hermes17HermesRu
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %lor.lhs.false.i.i.i
 
 lor.lhs.false.i.i.i:                              ; preds = %_ZN8facebook3jsi20WithRuntimeDecoratorINS0_6detail8WithLockINS_6hermes17HermesRuntimeImplENS4_12_GLOBAL__N_111HermesMutexEEES5_NS0_17ThreadSafeRuntimeEE6AroundC2ERS8_.exit
-  %tobool.not.i.i.i = icmp eq ptr %5, null
-  br i1 %tobool.not.i.i.i, label %invoke.cont, label %if.then.i.i.i.i2
-
-if.then.i.i.i.i2:                                 ; preds = %lor.lhs.false.i.i.i
+  %tobool.not.i.i.i = icmp ne ptr %5, null
+  tail call void @llvm.assume(i1 %tobool.not.i.i.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__typeinfo_result.i.i.i.i)
   %call.i.i.i.i = invoke noundef zeroext i1 %5(ptr noundef nonnull align 8 dereferenceable(16) %__typeinfo_result.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 0)
           to label %invoke.cont.i.i.i.i unwind label %terminate.lpad.i.i.i.i
 
-invoke.cont.i.i.i.i:                              ; preds = %if.then.i.i.i.i2
+invoke.cont.i.i.i.i:                              ; preds = %lor.lhs.false.i.i.i
   %6 = load ptr, ptr %__typeinfo_result.i.i.i.i, align 8
   %tobool4.not.i.i.i.i = icmp eq ptr %6, null
   %spec.select.i.i.i = select i1 %tobool4.not.i.i.i.i, ptr @_ZTIv, ptr %6
@@ -20968,7 +20966,7 @@ invoke.cont.i.i.i.i:                              ; preds = %if.then.i.i.i.i2
   %cmp.i.i.i.i = icmp eq ptr %7, @_ZTSN8facebook3jsi21DecoratedHostFunctionE
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i, label %_ZNKSt9type_infoeqERKS_.exit.i.i.i
 
-terminate.lpad.i.i.i.i:                           ; preds = %if.then.i.i.i.i2
+terminate.lpad.i.i.i.i:                           ; preds = %lor.lhs.false.i.i.i
   %8 = landingpad { ptr, i32 }
           catch ptr null
   %9 = extractvalue { ptr, i32 } %8, 0
@@ -20982,29 +20980,26 @@ _ZNKSt9type_infoeqERKS_.exit.i.i.i:               ; preds = %invoke.cont.i.i.i.i
   %cond.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 %cond.idx.i.i.i.i.i
   %call6.i.i.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(39) @_ZTSN8facebook3jsi21DecoratedHostFunctionE, ptr noundef nonnull dereferenceable(1) %cond.i.i.i.i.i) #37
   %cmp7.i.i.i.i = icmp eq i32 %call6.i.i.i.i, 0
-  br i1 %cmp7.i.i.i.i, label %if.then.i.i.i, label %invoke.cont
+  call void @llvm.assume(i1 %cmp7.i.i.i.i)
+  br label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZNKSt9type_infoeqERKS_.exit.i.i.i, %invoke.cont.i.i.i.i, %_ZN8facebook3jsi20WithRuntimeDecoratorINS0_6detail8WithLockINS_6hermes17HermesRuntimeImplENS4_12_GLOBAL__N_111HermesMutexEEES5_NS0_17ThreadSafeRuntimeEE6AroundC2ERS8_.exit
   %11 = load ptr, ptr %_M_manager.i.i.i, align 8
   %call5.i.i.i = invoke noundef zeroext i1 %11(ptr noundef nonnull align 8 dereferenceable(16) %__ptr.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 1)
-          to label %invoke.cont.i.i.i unwind label %terminate.lpad.i.i.i
-
-invoke.cont.i.i.i:                                ; preds = %if.then.i.i.i
-  %12 = load ptr, ptr %__ptr.i.i.i, align 8
-  br label %invoke.cont
+          to label %invoke.cont unwind label %terminate.lpad.i.i.i
 
 terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i
-  %13 = landingpad { ptr, i32 }
+  %12 = landingpad { ptr, i32 }
           catch ptr null
-  %14 = extractvalue { ptr, i32 } %13, 0
-  call void @__clang_call_terminate(ptr %14) #42
+  %13 = extractvalue { ptr, i32 } %12, 0
+  call void @__clang_call_terminate(ptr %13) #42
   unreachable
 
-invoke.cont:                                      ; preds = %invoke.cont.i.i.i, %_ZNKSt9type_infoeqERKS_.exit.i.i.i, %lor.lhs.false.i.i.i
-  %retval.0.i.i.i = phi ptr [ %12, %invoke.cont.i.i.i ], [ null, %_ZNKSt9type_infoeqERKS_.exit.i.i.i ], [ null, %lor.lhs.false.i.i.i ]
+invoke.cont:                                      ; preds = %if.then.i.i.i
+  %14 = load ptr, ptr %__ptr.i.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__ptr.i.i.i)
-  %plainHF_.i = getelementptr inbounds i8, ptr %retval.0.i.i.i, i64 8
-  %call1.i.i.i.i.i.i3 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #37
+  %plainHF_.i = getelementptr inbounds i8, ptr %14, i64 8
+  %call1.i.i.i.i.i.i2 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #37
   ret ptr %plainHF_.i
 }
 

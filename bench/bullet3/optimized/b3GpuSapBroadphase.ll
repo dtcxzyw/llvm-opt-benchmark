@@ -5727,12 +5727,12 @@ if.end7.i:                                        ; preds = %if.then10
 call5.i.noexc:                                    ; preds = %if.end7.i
   %spec.select.i = select i1 %call5.i18, i64 %conv13, i64 0
   %.pre = load i32, ptr %numSmallAabbs, align 4
-  %.pre1075 = add nsw i32 %.pre, 128
-  %.pre1076 = sext i32 %.pre1075 to i64
+  %.pre1073 = add nsw i32 %.pre, 128
+  %.pre1074 = sext i32 %.pre1073 to i64
   br label %invoke.cont14
 
 invoke.cont14:                                    ; preds = %call5.i.noexc, %if.then10
-  %conv17.pre-phi = phi i64 [ %.pre1076, %call5.i.noexc ], [ %conv13, %if.then10 ]
+  %conv17.pre-phi = phi i64 [ %.pre1074, %call5.i.noexc ], [ %conv13, %if.then10 ]
   %6 = phi i32 [ %.pre, %call5.i.noexc ], [ %5, %if.then10 ]
   %storemerge.i = phi i64 [ %spec.select.i, %call5.i.noexc ], [ %conv13, %if.then10 ]
   store i64 %storemerge.i, ptr %m_size.i17, align 8
@@ -5748,14 +5748,14 @@ if.end7.i23:                                      ; preds = %invoke.cont14
 
 call5.i.noexc25:                                  ; preds = %if.end7.i23
   %spec.select.i24 = select i1 %call5.i26, i64 %conv17.pre-phi, i64 0
-  %.pre1060 = load i32, ptr %numSmallAabbs, align 4
-  %.pre1077 = add nsw i32 %.pre1060, 128
-  %.pre1078 = sext i32 %.pre1077 to i64
+  %.pre1058 = load i32, ptr %numSmallAabbs, align 4
+  %.pre1075 = add nsw i32 %.pre1058, 128
+  %.pre1076 = sext i32 %.pre1075 to i64
   br label %invoke.cont18
 
 invoke.cont18:                                    ; preds = %call5.i.noexc25, %invoke.cont14
-  %conv21.pre-phi = phi i64 [ %.pre1078, %call5.i.noexc25 ], [ %conv17.pre-phi, %invoke.cont14 ]
-  %8 = phi i32 [ %.pre1060, %call5.i.noexc25 ], [ %6, %invoke.cont14 ]
+  %conv21.pre-phi = phi i64 [ %.pre1076, %call5.i.noexc25 ], [ %conv17.pre-phi, %invoke.cont14 ]
+  %8 = phi i32 [ %.pre1058, %call5.i.noexc25 ], [ %6, %invoke.cont14 ]
   %storemerge.i21 = phi i64 [ %spec.select.i24, %call5.i.noexc25 ], [ %conv17.pre-phi, %invoke.cont14 ]
   store i64 %storemerge.i21, ptr %m_size.i.i19, align 8
   %m_size.i.i28 = getelementptr inbounds i8, ptr %this, i64 1584
@@ -5770,11 +5770,11 @@ if.end7.i32:                                      ; preds = %invoke.cont18
 
 call5.i.noexc34:                                  ; preds = %if.end7.i32
   %spec.select.i33 = select i1 %call5.i35, i64 %conv21.pre-phi, i64 0
-  %.pre1061 = load i32, ptr %numSmallAabbs, align 4
+  %.pre1059 = load i32, ptr %numSmallAabbs, align 4
   br label %invoke.cont24
 
 invoke.cont24:                                    ; preds = %invoke.cont18, %call5.i.noexc34
-  %10 = phi i32 [ %8, %invoke.cont18 ], [ %.pre1061, %call5.i.noexc34 ]
+  %10 = phi i32 [ %8, %invoke.cont18 ], [ %.pre1059, %call5.i.noexc34 ]
   %storemerge.i30 = phi i64 [ %conv21.pre-phi, %invoke.cont18 ], [ %spec.select.i33, %call5.i.noexc34 ]
   store i64 %storemerge.i30, ptr %m_size.i.i28, align 8
   %conv29 = sext i32 %10 to i64
@@ -6033,11 +6033,11 @@ invoke.cont63:                                    ; preds = %if.end.i
   %arrayidx3.i.i = getelementptr inbounds i8, ptr %lRange.i.i, i64 8
   store i64 1, ptr %arrayidx3.i.i, align 8
   %conv5.i.i = sext i32 %50 to i64
-  %div.i.i1054 = lshr i64 %conv5.i.i, 6
+  %div.i.i1052 = lshr i64 %conv5.i.i, 6
   %rem.i.i = and i64 %conv5.i.i, 63
   %tobool.not.i.i = icmp ne i64 %rem.i.i, 0
   %conv9.i.i = zext i1 %tobool.not.i.i to i64
-  %add.i.i70 = add nuw nsw i64 %div.i.i1054, %conv9.i.i
+  %add.i.i70 = add nuw nsw i64 %div.i.i1052, %conv9.i.i
   %.sroa.speculated8.i.i = call i64 @llvm.umax.i64(i64 %add.i.i70, i64 1)
   %mul.i.i71 = shl i64 %.sroa.speculated8.i.i, 6
   store i64 %mul.i.i71, ptr %gRange.i.i, align 16
@@ -6102,7 +6102,7 @@ invoke.cont87:                                    ; preds = %invoke.cont69
   br i1 %cmp96, label %if.then97, label %invoke.cont87.if.end98_crit_edge
 
 invoke.cont87.if.end98_crit_edge:                 ; preds = %invoke.cont87
-  %.pre1063 = load i32, ptr %axis, align 4
+  %.pre1061 = load i32, ptr %axis, align 4
   br label %if.end98
 
 if.then97:                                        ; preds = %invoke.cont87
@@ -6116,7 +6116,7 @@ lpad48:                                           ; preds = %if.then3.i.i, %.noe
   br label %ehcleanup
 
 if.end98:                                         ; preds = %invoke.cont87.if.end98_crit_edge, %if.then97
-  %72 = phi i32 [ %.pre1063, %invoke.cont87.if.end98_crit_edge ], [ 1, %if.then97 ]
+  %72 = phi i32 [ %.pre1061, %invoke.cont87.if.end98_crit_edge ], [ 1, %if.then97 ]
   %idxprom = sext i32 %72 to i64
   %arrayidx104 = getelementptr inbounds float, ptr %v, i64 %idxprom
   %73 = load float, ptr %arrayidx104, align 4
@@ -6133,7 +6133,7 @@ if.end107:                                        ; preds = %if.then106, %if.end
           to label %if.end107.if.end108_crit_edge unwind label %terminate.lpad.i
 
 if.end107.if.end108_crit_edge:                    ; preds = %if.end107
-  %.pre1064 = load i32, ptr %numSmallAabbs, align 4
+  %.pre1062 = load i32, ptr %numSmallAabbs, align 4
   br label %if.end108
 
 terminate.lpad.i:                                 ; preds = %if.end107
@@ -6156,7 +6156,7 @@ terminate.lpad.i87:                               ; preds = %ehcleanup
   unreachable
 
 if.end108:                                        ; preds = %if.end107.if.end108_crit_edge, %if.end
-  %78 = phi i32 [ %.pre1064, %if.end107.if.end108_crit_edge ], [ %2, %if.end ]
+  %78 = phi i32 [ %.pre1062, %if.end107.if.end108_crit_edge ], [ %2, %if.end ]
   %m_gpuSmallSortData = getelementptr inbounds i8, ptr %this, i64 1920
   %conv109 = sext i32 %78 to i64
   %m_size.i.i89 = getelementptr inbounds i8, ptr %this, i64 1928
@@ -6481,11 +6481,11 @@ invoke.cont139:                                   ; preds = %if.end.i152
   %arrayidx3.i.i167 = getelementptr inbounds i8, ptr %lRange.i.i166, i64 8
   store i64 1, ptr %arrayidx3.i.i167, align 8
   %conv5.i.i168 = sext i32 %122 to i64
-  %div.i.i1691055 = lshr i64 %conv5.i.i168, 6
+  %div.i.i1691053 = lshr i64 %conv5.i.i168, 6
   %rem.i.i170 = and i64 %conv5.i.i168, 63
   %tobool.not.i.i171 = icmp ne i64 %rem.i.i170, 0
   %conv9.i.i172 = zext i1 %tobool.not.i.i171 to i64
-  %add.i.i173 = add nuw nsw i64 %div.i.i1691055, %conv9.i.i172
+  %add.i.i173 = add nuw nsw i64 %div.i.i1691053, %conv9.i.i172
   %.sroa.speculated8.i.i174 = call i64 @llvm.umax.i64(i64 %add.i.i173, i64 1)
   %mul.i.i175 = shl i64 %.sroa.speculated8.i.i174, 6
   store i64 %mul.i.i175, ptr %gRange.i.i165, align 16
@@ -6804,11 +6804,11 @@ invoke.cont198:                                   ; preds = %if.end.i231
   %arrayidx3.i.i246 = getelementptr inbounds i8, ptr %lRange.i.i245, i64 8
   store i64 1, ptr %arrayidx3.i.i246, align 8
   %conv5.i.i247 = sext i32 %170 to i64
-  %div.i.i2481056 = lshr i64 %conv5.i.i247, 6
+  %div.i.i2481054 = lshr i64 %conv5.i.i247, 6
   %rem.i.i249 = and i64 %conv5.i.i247, 63
   %tobool.not.i.i250 = icmp ne i64 %rem.i.i249, 0
   %conv9.i.i251 = zext i1 %tobool.not.i.i250 to i64
-  %add.i.i252 = add nuw nsw i64 %div.i.i2481056, %conv9.i.i251
+  %add.i.i252 = add nuw nsw i64 %div.i.i2481054, %conv9.i.i251
   %.sroa.speculated8.i.i253 = call i64 @llvm.umax.i64(i64 %add.i.i252, i64 1)
   %mul.i.i254 = shl i64 %.sroa.speculated8.i.i253, 6
   store i64 %mul.i.i254, ptr %gRange.i.i244, align 16
@@ -7501,20 +7501,20 @@ invoke.cont261:                                   ; preds = %if.end.i417
   %arrayidx3.i430 = getelementptr inbounds i8, ptr %lRange.i, i64 8
   store i64 64, ptr %arrayidx3.i430, align 8
   %conv5.i = sext i32 %272 to i64
-  %div.i4311057 = lshr i64 %conv5.i, 2
+  %div.i4311055 = lshr i64 %conv5.i, 2
   %rem.i = and i64 %conv5.i, 3
   %tobool.not.i432 = icmp ne i64 %rem.i, 0
   %conv9.i = zext i1 %tobool.not.i432 to i64
-  %add.i433 = add nuw nsw i64 %div.i4311057, %conv9.i
+  %add.i433 = add nuw nsw i64 %div.i4311055, %conv9.i
   %.sroa.speculated8.i = call i64 @llvm.umax.i64(i64 %add.i433, i64 1)
   %mul.i434 = shl i64 %.sroa.speculated8.i, 2
   store i64 %mul.i434, ptr %gRange.i, align 16
   %conv15.i = sext i32 %273 to i64
-  %div17.i1058 = lshr i64 %conv15.i, 6
+  %div17.i1056 = lshr i64 %conv15.i, 6
   %rem20.i = and i64 %conv15.i, 63
   %tobool21.not.i = icmp ne i64 %rem20.i, 0
   %conv24.i = zext i1 %tobool21.not.i to i64
-  %add25.i = add nuw nsw i64 %div17.i1058, %conv24.i
+  %add25.i = add nuw nsw i64 %div17.i1056, %conv24.i
   %.sroa.speculated.i = call i64 @llvm.umax.i64(i64 %add25.i, i64 1)
   %arrayidx27.i = getelementptr inbounds i8, ptr %gRange.i, i64 8
   %mul30.i = shl i64 %.sroa.speculated.i, 6
@@ -7561,11 +7561,10 @@ do.body.i.i444:                                   ; preds = %invoke.cont262
 
 .noexc449:                                        ; preds = %do.body.i.i444
   invoke void (ptr, ...) @b3OutputErrorMessageVarArgsInternal(ptr noundef nonnull @.str.46)
-          to label %invoke.cont264.thread unwind label %lpad256
+          to label %.noexc450 unwind label %lpad256
 
-invoke.cont264.thread:                            ; preds = %.noexc449
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %elem.i)
-  br label %if.end270
+.noexc450:                                        ; preds = %.noexc449
+  unreachable
 
 invoke.cont264:                                   ; preds = %call3.i.i.noexc445
   %.pre.i = load i32, ptr %elem.i, align 4
@@ -7598,8 +7597,8 @@ lpad256:                                          ; preds = %if.then3.i.i911, %.
   call void @_ZN12b3LauncherCLD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %launcher252) #19
   br label %ehcleanup272
 
-if.end270:                                        ; preds = %invoke.cont264.thread, %do.end, %invoke.cont264
-  %numPairs.0 = phi i32 [ %285, %do.end ], [ %.pre.i, %invoke.cont264 ], [ undef, %invoke.cont264.thread ]
+if.end270:                                        ; preds = %do.end, %invoke.cont264
+  %numPairs.0 = phi i32 [ %285, %do.end ], [ %.pre.i, %invoke.cont264 ]
   call void @_ZN12b3LauncherCLD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %launcher252) #19
   invoke void @b3LeaveProfileZone()
           to label %if.end273 unwind label %terminate.lpad.i451
@@ -8055,11 +8054,11 @@ invoke.cont307:                                   ; preds = %if.end.i541
   %arrayidx3.i.i556 = getelementptr inbounds i8, ptr %lRange.i.i555, i64 8
   store i64 1, ptr %arrayidx3.i.i556, align 8
   %conv5.i.i557 = sext i32 %352 to i64
-  %div.i.i5581059 = lshr i64 %conv5.i.i557, 6
+  %div.i.i5581057 = lshr i64 %conv5.i.i557, 6
   %rem.i.i559 = and i64 %conv5.i.i557, 63
   %tobool.not.i.i560 = icmp ne i64 %rem.i.i559, 0
   %conv9.i.i561 = zext i1 %tobool.not.i.i560 to i64
-  %add.i.i562 = add nuw nsw i64 %div.i.i5581059, %conv9.i.i561
+  %add.i.i562 = add nuw nsw i64 %div.i.i5581057, %conv9.i.i561
   %.sroa.speculated8.i.i563 = call i64 @llvm.umax.i64(i64 %add.i.i562, i64 1)
   %mul.i.i564 = shl i64 %.sroa.speculated8.i.i563, 6
   store i64 %mul.i.i564, ptr %gRange.i.i554, align 16
@@ -8113,11 +8112,10 @@ do.body.i.i581:                                   ; preds = %invoke.cont311
 
 .noexc586:                                        ; preds = %do.body.i.i581
   invoke void (ptr, ...) @b3OutputErrorMessageVarArgsInternal(ptr noundef nonnull @.str.46)
-          to label %invoke.cont314.thread unwind label %lpad303
+          to label %.noexc587 unwind label %lpad303
 
-invoke.cont314.thread:                            ; preds = %.noexc586
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %elem.i574)
-  br label %if.end329
+.noexc587:                                        ; preds = %.noexc586
+  unreachable
 
 invoke.cont314:                                   ; preds = %call3.i.i.noexc582
   %.pre.i580 = load i32, ptr %elem.i574, align 4
@@ -8176,8 +8174,8 @@ lpad303:                                          ; preds = %if.then3.i.i1031, %
   call void @_ZN12b3LauncherCLD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %launcher298) #19
   br label %ehcleanup331
 
-if.end329:                                        ; preds = %invoke.cont314.thread, %_ZN13b3OpenCLArrayIiE9push_backERKib.exit616, %invoke.cont314
-  %numPairs.2 = phi i32 [ %366, %_ZN13b3OpenCLArrayIiE9push_backERKib.exit616 ], [ %.pre.i580, %invoke.cont314 ], [ undef, %invoke.cont314.thread ]
+if.end329:                                        ; preds = %_ZN13b3OpenCLArrayIiE9push_backERKib.exit616, %invoke.cont314
+  %numPairs.2 = phi i32 [ %366, %_ZN13b3OpenCLArrayIiE9push_backERKib.exit616 ], [ %.pre.i580, %invoke.cont314 ]
   call void @_ZN12b3LauncherCLD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %launcher298) #19
   invoke void @b3LeaveProfileZone()
           to label %if.end332 unwind label %terminate.lpad.i617

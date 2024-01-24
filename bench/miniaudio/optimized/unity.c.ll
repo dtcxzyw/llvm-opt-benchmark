@@ -128979,17 +128979,13 @@ ma_spatializer_get_position.exit:                 ; preds = %for.cond.i.loopexit
   %retval.sroa.0.0.copyload.i.i = load <2 x float>, ptr %position.i, align 4
   %retval.sroa.2.0.copyload.i.i = load float, ptr %retval.sroa.2.0.v1.sroa_idx.i.i, align 4
   store atomic volatile i32 0, ptr %lock.i.i release, align 4
-  %38 = load ptr, ptr %pEngine92, align 8
-  %cmp.i110 = icmp eq ptr %38, null
-  br i1 %cmp.i110, label %if.end103, label %lor.lhs.false.i
-
-lor.lhs.false.i:                                  ; preds = %ma_spatializer_get_position.exit
+  %38 = load ptr, ptr %pEngine92, align 8, !nonnull !484, !noundef !484
   %listenerCount.i111 = getelementptr inbounds i8, ptr %38, i64 756
   %39 = load i32, ptr %listenerCount.i111, align 4
   %switch.i = icmp ult i32 %39, 2
   br i1 %switch.i, label %if.end103, label %ma_engine_listener_is_enabled.exit.lr.ph.i
 
-ma_engine_listener_is_enabled.exit.lr.ph.i:       ; preds = %lor.lhs.false.i
+ma_engine_listener_is_enabled.exit.lr.ph.i:       ; preds = %ma_spatializer_get_position.exit
   %listeners.i.i = getelementptr inbounds i8, ptr %38, i64 760
   br label %ma_engine_listener_is_enabled.exit.i
 
@@ -129059,9 +129055,9 @@ if.end103.loopexit:                               ; preds = %for.inc.i
   %.pre = load ptr, ptr %pEngine92, align 8
   br label %if.end103
 
-if.end103:                                        ; preds = %if.end103.loopexit, %lor.lhs.false.i, %ma_spatializer_get_position.exit, %ma_engine_get_listener_count.exit
-  %53 = phi ptr [ %32, %ma_engine_get_listener_count.exit ], [ null, %ma_spatializer_get_position.exit ], [ %38, %lor.lhs.false.i ], [ %.pre, %if.end103.loopexit ]
-  %iListener.0 = phi i32 [ %31, %ma_engine_get_listener_count.exit ], [ 0, %ma_spatializer_get_position.exit ], [ 0, %lor.lhs.false.i ], [ %iListenerClosest.1.i, %if.end103.loopexit ]
+if.end103:                                        ; preds = %if.end103.loopexit, %ma_spatializer_get_position.exit, %ma_engine_get_listener_count.exit
+  %53 = phi ptr [ %32, %ma_engine_get_listener_count.exit ], [ %38, %ma_spatializer_get_position.exit ], [ %.pre, %if.end103.loopexit ]
+  %iListener.0 = phi i32 [ %31, %ma_engine_get_listener_count.exit ], [ 0, %ma_spatializer_get_position.exit ], [ %iListenerClosest.1.i, %if.end103.loopexit ]
   %listeners = getelementptr inbounds i8, ptr %53, i64 760
   %idxprom = zext i32 %iListener.0 to i64
   %arrayidx106 = getelementptr inbounds [4 x %struct.ma_spatializer_listener], ptr %listeners, i64 0, i64 %idxprom

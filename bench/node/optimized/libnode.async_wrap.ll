@@ -6506,15 +6506,11 @@ entry:
   %arrayidx.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %arrayidx.i.i, align 8
   %call1.i = tail call ptr @_ZN2v87Isolate17GetCurrentContextEv(ptr noundef nonnull align 1 dereferenceable(1) %1) #19
-  %cmp.i.i.i.i = icmp eq ptr %call1.i, null
-  br i1 %cmp.i.i.i.i, label %_ZN4node11Environment10GetCurrentERKN2v820FunctionCallbackInfoINS1_5ValueEEE.exit, label %if.end.i.i.i
-
-if.end.i.i.i:                                     ; preds = %entry
+  %cmp.i.i.i.i = icmp ne ptr %call1.i, null
+  tail call void @llvm.assume(i1 %cmp.i.i.i.i)
   %call5.i.i.i = tail call noundef i32 @_ZN2v87Context29GetNumberOfEmbedderDataFieldsEv(ptr noundef nonnull align 1 dereferenceable(1) %call1.i) #19
-  %cmp.i.i.i = icmp ult i32 %call5.i.i.i, 40
-  br i1 %cmp.i.i.i, label %_ZN4node11Environment10GetCurrentERKN2v820FunctionCallbackInfoINS1_5ValueEEE.exit, label %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i
-
-_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i: ; preds = %if.end.i.i.i
+  %cmp.i.i.i = icmp ugt i32 %call5.i.i.i, 39
+  tail call void @llvm.assume(i1 %cmp.i.i.i)
   %2 = load i64, ptr %call1.i, align 8
   %sub.i.i.i.i.i = add i64 %2, 47
   %3 = inttoptr i64 %sub.i.i.i.i.i to ptr
@@ -6525,18 +6521,12 @@ _ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i:
   %7 = inttoptr i64 %6 to ptr
   %8 = load ptr, ptr @_ZN4node18ContextEmbedderTag18kNodeContextTagPtrE, align 8
   %cmp12.not.i.i.i = icmp eq ptr %8, %7
-  br i1 %cmp12.not.i.i.i, label %if.end.i.i, label %_ZN4node11Environment10GetCurrentERKN2v820FunctionCallbackInfoINS1_5ValueEEE.exit
-
-if.end.i.i:                                       ; preds = %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i
+  tail call void @llvm.assume(i1 %cmp12.not.i.i.i)
   %sub.i16.i.i.i = add i64 %4, 271
   %9 = inttoptr i64 %sub.i16.i.i.i to ptr
   %10 = load i64, ptr %9, align 8
   %11 = inttoptr i64 %10 to ptr
-  br label %_ZN4node11Environment10GetCurrentERKN2v820FunctionCallbackInfoINS1_5ValueEEE.exit
-
-_ZN4node11Environment10GetCurrentERKN2v820FunctionCallbackInfoINS1_5ValueEEE.exit: ; preds = %entry, %if.end.i.i.i, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i, %if.end.i.i
-  %retval.0.i.i = phi ptr [ %11, %if.end.i.i ], [ null, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i ], [ null, %entry ], [ null, %if.end.i.i.i ]
-  %async_hooks_.i = getelementptr inbounds i8, ptr %retval.0.i.i, i64 880
+  %async_hooks_.i = getelementptr inbounds i8, ptr %11, i64 880
   tail call void @_ZN4node10AsyncHooks20clear_async_id_stackEv(ptr noundef nonnull align 8 dereferenceable(248) %async_hooks_.i) #19
   ret void
 }

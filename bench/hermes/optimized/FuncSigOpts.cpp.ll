@@ -236,21 +236,21 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp122.i)
   %Next.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 88
   %BasicBlockList.i.i.i = getelementptr inbounds i8, ptr %8, i64 80
-  %__begin1.sroa.0.020.i.i = load ptr, ptr %Next.i.i.i.i.i.i.i, align 8
-  %cmp.i21.not.i.i = icmp eq ptr %__begin1.sroa.0.020.i.i, %BasicBlockList.i.i.i
-  br i1 %cmp.i21.not.i.i, label %if.end.i, label %for.body.i.i
+  %__begin1.sroa.0.019.i.i = load ptr, ptr %Next.i.i.i.i.i.i.i, align 8
+  %cmp.i20.not.i.i = icmp eq ptr %__begin1.sroa.0.019.i.i, %BasicBlockList.i.i.i
+  br i1 %cmp.i20.not.i.i, label %if.end.i, label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %while.body, %for.inc21.i.i
-  %__begin1.sroa.0.022.i.i = phi ptr [ %__begin1.sroa.0.0.i.i, %for.inc21.i.i ], [ %__begin1.sroa.0.020.i.i, %while.body ]
-  %Next.i.i.i.i.i5.i.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.022.i.i, i64 64
-  %InstList.i.i.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.022.i.i, i64 56
-  %__begin2.sroa.0.017.i.i = load ptr, ptr %Next.i.i.i.i.i5.i.i, align 8
-  %cmp.i6.not18.i.i = icmp eq ptr %__begin2.sroa.0.017.i.i, %InstList.i.i.i
-  br i1 %cmp.i6.not18.i.i, label %for.inc21.i.i, label %for.body11.i.i
+  %__begin1.sroa.0.021.i.i = phi ptr [ %__begin1.sroa.0.0.i.i, %for.inc21.i.i ], [ %__begin1.sroa.0.019.i.i, %while.body ]
+  %Next.i.i.i.i.i5.i.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.021.i.i, i64 64
+  %InstList.i.i.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.021.i.i, i64 56
+  %__begin2.sroa.0.016.i.i = load ptr, ptr %Next.i.i.i.i.i5.i.i, align 8
+  %cmp.i6.not17.i.i = icmp eq ptr %__begin2.sroa.0.016.i.i, %InstList.i.i.i
+  br i1 %cmp.i6.not17.i.i, label %for.inc21.i.i, label %for.body11.i.i
 
 for.body11.i.i:                                   ; preds = %for.body.i.i, %for.inc.i.i
-  %__begin2.sroa.0.019.i.i = phi ptr [ %__begin2.sroa.0.0.i.i, %for.inc.i.i ], [ %__begin2.sroa.0.017.i.i, %for.body.i.i ]
-  %add.ptr.i.i.i.i.i.i10 = getelementptr inbounds i8, ptr %__begin2.sroa.0.019.i.i, i64 16
+  %__begin2.sroa.0.018.i.i = phi ptr [ %__begin2.sroa.0.0.i.i, %for.inc.i.i ], [ %__begin2.sroa.0.016.i.i, %for.body.i.i ]
+  %add.ptr.i.i.i.i.i.i10 = getelementptr inbounds i8, ptr %__begin2.sroa.0.018.i.i, i64 16
   %9 = load i8, ptr %add.ptr.i.i.i.i.i.i10, align 8
   switch i8 %9, label %for.inc.i.i [
     i8 55, label %_ZL10performFSOPN6hermes8FunctionERSt6vectorIS1_SaIS1_EE.exit
@@ -258,28 +258,31 @@ for.body11.i.i:                                   ; preds = %for.body.i.i, %for.
   ]
 
 if.then15.i.i:                                    ; preds = %for.body11.i.i
-  %call.i.i.i.i = call noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(132) %__begin2.sroa.0.019.i.i, i32 noundef 0) #14
+  %call.i.i.i.i = call noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(132) %__begin2.sroa.0.018.i.i, i32 noundef 0) #14
   %value.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 48
   %10 = load double, ptr %value.i.i.i.i.i, align 8
-  %cmp.i.i.i.i.i = fcmp ogt double %10, 0x41DFFFFFFFC00000
-  %cmp5.i.i.i.i.i = fcmp olt double %10, 0xC1E0000000000000
-  %or.cond.i.i.i.i.i = or i1 %cmp.i.i.i.i.i, %cmp5.i.i.i.i.i
-  %11 = fcmp uno double %10, 0.000000e+00
-  %or.cond4.i.i.i.i.i = or i1 %11, %or.cond.i.i.i.i.i
+  %cmp.i.i.i.i.i = fcmp ule double %10, 0x41DFFFFFFFC00000
+  %cmp5.i.i.i.i.i = fcmp uge double %10, 0xC1E0000000000000
+  %11 = fcmp ord double %10, 0.000000e+00
+  call void @llvm.assume(i1 %11)
+  call void @llvm.assume(i1 %cmp.i.i.i.i.i)
+  call void @llvm.assume(i1 %cmp5.i.i.i.i.i)
   %conv11.i.i.i.i.i = fptosi double %10 to i32
+  %conv12.i.i.i.i.i = sitofp i32 %conv11.i.i.i.i.i to double
+  %cmp14.i.i.i.i.i = fcmp oeq double %10, %conv12.i.i.i.i.i
+  call void @llvm.assume(i1 %cmp14.i.i.i.i.i)
   %12 = and i32 %conv11.i.i.i.i.i, 255
-  %cmp13.i.i = icmp eq i32 %12, 45
-  %cmp.i.i11 = select i1 %or.cond4.i.i.i.i.i, i1 undef, i1 %cmp13.i.i
+  %cmp.i.i11 = icmp eq i32 %12, 45
   br i1 %cmp.i.i11, label %_ZL10performFSOPN6hermes8FunctionERSt6vectorIS1_SaIS1_EE.exit, label %for.inc.i.i
 
 for.inc.i.i:                                      ; preds = %if.then15.i.i, %for.body11.i.i
-  %Next.i.i.i.i.i12 = getelementptr inbounds i8, ptr %__begin2.sroa.0.019.i.i, i64 8
+  %Next.i.i.i.i.i12 = getelementptr inbounds i8, ptr %__begin2.sroa.0.018.i.i, i64 8
   %__begin2.sroa.0.0.i.i = load ptr, ptr %Next.i.i.i.i.i12, align 8
   %cmp.i6.not.i.i = icmp eq ptr %__begin2.sroa.0.0.i.i, %InstList.i.i.i
   br i1 %cmp.i6.not.i.i, label %for.inc21.i.i, label %for.body11.i.i
 
 for.inc21.i.i:                                    ; preds = %for.inc.i.i, %for.body.i.i
-  %Next.i.i.i7.i.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.022.i.i, i64 8
+  %Next.i.i.i7.i.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.021.i.i, i64 8
   %__begin1.sroa.0.0.i.i = load ptr, ptr %Next.i.i.i7.i.i, align 8
   %cmp.i.not.i.i = icmp eq ptr %__begin1.sroa.0.0.i.i, %BasicBlockList.i.i.i
   br i1 %cmp.i.not.i.i, label %if.end.i, label %for.body.i.i

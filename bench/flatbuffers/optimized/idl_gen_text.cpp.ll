@@ -2187,26 +2187,18 @@ if.then19:                                        ; preds = %land.lhs.true16
   %add.ptr.i.i.i.i19 = getelementptr inbounds i8, ptr %table, i64 %idx.neg.i.i.i.i18
   %25 = load i16, ptr %add.ptr.i.i.i.i19, align 2
   %cmp.i.i.i20 = icmp ugt i16 %25, %23
-  br i1 %cmp.i.i.i20, label %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i22, label %_ZNK11flatbuffers5Table10GetPointerIPKNS_6VectorIhjEEjEET_t.exit31
-
-_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i22: ; preds = %if.then19
+  tail call void @llvm.assume(i1 %cmp.i.i.i20)
   %idx.ext.i.i.i23 = zext i16 %23 to i64
   %add.ptr.i.i.i24 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i19, i64 %idx.ext.i.i.i23
   %26 = load i16, ptr %add.ptr.i.i.i24, align 2
-  %tobool.not.i.i25 = icmp eq i16 %26, 0
-  br i1 %tobool.not.i.i25, label %_ZNK11flatbuffers5Table10GetPointerIPKNS_6VectorIhjEEjEET_t.exit31, label %cond.true.i.i26
-
-cond.true.i.i26:                                  ; preds = %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i22
+  %tobool.not.i.i25 = icmp ne i16 %26, 0
+  tail call void @llvm.assume(i1 %tobool.not.i.i25)
   %idx.ext.i.i27 = zext i16 %26 to i64
   %add.ptr.i.i28 = getelementptr inbounds i8, ptr %table, i64 %idx.ext.i.i27
   %27 = load i32, ptr %add.ptr.i.i28, align 4
   %idx.ext3.i.i29 = zext i32 %27 to i64
   %add.ptr4.i.i30 = getelementptr inbounds i8, ptr %add.ptr.i.i28, i64 %idx.ext3.i.i29
-  br label %_ZNK11flatbuffers5Table10GetPointerIPKNS_6VectorIhjEEjEET_t.exit31
-
-_ZNK11flatbuffers5Table10GetPointerIPKNS_6VectorIhjEEjEET_t.exit31: ; preds = %if.then19, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i22, %cond.true.i.i26
-  %cond.i.i21 = phi ptr [ %add.ptr4.i.i30, %cond.true.i.i26 ], [ null, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i22 ], [ null, %if.then19 ]
-  %add.ptr.i.i32 = getelementptr inbounds i8, ptr %cond.i.i21, i64 4
+  %add.ptr.i.i32 = getelementptr inbounds i8, ptr %add.ptr4.i.i30, i64 4
   %28 = load i32, ptr %add.ptr.i.i32, align 4
   %idx.ext.i.i33 = zext i32 %28 to i64
   %add.ptr.i.i34 = getelementptr inbounds i8, ptr %add.ptr.i.i32, i64 %idx.ext.i.i33
@@ -2284,8 +2276,8 @@ if.end39:                                         ; preds = %cond.true.i.i50, %_
   %call42 = tail call noundef ptr @_ZN11flatbuffers11JsonPrinter11PrintOffsetEPKvRKNS_4TypeEiPKhi(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %val.0, ptr noundef nonnull align 8 dereferenceable(26) %value40, i32 noundef %indent, ptr noundef %prev_val, i32 noundef -1)
   br label %return
 
-return:                                           ; preds = %if.end39, %_ZNK11flatbuffers5Table10GetPointerIPKNS_6VectorIhjEEjEET_t.exit31, %if.then4
-  %retval.0 = phi ptr [ %call42, %if.end39 ], [ null, %if.then4 ], [ %call28, %_ZNK11flatbuffers5Table10GetPointerIPKNS_6VectorIhjEEjEET_t.exit31 ]
+return:                                           ; preds = %if.end39, %if.then19, %if.then4
+  %retval.0 = phi ptr [ %call42, %if.end39 ], [ null, %if.then4 ], [ %call28, %if.then19 ]
   ret ptr %retval.0
 }
 

@@ -146,31 +146,31 @@ target triple = "x86_64-unknown-linux-gnu"
 define dso_local void @signature_check_clear(ptr nocapture noundef %sigc) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %sigc, align 8
-  tail call void @free(ptr noundef %0) #13
+  tail call void @free(ptr noundef %0) #14
   store ptr null, ptr %sigc, align 8
   %output = getelementptr inbounds i8, ptr %sigc, i64 32
   %1 = load ptr, ptr %output, align 8
-  tail call void @free(ptr noundef %1) #13
+  tail call void @free(ptr noundef %1) #14
   store ptr null, ptr %output, align 8
   %gpg_status = getelementptr inbounds i8, ptr %sigc, i64 40
   %2 = load ptr, ptr %gpg_status, align 8
-  tail call void @free(ptr noundef %2) #13
+  tail call void @free(ptr noundef %2) #14
   store ptr null, ptr %gpg_status, align 8
   %signer = getelementptr inbounds i8, ptr %sigc, i64 56
   %3 = load ptr, ptr %signer, align 8
-  tail call void @free(ptr noundef %3) #13
+  tail call void @free(ptr noundef %3) #14
   store ptr null, ptr %signer, align 8
   %key = getelementptr inbounds i8, ptr %sigc, i64 64
   %4 = load ptr, ptr %key, align 8
-  tail call void @free(ptr noundef %4) #13
+  tail call void @free(ptr noundef %4) #14
   store ptr null, ptr %key, align 8
   %fingerprint = getelementptr inbounds i8, ptr %sigc, i64 72
   %5 = load ptr, ptr %fingerprint, align 8
-  tail call void @free(ptr noundef %5) #13
+  tail call void @free(ptr noundef %5) #14
   store ptr null, ptr %fingerprint, align 8
   %primary_key_fingerprint = getelementptr inbounds i8, ptr %sigc, i64 80
   %6 = load ptr, ptr %primary_key_fingerprint, align 8
-  tail call void @free(ptr noundef %6) #13
+  tail call void @free(ptr noundef %6) #14
   store ptr null, ptr %primary_key_fingerprint, align 8
   ret void
 }
@@ -188,7 +188,7 @@ entry:
 
 if.end.i:                                         ; preds = %entry
   store i1 true, ptr @gpg_interface_lazy_init.done, align 4
-  tail call void @git_config(ptr noundef nonnull @git_gpg_config, ptr noundef null) #13
+  tail call void @git_config(ptr noundef nonnull @git_gpg_config, ptr noundef null) #14
   br label %gpg_interface_lazy_init.exit
 
 gpg_interface_lazy_init.exit:                     ; preds = %entry, %if.end.i
@@ -217,7 +217,7 @@ for.cond2.i:                                      ; preds = %for.body5.i
 for.body5.i:                                      ; preds = %for.cond2.preheader.i, %for.cond2.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.cond2.i ], [ 0, %for.cond2.preheader.i ]
   %4 = phi ptr [ %3, %for.cond2.i ], [ %1, %for.cond2.preheader.i ]
-  %call.i = tail call i32 @starts_with(ptr noundef %signature, ptr noundef nonnull %4) #13
+  %call.i = tail call i32 @starts_with(ptr noundef %signature, ptr noundef nonnull %4) #14
   %tobool11.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool11.not.i, label %for.cond2.i, label %if.end
 
@@ -228,7 +228,7 @@ for.inc12.i:                                      ; preds = %for.cond2.i, %for.c
 
 if.then:                                          ; preds = %for.inc12.i
   %call1 = tail call fastcc ptr @_(ptr noundef nonnull @.str)
-  tail call void (ptr, ...) @die(ptr noundef %call1, ptr noundef %signature) #14
+  tail call void (ptr, ...) @die(ptr noundef %call1, ptr noundef %signature) #15
   unreachable
 
 if.end:                                           ; preds = %for.body5.i
@@ -248,13 +248,13 @@ sw.bb1.i:                                         ; preds = %if.end
   br label %sw.epilog.i
 
 sw.default.i:                                     ; preds = %if.end
-  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.1, i32 noundef 630, ptr noundef nonnull @.str.94) #14
+  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.1, i32 noundef 630, ptr noundef nonnull @.str.94) #15
   unreachable
 
 sw.epilog.i:                                      ; preds = %sw.bb1.i, %if.end
   %signer_header.0.i = phi ptr [ @.str.93, %sw.bb1.i ], [ @.str.92, %if.end ]
   %6 = load ptr, ptr %sigc, align 8
-  %call.i16 = call ptr @find_commit_header(ptr noundef %6, ptr noundef nonnull %signer_header.0.i, ptr noundef nonnull %ident_len.i) #13
+  %call.i16 = call ptr @find_commit_header(ptr noundef %6, ptr noundef nonnull %signer_header.0.i, ptr noundef nonnull %ident_len.i) #14
   %tobool.i = icmp ne ptr %call.i16, null
   %7 = load i64, ptr %ident_len.i, align 8
   %tobool3.i = icmp ne i64 %7, 0
@@ -263,7 +263,7 @@ sw.epilog.i:                                      ; preds = %sw.bb1.i, %if.end
 
 if.end.i17:                                       ; preds = %sw.epilog.i
   %conv.i = trunc i64 %7 to i32
-  %call4.i = call i32 @split_ident_line(ptr noundef nonnull %ident.i, ptr noundef nonnull %call.i16, i32 noundef %conv.i) #13
+  %call4.i = call i32 @split_ident_line(ptr noundef nonnull %ident.i, ptr noundef nonnull %call.i16, i32 noundef %conv.i) #14
   %tobool5.not.i = icmp eq i32 %call4.i, 0
   br i1 %tobool5.not.i, label %if.end7.i, label %parse_payload_metadata.exit
 
@@ -282,7 +282,7 @@ if.end7.i:                                        ; preds = %if.end.i17
   br i1 %or.cond2.i, label %if.then12.i, label %if.end5
 
 if.then12.i:                                      ; preds = %if.end7.i
-  %call14.i = call i64 @strtoumax(ptr noundef nonnull %9, ptr noundef null, i32 noundef 10) #13
+  %call14.i = call i64 @strtoumax(ptr noundef nonnull %9, ptr noundef null, i32 noundef 10) #14
   store i64 %call14.i, ptr %payload_timestamp.i, align 8
   br label %if.end5
 
@@ -296,7 +296,7 @@ if.end5:                                          ; preds = %if.end, %if.end, %i
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %ident.i)
   %verify_signed_buffer = getelementptr inbounds i8, ptr %add.ptr.i, i64 32
   %11 = load ptr, ptr %verify_signed_buffer, align 16
-  %call6 = call i32 %11(ptr noundef nonnull %sigc, ptr noundef nonnull %add.ptr.i, ptr noundef %signature, i64 noundef %slen) #13
+  %call6 = call i32 %11(ptr noundef nonnull %sigc, ptr noundef nonnull %add.ptr.i, ptr noundef %signature, i64 noundef %slen) #14
   %tobool7.not = icmp eq i32 %call6, 0
   br i1 %tobool7.not, label %if.end12, label %land.lhs.true
 
@@ -340,7 +340,7 @@ if.end:                                           ; preds = %entry
   br i1 %tobool1.not, label %return, label %if.end3
 
 if.end3:                                          ; preds = %if.end
-  %call = tail call ptr @gettext(ptr noundef nonnull %msgid) #13
+  %call = tail call ptr @gettext(ptr noundef nonnull %msgid) #14
   br label %return
 
 return:                                           ; preds = %if.end, %entry, %if.end3
@@ -378,7 +378,7 @@ if.end:                                           ; preds = %if.then, %land.lhs.
 
 if.then7:                                         ; preds = %if.end
   %3 = load ptr, ptr @stderr, align 8
-  %call8 = tail call i32 @fputs(ptr noundef nonnull %cond, ptr noundef %3) #15
+  %call8 = tail call i32 @fputs(ptr noundef nonnull %cond, ptr noundef %3) #16
   br label %if.end9
 
 if.end9:                                          ; preds = %if.then7, %if.end
@@ -422,7 +422,7 @@ for.cond2.i:                                      ; preds = %for.body5.i
 for.body5.i:                                      ; preds = %for.cond2.preheader.i, %for.cond2.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.cond2.i ], [ 0, %for.cond2.preheader.i ]
   %4 = phi ptr [ %3, %for.cond2.i ], [ %1, %for.cond2.preheader.i ]
-  %call.i = tail call i32 @starts_with(ptr noundef %add.ptr, ptr noundef nonnull %4) #13
+  %call.i = tail call i32 @starts_with(ptr noundef %add.ptr, ptr noundef nonnull %4) #14
   %tobool11.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool11.not.i, label %for.cond2.i, label %get_format_by_sig.exit
 
@@ -434,7 +434,7 @@ for.inc12.i:                                      ; preds = %for.cond2.i, %for.c
 get_format_by_sig.exit:                           ; preds = %for.inc12.i, %for.body5.i
   %retval.0.i = phi i64 [ %len.017, %for.body5.i ], [ %match.016, %for.inc12.i ]
   %sub = sub i64 %size, %len.017
-  %call2 = tail call ptr @memchr(ptr noundef %add.ptr, i32 noundef 10, i64 noundef %sub) #16
+  %call2 = tail call ptr @memchr(ptr noundef %add.ptr, i32 noundef 10, i64 noundef %sub) #17
   %tobool3.not = icmp eq ptr %call2, null
   %sub.ptr.lhs.cast = ptrtoint ptr %call2 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %add.ptr to i64
@@ -484,7 +484,7 @@ for.cond2.i.i:                                    ; preds = %for.body5.i.i
 for.body5.i.i:                                    ; preds = %for.cond2.preheader.i.i, %for.cond2.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %for.cond2.i.i ], [ 0, %for.cond2.preheader.i.i ]
   %4 = phi ptr [ %3, %for.cond2.i.i ], [ %1, %for.cond2.preheader.i.i ]
-  %call.i.i = tail call i32 @starts_with(ptr noundef %add.ptr.i, ptr noundef nonnull %4) #13
+  %call.i.i = tail call i32 @starts_with(ptr noundef %add.ptr.i, ptr noundef nonnull %4) #14
   %tobool11.not.i.i = icmp eq i32 %call.i.i, 0
   br i1 %tobool11.not.i.i, label %for.cond2.i.i, label %get_format_by_sig.exit.i
 
@@ -496,7 +496,7 @@ for.inc12.i.i:                                    ; preds = %for.cond2.i.i, %for
 get_format_by_sig.exit.i:                         ; preds = %for.inc12.i.i, %for.body5.i.i
   %retval.0.i.i = phi i64 [ %len.017.i, %for.body5.i.i ], [ %match.016.i, %for.inc12.i.i ]
   %sub.i = sub i64 %size, %len.017.i
-  %call2.i = tail call ptr @memchr(ptr noundef %add.ptr.i, i32 noundef 10, i64 noundef %sub.i) #16
+  %call2.i = tail call ptr @memchr(ptr noundef %add.ptr.i, i32 noundef 10, i64 noundef %sub.i) #17
   %tobool3.not.i = icmp eq ptr %call2.i, null
   %sub.ptr.lhs.cast.i = ptrtoint ptr %call2.i to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %add.ptr.i to i64
@@ -513,11 +513,11 @@ parse_signed_buffer.exit:                         ; preds = %get_format_by_sig.e
   br i1 %cmp.not, label %return, label %if.then
 
 if.then:                                          ; preds = %parse_signed_buffer.exit
-  tail call void @strbuf_add(ptr noundef %payload, ptr noundef %buf, i64 noundef %match.0.lcssa.i) #13
-  %call1 = tail call i32 @remove_signature(ptr noundef %payload) #13
+  tail call void @strbuf_add(ptr noundef %payload, ptr noundef %buf, i64 noundef %match.0.lcssa.i) #14
+  %call1 = tail call i32 @remove_signature(ptr noundef %payload) #14
   %add.ptr = getelementptr inbounds i8, ptr %buf, i64 %match.0.lcssa.i
   %sub = sub i64 %size, %match.0.lcssa.i
-  tail call void @strbuf_add(ptr noundef %signature, ptr noundef %add.ptr, i64 noundef %sub) #13
+  tail call void @strbuf_add(ptr noundef %signature, ptr noundef %add.ptr, i64 noundef %sub) #14
   br label %return
 
 return:                                           ; preds = %parse_signed_buffer.exit, %if.then
@@ -537,13 +537,13 @@ entry:
 
 if.end.i:                                         ; preds = %entry
   store i1 true, ptr @gpg_interface_lazy_init.done, align 4
-  tail call void @git_config(ptr noundef nonnull @git_gpg_config, ptr noundef null) #13
+  tail call void @git_config(ptr noundef nonnull @git_gpg_config, ptr noundef null) #14
   br label %gpg_interface_lazy_init.exit
 
 gpg_interface_lazy_init.exit:                     ; preds = %entry, %if.end.i
   %0 = load ptr, ptr @configured_signing_key, align 8
-  tail call void @free(ptr noundef %0) #13
-  %call = tail call ptr @xstrdup(ptr noundef %key) #13
+  tail call void @free(ptr noundef %0) #14
+  %call = tail call ptr @xstrdup(ptr noundef %key) #14
   store ptr %call, ptr @configured_signing_key, align 8
   ret void
 }
@@ -558,7 +558,7 @@ entry:
 
 if.end.i:                                         ; preds = %entry
   store i1 true, ptr @gpg_interface_lazy_init.done, align 4
-  tail call void @git_config(ptr noundef nonnull @git_gpg_config, ptr noundef null) #13
+  tail call void @git_config(ptr noundef nonnull @git_gpg_config, ptr noundef null) #14
   br label %gpg_interface_lazy_init.exit
 
 gpg_interface_lazy_init.exit:                     ; preds = %entry, %if.end.i
@@ -569,7 +569,7 @@ gpg_interface_lazy_init.exit:                     ; preds = %entry, %if.end.i
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %gpg_interface_lazy_init.exit
-  %call = tail call ptr %1() #13
+  %call = tail call ptr %1() #14
   br label %return
 
 if.end:                                           ; preds = %gpg_interface_lazy_init.exit
@@ -578,7 +578,7 @@ if.end:                                           ; preds = %gpg_interface_lazy_
 
 if.end.i.i:                                       ; preds = %if.end
   store i1 true, ptr @gpg_interface_lazy_init.done, align 4
-  tail call void @git_config(ptr noundef nonnull @git_gpg_config, ptr noundef null) #13
+  tail call void @git_config(ptr noundef nonnull @git_gpg_config, ptr noundef null) #14
   br label %gpg_interface_lazy_init.exit.i
 
 gpg_interface_lazy_init.exit.i:                   ; preds = %if.end.i.i, %if.end
@@ -594,11 +594,11 @@ if.end.i1:                                        ; preds = %gpg_interface_lazy_
   br i1 %tobool1.not.i, label %if.end4.i, label %if.then2.i
 
 if.then2.i:                                       ; preds = %if.end.i1
-  %call.i = tail call ptr %4() #13
+  %call.i = tail call ptr %4() #14
   br label %return
 
 if.end4.i:                                        ; preds = %if.end.i1
-  %call5.i = tail call ptr @git_committer_info(i32 noundef 3) #13
+  %call5.i = tail call ptr @git_committer_info(i32 noundef 3) #14
   br label %return
 
 return:                                           ; preds = %if.end4.i, %if.then2.i, %gpg_interface_lazy_init.exit.i, %if.then
@@ -614,7 +614,7 @@ entry:
 
 if.end.i:                                         ; preds = %entry
   store i1 true, ptr @gpg_interface_lazy_init.done, align 4
-  tail call void @git_config(ptr noundef nonnull @git_gpg_config, ptr noundef null) #13
+  tail call void @git_config(ptr noundef nonnull @git_gpg_config, ptr noundef null) #14
   br label %gpg_interface_lazy_init.exit
 
 gpg_interface_lazy_init.exit:                     ; preds = %entry, %if.end.i
@@ -630,11 +630,11 @@ if.end:                                           ; preds = %gpg_interface_lazy_
   br i1 %tobool1.not, label %if.end4, label %if.then2
 
 if.then2:                                         ; preds = %if.end
-  %call = tail call ptr %2() #13
+  %call = tail call ptr %2() #14
   br label %return
 
 if.end4:                                          ; preds = %if.end
-  %call5 = tail call ptr @git_committer_info(i32 noundef 3) #13
+  %call5 = tail call ptr @git_committer_info(i32 noundef 3) #14
   br label %return
 
 return:                                           ; preds = %gpg_interface_lazy_init.exit, %if.end4, %if.then2
@@ -651,7 +651,7 @@ entry:
   br i1 %cmp1, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.1, i32 noundef 933, ptr noundef nonnull @.str.2, i32 noundef %level) #14
+  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.1, i32 noundef 933, ptr noundef nonnull @.str.2, i32 noundef %level) #15
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -663,7 +663,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp3.not, label %if.end6, label %if.then5
 
 if.then5:                                         ; preds = %if.end
-  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.1, i32 noundef 937, ptr noundef nonnull @.str.3) #14
+  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.1, i32 noundef 937, ptr noundef nonnull @.str.3) #15
   unreachable
 
 if.end6:                                          ; preds = %if.end
@@ -683,14 +683,14 @@ entry:
 
 if.end.i:                                         ; preds = %entry
   store i1 true, ptr @gpg_interface_lazy_init.done, align 4
-  tail call void @git_config(ptr noundef nonnull @git_gpg_config, ptr noundef null) #13
+  tail call void @git_config(ptr noundef nonnull @git_gpg_config, ptr noundef null) #14
   br label %gpg_interface_lazy_init.exit
 
 gpg_interface_lazy_init.exit:                     ; preds = %entry, %if.end.i
   %0 = load ptr, ptr @use_format, align 8
   %sign_buffer = getelementptr inbounds i8, ptr %0, i64 40
   %1 = load ptr, ptr %sign_buffer, align 8
-  %call = tail call i32 %1(ptr noundef %buffer, ptr noundef %signature, ptr noundef %signing_key) #13
+  %call = tail call i32 %1(ptr noundef %buffer, ptr noundef %signature, ptr noundef %signing_key) #14
   ret i32 %call
 }
 
@@ -699,7 +699,7 @@ declare void @git_config(ptr noundef, ptr noundef) local_unnamed_addr #7
 ; Function Attrs: nounwind uwtable
 define internal i32 @git_gpg_config(ptr noundef %var, ptr noundef %value, ptr nocapture readnone %ctx, ptr nocapture readnone %cb) #2 {
 entry:
-  %call = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %var, ptr noundef nonnull dereferenceable(16) @.str.4) #16
+  %call = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %var, ptr noundef nonnull dereferenceable(16) @.str.4) #17
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %if.then, label %if.end5
 
@@ -708,7 +708,7 @@ if.then:                                          ; preds = %entry
   br i1 %tobool1.not, label %if.then2, label %if.end
 
 if.then2:                                         ; preds = %if.then
-  %call3 = tail call i32 @config_error_nonbool(ptr noundef %var) #13
+  %call3 = tail call i32 @config_error_nonbool(ptr noundef %var) #14
   br label %return
 
 if.end:                                           ; preds = %if.then
@@ -717,18 +717,18 @@ if.end:                                           ; preds = %if.then
 
 if.end.i.i:                                       ; preds = %if.end
   store i1 true, ptr @gpg_interface_lazy_init.done, align 4
-  tail call void @git_config(ptr noundef nonnull @git_gpg_config, ptr noundef null) #13
+  tail call void @git_config(ptr noundef nonnull @git_gpg_config, ptr noundef null) #14
   br label %set_signing_key.exit
 
 set_signing_key.exit:                             ; preds = %if.end, %if.end.i.i
   %0 = load ptr, ptr @configured_signing_key, align 8
-  tail call void @free(ptr noundef %0) #13
-  %call.i = tail call ptr @xstrdup(ptr noundef nonnull %value) #13
+  tail call void @free(ptr noundef %0) #14
+  %call.i = tail call ptr @xstrdup(ptr noundef nonnull %value) #14
   store ptr %call.i, ptr @configured_signing_key, align 8
   br label %return
 
 if.end5:                                          ; preds = %entry
-  %call6 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %var, ptr noundef nonnull dereferenceable(11) @.str.5) #16
+  %call6 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %var, ptr noundef nonnull dereferenceable(11) @.str.5) #17
   %tobool7.not = icmp eq i32 %call6, 0
   br i1 %tobool7.not, label %if.then8, label %if.end21
 
@@ -737,7 +737,7 @@ if.then8:                                         ; preds = %if.end5
   br i1 %tobool9.not, label %if.then10, label %for.body.i
 
 if.then10:                                        ; preds = %if.then8
-  %call11 = tail call i32 @config_error_nonbool(ptr noundef %var) #13
+  %call11 = tail call i32 @config_error_nonbool(ptr noundef %var) #14
   br label %return
 
 for.cond.i:                                       ; preds = %for.body.i
@@ -749,7 +749,7 @@ for.body.i:                                       ; preds = %if.then8, %for.cond
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.cond.i ], [ 0, %if.then8 ]
   %arrayidx.i = getelementptr inbounds [3 x %struct.gpg_format], ptr @gpg_format, i64 0, i64 %indvars.iv.i
   %1 = load ptr, ptr %arrayidx.i, align 16
-  %call.i34 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %value) #16
+  %call.i34 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %value) #17
   %tobool.not.i = icmp eq i32 %call.i34, 0
   br i1 %tobool.not.i, label %if.end20, label %for.cond.i
 
@@ -759,12 +759,12 @@ if.then16:                                        ; preds = %for.cond.i
   br i1 %tobool1.not.i, label %_.exit, label %if.end3.i
 
 if.end3.i:                                        ; preds = %if.then16
-  %call.i35 = tail call ptr @gettext(ptr noundef nonnull @.str.6) #13
+  %call.i35 = tail call ptr @gettext(ptr noundef nonnull @.str.6) #14
   br label %_.exit
 
 _.exit:                                           ; preds = %if.then16, %if.end3.i
   %retval.0.i36 = phi ptr [ %call.i35, %if.end3.i ], [ @.str.6, %if.then16 ]
-  %call18 = tail call i32 (ptr, ...) @error(ptr noundef %retval.0.i36, ptr noundef %var, ptr noundef nonnull %value) #13
+  %call18 = tail call i32 (ptr, ...) @error(ptr noundef %retval.0.i36, ptr noundef %var, ptr noundef nonnull %value) #14
   br label %return
 
 if.end20:                                         ; preds = %for.body.i
@@ -772,7 +772,7 @@ if.end20:                                         ; preds = %for.body.i
   br label %return
 
 if.end21:                                         ; preds = %if.end5
-  %call22 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %var, ptr noundef nonnull dereferenceable(18) @.str.7) #16
+  %call22 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %var, ptr noundef nonnull dereferenceable(18) @.str.7) #17
   %tobool23.not = icmp eq i32 %call22, 0
   br i1 %tobool23.not, label %if.then24, label %if.end38
 
@@ -781,11 +781,11 @@ if.then24:                                        ; preds = %if.end21
   br i1 %tobool25.not, label %if.then26, label %if.end29
 
 if.then26:                                        ; preds = %if.then24
-  %call27 = tail call i32 @config_error_nonbool(ptr noundef %var) #13
+  %call27 = tail call i32 @config_error_nonbool(ptr noundef %var) #14
   br label %return
 
 if.end29:                                         ; preds = %if.then24
-  %call30 = tail call ptr @xstrdup_toupper(ptr noundef nonnull %value) #13
+  %call30 = tail call ptr @xstrdup_toupper(ptr noundef nonnull %value) #14
   br label %for.body.i37
 
 for.cond.i41:                                     ; preds = %for.body.i37
@@ -797,7 +797,7 @@ for.body.i37:                                     ; preds = %for.cond.i41, %if.e
   %i.04.i = phi i64 [ 0, %if.end29 ], [ %inc.i, %for.cond.i41 ]
   %arrayidx.i38 = getelementptr inbounds [5 x %struct.sigcheck_gpg_trust_level], ptr @sigcheck_gpg_trust_level, i64 0, i64 %i.04.i
   %3 = load ptr, ptr %arrayidx.i38, align 8
-  %call.i39 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) %call30) #16
+  %call.i39 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) %call30) #17
   %tobool.not.i40 = icmp eq i32 %call.i39, 0
   br i1 %tobool.not.i40, label %parse_gpg_trust_level.exit.thread, label %for.cond.i41
 
@@ -805,58 +805,58 @@ parse_gpg_trust_level.exit.thread:                ; preds = %for.body.i37
   %value.i = getelementptr inbounds i8, ptr %arrayidx.i38, i64 16
   %4 = load i32, ptr %value.i, align 8
   store i32 %4, ptr @configured_min_trust_level, align 4
-  tail call void @free(ptr noundef %call30) #13
+  tail call void @free(ptr noundef %call30) #14
   br label %return
 
 if.then33:                                        ; preds = %for.cond.i41
-  tail call void @free(ptr noundef %call30) #13
+  tail call void @free(ptr noundef %call30) #14
   %5 = load i32, ptr @git_gettext_enabled, align 4
   %tobool1.not.i44 = icmp eq i32 %5, 0
   br i1 %tobool1.not.i44, label %_.exit48, label %if.end3.i45
 
 if.end3.i45:                                      ; preds = %if.then33
-  %call.i46 = tail call ptr @gettext(ptr noundef nonnull @.str.6) #13
+  %call.i46 = tail call ptr @gettext(ptr noundef nonnull @.str.6) #14
   br label %_.exit48
 
 _.exit48:                                         ; preds = %if.then33, %if.end3.i45
   %retval.0.i47 = phi ptr [ %call.i46, %if.end3.i45 ], [ @.str.6, %if.then33 ]
-  %call35 = tail call i32 (ptr, ...) @error(ptr noundef %retval.0.i47, ptr noundef %var, ptr noundef nonnull %value) #13
+  %call35 = tail call i32 (ptr, ...) @error(ptr noundef %retval.0.i47, ptr noundef %var, ptr noundef nonnull %value) #14
   br label %return
 
 if.end38:                                         ; preds = %if.end21
-  %call39 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %var, ptr noundef nonnull dereferenceable(26) @.str.8) #16
+  %call39 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %var, ptr noundef nonnull dereferenceable(26) @.str.8) #17
   %tobool40.not = icmp eq i32 %call39, 0
   br i1 %tobool40.not, label %if.then41, label %if.end43
 
 if.then41:                                        ; preds = %if.end38
-  %call42 = tail call i32 @git_config_string(ptr noundef nonnull @ssh_default_key_command, ptr noundef %var, ptr noundef %value) #13
+  %call42 = tail call i32 @git_config_string(ptr noundef nonnull @ssh_default_key_command, ptr noundef %var, ptr noundef %value) #14
   br label %return
 
 if.end43:                                         ; preds = %if.end38
-  %call44 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %var, ptr noundef nonnull dereferenceable(27) @.str.9) #16
+  %call44 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %var, ptr noundef nonnull dereferenceable(27) @.str.9) #17
   %tobool45.not = icmp eq i32 %call44, 0
   br i1 %tobool45.not, label %if.then46, label %if.end48
 
 if.then46:                                        ; preds = %if.end43
-  %call47 = tail call i32 @git_config_pathname(ptr noundef nonnull @ssh_allowed_signers, ptr noundef %var, ptr noundef %value) #13
+  %call47 = tail call i32 @git_config_pathname(ptr noundef nonnull @ssh_allowed_signers, ptr noundef %var, ptr noundef %value) #14
   br label %return
 
 if.end48:                                         ; preds = %if.end43
-  %call49 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %var, ptr noundef nonnull dereferenceable(23) @.str.10) #16
+  %call49 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %var, ptr noundef nonnull dereferenceable(23) @.str.10) #17
   %tobool50.not = icmp eq i32 %call49, 0
   br i1 %tobool50.not, label %if.then51, label %if.end53
 
 if.then51:                                        ; preds = %if.end48
-  %call52 = tail call i32 @git_config_pathname(ptr noundef nonnull @ssh_revocation_file, ptr noundef %var, ptr noundef %value) #13
+  %call52 = tail call i32 @git_config_pathname(ptr noundef nonnull @ssh_revocation_file, ptr noundef %var, ptr noundef %value) #14
   br label %return
 
 if.end53:                                         ; preds = %if.end48
-  %call54 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %var, ptr noundef nonnull dereferenceable(12) @.str.11) #16
+  %call54 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %var, ptr noundef nonnull dereferenceable(12) @.str.11) #17
   %tobool55.not = icmp eq i32 %call54, 0
   br i1 %tobool55.not, label %if.then58, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end53
-  %call56 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %var, ptr noundef nonnull dereferenceable(20) @.str.12) #16
+  %call56 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %var, ptr noundef nonnull dereferenceable(20) @.str.12) #17
   %tobool57.not = icmp eq i32 %call56, 0
   br i1 %tobool57.not, label %if.then58, label %if.end59
 
@@ -865,32 +865,36 @@ if.then58:                                        ; preds = %lor.lhs.false, %if.
 
 if.end59:                                         ; preds = %if.then58, %lor.lhs.false
   %fmtname.0 = phi ptr [ null, %lor.lhs.false ], [ @.str.13, %if.then58 ]
-  %call60 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %var, ptr noundef nonnull dereferenceable(17) @.str.14) #16
+  %call60 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %var, ptr noundef nonnull dereferenceable(17) @.str.14) #17
   %tobool61.not = icmp eq i32 %call60, 0
   %spec.select = select i1 %tobool61.not, ptr @.str.15, ptr %fmtname.0
-  %call64 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %var, ptr noundef nonnull dereferenceable(16) @.str.16) #16
+  %call64 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %var, ptr noundef nonnull dereferenceable(16) @.str.16) #17
   %tobool65.not = icmp eq i32 %call64, 0
   %fmtname.2 = select i1 %tobool65.not, ptr @.str.17, ptr %spec.select
   %tobool68.not = icmp eq ptr %fmtname.2, null
-  br i1 %tobool68.not, label %return, label %for.body.i49
+  br i1 %tobool68.not, label %return, label %for.body.i49.preheader
 
-for.cond.i54:                                     ; preds = %for.body.i49
-  %indvars.iv.next.i55 = add nuw nsw i64 %indvars.iv.i50, 1
-  %exitcond.not.i56 = icmp eq i64 %indvars.iv.next.i55, 3
-  br i1 %exitcond.not.i56, label %get_format_by_name.exit58, label %for.body.i49, !llvm.loop !9
+for.body.i49.preheader:                           ; preds = %if.end59
+  %6 = load ptr, ptr @gpg_format, align 16
+  %call.i5265 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(1) %fmtname.2) #17
+  %tobool.not.i5366 = icmp eq i32 %call.i5265, 0
+  br i1 %tobool.not.i5366, label %get_format_by_name.exit58, label %for.cond.i54
 
-for.body.i49:                                     ; preds = %if.end59, %for.cond.i54
-  %indvars.iv.i50 = phi i64 [ %indvars.iv.next.i55, %for.cond.i54 ], [ 0, %if.end59 ]
-  %arrayidx.i51 = getelementptr inbounds [3 x %struct.gpg_format], ptr @gpg_format, i64 0, i64 %indvars.iv.i50
-  %6 = load ptr, ptr %arrayidx.i51, align 16
-  %call.i52 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(1) %fmtname.2) #16
+for.cond.i54:                                     ; preds = %for.body.i49.preheader, %for.cond.i54
+  %indvars.iv.i5067 = phi i64 [ %indvars.iv.next.i55, %for.cond.i54 ], [ 0, %for.body.i49.preheader ]
+  %indvars.iv.next.i55 = add nuw nsw i64 %indvars.iv.i5067, 1
+  %exitcond.not.i56 = icmp ne i64 %indvars.iv.next.i55, 3
+  tail call void @llvm.assume(i1 %exitcond.not.i56)
+  %arrayidx.i51 = getelementptr inbounds [3 x %struct.gpg_format], ptr @gpg_format, i64 0, i64 %indvars.iv.next.i55
+  %7 = load ptr, ptr %arrayidx.i51, align 16
+  %call.i52 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) %fmtname.2) #17
   %tobool.not.i53 = icmp eq i32 %call.i52, 0
   br i1 %tobool.not.i53, label %get_format_by_name.exit58, label %for.cond.i54
 
-get_format_by_name.exit58:                        ; preds = %for.cond.i54, %for.body.i49
-  %retval.0.i57 = phi ptr [ %arrayidx.i51, %for.body.i49 ], [ null, %for.cond.i54 ]
-  %program = getelementptr inbounds i8, ptr %retval.0.i57, i64 8
-  %call71 = tail call i32 @git_config_string(ptr noundef nonnull %program, ptr noundef %var, ptr noundef %value) #13
+get_format_by_name.exit58:                        ; preds = %for.cond.i54, %for.body.i49.preheader
+  %arrayidx.i51.lcssa = phi ptr [ @gpg_format, %for.body.i49.preheader ], [ %arrayidx.i51, %for.cond.i54 ]
+  %program = getelementptr inbounds i8, ptr %arrayidx.i51.lcssa, i64 8
+  %call71 = tail call i32 @git_config_string(ptr noundef nonnull %program, ptr noundef %var, ptr noundef %value) #14
   br label %return
 
 return:                                           ; preds = %parse_gpg_trust_level.exit.thread, %if.end59, %get_format_by_name.exit58, %if.then51, %if.then46, %if.then41, %_.exit48, %if.then26, %if.end20, %_.exit, %if.then10, %set_signing_key.exit, %if.then2
@@ -921,7 +925,7 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %gpg, ptr noundef nonnull align 8 dereferenceable(120) @__const.get_ssh_key_fingerprint.ssh_keygen, i64 120, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %gpg_stdout, ptr noundef nonnull align 8 dereferenceable(24) @__const.get_ssh_key_fingerprint.fingerprint_stdout, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %gpg_stderr, ptr noundef nonnull align 8 dereferenceable(24) @__const.get_ssh_key_fingerprint.fingerprint_stdout, i64 24, i1 false)
-  %call.i = tail call ptr @mks_tempfile_tsm(ptr noundef nonnull @.str.24, i32 noundef 0, i32 noundef 384) #13
+  %call.i = tail call ptr @mks_tempfile_tsm(ptr noundef nonnull @.str.24, i32 noundef 0, i32 noundef 384) #14
   store ptr %call.i, ptr %temp, align 8
   %tobool.not = icmp eq ptr %call.i, null
   br i1 %tobool.not, label %if.then, label %if.end
@@ -932,23 +936,23 @@ if.then:                                          ; preds = %entry
   br i1 %tobool1.not.i, label %_.exit, label %if.end3.i
 
 if.end3.i:                                        ; preds = %if.then
-  %call.i7 = tail call ptr @gettext(ptr noundef nonnull @.str.25) #13
+  %call.i7 = tail call ptr @gettext(ptr noundef nonnull @.str.25) #14
   br label %_.exit
 
 _.exit:                                           ; preds = %if.then, %if.end3.i
   %retval.0.i = phi ptr [ %call.i7, %if.end3.i ], [ @.str.25, %if.then ]
-  %call2 = tail call i32 (ptr, ...) @error_errno(ptr noundef %retval.0.i) #13
+  %call2 = tail call i32 (ptr, ...) @error_errno(ptr noundef %retval.0.i) #14
   br label %return
 
 if.end:                                           ; preds = %entry
   %fd = getelementptr inbounds i8, ptr %call.i, i64 16
   %1 = load volatile i32, ptr %fd, align 8
-  %call4 = tail call i64 @write_in_full(i32 noundef %1, ptr noundef %signature, i64 noundef %signature_size) #13
+  %call4 = tail call i64 @write_in_full(i32 noundef %1, ptr noundef %signature, i64 noundef %signature_size) #14
   %cmp = icmp slt i64 %call4, 0
   br i1 %cmp, label %if.then7, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end
-  %call5 = tail call i32 @close_tempfile_gently(ptr noundef nonnull %call.i) #13
+  %call5 = tail call i32 @close_tempfile_gently(ptr noundef nonnull %call.i) #14
   %cmp6 = icmp slt i32 %call5, 0
   br i1 %cmp6, label %if.then7, label %if.end11
 
@@ -958,45 +962,45 @@ if.then7:                                         ; preds = %lor.lhs.false, %if.
   br i1 %tobool1.not.i8, label %_.exit12, label %if.end3.i9
 
 if.end3.i9:                                       ; preds = %if.then7
-  %call.i10 = tail call ptr @gettext(ptr noundef nonnull @.str.26) #13
+  %call.i10 = tail call ptr @gettext(ptr noundef nonnull @.str.26) #14
   br label %_.exit12
 
 _.exit12:                                         ; preds = %if.then7, %if.end3.i9
   %retval.0.i11 = phi ptr [ %call.i10, %if.end3.i9 ], [ @.str.26, %if.then7 ]
   %buf = getelementptr inbounds i8, ptr %call.i, i64 56
   %3 = load ptr, ptr %buf, align 8
-  %call9 = tail call i32 (ptr, ...) @error_errno(ptr noundef %retval.0.i11, ptr noundef %3) #13
-  call void @delete_tempfile(ptr noundef nonnull %temp) #13
+  %call9 = tail call i32 (ptr, ...) @error_errno(ptr noundef %retval.0.i11, ptr noundef %3) #14
+  call void @delete_tempfile(ptr noundef nonnull %temp) #14
   br label %return
 
 if.end11:                                         ; preds = %lor.lhs.false
   %program = getelementptr inbounds i8, ptr %fmt, i64 8
   %4 = load ptr, ptr %program, align 8
-  %call12 = call ptr @strvec_push(ptr noundef nonnull %gpg, ptr noundef %4) #13
+  %call12 = call ptr @strvec_push(ptr noundef nonnull %gpg, ptr noundef %4) #14
   %verify_args = getelementptr inbounds i8, ptr %fmt, i64 16
   %5 = load ptr, ptr %verify_args, align 8
-  call void @strvec_pushv(ptr noundef nonnull %gpg, ptr noundef %5) #13
+  call void @strvec_pushv(ptr noundef nonnull %gpg, ptr noundef %5) #14
   %6 = load ptr, ptr %temp, align 8
   %buf16 = getelementptr inbounds i8, ptr %6, i64 56
   %7 = load ptr, ptr %buf16, align 8
-  call void (ptr, ...) @strvec_pushl(ptr noundef nonnull %gpg, ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.28, ptr noundef %7, ptr noundef nonnull @.str.29, ptr noundef null) #13
-  %call17 = call i32 @sigchain_push(i32 noundef 13, ptr noundef nonnull inttoptr (i64 1 to ptr)) #13
+  call void (ptr, ...) @strvec_pushl(ptr noundef nonnull %gpg, ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.28, ptr noundef %7, ptr noundef nonnull @.str.29, ptr noundef null) #14
+  %call17 = call i32 @sigchain_push(i32 noundef 13, ptr noundef nonnull inttoptr (i64 1 to ptr)) #14
   %8 = load ptr, ptr %sigc, align 8
   %payload_len = getelementptr inbounds i8, ptr %sigc, i64 8
   %9 = load i64, ptr %payload_len, align 8
-  %call18 = call i32 @pipe_command(ptr noundef nonnull %gpg, ptr noundef %8, i64 noundef %9, ptr noundef nonnull %gpg_stdout, i64 noundef 0, ptr noundef nonnull %gpg_stderr, i64 noundef 0) #13
-  %call19 = call i32 @sigchain_pop(i32 noundef 13) #13
-  call void @delete_tempfile(ptr noundef nonnull %temp) #13
+  %call18 = call i32 @pipe_command(ptr noundef nonnull %gpg, ptr noundef %8, i64 noundef %9, ptr noundef nonnull %gpg_stdout, i64 noundef 0, ptr noundef nonnull %gpg_stderr, i64 noundef 0) #14
+  %call19 = call i32 @sigchain_pop(i32 noundef 13) #14
+  call void @delete_tempfile(ptr noundef nonnull %temp) #14
   %buf20 = getelementptr inbounds i8, ptr %gpg_stdout, i64 16
   %10 = load ptr, ptr %buf20, align 8
-  %call21 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull dereferenceable(1) @.str.30) #16
+  %call21 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull dereferenceable(1) @.str.30) #17
   %tobool22.not = icmp eq ptr %call21, null
   %lnot.ext = zext i1 %tobool22.not to i32
   %or = or i32 %call18, %lnot.ext
-  %call23 = call ptr @strbuf_detach(ptr noundef nonnull %gpg_stderr, ptr noundef null) #13
+  %call23 = call ptr @strbuf_detach(ptr noundef nonnull %gpg_stderr, ptr noundef null) #14
   %output = getelementptr inbounds i8, ptr %sigc, i64 32
   store ptr %call23, ptr %output, align 8
-  %call24 = call ptr @strbuf_detach(ptr noundef nonnull %gpg_stdout, ptr noundef null) #13
+  %call24 = call ptr @strbuf_detach(ptr noundef nonnull %gpg_stdout, ptr noundef null) #14
   %gpg_status = getelementptr inbounds i8, ptr %sigc, i64 40
   store ptr %call24, ptr %gpg_status, align 8
   %11 = load i8, ptr %call24, align 1
@@ -1097,9 +1101,9 @@ if.end28.i:                                       ; preds = %if.then23.i, %if.en
   br i1 %tobool33.not.i, label %if.end46.i, label %if.then34.i
 
 if.then34.i:                                      ; preds = %if.end28.i
-  %call35.i = call ptr @strchrnul(ptr noundef %str.addr.0.i39.i, i32 noundef 32) #16
+  %call35.i = call ptr @strchrnul(ptr noundef %str.addr.0.i39.i, i32 noundef 32) #17
   %21 = load ptr, ptr %key.i, align 8
-  call void @free(ptr noundef %21) #13
+  call void @free(ptr noundef %21) #14
   %tobool1.i.not.i = icmp eq ptr %call35.i, null
   br i1 %tobool1.i.not.i, label %replace_cstring.exit.i, label %if.then.i48.i
 
@@ -1107,7 +1111,7 @@ if.then.i48.i:                                    ; preds = %if.then34.i
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %call35.i to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %str.addr.0.i39.i to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
-  %call.i.i = call ptr @xmemdupz(ptr noundef nonnull %str.addr.0.i39.i, i64 noundef %sub.ptr.sub.i.i) #13
+  %call.i.i = call ptr @xmemdupz(ptr noundef nonnull %str.addr.0.i39.i, i64 noundef %sub.ptr.sub.i.i) #14
   br label %replace_cstring.exit.i
 
 replace_cstring.exit.i:                           ; preds = %if.then.i48.i, %if.then34.i
@@ -1122,9 +1126,9 @@ replace_cstring.exit.i:                           ; preds = %if.then.i48.i, %if.
 
 if.then43.i:                                      ; preds = %replace_cstring.exit.i
   %add.ptr.i = getelementptr inbounds i8, ptr %call35.i, i64 1
-  %call44.i = call ptr @strchrnul(ptr noundef nonnull %add.ptr.i, i32 noundef 10) #16
+  %call44.i = call ptr @strchrnul(ptr noundef nonnull %add.ptr.i, i32 noundef 10) #17
   %23 = load ptr, ptr %signer.i, align 8
-  call void @free(ptr noundef %23) #13
+  call void @free(ptr noundef %23) #14
   %tobool1.i49.not.i = icmp eq ptr %call44.i, null
   br i1 %tobool1.i49.not.i, label %replace_cstring.exit56.i, label %if.then.i51.i
 
@@ -1132,7 +1136,7 @@ if.then.i51.i:                                    ; preds = %if.then43.i
   %sub.ptr.lhs.cast.i52.i = ptrtoint ptr %call44.i to i64
   %sub.ptr.rhs.cast.i53.i = ptrtoint ptr %add.ptr.i to i64
   %sub.ptr.sub.i54.i = sub i64 %sub.ptr.lhs.cast.i52.i, %sub.ptr.rhs.cast.i53.i
-  %call.i55.i = call ptr @xmemdupz(ptr noundef nonnull %add.ptr.i, i64 noundef %sub.ptr.sub.i54.i) #13
+  %call.i55.i = call ptr @xmemdupz(ptr noundef nonnull %add.ptr.i, i64 noundef %sub.ptr.sub.i54.i) #14
   br label %replace_cstring.exit56.i
 
 replace_cstring.exit56.i:                         ; preds = %if.then.i51.i, %if.then43.i
@@ -1147,8 +1151,8 @@ if.end46.i:                                       ; preds = %replace_cstring.exi
   br i1 %tobool51.not.i, label %if.end59.i, label %if.then52.i
 
 if.then52.i:                                      ; preds = %if.end46.i
-  %call53.i = call i64 @strcspn(ptr noundef %line.4.i, ptr noundef nonnull @.str.32) #16
-  %call54.i = call ptr @xmemdupz(ptr noundef %line.4.i, i64 noundef %call53.i) #13
+  %call53.i = call i64 @strcspn(ptr noundef %line.4.i, ptr noundef nonnull @.str.32) #17
+  %call54.i = call ptr @xmemdupz(ptr noundef %line.4.i, i64 noundef %call53.i) #14
   br label %for.body.i.i
 
 for.cond.i.i:                                     ; preds = %for.body.i.i
@@ -1160,19 +1164,19 @@ for.body.i.i:                                     ; preds = %for.cond.i.i, %if.t
   %i.04.i.i = phi i64 [ 0, %if.then52.i ], [ %inc.i.i, %for.cond.i.i ]
   %arrayidx.i.i = getelementptr inbounds [5 x %struct.sigcheck_gpg_trust_level], ptr @sigcheck_gpg_trust_level, i64 0, i64 %i.04.i.i
   %24 = load ptr, ptr %arrayidx.i.i, align 8
-  %call.i57.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %24, ptr noundef nonnull dereferenceable(1) %call54.i) #16
+  %call.i57.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %24, ptr noundef nonnull dereferenceable(1) %call54.i) #17
   %tobool.not.i58.i = icmp eq i32 %call.i57.i, 0
   br i1 %tobool.not.i58.i, label %if.end58.i, label %for.cond.i.i
 
 if.then57.i:                                      ; preds = %for.cond.i.i
-  call void @free(ptr noundef %call54.i) #13
+  call void @free(ptr noundef %call54.i) #14
   br label %error.i
 
 if.end58.i:                                       ; preds = %for.body.i.i
   %value.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 16
   %25 = load i32, ptr %value.i.i, align 8
   store i32 %25, ptr %trust_level.i, align 4
-  call void @free(ptr noundef %call54.i) #13
+  call void @free(ptr noundef %call54.i) #14
   br label %if.end59.i
 
 if.end59.i:                                       ; preds = %if.end58.i, %if.end46.i
@@ -1181,9 +1185,9 @@ if.end59.i:                                       ; preds = %if.end58.i, %if.end
   br i1 %tobool64.not.i, label %for.inc88.i, label %if.then65.i
 
 if.then65.i:                                      ; preds = %if.end59.i
-  %call66.i = call ptr @strchrnul(ptr noundef %line.4.i, i32 noundef 32) #16
+  %call66.i = call ptr @strchrnul(ptr noundef %line.4.i, i32 noundef 32) #17
   %26 = load ptr, ptr %fingerprint.i, align 8
-  call void @free(ptr noundef %26) #13
+  call void @free(ptr noundef %26) #14
   %tobool1.i61.not.i = icmp eq ptr %call66.i, null
   br i1 %tobool1.i61.not.i, label %replace_cstring.exit69.i, label %if.then.i64.i
 
@@ -1191,13 +1195,13 @@ if.then.i64.i:                                    ; preds = %if.then65.i
   %sub.ptr.lhs.cast.i65.i = ptrtoint ptr %call66.i to i64
   %sub.ptr.rhs.cast.i66.i = ptrtoint ptr %line.4.i to i64
   %sub.ptr.sub.i67.i = sub i64 %sub.ptr.lhs.cast.i65.i, %sub.ptr.rhs.cast.i66.i
-  %call.i68.i = call ptr @xmemdupz(ptr noundef nonnull %line.4.i, i64 noundef %sub.ptr.sub.i67.i) #13
+  %call.i68.i = call ptr @xmemdupz(ptr noundef nonnull %line.4.i, i64 noundef %sub.ptr.sub.i67.i) #14
   br label %replace_cstring.exit69.i
 
 replace_cstring.exit69.i:                         ; preds = %if.then.i64.i, %if.then65.i
   %storemerge.i63.i = phi ptr [ %call.i68.i, %if.then.i64.i ], [ null, %if.then65.i ]
   store ptr %storemerge.i63.i, ptr %fingerprint.i, align 8
-  %call67.i = call ptr @strchrnul(ptr noundef %line.4.i, i32 noundef 10) #16
+  %call67.i = call ptr @strchrnul(ptr noundef %line.4.i, i32 noundef 10) #17
   %27 = load i8, ptr %call66.i, align 1
   %tobool72.not.i21 = icmp ne i8 %27, 0
   %cmp73.not.i22 = icmp ugt ptr %call67.i, %call66.i
@@ -1206,7 +1210,7 @@ replace_cstring.exit69.i:                         ; preds = %if.then.i64.i, %if.
 
 for.body71.i:                                     ; preds = %if.end76.i
   %dec.i = add nsw i32 %j.0109.i25, -1
-  %call78.i = call ptr @strchrnul(ptr noundef nonnull %add.ptr77.i, i32 noundef 32) #16
+  %call78.i = call ptr @strchrnul(ptr noundef nonnull %add.ptr77.i, i32 noundef 32) #17
   %28 = load i8, ptr %call78.i, align 1
   %tobool72.not.i = icmp ne i8 %28, 0
   %cmp73.not.i = icmp ugt ptr %call67.i, %call78.i
@@ -1221,9 +1225,9 @@ if.end76.i:                                       ; preds = %replace_cstring.exi
   br i1 %cmp69.i, label %for.body71.i, label %if.then80.i, !llvm.loop !13
 
 if.then80.i:                                      ; preds = %if.end76.i
-  %call81.i = call ptr @strchrnul(ptr noundef nonnull %add.ptr77.i, i32 noundef 10) #16
+  %call81.i = call ptr @strchrnul(ptr noundef nonnull %add.ptr77.i, i32 noundef 10) #17
   %29 = load ptr, ptr %primary_key_fingerprint94.i, align 8
-  call void @free(ptr noundef %29) #13
+  call void @free(ptr noundef %29) #14
   %tobool1.i71.not.i = icmp eq ptr %call81.i, null
   br i1 %tobool1.i71.not.i, label %for.inc88.sink.split.i, label %if.then.i74.i
 
@@ -1231,13 +1235,13 @@ if.then.i74.i:                                    ; preds = %if.then80.i
   %sub.ptr.lhs.cast.i75.i = ptrtoint ptr %call81.i to i64
   %sub.ptr.rhs.cast.i76.i = ptrtoint ptr %add.ptr77.i to i64
   %sub.ptr.sub.i77.i = sub i64 %sub.ptr.lhs.cast.i75.i, %sub.ptr.rhs.cast.i76.i
-  %call.i78.i = call ptr @xmemdupz(ptr noundef nonnull %add.ptr77.i, i64 noundef %sub.ptr.sub.i77.i) #13
+  %call.i78.i = call ptr @xmemdupz(ptr noundef nonnull %add.ptr77.i, i64 noundef %sub.ptr.sub.i77.i) #14
   br label %for.inc88.sink.split.i
 
 if.else.i:                                        ; preds = %for.body71.i, %replace_cstring.exit69.i
   %line.5108.i.lcssa = phi ptr [ %line.4.i, %replace_cstring.exit69.i ], [ %add.ptr77.i, %for.body71.i ]
   %30 = load ptr, ptr %primary_key_fingerprint94.i, align 8
-  call void @free(ptr noundef %30) #13
+  call void @free(ptr noundef %30) #14
   br label %for.inc88.sink.split.i
 
 for.inc85.i:                                      ; preds = %do.cond.i42.i
@@ -1255,7 +1259,7 @@ for.inc88.i:                                      ; preds = %do.cond.i.i, %for.i
   %line.6.i = phi ptr [ %line.4.i, %if.end59.i ], [ %line.6.ph.i, %for.inc88.sink.split.i ], [ %indvars.iv.i, %for.inc85.i ], [ %line.0.i, %do.cond.i.i ]
   %seen_exclusive_status.2.i = phi i32 [ %seen_exclusive_status.1.i, %if.end59.i ], [ %seen_exclusive_status.1.i, %for.inc88.sink.split.i ], [ %seen_exclusive_status.0113.i, %for.inc85.i ], [ %seen_exclusive_status.0113.i, %do.cond.i.i ]
   %add.ptr89.i = getelementptr inbounds i8, ptr %line.6.i, i64 1
-  %call90.i = call ptr @strchrnul(ptr noundef nonnull %add.ptr89.i, i32 noundef 10) #16
+  %call90.i = call ptr @strchrnul(ptr noundef nonnull %add.ptr89.i, i32 noundef 10) #17
   %31 = load i8, ptr %call90.i, align 1
   %tobool.not.i = icmp eq i8 %31, 0
   br i1 %tobool.not.i, label %parse_gpg_output.exit, label %while.cond.preheader.i, !llvm.loop !15
@@ -1263,22 +1267,22 @@ for.inc88.i:                                      ; preds = %do.cond.i.i, %for.i
 error.i:                                          ; preds = %if.then15.i, %if.then57.i
   store i8 69, ptr %result27.i, align 8
   %32 = load ptr, ptr %primary_key_fingerprint94.i, align 8
-  call void @free(ptr noundef %32) #13
+  call void @free(ptr noundef %32) #14
   store ptr null, ptr %primary_key_fingerprint94.i, align 8
   %33 = load ptr, ptr %fingerprint.i, align 8
-  call void @free(ptr noundef %33) #13
+  call void @free(ptr noundef %33) #14
   store ptr null, ptr %fingerprint.i, align 8
   %34 = load ptr, ptr %signer.i, align 8
-  call void @free(ptr noundef %34) #13
+  call void @free(ptr noundef %34) #14
   store ptr null, ptr %signer.i, align 8
   %35 = load ptr, ptr %key.i, align 8
-  call void @free(ptr noundef %35) #13
+  call void @free(ptr noundef %35) #14
   store ptr null, ptr %key.i, align 8
   br label %parse_gpg_output.exit
 
 parse_gpg_output.exit:                            ; preds = %for.inc88.i, %while.cond.i, %if.end11, %error.i
-  call void @strbuf_release(ptr noundef nonnull %gpg_stdout) #13
-  call void @strbuf_release(ptr noundef nonnull %gpg_stderr) #13
+  call void @strbuf_release(ptr noundef nonnull %gpg_stdout) #14
+  call void @strbuf_release(ptr noundef nonnull %gpg_stderr) #14
   br label %return
 
 return:                                           ; preds = %parse_gpg_output.exit, %_.exit12, %_.exit
@@ -1296,29 +1300,29 @@ entry:
   %0 = load ptr, ptr @use_format, align 8
   %program = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %program, align 8
-  call void (ptr, ...) @strvec_pushl(ptr noundef nonnull %gpg, ptr noundef %1, ptr noundef nonnull @.str.41, ptr noundef nonnull @.str.42, ptr noundef %signing_key, ptr noundef null) #13
+  call void (ptr, ...) @strvec_pushl(ptr noundef nonnull %gpg, ptr noundef %1, ptr noundef nonnull @.str.41, ptr noundef nonnull @.str.42, ptr noundef %signing_key, ptr noundef null) #14
   %len = getelementptr inbounds i8, ptr %signature, i64 8
   %2 = load i64, ptr %len, align 8
-  %call = call i32 @sigchain_push(i32 noundef 13, ptr noundef nonnull inttoptr (i64 1 to ptr)) #13
+  %call = call i32 @sigchain_push(i32 noundef 13, ptr noundef nonnull inttoptr (i64 1 to ptr)) #14
   %buf = getelementptr inbounds i8, ptr %buffer, i64 16
   %3 = load ptr, ptr %buf, align 8
   %len1 = getelementptr inbounds i8, ptr %buffer, i64 8
   %4 = load i64, ptr %len1, align 8
-  %call2 = call i32 @pipe_command(ptr noundef nonnull %gpg, ptr noundef %3, i64 noundef %4, ptr noundef %signature, i64 noundef 1024, ptr noundef nonnull %gpg_status, i64 noundef 0) #13
-  %call3 = call i32 @sigchain_pop(i32 noundef 13) #13
+  %call2 = call i32 @pipe_command(ptr noundef nonnull %gpg, ptr noundef %3, i64 noundef %4, ptr noundef %signature, i64 noundef 1024, ptr noundef nonnull %gpg_status, i64 noundef 0) #14
+  %call3 = call i32 @sigchain_pop(i32 noundef 13) #14
   %buf4 = getelementptr inbounds i8, ptr %gpg_status, i64 16
   %5 = load ptr, ptr %buf4, align 8
   %tobool.not10 = icmp eq ptr %5, null
   br i1 %tobool.not10, label %for.end, label %land.rhs.preheader
 
 land.rhs.preheader:                               ; preds = %entry
-  %call515 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) @.str.43) #16
+  %call515 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) @.str.43) #17
   %tobool6.not16 = icmp eq ptr %call515, null
   br i1 %tobool6.not16, label %for.end, label %for.body
 
 land.rhs:                                         ; preds = %lor.lhs.false
   %incdec.ptr = getelementptr inbounds i8, ptr %call517, i64 1
-  %call5 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %incdec.ptr, ptr noundef nonnull dereferenceable(1) @.str.43) #16
+  %call5 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %incdec.ptr, ptr noundef nonnull dereferenceable(1) @.str.43) #17
   %tobool6.not = icmp eq ptr %call5, null
   br i1 %tobool6.not, label %for.end, label %for.body
 
@@ -1345,7 +1349,7 @@ if.then12:                                        ; preds = %for.end
   br i1 %tobool1.not.i, label %_.exit, label %if.end3.i
 
 if.end3.i:                                        ; preds = %if.then12
-  %call.i = call ptr @gettext(ptr noundef nonnull @.str.44) #13
+  %call.i = call ptr @gettext(ptr noundef nonnull @.str.44) #14
   %.pre = load ptr, ptr %buf4, align 8
   br label %_.exit
 
@@ -1356,12 +1360,12 @@ _.exit:                                           ; preds = %if.then12, %if.end3
   %9 = load i64, ptr %len14, align 8
   %tobool15.not = icmp eq i64 %9, 0
   %cond = select i1 %tobool15.not, ptr @.str.45, ptr %8
-  %call17 = call i32 (ptr, ...) @error(ptr noundef %retval.0.i, ptr noundef %cond) #13
-  call void @strbuf_release(ptr noundef nonnull %gpg_status) #13
+  %call17 = call i32 (ptr, ...) @error(ptr noundef %retval.0.i, ptr noundef %cond) #14
+  call void @strbuf_release(ptr noundef nonnull %gpg_status) #14
   br label %return
 
 if.end19:                                         ; preds = %for.end
-  call void @strbuf_release(ptr noundef nonnull %gpg_status) #13
+  call void @strbuf_release(ptr noundef nonnull %gpg_status) #14
   %10 = load i64, ptr %len, align 8
   %cmp12.i = icmp ugt i64 %10, %2
   br i1 %cmp12.i, label %for.body.lr.ph.i, label %for.end.i
@@ -1412,7 +1416,7 @@ for.end.i:                                        ; preds = %for.inc.i, %if.end1
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %for.end.i
-  call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.46, i32 noundef 167, ptr noundef nonnull @.str.47) #14
+  call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.46, i32 noundef 167, ptr noundef nonnull @.str.47) #15
   unreachable
 
 if.end.i.i:                                       ; preds = %for.end.i
@@ -1460,16 +1464,16 @@ if.then:                                          ; preds = %entry
   br i1 %tobool1.not.i, label %_.exit, label %if.end3.i
 
 if.end3.i:                                        ; preds = %if.then
-  %call.i = tail call ptr @gettext(ptr noundef nonnull @.str.51) #13
+  %call.i = tail call ptr @gettext(ptr noundef nonnull @.str.51) #14
   br label %_.exit
 
 _.exit:                                           ; preds = %if.then, %if.end3.i
   %retval.0.i = phi ptr [ %call.i, %if.end3.i ], [ @.str.51, %if.then ]
-  %call1 = tail call i32 (ptr, ...) @error(ptr noundef %retval.0.i) #13
+  %call1 = tail call i32 (ptr, ...) @error(ptr noundef %retval.0.i) #14
   br label %return
 
 if.end:                                           ; preds = %entry
-  %call.i32 = tail call ptr @mks_tempfile_tsm(ptr noundef nonnull @.str.24, i32 noundef 0, i32 noundef 384) #13
+  %call.i32 = tail call ptr @mks_tempfile_tsm(ptr noundef nonnull @.str.24, i32 noundef 0, i32 noundef 384) #14
   store ptr %call.i32, ptr %buffer_file, align 8
   %tobool4.not = icmp eq ptr %call.i32, null
   br i1 %tobool4.not, label %if.then5, label %if.end9
@@ -1480,23 +1484,23 @@ if.then5:                                         ; preds = %if.end
   br i1 %tobool1.not.i33, label %_.exit37, label %if.end3.i34
 
 if.end3.i34:                                      ; preds = %if.then5
-  %call.i35 = tail call ptr @gettext(ptr noundef nonnull @.str.25) #13
+  %call.i35 = tail call ptr @gettext(ptr noundef nonnull @.str.25) #14
   br label %_.exit37
 
 _.exit37:                                         ; preds = %if.then5, %if.end3.i34
   %retval.0.i36 = phi ptr [ %call.i35, %if.end3.i34 ], [ @.str.25, %if.then5 ]
-  %call7 = tail call i32 (ptr, ...) @error_errno(ptr noundef %retval.0.i36) #13
+  %call7 = tail call i32 (ptr, ...) @error_errno(ptr noundef %retval.0.i36) #14
   br label %return
 
 if.end9:                                          ; preds = %if.end
   %fd = getelementptr inbounds i8, ptr %call.i32, i64 16
   %3 = load volatile i32, ptr %fd, align 8
-  %call10 = tail call i64 @write_in_full(i32 noundef %3, ptr noundef %signature, i64 noundef %signature_size) #13
+  %call10 = tail call i64 @write_in_full(i32 noundef %3, ptr noundef %signature, i64 noundef %signature_size) #14
   %cmp = icmp slt i64 %call10, 0
   br i1 %cmp, label %if.then13, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end9
-  %call11 = tail call i32 @close_tempfile_gently(ptr noundef nonnull %call.i32) #13
+  %call11 = tail call i32 @close_tempfile_gently(ptr noundef nonnull %call.i32) #14
   %cmp12 = icmp slt i32 %call11, 0
   br i1 %cmp12, label %if.then13, label %if.end17
 
@@ -1506,15 +1510,15 @@ if.then13:                                        ; preds = %lor.lhs.false, %if.
   br i1 %tobool1.not.i38, label %_.exit42, label %if.end3.i39
 
 if.end3.i39:                                      ; preds = %if.then13
-  %call.i40 = tail call ptr @gettext(ptr noundef nonnull @.str.26) #13
+  %call.i40 = tail call ptr @gettext(ptr noundef nonnull @.str.26) #14
   br label %_.exit42
 
 _.exit42:                                         ; preds = %if.then13, %if.end3.i39
   %retval.0.i41 = phi ptr [ %call.i40, %if.end3.i39 ], [ @.str.26, %if.then13 ]
   %buf = getelementptr inbounds i8, ptr %call.i32, i64 56
   %5 = load ptr, ptr %buf, align 8
-  %call15 = tail call i32 (ptr, ...) @error_errno(ptr noundef %retval.0.i41, ptr noundef %5) #13
-  call void @delete_tempfile(ptr noundef nonnull %buffer_file) #13
+  %call15 = tail call i32 (ptr, ...) @error_errno(ptr noundef %retval.0.i41, ptr noundef %5) #14
+  call void @delete_tempfile(ptr noundef nonnull %buffer_file) #14
   br label %return
 
 if.end17:                                         ; preds = %lor.lhs.false
@@ -1524,8 +1528,8 @@ if.end17:                                         ; preds = %lor.lhs.false
   br i1 %tobool18.not, label %if.end22, label %if.then19
 
 if.then19:                                        ; preds = %if.end17
-  %call21 = call ptr @show_date(i64 noundef %6, i32 noundef 0, ptr noundef nonnull %verify_date_mode) #13
-  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %verify_time, ptr noundef nonnull @.str.52, ptr noundef %call21) #13
+  %call21 = call ptr @show_date(i64 noundef %6, i32 noundef 0, ptr noundef nonnull %verify_date_mode) #14
+  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %verify_time, ptr noundef nonnull @.str.52, ptr noundef %call21) #14
   %.pre = load ptr, ptr %buffer_file, align 8
   %buf25.phi.trans.insert = getelementptr inbounds i8, ptr %verify_time, i64 16
   %.pre63 = load ptr, ptr %buf25.phi.trans.insert, align 8
@@ -1540,15 +1544,15 @@ if.end22:                                         ; preds = %if.then19, %if.end1
   %buf24 = getelementptr inbounds i8, ptr %8, i64 56
   %11 = load ptr, ptr %buf24, align 8
   %buf25 = getelementptr inbounds i8, ptr %verify_time, i64 16
-  call void (ptr, ...) @strvec_pushl(ptr noundef nonnull %ssh_keygen, ptr noundef %9, ptr noundef nonnull @.str.53, ptr noundef nonnull @.str.54, ptr noundef nonnull @.str.55, ptr noundef %10, ptr noundef nonnull @.str.56, ptr noundef %11, ptr noundef %7, ptr noundef null) #13
-  %call26 = call i32 @pipe_command(ptr noundef nonnull %ssh_keygen, ptr noundef null, i64 noundef 0, ptr noundef nonnull %ssh_principals_out, i64 noundef 0, ptr noundef nonnull %ssh_principals_err, i64 noundef 0) #13
+  call void (ptr, ...) @strvec_pushl(ptr noundef nonnull %ssh_keygen, ptr noundef %9, ptr noundef nonnull @.str.53, ptr noundef nonnull @.str.54, ptr noundef nonnull @.str.55, ptr noundef %10, ptr noundef nonnull @.str.56, ptr noundef %11, ptr noundef %7, ptr noundef null) #14
+  %call26 = call i32 @pipe_command(ptr noundef nonnull %ssh_keygen, ptr noundef null, i64 noundef 0, ptr noundef nonnull %ssh_principals_out, i64 noundef 0, ptr noundef nonnull %ssh_principals_err, i64 noundef 0) #14
   %tobool27.not = icmp eq i32 %call26, 0
   br i1 %tobool27.not, label %if.end35, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end22
   %buf28 = getelementptr inbounds i8, ptr %ssh_principals_err, i64 16
   %12 = load ptr, ptr %buf28, align 8
-  %call29 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(1) @.str.57) #16
+  %call29 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(1) @.str.57) #17
   %tobool30.not = icmp eq ptr %call29, null
   br i1 %tobool30.not, label %if.then39, label %if.then31
 
@@ -1558,12 +1562,12 @@ if.then31:                                        ; preds = %land.lhs.true
   br i1 %tobool1.not.i43, label %_.exit47, label %if.end3.i44
 
 if.end3.i44:                                      ; preds = %if.then31
-  %call.i45 = call ptr @gettext(ptr noundef nonnull @.str.58) #13
+  %call.i45 = call ptr @gettext(ptr noundef nonnull @.str.58) #14
   br label %_.exit47
 
 _.exit47:                                         ; preds = %if.then31, %if.end3.i44
   %retval.0.i46 = phi ptr [ %call.i45, %if.end3.i44 ], [ @.str.58, %if.then31 ]
-  %call33 = call i32 (ptr, ...) @error(ptr noundef %retval.0.i46) #13
+  %call33 = call i32 (ptr, ...) @error(ptr noundef %retval.0.i46) #14
   br label %out
 
 if.end35:                                         ; preds = %if.end22
@@ -1573,17 +1577,17 @@ if.end35:                                         ; preds = %if.end22
   br i1 %tobool38.not, label %if.then39, label %if.else
 
 if.then39:                                        ; preds = %land.lhs.true, %if.end35
-  call void @child_process_init(ptr noundef nonnull %ssh_keygen) #13
+  call void @child_process_init(ptr noundef nonnull %ssh_keygen) #14
   %15 = load ptr, ptr %program, align 8
   %16 = load ptr, ptr %buffer_file, align 8
   %buf43 = getelementptr inbounds i8, ptr %16, i64 56
   %17 = load ptr, ptr %buf43, align 8
   %18 = load ptr, ptr %buf25, align 8
-  call void (ptr, ...) @strvec_pushl(ptr noundef nonnull %ssh_keygen, ptr noundef %15, ptr noundef nonnull @.str.53, ptr noundef nonnull @.str.59, ptr noundef nonnull @.str.60, ptr noundef nonnull @.str.61, ptr noundef nonnull @.str.56, ptr noundef %17, ptr noundef %18, ptr noundef null) #13
+  call void (ptr, ...) @strvec_pushl(ptr noundef nonnull %ssh_keygen, ptr noundef %15, ptr noundef nonnull @.str.53, ptr noundef nonnull @.str.59, ptr noundef nonnull @.str.60, ptr noundef nonnull @.str.61, ptr noundef nonnull @.str.56, ptr noundef %17, ptr noundef %18, ptr noundef null) #14
   %19 = load ptr, ptr %sigc, align 8
   %payload_len = getelementptr inbounds i8, ptr %sigc, i64 8
   %20 = load i64, ptr %payload_len, align 8
-  %call45 = call i32 @pipe_command(ptr noundef nonnull %ssh_keygen, ptr noundef %19, i64 noundef %20, ptr noundef nonnull %ssh_keygen_out, i64 noundef 0, ptr noundef nonnull %ssh_keygen_err, i64 noundef 0) #13
+  %call45 = call i32 @pipe_command(ptr noundef nonnull %ssh_keygen, ptr noundef %19, i64 noundef %20, ptr noundef nonnull %ssh_keygen_out, i64 noundef 0, ptr noundef nonnull %ssh_keygen_err, i64 noundef 0) #14
   br label %if.end99
 
 if.else:                                          ; preds = %if.end35
@@ -1601,7 +1605,7 @@ for.body.lr.ph:                                   ; preds = %if.else
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %line.061 = phi ptr [ %21, %for.body.lr.ph ], [ %spec.select31, %for.inc ]
   %ret.060 = phi i32 [ 0, %for.body.lr.ph ], [ %ret.2, %for.inc ]
-  %call48 = call ptr @strchrnul(ptr noundef nonnull %line.061, i32 noundef 10) #16
+  %call48 = call ptr @strchrnul(ptr noundef nonnull %line.061, i32 noundef 10) #17
   %23 = load i8, ptr %call48, align 1
   %tobool49.not = icmp ne i8 %23, 0
   %cmp51 = icmp ult ptr %line.061, %call48
@@ -1626,30 +1630,30 @@ if.end66:                                         ; preds = %if.end58
   %sub.ptr.lhs.cast = ptrtoint ptr %end_of_text.0 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %line.061 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %call67 = call ptr @xmemdupz(ptr noundef nonnull %line.061, i64 noundef %sub.ptr.sub) #13
-  call void @child_process_init(ptr noundef nonnull %ssh_keygen) #13
-  call void @strbuf_release(ptr noundef nonnull %ssh_keygen_out) #13
-  call void @strbuf_release(ptr noundef nonnull %ssh_keygen_err) #13
+  %call67 = call ptr @xmemdupz(ptr noundef nonnull %line.061, i64 noundef %sub.ptr.sub) #14
+  call void @child_process_init(ptr noundef nonnull %ssh_keygen) #14
+  call void @strbuf_release(ptr noundef nonnull %ssh_keygen_out) #14
+  call void @strbuf_release(ptr noundef nonnull %ssh_keygen_err) #14
   %25 = load ptr, ptr %program, align 8
-  %call70 = call ptr @strvec_push(ptr noundef nonnull %ssh_keygen, ptr noundef %25) #13
+  %call70 = call ptr @strvec_push(ptr noundef nonnull %ssh_keygen, ptr noundef %25) #14
   %26 = load ptr, ptr @ssh_allowed_signers, align 8
   %27 = load ptr, ptr %buffer_file, align 8
   %buf73 = getelementptr inbounds i8, ptr %27, i64 56
   %28 = load ptr, ptr %buf73, align 8
   %29 = load ptr, ptr %buf25, align 8
-  call void (ptr, ...) @strvec_pushl(ptr noundef nonnull %ssh_keygen, ptr noundef nonnull @.str.53, ptr noundef nonnull @.str.62, ptr noundef nonnull @.str.60, ptr noundef nonnull @.str.61, ptr noundef nonnull @.str.55, ptr noundef %26, ptr noundef nonnull @.str.63, ptr noundef %call67, ptr noundef nonnull @.str.56, ptr noundef %28, ptr noundef %29, ptr noundef null) #13
+  call void (ptr, ...) @strvec_pushl(ptr noundef nonnull %ssh_keygen, ptr noundef nonnull @.str.53, ptr noundef nonnull @.str.62, ptr noundef nonnull @.str.60, ptr noundef nonnull @.str.61, ptr noundef nonnull @.str.55, ptr noundef %26, ptr noundef nonnull @.str.63, ptr noundef %call67, ptr noundef nonnull @.str.56, ptr noundef %28, ptr noundef %29, ptr noundef null) #14
   %30 = load ptr, ptr @ssh_revocation_file, align 8
   %tobool75.not = icmp eq ptr %30, null
   br i1 %tobool75.not, label %if.end84, label %if.then76
 
 if.then76:                                        ; preds = %if.end66
-  %call77 = call i32 @file_exists(ptr noundef nonnull %30) #13
+  %call77 = call i32 @file_exists(ptr noundef nonnull %30) #14
   %tobool78.not = icmp eq i32 %call77, 0
   br i1 %tobool78.not, label %if.else81, label %if.then79
 
 if.then79:                                        ; preds = %if.then76
   %31 = load ptr, ptr @ssh_revocation_file, align 8
-  call void (ptr, ...) @strvec_pushl(ptr noundef nonnull %ssh_keygen, ptr noundef nonnull @.str.64, ptr noundef %31, ptr noundef null) #13
+  call void (ptr, ...) @strvec_pushl(ptr noundef nonnull %ssh_keygen, ptr noundef nonnull @.str.64, ptr noundef %31, ptr noundef null) #14
   br label %if.end84
 
 if.else81:                                        ; preds = %if.then76
@@ -1658,28 +1662,28 @@ if.else81:                                        ; preds = %if.then76
   br i1 %tobool1.not.i48, label %_.exit52, label %if.end3.i49
 
 if.end3.i49:                                      ; preds = %if.else81
-  %call.i50 = call ptr @gettext(ptr noundef nonnull @.str.65) #13
+  %call.i50 = call ptr @gettext(ptr noundef nonnull @.str.65) #14
   br label %_.exit52
 
 _.exit52:                                         ; preds = %if.else81, %if.end3.i49
   %retval.0.i51 = phi ptr [ %call.i50, %if.end3.i49 ], [ @.str.65, %if.else81 ]
   %33 = load ptr, ptr @ssh_revocation_file, align 8
-  call void (ptr, ...) @warning(ptr noundef %retval.0.i51, ptr noundef %33) #13
+  call void (ptr, ...) @warning(ptr noundef %retval.0.i51, ptr noundef %33) #14
   br label %if.end84
 
 if.end84:                                         ; preds = %if.then79, %_.exit52, %if.end66
-  %call85 = call i32 @sigchain_push(i32 noundef 13, ptr noundef nonnull inttoptr (i64 1 to ptr)) #13
+  %call85 = call i32 @sigchain_push(i32 noundef 13, ptr noundef nonnull inttoptr (i64 1 to ptr)) #14
   %34 = load ptr, ptr %sigc, align 8
   %35 = load i64, ptr %payload_len87, align 8
-  %call88 = call i32 @pipe_command(ptr noundef nonnull %ssh_keygen, ptr noundef %34, i64 noundef %35, ptr noundef nonnull %ssh_keygen_out, i64 noundef 0, ptr noundef nonnull %ssh_keygen_err, i64 noundef 0) #13
-  %call89 = call i32 @sigchain_pop(i32 noundef 13) #13
-  call void @free(ptr noundef %call67) #13
+  %call88 = call i32 @pipe_command(ptr noundef nonnull %ssh_keygen, ptr noundef %34, i64 noundef %35, ptr noundef nonnull %ssh_keygen_out, i64 noundef 0, ptr noundef nonnull %ssh_keygen_err, i64 noundef 0) #14
+  %call89 = call i32 @sigchain_pop(i32 noundef 13) #14
+  call void @free(ptr noundef %call67) #14
   %tobool90.not = icmp eq i32 %call88, 0
   br i1 %tobool90.not, label %if.end95, label %for.inc
 
 if.end95:                                         ; preds = %if.end84
   %36 = load ptr, ptr %buf92, align 8
-  %call93 = call i32 @starts_with(ptr noundef %36, ptr noundef nonnull @.str.66) #13
+  %call93 = call i32 @starts_with(ptr noundef %36, ptr noundef nonnull @.str.66) #14
   %tobool94.not.not = icmp eq i32 %call93, 0
   br i1 %tobool94.not.not, label %for.inc, label %if.end99
 
@@ -1691,22 +1695,22 @@ for.inc:                                          ; preds = %if.end84, %if.end95
 
 if.end99:                                         ; preds = %if.end95, %for.inc, %if.else, %if.then39
   %ret.3 = phi i32 [ -1, %if.then39 ], [ 0, %if.else ], [ 0, %if.end95 ], [ %ret.2, %for.inc ]
-  call void @strbuf_stripspace(ptr noundef nonnull %ssh_keygen_out, i8 noundef signext 0) #13
-  call void @strbuf_stripspace(ptr noundef nonnull %ssh_keygen_err, i8 noundef signext 0) #13
+  call void @strbuf_stripspace(ptr noundef nonnull %ssh_keygen_out, i8 noundef signext 0) #14
+  call void @strbuf_stripspace(ptr noundef nonnull %ssh_keygen_err, i8 noundef signext 0) #14
   %buf100 = getelementptr inbounds i8, ptr %ssh_principals_err, i64 16
   %38 = load ptr, ptr %buf100, align 8
   %len101 = getelementptr inbounds i8, ptr %ssh_principals_err, i64 8
   %39 = load i64, ptr %len101, align 8
-  call void @strbuf_add(ptr noundef nonnull %ssh_keygen_out, ptr noundef %38, i64 noundef %39) #13
+  call void @strbuf_add(ptr noundef nonnull %ssh_keygen_out, ptr noundef %38, i64 noundef %39) #14
   %buf102 = getelementptr inbounds i8, ptr %ssh_keygen_err, i64 16
   %40 = load ptr, ptr %buf102, align 8
   %len103 = getelementptr inbounds i8, ptr %ssh_keygen_err, i64 8
   %41 = load i64, ptr %len103, align 8
-  call void @strbuf_add(ptr noundef nonnull %ssh_keygen_out, ptr noundef %40, i64 noundef %41) #13
-  %call104 = call ptr @strbuf_detach(ptr noundef nonnull %ssh_keygen_out, ptr noundef null) #13
+  call void @strbuf_add(ptr noundef nonnull %ssh_keygen_out, ptr noundef %40, i64 noundef %41) #14
+  %call104 = call ptr @strbuf_detach(ptr noundef nonnull %ssh_keygen_out, ptr noundef null) #14
   %output = getelementptr inbounds i8, ptr %sigc, i64 32
   store ptr %call104, ptr %output, align 8
-  %call106 = call ptr @xstrdup(ptr noundef %call104) #13
+  %call106 = call ptr @xstrdup(ptr noundef %call104) #14
   %gpg_status = getelementptr inbounds i8, ptr %sigc, i64 40
   store ptr %call106, ptr %gpg_status, align 8
   %result.i = getelementptr inbounds i8, ptr %sigc, i64 48
@@ -1714,8 +1718,8 @@ if.end99:                                         ; preds = %if.end95, %for.inc,
   %trust_level.i = getelementptr inbounds i8, ptr %sigc, i64 88
   store i32 1, ptr %trust_level.i, align 8
   %42 = load ptr, ptr %output, align 8
-  %call.i53 = call i64 @strcspn(ptr noundef %42, ptr noundef nonnull @.str.67) #16
-  %call2.i = call ptr @xmemdupz(ptr noundef %42, i64 noundef %call.i53) #13
+  %call.i53 = call i64 @strcspn(ptr noundef %42, ptr noundef nonnull @.str.67) #17
+  %call2.i = call ptr @xmemdupz(ptr noundef %42, i64 noundef %call.i53) #14
   %scevgep.i = getelementptr i8, ptr %call2.i, i64 25
   br label %do.body.i.i
 
@@ -1740,7 +1744,7 @@ do.body.i17.preheader.i:                          ; preds = %do.cond.i.i
 
 do.body.i:                                        ; preds = %do.body.i.i, %do.body.i
   %line.1.i = phi ptr [ %add.ptr.i, %do.body.i ], [ %scevgep.i, %do.body.i.i ]
-  %call4.i = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %line.1.i, ptr noundef nonnull dereferenceable(1) @.str.69) #16
+  %call4.i = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %line.1.i, ptr noundef nonnull dereferenceable(1) @.str.69) #17
   %tobool.not.i = icmp eq ptr %call4.i, null
   %add.ptr.i = getelementptr inbounds i8, ptr %call4.i, i64 1
   br i1 %tobool.not.i, label %do.end.i, label %do.body.i, !llvm.loop !18
@@ -1756,7 +1760,7 @@ if.end8.i:                                        ; preds = %do.end.i
   %sub.ptr.rhs.cast.i = ptrtoint ptr %scevgep.i to i64
   %45 = xor i64 %sub.ptr.rhs.cast.i, -1
   %sub.i = add i64 %sub.ptr.lhs.cast.i, %45
-  %call11.i = call ptr @xmemdupz(ptr noundef %scevgep.i, i64 noundef %sub.i) #13
+  %call11.i = call ptr @xmemdupz(ptr noundef %scevgep.i, i64 noundef %sub.i) #14
   %signer.i = getelementptr inbounds i8, ptr %sigc, i64 56
   store ptr %call11.i, ptr %signer.i, align 8
   br label %if.end18.i
@@ -1783,16 +1787,16 @@ if.then13.i:                                      ; preds = %do.body.i17.i
 
 if.end18.i:                                       ; preds = %if.then13.i, %if.end8.i
   %line.3.i = phi ptr [ %line.1.i, %if.end8.i ], [ %scevgep40.i, %if.then13.i ]
-  %call19.i = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %line.3.i, ptr noundef nonnull dereferenceable(1) @.str.71) #16
+  %call19.i = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %line.3.i, ptr noundef nonnull dereferenceable(1) @.str.71) #17
   %tobool20.not.i = icmp eq ptr %call19.i, null
   br i1 %tobool20.not.i, label %if.else28.i, label %if.then21.i
 
 if.then21.i:                                      ; preds = %if.end18.i
   %add.ptr23.i = getelementptr inbounds i8, ptr %call19.i, i64 4
-  %call24.i = call ptr @xstrdup(ptr noundef nonnull %add.ptr23.i) #13
+  %call24.i = call ptr @xstrdup(ptr noundef nonnull %add.ptr23.i) #14
   %fingerprint.i = getelementptr inbounds i8, ptr %sigc, i64 72
   store ptr %call24.i, ptr %fingerprint.i, align 8
-  %call26.i = call ptr @xstrdup(ptr noundef %call24.i) #13
+  %call26.i = call ptr @xstrdup(ptr noundef %call24.i) #14
   %key27.i = getelementptr inbounds i8, ptr %sigc, i64 64
   store ptr %call26.i, ptr %key27.i, align 8
   br label %parse_ssh_output.exit
@@ -1802,7 +1806,7 @@ if.else28.i:                                      ; preds = %if.end18.i
   br label %parse_ssh_output.exit
 
 parse_ssh_output.exit:                            ; preds = %do.cond.i21.i, %do.end.i, %if.then21.i, %if.else28.i
-  call void @free(ptr noundef %call2.i) #13
+  call void @free(ptr noundef %call2.i) #14
   br label %out
 
 out:                                              ; preds = %parse_ssh_output.exit, %_.exit47
@@ -1812,15 +1816,15 @@ out:                                              ; preds = %parse_ssh_output.ex
   br i1 %tobool107.not, label %if.end109, label %if.then108
 
 if.then108:                                       ; preds = %out
-  call void @delete_tempfile(ptr noundef nonnull %buffer_file) #13
+  call void @delete_tempfile(ptr noundef nonnull %buffer_file) #14
   br label %if.end109
 
 if.end109:                                        ; preds = %if.then108, %out
-  call void @strbuf_release(ptr noundef nonnull %ssh_principals_out) #13
-  call void @strbuf_release(ptr noundef nonnull %ssh_principals_err) #13
-  call void @strbuf_release(ptr noundef nonnull %ssh_keygen_out) #13
-  call void @strbuf_release(ptr noundef nonnull %ssh_keygen_err) #13
-  call void @strbuf_release(ptr noundef nonnull %verify_time) #13
+  call void @strbuf_release(ptr noundef nonnull %ssh_principals_out) #14
+  call void @strbuf_release(ptr noundef nonnull %ssh_principals_err) #14
+  call void @strbuf_release(ptr noundef nonnull %ssh_keygen_out) #14
+  call void @strbuf_release(ptr noundef nonnull %ssh_keygen_err) #14
+  call void @strbuf_release(ptr noundef nonnull %verify_time) #14
   br label %return
 
 return:                                           ; preds = %if.end109, %_.exit42, %_.exit37, %_.exit
@@ -1855,12 +1859,12 @@ if.then:                                          ; preds = %lor.lhs.false, %ent
   br i1 %tobool1.not.i, label %_.exit, label %if.end3.i
 
 if.end3.i:                                        ; preds = %if.then
-  %call.i = tail call ptr @gettext(ptr noundef nonnull @.str.72) #13
+  %call.i = tail call ptr @gettext(ptr noundef nonnull @.str.72) #14
   br label %_.exit
 
 _.exit:                                           ; preds = %if.then, %if.end3.i
   %retval.0.i = phi ptr [ %call.i, %if.end3.i ], [ @.str.72, %if.then ]
-  %call2 = tail call i32 (ptr, ...) @error(ptr noundef %retval.0.i) #13
+  %call2 = tail call i32 (ptr, ...) @error(ptr noundef %retval.0.i) #14
   br label %return
 
 if.end:                                           ; preds = %lor.lhs.false
@@ -1883,13 +1887,13 @@ do.cond.i.i:                                      ; preds = %do.body.i.i
   br i1 %cmp.i.i, label %do.body.i.i, label %if.end.i, !llvm.loop !12
 
 if.end.i:                                         ; preds = %do.cond.i.i
-  %call1.i = tail call i32 @starts_with(ptr noundef nonnull %signing_key, ptr noundef nonnull @.str.84) #13
+  %call1.i = tail call i32 @starts_with(ptr noundef nonnull %signing_key, ptr noundef nonnull @.str.84) #14
   %tobool.not.i = icmp eq i32 %call1.i, 0
   br i1 %tobool.not.i, label %if.else, label %if.then6
 
 if.then6:                                         ; preds = %do.body.i.i, %if.end.i
   %literal_key.0.ph = phi ptr [ %signing_key, %if.end.i ], [ %scevgep.i, %do.body.i.i ]
-  %call.i10 = tail call ptr @mks_tempfile_tsm(ptr noundef nonnull @.str.73, i32 noundef 0, i32 noundef 384) #13
+  %call.i10 = tail call ptr @mks_tempfile_tsm(ptr noundef nonnull @.str.73, i32 noundef 0, i32 noundef 384) #14
   store ptr %call.i10, ptr %key_file, align 8
   %tobool8.not = icmp eq ptr %call.i10, null
   br i1 %tobool8.not, label %if.then9, label %if.end13
@@ -1900,24 +1904,24 @@ if.then9:                                         ; preds = %if.then6
   br i1 %tobool1.not.i12, label %_.exit16, label %if.end3.i13
 
 if.end3.i13:                                      ; preds = %if.then9
-  %call.i14 = tail call ptr @gettext(ptr noundef nonnull @.str.25) #13
+  %call.i14 = tail call ptr @gettext(ptr noundef nonnull @.str.25) #14
   br label %_.exit16
 
 _.exit16:                                         ; preds = %if.then9, %if.end3.i13
   %retval.0.i15 = phi ptr [ %call.i14, %if.end3.i13 ], [ @.str.25, %if.then9 ]
-  %call11 = tail call i32 (ptr, ...) @error_errno(ptr noundef %retval.0.i15) #13
+  %call11 = tail call i32 (ptr, ...) @error_errno(ptr noundef %retval.0.i15) #14
   br label %return
 
 if.end13:                                         ; preds = %if.then6
-  %call14 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %literal_key.0.ph) #16
+  %call14 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %literal_key.0.ph) #17
   %fd = getelementptr inbounds i8, ptr %call.i10, i64 16
   %5 = load volatile i32, ptr %fd, align 8
-  %call15 = tail call i64 @write_in_full(i32 noundef %5, ptr noundef %literal_key.0.ph, i64 noundef %call14) #13
+  %call15 = tail call i64 @write_in_full(i32 noundef %5, ptr noundef %literal_key.0.ph, i64 noundef %call14) #14
   %cmp16 = icmp slt i64 %call15, 0
   br i1 %cmp16, label %if.then22, label %lor.lhs.false18
 
 lor.lhs.false18:                                  ; preds = %if.end13
-  %call19 = tail call i32 @close_tempfile_gently(ptr noundef nonnull %call.i10) #13
+  %call19 = tail call i32 @close_tempfile_gently(ptr noundef nonnull %call.i10) #14
   %cmp20 = icmp slt i32 %call19, 0
   br i1 %cmp20, label %if.then22, label %if.end26
 
@@ -1927,29 +1931,29 @@ if.then22:                                        ; preds = %lor.lhs.false18, %i
   br i1 %tobool1.not.i18, label %_.exit22, label %if.end3.i19
 
 if.end3.i19:                                      ; preds = %if.then22
-  %call.i20 = tail call ptr @gettext(ptr noundef nonnull @.str.74) #13
+  %call.i20 = tail call ptr @gettext(ptr noundef nonnull @.str.74) #14
   br label %_.exit22
 
 _.exit22:                                         ; preds = %if.then22, %if.end3.i19
   %retval.0.i21 = phi ptr [ %call.i20, %if.end3.i19 ], [ @.str.74, %if.then22 ]
   %buf = getelementptr inbounds i8, ptr %call.i10, i64 56
   %7 = load ptr, ptr %buf, align 8
-  %call24 = tail call i32 (ptr, ...) @error_errno(ptr noundef %retval.0.i21, ptr noundef %7) #13
+  %call24 = tail call i32 (ptr, ...) @error_errno(ptr noundef %retval.0.i21, ptr noundef %7) #14
   br label %out
 
 if.end26:                                         ; preds = %lor.lhs.false18
   %filename27 = getelementptr inbounds i8, ptr %call.i10, i64 40
-  %call28 = tail call ptr @strbuf_detach(ptr noundef nonnull %filename27, ptr noundef null) #13
+  %call28 = tail call ptr @strbuf_detach(ptr noundef nonnull %filename27, ptr noundef null) #14
   br label %if.end30
 
 if.else:                                          ; preds = %if.end.i
-  %call29 = tail call ptr @interpolate_path(ptr noundef nonnull %signing_key, i32 noundef 1) #13
+  %call29 = tail call ptr @interpolate_path(ptr noundef nonnull %signing_key, i32 noundef 1) #14
   br label %if.end30
 
 if.end30:                                         ; preds = %if.else, %if.end26
   %tobool5.not52 = phi i1 [ false, %if.end26 ], [ true, %if.else ]
   %ssh_signing_key_file.0 = phi ptr [ %call28, %if.end26 ], [ %call29, %if.else ]
-  %call.i23 = tail call ptr @mks_tempfile_tsm(ptr noundef nonnull @.str.75, i32 noundef 0, i32 noundef 384) #13
+  %call.i23 = tail call ptr @mks_tempfile_tsm(ptr noundef nonnull @.str.75, i32 noundef 0, i32 noundef 384) #14
   store ptr %call.i23, ptr %buffer_file, align 8
   %tobool32.not = icmp eq ptr %call.i23, null
   br i1 %tobool32.not, label %if.then33, label %if.end37
@@ -1960,12 +1964,12 @@ if.then33:                                        ; preds = %if.end30
   br i1 %tobool1.not.i25, label %_.exit29, label %if.end3.i26
 
 if.end3.i26:                                      ; preds = %if.then33
-  %call.i27 = tail call ptr @gettext(ptr noundef nonnull @.str.25) #13
+  %call.i27 = tail call ptr @gettext(ptr noundef nonnull @.str.25) #14
   br label %_.exit29
 
 _.exit29:                                         ; preds = %if.then33, %if.end3.i26
   %retval.0.i28 = phi ptr [ %call.i27, %if.end3.i26 ], [ @.str.25, %if.then33 ]
-  %call35 = tail call i32 (ptr, ...) @error_errno(ptr noundef %retval.0.i28) #13
+  %call35 = tail call i32 (ptr, ...) @error_errno(ptr noundef %retval.0.i28) #14
   br label %out
 
 if.end37:                                         ; preds = %if.end30
@@ -1975,12 +1979,12 @@ if.end37:                                         ; preds = %if.end30
   %10 = load ptr, ptr %buf39, align 8
   %len = getelementptr inbounds i8, ptr %buffer, i64 8
   %11 = load i64, ptr %len, align 8
-  %call40 = tail call i64 @write_in_full(i32 noundef %9, ptr noundef %10, i64 noundef %11) #13
+  %call40 = tail call i64 @write_in_full(i32 noundef %9, ptr noundef %10, i64 noundef %11) #14
   %cmp41 = icmp slt i64 %call40, 0
   br i1 %cmp41, label %if.then47, label %lor.lhs.false43
 
 lor.lhs.false43:                                  ; preds = %if.end37
-  %call44 = tail call i32 @close_tempfile_gently(ptr noundef nonnull %call.i23) #13
+  %call44 = tail call i32 @close_tempfile_gently(ptr noundef nonnull %call.i23) #14
   %cmp45 = icmp slt i32 %call44, 0
   br i1 %cmp45, label %if.then47, label %if.end53
 
@@ -1990,41 +1994,41 @@ if.then47:                                        ; preds = %lor.lhs.false43, %i
   br i1 %tobool1.not.i31, label %_.exit35, label %if.end3.i32
 
 if.end3.i32:                                      ; preds = %if.then47
-  %call.i33 = tail call ptr @gettext(ptr noundef nonnull @.str.76) #13
+  %call.i33 = tail call ptr @gettext(ptr noundef nonnull @.str.76) #14
   br label %_.exit35
 
 _.exit35:                                         ; preds = %if.then47, %if.end3.i32
   %retval.0.i34 = phi ptr [ %call.i33, %if.end3.i32 ], [ @.str.76, %if.then47 ]
   %buf50 = getelementptr inbounds i8, ptr %call.i23, i64 56
   %13 = load ptr, ptr %buf50, align 8
-  %call51 = tail call i32 (ptr, ...) @error_errno(ptr noundef %retval.0.i34, ptr noundef %13) #13
+  %call51 = tail call i32 (ptr, ...) @error_errno(ptr noundef %retval.0.i34, ptr noundef %13) #14
   br label %out
 
 if.end53:                                         ; preds = %lor.lhs.false43
   %14 = load ptr, ptr @use_format, align 8
   %program = getelementptr inbounds i8, ptr %14, i64 8
   %15 = load ptr, ptr %program, align 8
-  call void (ptr, ...) @strvec_pushl(ptr noundef nonnull %signer, ptr noundef %15, ptr noundef nonnull @.str.53, ptr noundef nonnull @.str.77, ptr noundef nonnull @.str.60, ptr noundef nonnull @.str.61, ptr noundef nonnull @.str.55, ptr noundef %ssh_signing_key_file.0, ptr noundef null) #13
+  call void (ptr, ...) @strvec_pushl(ptr noundef nonnull %signer, ptr noundef %15, ptr noundef nonnull @.str.53, ptr noundef nonnull @.str.77, ptr noundef nonnull @.str.60, ptr noundef nonnull @.str.61, ptr noundef nonnull @.str.55, ptr noundef %ssh_signing_key_file.0, ptr noundef null) #14
   br i1 %tobool5.not52, label %if.end58, label %if.then55
 
 if.then55:                                        ; preds = %if.end53
-  %call57 = call ptr @strvec_push(ptr noundef nonnull %signer, ptr noundef nonnull @.str.78) #13
+  %call57 = call ptr @strvec_push(ptr noundef nonnull %signer, ptr noundef nonnull @.str.78) #14
   br label %if.end58
 
 if.end58:                                         ; preds = %if.then55, %if.end53
   %buf61 = getelementptr inbounds i8, ptr %call.i23, i64 56
   %16 = load ptr, ptr %buf61, align 8
-  %call62 = call ptr @strvec_push(ptr noundef nonnull %signer, ptr noundef %16) #13
-  %call63 = call i32 @sigchain_push(i32 noundef 13, ptr noundef nonnull inttoptr (i64 1 to ptr)) #13
-  %call64 = call i32 @pipe_command(ptr noundef nonnull %signer, ptr noundef null, i64 noundef 0, ptr noundef null, i64 noundef 0, ptr noundef nonnull %signer_stderr, i64 noundef 0) #13
-  %call65 = call i32 @sigchain_pop(i32 noundef 13) #13
+  %call62 = call ptr @strvec_push(ptr noundef nonnull %signer, ptr noundef %16) #14
+  %call63 = call i32 @sigchain_push(i32 noundef 13, ptr noundef nonnull inttoptr (i64 1 to ptr)) #14
+  %call64 = call i32 @pipe_command(ptr noundef nonnull %signer, ptr noundef null, i64 noundef 0, ptr noundef null, i64 noundef 0, ptr noundef nonnull %signer_stderr, i64 noundef 0) #14
+  %call65 = call i32 @sigchain_pop(i32 noundef 13) #14
   %tobool66.not = icmp eq i32 %call64, 0
   br i1 %tobool66.not, label %if.end79, label %if.then67
 
 if.then67:                                        ; preds = %if.end58
   %buf68 = getelementptr inbounds i8, ptr %signer_stderr, i64 16
   %17 = load ptr, ptr %buf68, align 8
-  %call69 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(1) @.str.57) #16
+  %call69 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(1) @.str.57) #17
   %tobool70.not = icmp eq ptr %call69, null
   br i1 %tobool70.not, label %if.end75, label %if.then71
 
@@ -2034,18 +2038,18 @@ if.then71:                                        ; preds = %if.then67
   br i1 %tobool1.not.i37, label %_.exit41, label %if.end3.i38
 
 if.end3.i38:                                      ; preds = %if.then71
-  %call.i39 = call ptr @gettext(ptr noundef nonnull @.str.79) #13
+  %call.i39 = call ptr @gettext(ptr noundef nonnull @.str.79) #14
   br label %_.exit41
 
 _.exit41:                                         ; preds = %if.then71, %if.end3.i38
   %retval.0.i40 = phi ptr [ %call.i39, %if.end3.i38 ], [ @.str.79, %if.then71 ]
-  %call73 = call i32 (ptr, ...) @error(ptr noundef %retval.0.i40) #13
+  %call73 = call i32 (ptr, ...) @error(ptr noundef %retval.0.i40) #14
   %.pre = load ptr, ptr %buf68, align 8
   br label %if.end75
 
 if.end75:                                         ; preds = %_.exit41, %if.then67
   %19 = phi ptr [ %.pre, %_.exit41 ], [ %17, %if.then67 ]
-  %call77 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.80, ptr noundef %19) #13
+  %call77 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.80, ptr noundef %19) #14
   br label %out
 
 if.end79:                                         ; preds = %if.end58
@@ -2053,11 +2057,11 @@ if.end79:                                         ; preds = %if.end58
   %20 = load i64, ptr %len80, align 8
   %21 = load ptr, ptr %buffer_file, align 8
   %filename81 = getelementptr inbounds i8, ptr %21, i64 40
-  call void @strbuf_addbuf(ptr noundef nonnull %ssh_signature_filename, ptr noundef nonnull %filename81) #13
-  call void @strbuf_add(ptr noundef nonnull %ssh_signature_filename, ptr noundef nonnull @.str.81, i64 noundef 4) #13
+  call void @strbuf_addbuf(ptr noundef nonnull %ssh_signature_filename, ptr noundef nonnull %filename81) #14
+  call void @strbuf_add(ptr noundef nonnull %ssh_signature_filename, ptr noundef nonnull @.str.81, i64 noundef 4) #14
   %buf82 = getelementptr inbounds i8, ptr %ssh_signature_filename, i64 16
   %22 = load ptr, ptr %buf82, align 8
-  %call83 = call i64 @strbuf_read_file(ptr noundef %signature, ptr noundef %22, i64 noundef 0) #13
+  %call83 = call i64 @strbuf_read_file(ptr noundef %signature, ptr noundef %22, i64 noundef 0) #14
   %cmp84 = icmp slt i64 %call83, 0
   br i1 %cmp84, label %if.then86, label %if.end91
 
@@ -2067,13 +2071,13 @@ if.then86:                                        ; preds = %if.end79
   br i1 %tobool1.not.i43, label %_.exit47, label %if.end3.i44
 
 if.end3.i44:                                      ; preds = %if.then86
-  %call.i45 = call ptr @gettext(ptr noundef nonnull @.str.82) #13
+  %call.i45 = call ptr @gettext(ptr noundef nonnull @.str.82) #14
   br label %_.exit47
 
 _.exit47:                                         ; preds = %if.then86, %if.end3.i44
   %retval.0.i46 = phi ptr [ %call.i45, %if.end3.i44 ], [ @.str.82, %if.then86 ]
   %24 = load ptr, ptr %buf82, align 8
-  %call89 = call i32 (ptr, ...) @error_errno(ptr noundef %retval.0.i46, ptr noundef %24) #13
+  %call89 = call i32 (ptr, ...) @error_errno(ptr noundef %retval.0.i46, ptr noundef %24) #14
   br label %out
 
 if.end91:                                         ; preds = %if.end79
@@ -2088,7 +2092,7 @@ out:                                              ; preds = %if.end91, %_.exit47
   br i1 %tobool92.not, label %if.end94, label %if.then93
 
 if.then93:                                        ; preds = %out
-  call void @delete_tempfile(ptr noundef nonnull %key_file) #13
+  call void @delete_tempfile(ptr noundef nonnull %key_file) #14
   br label %if.end94
 
 if.end94:                                         ; preds = %if.then93, %out
@@ -2097,7 +2101,7 @@ if.end94:                                         ; preds = %if.then93, %out
   br i1 %tobool95.not, label %if.end97, label %if.then96
 
 if.then96:                                        ; preds = %if.end94
-  call void @delete_tempfile(ptr noundef nonnull %buffer_file) #13
+  call void @delete_tempfile(ptr noundef nonnull %buffer_file) #14
   br label %if.end97
 
 if.end97:                                         ; preds = %if.then96, %if.end94
@@ -2109,13 +2113,13 @@ if.end97:                                         ; preds = %if.then96, %if.end9
 if.then100:                                       ; preds = %if.end97
   %buf101 = getelementptr inbounds i8, ptr %ssh_signature_filename, i64 16
   %28 = load ptr, ptr %buf101, align 8
-  %call102 = call i32 @unlink_or_warn(ptr noundef %28) #13
+  %call102 = call i32 @unlink_or_warn(ptr noundef %28) #14
   br label %if.end103
 
 if.end103:                                        ; preds = %if.then100, %if.end97
-  call void @strbuf_release(ptr noundef nonnull %signer_stderr) #13
-  call void @strbuf_release(ptr noundef nonnull %ssh_signature_filename) #13
-  call void @free(ptr noundef %ssh_signing_key_file.1) #13
+  call void @strbuf_release(ptr noundef nonnull %signer_stderr) #14
+  call void @strbuf_release(ptr noundef nonnull %ssh_signature_filename) #14
+  call void @free(ptr noundef %ssh_signing_key_file.1) #14
   br label %return
 
 return:                                           ; preds = %if.end103, %_.exit16, %_.exit
@@ -2139,24 +2143,24 @@ entry:
 
 if.then:                                          ; preds = %entry
   %call = tail call fastcc ptr @_(ptr noundef nonnull @.str.85)
-  tail call void (ptr, ...) @die(ptr noundef %call) #14
+  tail call void (ptr, ...) @die(ptr noundef %call) #15
   unreachable
 
 if.end:                                           ; preds = %entry
-  %call1 = tail call ptr @xstrdup(ptr noundef nonnull %0) #13
-  %call2 = call i32 @split_cmdline(ptr noundef %call1, ptr noundef nonnull %argv) #13
+  %call1 = tail call ptr @xstrdup(ptr noundef nonnull %0) #14
+  %call2 = call i32 @split_cmdline(ptr noundef %call1, ptr noundef nonnull %argv) #14
   %cmp = icmp slt i32 %call2, 0
   br i1 %cmp, label %if.then3, label %if.end5
 
 if.then3:                                         ; preds = %if.end
-  %call4 = call ptr @split_cmdline_strerror(i32 noundef %call2) #13
-  call void (ptr, ...) @die(ptr noundef nonnull @.str.86, ptr noundef %call4) #14
+  %call4 = call ptr @split_cmdline_strerror(i32 noundef %call2) #14
+  call void (ptr, ...) @die(ptr noundef nonnull @.str.86, ptr noundef %call4) #15
   unreachable
 
 if.end5:                                          ; preds = %if.end
   %1 = load ptr, ptr %argv, align 8
-  call void @strvec_pushv(ptr noundef nonnull %ssh_default_key, ptr noundef %1) #13
-  %call6 = call i32 @pipe_command(ptr noundef nonnull %ssh_default_key, ptr noundef null, i64 noundef 0, ptr noundef nonnull %key_stdout, i64 noundef 0, ptr noundef nonnull %key_stderr, i64 noundef 0) #13
+  call void @strvec_pushv(ptr noundef nonnull %ssh_default_key, ptr noundef %1) #14
+  %call6 = call i32 @pipe_command(ptr noundef nonnull %ssh_default_key, ptr noundef null, i64 noundef 0, ptr noundef nonnull %key_stdout, i64 noundef 0, ptr noundef nonnull %key_stderr, i64 noundef 0) #14
   %tobool7.not = icmp eq i32 %call6, 0
   br i1 %tobool7.not, label %if.then8, label %if.else21
 
@@ -2165,7 +2169,7 @@ if.then8:                                         ; preds = %if.end5
   %key_stdout.val = load i64, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %key_stdout, i64 16
   %key_stdout.val7 = load ptr, ptr %3, align 8
-  %call.i = call ptr @strbuf_split_buf(ptr noundef %key_stdout.val7, i64 noundef %key_stdout.val, i32 noundef 10, i32 noundef 2) #13
+  %call.i = call ptr @strbuf_split_buf(ptr noundef %key_stdout.val7, i64 noundef %key_stdout.val, i32 noundef 10, i32 noundef 2) #14
   %4 = load ptr, ptr %call.i, align 8
   %tobool10.not = icmp eq ptr %4, null
   br i1 %tobool10.not, label %if.else, label %land.lhs.true
@@ -2191,7 +2195,7 @@ do.cond.i.i:                                      ; preds = %do.body.i.i
   br i1 %cmp.i.i, label %do.body.i.i, label %if.end.i, !llvm.loop !12
 
 if.end.i:                                         ; preds = %do.cond.i.i
-  %call1.i = call i32 @starts_with(ptr noundef %5, ptr noundef nonnull @.str.84) #13
+  %call1.i = call i32 @starts_with(ptr noundef %5, ptr noundef nonnull @.str.84) #14
   %tobool.not.i = icmp eq i32 %call1.i, 0
   br i1 %tobool.not.i, label %if.else, label %if.end.i.if.then14_crit_edge
 
@@ -2201,7 +2205,7 @@ if.end.i.if.then14_crit_edge:                     ; preds = %if.end.i
 
 if.then14:                                        ; preds = %do.body.i.i, %if.end.i.if.then14_crit_edge
   %8 = phi ptr [ %.pre, %if.end.i.if.then14_crit_edge ], [ %4, %do.body.i.i ]
-  %call16 = call ptr @strbuf_detach(ptr noundef %8, ptr noundef null) #13
+  %call16 = call ptr @strbuf_detach(ptr noundef %8, ptr noundef null) #14
   br label %if.end20
 
 if.else:                                          ; preds = %if.end.i, %if.then8
@@ -2210,7 +2214,7 @@ if.else:                                          ; preds = %if.end.i, %if.then8
   br i1 %tobool1.not.i, label %_.exit, label %if.end3.i
 
 if.end3.i:                                        ; preds = %if.else
-  %call.i9 = call ptr @gettext(ptr noundef nonnull @.str.87) #13
+  %call.i9 = call ptr @gettext(ptr noundef nonnull @.str.87) #14
   br label %_.exit
 
 _.exit:                                           ; preds = %if.else, %if.end3.i
@@ -2218,12 +2222,12 @@ _.exit:                                           ; preds = %if.else, %if.end3.i
   %buf18 = getelementptr inbounds i8, ptr %key_stderr, i64 16
   %10 = load ptr, ptr %buf18, align 8
   %11 = load ptr, ptr %3, align 8
-  call void (ptr, ...) @warning(ptr noundef %retval.0.i10, ptr noundef %10, ptr noundef %11) #13
+  call void (ptr, ...) @warning(ptr noundef %retval.0.i10, ptr noundef %10, ptr noundef %11) #14
   br label %if.end20
 
 if.end20:                                         ; preds = %_.exit, %if.then14
   %default_key.0 = phi ptr [ %call16, %if.then14 ], [ null, %_.exit ]
-  call void @strbuf_list_free(ptr noundef nonnull %call.i) #13
+  call void @strbuf_list_free(ptr noundef nonnull %call.i) #14
   br label %if.end25
 
 if.else21:                                        ; preds = %if.end5
@@ -2232,7 +2236,7 @@ if.else21:                                        ; preds = %if.end5
   br i1 %tobool1.not.i12, label %_.exit16, label %if.end3.i13
 
 if.end3.i13:                                      ; preds = %if.else21
-  %call.i14 = call ptr @gettext(ptr noundef nonnull @.str.88) #13
+  %call.i14 = call ptr @gettext(ptr noundef nonnull @.str.88) #14
   br label %_.exit16
 
 _.exit16:                                         ; preds = %if.else21, %if.end3.i13
@@ -2241,15 +2245,15 @@ _.exit16:                                         ; preds = %if.else21, %if.end3
   %13 = load ptr, ptr %buf23, align 8
   %buf24 = getelementptr inbounds i8, ptr %key_stdout, i64 16
   %14 = load ptr, ptr %buf24, align 8
-  call void (ptr, ...) @warning(ptr noundef %retval.0.i15, ptr noundef %13, ptr noundef %14) #13
+  call void (ptr, ...) @warning(ptr noundef %retval.0.i15, ptr noundef %13, ptr noundef %14) #14
   br label %if.end25
 
 if.end25:                                         ; preds = %_.exit16, %if.end20
   %default_key.1 = phi ptr [ null, %_.exit16 ], [ %default_key.0, %if.end20 ]
-  call void @free(ptr noundef %call1) #13
+  call void @free(ptr noundef %call1) #14
   %15 = load ptr, ptr %argv, align 8
-  call void @free(ptr noundef %15) #13
-  call void @strbuf_release(ptr noundef nonnull %key_stdout) #13
+  call void @free(ptr noundef %15) #14
+  call void @strbuf_release(ptr noundef nonnull %key_stdout) #14
   ret ptr %default_key.1
 }
 
@@ -2263,7 +2267,7 @@ entry:
 
 if.end.i.i:                                       ; preds = %entry
   store i1 true, ptr @gpg_interface_lazy_init.done, align 4
-  tail call void @git_config(ptr noundef nonnull @git_gpg_config, ptr noundef null) #13
+  tail call void @git_config(ptr noundef nonnull @git_gpg_config, ptr noundef null) #14
   br label %gpg_interface_lazy_init.exit.i
 
 gpg_interface_lazy_init.exit.i:                   ; preds = %if.end.i.i, %entry
@@ -2279,11 +2283,11 @@ if.end.i:                                         ; preds = %gpg_interface_lazy_
   br i1 %tobool1.not.i, label %if.end4.i, label %if.then2.i
 
 if.then2.i:                                       ; preds = %if.end.i
-  %call.i = tail call ptr %2() #13
+  %call.i = tail call ptr %2() #14
   br label %get_signing_key.exit
 
 if.end4.i:                                        ; preds = %if.end.i
-  %call5.i = tail call ptr @git_committer_info(i32 noundef 3) #13
+  %call5.i = tail call ptr @git_committer_info(i32 noundef 3) #14
   br label %get_signing_key.exit
 
 get_signing_key.exit:                             ; preds = %gpg_interface_lazy_init.exit.i, %if.then2.i, %if.end4.i
@@ -2311,21 +2315,21 @@ do.cond.i.i.i:                                    ; preds = %do.body.i.i.i
   br i1 %cmp.i.i.i, label %do.body.i.i.i, label %if.end.i.i1, !llvm.loop !12
 
 if.end.i.i1:                                      ; preds = %do.cond.i.i.i
-  %call1.i.i = tail call i32 @starts_with(ptr noundef %retval.0.i, ptr noundef nonnull @.str.84) #13
+  %call1.i.i = tail call i32 @starts_with(ptr noundef %retval.0.i, ptr noundef nonnull @.str.84) #14
   %tobool.not.i.i = icmp eq i32 %call1.i.i, 0
   br i1 %tobool.not.i.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %do.body.i.i.i, %if.end.i.i1
   %literal_key.0.ph.i = phi ptr [ %retval.0.i, %if.end.i.i1 ], [ %scevgep.i.i, %do.body.i.i.i ]
-  call void (ptr, ...) @strvec_pushl(ptr noundef nonnull %ssh_keygen.i, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.89, ptr noundef nonnull @.str.29, ptr noundef null) #13
-  %call1.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %literal_key.0.ph.i) #16
-  %call2.i = call i32 @pipe_command(ptr noundef nonnull %ssh_keygen.i, ptr noundef %literal_key.0.ph.i, i64 noundef %call1.i, ptr noundef nonnull %fingerprint_stdout.i, i64 noundef 0, ptr noundef null, i64 noundef 0) #13
+  call void (ptr, ...) @strvec_pushl(ptr noundef nonnull %ssh_keygen.i, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.89, ptr noundef nonnull @.str.29, ptr noundef null) #14
+  %call1.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %literal_key.0.ph.i) #17
+  %call2.i = call i32 @pipe_command(ptr noundef nonnull %ssh_keygen.i, ptr noundef %literal_key.0.ph.i, i64 noundef %call1.i, ptr noundef nonnull %fingerprint_stdout.i, i64 noundef 0, ptr noundef null, i64 noundef 0) #14
   br label %if.end.i2
 
 if.else.i:                                        ; preds = %if.end.i.i1
   %5 = load ptr, ptr @configured_signing_key, align 8
-  call void (ptr, ...) @strvec_pushl(ptr noundef nonnull %ssh_keygen.i, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.89, ptr noundef %5, ptr noundef null) #13
-  %call4.i = call i32 @pipe_command(ptr noundef nonnull %ssh_keygen.i, ptr noundef null, i64 noundef 0, ptr noundef nonnull %fingerprint_stdout.i, i64 noundef 0, ptr noundef null, i64 noundef 0) #13
+  call void (ptr, ...) @strvec_pushl(ptr noundef nonnull %ssh_keygen.i, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.89, ptr noundef %5, ptr noundef null) #14
+  %call4.i = call i32 @pipe_command(ptr noundef nonnull %ssh_keygen.i, ptr noundef null, i64 noundef 0, ptr noundef nonnull %fingerprint_stdout.i, i64 noundef 0, ptr noundef null, i64 noundef 0) #14
   br label %if.end.i2
 
 if.end.i2:                                        ; preds = %if.else.i, %if.then.i
@@ -2335,7 +2339,7 @@ if.end.i2:                                        ; preds = %if.else.i, %if.then
 
 if.then6.i:                                       ; preds = %if.end.i2
   %call7.i = call fastcc ptr @_(ptr noundef nonnull @.str.90)
-  call void (ptr, ...) @die_errno(ptr noundef %call7.i, ptr noundef %retval.0.i) #14
+  call void (ptr, ...) @die_errno(ptr noundef %call7.i, ptr noundef %retval.0.i) #15
   unreachable
 
 if.end8.i:                                        ; preds = %if.end.i2
@@ -2343,7 +2347,7 @@ if.end8.i:                                        ; preds = %if.end.i2
   %fingerprint_stdout.val.i = load i64, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %fingerprint_stdout.i, i64 16
   %fingerprint_stdout.val5.i = load ptr, ptr %7, align 8
-  %call.i.i = call ptr @strbuf_split_buf(ptr noundef %fingerprint_stdout.val5.i, i64 noundef %fingerprint_stdout.val.i, i32 noundef 32, i32 noundef 3) #13
+  %call.i.i = call ptr @strbuf_split_buf(ptr noundef %fingerprint_stdout.val5.i, i64 noundef %fingerprint_stdout.val.i, i32 noundef 32, i32 noundef 3) #14
   %arrayidx.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
   %8 = load ptr, ptr %arrayidx.i, align 8
   %tobool10.not.i = icmp eq ptr %8, null
@@ -2351,13 +2355,13 @@ if.end8.i:                                        ; preds = %if.end.i2
 
 if.then11.i:                                      ; preds = %if.end8.i
   %call12.i = call fastcc ptr @_(ptr noundef nonnull @.str.90)
-  call void (ptr, ...) @die_errno(ptr noundef %call12.i, ptr noundef %retval.0.i) #14
+  call void (ptr, ...) @die_errno(ptr noundef %call12.i, ptr noundef %retval.0.i) #15
   unreachable
 
 get_ssh_key_fingerprint.exit:                     ; preds = %if.end8.i
-  %call15.i = call ptr @strbuf_detach(ptr noundef nonnull %8, ptr noundef null) #13
-  call void @strbuf_list_free(ptr noundef nonnull %call.i.i) #13
-  call void @strbuf_release(ptr noundef nonnull %fingerprint_stdout.i) #13
+  %call15.i = call ptr @strbuf_detach(ptr noundef nonnull %8, ptr noundef null) #14
+  call void @strbuf_list_free(ptr noundef nonnull %call.i.i) #14
+  call void @strbuf_release(ptr noundef nonnull %fingerprint_stdout.i) #14
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %ssh_keygen.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %fingerprint_stdout.i)
   ret ptr %call15.i
@@ -2457,7 +2461,7 @@ for.end:                                          ; preds = %for.inc, %entry
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %for.end
-  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.46, i32 noundef 167, ptr noundef nonnull @.str.47) #14
+  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.46, i32 noundef 167, ptr noundef nonnull @.str.47) #15
   unreachable
 
 if.end.i:                                         ; preds = %for.end
@@ -2525,11 +2529,14 @@ declare i64 @strtoumax(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.usub.sat.i64(i64, i64) #11
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
+declare void @llvm.assume(i1 noundef) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #13
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
 
 attributes #0 = { mustprogress nounwind willreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -2543,11 +2550,12 @@ attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #9 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #12 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #13 = { nounwind }
-attributes #14 = { noreturn nounwind }
-attributes #15 = { cold }
-attributes #16 = { nounwind willreturn memory(read) }
+attributes #12 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #13 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #14 = { nounwind }
+attributes #15 = { noreturn nounwind }
+attributes #16 = { cold }
+attributes #17 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

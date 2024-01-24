@@ -26917,13 +26917,9 @@ if.then.i.i:                                      ; preds = %entry
   %_M_before_begin.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   br label %for.cond.i.i
 
-for.cond.i.i:                                     ; preds = %for.body.i.i, %if.then.i.i
-  %retval.sroa.0.0.in.i.i = phi ptr [ %_M_before_begin.i.i.i.i, %if.then.i.i ], [ %retval.sroa.0.0.i.i, %for.body.i.i ]
-  %retval.sroa.0.0.i.i = load ptr, ptr %retval.sroa.0.0.in.i.i, align 8, !tbaa !29
-  %cmp.i.not.i.i = icmp eq ptr %retval.sroa.0.0.i.i, null
-  br i1 %cmp.i.not.i.i, label %_ZNKSt13unordered_mapIN6duckdb12LogicalIndexESt13unordered_setIS1_NS0_24LogicalIndexHashFunctionESt8equal_toIS1_ESaIS1_EES3_S5_SaISt4pairIKS1_S7_EEE4findERS9_.exit, label %for.body.i.i
-
-for.body.i.i:                                     ; preds = %for.cond.i.i
+for.cond.i.i:                                     ; preds = %for.cond.i.i, %if.then.i.i
+  %retval.sroa.0.0.in.i.i = phi ptr [ %_M_before_begin.i.i.i.i, %if.then.i.i ], [ %retval.sroa.0.0.i.i, %for.cond.i.i ]
+  %retval.sroa.0.0.i.i = load ptr, ptr %retval.sroa.0.0.in.i.i, align 8, !tbaa !29, !nonnull !86, !noundef !86
   %add.ptr.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.0.i.i, i64 8
   %1 = load i64, ptr %add.ptr.i.i, align 8, !tbaa !429
   %cmp.i.i.i.i.i = icmp eq i64 %1, %index.coerce
@@ -26935,11 +26931,7 @@ if.end15.i.i:                                     ; preds = %entry
   %rem.i.i.i.i.i = urem i64 %index.coerce, %2
   %3 = load ptr, ptr %this, align 8, !tbaa !356
   %arrayidx.i.i.i.i = getelementptr inbounds ptr, ptr %3, i64 %rem.i.i.i.i.i
-  %4 = load ptr, ptr %arrayidx.i.i.i.i, align 8, !tbaa !16
-  %tobool.not.i.i.i.i = icmp eq ptr %4, null
-  br i1 %tobool.not.i.i.i.i, label %_ZNKSt13unordered_mapIN6duckdb12LogicalIndexESt13unordered_setIS1_NS0_24LogicalIndexHashFunctionESt8equal_toIS1_ESaIS1_EES3_S5_SaISt4pairIKS1_S7_EEE4findERS9_.exit, label %if.end.i.i.i.i
-
-if.end.i.i.i.i:                                   ; preds = %if.end15.i.i
+  %4 = load ptr, ptr %arrayidx.i.i.i.i, align 8, !tbaa !16, !nonnull !86, !noundef !86
   %5 = load ptr, ptr %4, align 8, !tbaa !29
   %add.ptr20.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 8
   %add.ptr.i21.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 72
@@ -26950,29 +26942,23 @@ if.end.i.i.i.i:                                   ; preds = %if.end15.i.i
   %8 = select i1 %cmp.i.i22.i.i.i.i, i1 %cmp.i.i.i.i23.i.i.i.i, i1 false
   br i1 %8, label %_ZNKSt13unordered_mapIN6duckdb12LogicalIndexESt13unordered_setIS1_NS0_24LogicalIndexHashFunctionESt8equal_toIS1_ESaIS1_EES3_S5_SaISt4pairIKS1_S7_EEE4findERS9_.exit, label %if.end3.i.i.i.i
 
-for.cond.i.i.i.i:                                 ; preds = %lor.lhs.false.i.i.i.i
-  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %11, i64 8
-  %cmp.i.i.i.i.i.i = icmp eq i64 %12, %index.coerce
-  %9 = load i64, ptr %add.ptr.i.i.i.i, align 8
-  %cmp.i.i.i.i.i.i.i.i = icmp eq i64 %9, %index.coerce
-  %10 = select i1 %cmp.i.i.i.i.i.i, i1 %cmp.i.i.i.i.i.i.i.i, i1 false
-  br i1 %10, label %_ZNKSt13unordered_mapIN6duckdb12LogicalIndexESt13unordered_setIS1_NS0_24LogicalIndexHashFunctionESt8equal_toIS1_ESaIS1_EES3_S5_SaISt4pairIKS1_S7_EEE4findERS9_.exit, label %if.end3.i.i.i.i, !llvm.loop !432
-
-if.end3.i.i.i.i:                                  ; preds = %if.end.i.i.i.i, %for.cond.i.i.i.i
-  %__p.024.i.i.i.i = phi ptr [ %11, %for.cond.i.i.i.i ], [ %5, %if.end.i.i.i.i ]
-  %11 = load ptr, ptr %__p.024.i.i.i.i, align 8, !tbaa !29
-  %tobool5.not.i.i.i.i = icmp eq ptr %11, null
-  br i1 %tobool5.not.i.i.i.i, label %_ZNKSt13unordered_mapIN6duckdb12LogicalIndexESt13unordered_setIS1_NS0_24LogicalIndexHashFunctionESt8equal_toIS1_ESaIS1_EES3_S5_SaISt4pairIKS1_S7_EEE4findERS9_.exit, label %lor.lhs.false.i.i.i.i
-
-lor.lhs.false.i.i.i.i:                            ; preds = %if.end3.i.i.i.i
-  %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %11, i64 72
-  %12 = load i64, ptr %add.ptr.i.i.i.i.i.i, align 8, !tbaa !349
-  %rem.i.i.i.i.i.i.i = urem i64 %12, %2
+if.end3.i.i.i.i:                                  ; preds = %if.end15.i.i, %if.end3.i.i.i.i
+  %__p.024.i.i.i.i = phi ptr [ %9, %if.end3.i.i.i.i ], [ %5, %if.end15.i.i ]
+  %9 = load ptr, ptr %__p.024.i.i.i.i, align 8, !tbaa !29, !nonnull !86, !noundef !86
+  %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 72
+  %10 = load i64, ptr %add.ptr.i.i.i.i.i.i, align 8, !tbaa !349
+  %rem.i.i.i.i.i.i.i = urem i64 %10, %2
   %cmp.not.i.i.i.i = icmp eq i64 %rem.i.i.i.i.i.i.i, %rem.i.i.i.i.i
-  br i1 %cmp.not.i.i.i.i, label %for.cond.i.i.i.i, label %_ZNKSt13unordered_mapIN6duckdb12LogicalIndexESt13unordered_setIS1_NS0_24LogicalIndexHashFunctionESt8equal_toIS1_ESaIS1_EES3_S5_SaISt4pairIKS1_S7_EEE4findERS9_.exit, !llvm.loop !432
+  tail call void @llvm.assume(i1 %cmp.not.i.i.i.i)
+  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 8
+  %cmp.i.i.i.i.i.i = icmp eq i64 %10, %index.coerce
+  %11 = load i64, ptr %add.ptr.i.i.i.i, align 8
+  %cmp.i.i.i.i.i.i.i.i = icmp eq i64 %11, %index.coerce
+  %12 = select i1 %cmp.i.i.i.i.i.i, i1 %cmp.i.i.i.i.i.i.i.i, i1 false
+  br i1 %12, label %_ZNKSt13unordered_mapIN6duckdb12LogicalIndexESt13unordered_setIS1_NS0_24LogicalIndexHashFunctionESt8equal_toIS1_ESaIS1_EES3_S5_SaISt4pairIKS1_S7_EEE4findERS9_.exit, label %if.end3.i.i.i.i, !llvm.loop !432
 
-_ZNKSt13unordered_mapIN6duckdb12LogicalIndexESt13unordered_setIS1_NS0_24LogicalIndexHashFunctionESt8equal_toIS1_ESaIS1_EES3_S5_SaISt4pairIKS1_S7_EEE4findERS9_.exit: ; preds = %lor.lhs.false.i.i.i.i, %if.end3.i.i.i.i, %for.cond.i.i.i.i, %for.body.i.i, %for.cond.i.i, %if.end.i.i.i.i, %if.end15.i.i
-  %retval.sroa.0.1.i.i = phi ptr [ null, %if.end15.i.i ], [ %5, %if.end.i.i.i.i ], [ %retval.sroa.0.0.i.i, %for.body.i.i ], [ null, %for.cond.i.i ], [ null, %lor.lhs.false.i.i.i.i ], [ null, %if.end3.i.i.i.i ], [ %11, %for.cond.i.i.i.i ]
+_ZNKSt13unordered_mapIN6duckdb12LogicalIndexESt13unordered_setIS1_NS0_24LogicalIndexHashFunctionESt8equal_toIS1_ESaIS1_EES3_S5_SaISt4pairIKS1_S7_EEE4findERS9_.exit: ; preds = %if.end3.i.i.i.i, %for.cond.i.i, %if.end15.i.i
+  %retval.sroa.0.1.i.i = phi ptr [ %5, %if.end15.i.i ], [ %retval.sroa.0.0.i.i, %for.cond.i.i ], [ %9, %if.end3.i.i.i.i ]
   %second = getelementptr inbounds i8, ptr %retval.sroa.0.1.i.i, i64 16
   ret ptr %second
 }
@@ -40059,13 +40045,9 @@ if.then.i.i:                                      ; preds = %entry
   %_M_before_begin.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 72
   br label %for.cond.i.i
 
-for.cond.i.i:                                     ; preds = %for.body.i.i, %if.then.i.i
-  %retval.sroa.0.0.in.i.i = phi ptr [ %_M_before_begin.i.i.i.i, %if.then.i.i ], [ %retval.sroa.0.0.i.i, %for.body.i.i ]
-  %retval.sroa.0.0.i.i = load ptr, ptr %retval.sroa.0.0.in.i.i, align 8, !tbaa !29
-  %cmp.i.not.i.i = icmp eq ptr %retval.sroa.0.0.i.i, null
-  br i1 %cmp.i.not.i.i, label %_ZNKSt13unordered_mapIN6duckdb12LogicalIndexESt13unordered_setIS1_NS0_24LogicalIndexHashFunctionESt8equal_toIS1_ESaIS1_EES3_S5_SaISt4pairIKS1_S7_EEE4findERS9_.exit, label %for.body.i.i
-
-for.body.i.i:                                     ; preds = %for.cond.i.i
+for.cond.i.i:                                     ; preds = %for.cond.i.i, %if.then.i.i
+  %retval.sroa.0.0.in.i.i = phi ptr [ %_M_before_begin.i.i.i.i, %if.then.i.i ], [ %retval.sroa.0.0.i.i, %for.cond.i.i ]
+  %retval.sroa.0.0.i.i = load ptr, ptr %retval.sroa.0.0.in.i.i, align 8, !tbaa !29, !nonnull !86, !noundef !86
   %add.ptr.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.0.i.i, i64 8
   %1 = load i64, ptr %add.ptr.i.i, align 8, !tbaa !429
   %cmp.i.i.i.i.i = icmp eq i64 %1, %index.coerce
@@ -40078,11 +40060,7 @@ if.end15.i.i:                                     ; preds = %entry
   %rem.i.i.i.i.i = urem i64 %index.coerce, %2
   %3 = load ptr, ptr %dependents_map, align 8, !tbaa !356
   %arrayidx.i.i.i.i = getelementptr inbounds ptr, ptr %3, i64 %rem.i.i.i.i.i
-  %4 = load ptr, ptr %arrayidx.i.i.i.i, align 8, !tbaa !16
-  %tobool.not.i.i.i.i = icmp eq ptr %4, null
-  br i1 %tobool.not.i.i.i.i, label %_ZNKSt13unordered_mapIN6duckdb12LogicalIndexESt13unordered_setIS1_NS0_24LogicalIndexHashFunctionESt8equal_toIS1_ESaIS1_EES3_S5_SaISt4pairIKS1_S7_EEE4findERS9_.exit, label %if.end.i.i.i.i
-
-if.end.i.i.i.i:                                   ; preds = %if.end15.i.i
+  %4 = load ptr, ptr %arrayidx.i.i.i.i, align 8, !tbaa !16, !nonnull !86, !noundef !86
   %5 = load ptr, ptr %4, align 8, !tbaa !29
   %add.ptr20.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 8
   %add.ptr.i21.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 72
@@ -40093,29 +40071,23 @@ if.end.i.i.i.i:                                   ; preds = %if.end15.i.i
   %8 = select i1 %cmp.i.i22.i.i.i.i, i1 %cmp.i.i.i.i23.i.i.i.i, i1 false
   br i1 %8, label %_ZNKSt13unordered_mapIN6duckdb12LogicalIndexESt13unordered_setIS1_NS0_24LogicalIndexHashFunctionESt8equal_toIS1_ESaIS1_EES3_S5_SaISt4pairIKS1_S7_EEE4findERS9_.exit, label %if.end3.i.i.i.i
 
-for.cond.i.i.i.i:                                 ; preds = %lor.lhs.false.i.i.i.i
-  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %11, i64 8
-  %cmp.i.i.i.i.i.i = icmp eq i64 %12, %index.coerce
-  %9 = load i64, ptr %add.ptr.i.i.i.i, align 8
-  %cmp.i.i.i.i.i.i.i.i = icmp eq i64 %9, %index.coerce
-  %10 = select i1 %cmp.i.i.i.i.i.i, i1 %cmp.i.i.i.i.i.i.i.i, i1 false
-  br i1 %10, label %_ZNKSt13unordered_mapIN6duckdb12LogicalIndexESt13unordered_setIS1_NS0_24LogicalIndexHashFunctionESt8equal_toIS1_ESaIS1_EES3_S5_SaISt4pairIKS1_S7_EEE4findERS9_.exit, label %if.end3.i.i.i.i, !llvm.loop !432
-
-if.end3.i.i.i.i:                                  ; preds = %if.end.i.i.i.i, %for.cond.i.i.i.i
-  %__p.024.i.i.i.i = phi ptr [ %11, %for.cond.i.i.i.i ], [ %5, %if.end.i.i.i.i ]
-  %11 = load ptr, ptr %__p.024.i.i.i.i, align 8, !tbaa !29
-  %tobool5.not.i.i.i.i = icmp eq ptr %11, null
-  br i1 %tobool5.not.i.i.i.i, label %_ZNKSt13unordered_mapIN6duckdb12LogicalIndexESt13unordered_setIS1_NS0_24LogicalIndexHashFunctionESt8equal_toIS1_ESaIS1_EES3_S5_SaISt4pairIKS1_S7_EEE4findERS9_.exit, label %lor.lhs.false.i.i.i.i
-
-lor.lhs.false.i.i.i.i:                            ; preds = %if.end3.i.i.i.i
-  %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %11, i64 72
-  %12 = load i64, ptr %add.ptr.i.i.i.i.i.i, align 8, !tbaa !349
-  %rem.i.i.i.i.i.i.i = urem i64 %12, %2
+if.end3.i.i.i.i:                                  ; preds = %if.end15.i.i, %if.end3.i.i.i.i
+  %__p.024.i.i.i.i = phi ptr [ %9, %if.end3.i.i.i.i ], [ %5, %if.end15.i.i ]
+  %9 = load ptr, ptr %__p.024.i.i.i.i, align 8, !tbaa !29, !nonnull !86, !noundef !86
+  %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 72
+  %10 = load i64, ptr %add.ptr.i.i.i.i.i.i, align 8, !tbaa !349
+  %rem.i.i.i.i.i.i.i = urem i64 %10, %2
   %cmp.not.i.i.i.i = icmp eq i64 %rem.i.i.i.i.i.i.i, %rem.i.i.i.i.i
-  br i1 %cmp.not.i.i.i.i, label %for.cond.i.i.i.i, label %_ZNKSt13unordered_mapIN6duckdb12LogicalIndexESt13unordered_setIS1_NS0_24LogicalIndexHashFunctionESt8equal_toIS1_ESaIS1_EES3_S5_SaISt4pairIKS1_S7_EEE4findERS9_.exit, !llvm.loop !432
+  tail call void @llvm.assume(i1 %cmp.not.i.i.i.i)
+  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 8
+  %cmp.i.i.i.i.i.i = icmp eq i64 %10, %index.coerce
+  %11 = load i64, ptr %add.ptr.i.i.i.i, align 8
+  %cmp.i.i.i.i.i.i.i.i = icmp eq i64 %11, %index.coerce
+  %12 = select i1 %cmp.i.i.i.i.i.i, i1 %cmp.i.i.i.i.i.i.i.i, i1 false
+  br i1 %12, label %_ZNKSt13unordered_mapIN6duckdb12LogicalIndexESt13unordered_setIS1_NS0_24LogicalIndexHashFunctionESt8equal_toIS1_ESaIS1_EES3_S5_SaISt4pairIKS1_S7_EEE4findERS9_.exit, label %if.end3.i.i.i.i, !llvm.loop !432
 
-_ZNKSt13unordered_mapIN6duckdb12LogicalIndexESt13unordered_setIS1_NS0_24LogicalIndexHashFunctionESt8equal_toIS1_ESaIS1_EES3_S5_SaISt4pairIKS1_S7_EEE4findERS9_.exit: ; preds = %lor.lhs.false.i.i.i.i, %if.end3.i.i.i.i, %for.cond.i.i.i.i, %for.body.i.i, %for.cond.i.i, %if.end.i.i.i.i, %if.end15.i.i
-  %retval.sroa.0.1.i.i = phi ptr [ null, %if.end15.i.i ], [ %5, %if.end.i.i.i.i ], [ %retval.sroa.0.0.i.i, %for.body.i.i ], [ null, %for.cond.i.i ], [ null, %lor.lhs.false.i.i.i.i ], [ null, %if.end3.i.i.i.i ], [ %11, %for.cond.i.i.i.i ]
+_ZNKSt13unordered_mapIN6duckdb12LogicalIndexESt13unordered_setIS1_NS0_24LogicalIndexHashFunctionESt8equal_toIS1_ESaIS1_EES3_S5_SaISt4pairIKS1_S7_EEE4findERS9_.exit: ; preds = %if.end3.i.i.i.i, %for.cond.i.i, %if.end15.i.i
+  %retval.sroa.0.1.i.i = phi ptr [ %5, %if.end15.i.i ], [ %retval.sroa.0.0.i.i, %for.cond.i.i ], [ %9, %if.end3.i.i.i.i ]
   %second = getelementptr inbounds i8, ptr %retval.sroa.0.1.i.i, i64 16
   ret ptr %second
 }

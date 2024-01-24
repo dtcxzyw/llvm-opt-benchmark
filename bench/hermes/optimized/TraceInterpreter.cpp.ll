@@ -15216,13 +15216,9 @@ if.then.i.i89:                                    ; preds = %_ZNKSt13unordered_m
   %_M_before_begin.i.i.i.i90 = getelementptr inbounds i8, ptr %0, i64 432
   br label %for.cond.i.i91
 
-for.cond.i.i91:                                   ; preds = %for.body.i.i95, %if.then.i.i89
-  %retval.sroa.0.0.in.i.i92 = phi ptr [ %_M_before_begin.i.i.i.i90, %if.then.i.i89 ], [ %retval.sroa.0.0.i.i93, %for.body.i.i95 ]
-  %retval.sroa.0.0.i.i93 = load ptr, ptr %retval.sroa.0.0.in.i.i92, align 8
-  %cmp.i.not.i.i94 = icmp eq ptr %retval.sroa.0.0.i.i93, null
-  br i1 %cmp.i.not.i.i94, label %_ZNSt13unordered_mapImN8facebook3jsi5ValueESt4hashImESt8equal_toImESaISt4pairIKmS2_EEE4findERS8_.exit98, label %for.body.i.i95
-
-for.body.i.i95:                                   ; preds = %for.cond.i.i91
+for.cond.i.i91:                                   ; preds = %for.cond.i.i91, %if.then.i.i89
+  %retval.sroa.0.0.in.i.i92 = phi ptr [ %_M_before_begin.i.i.i.i90, %if.then.i.i89 ], [ %retval.sroa.0.0.i.i93, %for.cond.i.i91 ]
+  %retval.sroa.0.0.i.i93 = load ptr, ptr %retval.sroa.0.0.in.i.i92, align 8, !nonnull !128, !noundef !128
   %add.ptr.i.i96 = getelementptr inbounds i8, ptr %retval.sroa.0.0.i.i93, i64 8
   %51 = load i64, ptr %add.ptr.i.i96, align 8
   %cmp.i.i.i.i97 = icmp eq i64 %51, %obj
@@ -15234,36 +15230,26 @@ if.end15.i.i71:                                   ; preds = %_ZNKSt13unordered_m
   %rem.i.i.i.i.i73 = urem i64 %obj, %52
   %53 = load ptr, ptr %gom_, align 8
   %arrayidx.i.i.i.i74 = getelementptr inbounds ptr, ptr %53, i64 %rem.i.i.i.i.i73
-  %54 = load ptr, ptr %arrayidx.i.i.i.i74, align 8
-  %tobool.not.i.i.i.i75 = icmp eq ptr %54, null
-  br i1 %tobool.not.i.i.i.i75, label %_ZNSt13unordered_mapImN8facebook3jsi5ValueESt4hashImESt8equal_toImESaISt4pairIKmS2_EEE4findERS8_.exit98, label %if.end.i.i.i.i76
-
-if.end.i.i.i.i76:                                 ; preds = %if.end15.i.i71
+  %54 = load ptr, ptr %arrayidx.i.i.i.i74, align 8, !nonnull !128, !noundef !128
   %55 = load ptr, ptr %54, align 8
   %add.ptr8.i.i.i.i77 = getelementptr inbounds i8, ptr %55, i64 8
   %56 = load i64, ptr %add.ptr8.i.i.i.i77, align 8
   %cmp.i.i.i9.i.i.i.i78 = icmp eq i64 %56, %obj
   br i1 %cmp.i.i.i9.i.i.i.i78, label %_ZNSt13unordered_mapImN8facebook3jsi5ValueESt4hashImESt8equal_toImESaISt4pairIKmS2_EEE4findERS8_.exit98, label %if.end3.i.i.i.i79
 
-for.cond.i.i.i.i87:                               ; preds = %lor.lhs.false.i.i.i.i82
-  %cmp.i.i.i.i.i.i.i88 = icmp eq i64 %58, %obj
-  br i1 %cmp.i.i.i.i.i.i.i88, label %_ZNSt13unordered_mapImN8facebook3jsi5ValueESt4hashImESt8equal_toImESaISt4pairIKmS2_EEE4findERS8_.exit98, label %if.end3.i.i.i.i79, !llvm.loop !320
-
-if.end3.i.i.i.i79:                                ; preds = %if.end.i.i.i.i76, %for.cond.i.i.i.i87
-  %__p.010.i.i.i.i80 = phi ptr [ %57, %for.cond.i.i.i.i87 ], [ %55, %if.end.i.i.i.i76 ]
-  %57 = load ptr, ptr %__p.010.i.i.i.i80, align 8
-  %tobool5.not.i.i.i.i81 = icmp eq ptr %57, null
-  br i1 %tobool5.not.i.i.i.i81, label %_ZNSt13unordered_mapImN8facebook3jsi5ValueESt4hashImESt8equal_toImESaISt4pairIKmS2_EEE4findERS8_.exit98, label %lor.lhs.false.i.i.i.i82
-
-lor.lhs.false.i.i.i.i82:                          ; preds = %if.end3.i.i.i.i79
+if.end3.i.i.i.i79:                                ; preds = %if.end15.i.i71, %if.end3.i.i.i.i79
+  %__p.010.i.i.i.i80 = phi ptr [ %57, %if.end3.i.i.i.i79 ], [ %55, %if.end15.i.i71 ]
+  %57 = load ptr, ptr %__p.010.i.i.i.i80, align 8, !nonnull !128, !noundef !128
   %add.ptr7.i.i.i.i83 = getelementptr inbounds i8, ptr %57, i64 8
   %58 = load i64, ptr %add.ptr7.i.i.i.i83, align 8
   %rem.i.i.i.i.i.i.i84 = urem i64 %58, %52
   %cmp.not.i.i.i.i85 = icmp eq i64 %rem.i.i.i.i.i.i.i84, %rem.i.i.i.i.i73
-  br i1 %cmp.not.i.i.i.i85, label %for.cond.i.i.i.i87, label %_ZNSt13unordered_mapImN8facebook3jsi5ValueESt4hashImESt8equal_toImESaISt4pairIKmS2_EEE4findERS8_.exit98, !llvm.loop !320
+  tail call void @llvm.assume(i1 %cmp.not.i.i.i.i85)
+  %cmp.i.i.i.i.i.i.i88 = icmp eq i64 %58, %obj
+  br i1 %cmp.i.i.i.i.i.i.i88, label %_ZNSt13unordered_mapImN8facebook3jsi5ValueESt4hashImESt8equal_toImESaISt4pairIKmS2_EEE4findERS8_.exit98, label %if.end3.i.i.i.i79, !llvm.loop !320
 
-_ZNSt13unordered_mapImN8facebook3jsi5ValueESt4hashImESt8equal_toImESaISt4pairIKmS2_EEE4findERS8_.exit98: ; preds = %for.cond.i.i.i.i87, %if.end3.i.i.i.i79, %lor.lhs.false.i.i.i.i82, %for.cond.i.i91, %for.body.i.i95, %if.end15.i.i71, %if.end.i.i.i.i76
-  %retval.sroa.0.1.i.i86 = phi ptr [ null, %if.end15.i.i71 ], [ %55, %if.end.i.i.i.i76 ], [ null, %for.cond.i.i91 ], [ %retval.sroa.0.0.i.i93, %for.body.i.i95 ], [ %57, %for.cond.i.i.i.i87 ], [ null, %if.end3.i.i.i.i79 ], [ null, %lor.lhs.false.i.i.i.i82 ]
+_ZNSt13unordered_mapImN8facebook3jsi5ValueESt4hashImESt8equal_toImESaISt4pairIKmS2_EEE4findERS8_.exit98: ; preds = %if.end3.i.i.i.i79, %for.cond.i.i91, %if.end15.i.i71
+  %retval.sroa.0.1.i.i86 = phi ptr [ %55, %if.end15.i.i71 ], [ %retval.sroa.0.0.i.i93, %for.cond.i.i91 ], [ %57, %if.end3.i.i.i.i79 ]
   %59 = load ptr, ptr %0, align 8
   %second38 = getelementptr inbounds i8, ptr %retval.sroa.0.1.i.i86, i64 16
   tail call void @_ZN8facebook3jsi5ValueC1ERNS0_7RuntimeERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %59, ptr noundef nonnull align 8 dereferenceable(16) %second38)
@@ -15355,10 +15341,10 @@ _ZNSt13unordered_mapImN8facebook3jsi5ValueESt4hashImESt8equal_toImESaISt4pairIKm
   br label %return.sink.split
 
 return.sink.split:                                ; preds = %_ZNSt13unordered_mapImN8facebook3jsi5ValueESt4hashImESt8equal_toImESaISt4pairIKmS2_EEE5eraseENSt8__detail14_Node_iteratorIS9_Lb0ELb0EEE.exit, %_ZNSt13unordered_mapImN8facebook3jsi5ValueESt4hashImESt8equal_toImESaISt4pairIKmS2_EEE5eraseENSt8__detail14_Node_iteratorIS9_Lb0ELb0EEE.exit137
-  %_M_element_count.i.i.i69.sink188 = phi ptr [ %_M_element_count.i.i.i69, %_ZNSt13unordered_mapImN8facebook3jsi5ValueESt4hashImESt8equal_toImESaISt4pairIKmS2_EEE5eraseENSt8__detail14_Node_iteratorIS9_Lb0ELb0EEE.exit137 ], [ %_M_element_count.i.i.i.i, %_ZNSt13unordered_mapImN8facebook3jsi5ValueESt4hashImESt8equal_toImESaISt4pairIKmS2_EEE5eraseENSt8__detail14_Node_iteratorIS9_Lb0ELb0EEE.exit ]
-  %75 = load i64, ptr %_M_element_count.i.i.i69.sink188, align 8
+  %_M_element_count.i.i.i69.sink191 = phi ptr [ %_M_element_count.i.i.i69, %_ZNSt13unordered_mapImN8facebook3jsi5ValueESt4hashImESt8equal_toImESaISt4pairIKmS2_EEE5eraseENSt8__detail14_Node_iteratorIS9_Lb0ELb0EEE.exit137 ], [ %_M_element_count.i.i.i.i, %_ZNSt13unordered_mapImN8facebook3jsi5ValueESt4hashImESt8equal_toImESaISt4pairIKmS2_EEE5eraseENSt8__detail14_Node_iteratorIS9_Lb0ELb0EEE.exit ]
+  %75 = load i64, ptr %_M_element_count.i.i.i69.sink191, align 8
   %dec.i.i.i.i120 = add i64 %75, -1
-  store i64 %dec.i.i.i.i120, ptr %_M_element_count.i.i.i69.sink188, align 8
+  store i64 %dec.i.i.i.i120, ptr %_M_element_count.i.i.i69.sink191, align 8
   br label %return
 
 return:                                           ; preds = %if.end3.i.i.i.i12, %lor.lhs.false.i.i.i.i15, %for.cond.i.i24, %return.sink.split, %if.end15.i.i4, %_ZNSt13unordered_mapImN8facebook3jsi5ValueESt4hashImESt8equal_toImESaISt4pairIKmS2_EEE4findERS8_.exit98, %land.rhs

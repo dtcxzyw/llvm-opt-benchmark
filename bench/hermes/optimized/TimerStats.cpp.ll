@@ -362,7 +362,7 @@ entry:
   %getTimes.i.i.i = alloca %"class.facebook::jsi::Function", align 8
   %agg.tmp.i.i.i = alloca %"class.std::function", align 8
   %jsiTimerInternalObject.i.i.i = alloca %"class.facebook::jsi::Object", align 8
-  %call.i = tail call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #18, !noalias !4
+  %call.i = tail call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #19, !noalias !4
   %0 = load i64, ptr %hermesRuntime, align 8, !noalias !4
   %1 = inttoptr i64 %0 to ptr
   store ptr null, ptr %hermesRuntime, align 8, !noalias !4
@@ -425,7 +425,7 @@ terminate.lpad.i.i.i.i.i.i:                       ; preds = %if.then.i.i.i.i.i.i
   %9 = landingpad { ptr, i32 }
           catch ptr null
   %10 = extractvalue { ptr, i32 } %9, 0
-  call void @__clang_call_terminate(ptr %10) #19
+  call void @__clang_call_terminate(ptr %10) #20
   unreachable
 
 lpad.i7.i.i.i:                                    ; preds = %.noexc.i.i
@@ -443,7 +443,7 @@ terminate.lpad.i.i6.i.i.i.i:                      ; preds = %if.then.i.i4.i.i.i.
   %13 = landingpad { ptr, i32 }
           catch ptr null
   %14 = extractvalue { ptr, i32 } %13, 0
-  call void @__clang_call_terminate(ptr %14) #19
+  call void @__clang_call_terminate(ptr %14) #20
   unreachable
 
 invoke.cont5.i.i.i:                               ; preds = %if.then.i.i.i.i.i.i, %invoke.cont.i8.i.i.i
@@ -460,7 +460,7 @@ terminate.lpad.i.i14.i.i.i:                       ; preds = %if.then.i.i12.i.i.i
   %16 = landingpad { ptr, i32 }
           catch ptr null
   %17 = extractvalue { ptr, i32 } %16, 0
-  call void @__clang_call_terminate(ptr %17) #19
+  call void @__clang_call_terminate(ptr %17) #20
   unreachable
 
 _ZNSt8functionIFN8facebook3jsi5ValueERNS1_7RuntimeERKS2_PS5_mEED2Ev.exit.i.i.i: ; preds = %if.then.i.i12.i.i.i, %invoke.cont5.i.i.i
@@ -508,7 +508,7 @@ terminate.lpad.i.i.i25.i.i.i:                     ; preds = %if.then.i.i.i24.i.i
   %24 = landingpad { ptr, i32 }
           catch ptr null
   %25 = extractvalue { ptr, i32 } %24, 0
-  call void @__clang_call_terminate(ptr %25) #19
+  call void @__clang_call_terminate(ptr %25) #20
   unreachable
 
 _ZN8facebook3jsi6ObjectD2Ev.exit.i.i.i.i:         ; preds = %if.then.i.i.i24.i.i.i, %invoke.cont.i22.i.i.i
@@ -543,7 +543,7 @@ terminate.lpad.i.i5.i.i.i.i:                      ; preds = %if.then.i.i3.i.i.i.
   %30 = landingpad { ptr, i32 }
           catch ptr null
   %31 = extractvalue { ptr, i32 } %30, 0
-  call void @__clang_call_terminate(ptr %31) #19
+  call void @__clang_call_terminate(ptr %31) #20
   unreachable
 
 lpad.i21.i.i.i:                                   ; preds = %.noexc.i.i.i
@@ -563,7 +563,7 @@ terminate.lpad.i.i10.i.i.i.i:                     ; preds = %if.then.i.i8.i.i.i.
   %35 = landingpad { ptr, i32 }
           catch ptr null
   %36 = extractvalue { ptr, i32 } %35, 0
-  call void @__clang_call_terminate(ptr %36) #19
+  call void @__clang_call_terminate(ptr %36) #20
   unreachable
 
 lpad2.i.i.i.i:                                    ; preds = %invoke.cont4.i.i.i.i, %invoke.cont3.i.i.i.i, %_ZN8facebook3jsi6ObjectD2Ev.exit.i.i.i.i
@@ -583,7 +583,7 @@ terminate.lpad.i.i15.i.i.i.i:                     ; preds = %if.then.i.i13.i.i.i
   %40 = landingpad { ptr, i32 }
           catch ptr null
   %41 = extractvalue { ptr, i32 } %40, 0
-  call void @__clang_call_terminate(ptr %41) #19
+  call void @__clang_call_terminate(ptr %41) #20
   unreachable
 
 invoke.cont10.i.i.i:                              ; preds = %if.then.i.i3.i.i.i.i, %invoke.cont5.i.i.i.i
@@ -655,7 +655,7 @@ invoke.cont17.i.i.i.i:                            ; preds = %invoke.cont14.i.i.i
           to label %invoke.cont19.i.i.i.i unwind label %lpad18.i.i.i.i, !noalias !4
 
 invoke.cont19.i.i.i.i:                            ; preds = %invoke.cont17.i.i.i.i
-  call void @_ZN8facebook3jsi5ValueD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.ensured.i.i.i.i) #20, !noalias !4
+  call void @_ZN8facebook3jsi5ValueD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.ensured.i.i.i.i) #21, !noalias !4
   %47 = load ptr, ptr %ref.tmp15.i.i.i.i, align 8, !noalias !4
   %tobool.not.i.i.i35.i.i.i = icmp eq ptr %47, null
   br i1 %tobool.not.i.i.i35.i.i.i, label %_ZN8facebook3jsi6ObjectD2Ev.exit.i39.i.i.i, label %if.then.i.i.i36.i.i.i
@@ -670,7 +670,7 @@ terminate.lpad.i.i.i38.i.i.i:                     ; preds = %if.then.i.i.i36.i.i
   %49 = landingpad { ptr, i32 }
           catch ptr null
   %50 = extractvalue { ptr, i32 } %49, 0
-  call void @__clang_call_terminate(ptr %50) #19
+  call void @__clang_call_terminate(ptr %50) #20
   unreachable
 
 _ZN8facebook3jsi6ObjectD2Ev.exit.i39.i.i.i:       ; preds = %if.then.i.i.i36.i.i.i, %invoke.cont19.i.i.i.i
@@ -688,7 +688,7 @@ terminate.lpad.i.i.i.i.i.i.i:                     ; preds = %if.then.i.i.i.i.i.i
   %53 = landingpad { ptr, i32 }
           catch ptr null
   %54 = extractvalue { ptr, i32 } %53, 0
-  call void @__clang_call_terminate(ptr %54) #19
+  call void @__clang_call_terminate(ptr %54) #20
   unreachable
 
 _ZN8facebook3jsi8FunctionD2Ev.exit.i.i.i.i:       ; preds = %if.then.i.i.i.i.i.i.i, %_ZN8facebook3jsi6ObjectD2Ev.exit.i39.i.i.i
@@ -706,7 +706,7 @@ terminate.lpad.i.i14.i.i.i.i:                     ; preds = %if.then.i.i12.i.i.i
   %57 = landingpad { ptr, i32 }
           catch ptr null
   %58 = extractvalue { ptr, i32 } %57, 0
-  call void @__clang_call_terminate(ptr %58) #19
+  call void @__clang_call_terminate(ptr %58) #20
   unreachable
 
 _ZN8facebook3jsi6ObjectD2Ev.exit15.i.i.i.i:       ; preds = %if.then.i.i12.i.i.i.i, %_ZN8facebook3jsi8FunctionD2Ev.exit.i.i.i.i
@@ -724,7 +724,7 @@ terminate.lpad.i.i19.i.i.i.i:                     ; preds = %if.then.i.i17.i.i.i
   %61 = landingpad { ptr, i32 }
           catch ptr null
   %62 = extractvalue { ptr, i32 } %61, 0
-  call void @__clang_call_terminate(ptr %62) #19
+  call void @__clang_call_terminate(ptr %62) #20
   unreachable
 
 _ZN8facebook3jsi6ObjectD2Ev.exit20.i.i.i.i:       ; preds = %if.then.i.i17.i.i.i.i, %_ZN8facebook3jsi6ObjectD2Ev.exit15.i.i.i.i
@@ -742,7 +742,7 @@ terminate.lpad.i.i24.i.i.i.i:                     ; preds = %if.then.i.i22.i.i.i
   %65 = landingpad { ptr, i32 }
           catch ptr null
   %66 = extractvalue { ptr, i32 } %65, 0
-  call void @__clang_call_terminate(ptr %66) #19
+  call void @__clang_call_terminate(ptr %66) #20
   unreachable
 
 lpad.i30.i.i.i:                                   ; preds = %invoke.cont6.i.i.i.i, %invoke.cont4.i32.i.i.i, %invoke.cont2.i.i.i.i, %invoke.cont.i31.i.i.i, %.noexc40.i.i.i
@@ -782,7 +782,7 @@ terminate.lpad.i.i29.i.i.i.i:                     ; preds = %if.then.i.i27.i.i.i
   %74 = landingpad { ptr, i32 }
           catch ptr null
   %75 = extractvalue { ptr, i32 } %74, 0
-  call void @__clang_call_terminate(ptr %75) #19
+  call void @__clang_call_terminate(ptr %75) #20
   unreachable
 
 ehcleanup.i.i.i.i:                                ; preds = %if.then.i.i27.i.i.i.i, %lpad18.i.i.i.i, %lpad16.i.i.i.i
@@ -801,7 +801,7 @@ terminate.lpad.i.i.i34.i.i.i.i:                   ; preds = %if.then.i.i.i32.i.i
   %78 = landingpad { ptr, i32 }
           catch ptr null
   %79 = extractvalue { ptr, i32 } %78, 0
-  call void @__clang_call_terminate(ptr %79) #19
+  call void @__clang_call_terminate(ptr %79) #20
   unreachable
 
 ehcleanup20.i.i.i.i:                              ; preds = %if.then.i.i.i32.i.i.i.i, %ehcleanup.i.i.i.i, %lpad13.i.i.i.i
@@ -820,7 +820,7 @@ terminate.lpad.i.i39.i.i.i.i:                     ; preds = %if.then.i.i37.i.i.i
   %82 = landingpad { ptr, i32 }
           catch ptr null
   %83 = extractvalue { ptr, i32 } %82, 0
-  call void @__clang_call_terminate(ptr %83) #19
+  call void @__clang_call_terminate(ptr %83) #20
   unreachable
 
 ehcleanup21.i.i.i.i:                              ; preds = %if.then.i.i37.i.i.i.i, %ehcleanup20.i.i.i.i, %lpad11.i.i.i.i
@@ -839,7 +839,7 @@ terminate.lpad.i.i44.i.i.i.i:                     ; preds = %if.then.i.i42.i.i.i
   %86 = landingpad { ptr, i32 }
           catch ptr null
   %87 = extractvalue { ptr, i32 } %86, 0
-  call void @__clang_call_terminate(ptr %87) #19
+  call void @__clang_call_terminate(ptr %87) #20
   unreachable
 
 ehcleanup22.i.i.i.i:                              ; preds = %if.then.i.i42.i.i.i.i, %ehcleanup21.i.i.i.i, %lpad.i30.i.i.i
@@ -858,7 +858,7 @@ terminate.lpad.i.i49.i.i.i.i:                     ; preds = %if.then.i.i47.i.i.i
   %90 = landingpad { ptr, i32 }
           catch ptr null
   %91 = extractvalue { ptr, i32 } %90, 0
-  call void @__clang_call_terminate(ptr %91) #19
+  call void @__clang_call_terminate(ptr %91) #20
   unreachable
 
 invoke.cont11.i.i.i:                              ; preds = %if.then.i.i22.i.i.i.i, %_ZN8facebook3jsi6ObjectD2Ev.exit20.i.i.i.i
@@ -886,7 +886,7 @@ terminate.lpad.i.i46.i.i.i:                       ; preds = %if.then.i.i44.i.i.i
   %94 = landingpad { ptr, i32 }
           catch ptr null
   %95 = extractvalue { ptr, i32 } %94, 0
-  call void @__clang_call_terminate(ptr %95) #19
+  call void @__clang_call_terminate(ptr %95) #20
   unreachable
 
 _ZN8facebook3jsi6ObjectD2Ev.exit.i.i.i:           ; preds = %if.then.i.i44.i.i.i, %invoke.cont11.i.i.i
@@ -904,7 +904,7 @@ terminate.lpad.i.i.i50.i.i.i:                     ; preds = %if.then.i.i.i48.i.i
   %98 = landingpad { ptr, i32 }
           catch ptr null
   %99 = extractvalue { ptr, i32 } %98, 0
-  call void @__clang_call_terminate(ptr %99) #19
+  call void @__clang_call_terminate(ptr %99) #20
   unreachable
 
 _ZN8facebook3jsi8FunctionD2Ev.exit.i.i.i:         ; preds = %if.then.i.i.i48.i.i.i, %_ZN8facebook3jsi6ObjectD2Ev.exit.i.i.i
@@ -920,7 +920,7 @@ terminate.lpad.i.i56.i.i.i:                       ; preds = %if.then.i.i54.i.i.i
   %101 = landingpad { ptr, i32 }
           catch ptr null
   %102 = extractvalue { ptr, i32 } %101, 0
-  call void @__clang_call_terminate(ptr %102) #19
+  call void @__clang_call_terminate(ptr %102) #20
   unreachable
 
 _ZNSt8functionIFN8facebook3jsi5ValueERNS1_7RuntimeERKS2_PS5_mEED2Ev.exit58.i.i.i: ; preds = %if.then.i.i54.i.i.i, %_ZN8facebook3jsi8FunctionD2Ev.exit.i.i.i
@@ -938,7 +938,7 @@ terminate.lpad.i.i62.i.i.i:                       ; preds = %if.then.i.i60.i.i.i
   %105 = landingpad { ptr, i32 }
           catch ptr null
   %106 = extractvalue { ptr, i32 } %105, 0
-  call void @__clang_call_terminate(ptr %106) #19
+  call void @__clang_call_terminate(ptr %106) #20
   unreachable
 
 lpad4.body.i.i.i:                                 ; preds = %if.then.i.i4.i.i.i.i, %lpad.i7.i.i.i
@@ -954,7 +954,7 @@ terminate.lpad.i.i67.i.i.i:                       ; preds = %if.then.i.i65.i.i.i
   %108 = landingpad { ptr, i32 }
           catch ptr null
   %109 = extractvalue { ptr, i32 } %108, 0
-  call void @__clang_call_terminate(ptr %109) #19
+  call void @__clang_call_terminate(ptr %109) #20
   unreachable
 
 lpad6.i.i.i:                                      ; preds = %_ZNSt8functionIFN8facebook3jsi5ValueERNS1_7RuntimeERKS2_PS5_mEED2Ev.exit.i.i.i
@@ -983,7 +983,7 @@ terminate.lpad.i.i73.i.i.i:                       ; preds = %if.then.i.i71.i.i.i
   %114 = landingpad { ptr, i32 }
           catch ptr null
   %115 = extractvalue { ptr, i32 } %114, 0
-  call void @__clang_call_terminate(ptr %115) #19
+  call void @__clang_call_terminate(ptr %115) #20
   unreachable
 
 ehcleanup.i.i.i:                                  ; preds = %if.then.i.i71.i.i.i, %lpad8.body.i.i.i, %lpad6.i.i.i
@@ -1002,7 +1002,7 @@ terminate.lpad.i.i.i78.i.i.i:                     ; preds = %if.then.i.i.i76.i.i
   %118 = landingpad { ptr, i32 }
           catch ptr null
   %119 = extractvalue { ptr, i32 } %118, 0
-  call void @__clang_call_terminate(ptr %119) #19
+  call void @__clang_call_terminate(ptr %119) #20
   unreachable
 
 ehcleanup12.i.i.i:                                ; preds = %if.then.i.i.i76.i.i.i, %ehcleanup.i.i.i, %if.then.i.i65.i.i.i, %lpad4.body.i.i.i
@@ -1019,7 +1019,7 @@ terminate.lpad.i.i85.i.i.i:                       ; preds = %if.then.i.i83.i.i.i
   %121 = landingpad { ptr, i32 }
           catch ptr null
   %122 = extractvalue { ptr, i32 } %121, 0
-  call void @__clang_call_terminate(ptr %122) #19
+  call void @__clang_call_terminate(ptr %122) #20
   unreachable
 
 _ZNSt8functionIFN8facebook3jsi5ValueERNS1_7RuntimeERKS2_PS5_mEED2Ev.exit87.i.i.i: ; preds = %if.then.i.i83.i.i.i, %ehcleanup12.i.i.i
@@ -1037,7 +1037,7 @@ terminate.lpad.i.i91.i.i.i:                       ; preds = %if.then.i.i89.i.i.i
   %125 = landingpad { ptr, i32 }
           catch ptr null
   %126 = extractvalue { ptr, i32 } %125, 0
-  call void @__clang_call_terminate(ptr %126) #19
+  call void @__clang_call_terminate(ptr %126) #20
   unreachable
 
 lpad.i.i:                                         ; preds = %entry
@@ -1055,13 +1055,13 @@ _ZNKSt14default_deleteIN8facebook3jsi7RuntimeEEclEPS2_.exit.i.i.i: ; preds = %lp
   %vtable.i.i1.i.i = load ptr, ptr %128, align 8, !noalias !4
   %vfn.i.i2.i.i = getelementptr inbounds i8, ptr %vtable.i.i1.i.i, i64 8
   %129 = load ptr, ptr %vfn.i.i2.i.i, align 8, !noalias !4
-  call void %129(ptr noundef nonnull align 8 dereferenceable(8) %128) #20, !noalias !4
+  call void %129(ptr noundef nonnull align 8 dereferenceable(8) %128) #21, !noalias !4
   br label %_ZNSt10unique_ptrIN8facebook3jsi7RuntimeESt14default_deleteIS2_EED2Ev.exit.i.i
 
 _ZNSt10unique_ptrIN8facebook3jsi7RuntimeESt14default_deleteIS2_EED2Ev.exit.i.i: ; preds = %_ZNKSt14default_deleteIN8facebook3jsi7RuntimeEEclEPS2_.exit.i.i.i, %lpad.body.i.i
   store ptr null, ptr %runtime_.i.i, align 8, !noalias !4
-  call void @_ZN8facebook3jsi7RuntimeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %call.i) #20, !noalias !4
-  call void @_ZdlPv(ptr noundef nonnull %call.i) #21, !noalias !4
+  call void @_ZN8facebook3jsi7RuntimeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %call.i) #21, !noalias !4
+  call void @_ZdlPv(ptr noundef nonnull %call.i) #22, !noalias !4
   resume { ptr, i32 } %eh.lpad-body.i.i
 
 _ZNSt10unique_ptrIN8facebook6hermes12_GLOBAL__N_112TimedRuntimeESt14default_deleteIS3_EED2Ev.exit: ; preds = %if.then.i.i60.i.i.i, %_ZNSt8functionIFN8facebook3jsi5ValueERNS1_7RuntimeERKS2_PS5_mEED2Ev.exit58.i.i.i
@@ -1100,12 +1100,12 @@ _ZNKSt14default_deleteIN8facebook3jsi7RuntimeEEclEPS2_.exit.i: ; preds = %entry
   %vtable.i.i = load ptr, ptr %0, align 8
   %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 8
   %1 = load ptr, ptr %vfn.i.i, align 8
-  tail call void %1(ptr noundef nonnull align 8 dereferenceable(8) %0) #20
+  tail call void %1(ptr noundef nonnull align 8 dereferenceable(8) %0) #21
   br label %_ZNSt10unique_ptrIN8facebook3jsi7RuntimeESt14default_deleteIS2_EED2Ev.exit
 
 _ZNSt10unique_ptrIN8facebook3jsi7RuntimeESt14default_deleteIS2_EED2Ev.exit: ; preds = %entry, %_ZNKSt14default_deleteIN8facebook3jsi7RuntimeEEclEPS2_.exit.i
   store ptr null, ptr %runtime_, align 8
-  tail call void @_ZN8facebook3jsi7RuntimeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #20
+  tail call void @_ZN8facebook3jsi7RuntimeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #21
   ret void
 }
 
@@ -1121,13 +1121,13 @@ _ZNKSt14default_deleteIN8facebook3jsi7RuntimeEEclEPS2_.exit.i.i: ; preds = %entr
   %vtable.i.i.i = load ptr, ptr %0, align 8
   %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 8
   %1 = load ptr, ptr %vfn.i.i.i, align 8
-  tail call void %1(ptr noundef nonnull align 8 dereferenceable(8) %0) #20
+  tail call void %1(ptr noundef nonnull align 8 dereferenceable(8) %0) #21
   br label %_ZN8facebook6hermes12_GLOBAL__N_112TimedRuntimeD2Ev.exit
 
 _ZN8facebook6hermes12_GLOBAL__N_112TimedRuntimeD2Ev.exit: ; preds = %entry, %_ZNKSt14default_deleteIN8facebook3jsi7RuntimeEEclEPS2_.exit.i.i
   store ptr null, ptr %runtime_.i, align 8
-  tail call void @_ZN8facebook3jsi7RuntimeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #20
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #21
+  tail call void @_ZN8facebook3jsi7RuntimeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #21
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #22
   ret void
 }
 
@@ -1147,7 +1147,7 @@ entry:
   %0 = load ptr, ptr %timerStack_.i.i, align 8, !noalias !25
   store ptr %0, ptr %parent_.i.i, align 8, !alias.scope !25
   %wallTimeStart_.i.i = getelementptr inbounds i8, ptr %timer, i64 32
-  %call.i.i = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #20, !noalias !25
+  %call.i.i = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #21, !noalias !25
   store i64 %call.i.i, ptr %wallTimeStart_.i.i, align 8, !alias.scope !25
   %cpuTimeStart_.i.i = getelementptr inbounds i8, ptr %timer, i64 40
   %call3.i.i = tail call i64 @_ZN6hermes8oscompat15thread_cpu_timeEv(), !noalias !25
@@ -1181,7 +1181,7 @@ invoke.cont:                                      ; preds = %_ZN8facebook6hermes
           to label %call.i.noexc.i unwind label %terminate.lpad.i
 
 call.i.noexc.i:                                   ; preds = %invoke.cont
-  %call2.i.i = call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #20
+  %call2.i.i = call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #21
   %5 = load <2 x i64>, ptr %wallTimeStart_.i.i, align 8
   %6 = insertelement <2 x i64> poison, i64 %call2.i.i, i64 0
   %7 = insertelement <2 x i64> %6, i64 %call.i1.i, i64 1
@@ -1208,7 +1208,7 @@ terminate.lpad.i:                                 ; preds = %invoke.cont
   %17 = landingpad { ptr, i32 }
           catch ptr null
   %18 = extractvalue { ptr, i32 } %17, 0
-  call void @__clang_call_terminate(ptr %18) #19
+  call void @__clang_call_terminate(ptr %18) #20
   unreachable
 
 _ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats9RAIITimerD2Ev.exit: ; preds = %call.i.noexc.i, %if.then.i.i6
@@ -1219,7 +1219,7 @@ _ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats9RAIITimerD2Ev.exit: ; preds = %c
 lpad:                                             ; preds = %_ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats13incomingTimerEPKc.exit
   %19 = landingpad { ptr, i32 }
           cleanup
-  call fastcc void @_ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats9RAIITimerD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %timer) #20
+  call fastcc void @_ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats9RAIITimerD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %timer) #21
   resume { ptr, i32 } %19
 }
 
@@ -1229,7 +1229,7 @@ entry:
   %agg.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %plain_.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %plain_.i, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %sourceURL) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %sourceURL) #21
   %vtable = load ptr, ptr %0, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
   %1 = load ptr, ptr %vfn, align 8
@@ -1237,13 +1237,13 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp) #21
   ret void
 
 lpad:                                             ; preds = %entry
   %2 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp) #21
   resume { ptr, i32 } %2
 }
 
@@ -1263,7 +1263,7 @@ entry:
   %0 = load ptr, ptr %timerStack_.i.i, align 8, !noalias !31
   store ptr %0, ptr %parent_.i.i, align 8, !alias.scope !31
   %wallTimeStart_.i.i = getelementptr inbounds i8, ptr %timer, i64 32
-  %call.i.i = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #20, !noalias !31
+  %call.i.i = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #21, !noalias !31
   store i64 %call.i.i, ptr %wallTimeStart_.i.i, align 8, !alias.scope !31
   %cpuTimeStart_.i.i = getelementptr inbounds i8, ptr %timer, i64 40
   %call3.i.i = tail call i64 @_ZN6hermes8oscompat15thread_cpu_timeEv(), !noalias !31
@@ -1297,7 +1297,7 @@ invoke.cont:                                      ; preds = %_ZN8facebook6hermes
           to label %call.i.noexc.i unwind label %terminate.lpad.i
 
 call.i.noexc.i:                                   ; preds = %invoke.cont
-  %call2.i.i = call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #20
+  %call2.i.i = call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #21
   %5 = load <2 x i64>, ptr %wallTimeStart_.i.i, align 8
   %6 = insertelement <2 x i64> poison, i64 %call2.i.i, i64 0
   %7 = insertelement <2 x i64> %6, i64 %call.i1.i, i64 1
@@ -1324,7 +1324,7 @@ terminate.lpad.i:                                 ; preds = %invoke.cont
   %17 = landingpad { ptr, i32 }
           catch ptr null
   %18 = extractvalue { ptr, i32 } %17, 0
-  call void @__clang_call_terminate(ptr %18) #19
+  call void @__clang_call_terminate(ptr %18) #20
   unreachable
 
 _ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats9RAIITimerD2Ev.exit: ; preds = %call.i.noexc.i, %if.then.i.i6
@@ -1335,7 +1335,7 @@ _ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats9RAIITimerD2Ev.exit: ; preds = %c
 lpad:                                             ; preds = %_ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats13incomingTimerEPKc.exit
   %19 = landingpad { ptr, i32 }
           cleanup
-  call fastcc void @_ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats9RAIITimerD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %timer) #20
+  call fastcc void @_ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats9RAIITimerD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %timer) #21
   resume { ptr, i32 } %19
 }
 
@@ -1355,7 +1355,7 @@ entry:
   %0 = load ptr, ptr %timerStack_.i.i, align 8, !noalias !37
   store ptr %0, ptr %parent_.i.i, align 8, !alias.scope !37
   %wallTimeStart_.i.i = getelementptr inbounds i8, ptr %timer, i64 32
-  %call.i.i = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #20, !noalias !37
+  %call.i.i = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #21, !noalias !37
   store i64 %call.i.i, ptr %wallTimeStart_.i.i, align 8, !alias.scope !37
   %cpuTimeStart_.i.i = getelementptr inbounds i8, ptr %timer, i64 40
   %call3.i.i = tail call i64 @_ZN6hermes8oscompat15thread_cpu_timeEv(), !noalias !37
@@ -1389,7 +1389,7 @@ invoke.cont:                                      ; preds = %_ZN8facebook6hermes
           to label %call.i.noexc.i unwind label %terminate.lpad.i
 
 call.i.noexc.i:                                   ; preds = %invoke.cont
-  %call2.i.i = call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #20
+  %call2.i.i = call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #21
   %5 = load <2 x i64>, ptr %wallTimeStart_.i.i, align 8
   %6 = insertelement <2 x i64> poison, i64 %call2.i.i, i64 0
   %7 = insertelement <2 x i64> %6, i64 %call.i1.i, i64 1
@@ -1416,7 +1416,7 @@ terminate.lpad.i:                                 ; preds = %invoke.cont
   %17 = landingpad { ptr, i32 }
           catch ptr null
   %18 = extractvalue { ptr, i32 } %17, 0
-  call void @__clang_call_terminate(ptr %18) #19
+  call void @__clang_call_terminate(ptr %18) #20
   unreachable
 
 _ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats9RAIITimerD2Ev.exit: ; preds = %call.i.noexc.i, %if.then.i.i7
@@ -1427,7 +1427,7 @@ _ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats9RAIITimerD2Ev.exit: ; preds = %c
 lpad:                                             ; preds = %_ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats13incomingTimerEPKc.exit
   %19 = landingpad { ptr, i32 }
           cleanup
-  call fastcc void @_ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats9RAIITimerD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %timer) #20
+  call fastcc void @_ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats9RAIITimerD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %timer) #21
   resume { ptr, i32 } %19
 }
 
@@ -1747,7 +1747,7 @@ entry:
   %plain_.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %plain_.i, align 8
   %rts_ = getelementptr inbounds i8, ptr %this, i64 24
-  %call5.i.i.i5.i.i.i.i = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #18, !noalias !40
+  %call5.i.i.i5.i.i.i.i = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #19, !noalias !40
   %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i, i64 8
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !40
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i, i64 12
@@ -1797,7 +1797,7 @@ if.then.i.i.i.i2.i.i.i.i.i.i.i.i:                 ; preds = %if.then.i.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %2, align 8, !noalias !40
   %vfn.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i.i.i.i.i, i64 16
   %8 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !40
-  tail call void %8(ptr noundef nonnull align 8 dereferenceable(16) %2) #20, !noalias !40
+  tail call void %8(ptr noundef nonnull align 8 dereferenceable(16) %2) #21, !noalias !40
   br label %if.end8.sink.split.i.i.i.i.i.i.i.i.i.i.i.i
 
 if.end.i.i.i.i.i.i.i.i.i.i.i.i:                   ; preds = %if.then.i.i.i.i.i.i.i.i.i.i.i
@@ -1823,7 +1823,7 @@ if.then7.i.i.i.i.i.i.i.i.i.i.i.i:                 ; preds = %_ZN9__gnu_cxx27__ex
   %vtable.i.i.i.i.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %2, align 8, !noalias !40
   %vfn.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 16
   %11 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !40
-  tail call void %11(ptr noundef nonnull align 8 dereferenceable(16) %2) #20, !noalias !40
+  tail call void %11(ptr noundef nonnull align 8 dereferenceable(16) %2) #21, !noalias !40
   %_M_weak_count.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 12
   %12 = load i8, ptr @__libc_single_threaded, align 1, !noalias !40
   %tobool.i.i.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %12, 0
@@ -1848,7 +1848,7 @@ if.end8.sink.split.i.i.i.i.i.i.i.i.i.i.i.i:       ; preds = %_ZN9__gnu_cxx27__ex
   %vtable2.i.i.i.i.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %2, align 8, !noalias !40
   %vfn3.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 24
   %15 = load ptr, ptr %vfn3.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !40
-  tail call void %15(ptr noundef nonnull align 8 dereferenceable(16) %2) #20, !noalias !40
+  tail call void %15(ptr noundef nonnull align 8 dereferenceable(16) %2) #21, !noalias !40
   br label %_ZSt11make_sharedIN8facebook6hermes12_GLOBAL__N_115TimedHostObjectEJRNS2_12TimedRuntimeESt10shared_ptrINS0_3jsi10HostObjectEERNS2_12RuntimeStatsEEES6_INSt9enable_ifIXntsr8is_arrayIT_EE5valueESD_E4typeEEDpOT0_.exit
 
 _ZSt11make_sharedIN8facebook6hermes12_GLOBAL__N_115TimedHostObjectEJRNS2_12TimedRuntimeESt10shared_ptrINS0_3jsi10HostObjectEERNS2_12RuntimeStatsEEES6_INSt9enable_ifIXntsr8is_arrayIT_EE5valueESD_E4typeEEDpOT0_.exit: ; preds = %entry, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i.i.i.i.i.i.i.i
@@ -1880,7 +1880,7 @@ if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i
   %vtable.i.i.i.i = load ptr, ptr %16, align 8
   %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 16
   %19 = load ptr, ptr %vfn.i.i.i.i, align 8
-  call void %19(ptr noundef nonnull align 8 dereferenceable(16) %16) #20
+  call void %19(ptr noundef nonnull align 8 dereferenceable(16) %16) #21
   br label %if.end8.sink.split.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %if.then.i.i.i
@@ -1906,7 +1906,7 @@ if.then7.i.i.i.i:                                 ; preds = %_ZN9__gnu_cxx27__ex
   %vtable.i.i.i.i.i.i = load ptr, ptr %16, align 8
   %vfn.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i, i64 16
   %22 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
-  call void %22(ptr noundef nonnull align 8 dereferenceable(16) %16) #20
+  call void %22(ptr noundef nonnull align 8 dereferenceable(16) %16) #21
   %_M_weak_count.i.i.i.i.i.i3 = getelementptr inbounds i8, ptr %16, i64 12
   %23 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i.i = icmp eq i8 %23, 0
@@ -1931,7 +1931,7 @@ if.end8.sink.split.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__ex
   %vtable2.i.i.i.i.i.i = load ptr, ptr %16, align 8
   %vfn3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i, i64 24
   %26 = load ptr, ptr %vfn3.i.i.i.i.i.i, align 8
-  call void %26(ptr noundef nonnull align 8 dereferenceable(16) %16) #20
+  call void %26(ptr noundef nonnull align 8 dereferenceable(16) %16) #21
   br label %_ZNSt10shared_ptrIN8facebook6hermes12_GLOBAL__N_115TimedHostObjectEED2Ev.exit
 
 _ZNSt10shared_ptrIN8facebook6hermes12_GLOBAL__N_115TimedHostObjectEED2Ev.exit: ; preds = %if.end8.sink.split.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %invoke.cont
@@ -1940,8 +1940,8 @@ _ZNSt10shared_ptrIN8facebook6hermes12_GLOBAL__N_115TimedHostObjectEED2Ev.exit: ;
 lpad:                                             ; preds = %_ZSt11make_sharedIN8facebook6hermes12_GLOBAL__N_115TimedHostObjectEJRNS2_12TimedRuntimeESt10shared_ptrINS0_3jsi10HostObjectEERNS2_12RuntimeStatsEEES6_INSt9enable_ifIXntsr8is_arrayIT_EE5valueESD_E4typeEEDpOT0_.exit
   %27 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt10shared_ptrIN8facebook3jsi10HostObjectEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp) #20
-  call fastcc void @_ZNSt10shared_ptrIN8facebook6hermes12_GLOBAL__N_115TimedHostObjectEED2Ev(ptr null) #20
+  call void @_ZNSt10shared_ptrIN8facebook3jsi10HostObjectEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp) #21
+  call fastcc void @_ZNSt10shared_ptrIN8facebook6hermes12_GLOBAL__N_115TimedHostObjectEED2Ev(ptr null) #21
   resume { ptr, i32 } %27
 }
 
@@ -2002,7 +2002,7 @@ if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i3
   %vtable.i.i.i.i = load ptr, ptr %8, align 8
   %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 16
   %11 = load ptr, ptr %vfn.i.i.i.i, align 8
-  call void %11(ptr noundef nonnull align 8 dereferenceable(16) %8) #20
+  call void %11(ptr noundef nonnull align 8 dereferenceable(16) %8) #21
   br label %if.end8.sink.split.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %if.then.i.i.i3
@@ -2028,7 +2028,7 @@ if.then7.i.i.i.i:                                 ; preds = %_ZN9__gnu_cxx27__ex
   %vtable.i.i.i.i.i.i = load ptr, ptr %8, align 8
   %vfn.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i, i64 16
   %14 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
-  call void %14(ptr noundef nonnull align 8 dereferenceable(16) %8) #20
+  call void %14(ptr noundef nonnull align 8 dereferenceable(16) %8) #21
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 12
   %15 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i.i = icmp eq i8 %15, 0
@@ -2053,7 +2053,7 @@ if.end8.sink.split.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__ex
   %vtable2.i.i.i.i.i.i = load ptr, ptr %8, align 8
   %vfn3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i, i64 24
   %18 = load ptr, ptr %vfn3.i.i.i.i.i.i, align 8
-  call void %18(ptr noundef nonnull align 8 dereferenceable(16) %8) #20
+  call void %18(ptr noundef nonnull align 8 dereferenceable(16) %8) #21
   br label %_ZNSt10shared_ptrIN8facebook3jsi10HostObjectEED2Ev.exit
 
 _ZNSt10shared_ptrIN8facebook3jsi10HostObjectEED2Ev.exit: ; preds = %_ZNSt10shared_ptrIN8facebook3jsi10HostObjectEEC2ERKS3_.exit, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i
@@ -2078,15 +2078,13 @@ entry:
   br i1 %cmp.i.i, label %if.then.i.i, label %lor.lhs.false.i.i
 
 lor.lhs.false.i.i:                                ; preds = %entry
-  %tobool.not.i.i = icmp eq ptr %2, null
-  br i1 %tobool.not.i.i, label %_ZNSt8functionIFN8facebook3jsi5ValueERNS1_7RuntimeERKS2_PS5_mEE6targetINS1_21DecoratedHostFunctionEEEPT_v.exit, label %if.then.i.i.i
-
-if.then.i.i.i:                                    ; preds = %lor.lhs.false.i.i
+  %tobool.not.i.i = icmp ne ptr %2, null
+  tail call void @llvm.assume(i1 %tobool.not.i.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__typeinfo_result.i.i.i)
   %call.i.i.i = invoke noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(16) %__typeinfo_result.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %call, i32 noundef 0)
           to label %invoke.cont.i.i.i unwind label %terminate.lpad.i.i.i
 
-invoke.cont.i.i.i:                                ; preds = %if.then.i.i.i
+invoke.cont.i.i.i:                                ; preds = %lor.lhs.false.i.i
   %3 = load ptr, ptr %__typeinfo_result.i.i.i, align 8
   %tobool4.not.i.i.i = icmp eq ptr %3, null
   %spec.select.i.i = select i1 %tobool4.not.i.i.i, ptr @_ZTIv, ptr %3
@@ -2096,11 +2094,11 @@ invoke.cont.i.i.i:                                ; preds = %if.then.i.i.i
   %cmp.i.i.i = icmp eq ptr %4, @_ZTSN8facebook3jsi21DecoratedHostFunctionE
   br i1 %cmp.i.i.i, label %if.then.i.i, label %_ZNKSt9type_infoeqERKS_.exit.i.i
 
-terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i
+terminate.lpad.i.i.i:                             ; preds = %lor.lhs.false.i.i
   %5 = landingpad { ptr, i32 }
           catch ptr null
   %6 = extractvalue { ptr, i32 } %5, 0
-  call void @__clang_call_terminate(ptr %6) #19
+  call void @__clang_call_terminate(ptr %6) #20
   unreachable
 
 _ZNKSt9type_infoeqERKS_.exit.i.i:                 ; preds = %invoke.cont.i.i.i
@@ -2108,9 +2106,10 @@ _ZNKSt9type_infoeqERKS_.exit.i.i:                 ; preds = %invoke.cont.i.i.i
   %cmp.i.i.i.i = icmp eq i8 %7, 42
   %cond.idx.i.i.i.i = zext i1 %cmp.i.i.i.i to i64
   %cond.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 %cond.idx.i.i.i.i
-  %call6.i.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(39) @_ZTSN8facebook3jsi21DecoratedHostFunctionE, ptr noundef nonnull dereferenceable(1) %cond.i.i.i.i) #20
+  %call6.i.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(39) @_ZTSN8facebook3jsi21DecoratedHostFunctionE, ptr noundef nonnull dereferenceable(1) %cond.i.i.i.i) #21
   %cmp7.i.i.i = icmp eq i32 %call6.i.i.i, 0
-  br i1 %cmp7.i.i.i, label %if.then.i.i, label %_ZNSt8functionIFN8facebook3jsi5ValueERNS1_7RuntimeERKS2_PS5_mEE6targetINS1_21DecoratedHostFunctionEEEPT_v.exit
+  call void @llvm.assume(i1 %cmp7.i.i.i)
+  br label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %_ZNKSt9type_infoeqERKS_.exit.i.i, %invoke.cont.i.i.i, %entry
   %8 = load ptr, ptr %_M_manager.i.i, align 8
@@ -2119,20 +2118,16 @@ if.then.i.i:                                      ; preds = %_ZNKSt9type_infoeqE
 
 invoke.cont.i.i:                                  ; preds = %if.then.i.i
   %9 = load ptr, ptr %__ptr.i.i, align 8
-  br label %_ZNSt8functionIFN8facebook3jsi5ValueERNS1_7RuntimeERKS2_PS5_mEE6targetINS1_21DecoratedHostFunctionEEEPT_v.exit
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__ptr.i.i)
+  %plainHF_ = getelementptr inbounds i8, ptr %9, i64 8
+  ret ptr %plainHF_
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i
   %10 = landingpad { ptr, i32 }
           catch ptr null
   %11 = extractvalue { ptr, i32 } %10, 0
-  call void @__clang_call_terminate(ptr %11) #19
+  call void @__clang_call_terminate(ptr %11) #20
   unreachable
-
-_ZNSt8functionIFN8facebook3jsi5ValueERNS1_7RuntimeERKS2_PS5_mEE6targetINS1_21DecoratedHostFunctionEEEPT_v.exit: ; preds = %lor.lhs.false.i.i, %_ZNKSt9type_infoeqERKS_.exit.i.i, %invoke.cont.i.i
-  %retval.0.i.i = phi ptr [ %9, %invoke.cont.i.i ], [ null, %_ZNKSt9type_infoeqERKS_.exit.i.i ], [ null, %lor.lhs.false.i.i ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__ptr.i.i)
-  %plainHF_ = getelementptr inbounds i8, ptr %retval.0.i.i, i64 8
-  ret ptr %plainHF_
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -2216,7 +2211,7 @@ if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i3
   %vtable.i.i.i.i = load ptr, ptr %7, align 8
   %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 16
   %10 = load ptr, ptr %vfn.i.i.i.i, align 8
-  call void %10(ptr noundef nonnull align 8 dereferenceable(16) %7) #20
+  call void %10(ptr noundef nonnull align 8 dereferenceable(16) %7) #21
   br label %if.end8.sink.split.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %if.then.i.i.i3
@@ -2242,7 +2237,7 @@ if.then7.i.i.i.i:                                 ; preds = %_ZN9__gnu_cxx27__ex
   %vtable.i.i.i.i.i.i = load ptr, ptr %7, align 8
   %vfn.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i, i64 16
   %13 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
-  call void %13(ptr noundef nonnull align 8 dereferenceable(16) %7) #20
+  call void %13(ptr noundef nonnull align 8 dereferenceable(16) %7) #21
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 12
   %14 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i.i = icmp eq i8 %14, 0
@@ -2267,7 +2262,7 @@ if.end8.sink.split.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__ex
   %vtable2.i.i.i.i.i.i = load ptr, ptr %7, align 8
   %vfn3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i, i64 24
   %17 = load ptr, ptr %vfn3.i.i.i.i.i.i, align 8
-  call void %17(ptr noundef nonnull align 8 dereferenceable(16) %7) #20
+  call void %17(ptr noundef nonnull align 8 dereferenceable(16) %7) #21
   br label %_ZNSt10shared_ptrIN8facebook3jsi11NativeStateEED2Ev.exit
 
 _ZNSt10shared_ptrIN8facebook3jsi11NativeStateEED2Ev.exit: ; preds = %invoke.cont, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i
@@ -2276,7 +2271,7 @@ _ZNSt10shared_ptrIN8facebook3jsi11NativeStateEED2Ev.exit: ; preds = %invoke.cont
 lpad:                                             ; preds = %_ZNSt10shared_ptrIN8facebook3jsi11NativeStateEEC2ERKS3_.exit
   %18 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt10shared_ptrIN8facebook3jsi11NativeStateEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp) #20
+  call void @_ZNSt10shared_ptrIN8facebook3jsi11NativeStateEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp) #21
   resume { ptr, i32 } %18
 }
 
@@ -2497,7 +2492,7 @@ if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i
   %vtable.i.i.i.i = load ptr, ptr %3, align 8
   %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 16
   %6 = load ptr, ptr %vfn.i.i.i.i, align 8
-  call void %6(ptr noundef nonnull align 8 dereferenceable(16) %3) #20
+  call void %6(ptr noundef nonnull align 8 dereferenceable(16) %3) #21
   br label %if.end8.sink.split.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %if.then.i.i.i
@@ -2523,7 +2518,7 @@ if.then7.i.i.i.i:                                 ; preds = %_ZN9__gnu_cxx27__ex
   %vtable.i.i.i.i.i.i = load ptr, ptr %3, align 8
   %vfn.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i, i64 16
   %9 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
-  call void %9(ptr noundef nonnull align 8 dereferenceable(16) %3) #20
+  call void %9(ptr noundef nonnull align 8 dereferenceable(16) %3) #21
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 12
   %10 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i.i = icmp eq i8 %10, 0
@@ -2548,7 +2543,7 @@ if.end8.sink.split.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__ex
   %vtable2.i.i.i.i.i.i = load ptr, ptr %3, align 8
   %vfn3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i, i64 24
   %13 = load ptr, ptr %vfn3.i.i.i.i.i.i, align 8
-  call void %13(ptr noundef nonnull align 8 dereferenceable(16) %3) #20
+  call void %13(ptr noundef nonnull align 8 dereferenceable(16) %3) #21
   br label %_ZNSt10shared_ptrIN8facebook3jsi13MutableBufferEED2Ev.exit
 
 _ZNSt10shared_ptrIN8facebook3jsi13MutableBufferEED2Ev.exit: ; preds = %invoke.cont, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i
@@ -2557,7 +2552,7 @@ _ZNSt10shared_ptrIN8facebook3jsi13MutableBufferEED2Ev.exit: ; preds = %invoke.co
 lpad:                                             ; preds = %entry
   %14 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt10shared_ptrIN8facebook3jsi13MutableBufferEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp) #20
+  call void @_ZNSt10shared_ptrIN8facebook3jsi13MutableBufferEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp) #21
   resume { ptr, i32 } %14
 }
 
@@ -2666,7 +2661,7 @@ _ZN8facebook6hermes12_GLOBAL__N_117TimedHostFunctionC2ERNS_3jsi7RuntimeESt8funct
   %rts_.i = getelementptr inbounds i8, ptr %ref.tmp, i64 40
   store ptr %rts_42, ptr %rts_.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, i8 0, i64 32, i1 false)
-  %call.i.i2.i4 = invoke noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #18
+  %call.i.i2.i4 = invoke noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #19
           to label %call.i.i2.i.noexc unwind label %lpad3
 
 call.i.i2.i.noexc:                                ; preds = %_ZN8facebook6hermes12_GLOBAL__N_117TimedHostFunctionC2ERNS_3jsi7RuntimeESt8functionIFNS3_5ValueES5_RKS7_PS8_mEERNS1_12RuntimeStatsE.exit
@@ -2722,7 +2717,7 @@ terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i
   %6 = landingpad { ptr, i32 }
           catch ptr null
   %7 = extractvalue { ptr, i32 } %6, 0
-  call void @__clang_call_terminate(ptr %7) #19
+  call void @__clang_call_terminate(ptr %7) #20
   unreachable
 
 lpad.i:                                           ; preds = %_ZNSt8functionIFN8facebook3jsi5ValueERNS1_7RuntimeERKS2_PS5_mEEC2EOS9_.exit.i
@@ -2740,7 +2735,7 @@ terminate.lpad.i.i6.i:                            ; preds = %if.then.i.i4.i
   %10 = landingpad { ptr, i32 }
           catch ptr null
   %11 = extractvalue { ptr, i32 } %10, 0
-  call void @__clang_call_terminate(ptr %11) #19
+  call void @__clang_call_terminate(ptr %11) #20
   unreachable
 
 invoke.cont6:                                     ; preds = %if.then.i.i.i
@@ -2757,7 +2752,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i10
   %12 = landingpad { ptr, i32 }
           catch ptr null
   %13 = extractvalue { ptr, i32 } %12, 0
-  call void @__clang_call_terminate(ptr %13) #19
+  call void @__clang_call_terminate(ptr %13) #20
   unreachable
 
 _ZNSt8functionIFN8facebook3jsi5ValueERNS1_7RuntimeERKS2_PS5_mEED2Ev.exit: ; preds = %invoke.cont6.thread, %invoke.cont6, %if.then.i.i10
@@ -2774,7 +2769,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %if.then.i.i.i.i
   %15 = landingpad { ptr, i32 }
           catch ptr null
   %16 = extractvalue { ptr, i32 } %15, 0
-  call void @__clang_call_terminate(ptr %16) #19
+  call void @__clang_call_terminate(ptr %16) #20
   unreachable
 
 _ZN8facebook6hermes12_GLOBAL__N_117TimedHostFunctionD2Ev.exit: ; preds = %_ZNSt8functionIFN8facebook3jsi5ValueERNS1_7RuntimeERKS2_PS5_mEED2Ev.exit, %if.then.i.i.i.i
@@ -2790,7 +2785,7 @@ terminate.lpad.i.i17:                             ; preds = %if.then.i.i15
   %18 = landingpad { ptr, i32 }
           catch ptr null
   %19 = extractvalue { ptr, i32 } %18, 0
-  call void @__clang_call_terminate(ptr %19) #19
+  call void @__clang_call_terminate(ptr %19) #20
   unreachable
 
 _ZNSt8functionIFN8facebook3jsi5ValueERNS1_7RuntimeERKS2_PS5_mEED2Ev.exit18: ; preds = %_ZN8facebook6hermes12_GLOBAL__N_117TimedHostFunctionD2Ev.exit, %if.then.i.i15
@@ -2814,7 +2809,7 @@ terminate.lpad.i.i23:                             ; preds = %if.then.i.i21
   %21 = landingpad { ptr, i32 }
           catch ptr null
   %22 = extractvalue { ptr, i32 } %21, 0
-  call void @__clang_call_terminate(ptr %22) #19
+  call void @__clang_call_terminate(ptr %22) #20
   unreachable
 
 ehcleanup:                                        ; preds = %lpad.i, %if.then.i.i21, %lpad5.body, %lpad3
@@ -2833,7 +2828,7 @@ terminate.lpad.i.i.i.i30:                         ; preds = %if.then.i.i.i.i27
   %24 = landingpad { ptr, i32 }
           catch ptr null
   %25 = extractvalue { ptr, i32 } %24, 0
-  call void @__clang_call_terminate(ptr %25) #19
+  call void @__clang_call_terminate(ptr %25) #20
   unreachable
 
 _ZN8facebook6hermes12_GLOBAL__N_117TimedHostFunctionD2Ev.exit31: ; preds = %ehcleanup, %if.then.i.i.i.i27
@@ -2849,7 +2844,7 @@ terminate.lpad.i.i36:                             ; preds = %if.then.i.i34
   %27 = landingpad { ptr, i32 }
           catch ptr null
   %28 = extractvalue { ptr, i32 } %27, 0
-  call void @__clang_call_terminate(ptr %28) #19
+  call void @__clang_call_terminate(ptr %28) #20
   unreachable
 
 _ZNSt8functionIFN8facebook3jsi5ValueERNS1_7RuntimeERKS2_PS5_mEED2Ev.exit37: ; preds = %_ZN8facebook6hermes12_GLOBAL__N_117TimedHostFunctionD2Ev.exit31, %if.then.i.i34
@@ -2872,7 +2867,7 @@ entry:
   %0 = load ptr, ptr %timerStack_.i.i, align 8, !noalias !46
   store ptr %0, ptr %parent_.i.i, align 8, !alias.scope !46
   %wallTimeStart_.i.i = getelementptr inbounds i8, ptr %timer, i64 32
-  %call.i.i = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #20, !noalias !46
+  %call.i.i = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #21, !noalias !46
   store i64 %call.i.i, ptr %wallTimeStart_.i.i, align 8, !alias.scope !46
   %cpuTimeStart_.i.i = getelementptr inbounds i8, ptr %timer, i64 40
   %call3.i.i = tail call i64 @_ZN6hermes8oscompat15thread_cpu_timeEv(), !noalias !46
@@ -2906,7 +2901,7 @@ invoke.cont:                                      ; preds = %_ZN8facebook6hermes
           to label %call.i.noexc.i unwind label %terminate.lpad.i
 
 call.i.noexc.i:                                   ; preds = %invoke.cont
-  %call2.i.i = call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #20
+  %call2.i.i = call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #21
   %5 = load <2 x i64>, ptr %wallTimeStart_.i.i, align 8
   %6 = insertelement <2 x i64> poison, i64 %call2.i.i, i64 0
   %7 = insertelement <2 x i64> %6, i64 %call.i1.i, i64 1
@@ -2933,7 +2928,7 @@ terminate.lpad.i:                                 ; preds = %invoke.cont
   %17 = landingpad { ptr, i32 }
           catch ptr null
   %18 = extractvalue { ptr, i32 } %17, 0
-  call void @__clang_call_terminate(ptr %18) #19
+  call void @__clang_call_terminate(ptr %18) #20
   unreachable
 
 _ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats9RAIITimerD2Ev.exit: ; preds = %call.i.noexc.i, %if.then.i.i6
@@ -2944,7 +2939,7 @@ _ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats9RAIITimerD2Ev.exit: ; preds = %c
 lpad:                                             ; preds = %_ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats13incomingTimerEPKc.exit
   %19 = landingpad { ptr, i32 }
           cleanup
-  call fastcc void @_ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats9RAIITimerD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %timer) #20
+  call fastcc void @_ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats9RAIITimerD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %timer) #21
   resume { ptr, i32 } %19
 }
 
@@ -2964,7 +2959,7 @@ entry:
   %0 = load ptr, ptr %timerStack_.i.i, align 8, !noalias !52
   store ptr %0, ptr %parent_.i.i, align 8, !alias.scope !52
   %wallTimeStart_.i.i = getelementptr inbounds i8, ptr %timer, i64 32
-  %call.i.i = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #20, !noalias !52
+  %call.i.i = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #21, !noalias !52
   store i64 %call.i.i, ptr %wallTimeStart_.i.i, align 8, !alias.scope !52
   %cpuTimeStart_.i.i = getelementptr inbounds i8, ptr %timer, i64 40
   %call3.i.i = tail call i64 @_ZN6hermes8oscompat15thread_cpu_timeEv(), !noalias !52
@@ -2998,7 +2993,7 @@ invoke.cont:                                      ; preds = %_ZN8facebook6hermes
           to label %call.i.noexc.i unwind label %terminate.lpad.i
 
 call.i.noexc.i:                                   ; preds = %invoke.cont
-  %call2.i.i = call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #20
+  %call2.i.i = call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #21
   %5 = load <2 x i64>, ptr %wallTimeStart_.i.i, align 8
   %6 = insertelement <2 x i64> poison, i64 %call2.i.i, i64 0
   %7 = insertelement <2 x i64> %6, i64 %call.i1.i, i64 1
@@ -3025,7 +3020,7 @@ terminate.lpad.i:                                 ; preds = %invoke.cont
   %17 = landingpad { ptr, i32 }
           catch ptr null
   %18 = extractvalue { ptr, i32 } %17, 0
-  call void @__clang_call_terminate(ptr %18) #19
+  call void @__clang_call_terminate(ptr %18) #20
   unreachable
 
 _ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats9RAIITimerD2Ev.exit: ; preds = %call.i.noexc.i, %if.then.i.i6
@@ -3036,7 +3031,7 @@ _ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats9RAIITimerD2Ev.exit: ; preds = %c
 lpad:                                             ; preds = %_ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats13incomingTimerEPKc.exit
   %19 = landingpad { ptr, i32 }
           cleanup
-  call fastcc void @_ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats9RAIITimerD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %timer) #20
+  call fastcc void @_ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats9RAIITimerD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %timer) #21
   resume { ptr, i32 } %19
 }
 
@@ -3178,7 +3173,7 @@ entry:
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 72
   %1 = load ptr, ptr %vfn, align 8
   %call2 = tail call noundef nonnull align 8 dereferenceable(8) ptr %1(ptr noundef nonnull align 8 dereferenceable(8) %0)
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %cause) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %cause) #21
   %vtable3 = load ptr, ptr %call2, align 8
   %vfn4 = getelementptr inbounds i8, ptr %vtable3, i64 32
   %2 = load ptr, ptr %vfn4, align 8
@@ -3186,13 +3181,13 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp) #21
   ret void
 
 lpad:                                             ; preds = %entry
   %3 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp) #21
   resume { ptr, i32 } %3
 }
 
@@ -3244,7 +3239,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   %6 = landingpad { ptr, i32 }
           catch ptr null
   %7 = extractvalue { ptr, i32 } %6, 0
-  call void @__clang_call_terminate(ptr %7) #19
+  call void @__clang_call_terminate(ptr %7) #20
   unreachable
 
 _ZNSt8functionIFvmNSt6chrono8durationIlSt5ratioILl1ELl1000000EEEESt6vectorISt5tupleIJmmmEESaIS7_EEEED2Ev.exit: ; preds = %invoke.cont, %if.then.i.i
@@ -3266,7 +3261,7 @@ terminate.lpad.i.i6:                              ; preds = %if.then.i.i4
   %10 = landingpad { ptr, i32 }
           catch ptr null
   %11 = extractvalue { ptr, i32 } %10, 0
-  call void @__clang_call_terminate(ptr %11) #19
+  call void @__clang_call_terminate(ptr %11) #20
   unreachable
 
 _ZNSt8functionIFvmNSt6chrono8durationIlSt5ratioILl1ELl1000000EEEESt6vectorISt5tupleIJmmmEESaIS7_EEEED2Ev.exit7: ; preds = %lpad, %if.then.i.i4
@@ -3413,13 +3408,13 @@ _ZNKSt14default_deleteIN8facebook3jsi7RuntimeEEclEPS2_.exit.i.i: ; preds = %entr
   %vtable.i.i.i = load ptr, ptr %0, align 8
   %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 8
   %1 = load ptr, ptr %vfn.i.i.i, align 8
-  tail call void %1(ptr noundef nonnull align 8 dereferenceable(8) %0) #20
+  tail call void %1(ptr noundef nonnull align 8 dereferenceable(8) %0) #21
   br label %_ZN8facebook6hermes12_GLOBAL__N_112TimedRuntimeD2Ev.exit
 
 _ZN8facebook6hermes12_GLOBAL__N_112TimedRuntimeD2Ev.exit: ; preds = %entry, %_ZNKSt14default_deleteIN8facebook3jsi7RuntimeEEclEPS2_.exit.i.i
   %2 = getelementptr inbounds i8, ptr %this, i64 -8
   store ptr null, ptr %runtime_.i, align 8
-  tail call void @_ZN8facebook3jsi7RuntimeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #20
+  tail call void @_ZN8facebook3jsi7RuntimeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #21
   ret void
 }
 
@@ -3435,14 +3430,14 @@ _ZNKSt14default_deleteIN8facebook3jsi7RuntimeEEclEPS2_.exit.i.i.i: ; preds = %en
   %vtable.i.i.i.i = load ptr, ptr %0, align 8
   %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 8
   %1 = load ptr, ptr %vfn.i.i.i.i, align 8
-  tail call void %1(ptr noundef nonnull align 8 dereferenceable(8) %0) #20
+  tail call void %1(ptr noundef nonnull align 8 dereferenceable(8) %0) #21
   br label %_ZN8facebook6hermes12_GLOBAL__N_112TimedRuntimeD0Ev.exit
 
 _ZN8facebook6hermes12_GLOBAL__N_112TimedRuntimeD0Ev.exit: ; preds = %entry, %_ZNKSt14default_deleteIN8facebook3jsi7RuntimeEEclEPS2_.exit.i.i.i
   %2 = getelementptr inbounds i8, ptr %this, i64 -8
   store ptr null, ptr %runtime_.i.i, align 8
-  tail call void @_ZN8facebook3jsi7RuntimeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #20
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #21
+  tail call void @_ZN8facebook3jsi7RuntimeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #21
+  tail call void @_ZdlPv(ptr noundef nonnull %2) #22
   ret void
 }
 
@@ -3489,7 +3484,7 @@ entry:
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 72
   %1 = load ptr, ptr %vfn.i, align 8
   %call2.i = tail call noundef nonnull align 8 dereferenceable(8) ptr %1(ptr noundef nonnull align 8 dereferenceable(8) %0)
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i, ptr noundef nonnull align 8 dereferenceable(32) %cause) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i, ptr noundef nonnull align 8 dereferenceable(32) %cause) #21
   %vtable3.i = load ptr, ptr %call2.i, align 8
   %vfn4.i = getelementptr inbounds i8, ptr %vtable3.i, i64 32
   %2 = load ptr, ptr %vfn4.i, align 8
@@ -3499,11 +3494,11 @@ entry:
 lpad.i:                                           ; preds = %entry
   %3 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i) #21
   resume { ptr, i32 } %3
 
 _ZN8facebook3jsi16RuntimeDecoratorINS0_7RuntimeES2_E14collectGarbageENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %entry
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i)
   ret void
 }
@@ -3557,7 +3552,7 @@ terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i
   %6 = landingpad { ptr, i32 }
           catch ptr null
   %7 = extractvalue { ptr, i32 } %6, 0
-  call void @__clang_call_terminate(ptr %7) #19
+  call void @__clang_call_terminate(ptr %7) #20
   unreachable
 
 lpad.i:                                           ; preds = %_ZNSt8functionIFvmNSt6chrono8durationIlSt5ratioILl1ELl1000000EEEESt6vectorISt5tupleIJmmmEESaIS7_EEEEC2EOSB_.exit.i
@@ -3576,7 +3571,7 @@ terminate.lpad.i.i6.i:                            ; preds = %if.then.i.i4.i
   %10 = landingpad { ptr, i32 }
           catch ptr null
   %11 = extractvalue { ptr, i32 } %10, 0
-  call void @__clang_call_terminate(ptr %11) #19
+  call void @__clang_call_terminate(ptr %11) #20
   unreachable
 
 _ZNSt8functionIFvmNSt6chrono8durationIlSt5ratioILl1ELl1000000EEEESt6vectorISt5tupleIJmmmEESaIS7_EEEED2Ev.exit7.i: ; preds = %if.then.i.i4.i, %lpad.i
@@ -3737,7 +3732,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i
   %vtable.i.i.i = load ptr, ptr %0, align 8
   %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 16
   %3 = load ptr, ptr %vfn.i.i.i, align 8
-  tail call void %3(ptr noundef nonnull align 8 dereferenceable(16) %0) #20
+  tail call void %3(ptr noundef nonnull align 8 dereferenceable(16) %0) #21
   br label %if.end8.sink.split.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then.i.i
@@ -3763,7 +3758,7 @@ if.then7.i.i.i:                                   ; preds = %_ZN9__gnu_cxx27__ex
   %vtable.i.i.i.i.i = load ptr, ptr %0, align 8
   %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 16
   %6 = load ptr, ptr %vfn.i.i.i.i.i, align 8
-  tail call void %6(ptr noundef nonnull align 8 dereferenceable(16) %0) #20
+  tail call void %6(ptr noundef nonnull align 8 dereferenceable(16) %0) #21
   %_M_weak_count.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 12
   %7 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i = icmp eq i8 %7, 0
@@ -3788,7 +3783,7 @@ if.end8.sink.split.i.i.i:                         ; preds = %_ZN9__gnu_cxx27__ex
   %vtable2.i.i.i.i.i = load ptr, ptr %0, align 8
   %vfn3.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i, i64 24
   %10 = load ptr, ptr %vfn3.i.i.i.i.i, align 8
-  tail call void %10(ptr noundef nonnull align 8 dereferenceable(16) %0) #20
+  tail call void %10(ptr noundef nonnull align 8 dereferenceable(16) %0) #21
   br label %_ZNSt12__shared_ptrIN8facebook3jsi10HostObjectELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 _ZNSt12__shared_ptrIN8facebook3jsi10HostObjectELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %entry, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %if.end8.sink.split.i.i.i
@@ -3797,8 +3792,8 @@ _ZNSt12__shared_ptrIN8facebook3jsi10HostObjectELN9__gnu_cxx12_Lock_policyE2EED2E
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #9 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #20
-  tail call void @_ZSt9terminatev() #19
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #21
+  tail call void @_ZSt9terminatev() #20
   unreachable
 }
 
@@ -3829,7 +3824,7 @@ if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i
   %vtable.i.i.i.i = load ptr, ptr %0, align 8
   %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 16
   %3 = load ptr, ptr %vfn.i.i.i.i, align 8
-  tail call void %3(ptr noundef nonnull align 8 dereferenceable(16) %0) #20
+  tail call void %3(ptr noundef nonnull align 8 dereferenceable(16) %0) #21
   br label %if.end8.sink.split.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %if.then.i.i.i
@@ -3855,7 +3850,7 @@ if.then7.i.i.i.i:                                 ; preds = %_ZN9__gnu_cxx27__ex
   %vtable.i.i.i.i.i.i = load ptr, ptr %0, align 8
   %vfn.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i, i64 16
   %6 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
-  tail call void %6(ptr noundef nonnull align 8 dereferenceable(16) %0) #20
+  tail call void %6(ptr noundef nonnull align 8 dereferenceable(16) %0) #21
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 12
   %7 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i.i = icmp eq i8 %7, 0
@@ -3880,11 +3875,11 @@ if.end8.sink.split.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__ex
   %vtable2.i.i.i.i.i.i = load ptr, ptr %0, align 8
   %vfn3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i, i64 24
   %10 = load ptr, ptr %vfn3.i.i.i.i.i.i, align 8
-  tail call void %10(ptr noundef nonnull align 8 dereferenceable(16) %0) #20
+  tail call void %10(ptr noundef nonnull align 8 dereferenceable(16) %0) #21
   br label %_ZNSt10shared_ptrIN8facebook3jsi10HostObjectEED2Ev.exit
 
 _ZNSt10shared_ptrIN8facebook3jsi10HostObjectEED2Ev.exit: ; preds = %entry, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i
-  tail call void @_ZN8facebook3jsi10HostObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #20
+  tail call void @_ZN8facebook3jsi10HostObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #21
   ret void
 }
 
@@ -3911,7 +3906,7 @@ if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i
   %vtable.i.i.i.i.i = load ptr, ptr %0, align 8
   %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 16
   %3 = load ptr, ptr %vfn.i.i.i.i.i, align 8
-  tail call void %3(ptr noundef nonnull align 8 dereferenceable(16) %0) #20
+  tail call void %3(ptr noundef nonnull align 8 dereferenceable(16) %0) #21
   br label %if.end8.sink.split.i.i.i.i.i
 
 if.end.i.i.i.i.i:                                 ; preds = %if.then.i.i.i.i
@@ -3937,7 +3932,7 @@ if.then7.i.i.i.i.i:                               ; preds = %_ZN9__gnu_cxx27__ex
   %vtable.i.i.i.i.i.i.i = load ptr, ptr %0, align 8
   %vfn.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i, i64 16
   %6 = load ptr, ptr %vfn.i.i.i.i.i.i.i, align 8
-  tail call void %6(ptr noundef nonnull align 8 dereferenceable(16) %0) #20
+  tail call void %6(ptr noundef nonnull align 8 dereferenceable(16) %0) #21
   %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 12
   %7 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i.i.i = icmp eq i8 %7, 0
@@ -3962,12 +3957,12 @@ if.end8.sink.split.i.i.i.i.i:                     ; preds = %_ZN9__gnu_cxx27__ex
   %vtable2.i.i.i.i.i.i.i = load ptr, ptr %0, align 8
   %vfn3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i, i64 24
   %10 = load ptr, ptr %vfn3.i.i.i.i.i.i.i, align 8
-  tail call void %10(ptr noundef nonnull align 8 dereferenceable(16) %0) #20
+  tail call void %10(ptr noundef nonnull align 8 dereferenceable(16) %0) #21
   br label %_ZN8facebook3jsi19DecoratedHostObjectD2Ev.exit
 
 _ZN8facebook3jsi19DecoratedHostObjectD2Ev.exit:   ; preds = %entry, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i
-  tail call void @_ZN8facebook3jsi10HostObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #20
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #21
+  tail call void @_ZN8facebook3jsi10HostObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #21
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #22
   ret void
 }
 
@@ -4068,7 +4063,7 @@ sw.bb1:                                           ; preds = %entry
 
 sw.bb4:                                           ; preds = %entry
   %1 = load ptr, ptr %__source, align 8
-  %call.i.i = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #18
+  %call.i.i = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #19
   %2 = load ptr, ptr %1, align 8
   store ptr %2, ptr %call.i.i, align 8
   %plainHF_.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
@@ -4108,11 +4103,11 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i
   %8 = landingpad { ptr, i32 }
           catch ptr null
   %9 = extractvalue { ptr, i32 } %8, 0
-  tail call void @__clang_call_terminate(ptr %9) #19
+  tail call void @__clang_call_terminate(ptr %9) #20
   unreachable
 
 lpad.body.i.i:                                    ; preds = %if.then.i.i.i.i.i, %lpad.i.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %call.i.i) #21
+  tail call void @_ZdlPv(ptr noundef nonnull %call.i.i) #22
   resume { ptr, i32 } %6
 
 _ZNSt14_Function_base13_Base_managerIN8facebook3jsi21DecoratedHostFunctionEE15_M_init_functorIRKS3_EEvRSt9_Any_dataOT_.exit: ; preds = %sw.bb4, %invoke.cont.i.i.i.i
@@ -4139,11 +4134,11 @@ terminate.lpad.i.i.i.i:                           ; preds = %if.then.i.i.i.i5
   %12 = landingpad { ptr, i32 }
           catch ptr null
   %13 = extractvalue { ptr, i32 } %12, 0
-  tail call void @__clang_call_terminate(ptr %13) #19
+  tail call void @__clang_call_terminate(ptr %13) #20
   unreachable
 
 _ZN8facebook3jsi21DecoratedHostFunctionD2Ev.exit.i: ; preds = %if.then.i.i.i.i5, %delete.notnull.i
-  tail call void @_ZdlPv(ptr noundef nonnull %10) #21
+  tail call void @_ZdlPv(ptr noundef nonnull %10) #22
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %_ZN8facebook3jsi21DecoratedHostFunctionD2Ev.exit.i, %sw.bb6, %_ZNSt14_Function_base13_Base_managerIN8facebook3jsi21DecoratedHostFunctionEE15_M_init_functorIRKS3_EEvRSt9_Any_dataOT_.exit, %sw.bb1, %sw.bb, %entry
@@ -4155,7 +4150,7 @@ define linkonce_odr void @_ZNK8facebook3jsi6Object11setPropertyIRNS0_8FunctionEE
 entry:
   %ref.tmp.i = alloca %"class.facebook::jsi::Value", align 8
   %ref.tmp = alloca %"class.facebook::jsi::String", align 8
-  %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %name) #22, !noalias !67
+  %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %name) #23, !noalias !67
   %vtable.i.i = load ptr, ptr %runtime, align 8, !noalias !70
   %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 224
   %0 = load ptr, ptr %vfn.i.i, align 8, !noalias !70
@@ -4173,7 +4168,7 @@ entry:
 lpad.i.i.i:                                       ; preds = %entry
   %3 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN8facebook3jsi5ValueD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i) #20
+  call void @_ZN8facebook3jsi5ValueD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i) #21
   br label %lpad.body
 
 _ZN8facebook3jsi6detail7toValueINS0_8FunctionEEENS0_5ValueERNS0_7RuntimeERKT_.exit.i: ; preds = %entry
@@ -4188,11 +4183,11 @@ _ZN8facebook3jsi6detail7toValueINS0_8FunctionEEENS0_5ValueERNS0_7RuntimeERKT_.ex
 lpad.i:                                           ; preds = %_ZN8facebook3jsi6detail7toValueINS0_8FunctionEEENS0_5ValueERNS0_7RuntimeERKT_.exit.i
   %5 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN8facebook3jsi5ValueD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i) #20
+  call void @_ZN8facebook3jsi5ValueD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i) #21
   br label %lpad.body
 
 invoke.cont:                                      ; preds = %_ZN8facebook3jsi6detail7toValueINS0_8FunctionEEENS0_5ValueERNS0_7RuntimeERKT_.exit.i
-  call void @_ZN8facebook3jsi5ValueD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i) #20
+  call void @_ZN8facebook3jsi5ValueD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i)
   %6 = load ptr, ptr %ref.tmp, align 8
   %tobool.not.i.i = icmp eq ptr %6, null
@@ -4208,7 +4203,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   %8 = landingpad { ptr, i32 }
           catch ptr null
   %9 = extractvalue { ptr, i32 } %8, 0
-  call void @__clang_call_terminate(ptr %9) #19
+  call void @__clang_call_terminate(ptr %9) #20
   unreachable
 
 _ZN8facebook3jsi6StringD2Ev.exit:                 ; preds = %invoke.cont, %if.then.i.i
@@ -4230,7 +4225,7 @@ terminate.lpad.i.i8:                              ; preds = %if.then.i.i6
   %12 = landingpad { ptr, i32 }
           catch ptr null
   %13 = extractvalue { ptr, i32 } %12, 0
-  call void @__clang_call_terminate(ptr %13) #19
+  call void @__clang_call_terminate(ptr %13) #20
   unreachable
 
 _ZN8facebook3jsi6StringD2Ev.exit9:                ; preds = %lpad.body, %if.then.i.i6
@@ -4278,7 +4273,7 @@ for.body.i.i.i.i:                                 ; preds = %entry, %_ZN8faceboo
           to label %call.i.i.noexc.i.i.i unwind label %lpad.loopexit.i.i.i, !noalias !86
 
 call.i.i.noexc.i.i.i:                             ; preds = %for.body.i.i.i.i
-  %call2.i.i.i.i.i = call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #20, !noalias !86
+  %call2.i.i.i.i.i = call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #21, !noalias !86
   %wallTimeStart_.i.i.i.i.i = getelementptr inbounds i8, ptr %cursor.05.i.i.i.i, i64 32
   %cpuTimeStart_.i.i.i.i.i = getelementptr inbounds i8, ptr %cursor.05.i.i.i.i, i64 40
   %2 = load <2 x i64>, ptr %wallTimeStart_.i.i.i.i.i, align 8, !noalias !86
@@ -4374,7 +4369,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i9.i.i.i
   %22 = landingpad { ptr, i32 }
           catch ptr null
   %23 = extractvalue { ptr, i32 } %22, 0
-  call void @__clang_call_terminate(ptr %23) #19
+  call void @__clang_call_terminate(ptr %23) #20
   unreachable
 
 _ZN8facebook3jsi6ObjectD2Ev.exit.i.i.i:           ; preds = %if.then.i.i9.i.i.i, %lpad.i.i.i
@@ -4424,7 +4419,7 @@ define linkonce_odr void @_ZNK8facebook3jsi6Object11setPropertyIdEEvRNS0_7Runtim
 entry:
   %ref.tmp.i = alloca %"class.facebook::jsi::Value", align 8
   %ref.tmp = alloca %"class.facebook::jsi::String", align 8
-  %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %name) #22, !noalias !90
+  %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %name) #23, !noalias !90
   %vtable.i.i = load ptr, ptr %runtime, align 8, !noalias !93
   %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 224
   %0 = load ptr, ptr %vfn.i.i, align 8, !noalias !93
@@ -4443,13 +4438,13 @@ entry:
 lpad.i:                                           ; preds = %entry
   %3 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN8facebook3jsi5ValueD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i) #20
+  call void @_ZN8facebook3jsi5ValueD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i) #21
   %4 = load ptr, ptr %ref.tmp, align 8
   %tobool.not.i.i5 = icmp eq ptr %4, null
   br i1 %tobool.not.i.i5, label %_ZN8facebook3jsi6StringD2Ev.exit9, label %if.then.i.i6
 
 invoke.cont:                                      ; preds = %entry
-  call void @_ZN8facebook3jsi5ValueD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i) #20
+  call void @_ZN8facebook3jsi5ValueD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i)
   %5 = load ptr, ptr %ref.tmp, align 8
   %tobool.not.i.i = icmp eq ptr %5, null
@@ -4465,7 +4460,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   %7 = landingpad { ptr, i32 }
           catch ptr null
   %8 = extractvalue { ptr, i32 } %7, 0
-  call void @__clang_call_terminate(ptr %8) #19
+  call void @__clang_call_terminate(ptr %8) #20
   unreachable
 
 _ZN8facebook3jsi6StringD2Ev.exit:                 ; preds = %invoke.cont, %if.then.i.i
@@ -4481,7 +4476,7 @@ terminate.lpad.i.i8:                              ; preds = %if.then.i.i6
   %10 = landingpad { ptr, i32 }
           catch ptr null
   %11 = extractvalue { ptr, i32 } %10, 0
-  call void @__clang_call_terminate(ptr %11) #19
+  call void @__clang_call_terminate(ptr %11) #20
   unreachable
 
 _ZN8facebook3jsi6StringD2Ev.exit9:                ; preds = %lpad.i, %if.then.i.i6
@@ -4527,7 +4522,7 @@ entry:
 lpad.i.i.i:                                       ; preds = %entry
   %7 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN8facebook3jsi5ValueD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i) #20, !noalias !102
+  call void @_ZN8facebook3jsi5ValueD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i) #21, !noalias !102
   br label %lpad.body
 
 _ZN8facebook3jsi6detail7toValueINS0_6ObjectEEENS0_5ValueERNS0_7RuntimeERKT_.exit.i: ; preds = %entry
@@ -4544,16 +4539,16 @@ _ZN8facebook3jsi6detail7toValueINS0_6ObjectEEENS0_5ValueERNS0_7RuntimeERKT_.exit
 lpad.i.i5.i:                                      ; preds = %_ZN8facebook3jsi6detail7toValueINS0_6ObjectEEENS0_5ValueERNS0_7RuntimeERKT_.exit.i
   %9 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN8facebook3jsi5ValueD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i.i) #20
-  call void @_ZN8facebook3jsi5ValueD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i) #20
+  call void @_ZN8facebook3jsi5ValueD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i.i) #21
+  call void @_ZN8facebook3jsi5ValueD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i) #21
   br label %lpad.body
 
 invoke.cont:                                      ; preds = %_ZN8facebook3jsi6detail7toValueINS0_6ObjectEEENS0_5ValueERNS0_7RuntimeERKT_.exit.i
-  call void @_ZN8facebook3jsi5ValueD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i.i) #20
+  call void @_ZN8facebook3jsi5ValueD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i.i) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i.i), !noalias !106
-  call void @_ZN8facebook3jsi5ValueD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i) #20
+  call void @_ZN8facebook3jsi5ValueD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i)
-  call void @_ZN8facebook3jsi5ValueD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.ensured) #20
+  call void @_ZN8facebook3jsi5ValueD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.ensured) #21
   %10 = load ptr, ptr %ref.tmp, align 8
   %tobool.not.i.i.i = icmp eq ptr %10, null
   br i1 %tobool.not.i.i.i, label %_ZN8facebook3jsi8FunctionD2Ev.exit, label %if.then.i.i.i
@@ -4568,7 +4563,7 @@ terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i
   %12 = landingpad { ptr, i32 }
           catch ptr null
   %13 = extractvalue { ptr, i32 } %12, 0
-  call void @__clang_call_terminate(ptr %13) #19
+  call void @__clang_call_terminate(ptr %13) #20
   unreachable
 
 _ZN8facebook3jsi8FunctionD2Ev.exit:               ; preds = %invoke.cont, %if.then.i.i.i
@@ -4590,7 +4585,7 @@ terminate.lpad.i.i.i5:                            ; preds = %if.then.i.i.i3
   %16 = landingpad { ptr, i32 }
           catch ptr null
   %17 = extractvalue { ptr, i32 } %16, 0
-  call void @__clang_call_terminate(ptr %17) #19
+  call void @__clang_call_terminate(ptr %17) #20
   unreachable
 
 _ZN8facebook3jsi8FunctionD2Ev.exit6:              ; preds = %lpad.body, %if.then.i.i.i3
@@ -4604,7 +4599,7 @@ define linkonce_odr void @_ZNK8facebook3jsi6Object11setPropertyIRS1_EEvRNS0_7Run
 entry:
   %ref.tmp.i = alloca %"class.facebook::jsi::Value", align 8
   %ref.tmp = alloca %"class.facebook::jsi::String", align 8
-  %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %name) #22, !noalias !115
+  %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %name) #23, !noalias !115
   %vtable.i.i = load ptr, ptr %runtime, align 8, !noalias !118
   %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 224
   %0 = load ptr, ptr %vfn.i.i, align 8, !noalias !118
@@ -4622,7 +4617,7 @@ entry:
 lpad.i.i.i:                                       ; preds = %entry
   %3 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN8facebook3jsi5ValueD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i) #20
+  call void @_ZN8facebook3jsi5ValueD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i) #21
   br label %lpad.body
 
 _ZN8facebook3jsi6detail7toValueINS0_6ObjectEEENS0_5ValueERNS0_7RuntimeERKT_.exit.i: ; preds = %entry
@@ -4637,11 +4632,11 @@ _ZN8facebook3jsi6detail7toValueINS0_6ObjectEEENS0_5ValueERNS0_7RuntimeERKT_.exit
 lpad.i:                                           ; preds = %_ZN8facebook3jsi6detail7toValueINS0_6ObjectEEENS0_5ValueERNS0_7RuntimeERKT_.exit.i
   %5 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN8facebook3jsi5ValueD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i) #20
+  call void @_ZN8facebook3jsi5ValueD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i) #21
   br label %lpad.body
 
 invoke.cont:                                      ; preds = %_ZN8facebook3jsi6detail7toValueINS0_6ObjectEEENS0_5ValueERNS0_7RuntimeERKT_.exit.i
-  call void @_ZN8facebook3jsi5ValueD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i) #20
+  call void @_ZN8facebook3jsi5ValueD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i)
   %6 = load ptr, ptr %ref.tmp, align 8
   %tobool.not.i.i = icmp eq ptr %6, null
@@ -4657,7 +4652,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   %8 = landingpad { ptr, i32 }
           catch ptr null
   %9 = extractvalue { ptr, i32 } %8, 0
-  call void @__clang_call_terminate(ptr %9) #19
+  call void @__clang_call_terminate(ptr %9) #20
   unreachable
 
 _ZN8facebook3jsi6StringD2Ev.exit:                 ; preds = %invoke.cont, %if.then.i.i
@@ -4679,7 +4674,7 @@ terminate.lpad.i.i8:                              ; preds = %if.then.i.i6
   %12 = landingpad { ptr, i32 }
           catch ptr null
   %13 = extractvalue { ptr, i32 } %12, 0
-  call void @__clang_call_terminate(ptr %13) #19
+  call void @__clang_call_terminate(ptr %13) #20
   unreachable
 
 _ZN8facebook3jsi6StringD2Ev.exit9:                ; preds = %lpad.body, %if.then.i.i6
@@ -4691,7 +4686,7 @@ define linkonce_odr void @_ZNK8facebook3jsi6Object11setPropertyIbEEvRNS0_7Runtim
 entry:
   %ref.tmp.i = alloca %"class.facebook::jsi::Value", align 8
   %ref.tmp = alloca %"class.facebook::jsi::String", align 8
-  %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %name) #22, !noalias !124
+  %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %name) #23, !noalias !124
   %vtable.i.i = load ptr, ptr %runtime, align 8, !noalias !127
   %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 224
   %0 = load ptr, ptr %vfn.i.i, align 8, !noalias !127
@@ -4711,13 +4706,13 @@ entry:
 lpad.i:                                           ; preds = %entry
   %4 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN8facebook3jsi5ValueD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i) #20
+  call void @_ZN8facebook3jsi5ValueD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i) #21
   %5 = load ptr, ptr %ref.tmp, align 8
   %tobool.not.i.i5 = icmp eq ptr %5, null
   br i1 %tobool.not.i.i5, label %_ZN8facebook3jsi6StringD2Ev.exit9, label %if.then.i.i6
 
 invoke.cont:                                      ; preds = %entry
-  call void @_ZN8facebook3jsi5ValueD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i) #20
+  call void @_ZN8facebook3jsi5ValueD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i)
   %6 = load ptr, ptr %ref.tmp, align 8
   %tobool.not.i.i = icmp eq ptr %6, null
@@ -4733,7 +4728,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   %8 = landingpad { ptr, i32 }
           catch ptr null
   %9 = extractvalue { ptr, i32 } %8, 0
-  call void @__clang_call_terminate(ptr %9) #19
+  call void @__clang_call_terminate(ptr %9) #20
   unreachable
 
 _ZN8facebook3jsi6StringD2Ev.exit:                 ; preds = %invoke.cont, %if.then.i.i
@@ -4749,7 +4744,7 @@ terminate.lpad.i.i8:                              ; preds = %if.then.i.i6
   %11 = landingpad { ptr, i32 }
           catch ptr null
   %12 = extractvalue { ptr, i32 } %11, 0
-  call void @__clang_call_terminate(ptr %12) #19
+  call void @__clang_call_terminate(ptr %12) #20
   unreachable
 
 _ZN8facebook3jsi6StringD2Ev.exit9:                ; preds = %lpad.i, %if.then.i.i6
@@ -4774,7 +4769,7 @@ entry:
 lpad.body.thread:                                 ; preds = %entry
   %2 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN8facebook3jsi5ValueD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp) #20
+  call void @_ZN8facebook3jsi5ValueD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp) #21
   br label %eh.resume
 
 invoke.cont:                                      ; preds = %entry
@@ -4784,7 +4779,7 @@ invoke.cont:                                      ; preds = %entry
   %3 = load ptr, ptr %args1, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !136)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
-  %call.i.i5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #22, !noalias !139
+  %call.i.i5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #23, !noalias !139
   %vtable.i.i.i = load ptr, ptr %runtime, align 8, !noalias !142
   %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 224
   %4 = load ptr, ptr %vfn.i.i.i, align 8, !noalias !142
@@ -4810,7 +4805,7 @@ invoke.cont6:                                     ; preds = %invoke.cont
 lpad.i.i10:                                       ; preds = %invoke.cont6
   %8 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN8facebook3jsi5ValueD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %arrayinit.element7) #20
+  call void @_ZN8facebook3jsi5ValueD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %arrayinit.element7) #21
   br label %lpad.body
 
 invoke.cont8:                                     ; preds = %invoke.cont6
@@ -4827,12 +4822,12 @@ invoke.cont8:                                     ; preds = %invoke.cont6
 lpad.i.i18:                                       ; preds = %invoke.cont8
   %10 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN8facebook3jsi5ValueD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i) #20
+  call void @_ZN8facebook3jsi5ValueD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i) #21
   %11 = getelementptr inbounds i8, ptr %ref.tmp, i64 48
   br label %arraydestroy.body18
 
 invoke.cont11:                                    ; preds = %invoke.cont8
-  call void @_ZN8facebook3jsi5ValueD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i) #20
+  call void @_ZN8facebook3jsi5ValueD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i), !noalias !148
   %12 = getelementptr inbounds i8, ptr %ref.tmp, i64 48
   br label %arraydestroy.body12
@@ -4840,7 +4835,7 @@ invoke.cont11:                                    ; preds = %invoke.cont8
 arraydestroy.body12:                              ; preds = %arraydestroy.body12, %invoke.cont11
   %arraydestroy.elementPast13 = phi ptr [ %12, %invoke.cont11 ], [ %arraydestroy.element14, %arraydestroy.body12 ]
   %arraydestroy.element14 = getelementptr inbounds i8, ptr %arraydestroy.elementPast13, i64 -16
-  call void @_ZN8facebook3jsi5ValueD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %arraydestroy.element14) #20
+  call void @_ZN8facebook3jsi5ValueD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %arraydestroy.element14) #21
   %arraydestroy.done15 = icmp eq ptr %arraydestroy.element14, %ref.tmp
   br i1 %arraydestroy.done15, label %arraydestroy.done16, label %arraydestroy.body12
 
@@ -4860,14 +4855,14 @@ lpad.body:                                        ; preds = %lpad, %lpad.i.i10
 arraydestroy.body:                                ; preds = %lpad.body, %arraydestroy.body
   %arraydestroy.elementPast = phi ptr [ %arrayinit.endOfInit.0.lpad-body, %lpad.body ], [ %arraydestroy.element, %arraydestroy.body ]
   %arraydestroy.element = getelementptr inbounds i8, ptr %arraydestroy.elementPast, i64 -16
-  call void @_ZN8facebook3jsi5ValueD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %arraydestroy.element) #20
+  call void @_ZN8facebook3jsi5ValueD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %arraydestroy.element) #21
   %arraydestroy.done = icmp eq ptr %arraydestroy.element, %ref.tmp
   br i1 %arraydestroy.done, label %eh.resume, label %arraydestroy.body
 
 arraydestroy.body18:                              ; preds = %arraydestroy.body18, %lpad.i.i18
   %arraydestroy.elementPast19 = phi ptr [ %11, %lpad.i.i18 ], [ %arraydestroy.element20, %arraydestroy.body18 ]
   %arraydestroy.element20 = getelementptr inbounds i8, ptr %arraydestroy.elementPast19, i64 -16
-  call void @_ZN8facebook3jsi5ValueD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %arraydestroy.element20) #20
+  call void @_ZN8facebook3jsi5ValueD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %arraydestroy.element20) #21
   %arraydestroy.done21 = icmp eq ptr %arraydestroy.element20, %ref.tmp
   br i1 %arraydestroy.done21, label %eh.resume, label %arraydestroy.body18
 
@@ -4886,7 +4881,7 @@ entry:
           to label %call.i.noexc unwind label %terminate.lpad
 
 call.i.noexc:                                     ; preds = %entry
-  %call2.i = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #20
+  %call2.i = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #21
   %wallTimeStart_.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load <2 x i64>, ptr %wallTimeStart_.i, align 8
   %1 = insertelement <2 x i64> poison, i64 %call2.i, i64 0
@@ -4929,7 +4924,7 @@ terminate.lpad:                                   ; preds = %entry
   %15 = landingpad { ptr, i32 }
           catch ptr null
   %16 = extractvalue { ptr, i32 } %15, 0
-  tail call void @__clang_call_terminate(ptr %16) #19
+  tail call void @__clang_call_terminate(ptr %16) #20
   unreachable
 }
 
@@ -4994,7 +4989,7 @@ if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i3
   %vtable.i.i.i.i = load ptr, ptr %6, align 8
   %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 16
   %9 = load ptr, ptr %vfn.i.i.i.i, align 8
-  call void %9(ptr noundef nonnull align 8 dereferenceable(16) %6) #20
+  call void %9(ptr noundef nonnull align 8 dereferenceable(16) %6) #21
   br label %if.end8.sink.split.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %if.then.i.i.i3
@@ -5020,7 +5015,7 @@ if.then7.i.i.i.i:                                 ; preds = %_ZN9__gnu_cxx27__ex
   %vtable.i.i.i.i.i.i = load ptr, ptr %6, align 8
   %vfn.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i, i64 16
   %12 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
-  call void %12(ptr noundef nonnull align 8 dereferenceable(16) %6) #20
+  call void %12(ptr noundef nonnull align 8 dereferenceable(16) %6) #21
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 12
   %13 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i.i = icmp eq i8 %13, 0
@@ -5045,7 +5040,7 @@ if.end8.sink.split.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__ex
   %vtable2.i.i.i.i.i.i = load ptr, ptr %6, align 8
   %vfn3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i, i64 24
   %16 = load ptr, ptr %vfn3.i.i.i.i.i.i, align 8
-  call void %16(ptr noundef nonnull align 8 dereferenceable(16) %6) #20
+  call void %16(ptr noundef nonnull align 8 dereferenceable(16) %6) #21
   br label %_ZNSt10shared_ptrIN8facebook3jsi10HostObjectEED2Ev.exit
 
 _ZNSt10shared_ptrIN8facebook3jsi10HostObjectEED2Ev.exit: ; preds = %invoke.cont, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i
@@ -5054,7 +5049,7 @@ _ZNSt10shared_ptrIN8facebook3jsi10HostObjectEED2Ev.exit: ; preds = %invoke.cont,
 lpad:                                             ; preds = %_ZNSt10shared_ptrIN8facebook3jsi10HostObjectEEC2ERKS3_.exit
   %17 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt10shared_ptrIN8facebook3jsi10HostObjectEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp) #20
+  call void @_ZNSt10shared_ptrIN8facebook3jsi10HostObjectEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp) #21
   resume { ptr, i32 } %17
 }
 
@@ -5078,7 +5073,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i
   %vtable.i.i.i = load ptr, ptr %this.8.val, align 8
   %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 16
   %2 = load ptr, ptr %vfn.i.i.i, align 8
-  tail call void %2(ptr noundef nonnull align 8 dereferenceable(16) %this.8.val) #20
+  tail call void %2(ptr noundef nonnull align 8 dereferenceable(16) %this.8.val) #21
   br label %if.end8.sink.split.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then.i.i
@@ -5104,7 +5099,7 @@ if.then7.i.i.i:                                   ; preds = %_ZN9__gnu_cxx27__ex
   %vtable.i.i.i.i.i = load ptr, ptr %this.8.val, align 8
   %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 16
   %5 = load ptr, ptr %vfn.i.i.i.i.i, align 8
-  tail call void %5(ptr noundef nonnull align 8 dereferenceable(16) %this.8.val) #20
+  tail call void %5(ptr noundef nonnull align 8 dereferenceable(16) %this.8.val) #21
   %_M_weak_count.i.i.i.i.i = getelementptr inbounds i8, ptr %this.8.val, i64 12
   %6 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i = icmp eq i8 %6, 0
@@ -5129,7 +5124,7 @@ if.end8.sink.split.i.i.i:                         ; preds = %_ZN9__gnu_cxx27__ex
   %vtable2.i.i.i.i.i = load ptr, ptr %this.8.val, align 8
   %vfn3.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i, i64 24
   %9 = load ptr, ptr %vfn3.i.i.i.i.i, align 8
-  tail call void %9(ptr noundef nonnull align 8 dereferenceable(16) %this.8.val) #20
+  tail call void %9(ptr noundef nonnull align 8 dereferenceable(16) %this.8.val) #21
   br label %_ZNSt12__shared_ptrIN8facebook6hermes12_GLOBAL__N_115TimedHostObjectELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 _ZNSt12__shared_ptrIN8facebook6hermes12_GLOBAL__N_115TimedHostObjectELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %entry, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %if.end8.sink.split.i.i.i
@@ -5145,7 +5140,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN8facebook6hermes12_GLOBAL__N_115TimedHostObjectESaIvELN9__gnu_cxx12_Lock_policyE2EED0Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #5 align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #21
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #22
   ret void
 }
 
@@ -5173,7 +5168,7 @@ if.then.i.i.i.i.i.i.i.i:                          ; preds = %if.then.i.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i.i = load ptr, ptr %0, align 8
   %vfn.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i, i64 16
   %3 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i, align 8
-  tail call void %3(ptr noundef nonnull align 8 dereferenceable(16) %0) #20
+  tail call void %3(ptr noundef nonnull align 8 dereferenceable(16) %0) #21
   br label %if.end8.sink.split.i.i.i.i.i.i.i.i
 
 if.end.i.i.i.i.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i.i.i
@@ -5199,7 +5194,7 @@ if.then7.i.i.i.i.i.i.i.i:                         ; preds = %_ZN9__gnu_cxx27__ex
   %vtable.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %0, align 8
   %vfn.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i.i.i, i64 16
   %6 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i.i.i, align 8
-  tail call void %6(ptr noundef nonnull align 8 dereferenceable(16) %0) #20
+  tail call void %6(ptr noundef nonnull align 8 dereferenceable(16) %0) #21
   %_M_weak_count.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 12
   %7 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %7, 0
@@ -5224,18 +5219,18 @@ if.end8.sink.split.i.i.i.i.i.i.i.i:               ; preds = %_ZN9__gnu_cxx27__ex
   %vtable2.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %0, align 8
   %vfn3.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i.i.i.i, i64 24
   %10 = load ptr, ptr %vfn3.i.i.i.i.i.i.i.i.i.i, align 8
-  tail call void %10(ptr noundef nonnull align 8 dereferenceable(16) %0) #20
+  tail call void %10(ptr noundef nonnull align 8 dereferenceable(16) %0) #21
   br label %_ZNSt16allocator_traitsISaIvEE7destroyIN8facebook6hermes12_GLOBAL__N_115TimedHostObjectEEEvRS0_PT_.exit
 
 _ZNSt16allocator_traitsISaIvEE7destroyIN8facebook6hermes12_GLOBAL__N_115TimedHostObjectEEEvRS0_PT_.exit: ; preds = %entry, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i.i.i.i
-  tail call void @_ZN8facebook3jsi10HostObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %_M_impl.i) #20
+  tail call void @_ZN8facebook3jsi10HostObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %_M_impl.i) #21
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN8facebook6hermes12_GLOBAL__N_115TimedHostObjectESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook6hermes12_GLOBAL__N_115TimedHostObjectESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #21
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #22
   ret void
 }
 
@@ -5258,7 +5253,7 @@ if.end.i:                                         ; preds = %lor.lhs.false
   br i1 %cmp4.not.i, label %return, label %_ZNKSt9type_infoeqERKS_.exit
 
 _ZNKSt9type_infoeqERKS_.exit:                     ; preds = %if.end.i
-  %call6.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(24) @_ZTSSt19_Sp_make_shared_tag) #20
+  %call6.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(24) @_ZTSSt19_Sp_make_shared_tag) #21
   %call6.i.fr = freeze i32 %call6.i
   %cmp7.i = icmp eq i32 %call6.i.fr, 0
   br i1 %cmp7.i, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %return
@@ -5294,7 +5289,7 @@ if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i
   %vtable.i.i.i.i.i = load ptr, ptr %0, align 8
   %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 16
   %3 = load ptr, ptr %vfn.i.i.i.i.i, align 8
-  tail call void %3(ptr noundef nonnull align 8 dereferenceable(16) %0) #20
+  tail call void %3(ptr noundef nonnull align 8 dereferenceable(16) %0) #21
   br label %if.end8.sink.split.i.i.i.i.i
 
 if.end.i.i.i.i.i:                                 ; preds = %if.then.i.i.i.i
@@ -5320,7 +5315,7 @@ if.then7.i.i.i.i.i:                               ; preds = %_ZN9__gnu_cxx27__ex
   %vtable.i.i.i.i.i.i.i = load ptr, ptr %0, align 8
   %vfn.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i, i64 16
   %6 = load ptr, ptr %vfn.i.i.i.i.i.i.i, align 8
-  tail call void %6(ptr noundef nonnull align 8 dereferenceable(16) %0) #20
+  tail call void %6(ptr noundef nonnull align 8 dereferenceable(16) %0) #21
   %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 12
   %7 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i.i.i = icmp eq i8 %7, 0
@@ -5345,11 +5340,11 @@ if.end8.sink.split.i.i.i.i.i:                     ; preds = %_ZN9__gnu_cxx27__ex
   %vtable2.i.i.i.i.i.i.i = load ptr, ptr %0, align 8
   %vfn3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i, i64 24
   %10 = load ptr, ptr %vfn3.i.i.i.i.i.i.i, align 8
-  tail call void %10(ptr noundef nonnull align 8 dereferenceable(16) %0) #20
+  tail call void %10(ptr noundef nonnull align 8 dereferenceable(16) %0) #21
   br label %_ZN8facebook3jsi19DecoratedHostObjectD2Ev.exit
 
 _ZN8facebook3jsi19DecoratedHostObjectD2Ev.exit:   ; preds = %entry, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i
-  tail call void @_ZN8facebook3jsi10HostObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #20
+  tail call void @_ZN8facebook3jsi10HostObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #21
   ret void
 }
 
@@ -5376,7 +5371,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %if.then.i.i.i.i.i
   %vtable.i.i.i.i.i.i = load ptr, ptr %0, align 8
   %vfn.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i, i64 16
   %3 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
-  tail call void %3(ptr noundef nonnull align 8 dereferenceable(16) %0) #20
+  tail call void %3(ptr noundef nonnull align 8 dereferenceable(16) %0) #21
   br label %if.end8.sink.split.i.i.i.i.i.i
 
 if.end.i.i.i.i.i.i:                               ; preds = %if.then.i.i.i.i.i
@@ -5402,7 +5397,7 @@ if.then7.i.i.i.i.i.i:                             ; preds = %_ZN9__gnu_cxx27__ex
   %vtable.i.i.i.i.i.i.i.i = load ptr, ptr %0, align 8
   %vfn.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i, i64 16
   %6 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i, align 8
-  tail call void %6(ptr noundef nonnull align 8 dereferenceable(16) %0) #20
+  tail call void %6(ptr noundef nonnull align 8 dereferenceable(16) %0) #21
   %_M_weak_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 12
   %7 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i.i.i.i = icmp eq i8 %7, 0
@@ -5427,12 +5422,12 @@ if.end8.sink.split.i.i.i.i.i.i:                   ; preds = %_ZN9__gnu_cxx27__ex
   %vtable2.i.i.i.i.i.i.i.i = load ptr, ptr %0, align 8
   %vfn3.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i.i, i64 24
   %10 = load ptr, ptr %vfn3.i.i.i.i.i.i.i.i, align 8
-  tail call void %10(ptr noundef nonnull align 8 dereferenceable(16) %0) #20
+  tail call void %10(ptr noundef nonnull align 8 dereferenceable(16) %0) #21
   br label %_ZN8facebook6hermes12_GLOBAL__N_115TimedHostObjectD2Ev.exit
 
 _ZN8facebook6hermes12_GLOBAL__N_115TimedHostObjectD2Ev.exit: ; preds = %entry, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i.i
-  tail call void @_ZN8facebook3jsi10HostObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #20
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #21
+  tail call void @_ZN8facebook3jsi10HostObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #21
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #22
   ret void
 }
 
@@ -5452,7 +5447,7 @@ entry:
   %1 = load ptr, ptr %timerStack_.i.i, align 8, !noalias !157
   store ptr %1, ptr %parent_.i.i, align 8, !alias.scope !157
   %wallTimeStart_.i.i = getelementptr inbounds i8, ptr %timer, i64 32
-  %call.i.i = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #20, !noalias !157
+  %call.i.i = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #21, !noalias !157
   store i64 %call.i.i, ptr %wallTimeStart_.i.i, align 8, !alias.scope !157
   %cpuTimeStart_.i.i = getelementptr inbounds i8, ptr %timer, i64 40
   %call3.i.i = tail call i64 @_ZN6hermes8oscompat15thread_cpu_timeEv(), !noalias !157
@@ -5488,7 +5483,7 @@ invoke.cont:                                      ; preds = %_ZN8facebook6hermes
           to label %call.i.noexc.i unwind label %terminate.lpad.i
 
 call.i.noexc.i:                                   ; preds = %invoke.cont
-  %call2.i.i = call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #20
+  %call2.i.i = call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #21
   %7 = load <2 x i64>, ptr %wallTimeStart_.i.i, align 8
   %8 = insertelement <2 x i64> poison, i64 %call2.i.i, i64 0
   %9 = insertelement <2 x i64> %8, i64 %call.i1.i, i64 1
@@ -5515,7 +5510,7 @@ terminate.lpad.i:                                 ; preds = %invoke.cont
   %19 = landingpad { ptr, i32 }
           catch ptr null
   %20 = extractvalue { ptr, i32 } %19, 0
-  call void @__clang_call_terminate(ptr %20) #19
+  call void @__clang_call_terminate(ptr %20) #20
   unreachable
 
 _ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats9RAIITimerD2Ev.exit: ; preds = %call.i.noexc.i, %if.then.i.i6
@@ -5526,7 +5521,7 @@ _ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats9RAIITimerD2Ev.exit: ; preds = %c
 lpad:                                             ; preds = %_ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats13outgoingTimerEPKc.exit
   %21 = landingpad { ptr, i32 }
           cleanup
-  call fastcc void @_ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats9RAIITimerD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %timer) #20
+  call fastcc void @_ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats9RAIITimerD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %timer) #21
   resume { ptr, i32 } %21
 }
 
@@ -5546,7 +5541,7 @@ entry:
   %1 = load ptr, ptr %timerStack_.i.i, align 8, !noalias !163
   store ptr %1, ptr %parent_.i.i, align 8, !alias.scope !163
   %wallTimeStart_.i.i = getelementptr inbounds i8, ptr %timer, i64 32
-  %call.i.i = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #20, !noalias !163
+  %call.i.i = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #21, !noalias !163
   store i64 %call.i.i, ptr %wallTimeStart_.i.i, align 8, !alias.scope !163
   %cpuTimeStart_.i.i = getelementptr inbounds i8, ptr %timer, i64 40
   %call3.i.i = tail call i64 @_ZN6hermes8oscompat15thread_cpu_timeEv(), !noalias !163
@@ -5582,7 +5577,7 @@ invoke.cont:                                      ; preds = %_ZN8facebook6hermes
           to label %call.i.noexc.i unwind label %terminate.lpad.i
 
 call.i.noexc.i:                                   ; preds = %invoke.cont
-  %call2.i.i = call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #20
+  %call2.i.i = call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #21
   %7 = load <2 x i64>, ptr %wallTimeStart_.i.i, align 8
   %8 = insertelement <2 x i64> poison, i64 %call2.i.i, i64 0
   %9 = insertelement <2 x i64> %8, i64 %call.i1.i, i64 1
@@ -5609,7 +5604,7 @@ terminate.lpad.i:                                 ; preds = %invoke.cont
   %19 = landingpad { ptr, i32 }
           catch ptr null
   %20 = extractvalue { ptr, i32 } %19, 0
-  call void @__clang_call_terminate(ptr %20) #19
+  call void @__clang_call_terminate(ptr %20) #20
   unreachable
 
 _ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats9RAIITimerD2Ev.exit: ; preds = %call.i.noexc.i, %if.then.i.i6
@@ -5620,7 +5615,7 @@ _ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats9RAIITimerD2Ev.exit: ; preds = %c
 lpad:                                             ; preds = %_ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats13outgoingTimerEPKc.exit
   %21 = landingpad { ptr, i32 }
           cleanup
-  call fastcc void @_ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats9RAIITimerD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %timer) #20
+  call fastcc void @_ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats9RAIITimerD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %timer) #21
   resume { ptr, i32 } %21
 }
 
@@ -5640,7 +5635,7 @@ entry:
   %1 = load ptr, ptr %timerStack_.i.i, align 8, !noalias !166
   store ptr %1, ptr %parent_.i.i, align 8, !alias.scope !166
   %wallTimeStart_.i.i = getelementptr inbounds i8, ptr %timer, i64 32
-  %call.i.i = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #20, !noalias !166
+  %call.i.i = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #21, !noalias !166
   store i64 %call.i.i, ptr %wallTimeStart_.i.i, align 8, !alias.scope !166
   %cpuTimeStart_.i.i = getelementptr inbounds i8, ptr %timer, i64 40
   %call3.i.i = tail call i64 @_ZN6hermes8oscompat15thread_cpu_timeEv(), !noalias !166
@@ -5676,7 +5671,7 @@ invoke.cont:                                      ; preds = %_ZN8facebook6hermes
           to label %call.i.noexc.i unwind label %terminate.lpad.i
 
 call.i.noexc.i:                                   ; preds = %invoke.cont
-  %call2.i.i = call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #20
+  %call2.i.i = call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #21
   %7 = load <2 x i64>, ptr %wallTimeStart_.i.i, align 8
   %8 = insertelement <2 x i64> poison, i64 %call2.i.i, i64 0
   %9 = insertelement <2 x i64> %8, i64 %call.i1.i, i64 1
@@ -5703,7 +5698,7 @@ terminate.lpad.i:                                 ; preds = %invoke.cont
   %19 = landingpad { ptr, i32 }
           catch ptr null
   %20 = extractvalue { ptr, i32 } %19, 0
-  call void @__clang_call_terminate(ptr %20) #19
+  call void @__clang_call_terminate(ptr %20) #20
   unreachable
 
 _ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats9RAIITimerD2Ev.exit: ; preds = %call.i.noexc.i, %if.then.i.i6
@@ -5714,7 +5709,7 @@ _ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats9RAIITimerD2Ev.exit: ; preds = %c
 lpad:                                             ; preds = %_ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats13outgoingTimerEPKc.exit
   %21 = landingpad { ptr, i32 }
           cleanup
-  call fastcc void @_ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats9RAIITimerD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %timer) #20
+  call fastcc void @_ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats9RAIITimerD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %timer) #21
   resume { ptr, i32 } %21
 }
 
@@ -5740,7 +5735,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i
   %vtable.i.i.i = load ptr, ptr %0, align 8
   %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 16
   %3 = load ptr, ptr %vfn.i.i.i, align 8
-  tail call void %3(ptr noundef nonnull align 8 dereferenceable(16) %0) #20
+  tail call void %3(ptr noundef nonnull align 8 dereferenceable(16) %0) #21
   br label %if.end8.sink.split.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then.i.i
@@ -5766,7 +5761,7 @@ if.then7.i.i.i:                                   ; preds = %_ZN9__gnu_cxx27__ex
   %vtable.i.i.i.i.i = load ptr, ptr %0, align 8
   %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 16
   %6 = load ptr, ptr %vfn.i.i.i.i.i, align 8
-  tail call void %6(ptr noundef nonnull align 8 dereferenceable(16) %0) #20
+  tail call void %6(ptr noundef nonnull align 8 dereferenceable(16) %0) #21
   %_M_weak_count.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 12
   %7 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i = icmp eq i8 %7, 0
@@ -5791,7 +5786,7 @@ if.end8.sink.split.i.i.i:                         ; preds = %_ZN9__gnu_cxx27__ex
   %vtable2.i.i.i.i.i = load ptr, ptr %0, align 8
   %vfn3.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i, i64 24
   %10 = load ptr, ptr %vfn3.i.i.i.i.i, align 8
-  tail call void %10(ptr noundef nonnull align 8 dereferenceable(16) %0) #20
+  tail call void %10(ptr noundef nonnull align 8 dereferenceable(16) %0) #21
   br label %_ZNSt12__shared_ptrIN8facebook3jsi11NativeStateELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 _ZNSt12__shared_ptrIN8facebook3jsi11NativeStateELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %entry, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %if.end8.sink.split.i.i.i
@@ -5820,7 +5815,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i
   %vtable.i.i.i = load ptr, ptr %0, align 8
   %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 16
   %3 = load ptr, ptr %vfn.i.i.i, align 8
-  tail call void %3(ptr noundef nonnull align 8 dereferenceable(16) %0) #20
+  tail call void %3(ptr noundef nonnull align 8 dereferenceable(16) %0) #21
   br label %if.end8.sink.split.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then.i.i
@@ -5846,7 +5841,7 @@ if.then7.i.i.i:                                   ; preds = %_ZN9__gnu_cxx27__ex
   %vtable.i.i.i.i.i = load ptr, ptr %0, align 8
   %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 16
   %6 = load ptr, ptr %vfn.i.i.i.i.i, align 8
-  tail call void %6(ptr noundef nonnull align 8 dereferenceable(16) %0) #20
+  tail call void %6(ptr noundef nonnull align 8 dereferenceable(16) %0) #21
   %_M_weak_count.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 12
   %7 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i = icmp eq i8 %7, 0
@@ -5871,7 +5866,7 @@ if.end8.sink.split.i.i.i:                         ; preds = %_ZN9__gnu_cxx27__ex
   %vtable2.i.i.i.i.i = load ptr, ptr %0, align 8
   %vfn3.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i, i64 24
   %10 = load ptr, ptr %vfn3.i.i.i.i.i, align 8
-  tail call void %10(ptr noundef nonnull align 8 dereferenceable(16) %0) #20
+  tail call void %10(ptr noundef nonnull align 8 dereferenceable(16) %0) #21
   br label %_ZNSt12__shared_ptrIN8facebook3jsi13MutableBufferELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 _ZNSt12__shared_ptrIN8facebook3jsi13MutableBufferELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %entry, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %if.end8.sink.split.i.i.i
@@ -5900,7 +5895,7 @@ entry:
   %1 = load ptr, ptr %timerStack_.i.i.i.i.i, align 8, !noalias !183
   store ptr %1, ptr %parent_.i.i.i.i.i, align 8, !alias.scope !180, !noalias !177
   %wallTimeStart_.i.i.i.i.i = getelementptr inbounds i8, ptr %timer.i.i.i, i64 32
-  %call.i.i.i.i.i = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #20, !noalias !183
+  %call.i.i.i.i.i = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #21, !noalias !183
   store i64 %call.i.i.i.i.i, ptr %wallTimeStart_.i.i.i.i.i, align 8, !alias.scope !180, !noalias !177
   %cpuTimeStart_.i.i.i.i.i = getelementptr inbounds i8, ptr %timer.i.i.i, i64 40
   %call3.i.i.i.i.i = tail call i64 @_ZN6hermes8oscompat15thread_cpu_timeEv(), !noalias !183
@@ -5932,7 +5927,7 @@ _ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats13outgoingTimerEPKc.exit.i.i.i: ;
   br i1 %tobool.not.i.i.i.i.i.i, label %if.then.i.i1.i.i.i, label %_ZNKSt8functionIFN8facebook3jsi5ValueERNS1_7RuntimeERKS2_PS5_mEEclES4_S6_S7_m.exit.i.i.i.i
 
 if.then.i.i1.i.i.i:                               ; preds = %_ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats13outgoingTimerEPKc.exit.i.i.i
-  invoke void @_ZSt25__throw_bad_function_callv() #23
+  invoke void @_ZSt25__throw_bad_function_callv() #24
           to label %.noexc.i.i.i unwind label %lpad.i.i.i, !noalias !177
 
 .noexc.i.i.i:                                     ; preds = %if.then.i.i1.i.i.i
@@ -5952,7 +5947,7 @@ invoke.cont.i.i.i:                                ; preds = %_ZNKSt8functionIFN8
           to label %call.i.noexc.i.i.i.i unwind label %terminate.lpad.i.i.i.i
 
 call.i.noexc.i.i.i.i:                             ; preds = %invoke.cont.i.i.i
-  %call2.i.i.i.i.i = call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #20
+  %call2.i.i.i.i.i = call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #21
   %7 = load <2 x i64>, ptr %wallTimeStart_.i.i.i.i.i, align 8, !noalias !177
   %8 = insertelement <2 x i64> poison, i64 %call2.i.i.i.i.i, i64 0
   %9 = insertelement <2 x i64> %8, i64 %call.i1.i.i.i.i, i64 1
@@ -5979,13 +5974,13 @@ terminate.lpad.i.i.i.i:                           ; preds = %invoke.cont.i.i.i
   %19 = landingpad { ptr, i32 }
           catch ptr null
   %20 = extractvalue { ptr, i32 } %19, 0
-  call void @__clang_call_terminate(ptr %20) #19
+  call void @__clang_call_terminate(ptr %20) #20
   unreachable
 
 lpad.i.i.i:                                       ; preds = %_ZNKSt8functionIFN8facebook3jsi5ValueERNS1_7RuntimeERKS2_PS5_mEEclES4_S6_S7_m.exit.i.i.i.i, %if.then.i.i1.i.i.i
   %21 = landingpad { ptr, i32 }
           cleanup
-  call fastcc void @_ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats9RAIITimerD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %timer.i.i.i) #20
+  call fastcc void @_ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats9RAIITimerD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %timer.i.i.i) #21
   resume { ptr, i32 } %21
 
 _ZSt10__invoke_rIN8facebook3jsi5ValueERNS0_6hermes12_GLOBAL__N_117TimedHostFunctionEJRNS1_7RuntimeERKS2_PS9_mEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_.exit: ; preds = %call.i.noexc.i.i.i.i, %if.then.i.i8.i.i.i
@@ -6020,7 +6015,7 @@ sw.default:                                       ; preds = %entry
   ]
 
 sw.bb4.i:                                         ; preds = %sw.default
-  %call.i.i.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #18
+  %call.i.i.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #19
   %0 = load ptr, ptr %__source.val5, align 8
   store ptr %0, ptr %call.i.i.i, align 8
   %plainHF_.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
@@ -6060,11 +6055,11 @@ terminate.lpad.i.i.i.i.i.i.i:                     ; preds = %if.then.i.i.i.i.i.i
   %6 = landingpad { ptr, i32 }
           catch ptr null
   %7 = extractvalue { ptr, i32 } %6, 0
-  tail call void @__clang_call_terminate(ptr %7) #19
+  tail call void @__clang_call_terminate(ptr %7) #20
   unreachable
 
 lpad.body.i.i.i:                                  ; preds = %if.then.i.i.i.i.i.i.i, %lpad.i.i.i.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %call.i.i.i) #21
+  tail call void @_ZdlPv(ptr noundef nonnull %call.i.i.i) #22
   resume { ptr, i32 } %4
 
 _ZNSt14_Function_base13_Base_managerIN8facebook6hermes12_GLOBAL__N_117TimedHostFunctionEE15_M_init_functorIRKS4_EEvRSt9_Any_dataOT_.exit.i: ; preds = %invoke.cont.i.i.i.i.i.i, %sw.bb4.i
@@ -6095,11 +6090,11 @@ terminate.lpad.i.i.i.i.i.i:                       ; preds = %if.then.i.i.i.i.i6.
   %10 = landingpad { ptr, i32 }
           catch ptr null
   %11 = extractvalue { ptr, i32 } %10, 0
-  tail call void @__clang_call_terminate(ptr %11) #19
+  tail call void @__clang_call_terminate(ptr %11) #20
   unreachable
 
 _ZN8facebook6hermes12_GLOBAL__N_117TimedHostFunctionD2Ev.exit.i.i: ; preds = %if.then.i.i.i.i.i6.i, %delete.notnull.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %__dest.val.i) #21
+  tail call void @_ZdlPv(ptr noundef nonnull %__dest.val.i) #22
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %_ZN8facebook6hermes12_GLOBAL__N_117TimedHostFunctionD2Ev.exit.i.i, %sw.bb6.i, %_ZNSt14_Function_base13_Base_managerIN8facebook6hermes12_GLOBAL__N_117TimedHostFunctionEE15_M_init_functorIRKS4_EEvRSt9_Any_dataOT_.exit.i, %sw.default, %sw.bb1, %sw.bb
@@ -6114,6 +6109,9 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #17
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
+declare void @llvm.assume(i1 noundef) #18
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -6133,12 +6131,13 @@ attributes #14 = { mustprogress nofree norecurse nosync nounwind willreturn memo
 attributes #15 = { mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #16 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
 attributes #17 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #18 = { builtin allocsize(0) }
-attributes #19 = { noreturn nounwind }
-attributes #20 = { nounwind }
-attributes #21 = { builtin nounwind }
-attributes #22 = { nounwind willreturn memory(read) }
-attributes #23 = { noreturn }
+attributes #18 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #19 = { builtin allocsize(0) }
+attributes #20 = { noreturn nounwind }
+attributes #21 = { nounwind }
+attributes #22 = { builtin nounwind }
+attributes #23 = { nounwind willreturn memory(read) }
+attributes #24 = { noreturn }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

@@ -12178,28 +12178,21 @@ _ZN4entt7type_idIiEERKNS_9type_infoEv.exit.i.i:   ; preds = %init.i.i.i, %init.c
   %3 = load i32, ptr %identifier.i.i.i.i.i, align 4, !tbaa !40
   %4 = load i32, ptr getelementptr inbounds (%"struct.entt::type_info", ptr @_ZZN4entt7type_idIiEERKNS_9type_infoEvE8instance, i64 0, i32 1), align 4, !tbaa !40
   %cmp.i.i.i.i = icmp eq i32 %3, %4
-  br i1 %cmp.i.i.i.i, label %cond.true.i.i.i, label %_ZN4entt8any_castIKiLm16ELm8EEEPT_PNS_9basic_anyIXT0_EXT1_EEE.exit
-
-cond.true.i.i.i:                                  ; preds = %_ZN4entt7type_idIiEERKNS_9type_infoEv.exit.i.i
+  tail call void @llvm.assume(i1 %cmp.i.i.i.i)
   %vtable.i.i.i.i = getelementptr inbounds i8, ptr %data, i64 24
-  %5 = load ptr, ptr %vtable.i.i.i.i, align 8, !tbaa !22
-  %tobool.not.i.i.i.i = icmp eq ptr %5, null
-  br i1 %tobool.not.i.i.i.i, label %_ZN4entt8any_castIKiLm16ELm8EEEPT_PNS_9basic_anyIXT0_EXT1_EEE.exit, label %cond.true.i.i.i.i
-
-cond.true.i.i.i.i:                                ; preds = %cond.true.i.i.i
+  %5 = load ptr, ptr %vtable.i.i.i.i, align 8, !tbaa !22, !nonnull !48, !noundef !48
   %call.i.i.i.i = invoke noundef ptr %5(i8 noundef zeroext 6, ptr noundef nonnull align 8 dereferenceable(33) %data, ptr noundef null)
           to label %_ZN4entt8any_castIKiLm16ELm8EEEPT_PNS_9basic_anyIXT0_EXT1_EEE.exit unwind label %terminate.lpad.i.i.i.i
 
-terminate.lpad.i.i.i.i:                           ; preds = %cond.true.i.i.i.i
+terminate.lpad.i.i.i.i:                           ; preds = %_ZN4entt7type_idIiEERKNS_9type_infoEv.exit.i.i
   %6 = landingpad { ptr, i32 }
           catch ptr null
   %7 = extractvalue { ptr, i32 } %6, 0
   tail call void @__clang_call_terminate(ptr %7) #24
   unreachable
 
-_ZN4entt8any_castIKiLm16ELm8EEEPT_PNS_9basic_anyIXT0_EXT1_EEE.exit: ; preds = %cond.true.i.i.i.i, %cond.true.i.i.i, %_ZN4entt7type_idIiEERKNS_9type_infoEv.exit.i.i
-  %cond.i.i.i = phi ptr [ null, %_ZN4entt7type_idIiEERKNS_9type_infoEv.exit.i.i ], [ %call.i.i.i.i, %cond.true.i.i.i.i ], [ null, %cond.true.i.i.i ]
-  ret ptr %cond.i.i.i
+_ZN4entt8any_castIKiLm16ELm8EEEPT_PNS_9basic_anyIXT0_EXT1_EEE.exit: ; preds = %_ZN4entt7type_idIiEERKNS_9type_infoEv.exit.i.i
+  ret ptr %call.i.i.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -108973,38 +108966,29 @@ init.i.i:                                         ; preds = %init.check.i.i
 _ZN4entt7type_idIiEERKNS_9type_infoEv.exit.i:     ; preds = %init.i.i, %init.check.i.i, %entry
   %mode.i.i = getelementptr inbounds i8, ptr %data, i64 32
   %2 = load i8, ptr %mode.i.i, align 8, !tbaa !23
-  %cmp.i.i = icmp eq i8 %2, 2
-  br i1 %cmp.i.i, label %_ZN4entt8any_castIiLm16ELm8EEEPT_PNS_9basic_anyIXT0_EXT1_EEE.exit, label %cond.false.i.i
-
-cond.false.i.i:                                   ; preds = %_ZN4entt7type_idIiEERKNS_9type_infoEv.exit.i
+  %cmp.i.i = icmp ne i8 %2, 2
+  tail call void @llvm.assume(i1 %cmp.i.i)
   %info.i.i.i = getelementptr inbounds i8, ptr %data, i64 16
   %3 = load ptr, ptr %info.i.i.i, align 8, !tbaa !19
   %identifier.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 4
   %4 = load i32, ptr %identifier.i.i.i.i.i, align 4, !tbaa !40
   %5 = load i32, ptr getelementptr inbounds (%"struct.entt::type_info", ptr @_ZZN4entt7type_idIiEERKNS_9type_infoEvE8instance, i64 0, i32 1), align 4, !tbaa !40
   %cmp.i.i.i.i = icmp eq i32 %4, %5
-  br i1 %cmp.i.i.i.i, label %cond.true.i.i.i, label %_ZN4entt8any_castIiLm16ELm8EEEPT_PNS_9basic_anyIXT0_EXT1_EEE.exit
-
-cond.true.i.i.i:                                  ; preds = %cond.false.i.i
+  tail call void @llvm.assume(i1 %cmp.i.i.i.i)
   %vtable.i.i.i.i = getelementptr inbounds i8, ptr %data, i64 24
-  %6 = load ptr, ptr %vtable.i.i.i.i, align 8, !tbaa !22
-  %tobool.not.i.i.i.i = icmp eq ptr %6, null
-  br i1 %tobool.not.i.i.i.i, label %_ZN4entt8any_castIiLm16ELm8EEEPT_PNS_9basic_anyIXT0_EXT1_EEE.exit, label %cond.true.i.i.i.i
-
-cond.true.i.i.i.i:                                ; preds = %cond.true.i.i.i
+  %6 = load ptr, ptr %vtable.i.i.i.i, align 8, !tbaa !22, !nonnull !48, !noundef !48
   %call.i.i.i.i = invoke noundef ptr %6(i8 noundef zeroext 6, ptr noundef nonnull align 8 dereferenceable(33) %data, ptr noundef null)
           to label %_ZN4entt8any_castIiLm16ELm8EEEPT_PNS_9basic_anyIXT0_EXT1_EEE.exit unwind label %terminate.lpad.i.i.i.i
 
-terminate.lpad.i.i.i.i:                           ; preds = %cond.true.i.i.i.i
+terminate.lpad.i.i.i.i:                           ; preds = %_ZN4entt7type_idIiEERKNS_9type_infoEv.exit.i
   %7 = landingpad { ptr, i32 }
           catch ptr null
   %8 = extractvalue { ptr, i32 } %7, 0
   tail call void @__clang_call_terminate(ptr %8) #24
   unreachable
 
-_ZN4entt8any_castIiLm16ELm8EEEPT_PNS_9basic_anyIXT0_EXT1_EEE.exit: ; preds = %cond.true.i.i.i.i, %cond.true.i.i.i, %cond.false.i.i, %_ZN4entt7type_idIiEERKNS_9type_infoEv.exit.i
-  %cond.i.i = phi ptr [ null, %_ZN4entt7type_idIiEERKNS_9type_infoEv.exit.i ], [ null, %cond.false.i.i ], [ %call.i.i.i.i, %cond.true.i.i.i.i ], [ null, %cond.true.i.i.i ]
-  ret ptr %cond.i.i
+_ZN4entt8any_castIiLm16ELm8EEEPT_PNS_9basic_anyIXT0_EXT1_EEE.exit: ; preds = %_ZN4entt7type_idIiEERKNS_9type_infoEv.exit.i
+  ret ptr %call.i.i.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -128315,28 +128299,21 @@ _ZN4entt7type_idIdEERKNS_9type_infoEv.exit.i:     ; preds = %init.i.i, %init.che
   %3 = load i32, ptr %identifier.i.i.i.i, align 4, !tbaa !40
   %4 = load i32, ptr getelementptr inbounds (%"struct.entt::type_info", ptr @_ZZN4entt7type_idIdEERKNS_9type_infoEvE8instance, i64 0, i32 1), align 4, !tbaa !40
   %cmp.i.i.i = icmp eq i32 %3, %4
-  br i1 %cmp.i.i.i, label %cond.true.i.i, label %_ZN4entt8any_castIKdLm16ELm8EEEPKT_PKNS_9basic_anyIXT0_EXT1_EEE.exit
-
-cond.true.i.i:                                    ; preds = %_ZN4entt7type_idIdEERKNS_9type_infoEv.exit.i
+  tail call void @llvm.assume(i1 %cmp.i.i.i)
   %vtable.i.i.i = getelementptr inbounds i8, ptr %data, i64 24
-  %5 = load ptr, ptr %vtable.i.i.i, align 8, !tbaa !22
-  %tobool.not.i.i.i = icmp eq ptr %5, null
-  br i1 %tobool.not.i.i.i, label %_ZN4entt8any_castIKdLm16ELm8EEEPKT_PKNS_9basic_anyIXT0_EXT1_EEE.exit, label %cond.true.i.i.i
-
-cond.true.i.i.i:                                  ; preds = %cond.true.i.i
+  %5 = load ptr, ptr %vtable.i.i.i, align 8, !tbaa !22, !nonnull !48, !noundef !48
   %call.i.i.i = invoke noundef ptr %5(i8 noundef zeroext 6, ptr noundef nonnull align 8 dereferenceable(33) %data, ptr noundef null)
           to label %_ZN4entt8any_castIKdLm16ELm8EEEPKT_PKNS_9basic_anyIXT0_EXT1_EEE.exit unwind label %terminate.lpad.i.i.i
 
-terminate.lpad.i.i.i:                             ; preds = %cond.true.i.i.i
+terminate.lpad.i.i.i:                             ; preds = %_ZN4entt7type_idIdEERKNS_9type_infoEv.exit.i
   %6 = landingpad { ptr, i32 }
           catch ptr null
   %7 = extractvalue { ptr, i32 } %6, 0
   tail call void @__clang_call_terminate(ptr %7) #24
   unreachable
 
-_ZN4entt8any_castIKdLm16ELm8EEEPKT_PKNS_9basic_anyIXT0_EXT1_EEE.exit: ; preds = %cond.true.i.i.i, %cond.true.i.i, %_ZN4entt7type_idIdEERKNS_9type_infoEv.exit.i
-  %cond.i.i = phi ptr [ null, %_ZN4entt7type_idIdEERKNS_9type_infoEv.exit.i ], [ %call.i.i.i, %cond.true.i.i.i ], [ null, %cond.true.i.i ]
-  ret ptr %cond.i.i
+_ZN4entt8any_castIKdLm16ELm8EEEPKT_PKNS_9basic_anyIXT0_EXT1_EEE.exit: ; preds = %_ZN4entt7type_idIdEERKNS_9type_infoEv.exit.i
+  ret ptr %call.i.i.i
 }
 
 ; Function Attrs: mustprogress uwtable

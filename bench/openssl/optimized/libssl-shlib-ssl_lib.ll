@@ -95,54 +95,54 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @ssl_undefined_function_8(ptr nocapture readnone %sc) #0 {
 entry:
-  tail call void @ERR_new() #23
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 4792, ptr noundef nonnull @__func__.ssl_undefined_function) #23
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 786689, ptr noundef null) #23
+  tail call void @ERR_new() #24
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 4792, ptr noundef nonnull @__func__.ssl_undefined_function) #24
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 786689, ptr noundef null) #24
   ret i32 0
 }
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @ssl_undefined_function_3(ptr nocapture readnone %sc, ptr nocapture readnone %r, ptr nocapture readnone %s, i64 %t, ptr nocapture readnone %u) #0 {
 entry:
-  tail call void @ERR_new() #23
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 4792, ptr noundef nonnull @__func__.ssl_undefined_function) #23
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 786689, ptr noundef null) #23
+  tail call void @ERR_new() #24
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 4792, ptr noundef nonnull @__func__.ssl_undefined_function) #24
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 786689, ptr noundef null) #24
   ret i32 0
 }
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @ssl_undefined_function_4(ptr nocapture readnone %sc, i32 %r) #0 {
 entry:
-  tail call void @ERR_new() #23
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 4792, ptr noundef nonnull @__func__.ssl_undefined_function) #23
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 786689, ptr noundef null) #23
+  tail call void @ERR_new() #24
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 4792, ptr noundef nonnull @__func__.ssl_undefined_function) #24
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 786689, ptr noundef null) #24
   ret i32 0
 }
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i64 @ssl_undefined_function_5(ptr nocapture readnone %sc, ptr nocapture readnone %r, i64 %s, ptr nocapture readnone %t) #0 {
 entry:
-  tail call void @ERR_new() #23
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 4792, ptr noundef nonnull @__func__.ssl_undefined_function) #23
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 786689, ptr noundef null) #23
+  tail call void @ERR_new() #24
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 4792, ptr noundef nonnull @__func__.ssl_undefined_function) #24
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 786689, ptr noundef null) #24
   ret i64 0
 }
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @ssl_undefined_function_6(i32 %r) #0 {
 entry:
-  tail call void @ERR_new() #23
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 4792, ptr noundef nonnull @__func__.ssl_undefined_function) #23
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 786689, ptr noundef null) #23
+  tail call void @ERR_new() #24
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 4792, ptr noundef nonnull @__func__.ssl_undefined_function) #24
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 786689, ptr noundef null) #24
   ret i32 0
 }
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @ssl_undefined_function_7(ptr nocapture readnone %sc, ptr nocapture readnone %r, i64 %s, ptr nocapture readnone %t, i64 %u, ptr nocapture readnone %v, i64 %w, i32 %x) #0 {
 entry:
-  tail call void @ERR_new() #23
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 4792, ptr noundef nonnull @__func__.ssl_undefined_function) #23
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 786689, ptr noundef null) #23
+  tail call void @ERR_new() #24
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 4792, ptr noundef nonnull @__func__.ssl_undefined_function) #24
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 786689, ptr noundef null) #24
   ret i32 0
 }
 
@@ -155,15 +155,15 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  tail call void @ERR_new() #23
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 590, ptr noundef nonnull @__func__.SSL_clear) #23
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 188, ptr noundef null) #23
+  tail call void @ERR_new() #24
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 590, ptr noundef nonnull @__func__.SSL_clear) #24
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 188, ptr noundef null) #24
   br label %return
 
 if.end:                                           ; preds = %entry
   %ssl_reset = getelementptr inbounds i8, ptr %0, i64 32
   %1 = load ptr, ptr %ssl_reset, align 8
-  %call = tail call i32 %1(ptr noundef nonnull %s) #23
+  %call = tail call i32 %1(ptr noundef nonnull %s) #24
   br label %return
 
 return:                                           ; preds = %if.end, %if.then
@@ -198,25 +198,25 @@ cond.end10:                                       ; preds = %cond.false
 
 if.end:                                           ; preds = %cond.false, %cond.end10
   %cond1162 = phi ptr [ %1, %cond.end10 ], [ %s, %cond.false ]
-  %call = tail call i32 @ssl_clear_bad_session(ptr noundef nonnull %cond1162) #23
+  %call = tail call i32 @ssl_clear_bad_session(ptr noundef nonnull %cond1162) #24
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %if.end15, label %if.then13
 
 if.then13:                                        ; preds = %if.end
   %session = getelementptr inbounds i8, ptr %cond1162, i64 2176
   %2 = load ptr, ptr %session, align 8
-  tail call void @SSL_SESSION_free(ptr noundef %2) #23
+  tail call void @SSL_SESSION_free(ptr noundef %2) #24
   store ptr null, ptr %session, align 8
   br label %if.end15
 
 if.end15:                                         ; preds = %if.then13, %if.end
   %psksession = getelementptr inbounds i8, ptr %cond1162, i64 2184
   %3 = load ptr, ptr %psksession, align 8
-  tail call void @SSL_SESSION_free(ptr noundef %3) #23
+  tail call void @SSL_SESSION_free(ptr noundef %3) #24
   store ptr null, ptr %psksession, align 8
   %psksession_id = getelementptr inbounds i8, ptr %cond1162, i64 2192
   %4 = load ptr, ptr %psksession_id, align 8
-  tail call void @CRYPTO_free(ptr noundef %4, ptr noundef nonnull @.str, i32 noundef 610) #23
+  tail call void @CRYPTO_free(ptr noundef %4, ptr noundef nonnull @.str, i32 noundef 610) #24
   %hello_retry_request = getelementptr inbounds i8, ptr %cond1162, i64 2128
   store i32 0, ptr %hello_retry_request, align 8
   %sent_tickets = getelementptr inbounds i8, ptr %cond1162, i64 5304
@@ -234,13 +234,13 @@ if.end15:                                         ; preds = %if.then13, %if.end
   br i1 %tobool18.not, label %if.end20, label %if.then19
 
 if.then19:                                        ; preds = %if.end15
-  tail call void @ERR_new() #23
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 621, ptr noundef nonnull @__func__.ossl_ssl_connection_reset) #23
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 786691, ptr noundef null) #23
+  tail call void @ERR_new() #24
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 621, ptr noundef nonnull @__func__.ossl_ssl_connection_reset) #24
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 786691, ptr noundef null) #24
   br label %return
 
 if.end20:                                         ; preds = %if.end15
-  tail call void @ossl_statem_clear(ptr noundef nonnull %cond1162) #23
+  tail call void @ossl_statem_clear(ptr noundef nonnull %cond1162) #24
   %method = getelementptr inbounds i8, ptr %s, i64 24
   %6 = load ptr, ptr %method, align 8
   %7 = load i32, ptr %6, align 8
@@ -252,7 +252,7 @@ if.end20:                                         ; preds = %if.end15
   store i32 1, ptr %rwstate, align 8
   %init_buf = getelementptr inbounds i8, ptr %cond1162, i64 240
   %8 = load ptr, ptr %init_buf, align 8
-  tail call void @BUF_MEM_free(ptr noundef %8) #23
+  tail call void @BUF_MEM_free(ptr noundef %8) #24
   store ptr null, ptr %init_buf, align 8
   %first_packet = getelementptr inbounds i8, ptr %cond1162, i64 2384
   store i32 0, ptr %first_packet, align 8
@@ -262,7 +262,7 @@ if.end20:                                         ; preds = %if.end15
   %pha_dgst = getelementptr inbounds i8, ptr %cond1162, i64 2856
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %compress_certificate_from_peer, i8 0, i64 20, i1 false)
   %9 = load ptr, ptr %pha_dgst, align 8
-  tail call void @EVP_MD_CTX_free(ptr noundef %9) #23
+  tail call void @EVP_MD_CTX_free(ptr noundef %9) #24
   store ptr null, ptr %pha_dgst, align 8
   %mdpth = getelementptr inbounds i8, ptr %cond1162, i64 1220
   store i32 -1, ptr %mdpth, align 4
@@ -270,15 +270,15 @@ if.end20:                                         ; preds = %if.end15
   store i32 -1, ptr %pdpth, align 8
   %mcert = getelementptr inbounds i8, ptr %cond1162, i64 1208
   %10 = load ptr, ptr %mcert, align 8
-  tail call void @X509_free(ptr noundef %10) #23
+  tail call void @X509_free(ptr noundef %10) #24
   %mtlsa = getelementptr inbounds i8, ptr %cond1162, i64 1200
   %param = getelementptr inbounds i8, ptr %cond1162, i64 1168
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mtlsa, i8 0, i64 16, i1 false)
   %11 = load ptr, ptr %param, align 8
-  tail call void @X509_VERIFY_PARAM_move_peername(ptr noundef %11, ptr noundef null) #23
+  tail call void @X509_VERIFY_PARAM_move_peername(ptr noundef %11, ptr noundef null) #24
   %shared_sigalgs = getelementptr inbounds i8, ptr %cond1162, i64 5352
   %12 = load ptr, ptr %shared_sigalgs, align 8
-  tail call void @CRYPTO_free(ptr noundef %12, ptr noundef nonnull @.str, i32 noundef 654) #23
+  tail call void @CRYPTO_free(ptr noundef %12, ptr noundef nonnull @.str, i32 noundef 654) #24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %shared_sigalgs, i8 0, i64 16, i1 false)
   %13 = load ptr, ptr %method, align 8
   %defltmeth = getelementptr inbounds i8, ptr %s, i64 16
@@ -289,28 +289,28 @@ if.end20:                                         ; preds = %if.end15
 if.then34:                                        ; preds = %if.end20
   %ssl_deinit = getelementptr inbounds i8, ptr %13, i64 56
   %15 = load ptr, ptr %ssl_deinit, align 8
-  tail call void %15(ptr noundef nonnull %s) #23
+  tail call void %15(ptr noundef nonnull %s) #24
   %16 = load ptr, ptr %defltmeth, align 8
   store ptr %16, ptr %method, align 8
   %ssl_init = getelementptr inbounds i8, ptr %16, i64 40
   %17 = load ptr, ptr %ssl_init, align 8
-  %call39 = tail call i32 %17(ptr noundef nonnull %s) #23
+  %call39 = tail call i32 %17(ptr noundef nonnull %s) #24
   %tobool40.not = icmp eq i32 %call39, 0
   br i1 %tobool40.not, label %return, label %if.end48
 
 if.else:                                          ; preds = %if.end20
   %ssl_clear = getelementptr inbounds i8, ptr %13, i64 48
   %18 = load ptr, ptr %ssl_clear, align 8
-  %call44 = tail call i32 %18(ptr noundef nonnull %s) #23
+  %call44 = tail call i32 %18(ptr noundef nonnull %s) #24
   %tobool45.not = icmp eq i32 %call44, 0
   br i1 %tobool45.not, label %return, label %if.end48
 
 if.end48:                                         ; preds = %if.else, %if.then34
   %rlayer = getelementptr inbounds i8, ptr %cond1162, i64 3000
-  tail call void @RECORD_LAYER_clear(ptr noundef nonnull %rlayer) #23
+  tail call void @RECORD_LAYER_clear(ptr noundef nonnull %rlayer) #24
   %rrlnext = getelementptr inbounds i8, ptr %cond1162, i64 3056
   %19 = load ptr, ptr %rrlnext, align 8
-  %call50 = tail call i32 @BIO_free(ptr noundef %19) #23
+  %call50 = tail call i32 @BIO_free(ptr noundef %19) #24
   store ptr null, ptr %rrlnext, align 8
   %method.i = getelementptr inbounds i8, ptr %cond1162, i64 24
   %20 = load ptr, ptr %method.i, align 8
@@ -321,7 +321,7 @@ if.end48:                                         ; preds = %if.else, %if.then34
   %and.i = and i32 %22, 8
   %tobool.not.i = icmp eq i32 %and.i, 0
   %cond.i = select i1 %tobool.not.i, i32 65536, i32 131071
-  %call.i = tail call i32 @ssl_set_new_record_layer(ptr noundef nonnull %cond1162, i32 noundef %cond.i, i32 noundef 0, i32 noundef 0, ptr noundef null, i64 noundef 0, ptr noundef null, i64 noundef 0, ptr noundef null, i64 noundef 0, ptr noundef null, i64 noundef 0, ptr noundef null, i64 noundef 0, i32 noundef 0, ptr noundef null, ptr noundef null, ptr noundef null) #23
+  %call.i = tail call i32 @ssl_set_new_record_layer(ptr noundef nonnull %cond1162, i32 noundef %cond.i, i32 noundef 0, i32 noundef 0, ptr noundef null, i64 noundef 0, ptr noundef null, i64 noundef 0, ptr noundef null, i64 noundef 0, ptr noundef null, i64 noundef 0, ptr noundef null, i64 noundef 0, i32 noundef 0, ptr noundef null, ptr noundef null, ptr noundef null) #24
   %23 = load ptr, ptr %method.i, align 8
   %ssl3_enc3.i = getelementptr inbounds i8, ptr %23, i64 216
   %24 = load ptr, ptr %ssl3_enc3.i, align 8
@@ -330,7 +330,7 @@ if.end48:                                         ; preds = %if.else, %if.then34
   %and5.i = and i32 %25, 8
   %tobool6.not.i = icmp eq i32 %and5.i, 0
   %cond7.i = select i1 %tobool6.not.i, i32 65536, i32 131071
-  %call8.i = tail call i32 @ssl_set_new_record_layer(ptr noundef nonnull %cond1162, i32 noundef %cond7.i, i32 noundef 1, i32 noundef 0, ptr noundef null, i64 noundef 0, ptr noundef null, i64 noundef 0, ptr noundef null, i64 noundef 0, ptr noundef null, i64 noundef 0, ptr noundef null, i64 noundef 0, i32 noundef 0, ptr noundef null, ptr noundef null, ptr noundef null) #23
+  %call8.i = tail call i32 @ssl_set_new_record_layer(ptr noundef nonnull %cond1162, i32 noundef %cond7.i, i32 noundef 1, i32 noundef 0, ptr noundef null, i64 noundef 0, ptr noundef null, i64 noundef 0, ptr noundef null, i64 noundef 0, ptr noundef null, i64 noundef 0, ptr noundef null, i64 noundef 0, i32 noundef 0, ptr noundef null, ptr noundef null, ptr noundef null) #24
   %and9.i = and i32 %call8.i, %call.i
   %tobool54.not = icmp ne i32 %and9.i, 0
   %. = zext i1 %tobool54.not to i32
@@ -369,20 +369,20 @@ define noundef i32 @SSL_CTX_set_ssl_version(ptr noundef %ctx, ptr noundef %meth)
 entry:
   %method = getelementptr inbounds i8, ptr %ctx, i64 8
   %0 = load ptr, ptr %method, align 8
-  %call = tail call ptr @OSSL_QUIC_client_method() #23
+  %call = tail call ptr @OSSL_QUIC_client_method() #24
   %cmp = icmp eq ptr %0, %call
   br i1 %cmp, label %return.sink.split, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
   %1 = load ptr, ptr %method, align 8
-  %call2 = tail call ptr @OSSL_QUIC_client_thread_method() #23
+  %call2 = tail call ptr @OSSL_QUIC_client_thread_method() #24
   %cmp3 = icmp eq ptr %1, %call2
   br i1 %cmp3, label %return.sink.split, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false
   store ptr %meth, ptr %method, align 8
-  %call5 = tail call ptr @OSSL_default_ciphersuites() #23
-  %call6 = tail call i32 @SSL_CTX_set_ciphersuites(ptr noundef nonnull %ctx, ptr noundef %call5) #23
+  %call5 = tail call ptr @OSSL_default_ciphersuites() #24
+  %call6 = tail call i32 @SSL_CTX_set_ciphersuites(ptr noundef nonnull %ctx, ptr noundef %call5) #24
   %tobool.not = icmp eq i32 %call6, 0
   br i1 %tobool.not, label %return.sink.split, label %if.end8
 
@@ -391,24 +391,24 @@ if.end8:                                          ; preds = %if.end
   %2 = load ptr, ptr %tls13_ciphersuites, align 8
   %cipher_list = getelementptr inbounds i8, ptr %ctx, i64 16
   %cipher_list_by_id = getelementptr inbounds i8, ptr %ctx, i64 24
-  %call9 = tail call ptr @OSSL_default_cipher_list() #23
+  %call9 = tail call ptr @OSSL_default_cipher_list() #24
   %cert = getelementptr inbounds i8, ptr %ctx, i64 344
   %3 = load ptr, ptr %cert, align 8
-  %call10 = tail call ptr @ssl_create_cipher_list(ptr noundef nonnull %ctx, ptr noundef %2, ptr noundef nonnull %cipher_list, ptr noundef nonnull %cipher_list_by_id, ptr noundef %call9, ptr noundef %3) #23
+  %call10 = tail call ptr @ssl_create_cipher_list(ptr noundef nonnull %ctx, ptr noundef %2, ptr noundef nonnull %cipher_list, ptr noundef nonnull %cipher_list_by_id, ptr noundef %call9, ptr noundef %3) #24
   %cmp11 = icmp eq ptr %call10, null
   br i1 %cmp11, label %return.sink.split, label %lor.lhs.false12
 
 lor.lhs.false12:                                  ; preds = %if.end8
-  %call14 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %call10) #23
+  %call14 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %call10) #24
   %cmp15 = icmp slt i32 %call14, 1
   br i1 %cmp15, label %return.sink.split, label %return
 
 return.sink.split:                                ; preds = %if.end8, %lor.lhs.false12, %if.end, %entry, %lor.lhs.false
   %.sink10 = phi i32 [ 689, %lor.lhs.false ], [ 689, %entry ], [ 696, %if.end ], [ 705, %lor.lhs.false12 ], [ 705, %if.end8 ]
   %.sink = phi i32 [ 266, %lor.lhs.false ], [ 266, %entry ], [ 230, %if.end ], [ 230, %lor.lhs.false12 ], [ 230, %if.end8 ]
-  tail call void @ERR_new() #23
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink10, ptr noundef nonnull @__func__.SSL_CTX_set_ssl_version) #23
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef %.sink, ptr noundef null) #23
+  tail call void @ERR_new() #24
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink10, ptr noundef nonnull @__func__.SSL_CTX_set_ssl_version) #24
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef %.sink, ptr noundef null) #24
   br label %return
 
 return:                                           ; preds = %return.sink.split, %lor.lhs.false12
@@ -437,9 +437,9 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  tail call void @ERR_new() #23
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 715, ptr noundef nonnull @__func__.SSL_new) #23
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 195, ptr noundef null) #23
+  tail call void @ERR_new() #24
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 715, ptr noundef nonnull @__func__.SSL_new) #24
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 195, ptr noundef null) #24
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -449,15 +449,15 @@ if.end:                                           ; preds = %entry
   br i1 %cmp1, label %if.then2, label %if.end3
 
 if.then2:                                         ; preds = %if.end
-  tail call void @ERR_new() #23
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 719, ptr noundef nonnull @__func__.SSL_new) #23
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 228, ptr noundef null) #23
+  tail call void @ERR_new() #24
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 719, ptr noundef nonnull @__func__.SSL_new) #24
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 228, ptr noundef null) #24
   br label %return
 
 if.end3:                                          ; preds = %if.end
   %ssl_new = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load ptr, ptr %ssl_new, align 8
-  %call = tail call ptr %1(ptr noundef nonnull %ctx) #23
+  %call = tail call ptr %1(ptr noundef nonnull %ctx) #24
   br label %return
 
 return:                                           ; preds = %if.end3, %if.then2, %if.then
@@ -469,7 +469,7 @@ return:                                           ; preds = %if.end3, %if.then2,
 define noundef i32 @ossl_ssl_init(ptr noundef %ssl, ptr noundef %ctx, ptr noundef %method, i32 noundef %type) local_unnamed_addr #0 {
 entry:
   store i32 %type, ptr %ssl, align 8
-  %call = tail call ptr @CRYPTO_THREAD_lock_new() #23
+  %call = tail call ptr @CRYPTO_THREAD_lock_new() #24
   %lock = getelementptr inbounds i8, ptr %ssl, i64 40
   store ptr %call, ptr %lock, align 8
   %cmp = icmp eq ptr %call, null
@@ -479,13 +479,13 @@ if.end:                                           ; preds = %entry
   %references = getelementptr inbounds i8, ptr %ssl, i64 32
   store atomic i32 1, ptr %references seq_cst, align 4
   %ex_data = getelementptr inbounds i8, ptr %ssl, i64 48
-  %call7 = tail call i32 @CRYPTO_new_ex_data(i32 noundef 0, ptr noundef nonnull %ssl, ptr noundef nonnull %ex_data) #23
+  %call7 = tail call i32 @CRYPTO_new_ex_data(i32 noundef 0, ptr noundef nonnull %ssl, ptr noundef nonnull %ex_data) #24
   %tobool8.not = icmp eq i32 %call7, 0
   br i1 %tobool8.not, label %if.then9, label %if.end13
 
 if.then9:                                         ; preds = %if.end
   %0 = load ptr, ptr %lock, align 8
-  tail call void @CRYPTO_THREAD_lock_free(ptr noundef %0) #23
+  tail call void @CRYPTO_THREAD_lock_free(ptr noundef %0) #24
   store ptr null, ptr %lock, align 8
   br label %return
 
@@ -524,13 +524,13 @@ entry:
 ; Function Attrs: nounwind uwtable
 define ptr @ossl_ssl_connection_new_int(ptr noundef %ctx, ptr noundef %method) local_unnamed_addr #0 {
 entry:
-  %call = tail call noalias ptr @CRYPTO_zalloc(i64 noundef 5400, ptr noundef nonnull @.str, i32 noundef 758) #23
+  %call = tail call noalias ptr @CRYPTO_zalloc(i64 noundef 5400, ptr noundef nonnull @.str, i32 noundef 758) #24
   %cmp = icmp eq ptr %call, null
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
   store i32 0, ptr %call, align 8
-  %call.i = tail call ptr @CRYPTO_THREAD_lock_new() #23
+  %call.i = tail call ptr @CRYPTO_THREAD_lock_new() #24
   %lock.i = getelementptr inbounds i8, ptr %call, i64 40
   store ptr %call.i, ptr %lock.i, align 8
   %cmp.i = icmp eq ptr %call.i, null
@@ -540,18 +540,18 @@ if.end.i:                                         ; preds = %if.end
   %references.i = getelementptr inbounds i8, ptr %call, i64 32
   store atomic i32 1, ptr %references.i seq_cst, align 4
   %ex_data.i = getelementptr inbounds i8, ptr %call, i64 48
-  %call7.i = tail call i32 @CRYPTO_new_ex_data(i32 noundef 0, ptr noundef nonnull %call, ptr noundef nonnull %ex_data.i) #23
+  %call7.i = tail call i32 @CRYPTO_new_ex_data(i32 noundef 0, ptr noundef nonnull %call, ptr noundef nonnull %ex_data.i) #24
   %tobool8.not.i = icmp eq i32 %call7.i, 0
   br i1 %tobool8.not.i, label %if.then9.i, label %if.end4
 
 if.then9.i:                                       ; preds = %if.end.i
   %0 = load ptr, ptr %lock.i, align 8
-  tail call void @CRYPTO_THREAD_lock_free(ptr noundef %0) #23
+  tail call void @CRYPTO_THREAD_lock_free(ptr noundef %0) #24
   store ptr null, ptr %lock.i, align 8
   br label %if.then3
 
 if.then3:                                         ; preds = %if.then9.i, %if.end
-  tail call void @CRYPTO_free(ptr noundef nonnull %call, ptr noundef nonnull @.str, i32 noundef 764) #23
+  tail call void @CRYPTO_free(ptr noundef nonnull %call, ptr noundef nonnull @.str, i32 noundef 764) #24
   br label %err
 
 if.end4:                                          ; preds = %if.end.i
@@ -564,7 +564,7 @@ if.end4:                                          ; preds = %if.end.i
   %defltmeth.i = getelementptr inbounds i8, ptr %call, i64 16
   store ptr %method, ptr %defltmeth.i, align 8
   %rlayer = getelementptr inbounds i8, ptr %call, i64 3000
-  tail call void @RECORD_LAYER_init(ptr noundef nonnull %rlayer, ptr noundef nonnull %call) #23
+  tail call void @RECORD_LAYER_init(ptr noundef nonnull %rlayer, ptr noundef nonnull %call) #24
   %options = getelementptr inbounds i8, ptr %ctx, i64 312
   %2 = load i64, ptr %options, align 8
   %options5 = getelementptr inbounds i8, ptr %call, i64 2352
@@ -610,7 +610,7 @@ if.end14:                                         ; preds = %if.then11, %if.end4
   store i32 %12, ptr %pha_enabled20, align 4
   %tls13_ciphersuites = getelementptr inbounds i8, ptr %ctx, i64 32
   %13 = load ptr, ptr %tls13_ciphersuites, align 8
-  %call22 = tail call ptr @OPENSSL_sk_dup(ptr noundef %13) #23
+  %call22 = tail call ptr @OPENSSL_sk_dup(ptr noundef %13) #24
   %tls13_ciphersuites23 = getelementptr inbounds i8, ptr %call, i64 1264
   store ptr %call22, ptr %tls13_ciphersuites23, align 8
   %cmp25 = icmp eq ptr %call22, null
@@ -619,7 +619,7 @@ if.end14:                                         ; preds = %if.then11, %if.end4
 if.end27:                                         ; preds = %if.end14
   %cert = getelementptr inbounds i8, ptr %ctx, i64 344
   %14 = load ptr, ptr %cert, align 8
-  %call28 = tail call ptr @ssl_cert_dup(ptr noundef %14) #23
+  %call28 = tail call ptr @ssl_cert_dup(ptr noundef %14) #24
   %cert29 = getelementptr inbounds i8, ptr %call, i64 2048
   store ptr %call28, ptr %cert29, align 8
   %cmp31 = icmp eq ptr %call28, null
@@ -669,7 +669,7 @@ if.end55:                                         ; preds = %if.end33
   %23 = load ptr, ptr %generate_session_id, align 8
   %generate_session_id57 = getelementptr inbounds i8, ptr %call, i64 2208
   store ptr %23, ptr %generate_session_id57, align 8
-  %call58 = tail call ptr @X509_VERIFY_PARAM_new() #23
+  %call58 = tail call ptr @X509_VERIFY_PARAM_new() #24
   %param = getelementptr inbounds i8, ptr %call, i64 1168
   store ptr %call58, ptr %param, align 8
   %cmp60 = icmp eq ptr %call58, null
@@ -678,15 +678,15 @@ if.end55:                                         ; preds = %if.end33
 if.end63:                                         ; preds = %if.end55
   %param65 = getelementptr inbounds i8, ptr %ctx, i64 448
   %24 = load ptr, ptr %param65, align 8
-  %call66 = tail call i32 @X509_VERIFY_PARAM_inherit(ptr noundef nonnull %call58, ptr noundef %24) #23
+  %call66 = tail call i32 @X509_VERIFY_PARAM_inherit(ptr noundef nonnull %call58, ptr noundef %24) #24
   %25 = load ptr, ptr %method8, align 8
-  %call68 = tail call ptr @OSSL_QUIC_client_method() #23
+  %call68 = tail call ptr @OSSL_QUIC_client_method() #24
   %cmp69 = icmp eq ptr %25, %call68
   br i1 %cmp69, label %cond.end, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end63
   %26 = load ptr, ptr %method8, align 8
-  %call72 = tail call ptr @OSSL_QUIC_client_thread_method() #23
+  %call72 = tail call ptr @OSSL_QUIC_client_thread_method() #24
   %cmp73 = icmp eq ptr %26, %call72
   br i1 %cmp73, label %cond.end, label %cond.false
 
@@ -700,13 +700,13 @@ cond.end:                                         ; preds = %if.end63, %lor.lhs.
   %quiet_shutdown75 = getelementptr inbounds i8, ptr %call, i64 120
   store i32 %cond, ptr %quiet_shutdown75, align 8
   %28 = load ptr, ptr %method8, align 8
-  %call77 = tail call ptr @OSSL_QUIC_client_method() #23
+  %call77 = tail call ptr @OSSL_QUIC_client_method() #24
   %cmp78 = icmp eq ptr %28, %call77
   br i1 %cmp78, label %if.end88, label %lor.lhs.false80
 
 lor.lhs.false80:                                  ; preds = %cond.end
   %29 = load ptr, ptr %method8, align 8
-  %call82 = tail call ptr @OSSL_QUIC_client_thread_method() #23
+  %call82 = tail call ptr @OSSL_QUIC_client_thread_method() #24
   %cmp83 = icmp eq ptr %29, %call82
   br i1 %cmp83, label %if.end88, label %if.then85
 
@@ -751,7 +751,7 @@ if.end88:                                         ; preds = %if.then85, %lor.lhs
 if.then111:                                       ; preds = %if.end88
   %ecpointformats_len = getelementptr inbounds i8, ptr %ctx, i64 624
   %37 = load i64, ptr %ecpointformats_len, align 8
-  %call115 = tail call noalias ptr @CRYPTO_memdup(ptr noundef nonnull %36, i64 noundef %37, ptr noundef nonnull @.str, i32 noundef 849) #23
+  %call115 = tail call noalias ptr @CRYPTO_memdup(ptr noundef nonnull %36, i64 noundef %37, ptr noundef nonnull @.str, i32 noundef 849) #24
   %ecpointformats117 = getelementptr inbounds i8, ptr %call, i64 2544
   store ptr %call115, ptr %ecpointformats117, align 8
   %tobool120.not = icmp eq ptr %call115, null
@@ -778,7 +778,7 @@ if.then132:                                       ; preds = %if.end129
   %supportedgroups_len = getelementptr inbounds i8, ptr %ctx, i64 640
   %40 = load i64, ptr %supportedgroups_len, align 8
   %mul = shl i64 %40, 1
-  %call136 = tail call noalias ptr @CRYPTO_memdup(ptr noundef nonnull %39, i64 noundef %mul, ptr noundef nonnull @.str, i32 noundef 861) #23
+  %call136 = tail call noalias ptr @CRYPTO_memdup(ptr noundef nonnull %39, i64 noundef %mul, ptr noundef nonnull @.str, i32 noundef 861) #24
   %supportedgroups138 = getelementptr inbounds i8, ptr %call, i64 2576
   store ptr %call136, ptr %supportedgroups138, align 8
   %tobool141.not = icmp eq ptr %call136, null
@@ -806,7 +806,7 @@ if.end150:                                        ; preds = %if.end145, %if.end1
 if.then155:                                       ; preds = %if.end150
   %alpn_len = getelementptr inbounds i8, ptr %ctx, i64 696
   %43 = load i64, ptr %alpn_len, align 8
-  %call157 = tail call noalias ptr @CRYPTO_malloc(i64 noundef %43, ptr noundef nonnull @.str, i32 noundef 874) #23
+  %call157 = tail call noalias ptr @CRYPTO_malloc(i64 noundef %43, ptr noundef nonnull @.str, i32 noundef 874) #24
   %alpn159 = getelementptr inbounds i8, ptr %call, i64 2640
   store ptr %call157, ptr %alpn159, align 8
   %cmp162 = icmp eq ptr %call157, null
@@ -835,13 +835,13 @@ if.end178:                                        ; preds = %if.end167, %if.end1
   %key_update = getelementptr inbounds i8, ptr %call, i64 2820
   store i32 -1, ptr %key_update, align 4
   %47 = load ptr, ptr %method8, align 8
-  %call182 = tail call ptr @OSSL_QUIC_client_method() #23
+  %call182 = tail call ptr @OSSL_QUIC_client_method() #24
   %cmp183 = icmp eq ptr %47, %call182
   br i1 %cmp183, label %if.end193, label %lor.lhs.false185
 
 lor.lhs.false185:                                 ; preds = %if.end178
   %48 = load ptr, ptr %method8, align 8
-  %call187 = tail call ptr @OSSL_QUIC_client_thread_method() #23
+  %call187 = tail call ptr @OSSL_QUIC_client_thread_method() #24
   %cmp188 = icmp eq ptr %48, %call187
   br i1 %cmp188, label %if.end193, label %if.then190
 
@@ -855,7 +855,7 @@ if.then190:                                       ; preds = %lor.lhs.false185
 if.end193:                                        ; preds = %if.then190, %lor.lhs.false185, %if.end178
   %ssl_init = getelementptr inbounds i8, ptr %method, i64 40
   %50 = load ptr, ptr %ssl_init, align 8
-  %call194 = tail call i32 %50(ptr noundef nonnull %call) #23
+  %call194 = tail call i32 %50(ptr noundef nonnull %call) #24
   %tobool195.not = icmp eq i32 %call194, 0
   br i1 %tobool195.not, label %err, label %if.end197
 
@@ -868,7 +868,7 @@ if.end197:                                        ; preds = %if.end193
   store i32 %cond200, ptr %server, align 8
   %ssl_reset = getelementptr inbounds i8, ptr %method, i64 32
   %52 = load ptr, ptr %ssl_reset, align 8
-  %call201 = tail call i32 %52(ptr noundef nonnull %call) #23
+  %call201 = tail call i32 %52(ptr noundef nonnull %call) #24
   %tobool202.not = icmp eq i32 %call201, 0
   br i1 %tobool202.not, label %err, label %if.end204
 
@@ -895,7 +895,7 @@ if.end204:                                        ; preds = %if.end197
 if.then213:                                       ; preds = %if.end204
   %client_cert_type_len = getelementptr inbounds i8, ptr %ctx, i64 1672
   %57 = load i64, ptr %client_cert_type_len, align 8
-  %call215 = tail call noalias ptr @CRYPTO_memdup(ptr noundef nonnull %56, i64 noundef %57, ptr noundef nonnull @.str, i32 noundef 921) #23
+  %call215 = tail call noalias ptr @CRYPTO_memdup(ptr noundef nonnull %56, i64 noundef %57, ptr noundef nonnull @.str, i32 noundef 921) #24
   %client_cert_type216 = getelementptr inbounds i8, ptr %call, i64 5368
   store ptr %call215, ptr %client_cert_type216, align 8
   %cmp218 = icmp eq ptr %call215, null
@@ -916,7 +916,7 @@ if.end224:                                        ; preds = %if.end221, %if.end2
 if.then227:                                       ; preds = %if.end224
   %server_cert_type_len = getelementptr inbounds i8, ptr %ctx, i64 1688
   %60 = load i64, ptr %server_cert_type_len, align 8
-  %call229 = tail call noalias ptr @CRYPTO_memdup(ptr noundef nonnull %59, i64 noundef %60, ptr noundef nonnull @.str, i32 noundef 928) #23
+  %call229 = tail call noalias ptr @CRYPTO_memdup(ptr noundef nonnull %59, i64 noundef %60, ptr noundef nonnull @.str, i32 noundef 928) #24
   %server_cert_type230 = getelementptr inbounds i8, ptr %call, i64 5384
   store ptr %call229, ptr %server_cert_type230, align 8
   %cmp232 = icmp eq ptr %call229, null
@@ -946,22 +946,22 @@ if.end242:                                        ; preds = %if.end238
   br label %return
 
 cerr:                                             ; preds = %if.end14
-  tail call void @ERR_new() #23
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 943, ptr noundef nonnull @__func__.ossl_ssl_connection_new_int) #23
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 524303, ptr noundef null) #23
+  tail call void @ERR_new() #24
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 943, ptr noundef nonnull @__func__.ossl_ssl_connection_new_int) #24
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 524303, ptr noundef null) #24
   br label %if.end.i176
 
 asn1err:                                          ; preds = %if.end55
-  tail call void @ERR_new() #23
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 946, ptr noundef nonnull @__func__.ossl_ssl_connection_new_int) #23
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 524301, ptr noundef null) #23
+  tail call void @ERR_new() #24
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 946, ptr noundef nonnull @__func__.ossl_ssl_connection_new_int) #24
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 524301, ptr noundef null) #24
   br label %if.end.i176
 
 err:                                              ; preds = %if.then3, %if.end27, %if.end193, %if.end197, %if.then213, %if.then227, %if.end238
   %ssl.0 = phi ptr [ %call, %if.end27 ], [ %call, %if.then213 ], [ %call, %if.then227 ], [ %call, %if.end238 ], [ %call, %if.end197 ], [ %call, %if.end193 ], [ null, %if.then3 ]
-  tail call void @ERR_new() #23
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 949, ptr noundef nonnull @__func__.ossl_ssl_connection_new_int) #23
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 524308, ptr noundef null) #23
+  tail call void @ERR_new() #24
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 949, ptr noundef nonnull @__func__.ossl_ssl_connection_new_int) #24
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 524308, ptr noundef null) #24
   %cmp.i175 = icmp eq ptr %ssl.0, null
   br i1 %cmp.i175, label %return, label %if.end.i176
 
@@ -982,7 +982,7 @@ CRYPTO_DOWN_REF.exit.i:                           ; preds = %if.end.i176
 
 if.end3.i:                                        ; preds = %CRYPTO_DOWN_REF.exit.i, %CRYPTO_DOWN_REF.exit.thread.i
   %ex_data.i179 = getelementptr inbounds i8, ptr %ssl.1185, i64 48
-  tail call void @CRYPTO_free_ex_data(i32 noundef 0, ptr noundef nonnull %ssl.1185, ptr noundef nonnull %ex_data.i179) #23
+  tail call void @CRYPTO_free_ex_data(i32 noundef 0, ptr noundef nonnull %ssl.1185, ptr noundef nonnull %ex_data.i179) #24
   %method.i = getelementptr inbounds i8, ptr %ssl.1185, i64 24
   %66 = load ptr, ptr %method.i, align 8
   %cmp4.not.i = icmp eq ptr %66, null
@@ -991,7 +991,7 @@ if.end3.i:                                        ; preds = %CRYPTO_DOWN_REF.exi
 if.then5.i:                                       ; preds = %if.end3.i
   %ssl_free.i = getelementptr inbounds i8, ptr %66, i64 24
   %67 = load ptr, ptr %ssl_free.i, align 8
-  tail call void %67(ptr noundef nonnull %ssl.1185) #23
+  tail call void %67(ptr noundef nonnull %ssl.1185) #24
   br label %if.end7.i
 
 if.end7.i:                                        ; preds = %if.then5.i, %if.end3.i
@@ -1000,8 +1000,8 @@ if.end7.i:                                        ; preds = %if.then5.i, %if.end
   tail call void @SSL_CTX_free(ptr noundef %68)
   %lock.i180 = getelementptr inbounds i8, ptr %ssl.1185, i64 40
   %69 = load ptr, ptr %lock.i180, align 8
-  tail call void @CRYPTO_THREAD_lock_free(ptr noundef %69) #23
-  tail call void @CRYPTO_free(ptr noundef nonnull %ssl.1185, ptr noundef nonnull @.str, i32 noundef 1423) #23
+  tail call void @CRYPTO_THREAD_lock_free(ptr noundef %69) #24
+  tail call void @CRYPTO_free(ptr noundef nonnull %ssl.1185, ptr noundef nonnull @.str, i32 noundef 1423) #24
   br label %return
 
 return:                                           ; preds = %if.end7.i, %CRYPTO_DOWN_REF.exit.i, %err, %entry, %if.end242
@@ -1031,9 +1031,9 @@ declare noalias ptr @CRYPTO_malloc(i64 noundef, ptr noundef, i32 noundef) local_
 ; Function Attrs: nounwind uwtable
 define noundef i32 @ssl_undefined_function(ptr nocapture readnone %s) #0 {
 entry:
-  tail call void @ERR_new() #23
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 4792, ptr noundef nonnull @__func__.ssl_undefined_function) #23
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 786689, ptr noundef null) #23
+  tail call void @ERR_new() #24
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 4792, ptr noundef nonnull @__func__.ssl_undefined_function) #24
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 786689, ptr noundef null) #24
   ret i32 0
 }
 
@@ -1064,14 +1064,14 @@ if.end:                                           ; preds = %cond.false, %cond.e
 land.lhs.true:                                    ; preds = %if.end
   %ctx = getelementptr inbounds i8, ptr %s, i64 8
   %2 = load ptr, ptr %ctx, align 8
-  %call = tail call i32 @SSL_CTX_has_client_custom_ext(ptr noundef %2, i32 noundef 18) #23
+  %call = tail call i32 @SSL_CTX_has_client_custom_ext(ptr noundef %2, i32 noundef 18) #24
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %cond.false.i, label %if.then14
 
 if.then14:                                        ; preds = %land.lhs.true
-  tail call void @ERR_new() #23
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 6262, ptr noundef nonnull @__func__.SSL_set_ct_validation_callback) #23
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 206, ptr noundef null) #23
+  tail call void @ERR_new() #24
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 6262, ptr noundef nonnull @__func__.SSL_set_ct_validation_callback) #24
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 206, ptr noundef null) #24
   br label %return
 
 cond.false.i:                                     ; preds = %land.lhs.true
@@ -1092,7 +1092,7 @@ ossl_ctrl_internal.exit:                          ; preds = %cond.false.i, %cond
   %5 = load ptr, ptr %method.i, align 8
   %ssl_ctrl.i = getelementptr inbounds i8, ptr %5, i64 152
   %6 = load ptr, ptr %ssl_ctrl.i, align 8
-  %call.i11 = tail call i64 %6(ptr noundef nonnull %s, i32 noundef 65, i64 noundef 1, ptr noundef null) #23
+  %call.i11 = tail call i64 %6(ptr noundef nonnull %s, i32 noundef 65, i64 noundef 1, ptr noundef null) #24
   %tobool19.not = icmp eq i64 %call.i11, 0
   br i1 %tobool19.not, label %return, label %if.end22
 
@@ -1130,7 +1130,7 @@ CRYPTO_DOWN_REF.exit:                             ; preds = %if.end
 
 if.end3:                                          ; preds = %CRYPTO_DOWN_REF.exit.thread, %CRYPTO_DOWN_REF.exit
   %ex_data = getelementptr inbounds i8, ptr %s, i64 48
-  tail call void @CRYPTO_free_ex_data(i32 noundef 0, ptr noundef nonnull %s, ptr noundef nonnull %ex_data) #23
+  tail call void @CRYPTO_free_ex_data(i32 noundef 0, ptr noundef nonnull %s, ptr noundef nonnull %ex_data) #24
   %method = getelementptr inbounds i8, ptr %s, i64 24
   %1 = load ptr, ptr %method, align 8
   %cmp4.not = icmp eq ptr %1, null
@@ -1139,7 +1139,7 @@ if.end3:                                          ; preds = %CRYPTO_DOWN_REF.exi
 if.then5:                                         ; preds = %if.end3
   %ssl_free = getelementptr inbounds i8, ptr %1, i64 24
   %2 = load ptr, ptr %ssl_free, align 8
-  tail call void %2(ptr noundef nonnull %s) #23
+  tail call void %2(ptr noundef nonnull %s) #24
   br label %if.end7
 
 if.end7:                                          ; preds = %if.then5, %if.end3
@@ -1148,8 +1148,8 @@ if.end7:                                          ; preds = %if.then5, %if.end3
   tail call void @SSL_CTX_free(ptr noundef %3)
   %lock = getelementptr inbounds i8, ptr %s, i64 40
   %4 = load ptr, ptr %lock, align 8
-  tail call void @CRYPTO_THREAD_lock_free(ptr noundef %4) #23
-  tail call void @CRYPTO_free(ptr noundef nonnull %s, ptr noundef nonnull @.str, i32 noundef 1423) #23
+  tail call void @CRYPTO_THREAD_lock_free(ptr noundef %4) #24
+  tail call void @CRYPTO_free(ptr noundef nonnull %s, ptr noundef nonnull @.str, i32 noundef 1423) #24
   br label %return
 
 return:                                           ; preds = %CRYPTO_DOWN_REF.exit, %entry, %if.end7
@@ -1247,9 +1247,9 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  tail call void @ERR_new() #23
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1015, ptr noundef nonnull @__func__.SSL_CTX_set_session_id_context) #23
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 273, ptr noundef null) #23
+  tail call void @ERR_new() #24
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1015, ptr noundef nonnull @__func__.SSL_CTX_set_session_id_context) #24
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 273, ptr noundef null) #24
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -1290,9 +1290,9 @@ if.end:                                           ; preds = %cond.false, %cond.e
   br i1 %cmp13, label %if.then14, label %if.end15
 
 if.then14:                                        ; preds = %if.end
-  tail call void @ERR_new() #23
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1033, ptr noundef nonnull @__func__.SSL_set_session_id_context) #23
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 273, ptr noundef null) #23
+  tail call void @ERR_new() #24
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1033, ptr noundef nonnull @__func__.SSL_set_session_id_context) #24
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 273, ptr noundef null) #24
   br label %return
 
 if.end15:                                         ; preds = %if.end
@@ -1313,7 +1313,7 @@ define noundef i32 @SSL_CTX_set_generate_session_id(ptr nocapture noundef %ctx, 
 entry:
   %lock = getelementptr inbounds i8, ptr %ctx, i64 976
   %0 = load ptr, ptr %lock, align 8
-  %call = tail call i32 @CRYPTO_THREAD_write_lock(ptr noundef %0) #23
+  %call = tail call i32 @CRYPTO_THREAD_write_lock(ptr noundef %0) #24
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %if.end
 
@@ -1321,7 +1321,7 @@ if.end:                                           ; preds = %entry
   %generate_session_id = getelementptr inbounds i8, ptr %ctx, i64 440
   store ptr %cb, ptr %generate_session_id, align 8
   %1 = load ptr, ptr %lock, align 8
-  %call2 = tail call i32 @CRYPTO_THREAD_unlock(ptr noundef %1) #23
+  %call2 = tail call i32 @CRYPTO_THREAD_unlock(ptr noundef %1) #24
   br label %return
 
 return:                                           ; preds = %entry, %if.end
@@ -1356,7 +1356,7 @@ lor.lhs.false:                                    ; preds = %cond.false, %cond.e
   %cond1113 = phi ptr [ %1, %cond.end10 ], [ %ssl, %cond.false ]
   %lock = getelementptr inbounds i8, ptr %ssl, i64 40
   %2 = load ptr, ptr %lock, align 8
-  %call = tail call i32 @CRYPTO_THREAD_write_lock(ptr noundef %2) #23
+  %call = tail call i32 @CRYPTO_THREAD_write_lock(ptr noundef %2) #24
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %if.end
 
@@ -1364,7 +1364,7 @@ if.end:                                           ; preds = %lor.lhs.false
   %generate_session_id = getelementptr inbounds i8, ptr %cond1113, i64 2208
   store ptr %cb, ptr %generate_session_id, align 8
   %3 = load ptr, ptr %lock, align 8
-  %call14 = tail call i32 @CRYPTO_THREAD_unlock(ptr noundef %3) #23
+  %call14 = tail call i32 @CRYPTO_THREAD_unlock(ptr noundef %3) #24
   br label %return
 
 return:                                           ; preds = %cond.false, %entry, %cond.end10, %lor.lhs.false, %if.end
@@ -1411,7 +1411,7 @@ if.end:                                           ; preds = %cond.end10
   %3 = load ptr, ptr %session_ctx, align 8
   %lock = getelementptr inbounds i8, ptr %3, i64 976
   %4 = load ptr, ptr %lock, align 8
-  %call = tail call i32 @CRYPTO_THREAD_read_lock(ptr noundef %4) #23
+  %call = tail call i32 @CRYPTO_THREAD_read_lock(ptr noundef %4) #24
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %if.end18
 
@@ -1419,11 +1419,11 @@ if.end18:                                         ; preds = %if.end
   %5 = load ptr, ptr %session_ctx, align 8
   %sessions = getelementptr inbounds i8, ptr %5, i64 48
   %6 = load ptr, ptr %sessions, align 8
-  %call.i = call ptr @OPENSSL_LH_retrieve(ptr noundef %6, ptr noundef nonnull %r) #23
+  %call.i = call ptr @OPENSSL_LH_retrieve(ptr noundef %6, ptr noundef nonnull %r) #24
   %7 = load ptr, ptr %session_ctx, align 8
   %lock22 = getelementptr inbounds i8, ptr %7, i64 976
   %8 = load ptr, ptr %lock22, align 8
-  %call23 = call i32 @CRYPTO_THREAD_unlock(ptr noundef %8) #23
+  %call23 = call i32 @CRYPTO_THREAD_unlock(ptr noundef %8) #24
   %cmp24 = icmp ne ptr %call.i, null
   %conv25 = zext i1 %cmp24 to i32
   br label %return
@@ -1440,7 +1440,7 @@ define i32 @SSL_CTX_set_purpose(ptr nocapture noundef readonly %s, i32 noundef %
 entry:
   %param = getelementptr inbounds i8, ptr %s, i64 448
   %0 = load ptr, ptr %param, align 8
-  %call = tail call i32 @X509_VERIFY_PARAM_set_purpose(ptr noundef %0, i32 noundef %purpose) #23
+  %call = tail call i32 @X509_VERIFY_PARAM_set_purpose(ptr noundef %0, i32 noundef %purpose) #24
   ret i32 %call
 }
 
@@ -1469,7 +1469,7 @@ if.end:                                           ; preds = %cond.false, %cond.e
   %cond1111 = phi ptr [ %1, %cond.end10 ], [ %s, %cond.false ]
   %param = getelementptr inbounds i8, ptr %cond1111, i64 1168
   %2 = load ptr, ptr %param, align 8
-  %call = tail call i32 @X509_VERIFY_PARAM_set_purpose(ptr noundef %2, i32 noundef %purpose) #23
+  %call = tail call i32 @X509_VERIFY_PARAM_set_purpose(ptr noundef %2, i32 noundef %purpose) #24
   br label %return
 
 return:                                           ; preds = %cond.false, %entry, %cond.end10, %if.end
@@ -1482,7 +1482,7 @@ define i32 @SSL_CTX_set_trust(ptr nocapture noundef readonly %s, i32 noundef %tr
 entry:
   %param = getelementptr inbounds i8, ptr %s, i64 448
   %0 = load ptr, ptr %param, align 8
-  %call = tail call i32 @X509_VERIFY_PARAM_set_trust(ptr noundef %0, i32 noundef %trust) #23
+  %call = tail call i32 @X509_VERIFY_PARAM_set_trust(ptr noundef %0, i32 noundef %trust) #24
   ret i32 %call
 }
 
@@ -1511,7 +1511,7 @@ if.end:                                           ; preds = %cond.false, %cond.e
   %cond1111 = phi ptr [ %1, %cond.end10 ], [ %s, %cond.false ]
   %param = getelementptr inbounds i8, ptr %cond1111, i64 1168
   %2 = load ptr, ptr %param, align 8
-  %call = tail call i32 @X509_VERIFY_PARAM_set_trust(ptr noundef %2, i32 noundef %trust) #23
+  %call = tail call i32 @X509_VERIFY_PARAM_set_trust(ptr noundef %2, i32 noundef %trust) #24
   br label %return
 
 return:                                           ; preds = %cond.false, %entry, %cond.end10, %if.end
@@ -1546,14 +1546,14 @@ if.end:                                           ; preds = %cond.false, %cond.e
 land.lhs.true:                                    ; preds = %if.end
   %param = getelementptr inbounds i8, ptr %cond1114, i64 1168
   %2 = load ptr, ptr %param, align 8
-  %call = tail call i32 @X509_VERIFY_PARAM_set1_ip_asc(ptr noundef %2, ptr noundef nonnull %hostname) #23
+  %call = tail call i32 @X509_VERIFY_PARAM_set1_ip_asc(ptr noundef %2, ptr noundef nonnull %hostname) #24
   %cmp14 = icmp eq i32 %call, 1
   br i1 %cmp14, label %return, label %if.end16
 
 if.end16:                                         ; preds = %land.lhs.true, %if.end
   %param17 = getelementptr inbounds i8, ptr %cond1114, i64 1168
   %3 = load ptr, ptr %param17, align 8
-  %call18 = tail call i32 @X509_VERIFY_PARAM_set1_host(ptr noundef %3, ptr noundef %hostname, i64 noundef 0) #23
+  %call18 = tail call i32 @X509_VERIFY_PARAM_set1_host(ptr noundef %3, ptr noundef %hostname, i64 noundef 0) #24
   br label %return
 
 return:                                           ; preds = %cond.false, %entry, %land.lhs.true, %cond.end10, %if.end16
@@ -1590,31 +1590,31 @@ if.end:                                           ; preds = %cond.false, %cond.e
   br i1 %tobool.not, label %if.end23, label %if.then13
 
 if.then13:                                        ; preds = %if.end
-  %call = tail call ptr @a2i_IPADDRESS(ptr noundef nonnull %hostname) #23
+  %call = tail call ptr @a2i_IPADDRESS(ptr noundef nonnull %hostname) #24
   %tobool14.not = icmp eq ptr %call, null
   br i1 %tobool14.not, label %if.end23, label %if.then15
 
 if.then15:                                        ; preds = %if.then13
-  tail call void @ASN1_OCTET_STRING_free(ptr noundef nonnull %call) #23
+  tail call void @ASN1_OCTET_STRING_free(ptr noundef nonnull %call) #24
   %param = getelementptr inbounds i8, ptr %cond1118, i64 1168
   %2 = load ptr, ptr %param, align 8
-  %call16 = tail call ptr @X509_VERIFY_PARAM_get1_ip_asc(ptr noundef %2) #23
+  %call16 = tail call ptr @X509_VERIFY_PARAM_get1_ip_asc(ptr noundef %2) #24
   %tobool17.not = icmp eq ptr %call16, null
   br i1 %tobool17.not, label %if.end19, label %if.then18
 
 if.then18:                                        ; preds = %if.then15
-  tail call void @CRYPTO_free(ptr noundef nonnull %call16, ptr noundef nonnull @.str, i32 noundef 1157) #23
+  tail call void @CRYPTO_free(ptr noundef nonnull %call16, ptr noundef nonnull @.str, i32 noundef 1157) #24
   br label %return
 
 if.end19:                                         ; preds = %if.then15
   %3 = load ptr, ptr %param, align 8
-  %call21 = tail call i32 @X509_VERIFY_PARAM_set1_ip_asc(ptr noundef %3, ptr noundef nonnull %hostname) #23
+  %call21 = tail call i32 @X509_VERIFY_PARAM_set1_ip_asc(ptr noundef %3, ptr noundef nonnull %hostname) #24
   br label %return
 
 if.end23:                                         ; preds = %if.then13, %if.end
   %param24 = getelementptr inbounds i8, ptr %cond1118, i64 1168
   %4 = load ptr, ptr %param24, align 8
-  %call25 = tail call i32 @X509_VERIFY_PARAM_add1_host(ptr noundef %4, ptr noundef %hostname, i64 noundef 0) #23
+  %call25 = tail call i32 @X509_VERIFY_PARAM_add1_host(ptr noundef %4, ptr noundef %hostname, i64 noundef 0) #24
   br label %return
 
 return:                                           ; preds = %cond.false, %entry, %cond.end10, %if.end23, %if.end19, %if.then18
@@ -1653,7 +1653,7 @@ if.end:                                           ; preds = %cond.false, %cond.e
   %cond1111 = phi ptr [ %1, %cond.end10 ], [ %s, %cond.false ]
   %param = getelementptr inbounds i8, ptr %cond1111, i64 1168
   %2 = load ptr, ptr %param, align 8
-  tail call void @X509_VERIFY_PARAM_set_hostflags(ptr noundef %2, i32 noundef %flags) #23
+  tail call void @X509_VERIFY_PARAM_set_hostflags(ptr noundef %2, i32 noundef %flags) #24
   br label %return
 
 return:                                           ; preds = %cond.false, %entry, %cond.end10, %if.end
@@ -1685,7 +1685,7 @@ if.end:                                           ; preds = %cond.false, %cond.e
   %cond1111 = phi ptr [ %1, %cond.end10 ], [ %s, %cond.false ]
   %param = getelementptr inbounds i8, ptr %cond1111, i64 1168
   %2 = load ptr, ptr %param, align 8
-  %call = tail call ptr @X509_VERIFY_PARAM_get0_peername(ptr noundef %2) #23
+  %call = tail call ptr @X509_VERIFY_PARAM_get0_peername(ptr noundef %2) #24
   br label %return
 
 return:                                           ; preds = %cond.false, %entry, %cond.end10, %if.end
@@ -1704,16 +1704,16 @@ entry:
   br i1 %cmp.not.i, label %if.end.i, label %dane_ctx_enable.exit
 
 if.end.i:                                         ; preds = %entry
-  %call.i = tail call noalias ptr @CRYPTO_zalloc(i64 noundef 24, ptr noundef nonnull @.str, i32 noundef 117) #23
-  %call6.i = tail call noalias ptr @CRYPTO_zalloc(i64 noundef 3, ptr noundef nonnull @.str, i32 noundef 118) #23
+  %call.i = tail call noalias ptr @CRYPTO_zalloc(i64 noundef 24, ptr noundef nonnull @.str, i32 noundef 117) #24
+  %call6.i = tail call noalias ptr @CRYPTO_zalloc(i64 noundef 3, ptr noundef nonnull @.str, i32 noundef 118) #24
   %cmp7.i = icmp eq ptr %call6.i, null
   %cmp9.i = icmp eq ptr %call.i, null
   %or.cond.i = select i1 %cmp7.i, i1 true, i1 %cmp9.i
   br i1 %or.cond.i, label %if.then11.i, label %for.body.i
 
 if.then11.i:                                      ; preds = %if.end.i
-  tail call void @CRYPTO_free(ptr noundef %call6.i, ptr noundef nonnull @.str, i32 noundef 121) #23
-  tail call void @CRYPTO_free(ptr noundef %call.i, ptr noundef nonnull @.str, i32 noundef 122) #23
+  tail call void @CRYPTO_free(ptr noundef %call6.i, ptr noundef nonnull @.str, i32 noundef 121) #24
+  tail call void @CRYPTO_free(ptr noundef %call.i, ptr noundef nonnull @.str, i32 noundef 122) #24
   br label %dane_ctx_enable.exit
 
 for.body.i:                                       ; preds = %if.end.i, %for.inc.i
@@ -1725,8 +1725,8 @@ for.body.i:                                       ; preds = %if.end.i, %for.inc.
   br i1 %cmp15.i, label %for.inc.i, label %lor.lhs.false17.i
 
 lor.lhs.false17.i:                                ; preds = %for.body.i
-  %call20.i = tail call ptr @OBJ_nid2sn(i32 noundef %1) #23
-  %call21.i = tail call ptr @EVP_get_digestbyname(ptr noundef %call20.i) #23
+  %call20.i = tail call ptr @OBJ_nid2sn(i32 noundef %1) #24
+  %call21.i = tail call ptr @EVP_get_digestbyname(ptr noundef %call20.i) #24
   %cmp22.i = icmp eq ptr %call21.i, null
   br i1 %cmp22.i, label %for.inc.i, label %if.end25.i
 
@@ -1838,14 +1838,14 @@ ossl_ctrl_internal.exit:                          ; preds = %cond.false.i, %cond
   %7 = load ptr, ptr %method.i, align 8
   %ssl_ctrl.i = getelementptr inbounds i8, ptr %7, i64 152
   %8 = load ptr, ptr %ssl_ctrl.i, align 8
-  %call.i18 = tail call i64 %8(ptr noundef nonnull %s, i32 noundef 55, i64 noundef 0, ptr noundef %basedomain) #23
+  %call.i18 = tail call i64 %8(ptr noundef nonnull %s, i32 noundef 55, i64 noundef 0, ptr noundef %basedomain) #24
   %tobool.not = icmp eq i64 %call.i18, 0
   br i1 %tobool.not, label %return.sink.split, label %if.end28
 
 if.end28:                                         ; preds = %ossl_ctrl_internal.exit, %if.end22
   %param = getelementptr inbounds i8, ptr %cond1124, i64 1168
   %9 = load ptr, ptr %param, align 8
-  %call29 = tail call i32 @X509_VERIFY_PARAM_set1_host(ptr noundef %9, ptr noundef %basedomain, i64 noundef 0) #23
+  %call29 = tail call i32 @X509_VERIFY_PARAM_set1_host(ptr noundef %9, ptr noundef %basedomain, i64 noundef 0) #24
   %tobool30.not = icmp eq i32 %call29, 0
   br i1 %tobool30.not, label %return.sink.split, label %if.end32
 
@@ -1857,7 +1857,7 @@ if.end32:                                         ; preds = %if.end28
   %10 = load ptr, ptr %ctx, align 8
   %dane34 = getelementptr inbounds i8, ptr %10, i64 928
   store ptr %dane34, ptr %dane13, align 8
-  %call.i17 = tail call ptr @OPENSSL_sk_new_null() #23
+  %call.i17 = tail call ptr @OPENSSL_sk_new_null() #24
   store ptr %call.i17, ptr %trecs, align 8
   %cmp38 = icmp eq ptr %call.i17, null
   br i1 %cmp38, label %return.sink.split, label %return
@@ -1866,9 +1866,9 @@ return.sink.split:                                ; preds = %if.end32, %if.end28
   %.sink30 = phi i32 [ 1220, %if.end ], [ 1224, %if.end18 ], [ 1235, %cond.false.i ], [ 1235, %cond.end10.i ], [ 1235, %ossl_ctrl_internal.exit ], [ 1242, %if.end28 ], [ 1252, %if.end32 ]
   %.sink = phi i32 [ 167, %if.end ], [ 172, %if.end18 ], [ 204, %cond.false.i ], [ 204, %cond.end10.i ], [ 204, %ossl_ctrl_internal.exit ], [ 204, %if.end28 ], [ 524303, %if.end32 ]
   %retval.0.ph = phi i32 [ 0, %if.end ], [ 0, %if.end18 ], [ -1, %cond.false.i ], [ -1, %cond.end10.i ], [ -1, %ossl_ctrl_internal.exit ], [ -1, %if.end28 ], [ -1, %if.end32 ]
-  tail call void @ERR_new() #23
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink30, ptr noundef nonnull @__func__.SSL_dane_enable) #23
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef %.sink, ptr noundef null) #23
+  tail call void @ERR_new() #24
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink30, ptr noundef nonnull @__func__.SSL_dane_enable) #24
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef %.sink, ptr noundef null) #24
   br label %return
 
 return:                                           ; preds = %return.sink.split, %cond.false, %entry, %if.end32, %cond.end10
@@ -1971,7 +1971,7 @@ land.lhs.true:                                    ; preds = %cond.false, %cond.e
   %cond1120 = phi ptr [ %1, %cond.end10 ], [ %s, %cond.false ]
   %trecs = getelementptr inbounds i8, ptr %cond1120, i64 1184
   %2 = load ptr, ptr %trecs, align 8
-  %call.i = tail call i32 @OPENSSL_sk_num(ptr noundef %2) #23
+  %call.i = tail call i32 @OPENSSL_sk_num(ptr noundef %2) #24
   %cmp15 = icmp sgt i32 %call.i, 0
   br i1 %cmp15, label %lor.lhs.false, label %return
 
@@ -2051,7 +2051,7 @@ land.lhs.true:                                    ; preds = %cond.false, %cond.e
   %cond1126 = phi ptr [ %1, %cond.end10 ], [ %s, %cond.false ]
   %trecs = getelementptr inbounds i8, ptr %cond1126, i64 1184
   %2 = load ptr, ptr %trecs, align 8
-  %call.i = tail call i32 @OPENSSL_sk_num(ptr noundef %2) #23
+  %call.i = tail call i32 @OPENSSL_sk_num(ptr noundef %2) #24
   %cmp15 = icmp sgt i32 %call.i, 0
   br i1 %cmp15, label %lor.lhs.false, label %return
 
@@ -2193,9 +2193,9 @@ if.end:                                           ; preds = %cond.false, %cond.e
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %if.end
-  tail call void @ERR_new() #23
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 270, ptr noundef nonnull @__func__.dane_tlsa_add) #23
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 175, ptr noundef null) #23
+  tail call void @ERR_new() #24
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 270, ptr noundef nonnull @__func__.dane_tlsa_add) #24
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 175, ptr noundef null) #24
   br label %dane_tlsa_add.exit
 
 if.end.i:                                         ; preds = %if.end
@@ -2209,9 +2209,9 @@ lor.lhs.false.i:                                  ; preds = %if.end.i
   br i1 %cmp5.not.i, label %if.end8.i, label %if.then7.i
 
 if.then7.i:                                       ; preds = %lor.lhs.false.i, %if.end.i
-  tail call void @ERR_new() #23
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 275, ptr noundef nonnull @__func__.dane_tlsa_add) #23
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 189, ptr noundef null) #23
+  tail call void @ERR_new() #24
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 275, ptr noundef nonnull @__func__.dane_tlsa_add) #24
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 189, ptr noundef null) #24
   br label %dane_tlsa_add.exit
 
 if.end8.i:                                        ; preds = %lor.lhs.false.i
@@ -2220,9 +2220,9 @@ if.end8.i:                                        ; preds = %lor.lhs.false.i
   br i1 %cmp10.i, label %if.then12.i, label %if.end13.i
 
 if.then12.i:                                      ; preds = %if.end8.i
-  tail call void @ERR_new() #23
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 280, ptr noundef nonnull @__func__.dane_tlsa_add) #23
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 184, ptr noundef null) #23
+  tail call void @ERR_new() #24
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 280, ptr noundef nonnull @__func__.dane_tlsa_add) #24
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 184, ptr noundef null) #24
   br label %dane_tlsa_add.exit
 
 if.end13.i:                                       ; preds = %if.end8.i
@@ -2230,9 +2230,9 @@ if.end13.i:                                       ; preds = %if.end8.i
   br i1 %cmp15.i, label %if.then17.i, label %if.end18.i
 
 if.then17.i:                                      ; preds = %if.end13.i
-  tail call void @ERR_new() #23
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 285, ptr noundef nonnull @__func__.dane_tlsa_add) #23
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 202, ptr noundef null) #23
+  tail call void @ERR_new() #24
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 285, ptr noundef nonnull @__func__.dane_tlsa_add) #24
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 202, ptr noundef null) #24
   br label %dane_tlsa_add.exit
 
 if.end18.i:                                       ; preds = %if.end13.i
@@ -2255,21 +2255,21 @@ tlsa_md_get.exit.i:                               ; preds = %if.then22.i
   br i1 %cmp23.i, label %if.then25.i, label %land.lhs.true.i
 
 if.then25.i:                                      ; preds = %tlsa_md_get.exit.i, %if.then22.i
-  tail call void @ERR_new() #23
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 292, ptr noundef nonnull @__func__.dane_tlsa_add) #23
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 200, ptr noundef null) #23
+  tail call void @ERR_new() #24
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 292, ptr noundef nonnull @__func__.dane_tlsa_add) #24
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 200, ptr noundef null) #24
   br label %dane_tlsa_add.exit
 
 land.lhs.true.i:                                  ; preds = %tlsa_md_get.exit.i
-  %call30.i = tail call i32 @EVP_MD_get_size(ptr noundef nonnull %6) #23
+  %call30.i = tail call i32 @EVP_MD_get_size(ptr noundef nonnull %6) #24
   %conv31.i = sext i32 %call30.i to i64
   %cmp32.not.i = icmp eq i64 %conv31.i, %dlen
   br i1 %cmp32.not.i, label %if.end35.i, label %if.then34.i
 
 if.then34.i:                                      ; preds = %land.lhs.true.i
-  tail call void @ERR_new() #23
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 298, ptr noundef nonnull @__func__.dane_tlsa_add) #23
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 192, ptr noundef null) #23
+  tail call void @ERR_new() #24
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 298, ptr noundef nonnull @__func__.dane_tlsa_add) #24
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 192, ptr noundef null) #24
   br label %dane_tlsa_add.exit
 
 if.end35.i:                                       ; preds = %land.lhs.true.i, %if.end18.i
@@ -2277,13 +2277,13 @@ if.end35.i:                                       ; preds = %land.lhs.true.i, %i
   br i1 %tobool.not.i, label %if.then36.i, label %if.end37.i
 
 if.then36.i:                                      ; preds = %if.end35.i
-  tail call void @ERR_new() #23
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 302, ptr noundef nonnull @__func__.dane_tlsa_add) #23
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 203, ptr noundef null) #23
+  tail call void @ERR_new() #24
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 302, ptr noundef nonnull @__func__.dane_tlsa_add) #24
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 203, ptr noundef null) #24
   br label %dane_tlsa_add.exit
 
 if.end37.i:                                       ; preds = %if.end35.i
-  %call38.i = tail call noalias ptr @CRYPTO_zalloc(i64 noundef 32, ptr noundef nonnull @.str, i32 noundef 306) #23
+  %call38.i = tail call noalias ptr @CRYPTO_zalloc(i64 noundef 32, ptr noundef nonnull @.str, i32 noundef 306) #24
   %cmp39.i = icmp eq ptr %call38.i, null
   br i1 %cmp39.i, label %dane_tlsa_add.exit, label %if.end42.i
 
@@ -2293,7 +2293,7 @@ if.end42.i:                                       ; preds = %if.end37.i
   store i8 %selector, ptr %selector44.i, align 1
   %mtype45.i = getelementptr inbounds i8, ptr %call38.i, i64 2
   store i8 %mtype, ptr %mtype45.i, align 2
-  %call46.i = tail call noalias ptr @CRYPTO_malloc(i64 noundef %dlen, ptr noundef nonnull @.str, i32 noundef 312) #23
+  %call46.i = tail call noalias ptr @CRYPTO_malloc(i64 noundef %dlen, ptr noundef nonnull @.str, i32 noundef 312) #24
   %data47.i = getelementptr inbounds i8, ptr %call38.i, i64 8
   store ptr %call46.i, ptr %data47.i, align 8
   %cmp49.i = icmp eq ptr %call46.i, null
@@ -2317,7 +2317,7 @@ if.then58.i:                                      ; preds = %if.end52.i
   br i1 %trunc.not.i, label %sw.bb.i, label %sw.bb96.i
 
 sw.bb.i:                                          ; preds = %if.then58.i
-  %call61.i = call ptr @d2i_X509(ptr noundef nonnull %cert.i, ptr noundef nonnull %p.i, i64 noundef %conv4.i) #23
+  %call61.i = call ptr @d2i_X509(ptr noundef nonnull %cert.i, ptr noundef nonnull %p.i, i64 noundef %conv4.i) #24
   %tobool62.not.i = icmp eq ptr %call61.i, null
   br i1 %tobool62.not.i, label %if.then69.i, label %lor.lhs.false63.i
 
@@ -2333,26 +2333,26 @@ lor.lhs.false63.i:                                ; preds = %sw.bb.i
 
 if.then69.i:                                      ; preds = %lor.lhs.false63.i, %sw.bb.i
   %8 = load ptr, ptr %cert.i, align 8
-  call void @X509_free(ptr noundef %8) #23
+  call void @X509_free(ptr noundef %8) #24
   call void @tlsa_free(ptr noundef nonnull %call38.i)
-  call void @ERR_new() #23
-  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 332, ptr noundef nonnull @__func__.dane_tlsa_add) #23
-  call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 180, ptr noundef null) #23
+  call void @ERR_new() #24
+  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 332, ptr noundef nonnull @__func__.dane_tlsa_add) #24
+  call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 180, ptr noundef null) #24
   br label %dane_tlsa_add.exit
 
 if.end70.i:                                       ; preds = %lor.lhs.false63.i
   %9 = load ptr, ptr %cert.i, align 8
-  %call71.i = call ptr @X509_get0_pubkey(ptr noundef %9) #23
+  %call71.i = call ptr @X509_get0_pubkey(ptr noundef %9) #24
   %cmp72.i = icmp eq ptr %call71.i, null
   br i1 %cmp72.i, label %if.then74.i, label %if.end75.i
 
 if.then74.i:                                      ; preds = %if.end70.i
   %10 = load ptr, ptr %cert.i, align 8
-  call void @X509_free(ptr noundef %10) #23
+  call void @X509_free(ptr noundef %10) #24
   call void @tlsa_free(ptr noundef nonnull %call38.i)
-  call void @ERR_new() #23
-  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 338, ptr noundef nonnull @__func__.dane_tlsa_add) #23
-  call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 180, ptr noundef null) #23
+  call void @ERR_new() #24
+  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 338, ptr noundef nonnull @__func__.dane_tlsa_add) #24
+  call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 180, ptr noundef null) #24
   br label %dane_tlsa_add.exit
 
 if.end75.i:                                       ; preds = %if.end70.i
@@ -2363,7 +2363,7 @@ if.end75.i:                                       ; preds = %if.end70.i
 
 if.then79.i:                                      ; preds = %if.end75.i
   %11 = load ptr, ptr %cert.i, align 8
-  call void @X509_free(ptr noundef %11) #23
+  call void @X509_free(ptr noundef %11) #24
   br label %if.end116.i
 
 if.end80.i:                                       ; preds = %if.end75.i
@@ -2373,7 +2373,7 @@ if.end80.i:                                       ; preds = %if.end75.i
   br i1 %cmp81.i, label %land.lhs.true83.i, label %lor.lhs.false88.i
 
 land.lhs.true83.i:                                ; preds = %if.end80.i
-  %call84.i = call ptr @OPENSSL_sk_new_null() #23
+  %call84.i = call ptr @OPENSSL_sk_new_null() #24
   store ptr %call84.i, ptr %certs.i, align 8
   %cmp86.i = icmp eq ptr %call84.i, null
   br i1 %cmp86.i, label %if.then94.i, label %lor.lhs.false88.i
@@ -2381,21 +2381,21 @@ land.lhs.true83.i:                                ; preds = %if.end80.i
 lor.lhs.false88.i:                                ; preds = %land.lhs.true83.i, %if.end80.i
   %13 = phi ptr [ %call84.i, %land.lhs.true83.i ], [ %12, %if.end80.i ]
   %14 = load ptr, ptr %cert.i, align 8
-  %call92.i = call i32 @OPENSSL_sk_push(ptr noundef nonnull %13, ptr noundef %14) #23
+  %call92.i = call i32 @OPENSSL_sk_push(ptr noundef nonnull %13, ptr noundef %14) #24
   %tobool93.not.i = icmp eq i32 %call92.i, 0
   br i1 %tobool93.not.i, label %if.then94.i, label %if.end116.i
 
 if.then94.i:                                      ; preds = %lor.lhs.false88.i, %land.lhs.true83.i
-  call void @ERR_new() #23
-  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 369, ptr noundef nonnull @__func__.dane_tlsa_add) #23
-  call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 524303, ptr noundef null) #23
+  call void @ERR_new() #24
+  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 369, ptr noundef nonnull @__func__.dane_tlsa_add) #24
+  call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 524303, ptr noundef null) #24
   %15 = load ptr, ptr %cert.i, align 8
-  call void @X509_free(ptr noundef %15) #23
+  call void @X509_free(ptr noundef %15) #24
   call void @tlsa_free(ptr noundef nonnull %call38.i)
   br label %dane_tlsa_add.exit
 
 sw.bb96.i:                                        ; preds = %if.then58.i
-  %call98.i = call ptr @d2i_PUBKEY(ptr noundef nonnull %pkey.i, ptr noundef nonnull %p.i, i64 noundef %conv4.i) #23
+  %call98.i = call ptr @d2i_PUBKEY(ptr noundef nonnull %pkey.i, ptr noundef nonnull %p.i, i64 noundef %conv4.i) #24
   %tobool99.not.i = icmp eq ptr %call98.i, null
   br i1 %tobool99.not.i, label %if.then109.i, label %lor.lhs.false100.i
 
@@ -2411,11 +2411,11 @@ lor.lhs.false100.i:                               ; preds = %sw.bb96.i
 
 if.then109.i:                                     ; preds = %lor.lhs.false100.i, %sw.bb96.i
   %17 = load ptr, ptr %pkey.i, align 8
-  call void @EVP_PKEY_free(ptr noundef %17) #23
+  call void @EVP_PKEY_free(ptr noundef %17) #24
   call void @tlsa_free(ptr noundef nonnull %call38.i)
-  call void @ERR_new() #23
-  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 381, ptr noundef nonnull @__func__.dane_tlsa_add) #23
-  call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 201, ptr noundef null) #23
+  call void @ERR_new() #24
+  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 381, ptr noundef nonnull @__func__.dane_tlsa_add) #24
+  call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 201, ptr noundef null) #24
   br label %dane_tlsa_add.exit
 
 if.end110.i:                                      ; preds = %lor.lhs.false100.i
@@ -2429,12 +2429,12 @@ if.then114.i:                                     ; preds = %if.end110.i
   br label %if.end116.i
 
 if.else.i:                                        ; preds = %if.end110.i
-  call void @EVP_PKEY_free(ptr noundef %18) #23
+  call void @EVP_PKEY_free(ptr noundef %18) #24
   br label %if.end116.i
 
 if.end116.i:                                      ; preds = %if.else.i, %if.then114.i, %lor.lhs.false88.i, %if.then79.i, %if.end52.i
   %19 = load ptr, ptr %trecs.i, align 8
-  %call.i.i = call i32 @OPENSSL_sk_num(ptr noundef %19) #23
+  %call.i.i = call i32 @OPENSSL_sk_num(ptr noundef %19) #24
   %cmp11972.i = icmp sgt i32 %call.i.i, 0
   br i1 %cmp11972.i, label %for.body.lr.ph.i, label %for.end.i
 
@@ -2445,7 +2445,7 @@ for.body.lr.ph.i:                                 ; preds = %if.end116.i
 for.body.i:                                       ; preds = %for.inc.i, %for.body.lr.ph.i
   %i.073.i = phi i32 [ 0, %for.body.lr.ph.i ], [ %inc.i, %for.inc.i ]
   %20 = load ptr, ptr %trecs.i, align 8
-  %call.i66.i = call ptr @OPENSSL_sk_value(ptr noundef %20, i32 noundef %i.073.i) #23
+  %call.i66.i = call ptr @OPENSSL_sk_value(ptr noundef %20, i32 noundef %i.073.i) #24
   %21 = load i8, ptr %call.i66.i, align 8
   %cmp126.i = icmp ugt i8 %21, %usage
   br i1 %cmp126.i, label %for.inc.i, label %if.end129.i
@@ -2486,15 +2486,15 @@ for.inc.i:                                        ; preds = %if.end150.i, %if.en
 for.end.i:                                        ; preds = %for.inc.i, %if.end150.i, %if.end143.i, %if.end129.i, %if.end116.i
   %i.0.lcssa.i = phi i32 [ 0, %if.end116.i ], [ %call.i.i, %for.inc.i ], [ %i.073.i, %if.end129.i ], [ %i.073.i, %if.end143.i ], [ %i.073.i, %if.end150.i ]
   %28 = load ptr, ptr %trecs.i, align 8
-  %call.i67.i = call i32 @OPENSSL_sk_insert(ptr noundef %28, ptr noundef nonnull %call38.i, i32 noundef %i.0.lcssa.i) #23
+  %call.i67.i = call i32 @OPENSSL_sk_insert(ptr noundef %28, ptr noundef nonnull %call38.i, i32 noundef %i.0.lcssa.i) #24
   %tobool164.not.i = icmp eq i32 %call.i67.i, 0
   br i1 %tobool164.not.i, label %if.then165.i, label %if.end166.i
 
 if.then165.i:                                     ; preds = %for.end.i
   call void @tlsa_free(ptr noundef nonnull %call38.i)
-  call void @ERR_new() #23
-  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 431, ptr noundef nonnull @__func__.dane_tlsa_add) #23
-  call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 524303, ptr noundef null) #23
+  call void @ERR_new() #24
+  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 431, ptr noundef nonnull @__func__.dane_tlsa_add) #24
+  call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 524303, ptr noundef null) #24
   br label %dane_tlsa_add.exit
 
 if.end166.i:                                      ; preds = %for.end.i
@@ -2528,9 +2528,9 @@ entry:
   br i1 %or.cond.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %entry
-  tail call void @ERR_new() #23
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 216, ptr noundef nonnull @__func__.dane_mtype_set) #23
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 173, ptr noundef null) #23
+  tail call void @ERR_new() #24
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 216, ptr noundef nonnull @__func__.dane_mtype_set) #24
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 173, ptr noundef null) #24
   br label %dane_mtype_set.exit
 
 if.end.i:                                         ; preds = %entry
@@ -2544,7 +2544,7 @@ if.then8.i:                                       ; preds = %if.end.i
   %1 = load ptr, ptr %dane, align 8
   %conv11.i = zext nneg i32 %add.i to i64
   %mul.i = shl nuw nsw i64 %conv11.i, 3
-  %call.i = tail call ptr @CRYPTO_realloc(ptr noundef %1, i64 noundef %mul.i, ptr noundef nonnull @.str, i32 noundef 225) #23
+  %call.i = tail call ptr @CRYPTO_realloc(ptr noundef %1, i64 noundef %mul.i, ptr noundef nonnull @.str, i32 noundef 225) #24
   %cmp12.i = icmp eq ptr %call.i, null
   br i1 %cmp12.i, label %dane_mtype_set.exit, label %if.end15.i
 
@@ -2552,7 +2552,7 @@ if.end15.i:                                       ; preds = %if.then8.i
   store ptr %call.i, ptr %dane, align 8
   %mdord17.i = getelementptr inbounds i8, ptr %ctx, i64 936
   %2 = load ptr, ptr %mdord17.i, align 8
-  %call20.i = tail call ptr @CRYPTO_realloc(ptr noundef %2, i64 noundef %conv11.i, ptr noundef nonnull @.str, i32 noundef 230) #23
+  %call20.i = tail call ptr @CRYPTO_realloc(ptr noundef %2, i64 noundef %conv11.i, ptr noundef nonnull @.str, i32 noundef 230) #24
   %cmp21.i = icmp eq ptr %call20.i, null
   br i1 %cmp21.i, label %dane_mtype_set.exit, label %if.end24.i
 
@@ -2607,7 +2607,7 @@ define i32 @SSL_CTX_set1_param(ptr nocapture noundef readonly %ctx, ptr noundef 
 entry:
   %param = getelementptr inbounds i8, ptr %ctx, i64 448
   %0 = load ptr, ptr %param, align 8
-  %call = tail call i32 @X509_VERIFY_PARAM_set1(ptr noundef %0, ptr noundef %vpm) #23
+  %call = tail call i32 @X509_VERIFY_PARAM_set1(ptr noundef %0, ptr noundef %vpm) #24
   ret i32 %call
 }
 
@@ -2636,7 +2636,7 @@ if.end:                                           ; preds = %cond.false, %cond.e
   %cond1111 = phi ptr [ %1, %cond.end10 ], [ %ssl, %cond.false ]
   %param = getelementptr inbounds i8, ptr %cond1111, i64 1168
   %2 = load ptr, ptr %param, align 8
-  %call = tail call i32 @X509_VERIFY_PARAM_set1(ptr noundef %2, ptr noundef %vpm) #23
+  %call = tail call i32 @X509_VERIFY_PARAM_set1(ptr noundef %2, ptr noundef %vpm) #24
   br label %return
 
 return:                                           ; preds = %cond.false, %entry, %cond.end10, %if.end
@@ -2705,7 +2705,7 @@ if.end:                                           ; preds = %cond.false, %cond.e
   %cond1111 = phi ptr [ %1, %cond.end10 ], [ %s, %cond.false ]
   %cert = getelementptr inbounds i8, ptr %cond1111, i64 2048
   %2 = load ptr, ptr %cert, align 8
-  tail call void @ssl_cert_clear_certs(ptr noundef %2) #23
+  tail call void @ssl_cert_clear_certs(ptr noundef %2) #24
   br label %return
 
 return:                                           ; preds = %cond.false, %entry, %cond.end10, %if.end
@@ -2739,14 +2739,14 @@ CRYPTO_DOWN_REF.exit:                             ; preds = %if.end
 if.end3:                                          ; preds = %CRYPTO_DOWN_REF.exit.thread, %CRYPTO_DOWN_REF.exit
   %param = getelementptr inbounds i8, ptr %a, i64 448
   %1 = load ptr, ptr %param, align 8
-  tail call void @X509_VERIFY_PARAM_free(ptr noundef %1) #23
+  tail call void @X509_VERIFY_PARAM_free(ptr noundef %1) #24
   %dane = getelementptr inbounds i8, ptr %a, i64 928
   %2 = load ptr, ptr %dane, align 8
-  tail call void @CRYPTO_free(ptr noundef %2, ptr noundef nonnull @.str, i32 noundef 146) #23
+  tail call void @CRYPTO_free(ptr noundef %2, ptr noundef nonnull @.str, i32 noundef 146) #24
   store ptr null, ptr %dane, align 8
   %mdord.i = getelementptr inbounds i8, ptr %a, i64 936
   %3 = load ptr, ptr %mdord.i, align 8
-  tail call void @CRYPTO_free(ptr noundef %3, ptr noundef nonnull @.str, i32 noundef 149) #23
+  tail call void @CRYPTO_free(ptr noundef %3, ptr noundef nonnull @.str, i32 noundef 149) #24
   store ptr null, ptr %mdord.i, align 8
   %mdmax.i = getelementptr inbounds i8, ptr %a, i64 944
   store i8 0, ptr %mdmax.i, align 8
@@ -2756,77 +2756,77 @@ if.end3:                                          ; preds = %CRYPTO_DOWN_REF.exi
   br i1 %cmp4.not, label %if.end6, label %if.then5
 
 if.then5:                                         ; preds = %if.end3
-  tail call void @SSL_CTX_flush_sessions(ptr noundef nonnull %a, i64 noundef 0) #23
+  tail call void @SSL_CTX_flush_sessions(ptr noundef nonnull %a, i64 noundef 0) #24
   br label %if.end6
 
 if.end6:                                          ; preds = %if.then5, %if.end3
   %ex_data = getelementptr inbounds i8, ptr %a, i64 240
-  tail call void @CRYPTO_free_ex_data(i32 noundef 1, ptr noundef nonnull %a, ptr noundef nonnull %ex_data) #23
+  tail call void @CRYPTO_free_ex_data(i32 noundef 1, ptr noundef nonnull %a, ptr noundef nonnull %ex_data) #24
   %5 = load ptr, ptr %sessions, align 8
-  tail call void @OPENSSL_LH_free(ptr noundef %5) #23
+  tail call void @OPENSSL_LH_free(ptr noundef %5) #24
   %cert_store = getelementptr inbounds i8, ptr %a, i64 40
   %6 = load ptr, ptr %cert_store, align 8
-  tail call void @X509_STORE_free(ptr noundef %6) #23
+  tail call void @X509_STORE_free(ptr noundef %6) #24
   %ctlog_store = getelementptr inbounds i8, ptr %a, i64 464
   %7 = load ptr, ptr %ctlog_store, align 8
-  tail call void @CTLOG_STORE_free(ptr noundef %7) #23
+  tail call void @CTLOG_STORE_free(ptr noundef %7) #24
   %cipher_list = getelementptr inbounds i8, ptr %a, i64 16
   %8 = load ptr, ptr %cipher_list, align 8
-  tail call void @OPENSSL_sk_free(ptr noundef %8) #23
+  tail call void @OPENSSL_sk_free(ptr noundef %8) #24
   %cipher_list_by_id = getelementptr inbounds i8, ptr %a, i64 24
   %9 = load ptr, ptr %cipher_list_by_id, align 8
-  tail call void @OPENSSL_sk_free(ptr noundef %9) #23
+  tail call void @OPENSSL_sk_free(ptr noundef %9) #24
   %tls13_ciphersuites = getelementptr inbounds i8, ptr %a, i64 32
   %10 = load ptr, ptr %tls13_ciphersuites, align 8
-  tail call void @OPENSSL_sk_free(ptr noundef %10) #23
+  tail call void @OPENSSL_sk_free(ptr noundef %10) #24
   %cert = getelementptr inbounds i8, ptr %a, i64 344
   %11 = load ptr, ptr %cert, align 8
-  tail call void @ssl_cert_free(ptr noundef %11) #23
+  tail call void @ssl_cert_free(ptr noundef %11) #24
   %ca_names = getelementptr inbounds i8, ptr %a, i64 296
   %12 = load ptr, ptr %ca_names, align 8
-  tail call void @OPENSSL_sk_pop_free(ptr noundef %12, ptr noundef nonnull @X509_NAME_free) #23
+  tail call void @OPENSSL_sk_pop_free(ptr noundef %12, ptr noundef nonnull @X509_NAME_free) #24
   %client_ca_names = getelementptr inbounds i8, ptr %a, i64 304
   %13 = load ptr, ptr %client_ca_names, align 8
-  tail call void @OPENSSL_sk_pop_free(ptr noundef %13, ptr noundef nonnull @X509_NAME_free) #23
+  tail call void @OPENSSL_sk_pop_free(ptr noundef %13, ptr noundef nonnull @X509_NAME_free) #24
   %extra_certs = getelementptr inbounds i8, ptr %a, i64 272
   %14 = load ptr, ptr %extra_certs, align 8
-  tail call void @OSSL_STACK_OF_X509_free(ptr noundef %14) #23
+  tail call void @OSSL_STACK_OF_X509_free(ptr noundef %14) #24
   %comp_methods = getelementptr inbounds i8, ptr %a, i64 280
   store ptr null, ptr %comp_methods, align 8
   %srtp_profiles = getelementptr inbounds i8, ptr %a, i64 960
   %15 = load ptr, ptr %srtp_profiles, align 8
-  tail call void @OPENSSL_sk_free(ptr noundef %15) #23
-  %call16 = tail call i32 @ssl_ctx_srp_ctx_free_intern(ptr noundef nonnull %a) #23
+  tail call void @OPENSSL_sk_free(ptr noundef %15) #24
+  %call16 = tail call i32 @ssl_ctx_srp_ctx_free_intern(ptr noundef nonnull %a) #24
   %client_cert_engine = getelementptr inbounds i8, ptr %a, i64 520
   %16 = load ptr, ptr %client_cert_engine, align 8
-  tail call void @tls_engine_finish(ptr noundef %16) #23
+  tail call void @tls_engine_finish(ptr noundef %16) #24
   %ecpointformats = getelementptr inbounds i8, ptr %a, i64 632
   %17 = load ptr, ptr %ecpointformats, align 8
-  tail call void @CRYPTO_free(ptr noundef %17, ptr noundef nonnull @.str, i32 noundef 4188) #23
+  tail call void @CRYPTO_free(ptr noundef %17, ptr noundef nonnull @.str, i32 noundef 4188) #24
   %supportedgroups = getelementptr inbounds i8, ptr %a, i64 648
   %18 = load ptr, ptr %supportedgroups, align 8
-  tail call void @CRYPTO_free(ptr noundef %18, ptr noundef nonnull @.str, i32 noundef 4189) #23
+  tail call void @CRYPTO_free(ptr noundef %18, ptr noundef nonnull @.str, i32 noundef 4189) #24
   %supported_groups_default = getelementptr inbounds i8, ptr %a, i64 656
   %19 = load ptr, ptr %supported_groups_default, align 8
-  tail call void @CRYPTO_free(ptr noundef %19, ptr noundef nonnull @.str, i32 noundef 4190) #23
+  tail call void @CRYPTO_free(ptr noundef %19, ptr noundef nonnull @.str, i32 noundef 4190) #24
   %alpn = getelementptr inbounds i8, ptr %a, i64 688
   %20 = load ptr, ptr %alpn, align 8
-  tail call void @CRYPTO_free(ptr noundef %20, ptr noundef nonnull @.str, i32 noundef 4191) #23
+  tail call void @CRYPTO_free(ptr noundef %20, ptr noundef nonnull @.str, i32 noundef 4191) #24
   %secure = getelementptr inbounds i8, ptr %a, i64 576
   %21 = load ptr, ptr %secure, align 8
-  tail call void @CRYPTO_secure_free(ptr noundef %21, ptr noundef nonnull @.str, i32 noundef 4192) #23
+  tail call void @CRYPTO_secure_free(ptr noundef %21, ptr noundef nonnull @.str, i32 noundef 4192) #24
   %md5 = getelementptr inbounds i8, ptr %a, i64 256
   %22 = load ptr, ptr %md5, align 8
   %cmp.i77 = icmp eq ptr %22, null
   br i1 %cmp.i77, label %ssl_evp_md_free.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end6
-  %call.i = tail call ptr @EVP_MD_get0_provider(ptr noundef nonnull %22) #23
+  %call.i = tail call ptr @EVP_MD_get0_provider(ptr noundef nonnull %22) #24
   %cmp1.not.i = icmp eq ptr %call.i, null
   br i1 %cmp1.not.i, label %ssl_evp_md_free.exit, label %if.then2.i
 
 if.then2.i:                                       ; preds = %if.end.i
-  tail call void @EVP_MD_free(ptr noundef nonnull %22) #23
+  tail call void @EVP_MD_free(ptr noundef nonnull %22) #24
   br label %ssl_evp_md_free.exit
 
 ssl_evp_md_free.exit:                             ; preds = %if.end6, %if.end.i, %if.then2.i
@@ -2836,12 +2836,12 @@ ssl_evp_md_free.exit:                             ; preds = %if.end6, %if.end.i,
   br i1 %cmp.i78, label %ssl_evp_md_free.exit83, label %if.end.i79
 
 if.end.i79:                                       ; preds = %ssl_evp_md_free.exit
-  %call.i80 = tail call ptr @EVP_MD_get0_provider(ptr noundef nonnull %23) #23
+  %call.i80 = tail call ptr @EVP_MD_get0_provider(ptr noundef nonnull %23) #24
   %cmp1.not.i81 = icmp eq ptr %call.i80, null
   br i1 %cmp1.not.i81, label %ssl_evp_md_free.exit83, label %if.then2.i82
 
 if.then2.i82:                                     ; preds = %if.end.i79
-  tail call void @EVP_MD_free(ptr noundef nonnull %23) #23
+  tail call void @EVP_MD_free(ptr noundef nonnull %23) #24
   br label %ssl_evp_md_free.exit83
 
 ssl_evp_md_free.exit83:                           ; preds = %ssl_evp_md_free.exit, %if.end.i79, %if.then2.i82
@@ -2860,12 +2860,12 @@ for.body:                                         ; preds = %ssl_evp_md_free.exi
   br i1 %cmp.i84, label %ssl_evp_cipher_free.exit, label %if.end.i85
 
 if.end.i85:                                       ; preds = %for.body
-  %call.i86 = tail call ptr @EVP_CIPHER_get0_provider(ptr noundef nonnull %24) #23
+  %call.i86 = tail call ptr @EVP_CIPHER_get0_provider(ptr noundef nonnull %24) #24
   %cmp1.not.i87 = icmp eq ptr %call.i86, null
   br i1 %cmp1.not.i87, label %ssl_evp_cipher_free.exit, label %if.then2.i88
 
 if.then2.i88:                                     ; preds = %if.end.i85
-  tail call void @EVP_CIPHER_free(ptr noundef nonnull %24) #23
+  tail call void @EVP_CIPHER_free(ptr noundef nonnull %24) #24
   br label %ssl_evp_cipher_free.exit
 
 ssl_evp_cipher_free.exit:                         ; preds = %for.body, %if.end.i85, %if.then2.i88
@@ -2891,12 +2891,12 @@ for.body24:                                       ; preds = %for.cond22.preheade
   br i1 %cmp.i89, label %ssl_evp_md_free.exit94, label %if.end.i90
 
 if.end.i90:                                       ; preds = %for.body24
-  %call.i91 = tail call ptr @EVP_MD_get0_provider(ptr noundef nonnull %26) #23
+  %call.i91 = tail call ptr @EVP_MD_get0_provider(ptr noundef nonnull %26) #24
   %cmp1.not.i92 = icmp eq ptr %call.i91, null
   br i1 %cmp1.not.i92, label %ssl_evp_md_free.exit94, label %if.then2.i93
 
 if.then2.i93:                                     ; preds = %if.end.i90
-  tail call void @EVP_MD_free(ptr noundef nonnull %26) #23
+  tail call void @EVP_MD_free(ptr noundef nonnull %26) #24
   br label %ssl_evp_md_free.exit94
 
 ssl_evp_md_free.exit94:                           ; preds = %for.body24, %if.end.i90, %if.then2.i93
@@ -2909,15 +2909,15 @@ for.body31:                                       ; preds = %for.body31.lr.ph, %
   %27 = load ptr, ptr %group_list, align 8
   %arrayidx32 = getelementptr inbounds %struct.tls_group_info_st, ptr %27, i64 %j.299
   %28 = load ptr, ptr %arrayidx32, align 8
-  tail call void @CRYPTO_free(ptr noundef %28, ptr noundef nonnull @.str, i32 noundef 4202) #23
+  tail call void @CRYPTO_free(ptr noundef %28, ptr noundef nonnull @.str, i32 noundef 4202) #24
   %29 = load ptr, ptr %group_list, align 8
   %realname = getelementptr inbounds %struct.tls_group_info_st, ptr %29, i64 %j.299, i32 1
   %30 = load ptr, ptr %realname, align 8
-  tail call void @CRYPTO_free(ptr noundef %30, ptr noundef nonnull @.str, i32 noundef 4203) #23
+  tail call void @CRYPTO_free(ptr noundef %30, ptr noundef nonnull @.str, i32 noundef 4203) #24
   %31 = load ptr, ptr %group_list, align 8
   %algorithm = getelementptr inbounds %struct.tls_group_info_st, ptr %31, i64 %j.299, i32 2
   %32 = load ptr, ptr %algorithm, align 8
-  tail call void @CRYPTO_free(ptr noundef %32, ptr noundef nonnull @.str, i32 noundef 4204) #23
+  tail call void @CRYPTO_free(ptr noundef %32, ptr noundef nonnull @.str, i32 noundef 4204) #24
   %inc38 = add nuw i64 %j.299, 1
   %33 = load i64, ptr %group_list_len, align 8
   %cmp30 = icmp ult i64 %inc38, %33
@@ -2926,7 +2926,7 @@ for.body31:                                       ; preds = %for.body31.lr.ph, %
 for.end39:                                        ; preds = %for.body31, %for.cond29.preheader
   %group_list40 = getelementptr inbounds i8, ptr %a, i64 1600
   %34 = load ptr, ptr %group_list40, align 8
-  tail call void @CRYPTO_free(ptr noundef %34, ptr noundef nonnull @.str, i32 noundef 4206) #23
+  tail call void @CRYPTO_free(ptr noundef %34, ptr noundef nonnull @.str, i32 noundef 4206) #24
   %sigalg_list_len = getelementptr inbounds i8, ptr %a, i64 1632
   %35 = load i64, ptr %sigalg_list_len, align 8
   %cmp42100.not = icmp eq i64 %35, 0
@@ -2941,39 +2941,39 @@ for.body43:                                       ; preds = %for.body43.lr.ph, %
   %36 = load ptr, ptr %sigalg_list, align 8
   %arrayidx44 = getelementptr inbounds %struct.tls_sigalg_info_st, ptr %36, i64 %j.3101
   %37 = load ptr, ptr %arrayidx44, align 8
-  tail call void @CRYPTO_free(ptr noundef %37, ptr noundef nonnull @.str, i32 noundef 4208) #23
+  tail call void @CRYPTO_free(ptr noundef %37, ptr noundef nonnull @.str, i32 noundef 4208) #24
   %38 = load ptr, ptr %sigalg_list, align 8
   %sigalg_name = getelementptr inbounds %struct.tls_sigalg_info_st, ptr %38, i64 %j.3101, i32 2
   %39 = load ptr, ptr %sigalg_name, align 8
-  tail call void @CRYPTO_free(ptr noundef %39, ptr noundef nonnull @.str, i32 noundef 4209) #23
+  tail call void @CRYPTO_free(ptr noundef %39, ptr noundef nonnull @.str, i32 noundef 4209) #24
   %40 = load ptr, ptr %sigalg_list, align 8
   %sigalg_oid = getelementptr inbounds %struct.tls_sigalg_info_st, ptr %40, i64 %j.3101, i32 3
   %41 = load ptr, ptr %sigalg_oid, align 8
-  tail call void @CRYPTO_free(ptr noundef %41, ptr noundef nonnull @.str, i32 noundef 4210) #23
+  tail call void @CRYPTO_free(ptr noundef %41, ptr noundef nonnull @.str, i32 noundef 4210) #24
   %42 = load ptr, ptr %sigalg_list, align 8
   %sig_name = getelementptr inbounds %struct.tls_sigalg_info_st, ptr %42, i64 %j.3101, i32 4
   %43 = load ptr, ptr %sig_name, align 8
-  tail call void @CRYPTO_free(ptr noundef %43, ptr noundef nonnull @.str, i32 noundef 4211) #23
+  tail call void @CRYPTO_free(ptr noundef %43, ptr noundef nonnull @.str, i32 noundef 4211) #24
   %44 = load ptr, ptr %sigalg_list, align 8
   %sig_oid = getelementptr inbounds %struct.tls_sigalg_info_st, ptr %44, i64 %j.3101, i32 5
   %45 = load ptr, ptr %sig_oid, align 8
-  tail call void @CRYPTO_free(ptr noundef %45, ptr noundef nonnull @.str, i32 noundef 4212) #23
+  tail call void @CRYPTO_free(ptr noundef %45, ptr noundef nonnull @.str, i32 noundef 4212) #24
   %46 = load ptr, ptr %sigalg_list, align 8
   %hash_name = getelementptr inbounds %struct.tls_sigalg_info_st, ptr %46, i64 %j.3101, i32 6
   %47 = load ptr, ptr %hash_name, align 8
-  tail call void @CRYPTO_free(ptr noundef %47, ptr noundef nonnull @.str, i32 noundef 4213) #23
+  tail call void @CRYPTO_free(ptr noundef %47, ptr noundef nonnull @.str, i32 noundef 4213) #24
   %48 = load ptr, ptr %sigalg_list, align 8
   %hash_oid = getelementptr inbounds %struct.tls_sigalg_info_st, ptr %48, i64 %j.3101, i32 7
   %49 = load ptr, ptr %hash_oid, align 8
-  tail call void @CRYPTO_free(ptr noundef %49, ptr noundef nonnull @.str, i32 noundef 4214) #23
+  tail call void @CRYPTO_free(ptr noundef %49, ptr noundef nonnull @.str, i32 noundef 4214) #24
   %50 = load ptr, ptr %sigalg_list, align 8
   %keytype = getelementptr inbounds %struct.tls_sigalg_info_st, ptr %50, i64 %j.3101, i32 8
   %51 = load ptr, ptr %keytype, align 8
-  tail call void @CRYPTO_free(ptr noundef %51, ptr noundef nonnull @.str, i32 noundef 4215) #23
+  tail call void @CRYPTO_free(ptr noundef %51, ptr noundef nonnull @.str, i32 noundef 4215) #24
   %52 = load ptr, ptr %sigalg_list, align 8
   %keytype_oid = getelementptr inbounds %struct.tls_sigalg_info_st, ptr %52, i64 %j.3101, i32 9
   %53 = load ptr, ptr %keytype_oid, align 8
-  tail call void @CRYPTO_free(ptr noundef %53, ptr noundef nonnull @.str, i32 noundef 4216) #23
+  tail call void @CRYPTO_free(ptr noundef %53, ptr noundef nonnull @.str, i32 noundef 4216) #24
   %inc62 = add nuw i64 %j.3101, 1
   %54 = load i64, ptr %sigalg_list_len, align 8
   %cmp42 = icmp ult i64 %inc62, %54
@@ -2982,29 +2982,29 @@ for.body43:                                       ; preds = %for.body43.lr.ph, %
 for.end63:                                        ; preds = %for.body43, %for.end39
   %sigalg_list64 = getelementptr inbounds i8, ptr %a, i64 1624
   %55 = load ptr, ptr %sigalg_list64, align 8
-  tail call void @CRYPTO_free(ptr noundef %55, ptr noundef nonnull @.str, i32 noundef 4218) #23
+  tail call void @CRYPTO_free(ptr noundef %55, ptr noundef nonnull @.str, i32 noundef 4218) #24
   %ssl_cert_info = getelementptr inbounds i8, ptr %a, i64 352
   %56 = load ptr, ptr %ssl_cert_info, align 8
-  tail call void @CRYPTO_free(ptr noundef %56, ptr noundef nonnull @.str, i32 noundef 4219) #23
+  tail call void @CRYPTO_free(ptr noundef %56, ptr noundef nonnull @.str, i32 noundef 4219) #24
   %sigalg_lookup_cache = getelementptr inbounds i8, ptr %a, i64 1584
   %57 = load ptr, ptr %sigalg_lookup_cache, align 8
-  tail call void @CRYPTO_free(ptr noundef %57, ptr noundef nonnull @.str, i32 noundef 4221) #23
+  tail call void @CRYPTO_free(ptr noundef %57, ptr noundef nonnull @.str, i32 noundef 4221) #24
   %tls12_sigalgs = getelementptr inbounds i8, ptr %a, i64 1592
   %58 = load ptr, ptr %tls12_sigalgs, align 8
-  tail call void @CRYPTO_free(ptr noundef %58, ptr noundef nonnull @.str, i32 noundef 4222) #23
+  tail call void @CRYPTO_free(ptr noundef %58, ptr noundef nonnull @.str, i32 noundef 4222) #24
   %client_cert_type = getelementptr inbounds i8, ptr %a, i64 1664
   %59 = load ptr, ptr %client_cert_type, align 8
-  tail call void @CRYPTO_free(ptr noundef %59, ptr noundef nonnull @.str, i32 noundef 4224) #23
+  tail call void @CRYPTO_free(ptr noundef %59, ptr noundef nonnull @.str, i32 noundef 4224) #24
   %server_cert_type = getelementptr inbounds i8, ptr %a, i64 1680
   %60 = load ptr, ptr %server_cert_type, align 8
-  tail call void @CRYPTO_free(ptr noundef %60, ptr noundef nonnull @.str, i32 noundef 4225) #23
+  tail call void @CRYPTO_free(ptr noundef %60, ptr noundef nonnull @.str, i32 noundef 4225) #24
   %lock = getelementptr inbounds i8, ptr %a, i64 976
   %61 = load ptr, ptr %lock, align 8
-  tail call void @CRYPTO_THREAD_lock_free(ptr noundef %61) #23
+  tail call void @CRYPTO_THREAD_lock_free(ptr noundef %61) #24
   %propq = getelementptr inbounds i8, ptr %a, i64 1096
   %62 = load ptr, ptr %propq, align 8
-  tail call void @CRYPTO_free(ptr noundef %62, ptr noundef nonnull @.str, i32 noundef 4233) #23
-  tail call void @CRYPTO_free(ptr noundef nonnull %a, ptr noundef nonnull @.str, i32 noundef 4235) #23
+  tail call void @CRYPTO_free(ptr noundef %62, ptr noundef nonnull @.str, i32 noundef 4233) #24
+  tail call void @CRYPTO_free(ptr noundef nonnull %a, ptr noundef nonnull @.str, i32 noundef 4235) #24
   br label %return
 
 return:                                           ; preds = %CRYPTO_DOWN_REF.exit, %entry, %for.end63
@@ -3025,18 +3025,18 @@ cond.false:                                       ; preds = %entry
 if.end:                                           ; preds = %cond.false
   %param = getelementptr inbounds i8, ptr %ssl, i64 1168
   %1 = load ptr, ptr %param, align 8
-  tail call void @X509_VERIFY_PARAM_free(ptr noundef %1) #23
+  tail call void @X509_VERIFY_PARAM_free(ptr noundef %1) #24
   %trecs.i = getelementptr inbounds i8, ptr %ssl, i64 1184
   %2 = load ptr, ptr %trecs.i, align 8
-  tail call void @OPENSSL_sk_pop_free(ptr noundef %2, ptr noundef nonnull @tlsa_free) #23
+  tail call void @OPENSSL_sk_pop_free(ptr noundef %2, ptr noundef nonnull @tlsa_free) #24
   store ptr null, ptr %trecs.i, align 8
   %certs.i = getelementptr inbounds i8, ptr %ssl, i64 1192
   %3 = load ptr, ptr %certs.i, align 8
-  tail call void @OSSL_STACK_OF_X509_free(ptr noundef %3) #23
+  tail call void @OSSL_STACK_OF_X509_free(ptr noundef %3) #24
   store ptr null, ptr %certs.i, align 8
   %mcert.i = getelementptr inbounds i8, ptr %ssl, i64 1208
   %4 = load ptr, ptr %mcert.i, align 8
-  tail call void @X509_free(ptr noundef %4) #23
+  tail call void @X509_free(ptr noundef %4) #24
   %mtlsa.i = getelementptr inbounds i8, ptr %ssl, i64 1200
   %mdpth.i = getelementptr inbounds i8, ptr %ssl, i64 1220
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mtlsa.i, i8 0, i64 16, i1 false)
@@ -3051,7 +3051,7 @@ if.end:                                           ; preds = %cond.false
 if.end.i:                                         ; preds = %if.end
   %wbio.i = getelementptr inbounds i8, ptr %ssl, i64 80
   %6 = load ptr, ptr %wbio.i, align 8
-  %call.i = tail call ptr @BIO_pop(ptr noundef %6) #23
+  %call.i = tail call ptr @BIO_pop(ptr noundef %6) #24
   store ptr %call.i, ptr %wbio.i, align 8
   %wrlmethod.i = getelementptr inbounds i8, ptr %ssl, i64 3032
   %7 = load ptr, ptr %wrlmethod.i, align 8
@@ -3059,93 +3059,93 @@ if.end.i:                                         ; preds = %if.end
   %8 = load ptr, ptr %set1_bio.i, align 8
   %wrl.i = getelementptr inbounds i8, ptr %ssl, i64 3048
   %9 = load ptr, ptr %wrl.i, align 8
-  %call4.i = tail call i32 %8(ptr noundef %9, ptr noundef %call.i) #23
+  %call4.i = tail call i32 %8(ptr noundef %9, ptr noundef %call.i) #24
   %10 = load ptr, ptr %bbio.i, align 8
-  %call6.i = tail call i32 @BIO_free(ptr noundef %10) #23
+  %call6.i = tail call i32 @BIO_free(ptr noundef %10) #24
   store ptr null, ptr %bbio.i, align 8
   br label %ssl_free_wbio_buffer.exit
 
 ssl_free_wbio_buffer.exit:                        ; preds = %if.end, %if.end.i
   %rlayer = getelementptr inbounds i8, ptr %ssl, i64 3000
-  tail call void @RECORD_LAYER_clear(ptr noundef nonnull %rlayer) #23
+  tail call void @RECORD_LAYER_clear(ptr noundef nonnull %rlayer) #24
   %init_buf = getelementptr inbounds i8, ptr %ssl, i64 240
   %11 = load ptr, ptr %init_buf, align 8
-  tail call void @BUF_MEM_free(ptr noundef %11) #23
+  tail call void @BUF_MEM_free(ptr noundef %11) #24
   %cipher_list = getelementptr inbounds i8, ptr %ssl, i64 1248
   %12 = load ptr, ptr %cipher_list, align 8
-  tail call void @OPENSSL_sk_free(ptr noundef %12) #23
+  tail call void @OPENSSL_sk_free(ptr noundef %12) #24
   %cipher_list_by_id = getelementptr inbounds i8, ptr %ssl, i64 1256
   %13 = load ptr, ptr %cipher_list_by_id, align 8
-  tail call void @OPENSSL_sk_free(ptr noundef %13) #23
+  tail call void @OPENSSL_sk_free(ptr noundef %13) #24
   %tls13_ciphersuites = getelementptr inbounds i8, ptr %ssl, i64 1264
   %14 = load ptr, ptr %tls13_ciphersuites, align 8
-  tail call void @OPENSSL_sk_free(ptr noundef %14) #23
+  tail call void @OPENSSL_sk_free(ptr noundef %14) #24
   %peer_ciphers = getelementptr inbounds i8, ptr %ssl, i64 1240
   %15 = load ptr, ptr %peer_ciphers, align 8
-  tail call void @OPENSSL_sk_free(ptr noundef %15) #23
+  tail call void @OPENSSL_sk_free(ptr noundef %15) #24
   %session = getelementptr inbounds i8, ptr %ssl, i64 2176
   %16 = load ptr, ptr %session, align 8
   %cmp11.not = icmp eq ptr %16, null
   br i1 %cmp11.not, label %if.end15, label %if.then12
 
 if.then12:                                        ; preds = %ssl_free_wbio_buffer.exit
-  %call13 = tail call i32 @ssl_clear_bad_session(ptr noundef nonnull %ssl) #23
+  %call13 = tail call i32 @ssl_clear_bad_session(ptr noundef nonnull %ssl) #24
   %17 = load ptr, ptr %session, align 8
-  tail call void @SSL_SESSION_free(ptr noundef %17) #23
+  tail call void @SSL_SESSION_free(ptr noundef %17) #24
   br label %if.end15
 
 if.end15:                                         ; preds = %if.then12, %ssl_free_wbio_buffer.exit
   %psksession = getelementptr inbounds i8, ptr %ssl, i64 2184
   %18 = load ptr, ptr %psksession, align 8
-  tail call void @SSL_SESSION_free(ptr noundef %18) #23
+  tail call void @SSL_SESSION_free(ptr noundef %18) #24
   %psksession_id = getelementptr inbounds i8, ptr %ssl, i64 2192
   %19 = load ptr, ptr %psksession_id, align 8
-  tail call void @CRYPTO_free(ptr noundef %19, ptr noundef nonnull @.str, i32 noundef 1456) #23
+  tail call void @CRYPTO_free(ptr noundef %19, ptr noundef nonnull @.str, i32 noundef 1456) #24
   %cert = getelementptr inbounds i8, ptr %ssl, i64 2048
   %20 = load ptr, ptr %cert, align 8
-  tail call void @ssl_cert_free(ptr noundef %20) #23
+  tail call void @ssl_cert_free(ptr noundef %20) #24
   %shared_sigalgs = getelementptr inbounds i8, ptr %ssl, i64 5352
   %21 = load ptr, ptr %shared_sigalgs, align 8
-  tail call void @CRYPTO_free(ptr noundef %21, ptr noundef nonnull @.str, i32 noundef 1459) #23
+  tail call void @CRYPTO_free(ptr noundef %21, ptr noundef nonnull @.str, i32 noundef 1459) #24
   %hostname = getelementptr inbounds i8, ptr %ssl, i64 2464
   %22 = load ptr, ptr %hostname, align 8
-  tail call void @CRYPTO_free(ptr noundef %22, ptr noundef nonnull @.str, i32 noundef 1462) #23
+  tail call void @CRYPTO_free(ptr noundef %22, ptr noundef nonnull @.str, i32 noundef 1462) #24
   %session_ctx = getelementptr inbounds i8, ptr %ssl, i64 2792
   %23 = load ptr, ptr %session_ctx, align 8
   tail call void @SSL_CTX_free(ptr noundef %23)
   %ecpointformats = getelementptr inbounds i8, ptr %ssl, i64 2544
   %24 = load ptr, ptr %ecpointformats, align 8
-  tail call void @CRYPTO_free(ptr noundef %24, ptr noundef nonnull @.str, i32 noundef 1464) #23
+  tail call void @CRYPTO_free(ptr noundef %24, ptr noundef nonnull @.str, i32 noundef 1464) #24
   %peer_ecpointformats = getelementptr inbounds i8, ptr %ssl, i64 2560
   %25 = load ptr, ptr %peer_ecpointformats, align 8
-  tail call void @CRYPTO_free(ptr noundef %25, ptr noundef nonnull @.str, i32 noundef 1465) #23
+  tail call void @CRYPTO_free(ptr noundef %25, ptr noundef nonnull @.str, i32 noundef 1465) #24
   %supportedgroups = getelementptr inbounds i8, ptr %ssl, i64 2576
   %26 = load ptr, ptr %supportedgroups, align 8
-  tail call void @CRYPTO_free(ptr noundef %26, ptr noundef nonnull @.str, i32 noundef 1466) #23
+  tail call void @CRYPTO_free(ptr noundef %26, ptr noundef nonnull @.str, i32 noundef 1466) #24
   %peer_supportedgroups = getelementptr inbounds i8, ptr %ssl, i64 2592
   %27 = load ptr, ptr %peer_supportedgroups, align 8
-  tail call void @CRYPTO_free(ptr noundef %27, ptr noundef nonnull @.str, i32 noundef 1467) #23
+  tail call void @CRYPTO_free(ptr noundef %27, ptr noundef nonnull @.str, i32 noundef 1467) #24
   %ocsp = getelementptr inbounds i8, ptr %ssl, i64 2496
   %exts = getelementptr inbounds i8, ptr %ssl, i64 2504
   %28 = load ptr, ptr %exts, align 8
-  tail call void @OPENSSL_sk_pop_free(ptr noundef %28, ptr noundef nonnull @X509_EXTENSION_free) #23
+  tail call void @OPENSSL_sk_pop_free(ptr noundef %28, ptr noundef nonnull @X509_EXTENSION_free) #24
   %29 = load ptr, ptr %ocsp, align 8
-  tail call void @OPENSSL_sk_pop_free(ptr noundef %29, ptr noundef nonnull @OCSP_RESPID_free) #23
+  tail call void @OPENSSL_sk_pop_free(ptr noundef %29, ptr noundef nonnull @OCSP_RESPID_free) #24
   %scts = getelementptr inbounds i8, ptr %ssl, i64 2776
   %30 = load ptr, ptr %scts, align 8
-  tail call void @SCT_LIST_free(ptr noundef %30) #23
+  tail call void @SCT_LIST_free(ptr noundef %30) #24
   %scts28 = getelementptr inbounds i8, ptr %ssl, i64 2480
   %31 = load ptr, ptr %scts28, align 8
-  tail call void @CRYPTO_free(ptr noundef %31, ptr noundef nonnull @.str, i32 noundef 1474) #23
+  tail call void @CRYPTO_free(ptr noundef %31, ptr noundef nonnull @.str, i32 noundef 1474) #24
   %resp = getelementptr inbounds i8, ptr %ssl, i64 2512
   %32 = load ptr, ptr %resp, align 8
-  tail call void @CRYPTO_free(ptr noundef %32, ptr noundef nonnull @.str, i32 noundef 1476) #23
+  tail call void @CRYPTO_free(ptr noundef %32, ptr noundef nonnull @.str, i32 noundef 1476) #24
   %alpn = getelementptr inbounds i8, ptr %ssl, i64 2640
   %33 = load ptr, ptr %alpn, align 8
-  tail call void @CRYPTO_free(ptr noundef %33, ptr noundef nonnull @.str, i32 noundef 1477) #23
+  tail call void @CRYPTO_free(ptr noundef %33, ptr noundef nonnull @.str, i32 noundef 1477) #24
   %tls13_cookie = getelementptr inbounds i8, ptr %ssl, i64 2688
   %34 = load ptr, ptr %tls13_cookie, align 8
-  tail call void @CRYPTO_free(ptr noundef %34, ptr noundef nonnull @.str, i32 noundef 1478) #23
+  tail call void @CRYPTO_free(ptr noundef %34, ptr noundef nonnull @.str, i32 noundef 1478) #24
   %clienthello = getelementptr inbounds i8, ptr %ssl, i64 2744
   %35 = load ptr, ptr %clienthello, align 8
   %cmp33.not = icmp eq ptr %35, null
@@ -3154,34 +3154,34 @@ if.end15:                                         ; preds = %if.then12, %ssl_fre
 if.then34:                                        ; preds = %if.end15
   %pre_proc_exts = getelementptr inbounds i8, ptr %35, i64 648
   %36 = load ptr, ptr %pre_proc_exts, align 8
-  tail call void @CRYPTO_free(ptr noundef %36, ptr noundef nonnull @.str, i32 noundef 1480) #23
+  tail call void @CRYPTO_free(ptr noundef %36, ptr noundef nonnull @.str, i32 noundef 1480) #24
   %.pre = load ptr, ptr %clienthello, align 8
   br label %if.end36
 
 if.end36:                                         ; preds = %if.then34, %if.end15
   %37 = phi ptr [ %.pre, %if.then34 ], [ null, %if.end15 ]
-  tail call void @CRYPTO_free(ptr noundef %37, ptr noundef nonnull @.str, i32 noundef 1481) #23
+  tail call void @CRYPTO_free(ptr noundef %37, ptr noundef nonnull @.str, i32 noundef 1481) #24
   %pha_context = getelementptr inbounds i8, ptr %ssl, i64 2832
   %38 = load ptr, ptr %pha_context, align 8
-  tail call void @CRYPTO_free(ptr noundef %38, ptr noundef nonnull @.str, i32 noundef 1482) #23
+  tail call void @CRYPTO_free(ptr noundef %38, ptr noundef nonnull @.str, i32 noundef 1482) #24
   %pha_dgst = getelementptr inbounds i8, ptr %ssl, i64 2856
   %39 = load ptr, ptr %pha_dgst, align 8
-  tail call void @EVP_MD_CTX_free(ptr noundef %39) #23
+  tail call void @EVP_MD_CTX_free(ptr noundef %39) #24
   %ca_names = getelementptr inbounds i8, ptr %ssl, i64 2336
   %40 = load ptr, ptr %ca_names, align 8
-  tail call void @OPENSSL_sk_pop_free(ptr noundef %40, ptr noundef nonnull @X509_NAME_free) #23
+  tail call void @OPENSSL_sk_pop_free(ptr noundef %40, ptr noundef nonnull @X509_NAME_free) #24
   %client_ca_names = getelementptr inbounds i8, ptr %ssl, i64 2344
   %41 = load ptr, ptr %client_ca_names, align 8
-  tail call void @OPENSSL_sk_pop_free(ptr noundef %41, ptr noundef nonnull @X509_NAME_free) #23
+  tail call void @OPENSSL_sk_pop_free(ptr noundef %41, ptr noundef nonnull @X509_NAME_free) #24
   %client_cert_type = getelementptr inbounds i8, ptr %ssl, i64 5368
   %42 = load ptr, ptr %client_cert_type, align 8
-  tail call void @CRYPTO_free(ptr noundef %42, ptr noundef nonnull @.str, i32 noundef 1488) #23
+  tail call void @CRYPTO_free(ptr noundef %42, ptr noundef nonnull @.str, i32 noundef 1488) #24
   %server_cert_type = getelementptr inbounds i8, ptr %ssl, i64 5384
   %43 = load ptr, ptr %server_cert_type, align 8
-  tail call void @CRYPTO_free(ptr noundef %43, ptr noundef nonnull @.str, i32 noundef 1489) #23
+  tail call void @CRYPTO_free(ptr noundef %43, ptr noundef nonnull @.str, i32 noundef 1489) #24
   %verified_chain = getelementptr inbounds i8, ptr %ssl, i64 2320
   %44 = load ptr, ptr %verified_chain, align 8
-  tail call void @OSSL_STACK_OF_X509_free(ptr noundef %44) #23
+  tail call void @OSSL_STACK_OF_X509_free(ptr noundef %44) #24
   %method = getelementptr inbounds i8, ptr %ssl, i64 24
   %45 = load ptr, ptr %method, align 8
   %cmp42.not = icmp eq ptr %45, null
@@ -3190,30 +3190,30 @@ if.end36:                                         ; preds = %if.then34, %if.end1
 if.then43:                                        ; preds = %if.end36
   %ssl_deinit = getelementptr inbounds i8, ptr %45, i64 56
   %46 = load ptr, ptr %ssl_deinit, align 8
-  tail call void %46(ptr noundef nonnull %ssl) #23
+  tail call void %46(ptr noundef nonnull %ssl) #24
   br label %if.end45
 
 if.end45:                                         ; preds = %if.then43, %if.end36
   %waitctx = getelementptr inbounds i8, ptr %ssl, i64 5264
   %47 = load ptr, ptr %waitctx, align 8
-  tail call void @ASYNC_WAIT_CTX_free(ptr noundef %47) #23
+  tail call void @ASYNC_WAIT_CTX_free(ptr noundef %47) #24
   %npn = getelementptr inbounds i8, ptr %ssl, i64 2656
   %48 = load ptr, ptr %npn, align 8
-  tail call void @CRYPTO_free(ptr noundef %48, ptr noundef nonnull @.str, i32 noundef 1499) #23
+  tail call void @CRYPTO_free(ptr noundef %48, ptr noundef nonnull @.str, i32 noundef 1499) #24
   %srtp_profiles = getelementptr inbounds i8, ptr %ssl, i64 2800
   %49 = load ptr, ptr %srtp_profiles, align 8
-  tail call void @OPENSSL_sk_free(ptr noundef %49) #23
+  tail call void @OPENSSL_sk_free(ptr noundef %49) #24
   %wbio = getelementptr inbounds i8, ptr %ssl, i64 80
   %50 = load ptr, ptr %wbio, align 8
-  tail call void @BIO_free_all(ptr noundef %50) #23
+  tail call void @BIO_free_all(ptr noundef %50) #24
   store ptr null, ptr %wbio, align 8
   %rbio = getelementptr inbounds i8, ptr %ssl, i64 72
   %51 = load ptr, ptr %rbio, align 8
-  tail call void @BIO_free_all(ptr noundef %51) #23
+  tail call void @BIO_free_all(ptr noundef %51) #24
   store ptr null, ptr %rbio, align 8
   %valid_flags = getelementptr inbounds i8, ptr %ssl, i64 912
   %52 = load ptr, ptr %valid_flags, align 8
-  tail call void @CRYPTO_free(ptr noundef %52, ptr noundef nonnull @.str, i32 noundef 1516) #23
+  tail call void @CRYPTO_free(ptr noundef %52, ptr noundef nonnull @.str, i32 noundef 1516) #24
   br label %return
 
 return:                                           ; preds = %entry, %cond.false, %if.end45
@@ -3233,7 +3233,7 @@ entry:
 if.end:                                           ; preds = %entry
   %wbio = getelementptr inbounds i8, ptr %s, i64 80
   %1 = load ptr, ptr %wbio, align 8
-  %call = tail call ptr @BIO_pop(ptr noundef %1) #23
+  %call = tail call ptr @BIO_pop(ptr noundef %1) #24
   store ptr %call, ptr %wbio, align 8
   %wrlmethod = getelementptr inbounds i8, ptr %s, i64 3032
   %2 = load ptr, ptr %wrlmethod, align 8
@@ -3241,9 +3241,9 @@ if.end:                                           ; preds = %entry
   %3 = load ptr, ptr %set1_bio, align 8
   %wrl = getelementptr inbounds i8, ptr %s, i64 3048
   %4 = load ptr, ptr %wrl, align 8
-  %call4 = tail call i32 %3(ptr noundef %4, ptr noundef %call) #23
+  %call4 = tail call i32 %3(ptr noundef %4, ptr noundef %call) #24
   %5 = load ptr, ptr %bbio, align 8
-  %call6 = tail call i32 @BIO_free(ptr noundef %5) #23
+  %call6 = tail call i32 @BIO_free(ptr noundef %5) #24
   store ptr null, ptr %bbio, align 8
   br label %return
 
@@ -3290,13 +3290,13 @@ land.lhs.true:                                    ; preds = %cond.false
   br i1 %switch, label %if.then, label %return
 
 if.then:                                          ; preds = %cond.false, %land.lhs.true
-  tail call void @ossl_quic_conn_set0_net_rbio(ptr noundef nonnull %s, ptr noundef %rbio) #23
+  tail call void @ossl_quic_conn_set0_net_rbio(ptr noundef nonnull %s, ptr noundef %rbio) #24
   br label %return
 
 if.end19:                                         ; preds = %cond.false
   %rbio20 = getelementptr inbounds i8, ptr %s, i64 72
   %1 = load ptr, ptr %rbio20, align 8
-  tail call void @BIO_free_all(ptr noundef %1) #23
+  tail call void @BIO_free_all(ptr noundef %1) #24
   store ptr %rbio, ptr %rbio20, align 8
   %rrlmethod = getelementptr inbounds i8, ptr %s, i64 3024
   %2 = load ptr, ptr %rrlmethod, align 8
@@ -3304,7 +3304,7 @@ if.end19:                                         ; preds = %cond.false
   %3 = load ptr, ptr %set1_bio, align 8
   %rrl = getelementptr inbounds i8, ptr %s, i64 3040
   %4 = load ptr, ptr %rrl, align 8
-  %call = tail call i32 %3(ptr noundef %4, ptr noundef %rbio) #23
+  %call = tail call i32 %3(ptr noundef %4, ptr noundef %rbio) #24
   br label %return
 
 return:                                           ; preds = %land.lhs.true, %entry, %if.end19, %if.then
@@ -3332,7 +3332,7 @@ land.lhs.true:                                    ; preds = %cond.false
   br i1 %switch, label %if.then, label %return
 
 if.then:                                          ; preds = %cond.false, %land.lhs.true
-  tail call void @ossl_quic_conn_set0_net_wbio(ptr noundef nonnull %s, ptr noundef %wbio) #23
+  tail call void @ossl_quic_conn_set0_net_wbio(ptr noundef nonnull %s, ptr noundef %wbio) #24
   br label %return
 
 if.end19:                                         ; preds = %cond.false
@@ -3344,21 +3344,21 @@ if.end19:                                         ; preds = %cond.false
   br i1 %cmp20.not, label %if.end24, label %if.then21
 
 if.then21:                                        ; preds = %if.end19
-  %call = tail call ptr @BIO_pop(ptr noundef %.pre) #23
+  %call = tail call ptr @BIO_pop(ptr noundef %.pre) #24
   store ptr %call, ptr %wbio25.phi.trans.insert, align 8
   br label %if.end24
 
 if.end24:                                         ; preds = %if.end19, %if.then21
   %2 = phi ptr [ %call, %if.then21 ], [ %.pre, %if.end19 ]
   %wbio25 = getelementptr inbounds i8, ptr %s, i64 80
-  tail call void @BIO_free_all(ptr noundef %2) #23
+  tail call void @BIO_free_all(ptr noundef %2) #24
   store ptr %wbio, ptr %wbio25, align 8
   %3 = load ptr, ptr %bbio, align 8
   %cmp28.not = icmp eq ptr %3, null
   br i1 %cmp28.not, label %if.end34, label %if.then29
 
 if.then29:                                        ; preds = %if.end24
-  %call32 = tail call ptr @BIO_push(ptr noundef nonnull %3, ptr noundef %wbio) #23
+  %call32 = tail call ptr @BIO_push(ptr noundef nonnull %3, ptr noundef %wbio) #24
   store ptr %call32, ptr %wbio25, align 8
   br label %if.end34
 
@@ -3370,7 +3370,7 @@ if.end34:                                         ; preds = %if.then29, %if.end2
   %6 = load ptr, ptr %set1_bio, align 8
   %wrl = getelementptr inbounds i8, ptr %s, i64 3048
   %7 = load ptr, ptr %wrl, align 8
-  %call37 = tail call i32 %6(ptr noundef %7, ptr noundef %4) #23
+  %call37 = tail call i32 %6(ptr noundef %7, ptr noundef %4) #24
   br label %return
 
 return:                                           ; preds = %land.lhs.true, %entry, %if.end34, %if.then
@@ -3402,7 +3402,7 @@ land.lhs.true.i:                                  ; preds = %cond.false.i
   br i1 %switch.i, label %if.then.i, label %SSL_get_rbio.exit
 
 if.then.i:                                        ; preds = %land.lhs.true.i, %cond.false.i
-  %call.i = tail call ptr @ossl_quic_conn_get_net_rbio(ptr noundef nonnull %s) #23
+  %call.i = tail call ptr @ossl_quic_conn_get_net_rbio(ptr noundef nonnull %s) #24
   br label %SSL_get_rbio.exit
 
 if.end19.i:                                       ; preds = %cond.false.i
@@ -3432,7 +3432,7 @@ land.lhs.true.i26:                                ; preds = %cond.false.i21
   br i1 %switch.i28, label %if.then.i22, label %SSL_get_wbio.exit
 
 if.then.i22:                                      ; preds = %land.lhs.true.i26, %cond.false.i21
-  %call.i23 = tail call ptr @ossl_quic_conn_get_net_wbio(ptr noundef nonnull %s) #23
+  %call.i23 = tail call ptr @ossl_quic_conn_get_net_wbio(ptr noundef nonnull %s) #24
   br label %SSL_get_wbio.exit
 
 if.end19.i25:                                     ; preds = %cond.false.i21
@@ -3442,7 +3442,7 @@ if.end19.i25:                                     ; preds = %cond.false.i21
   br i1 %cmp20.not.i, label %if.end24.i, label %if.then21.i
 
 if.then21.i:                                      ; preds = %if.end19.i25
-  %call23.i = tail call ptr @BIO_next(ptr noundef nonnull %3) #23
+  %call23.i = tail call ptr @BIO_next(ptr noundef nonnull %3) #24
   br label %SSL_get_wbio.exit
 
 if.end24.i:                                       ; preds = %if.end19.i25
@@ -3462,7 +3462,7 @@ if.end:                                           ; preds = %SSL_get_rbio.exit.t
   br i1 %or.cond, label %if.then6, label %if.end8
 
 if.then6:                                         ; preds = %if.end
-  %call7 = tail call i32 @BIO_up_ref(ptr noundef nonnull %rbio) #23
+  %call7 = tail call i32 @BIO_up_ref(ptr noundef nonnull %rbio) #24
   br label %if.end8
 
 if.end8:                                          ; preds = %if.then6, %if.end
@@ -3481,7 +3481,7 @@ land.lhs.true.i36:                                ; preds = %cond.false.i30
   br i1 %switch.i38, label %if.then.i31, label %SSL_get_rbio.exit39
 
 if.then.i31:                                      ; preds = %land.lhs.true.i36, %cond.false.i30
-  %call.i32 = tail call ptr @ossl_quic_conn_get_net_rbio(ptr noundef nonnull %s) #23
+  %call.i32 = tail call ptr @ossl_quic_conn_get_net_rbio(ptr noundef nonnull %s) #24
   br label %SSL_get_rbio.exit39
 
 if.end19.i34:                                     ; preds = %cond.false.i30
@@ -3507,7 +3507,7 @@ land.lhs.true.i49:                                ; preds = %cond.false.i41
   br i1 %switch.i51, label %if.then.i42, label %return
 
 if.then.i42:                                      ; preds = %land.lhs.true.i49, %cond.false.i41
-  tail call void @ossl_quic_conn_set0_net_wbio(ptr noundef nonnull %s, ptr noundef %wbio) #23
+  tail call void @ossl_quic_conn_set0_net_wbio(ptr noundef nonnull %s, ptr noundef %wbio) #24
   br label %return
 
 if.end19.i43:                                     ; preds = %cond.false.i41
@@ -3519,20 +3519,20 @@ if.end19.i43:                                     ; preds = %cond.false.i41
   br i1 %cmp20.not.i45, label %if.end24.i48, label %if.then21.i46
 
 if.then21.i46:                                    ; preds = %if.end19.i43
-  %call.i47 = tail call ptr @BIO_pop(ptr noundef %.pre.i) #23
+  %call.i47 = tail call ptr @BIO_pop(ptr noundef %.pre.i) #24
   store ptr %call.i47, ptr %wbio25.phi.trans.insert.i, align 8
   br label %if.end24.i48
 
 if.end24.i48:                                     ; preds = %if.then21.i46, %if.end19.i43
   %9 = phi ptr [ %call.i47, %if.then21.i46 ], [ %.pre.i, %if.end19.i43 ]
-  tail call void @BIO_free_all(ptr noundef %9) #23
+  tail call void @BIO_free_all(ptr noundef %9) #24
   store ptr %wbio, ptr %wbio25.phi.trans.insert.i, align 8
   %10 = load ptr, ptr %bbio.i44, align 8
   %cmp28.not.i = icmp eq ptr %10, null
   br i1 %cmp28.not.i, label %if.end34.i, label %if.then29.i
 
 if.then29.i:                                      ; preds = %if.end24.i48
-  %call32.i = tail call ptr @BIO_push(ptr noundef nonnull %10, ptr noundef %wbio) #23
+  %call32.i = tail call ptr @BIO_push(ptr noundef nonnull %10, ptr noundef %wbio) #24
   store ptr %call32.i, ptr %wbio25.phi.trans.insert.i, align 8
   br label %if.end34.i
 
@@ -3544,7 +3544,7 @@ if.end34.i:                                       ; preds = %if.then29.i, %if.en
   %13 = load ptr, ptr %set1_bio.i, align 8
   %wrl.i = getelementptr inbounds i8, ptr %s, i64 3048
   %14 = load ptr, ptr %wrl.i, align 8
-  %call37.i = tail call i32 %13(ptr noundef %14, ptr noundef %11) #23
+  %call37.i = tail call i32 %13(ptr noundef %14, ptr noundef %11) #24
   br label %return
 
 cond.false.i53:                                   ; preds = %SSL_get_rbio.exit39
@@ -3559,7 +3559,7 @@ land.lhs.true.i64:                                ; preds = %cond.false.i53
   br i1 %switch.i66, label %if.then.i54, label %SSL_get_wbio.exit67
 
 if.then.i54:                                      ; preds = %land.lhs.true.i64, %cond.false.i53
-  %call.i55 = tail call ptr @ossl_quic_conn_get_net_wbio(ptr noundef nonnull %s) #23
+  %call.i55 = tail call ptr @ossl_quic_conn_get_net_wbio(ptr noundef nonnull %s) #24
   br label %SSL_get_wbio.exit67
 
 if.end19.i57:                                     ; preds = %cond.false.i53
@@ -3569,7 +3569,7 @@ if.end19.i57:                                     ; preds = %cond.false.i53
   br i1 %cmp20.not.i59, label %if.end24.i62, label %if.then21.i60
 
 if.then21.i60:                                    ; preds = %if.end19.i57
-  %call23.i61 = tail call ptr @BIO_next(ptr noundef nonnull %15) #23
+  %call23.i61 = tail call ptr @BIO_next(ptr noundef nonnull %15) #24
   br label %SSL_get_wbio.exit67
 
 if.end24.i62:                                     ; preds = %if.end19.i57
@@ -3598,7 +3598,7 @@ land.lhs.true.i75:                                ; preds = %cond.false.i69
   br i1 %switch.i77, label %if.then.i70, label %cond.false.i80
 
 if.then.i70:                                      ; preds = %land.lhs.true.i75, %cond.false.i69
-  %call.i71 = tail call ptr @ossl_quic_conn_get_net_rbio(ptr noundef nonnull %s) #23
+  %call.i71 = tail call ptr @ossl_quic_conn_get_net_rbio(ptr noundef nonnull %s) #24
   %.pr = load i32, ptr %s, align 8
   br label %cond.false.i80
 
@@ -3621,7 +3621,7 @@ land.lhs.true.i91:                                ; preds = %cond.false.i80
   br i1 %switch.i93, label %if.then.i81, label %SSL_get_wbio.exit94
 
 if.then.i81:                                      ; preds = %land.lhs.true.i91, %cond.false.i80
-  %call.i82 = tail call ptr @ossl_quic_conn_get_net_wbio(ptr noundef nonnull %s) #23
+  %call.i82 = tail call ptr @ossl_quic_conn_get_net_wbio(ptr noundef nonnull %s) #24
   br label %SSL_get_wbio.exit94
 
 if.end19.i84:                                     ; preds = %cond.false.i80.thread, %cond.false.i80
@@ -3632,7 +3632,7 @@ if.end19.i84:                                     ; preds = %cond.false.i80.thre
   br i1 %cmp20.not.i86, label %if.end24.i89, label %if.then21.i87
 
 if.then21.i87:                                    ; preds = %if.end19.i84
-  %call23.i88 = tail call ptr @BIO_next(ptr noundef nonnull %20) #23
+  %call23.i88 = tail call ptr @BIO_next(ptr noundef nonnull %20) #24
   br label %SSL_get_wbio.exit94
 
 if.end24.i89:                                     ; preds = %if.end19.i84
@@ -3659,13 +3659,13 @@ land.lhs.true.i101:                               ; preds = %cond.false.i96
   br i1 %switch.i103, label %if.then.i97, label %return
 
 if.then.i97:                                      ; preds = %land.lhs.true.i101, %cond.false.i96
-  tail call void @ossl_quic_conn_set0_net_rbio(ptr noundef nonnull %s, ptr noundef %rbio) #23
+  tail call void @ossl_quic_conn_set0_net_rbio(ptr noundef nonnull %s, ptr noundef %rbio) #24
   br label %return
 
 if.end19.i98:                                     ; preds = %cond.false.i96
   %rbio20.i = getelementptr inbounds i8, ptr %s, i64 72
   %22 = load ptr, ptr %rbio20.i, align 8
-  tail call void @BIO_free_all(ptr noundef %22) #23
+  tail call void @BIO_free_all(ptr noundef %22) #24
   store ptr %rbio, ptr %rbio20.i, align 8
   %rrlmethod.i = getelementptr inbounds i8, ptr %s, i64 3024
   %23 = load ptr, ptr %rrlmethod.i, align 8
@@ -3673,7 +3673,7 @@ if.end19.i98:                                     ; preds = %cond.false.i96
   %24 = load ptr, ptr %set1_bio.i99, align 8
   %rrl.i = getelementptr inbounds i8, ptr %s, i64 3040
   %25 = load ptr, ptr %rrl.i, align 8
-  %call.i100 = tail call i32 %24(ptr noundef %25, ptr noundef %rbio) #23
+  %call.i100 = tail call i32 %24(ptr noundef %25, ptr noundef %rbio) #24
   br label %return
 
 if.end20:                                         ; preds = %SSL_get_wbio.exit67
@@ -3696,13 +3696,13 @@ land.lhs.true.i113:                               ; preds = %cond.false.i105
   br i1 %switch.i115, label %if.then.i106, label %cond.false.i118
 
 if.then.i106:                                     ; preds = %land.lhs.true.i113, %cond.false.i105
-  tail call void @ossl_quic_conn_set0_net_rbio(ptr noundef nonnull %s, ptr noundef %rbio) #23
+  tail call void @ossl_quic_conn_set0_net_rbio(ptr noundef nonnull %s, ptr noundef %rbio) #24
   br label %cond.false.i118thread-pre-split
 
 if.end19.i107:                                    ; preds = %cond.false.i105
   %rbio20.i108 = getelementptr inbounds i8, ptr %s, i64 72
   %27 = load ptr, ptr %rbio20.i108, align 8
-  tail call void @BIO_free_all(ptr noundef %27) #23
+  tail call void @BIO_free_all(ptr noundef %27) #24
   store ptr %rbio, ptr %rbio20.i108, align 8
   %rrlmethod.i109 = getelementptr inbounds i8, ptr %s, i64 3024
   %28 = load ptr, ptr %rrlmethod.i109, align 8
@@ -3710,7 +3710,7 @@ if.end19.i107:                                    ; preds = %cond.false.i105
   %29 = load ptr, ptr %set1_bio.i110, align 8
   %rrl.i111 = getelementptr inbounds i8, ptr %s, i64 3040
   %30 = load ptr, ptr %rrl.i111, align 8
-  %call.i112 = tail call i32 %29(ptr noundef %30, ptr noundef %rbio) #23
+  %call.i112 = tail call i32 %29(ptr noundef %30, ptr noundef %rbio) #24
   br label %cond.false.i118thread-pre-split
 
 cond.false.i118thread-pre-split:                  ; preds = %if.end19.i107, %if.then.i106
@@ -3730,7 +3730,7 @@ land.lhs.true.i137:                               ; preds = %cond.false.i118
   br i1 %switch.i139, label %if.then.i119, label %return
 
 if.then.i119:                                     ; preds = %land.lhs.true.i137, %cond.false.i118
-  tail call void @ossl_quic_conn_set0_net_wbio(ptr noundef nonnull %s, ptr noundef %wbio) #23
+  tail call void @ossl_quic_conn_set0_net_wbio(ptr noundef nonnull %s, ptr noundef %wbio) #24
   br label %return
 
 if.end19.i120:                                    ; preds = %cond.false.i118
@@ -3742,20 +3742,20 @@ if.end19.i120:                                    ; preds = %cond.false.i118
   br i1 %cmp20.not.i122, label %if.end24.i127, label %if.then21.i125
 
 if.then21.i125:                                   ; preds = %if.end19.i120
-  %call.i126 = tail call ptr @BIO_pop(ptr noundef %.pre.i124) #23
+  %call.i126 = tail call ptr @BIO_pop(ptr noundef %.pre.i124) #24
   store ptr %call.i126, ptr %wbio25.phi.trans.insert.i123, align 8
   br label %if.end24.i127
 
 if.end24.i127:                                    ; preds = %if.then21.i125, %if.end19.i120
   %33 = phi ptr [ %call.i126, %if.then21.i125 ], [ %.pre.i124, %if.end19.i120 ]
-  tail call void @BIO_free_all(ptr noundef %33) #23
+  tail call void @BIO_free_all(ptr noundef %33) #24
   store ptr %wbio, ptr %wbio25.phi.trans.insert.i123, align 8
   %34 = load ptr, ptr %bbio.i121, align 8
   %cmp28.not.i129 = icmp eq ptr %34, null
   br i1 %cmp28.not.i129, label %if.end34.i132, label %if.then29.i130
 
 if.then29.i130:                                   ; preds = %if.end24.i127
-  %call32.i131 = tail call ptr @BIO_push(ptr noundef nonnull %34, ptr noundef %wbio) #23
+  %call32.i131 = tail call ptr @BIO_push(ptr noundef nonnull %34, ptr noundef %wbio) #24
   store ptr %call32.i131, ptr %wbio25.phi.trans.insert.i123, align 8
   br label %if.end34.i132
 
@@ -3767,7 +3767,7 @@ if.end34.i132:                                    ; preds = %if.then29.i130, %if
   %37 = load ptr, ptr %set1_bio.i134, align 8
   %wrl.i135 = getelementptr inbounds i8, ptr %s, i64 3048
   %38 = load ptr, ptr %wrl.i135, align 8
-  %call37.i136 = tail call i32 %37(ptr noundef %38, ptr noundef %35) #23
+  %call37.i136 = tail call i32 %37(ptr noundef %38, ptr noundef %35) #24
   br label %return
 
 return:                                           ; preds = %if.end8, %land.lhs.true15, %if.end34.i132, %if.then.i119, %land.lhs.true.i137, %if.end20, %if.end19.i98, %if.then.i97, %land.lhs.true.i101, %if.end34.i, %if.then.i42, %land.lhs.true.i49, %SSL_get_wbio.exit
@@ -3793,7 +3793,7 @@ land.lhs.true:                                    ; preds = %cond.false
   br i1 %switch, label %if.then, label %return
 
 if.then:                                          ; preds = %cond.false, %land.lhs.true
-  %call = tail call ptr @ossl_quic_conn_get_net_rbio(ptr noundef nonnull %s) #23
+  %call = tail call ptr @ossl_quic_conn_get_net_rbio(ptr noundef nonnull %s) #24
   br label %return
 
 if.end19:                                         ; preds = %cond.false
@@ -3825,7 +3825,7 @@ land.lhs.true:                                    ; preds = %cond.false
   br i1 %switch, label %if.then, label %return
 
 if.then:                                          ; preds = %cond.false, %land.lhs.true
-  %call = tail call ptr @ossl_quic_conn_get_net_wbio(ptr noundef nonnull %s) #23
+  %call = tail call ptr @ossl_quic_conn_get_net_wbio(ptr noundef nonnull %s) #24
   br label %return
 
 if.end19:                                         ; preds = %cond.false
@@ -3835,7 +3835,7 @@ if.end19:                                         ; preds = %cond.false
   br i1 %cmp20.not, label %if.end24, label %if.then21
 
 if.then21:                                        ; preds = %if.end19
-  %call23 = tail call ptr @BIO_next(ptr noundef nonnull %1) #23
+  %call23 = tail call ptr @BIO_next(ptr noundef nonnull %1) #24
   br label %return
 
 if.end24:                                         ; preds = %if.end19
@@ -3878,7 +3878,7 @@ land.lhs.true.i.i:                                ; preds = %cond.false.i.i
   br i1 %switch.i.i, label %if.then.i.i, label %SSL_get_rbio.exit.i
 
 if.then.i.i:                                      ; preds = %land.lhs.true.i.i, %cond.false.i.i
-  %call.i.i = tail call ptr @ossl_quic_conn_get_net_rbio(ptr noundef nonnull %s) #23
+  %call.i.i = tail call ptr @ossl_quic_conn_get_net_rbio(ptr noundef nonnull %s) #24
   br label %SSL_get_rbio.exit.i
 
 if.end19.i.i:                                     ; preds = %cond.false.i.i
@@ -3888,12 +3888,12 @@ if.end19.i.i:                                     ; preds = %cond.false.i.i
 
 SSL_get_rbio.exit.i:                              ; preds = %if.end19.i.i, %if.then.i.i, %land.lhs.true.i.i, %entry
   %retval.0.i.i = phi ptr [ %call.i.i, %if.then.i.i ], [ %1, %if.end19.i.i ], [ null, %entry ], [ null, %land.lhs.true.i.i ]
-  %call1.i = tail call ptr @BIO_find_type(ptr noundef %retval.0.i.i, i32 noundef 256) #23
+  %call1.i = tail call ptr @BIO_find_type(ptr noundef %retval.0.i.i, i32 noundef 256) #24
   %cmp.not.i = icmp eq ptr %call1.i, null
   br i1 %cmp.not.i, label %SSL_get_rfd.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %SSL_get_rbio.exit.i
-  %call2.i = call i64 @BIO_ctrl(ptr noundef nonnull %call1.i, i32 noundef 105, i64 noundef 0, ptr noundef nonnull %ret.i) #23
+  %call2.i = call i64 @BIO_ctrl(ptr noundef nonnull %call1.i, i32 noundef 105, i64 noundef 0, ptr noundef nonnull %ret.i) #24
   %.pre.i = load i32, ptr %ret.i, align 4
   br label %SSL_get_rfd.exit
 
@@ -3924,7 +3924,7 @@ land.lhs.true.i:                                  ; preds = %cond.false.i
   br i1 %switch.i, label %if.then.i, label %SSL_get_rbio.exit
 
 if.then.i:                                        ; preds = %land.lhs.true.i, %cond.false.i
-  %call.i = tail call ptr @ossl_quic_conn_get_net_rbio(ptr noundef nonnull %s) #23
+  %call.i = tail call ptr @ossl_quic_conn_get_net_rbio(ptr noundef nonnull %s) #24
   br label %SSL_get_rbio.exit
 
 if.end19.i:                                       ; preds = %cond.false.i
@@ -3934,12 +3934,12 @@ if.end19.i:                                       ; preds = %cond.false.i
 
 SSL_get_rbio.exit:                                ; preds = %entry, %land.lhs.true.i, %if.then.i, %if.end19.i
   %retval.0.i = phi ptr [ %call.i, %if.then.i ], [ %1, %if.end19.i ], [ null, %entry ], [ null, %land.lhs.true.i ]
-  %call1 = tail call ptr @BIO_find_type(ptr noundef %retval.0.i, i32 noundef 256) #23
+  %call1 = tail call ptr @BIO_find_type(ptr noundef %retval.0.i, i32 noundef 256) #24
   %cmp.not = icmp eq ptr %call1, null
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %SSL_get_rbio.exit
-  %call2 = call i64 @BIO_ctrl(ptr noundef nonnull %call1, i32 noundef 105, i64 noundef 0, ptr noundef nonnull %ret) #23
+  %call2 = call i64 @BIO_ctrl(ptr noundef nonnull %call1, i32 noundef 105, i64 noundef 0, ptr noundef nonnull %ret) #24
   %.pre = load i32, ptr %ret, align 4
   br label %if.end
 
@@ -3973,7 +3973,7 @@ land.lhs.true.i:                                  ; preds = %cond.false.i
   br i1 %switch.i, label %if.then.i, label %SSL_get_wbio.exit
 
 if.then.i:                                        ; preds = %land.lhs.true.i, %cond.false.i
-  %call.i = tail call ptr @ossl_quic_conn_get_net_wbio(ptr noundef nonnull %s) #23
+  %call.i = tail call ptr @ossl_quic_conn_get_net_wbio(ptr noundef nonnull %s) #24
   br label %SSL_get_wbio.exit
 
 if.end19.i:                                       ; preds = %cond.false.i
@@ -3983,7 +3983,7 @@ if.end19.i:                                       ; preds = %cond.false.i
   br i1 %cmp20.not.i, label %if.end24.i, label %if.then21.i
 
 if.then21.i:                                      ; preds = %if.end19.i
-  %call23.i = tail call ptr @BIO_next(ptr noundef nonnull %1) #23
+  %call23.i = tail call ptr @BIO_next(ptr noundef nonnull %1) #24
   br label %SSL_get_wbio.exit
 
 if.end24.i:                                       ; preds = %if.end19.i
@@ -3993,12 +3993,12 @@ if.end24.i:                                       ; preds = %if.end19.i
 
 SSL_get_wbio.exit:                                ; preds = %entry, %land.lhs.true.i, %if.then.i, %if.then21.i, %if.end24.i
   %retval.0.i = phi ptr [ %call.i, %if.then.i ], [ %call23.i, %if.then21.i ], [ %2, %if.end24.i ], [ null, %entry ], [ null, %land.lhs.true.i ]
-  %call1 = tail call ptr @BIO_find_type(ptr noundef %retval.0.i, i32 noundef 256) #23
+  %call1 = tail call ptr @BIO_find_type(ptr noundef %retval.0.i, i32 noundef 256) #24
   %cmp.not = icmp eq ptr %call1, null
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %SSL_get_wbio.exit
-  %call2 = call i64 @BIO_ctrl(ptr noundef nonnull %call1, i32 noundef 105, i64 noundef 0, ptr noundef nonnull %ret) #23
+  %call2 = call i64 @BIO_ctrl(ptr noundef nonnull %call1, i32 noundef 105, i64 noundef 0, ptr noundef nonnull %ret) #24
   %.pre = load i32, ptr %ret, align 4
   br label %if.end
 
@@ -4015,9 +4015,9 @@ entry:
   br i1 %cmp, label %if.then, label %land.lhs.true.i
 
 if.then:                                          ; preds = %entry
-  tail call void @ERR_new() #23
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1691, ptr noundef nonnull @__func__.SSL_set_fd) #23
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 356, ptr noundef null) #23
+  tail call void @ERR_new() #24
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1691, ptr noundef nonnull @__func__.SSL_set_fd) #24
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 356, ptr noundef null) #24
   br label %err
 
 land.lhs.true.i:                                  ; preds = %entry
@@ -4026,27 +4026,27 @@ land.lhs.true.i:                                  ; preds = %entry
   br i1 %switch.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  %call.i = tail call ptr @BIO_s_datagram() #23
+  %call.i = tail call ptr @BIO_s_datagram() #24
   br label %fd_method.exit
 
 if.end.i:                                         ; preds = %land.lhs.true.i
-  %call4.i = tail call ptr @BIO_s_socket() #23
+  %call4.i = tail call ptr @BIO_s_socket() #24
   br label %fd_method.exit
 
 fd_method.exit:                                   ; preds = %if.then.i, %if.end.i
   %retval.0.i = phi ptr [ %call.i, %if.then.i ], [ %call4.i, %if.end.i ]
-  %call1 = tail call ptr @BIO_new(ptr noundef %retval.0.i) #23
+  %call1 = tail call ptr @BIO_new(ptr noundef %retval.0.i) #24
   %cmp2 = icmp eq ptr %call1, null
   br i1 %cmp2, label %if.then3, label %if.end4
 
 if.then3:                                         ; preds = %fd_method.exit
-  tail call void @ERR_new() #23
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1698, ptr noundef nonnull @__func__.SSL_set_fd) #23
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 524295, ptr noundef null) #23
+  tail call void @ERR_new() #24
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1698, ptr noundef nonnull @__func__.SSL_set_fd) #24
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 524295, ptr noundef null) #24
   br label %err
 
 if.end4:                                          ; preds = %fd_method.exit
-  %call5 = tail call i64 @BIO_int_ctrl(ptr noundef nonnull %call1, i32 noundef 104, i64 noundef 0, i32 noundef %fd) #23
+  %call5 = tail call i64 @BIO_int_ctrl(ptr noundef nonnull %call1, i32 noundef 104, i64 noundef 0, i32 noundef %fd) #24
   tail call void @SSL_set_bio(ptr noundef nonnull %s, ptr noundef nonnull %call1, ptr noundef nonnull %call1)
   br label %err
 
@@ -4079,7 +4079,7 @@ if.end19.i:                                       ; preds = %cond.false.i
   br label %if.end
 
 land.rhs:                                         ; preds = %cond.false.i, %land.lhs.true.i
-  %call.i = tail call ptr @ossl_quic_conn_get_net_rbio(ptr noundef nonnull %s) #23
+  %call.i = tail call ptr @ossl_quic_conn_get_net_rbio(ptr noundef nonnull %s) #24
   %.pr = load i32, ptr %s, align 8
   %.pr.fr = freeze i32 %.pr
   %cmp1 = icmp eq i32 %.pr.fr, 1
@@ -4092,9 +4092,9 @@ lor.rhs:                                          ; preds = %land.rhs
   br i1 %cmp5, label %if.then, label %if.end
 
 if.then:                                          ; preds = %lor.rhs
-  tail call void @ERR_new() #23
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1723, ptr noundef nonnull @__func__.SSL_set_wfd) #23
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 356, ptr noundef null) #23
+  tail call void @ERR_new() #24
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1723, ptr noundef nonnull @__func__.SSL_set_wfd) #24
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 356, ptr noundef null) #24
   br label %return
 
 if.end:                                           ; preds = %if.end19.i, %land.rhs, %lor.rhs
@@ -4104,12 +4104,12 @@ if.end:                                           ; preds = %if.end19.i, %land.r
   br i1 %cmp6, label %land.lhs.true.i15, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end
-  %call7 = tail call i32 @BIO_method_type(ptr noundef nonnull %retval.0.i5563) #23
+  %call7 = tail call i32 @BIO_method_type(ptr noundef nonnull %retval.0.i5563) #24
   %cmp8.not = icmp eq i32 %call7, %cond64
   br i1 %cmp8.not, label %lor.lhs.false9, label %land.lhs.true.i15
 
 lor.lhs.false9:                                   ; preds = %lor.lhs.false
-  %call10 = tail call i64 @BIO_ctrl(ptr noundef nonnull %retval.0.i5563, i32 noundef 105, i64 noundef 0, ptr noundef null) #23
+  %call10 = tail call i64 @BIO_ctrl(ptr noundef nonnull %retval.0.i5563, i32 noundef 105, i64 noundef 0, ptr noundef null) #24
   %conv = trunc i64 %call10 to i32
   %cmp11.not = icmp eq i32 %conv, %fd
   br i1 %cmp11.not, label %cond.false.i30, label %land.lhs.true.i15
@@ -4121,27 +4121,27 @@ land.lhs.true.i15:                                ; preds = %land.lhs.true.i, %i
   br i1 %switch.i17, label %if.then.i19, label %if.end.i
 
 if.then.i19:                                      ; preds = %land.lhs.true.i15
-  %call.i20 = tail call ptr @BIO_s_datagram() #23
+  %call.i20 = tail call ptr @BIO_s_datagram() #24
   br label %fd_method.exit
 
 if.end.i:                                         ; preds = %land.lhs.true.i15
-  %call4.i = tail call ptr @BIO_s_socket() #23
+  %call4.i = tail call ptr @BIO_s_socket() #24
   br label %fd_method.exit
 
 fd_method.exit:                                   ; preds = %if.then.i19, %if.end.i
   %retval.0.i18 = phi ptr [ %call.i20, %if.then.i19 ], [ %call4.i, %if.end.i ]
-  %call15 = tail call ptr @BIO_new(ptr noundef %retval.0.i18) #23
+  %call15 = tail call ptr @BIO_new(ptr noundef %retval.0.i18) #24
   %cmp16 = icmp eq ptr %call15, null
   br i1 %cmp16, label %if.then18, label %cond.false.i22
 
 if.then18:                                        ; preds = %fd_method.exit
-  tail call void @ERR_new() #23
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1732, ptr noundef nonnull @__func__.SSL_set_wfd) #23
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 524295, ptr noundef null) #23
+  tail call void @ERR_new() #24
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1732, ptr noundef nonnull @__func__.SSL_set_wfd) #24
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 524295, ptr noundef null) #24
   br label %return
 
 cond.false.i22:                                   ; preds = %fd_method.exit
-  %call20 = tail call i64 @BIO_int_ctrl(ptr noundef nonnull %call15, i32 noundef 104, i64 noundef 0, i32 noundef %fd) #23
+  %call20 = tail call i64 @BIO_int_ctrl(ptr noundef nonnull %call15, i32 noundef 104, i64 noundef 0, i32 noundef %fd) #24
   %2 = load i32, ptr %s, align 8
   switch i32 %2, label %land.lhs.true.i26 [
     i32 0, label %if.end19.i24
@@ -4154,7 +4154,7 @@ land.lhs.true.i26:                                ; preds = %cond.false.i22
   br i1 %switch.i28, label %if.then.i23, label %return
 
 if.then.i23:                                      ; preds = %land.lhs.true.i26, %cond.false.i22
-  tail call void @ossl_quic_conn_set0_net_wbio(ptr noundef nonnull %s, ptr noundef nonnull %call15) #23
+  tail call void @ossl_quic_conn_set0_net_wbio(ptr noundef nonnull %s, ptr noundef nonnull %call15) #24
   br label %return
 
 if.end19.i24:                                     ; preds = %cond.false.i22
@@ -4166,20 +4166,20 @@ if.end19.i24:                                     ; preds = %cond.false.i22
   br i1 %cmp20.not.i, label %if.end24.i, label %if.then21.i
 
 if.then21.i:                                      ; preds = %if.end19.i24
-  %call.i25 = tail call ptr @BIO_pop(ptr noundef %.pre.i) #23
+  %call.i25 = tail call ptr @BIO_pop(ptr noundef %.pre.i) #24
   store ptr %call.i25, ptr %wbio25.phi.trans.insert.i, align 8
   br label %if.end24.i
 
 if.end24.i:                                       ; preds = %if.then21.i, %if.end19.i24
   %4 = phi ptr [ %call.i25, %if.then21.i ], [ %.pre.i, %if.end19.i24 ]
-  tail call void @BIO_free_all(ptr noundef %4) #23
+  tail call void @BIO_free_all(ptr noundef %4) #24
   store ptr %call15, ptr %wbio25.phi.trans.insert.i, align 8
   %5 = load ptr, ptr %bbio.i, align 8
   %cmp28.not.i = icmp eq ptr %5, null
   br i1 %cmp28.not.i, label %if.end34.i, label %if.then29.i
 
 if.then29.i:                                      ; preds = %if.end24.i
-  %call32.i = tail call ptr @BIO_push(ptr noundef nonnull %5, ptr noundef nonnull %call15) #23
+  %call32.i = tail call ptr @BIO_push(ptr noundef nonnull %5, ptr noundef nonnull %call15) #24
   store ptr %call32.i, ptr %wbio25.phi.trans.insert.i, align 8
   br label %if.end34.i
 
@@ -4191,11 +4191,11 @@ if.end34.i:                                       ; preds = %if.then29.i, %if.en
   %8 = load ptr, ptr %set1_bio.i, align 8
   %wrl.i = getelementptr inbounds i8, ptr %s, i64 3048
   %9 = load ptr, ptr %wrl.i, align 8
-  %call37.i = tail call i32 %8(ptr noundef %9, ptr noundef %6) #23
+  %call37.i = tail call i32 %8(ptr noundef %9, ptr noundef %6) #24
   br label %return
 
 cond.false.i30:                                   ; preds = %lor.lhs.false9
-  %call21 = tail call i32 @BIO_up_ref(ptr noundef nonnull %retval.0.i5563) #23
+  %call21 = tail call i32 @BIO_up_ref(ptr noundef nonnull %retval.0.i5563) #24
   %10 = load i32, ptr %s, align 8
   switch i32 %10, label %land.lhs.true.i49 [
     i32 0, label %if.end19.i32
@@ -4208,7 +4208,7 @@ land.lhs.true.i49:                                ; preds = %cond.false.i30
   br i1 %switch.i51, label %if.then.i31, label %return
 
 if.then.i31:                                      ; preds = %land.lhs.true.i49, %cond.false.i30
-  tail call void @ossl_quic_conn_set0_net_wbio(ptr noundef nonnull %s, ptr noundef nonnull %retval.0.i5563) #23
+  tail call void @ossl_quic_conn_set0_net_wbio(ptr noundef nonnull %s, ptr noundef nonnull %retval.0.i5563) #24
   br label %return
 
 if.end19.i32:                                     ; preds = %cond.false.i30
@@ -4220,20 +4220,20 @@ if.end19.i32:                                     ; preds = %cond.false.i30
   br i1 %cmp20.not.i34, label %if.end24.i39, label %if.then21.i37
 
 if.then21.i37:                                    ; preds = %if.end19.i32
-  %call.i38 = tail call ptr @BIO_pop(ptr noundef %.pre.i36) #23
+  %call.i38 = tail call ptr @BIO_pop(ptr noundef %.pre.i36) #24
   store ptr %call.i38, ptr %wbio25.phi.trans.insert.i35, align 8
   br label %if.end24.i39
 
 if.end24.i39:                                     ; preds = %if.then21.i37, %if.end19.i32
   %12 = phi ptr [ %call.i38, %if.then21.i37 ], [ %.pre.i36, %if.end19.i32 ]
-  tail call void @BIO_free_all(ptr noundef %12) #23
+  tail call void @BIO_free_all(ptr noundef %12) #24
   store ptr %retval.0.i5563, ptr %wbio25.phi.trans.insert.i35, align 8
   %13 = load ptr, ptr %bbio.i33, align 8
   %cmp28.not.i41 = icmp eq ptr %13, null
   br i1 %cmp28.not.i41, label %if.end34.i44, label %if.then29.i42
 
 if.then29.i42:                                    ; preds = %if.end24.i39
-  %call32.i43 = tail call ptr @BIO_push(ptr noundef nonnull %13, ptr noundef nonnull %retval.0.i5563) #23
+  %call32.i43 = tail call ptr @BIO_push(ptr noundef nonnull %13, ptr noundef nonnull %retval.0.i5563) #24
   store ptr %call32.i43, ptr %wbio25.phi.trans.insert.i35, align 8
   br label %if.end34.i44
 
@@ -4245,7 +4245,7 @@ if.end34.i44:                                     ; preds = %if.then29.i42, %if.
   %16 = load ptr, ptr %set1_bio.i46, align 8
   %wrl.i47 = getelementptr inbounds i8, ptr %s, i64 3048
   %17 = load ptr, ptr %wrl.i47, align 8
-  %call37.i48 = tail call i32 %16(ptr noundef %17, ptr noundef %14) #23
+  %call37.i48 = tail call i32 %16(ptr noundef %17, ptr noundef %14) #24
   br label %return
 
 return:                                           ; preds = %if.end34.i44, %if.then.i31, %land.lhs.true.i49, %if.end34.i, %if.then.i23, %land.lhs.true.i26, %if.then18, %if.then
@@ -4270,7 +4270,7 @@ land.lhs.true.i:                                  ; preds = %cond.false.i
   br i1 %switch.i, label %if.then.i, label %land.lhs.true.i15
 
 if.then.i:                                        ; preds = %land.lhs.true.i, %cond.false.i
-  %call.i = tail call ptr @ossl_quic_conn_get_net_wbio(ptr noundef nonnull %s) #23
+  %call.i = tail call ptr @ossl_quic_conn_get_net_wbio(ptr noundef nonnull %s) #24
   br label %land.rhs
 
 if.end19.i:                                       ; preds = %cond.false.i
@@ -4280,7 +4280,7 @@ if.end19.i:                                       ; preds = %cond.false.i
   br i1 %cmp20.not.i, label %if.end24.i, label %if.then21.i
 
 if.then21.i:                                      ; preds = %if.end19.i
-  %call23.i = tail call ptr @BIO_next(ptr noundef nonnull %0) #23
+  %call23.i = tail call ptr @BIO_next(ptr noundef nonnull %0) #24
   br label %land.rhs
 
 if.end24.i:                                       ; preds = %if.end19.i
@@ -4301,9 +4301,9 @@ land.end:                                         ; preds = %land.rhs
   br i1 %cmp5, label %if.then, label %if.end
 
 if.then:                                          ; preds = %land.end
-  tail call void @ERR_new() #23
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1759, ptr noundef nonnull @__func__.SSL_set_rfd) #23
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 356, ptr noundef null) #23
+  tail call void @ERR_new() #24
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1759, ptr noundef nonnull @__func__.SSL_set_rfd) #24
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 356, ptr noundef null) #24
   br label %return
 
 if.end:                                           ; preds = %land.rhs, %land.end
@@ -4312,12 +4312,12 @@ if.end:                                           ; preds = %land.rhs, %land.end
   br i1 %cmp6, label %land.lhs.true.i15, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end
-  %call7 = tail call i32 @BIO_method_type(ptr noundef nonnull %retval.0.i.ph.ph) #23
+  %call7 = tail call i32 @BIO_method_type(ptr noundef nonnull %retval.0.i.ph.ph) #24
   %cmp8.not = icmp eq i32 %call7, %cond53
   br i1 %cmp8.not, label %lor.lhs.false9, label %land.lhs.true.i15
 
 lor.lhs.false9:                                   ; preds = %lor.lhs.false
-  %call10 = tail call i64 @BIO_ctrl(ptr noundef nonnull %retval.0.i.ph.ph, i32 noundef 105, i64 noundef 0, ptr noundef null) #23
+  %call10 = tail call i64 @BIO_ctrl(ptr noundef nonnull %retval.0.i.ph.ph, i32 noundef 105, i64 noundef 0, ptr noundef null) #24
   %conv = trunc i64 %call10 to i32
   %cmp11.not = icmp eq i32 %conv, %fd
   br i1 %cmp11.not, label %cond.false.i30, label %land.lhs.true.i15
@@ -4329,27 +4329,27 @@ land.lhs.true.i15:                                ; preds = %land.lhs.true.i, %i
   br i1 %switch.i17, label %if.then.i19, label %if.end.i
 
 if.then.i19:                                      ; preds = %land.lhs.true.i15
-  %call.i20 = tail call ptr @BIO_s_datagram() #23
+  %call.i20 = tail call ptr @BIO_s_datagram() #24
   br label %fd_method.exit
 
 if.end.i:                                         ; preds = %land.lhs.true.i15
-  %call4.i = tail call ptr @BIO_s_socket() #23
+  %call4.i = tail call ptr @BIO_s_socket() #24
   br label %fd_method.exit
 
 fd_method.exit:                                   ; preds = %if.then.i19, %if.end.i
   %retval.0.i18 = phi ptr [ %call.i20, %if.then.i19 ], [ %call4.i, %if.end.i ]
-  %call15 = tail call ptr @BIO_new(ptr noundef %retval.0.i18) #23
+  %call15 = tail call ptr @BIO_new(ptr noundef %retval.0.i18) #24
   %cmp16 = icmp eq ptr %call15, null
   br i1 %cmp16, label %if.then18, label %cond.false.i22
 
 if.then18:                                        ; preds = %fd_method.exit
-  tail call void @ERR_new() #23
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1768, ptr noundef nonnull @__func__.SSL_set_rfd) #23
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 524295, ptr noundef null) #23
+  tail call void @ERR_new() #24
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1768, ptr noundef nonnull @__func__.SSL_set_rfd) #24
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 524295, ptr noundef null) #24
   br label %return
 
 cond.false.i22:                                   ; preds = %fd_method.exit
-  %call20 = tail call i64 @BIO_int_ctrl(ptr noundef nonnull %call15, i32 noundef 104, i64 noundef 0, i32 noundef %fd) #23
+  %call20 = tail call i64 @BIO_int_ctrl(ptr noundef nonnull %call15, i32 noundef 104, i64 noundef 0, i32 noundef %fd) #24
   %4 = load i32, ptr %s, align 8
   switch i32 %4, label %land.lhs.true.i26 [
     i32 0, label %if.end19.i24
@@ -4362,13 +4362,13 @@ land.lhs.true.i26:                                ; preds = %cond.false.i22
   br i1 %switch.i28, label %if.then.i23, label %return
 
 if.then.i23:                                      ; preds = %land.lhs.true.i26, %cond.false.i22
-  tail call void @ossl_quic_conn_set0_net_rbio(ptr noundef nonnull %s, ptr noundef nonnull %call15) #23
+  tail call void @ossl_quic_conn_set0_net_rbio(ptr noundef nonnull %s, ptr noundef nonnull %call15) #24
   br label %return
 
 if.end19.i24:                                     ; preds = %cond.false.i22
   %rbio20.i = getelementptr inbounds i8, ptr %s, i64 72
   %5 = load ptr, ptr %rbio20.i, align 8
-  tail call void @BIO_free_all(ptr noundef %5) #23
+  tail call void @BIO_free_all(ptr noundef %5) #24
   store ptr %call15, ptr %rbio20.i, align 8
   %rrlmethod.i = getelementptr inbounds i8, ptr %s, i64 3024
   %6 = load ptr, ptr %rrlmethod.i, align 8
@@ -4376,11 +4376,11 @@ if.end19.i24:                                     ; preds = %cond.false.i22
   %7 = load ptr, ptr %set1_bio.i, align 8
   %rrl.i = getelementptr inbounds i8, ptr %s, i64 3040
   %8 = load ptr, ptr %rrl.i, align 8
-  %call.i25 = tail call i32 %7(ptr noundef %8, ptr noundef nonnull %call15) #23
+  %call.i25 = tail call i32 %7(ptr noundef %8, ptr noundef nonnull %call15) #24
   br label %return
 
 cond.false.i30:                                   ; preds = %lor.lhs.false9
-  %call21 = tail call i32 @BIO_up_ref(ptr noundef nonnull %retval.0.i.ph.ph) #23
+  %call21 = tail call i32 @BIO_up_ref(ptr noundef nonnull %retval.0.i.ph.ph) #24
   %9 = load i32, ptr %s, align 8
   switch i32 %9, label %land.lhs.true.i38 [
     i32 0, label %if.end19.i32
@@ -4393,13 +4393,13 @@ land.lhs.true.i38:                                ; preds = %cond.false.i30
   br i1 %switch.i40, label %if.then.i31, label %return
 
 if.then.i31:                                      ; preds = %land.lhs.true.i38, %cond.false.i30
-  tail call void @ossl_quic_conn_set0_net_rbio(ptr noundef nonnull %s, ptr noundef nonnull %retval.0.i.ph.ph) #23
+  tail call void @ossl_quic_conn_set0_net_rbio(ptr noundef nonnull %s, ptr noundef nonnull %retval.0.i.ph.ph) #24
   br label %return
 
 if.end19.i32:                                     ; preds = %cond.false.i30
   %rbio20.i33 = getelementptr inbounds i8, ptr %s, i64 72
   %10 = load ptr, ptr %rbio20.i33, align 8
-  tail call void @BIO_free_all(ptr noundef %10) #23
+  tail call void @BIO_free_all(ptr noundef %10) #24
   store ptr %retval.0.i.ph.ph, ptr %rbio20.i33, align 8
   %rrlmethod.i34 = getelementptr inbounds i8, ptr %s, i64 3024
   %11 = load ptr, ptr %rrlmethod.i34, align 8
@@ -4407,7 +4407,7 @@ if.end19.i32:                                     ; preds = %cond.false.i30
   %12 = load ptr, ptr %set1_bio.i35, align 8
   %rrl.i36 = getelementptr inbounds i8, ptr %s, i64 3040
   %13 = load ptr, ptr %rrl.i36, align 8
-  %call.i37 = tail call i32 %12(ptr noundef %13, ptr noundef nonnull %retval.0.i.ph.ph) #23
+  %call.i37 = tail call i32 %12(ptr noundef %13, ptr noundef nonnull %retval.0.i.ph.ph) #24
   br label %return
 
 return:                                           ; preds = %if.end19.i32, %if.then.i31, %land.lhs.true.i38, %if.end19.i24, %if.then.i23, %land.lhs.true.i26, %if.then18, %if.then
@@ -4534,7 +4534,7 @@ if.end:                                           ; preds = %cond.false, %cond.e
   %cond1111 = phi ptr [ %1, %cond.end10 ], [ %s, %cond.false ]
   %param = getelementptr inbounds i8, ptr %cond1111, i64 1168
   %2 = load ptr, ptr %param, align 8
-  %call = tail call i32 @X509_VERIFY_PARAM_get_depth(ptr noundef %2) #23
+  %call = tail call i32 @X509_VERIFY_PARAM_get_depth(ptr noundef %2) #24
   br label %return
 
 return:                                           ; preds = %cond.false, %entry, %cond.end10, %if.end
@@ -4587,7 +4587,7 @@ define i32 @SSL_CTX_get_verify_depth(ptr nocapture noundef readonly %ctx) local_
 entry:
   %param = getelementptr inbounds i8, ptr %ctx, i64 448
   %0 = load ptr, ptr %param, align 8
-  %call = tail call i32 @X509_VERIFY_PARAM_get_depth(ptr noundef %0) #23
+  %call = tail call i32 @X509_VERIFY_PARAM_get_depth(ptr noundef %0) #24
   ret i32 %call
 }
 
@@ -4657,7 +4657,7 @@ if.end:                                           ; preds = %cond.false, %cond.e
   %cond1111 = phi ptr [ %1, %cond.end10 ], [ %s, %cond.false ]
   %param = getelementptr inbounds i8, ptr %cond1111, i64 1168
   %2 = load ptr, ptr %param, align 8
-  tail call void @X509_VERIFY_PARAM_set_depth(ptr noundef %2, i32 noundef %depth) #23
+  tail call void @X509_VERIFY_PARAM_set_depth(ptr noundef %2, i32 noundef %depth) #24
   br label %return
 
 return:                                           ; preds = %cond.false, %entry, %cond.end10, %if.end
@@ -4684,9 +4684,9 @@ if.end:                                           ; preds = %cond.false
   %read_ahead = getelementptr inbounds i8, ptr %s, i64 3072
   store i32 %yes, ptr %read_ahead, align 8
   %incdec.ptr = getelementptr inbounds i8, ptr %options, i64 40
-  call void @OSSL_PARAM_construct_int(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp, ptr noundef nonnull @.str.1, ptr noundef nonnull %read_ahead) #23
+  call void @OSSL_PARAM_construct_int(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp, ptr noundef nonnull @.str.1, ptr noundef nonnull %read_ahead) #24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %options, ptr noundef nonnull align 8 dereferenceable(40) %tmp, i64 40, i1 false)
-  call void @OSSL_PARAM_construct_end(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp9) #23
+  call void @OSSL_PARAM_construct_end(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp9) #24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %incdec.ptr, ptr noundef nonnull align 8 dereferenceable(40) %tmp9, i64 40, i1 false)
   %rrlmethod = getelementptr inbounds i8, ptr %s, i64 3024
   %1 = load ptr, ptr %rrlmethod, align 8
@@ -4694,7 +4694,7 @@ if.end:                                           ; preds = %cond.false
   %2 = load ptr, ptr %set_options, align 8
   %rrl = getelementptr inbounds i8, ptr %s, i64 3040
   %3 = load ptr, ptr %rrl, align 8
-  %call = call i32 %2(ptr noundef %3, ptr noundef nonnull %options) #23
+  %call = call i32 %2(ptr noundef %3, ptr noundef nonnull %options) #24
   br label %return
 
 return:                                           ; preds = %entry, %cond.false, %if.end
@@ -4733,7 +4733,7 @@ entry:
   %0 = load ptr, ptr %method, align 8
   %ssl_pending = getelementptr inbounds i8, ptr %0, i64 184
   %1 = load ptr, ptr %ssl_pending, align 8
-  %call = tail call i64 %1(ptr noundef %s) #23
+  %call = tail call i64 %1(ptr noundef %s) #24
   %cond3 = tail call i64 @llvm.umin.i64(i64 %call, i64 2147483647)
   %cond = trunc i64 %cond3 to i32
   ret i32 %cond
@@ -4753,7 +4753,7 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %switch, label %if.then, label %cond.false
 
 if.then:                                          ; preds = %land.lhs.true
-  %call = tail call i32 @ossl_quic_has_pending(ptr noundef nonnull %s) #23
+  %call = tail call i32 @ossl_quic_has_pending(ptr noundef nonnull %s) #24
   br label %return
 
 cond.false:                                       ; preds = %land.lhs.true
@@ -4778,12 +4778,12 @@ if.then17:                                        ; preds = %cond.end15
   %4 = load ptr, ptr %d, align 8
   %q = getelementptr inbounds i8, ptr %4, i64 16
   %5 = load ptr, ptr %q, align 8
-  %call18 = tail call ptr @pqueue_iterator(ptr noundef %5) #23
+  %call18 = tail call ptr @pqueue_iterator(ptr noundef %5) #24
   store ptr %call18, ptr %iter, align 8
   br label %while.cond
 
 while.cond:                                       ; preds = %while.body, %if.then17
-  %call19 = call ptr @pqueue_next(ptr noundef nonnull %iter) #23
+  %call19 = call ptr @pqueue_next(ptr noundef nonnull %iter) #24
   %cmp20.not = icmp eq ptr %call19, null
   br i1 %cmp20.not, label %if.end24, label %while.body
 
@@ -4797,12 +4797,12 @@ while.body:                                       ; preds = %while.cond
 
 if.end24:                                         ; preds = %while.cond, %cond.end15
   %rlayer25 = getelementptr inbounds i8, ptr %cond16, i64 3000
-  %call26 = call i32 @RECORD_LAYER_processed_read_pending(ptr noundef nonnull %rlayer25) #23
+  %call26 = call i32 @RECORD_LAYER_processed_read_pending(ptr noundef nonnull %rlayer25) #24
   %tobool27.not = icmp eq i32 %call26, 0
   br i1 %tobool27.not, label %if.end29, label %return
 
 if.end29:                                         ; preds = %if.end24
-  %call31 = call i32 @RECORD_LAYER_read_pending(ptr noundef nonnull %rlayer25) #23
+  %call31 = call i32 @RECORD_LAYER_read_pending(ptr noundef nonnull %rlayer25) #24
   br label %return
 
 return:                                           ; preds = %while.body, %if.end24, %if.end29, %if.then
@@ -4853,7 +4853,7 @@ SSL_get0_peer_certificate.exit:                   ; preds = %if.end.i
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %SSL_get0_peer_certificate.exit
-  %call1 = tail call i32 @X509_up_ref(ptr noundef nonnull %3) #23
+  %call1 = tail call i32 @X509_up_ref(ptr noundef nonnull %3) #24
   br label %if.end
 
 if.end:                                           ; preds = %cond.false.i, %entry, %if.end.i, %cond.end10.i, %if.then, %SSL_get0_peer_certificate.exit
@@ -4962,8 +4962,8 @@ cond.end15:                                       ; preds = %cond.end4
   br i1 %or.cond, label %return, label %if.end
 
 if.end:                                           ; preds = %cond.end15
-  %call = tail call ptr @SSL_get_session(ptr noundef nonnull %f) #23
-  %call19 = tail call i32 @SSL_set_session(ptr noundef %t, ptr noundef %call) #23
+  %call = tail call ptr @SSL_get_session(ptr noundef nonnull %f) #24
+  %call19 = tail call i32 @SSL_set_session(ptr noundef %t, ptr noundef %call) #24
   %tobool.not = icmp eq i32 %call19, 0
   br i1 %tobool.not, label %return, label %if.end21
 
@@ -4978,12 +4978,12 @@ if.end21:                                         ; preds = %if.end
 if.then24:                                        ; preds = %if.end21
   %ssl_deinit = getelementptr inbounds i8, ptr %2, i64 56
   %4 = load ptr, ptr %ssl_deinit, align 8
-  tail call void %4(ptr noundef nonnull %t) #23
+  tail call void %4(ptr noundef nonnull %t) #24
   %5 = load ptr, ptr %method22, align 8
   store ptr %5, ptr %method, align 8
   %ssl_init = getelementptr inbounds i8, ptr %5, i64 40
   %6 = load ptr, ptr %ssl_init, align 8
-  %call29 = tail call i32 %6(ptr noundef nonnull %t) #23
+  %call29 = tail call i32 %6(ptr noundef nonnull %t) #24
   %cmp30 = icmp eq i32 %call29, 0
   br i1 %cmp30, label %return, label %cond.false.i
 
@@ -4994,7 +4994,7 @@ cond.false.i:                                     ; preds = %if.end21, %if.then2
   %8 = atomicrmw add ptr %references, i32 1 monotonic, align 4
   %cert35 = getelementptr inbounds i8, ptr %cond5, i64 2048
   %9 = load ptr, ptr %cert35, align 8
-  tail call void @ssl_cert_free(ptr noundef %9) #23
+  tail call void @ssl_cert_free(ptr noundef %9) #24
   %10 = load ptr, ptr %cert, align 8
   store ptr %10, ptr %cert35, align 8
   %sid_ctx = getelementptr inbounds i8, ptr %cond14, i64 2144
@@ -5019,9 +5019,9 @@ if.end.i:                                         ; preds = %cond.end10.i, %cond
   br i1 %cmp13.i, label %if.then14.i, label %SSL_set_session_id_context.exit
 
 if.then14.i:                                      ; preds = %if.end.i
-  tail call void @ERR_new() #23
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1033, ptr noundef nonnull @__func__.SSL_set_session_id_context) #23
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 273, ptr noundef null) #23
+  tail call void @ERR_new() #24
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1033, ptr noundef nonnull @__func__.SSL_set_session_id_context) #24
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 273, ptr noundef null) #24
   br label %return
 
 SSL_set_session_id_context.exit:                  ; preds = %if.end.i
@@ -5056,9 +5056,9 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %cmp1, label %if.then, label %if.end
 
 if.then:                                          ; preds = %lor.lhs.false, %entry
-  tail call void @ERR_new() #23
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 2050, ptr noundef nonnull @__func__.SSL_CTX_check_private_key) #23
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 177, ptr noundef null) #23
+  tail call void @ERR_new() #24
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 2050, ptr noundef nonnull @__func__.SSL_CTX_check_private_key) #24
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 177, ptr noundef null) #24
   br label %return
 
 if.end:                                           ; preds = %lor.lhs.false
@@ -5068,13 +5068,13 @@ if.end:                                           ; preds = %lor.lhs.false
   br i1 %cmp4, label %if.then5, label %if.end6
 
 if.then5:                                         ; preds = %if.end
-  tail call void @ERR_new() #23
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 2054, ptr noundef nonnull @__func__.SSL_CTX_check_private_key) #23
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 190, ptr noundef null) #23
+  tail call void @ERR_new() #24
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 2054, ptr noundef nonnull @__func__.SSL_CTX_check_private_key) #24
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 190, ptr noundef null) #24
   br label %return
 
 if.end6:                                          ; preds = %if.end
-  %call = tail call i32 @X509_check_private_key(ptr noundef nonnull %2, ptr noundef nonnull %3) #23
+  %call = tail call i32 @X509_check_private_key(ptr noundef nonnull %2, ptr noundef nonnull %3) #24
   br label %return
 
 return:                                           ; preds = %if.end6, %if.then5, %if.then
@@ -5104,9 +5104,9 @@ cond.end10:                                       ; preds = %cond.false
   br i1 %cmp12, label %if.then, label %if.end
 
 if.then:                                          ; preds = %cond.false, %entry, %cond.end10
-  tail call void @ERR_new() #23
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 2067, ptr noundef nonnull @__func__.SSL_check_private_key) #23
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 786690, ptr noundef null) #23
+  tail call void @ERR_new() #24
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 2067, ptr noundef nonnull @__func__.SSL_check_private_key) #24
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 786690, ptr noundef null) #24
   br label %return
 
 if.end:                                           ; preds = %cond.false, %cond.end10
@@ -5119,9 +5119,9 @@ if.end:                                           ; preds = %cond.false, %cond.e
   br i1 %cmp13, label %if.then14, label %if.end15
 
 if.then14:                                        ; preds = %if.end
-  tail call void @ERR_new() #23
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 2071, ptr noundef nonnull @__func__.SSL_check_private_key) #23
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 177, ptr noundef null) #23
+  tail call void @ERR_new() #24
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 2071, ptr noundef nonnull @__func__.SSL_check_private_key) #24
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 177, ptr noundef null) #24
   br label %return
 
 if.end15:                                         ; preds = %if.end
@@ -5131,13 +5131,13 @@ if.end15:                                         ; preds = %if.end
   br i1 %cmp18, label %if.then19, label %if.end20
 
 if.then19:                                        ; preds = %if.end15
-  tail call void @ERR_new() #23
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 2075, ptr noundef nonnull @__func__.SSL_check_private_key) #23
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 190, ptr noundef null) #23
+  tail call void @ERR_new() #24
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 2075, ptr noundef nonnull @__func__.SSL_check_private_key) #24
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 190, ptr noundef null) #24
   br label %return
 
 if.end20:                                         ; preds = %if.end15
-  %call = tail call i32 @X509_check_private_key(ptr noundef nonnull %4, ptr noundef nonnull %5) #23
+  %call = tail call i32 @X509_check_private_key(ptr noundef nonnull %4, ptr noundef nonnull %5) #24
   br label %return
 
 return:                                           ; preds = %if.end20, %if.then19, %if.then14, %if.then
@@ -5204,7 +5204,7 @@ if.end:                                           ; preds = %cond.false, %cond.e
   br i1 %cmp13, label %return, label %if.end15
 
 if.end15:                                         ; preds = %if.end
-  %call = tail call i32 @ASYNC_WAIT_CTX_get_all_fds(ptr noundef nonnull %2, ptr noundef %fds, ptr noundef %numfds) #23
+  %call = tail call i32 @ASYNC_WAIT_CTX_get_all_fds(ptr noundef nonnull %2, ptr noundef %fds, ptr noundef %numfds) #24
   br label %return
 
 return:                                           ; preds = %cond.false, %entry, %if.end, %cond.end10, %if.end15
@@ -5241,7 +5241,7 @@ if.end:                                           ; preds = %cond.false, %cond.e
   br i1 %cmp13, label %return, label %if.end15
 
 if.end15:                                         ; preds = %if.end
-  %call = tail call i32 @ASYNC_WAIT_CTX_get_changed_fds(ptr noundef nonnull %2, ptr noundef %addfd, ptr noundef %numaddfds, ptr noundef %delfd, ptr noundef %numdelfds) #23
+  %call = tail call i32 @ASYNC_WAIT_CTX_get_changed_fds(ptr noundef nonnull %2, ptr noundef %addfd, ptr noundef %numaddfds, ptr noundef %delfd, ptr noundef %numdelfds) #24
   br label %return
 
 return:                                           ; preds = %cond.false, %entry, %if.end, %cond.end10, %if.end15
@@ -5354,7 +5354,7 @@ if.end:                                           ; preds = %cond.false, %cond.e
   br i1 %cmp13, label %return, label %if.end15
 
 if.end15:                                         ; preds = %if.end
-  %call = tail call i32 @ASYNC_WAIT_CTX_get_status(ptr noundef nonnull %2) #23
+  %call = tail call i32 @ASYNC_WAIT_CTX_get_status(ptr noundef nonnull %2) #24
   store i32 %call, ptr %status, align 4
   br label %return
 
@@ -5388,7 +5388,7 @@ if.then:                                          ; preds = %cond.false, %land.l
   %1 = load ptr, ptr %method, align 8
   %ssl_accept = getelementptr inbounds i8, ptr %1, i64 64
   %2 = load ptr, ptr %ssl_accept, align 8
-  %call = tail call i32 %2(ptr noundef nonnull %s) #23
+  %call = tail call i32 %2(ptr noundef nonnull %s) #24
   br label %return
 
 if.end19:                                         ; preds = %cond.false
@@ -5425,7 +5425,7 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %switch, label %if.then, label %if.end
 
 if.then:                                          ; preds = %land.lhs.true
-  tail call void @ossl_quic_set_accept_state(ptr noundef nonnull %s) #23
+  tail call void @ossl_quic_set_accept_state(ptr noundef nonnull %s) #24
   br label %return
 
 if.end:                                           ; preds = %entry, %land.lhs.true
@@ -5434,7 +5434,7 @@ if.end:                                           ; preds = %entry, %land.lhs.tr
   store i32 1, ptr %server, align 8
   %shutdown = getelementptr inbounds i8, ptr %cond513, i64 124
   store i32 0, ptr %shutdown, align 4
-  tail call void @ossl_statem_clear(ptr noundef %cond513) #23
+  tail call void @ossl_statem_clear(ptr noundef %cond513) #24
   %method = getelementptr inbounds i8, ptr %s, i64 24
   %1 = load ptr, ptr %method, align 8
   %ssl_accept = getelementptr inbounds i8, ptr %1, i64 64
@@ -5450,7 +5450,7 @@ if.end:                                           ; preds = %entry, %land.lhs.tr
   %and.i = and i32 %5, 8
   %tobool.not.i = icmp eq i32 %and.i, 0
   %cond.i = select i1 %tobool.not.i, i32 65536, i32 131071
-  %call.i = tail call i32 @ssl_set_new_record_layer(ptr noundef %cond513, i32 noundef %cond.i, i32 noundef 0, i32 noundef 0, ptr noundef null, i64 noundef 0, ptr noundef null, i64 noundef 0, ptr noundef null, i64 noundef 0, ptr noundef null, i64 noundef 0, ptr noundef null, i64 noundef 0, i32 noundef 0, ptr noundef null, ptr noundef null, ptr noundef null) #23
+  %call.i = tail call i32 @ssl_set_new_record_layer(ptr noundef %cond513, i32 noundef %cond.i, i32 noundef 0, i32 noundef 0, ptr noundef null, i64 noundef 0, ptr noundef null, i64 noundef 0, ptr noundef null, i64 noundef 0, ptr noundef null, i64 noundef 0, ptr noundef null, i64 noundef 0, i32 noundef 0, ptr noundef null, ptr noundef null, ptr noundef null) #24
   %6 = load ptr, ptr %method.i, align 8
   %ssl3_enc3.i = getelementptr inbounds i8, ptr %6, i64 216
   %7 = load ptr, ptr %ssl3_enc3.i, align 8
@@ -5459,7 +5459,7 @@ if.end:                                           ; preds = %entry, %land.lhs.tr
   %and5.i = and i32 %8, 8
   %tobool6.not.i = icmp eq i32 %and5.i, 0
   %cond7.i = select i1 %tobool6.not.i, i32 65536, i32 131071
-  %call8.i = tail call i32 @ssl_set_new_record_layer(ptr noundef %cond513, i32 noundef %cond7.i, i32 noundef 1, i32 noundef 0, ptr noundef null, i64 noundef 0, ptr noundef null, i64 noundef 0, ptr noundef null, i64 noundef 0, ptr noundef null, i64 noundef 0, ptr noundef null, i64 noundef 0, i32 noundef 0, ptr noundef null, ptr noundef null, ptr noundef null) #23
+  %call8.i = tail call i32 @ssl_set_new_record_layer(ptr noundef %cond513, i32 noundef %cond7.i, i32 noundef 1, i32 noundef 0, ptr noundef null, i64 noundef 0, ptr noundef null, i64 noundef 0, ptr noundef null, i64 noundef 0, ptr noundef null, i64 noundef 0, ptr noundef null, i64 noundef 0, i32 noundef 0, ptr noundef null, ptr noundef null, ptr noundef null) #24
   br label %return
 
 return:                                           ; preds = %if.end, %if.then
@@ -5486,7 +5486,7 @@ land.lhs.true:                                    ; preds = %cond.false
   br i1 %switch, label %if.then, label %if.end
 
 if.then:                                          ; preds = %cond.false, %land.lhs.true
-  %call = tail call i32 @ossl_quic_do_handshake(ptr noundef nonnull %s) #23
+  %call = tail call i32 @ossl_quic_do_handshake(ptr noundef nonnull %s) #24
   br label %return
 
 if.end:                                           ; preds = %cond.false, %entry, %land.lhs.true
@@ -5497,24 +5497,24 @@ if.end:                                           ; preds = %cond.false, %entry,
   br i1 %cmp17, label %if.then18, label %if.end19
 
 if.then18:                                        ; preds = %if.end
-  tail call void @ERR_new() #23
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 4729, ptr noundef nonnull @__func__.SSL_do_handshake) #23
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 144, ptr noundef null) #23
+  tail call void @ERR_new() #24
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 4729, ptr noundef nonnull @__func__.SSL_do_handshake) #24
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 144, ptr noundef null) #24
   br label %return
 
 if.end19:                                         ; preds = %if.end
-  tail call void @ossl_statem_check_finish_init(ptr noundef nonnull %cond1122, i32 noundef -1) #23
+  tail call void @ossl_statem_check_finish_init(ptr noundef nonnull %cond1122, i32 noundef -1) #24
   %method = getelementptr inbounds i8, ptr %s, i64 24
   %2 = load ptr, ptr %method, align 8
   %ssl_renegotiate_check = getelementptr inbounds i8, ptr %2, i64 120
   %3 = load ptr, ptr %ssl_renegotiate_check, align 8
-  %call20 = tail call i32 %3(ptr noundef %s, i32 noundef 0) #23
-  %call21 = tail call i32 @SSL_in_init(ptr noundef %s) #23
+  %call20 = tail call i32 %3(ptr noundef %s, i32 noundef 0) #24
+  %call21 = tail call i32 @SSL_in_init(ptr noundef %s) #24
   %tobool.not = icmp eq i32 %call21, 0
   br i1 %tobool.not, label %lor.lhs.false22, label %if.then25
 
 lor.lhs.false22:                                  ; preds = %if.end19
-  %call23 = tail call i32 @SSL_in_before(ptr noundef nonnull %s) #23
+  %call23 = tail call i32 @SSL_in_before(ptr noundef nonnull %s) #24
   %tobool24.not = icmp eq i32 %call23, 0
   br i1 %tobool24.not, label %return, label %if.then25
 
@@ -5526,7 +5526,7 @@ if.then25:                                        ; preds = %lor.lhs.false22, %i
   br i1 %tobool26.not, label %if.else, label %land.lhs.true27
 
 land.lhs.true27:                                  ; preds = %if.then25
-  %call28 = tail call ptr @ASYNC_get_current_job() #23
+  %call28 = tail call ptr @ASYNC_get_current_job() #24
   %cmp29 = icmp eq ptr %call28, null
   br i1 %cmp29, label %if.then30, label %if.else
 
@@ -5539,7 +5539,7 @@ if.then30:                                        ; preds = %land.lhs.true27
 
 if.else:                                          ; preds = %land.lhs.true27, %if.then25
   %6 = load ptr, ptr %handshake_func, align 8
-  %call34 = tail call i32 %6(ptr noundef nonnull %s) #23
+  %call34 = tail call i32 %6(ptr noundef nonnull %s) #24
   br label %return
 
 return:                                           ; preds = %lor.lhs.false22, %if.else, %if.then30, %if.then18, %if.then
@@ -5570,7 +5570,7 @@ if.then:                                          ; preds = %cond.false, %land.l
   %1 = load ptr, ptr %method, align 8
   %ssl_connect = getelementptr inbounds i8, ptr %1, i64 72
   %2 = load ptr, ptr %ssl_connect, align 8
-  %call = tail call i32 %2(ptr noundef nonnull %s) #23
+  %call = tail call i32 %2(ptr noundef nonnull %s) #24
   br label %return
 
 if.end19:                                         ; preds = %cond.false
@@ -5607,7 +5607,7 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %switch, label %if.then, label %if.end
 
 if.then:                                          ; preds = %land.lhs.true
-  tail call void @ossl_quic_set_connect_state(ptr noundef nonnull %s) #23
+  tail call void @ossl_quic_set_connect_state(ptr noundef nonnull %s) #24
   br label %return
 
 if.end:                                           ; preds = %entry, %land.lhs.true
@@ -5616,7 +5616,7 @@ if.end:                                           ; preds = %entry, %land.lhs.tr
   store i32 0, ptr %server, align 8
   %shutdown = getelementptr inbounds i8, ptr %cond513, i64 124
   store i32 0, ptr %shutdown, align 4
-  tail call void @ossl_statem_clear(ptr noundef %cond513) #23
+  tail call void @ossl_statem_clear(ptr noundef %cond513) #24
   %method = getelementptr inbounds i8, ptr %s, i64 24
   %1 = load ptr, ptr %method, align 8
   %ssl_connect = getelementptr inbounds i8, ptr %1, i64 72
@@ -5632,7 +5632,7 @@ if.end:                                           ; preds = %entry, %land.lhs.tr
   %and.i = and i32 %5, 8
   %tobool.not.i = icmp eq i32 %and.i, 0
   %cond.i = select i1 %tobool.not.i, i32 65536, i32 131071
-  %call.i = tail call i32 @ssl_set_new_record_layer(ptr noundef %cond513, i32 noundef %cond.i, i32 noundef 0, i32 noundef 0, ptr noundef null, i64 noundef 0, ptr noundef null, i64 noundef 0, ptr noundef null, i64 noundef 0, ptr noundef null, i64 noundef 0, ptr noundef null, i64 noundef 0, i32 noundef 0, ptr noundef null, ptr noundef null, ptr noundef null) #23
+  %call.i = tail call i32 @ssl_set_new_record_layer(ptr noundef %cond513, i32 noundef %cond.i, i32 noundef 0, i32 noundef 0, ptr noundef null, i64 noundef 0, ptr noundef null, i64 noundef 0, ptr noundef null, i64 noundef 0, ptr noundef null, i64 noundef 0, ptr noundef null, i64 noundef 0, i32 noundef 0, ptr noundef null, ptr noundef null, ptr noundef null) #24
   %6 = load ptr, ptr %method.i, align 8
   %ssl3_enc3.i = getelementptr inbounds i8, ptr %6, i64 216
   %7 = load ptr, ptr %ssl3_enc3.i, align 8
@@ -5641,7 +5641,7 @@ if.end:                                           ; preds = %entry, %land.lhs.tr
   %and5.i = and i32 %8, 8
   %tobool6.not.i = icmp eq i32 %and5.i, 0
   %cond7.i = select i1 %tobool6.not.i, i32 65536, i32 131071
-  %call8.i = tail call i32 @ssl_set_new_record_layer(ptr noundef %cond513, i32 noundef %cond7.i, i32 noundef 1, i32 noundef 0, ptr noundef null, i64 noundef 0, ptr noundef null, i64 noundef 0, ptr noundef null, i64 noundef 0, ptr noundef null, i64 noundef 0, ptr noundef null, i64 noundef 0, i32 noundef 0, ptr noundef null, ptr noundef null, ptr noundef null) #23
+  %call8.i = tail call i32 @ssl_set_new_record_layer(ptr noundef %cond513, i32 noundef %cond7.i, i32 noundef 1, i32 noundef 0, ptr noundef null, i64 noundef 0, ptr noundef null, i64 noundef 0, ptr noundef null, i64 noundef 0, ptr noundef null, i64 noundef 0, ptr noundef null, i64 noundef 0, i32 noundef 0, ptr noundef null, ptr noundef null, ptr noundef null) #24
   br label %return
 
 return:                                           ; preds = %if.end, %if.then
@@ -5655,7 +5655,7 @@ entry:
   %0 = load ptr, ptr %method, align 8
   %get_timeout = getelementptr inbounds i8, ptr %0, i64 208
   %1 = load ptr, ptr %get_timeout, align 8
-  %call = tail call i64 %1() #23
+  %call = tail call i64 %1() #24
   %div = udiv i64 %call, 1000000000
   ret i64 %div
 }
@@ -5684,7 +5684,7 @@ if.then:                                          ; preds = %cond.false, %land.l
   %1 = load ptr, ptr %method, align 8
   %ssl_read = getelementptr inbounds i8, ptr %1, i64 80
   %2 = load ptr, ptr %ssl_read, align 8
-  %call = tail call i32 %2(ptr noundef nonnull %s, ptr noundef %buf, i64 noundef %num, ptr noundef %readbytes) #23
+  %call = tail call i32 %2(ptr noundef nonnull %s, ptr noundef %buf, i64 noundef %num, ptr noundef %readbytes) #24
   br label %return
 
 if.end19:                                         ; preds = %cond.false
@@ -5694,9 +5694,9 @@ if.end19:                                         ; preds = %cond.false
   br i1 %cmp20, label %if.then21, label %if.end22
 
 if.then21:                                        ; preds = %if.end19
-  tail call void @ERR_new() #23
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 2309, ptr noundef nonnull @__func__.ssl_read_internal) #23
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 276, ptr noundef null) #23
+  tail call void @ERR_new() #24
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 2309, ptr noundef nonnull @__func__.ssl_read_internal) #24
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 276, ptr noundef null) #24
   br label %return
 
 if.end22:                                         ; preds = %if.end19
@@ -5720,13 +5720,13 @@ if.end24:                                         ; preds = %if.end22
   ]
 
 if.then29:                                        ; preds = %if.end24, %if.end24
-  tail call void @ERR_new() #23
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 2320, ptr noundef nonnull @__func__.ssl_read_internal) #23
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 786689, ptr noundef null) #23
+  tail call void @ERR_new() #24
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 2320, ptr noundef nonnull @__func__.ssl_read_internal) #24
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 786689, ptr noundef null) #24
   br label %return
 
 if.end30:                                         ; preds = %if.end24
-  tail call void @ossl_statem_check_finish_init(ptr noundef nonnull %s, i32 noundef 0) #23
+  tail call void @ossl_statem_check_finish_init(ptr noundef nonnull %s, i32 noundef 0) #24
   %mode = getelementptr inbounds i8, ptr %s, i64 2360
   %6 = load i32, ptr %mode, align 8
   %and31 = and i32 %6, 256
@@ -5734,7 +5734,7 @@ if.end30:                                         ; preds = %if.end24
   br i1 %tobool32.not, label %if.else, label %land.lhs.true33
 
 land.lhs.true33:                                  ; preds = %if.end30
-  %call34 = tail call ptr @ASYNC_get_current_job() #23
+  %call34 = tail call ptr @ASYNC_get_current_job() #24
   %cmp35 = icmp eq ptr %call34, null
   br i1 %cmp35, label %if.then36, label %if.else
 
@@ -5763,7 +5763,7 @@ if.else:                                          ; preds = %land.lhs.true33, %i
   %10 = load ptr, ptr %method44, align 8
   %ssl_read45 = getelementptr inbounds i8, ptr %10, i64 80
   %11 = load ptr, ptr %ssl_read45, align 8
-  %call46 = tail call i32 %11(ptr noundef nonnull %s, ptr noundef %buf, i64 noundef %num, ptr noundef %readbytes) #23
+  %call46 = tail call i32 %11(ptr noundef nonnull %s, ptr noundef %buf, i64 noundef %num, ptr noundef %readbytes) #24
   br label %return
 
 return:                                           ; preds = %land.lhs.true, %entry, %if.else, %if.then36, %if.then29, %if.then23, %if.then21, %if.then
@@ -5803,7 +5803,7 @@ if.end:                                           ; preds = %cond.false, %cond.e
   br i1 %cmp13, label %if.then14, label %if.end25
 
 if.then14:                                        ; preds = %if.end
-  %call = tail call ptr @ASYNC_WAIT_CTX_new() #23
+  %call = tail call ptr @ASYNC_WAIT_CTX_new() #24
   store ptr %call, ptr %waitctx, align 8
   %cmp17 = icmp eq ptr %call, null
   br i1 %cmp17, label %return, label %if.end19
@@ -5815,7 +5815,7 @@ if.end19:                                         ; preds = %if.then14
   br i1 %cmp20.not, label %if.end25, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end19
-  %call22 = tail call i32 @ASYNC_WAIT_CTX_set_callback(ptr noundef nonnull %call, ptr noundef nonnull @ssl_async_wait_ctx_cb, ptr noundef nonnull %s) #23
+  %call22 = tail call i32 @ASYNC_WAIT_CTX_set_callback(ptr noundef nonnull %call, ptr noundef nonnull @ssl_async_wait_ctx_cb, ptr noundef nonnull %s) #24
   %tobool.not = icmp eq i32 %call22, 0
   br i1 %tobool.not, label %return, label %land.lhs.true.if.end25_crit_edge
 
@@ -5828,7 +5828,7 @@ if.end25:                                         ; preds = %land.lhs.true.if.en
   %rwstate = getelementptr inbounds i8, ptr %cond1124, i64 96
   store i32 1, ptr %rwstate, align 8
   %job = getelementptr inbounds i8, ptr %cond1124, i64 5256
-  %call27 = call i32 @ASYNC_start_job(ptr noundef nonnull %job, ptr noundef %4, ptr noundef nonnull %ret, ptr noundef %func, ptr noundef %args, i64 noundef 40) #23
+  %call27 = call i32 @ASYNC_start_job(ptr noundef nonnull %job, ptr noundef %4, ptr noundef nonnull %ret, ptr noundef %func, ptr noundef %args, i64 noundef 40) #24
   switch i32 %call27, label %sw.default [
     i32 0, label %sw.bb
     i32 2, label %sw.bb29
@@ -5838,9 +5838,9 @@ if.end25:                                         ; preds = %land.lhs.true.if.en
 
 sw.bb:                                            ; preds = %if.end25
   store i32 1, ptr %rwstate, align 8
-  call void @ERR_new() #23
-  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 2251, ptr noundef nonnull @__func__.ssl_start_async_job) #23
-  call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 405, ptr noundef null) #23
+  call void @ERR_new() #24
+  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 2251, ptr noundef nonnull @__func__.ssl_start_async_job) #24
+  call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 405, ptr noundef null) #24
   br label %return
 
 sw.bb29:                                          ; preds = %if.end25
@@ -5858,9 +5858,9 @@ sw.bb33:                                          ; preds = %if.end25
 
 sw.default:                                       ; preds = %if.end25
   store i32 1, ptr %rwstate, align 8
-  call void @ERR_new() #23
-  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 2264, ptr noundef nonnull @__func__.ssl_start_async_job) #23
-  call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 786691, ptr noundef null) #23
+  call void @ERR_new() #24
+  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 2264, ptr noundef nonnull @__func__.ssl_start_async_job) #24
+  call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 786691, ptr noundef null) #24
   br label %return
 
 return:                                           ; preds = %cond.false, %entry, %land.lhs.true, %if.then14, %cond.end10, %sw.default, %sw.bb33, %sw.bb31, %sw.bb29, %sw.bb
@@ -5906,20 +5906,20 @@ sw.bb:                                            ; preds = %if.end
   %f = getelementptr inbounds i8, ptr %vargs, i64 32
   %6 = load ptr, ptr %f, align 8
   %asyncrw = getelementptr inbounds i8, ptr %cond1423, i64 5272
-  %call = tail call i32 %6(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %2, ptr noundef nonnull %asyncrw) #23
+  %call = tail call i32 %6(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %2, ptr noundef nonnull %asyncrw) #24
   br label %return
 
 sw.bb17:                                          ; preds = %if.end
   %f18 = getelementptr inbounds i8, ptr %vargs, i64 32
   %7 = load ptr, ptr %f18, align 8
   %asyncrw19 = getelementptr inbounds i8, ptr %cond1423, i64 5272
-  %call20 = tail call i32 %7(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %2, ptr noundef nonnull %asyncrw19) #23
+  %call20 = tail call i32 %7(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %2, ptr noundef nonnull %asyncrw19) #24
   br label %return
 
 sw.bb21:                                          ; preds = %if.end
   %f22 = getelementptr inbounds i8, ptr %vargs, i64 32
   %8 = load ptr, ptr %f22, align 8
-  %call23 = tail call i32 %8(ptr noundef nonnull %0) #23
+  %call23 = tail call i32 %8(ptr noundef nonnull %0) #24
   br label %return
 
 return:                                           ; preds = %cond.false, %entry, %if.end, %cond.end13, %sw.bb21, %sw.bb17, %sw.bb
@@ -5935,9 +5935,9 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  tail call void @ERR_new() #23
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 2353, ptr noundef nonnull @__func__.SSL_read) #23
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 271, ptr noundef null) #23
+  tail call void @ERR_new() #24
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 2353, ptr noundef nonnull @__func__.SSL_read) #24
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 271, ptr noundef null) #24
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -5980,9 +5980,9 @@ lor.lhs.false:                                    ; preds = %cond.false
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry, %cond.false, %lor.lhs.false
-  tail call void @ERR_new() #23
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 2385, ptr noundef nonnull @__func__.SSL_read_early_data) #23
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 786689, ptr noundef null) #23
+  tail call void @ERR_new() #24
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 2385, ptr noundef nonnull @__func__.SSL_read_early_data) #24
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 786689, ptr noundef null) #24
   br label %return
 
 if.end:                                           ; preds = %lor.lhs.false
@@ -5999,14 +5999,14 @@ cond.false.i.thread:                              ; preds = %if.end
   br label %if.end19.i
 
 sw.bb:                                            ; preds = %if.end
-  %call = tail call i32 @SSL_in_before(ptr noundef nonnull %s) #23
+  %call = tail call i32 @SSL_in_before(ptr noundef nonnull %s) #24
   %tobool7.not = icmp eq i32 %call, 0
   br i1 %tobool7.not, label %if.then8, label %cond.false.i
 
 if.then8:                                         ; preds = %sw.bb
-  tail call void @ERR_new() #23
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 2392, ptr noundef nonnull @__func__.SSL_read_early_data) #23
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 786689, ptr noundef null) #23
+  tail call void @ERR_new() #24
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 2392, ptr noundef nonnull @__func__.SSL_read_early_data) #24
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 786689, ptr noundef null) #24
   br label %return
 
 cond.false.i:                                     ; preds = %sw.bb
@@ -6027,7 +6027,7 @@ if.then.i:                                        ; preds = %land.lhs.true.i, %c
   %3 = load ptr, ptr %method.i, align 8
   %ssl_accept.i = getelementptr inbounds i8, ptr %3, i64 64
   %4 = load ptr, ptr %ssl_accept.i, align 8
-  %call.i = tail call i32 %4(ptr noundef nonnull %s) #23
+  %call.i = tail call i32 %4(ptr noundef nonnull %s) #24
   br label %SSL_accept.exit
 
 if.end19.i:                                       ; preds = %cond.false.i.thread, %cond.false.i
@@ -6084,9 +6084,9 @@ if.end33:                                         ; preds = %land.lhs.true, %if.
   br label %return
 
 sw.default:                                       ; preds = %if.end
-  tail call void @ERR_new() #23
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 2429, ptr noundef nonnull @__func__.SSL_read_early_data) #23
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 786689, ptr noundef null) #23
+  tail call void @ERR_new() #24
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 2429, ptr noundef nonnull @__func__.SSL_read_early_data) #24
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 786689, ptr noundef null) #24
   br label %return
 
 return:                                           ; preds = %sw.default, %if.end33, %if.then27, %if.then14, %if.then8, %if.then
@@ -6125,9 +6125,9 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  tail call void @ERR_new() #23
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 2489, ptr noundef nonnull @__func__.SSL_peek) #23
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 271, ptr noundef null) #23
+  tail call void @ERR_new() #24
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 2489, ptr noundef nonnull @__func__.SSL_peek) #24
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 271, ptr noundef null) #24
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -6168,7 +6168,7 @@ if.then:                                          ; preds = %cond.false, %land.l
   %1 = load ptr, ptr %method, align 8
   %ssl_peek = getelementptr inbounds i8, ptr %1, i64 88
   %2 = load ptr, ptr %ssl_peek, align 8
-  %call = tail call i32 %2(ptr noundef nonnull %s, ptr noundef %buf, i64 noundef %num, ptr noundef %readbytes) #23
+  %call = tail call i32 %2(ptr noundef nonnull %s, ptr noundef %buf, i64 noundef %num, ptr noundef %readbytes) #24
   br label %return
 
 if.end19:                                         ; preds = %cond.false
@@ -6178,9 +6178,9 @@ if.end19:                                         ; preds = %cond.false
   br i1 %cmp20, label %if.then21, label %if.end22
 
 if.then21:                                        ; preds = %if.end19
-  tail call void @ERR_new() #23
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 2458, ptr noundef nonnull @__func__.ssl_peek_internal) #23
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 276, ptr noundef null) #23
+  tail call void @ERR_new() #24
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 2458, ptr noundef nonnull @__func__.ssl_peek_internal) #24
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 276, ptr noundef null) #24
   br label %return
 
 if.end22:                                         ; preds = %if.end19
@@ -6198,7 +6198,7 @@ if.end24:                                         ; preds = %if.end22
   br i1 %tobool26.not, label %if.else, label %land.lhs.true27
 
 land.lhs.true27:                                  ; preds = %if.end24
-  %call28 = tail call ptr @ASYNC_get_current_job() #23
+  %call28 = tail call ptr @ASYNC_get_current_job() #24
   %cmp29 = icmp eq ptr %call28, null
   br i1 %cmp29, label %if.then30, label %if.else
 
@@ -6227,7 +6227,7 @@ if.else:                                          ; preds = %land.lhs.true27, %i
   %9 = load ptr, ptr %method38, align 8
   %ssl_peek39 = getelementptr inbounds i8, ptr %9, i64 88
   %10 = load ptr, ptr %ssl_peek39, align 8
-  %call40 = tail call i32 %10(ptr noundef nonnull %s, ptr noundef %buf, i64 noundef %num, ptr noundef %readbytes) #23
+  %call40 = tail call i32 %10(ptr noundef nonnull %s, ptr noundef %buf, i64 noundef %num, ptr noundef %readbytes) #24
   br label %return
 
 return:                                           ; preds = %land.lhs.true, %entry, %if.end22, %if.else, %if.then30, %if.then21, %if.then
@@ -6267,7 +6267,7 @@ if.then:                                          ; preds = %cond.false, %land.l
   %1 = load ptr, ptr %method, align 8
   %ssl_write = getelementptr inbounds i8, ptr %1, i64 96
   %2 = load ptr, ptr %ssl_write, align 8
-  %call = tail call i32 %2(ptr noundef nonnull %s, ptr noundef %buf, i64 noundef %num, ptr noundef %written) #23
+  %call = tail call i32 %2(ptr noundef nonnull %s, ptr noundef %buf, i64 noundef %num, ptr noundef %written) #24
   br label %return
 
 if.end19:                                         ; preds = %cond.false
@@ -6277,9 +6277,9 @@ if.end19:                                         ; preds = %cond.false
   br i1 %cmp20, label %if.then21, label %if.end22
 
 if.then21:                                        ; preds = %if.end19
-  tail call void @ERR_new() #23
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 2528, ptr noundef nonnull @__func__.ssl_write_internal) #23
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 276, ptr noundef null) #23
+  tail call void @ERR_new() #24
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 2528, ptr noundef nonnull @__func__.ssl_write_internal) #24
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 276, ptr noundef null) #24
   br label %return
 
 if.end22:                                         ; preds = %if.end19
@@ -6292,9 +6292,9 @@ if.end22:                                         ; preds = %if.end19
 if.then23:                                        ; preds = %if.end22
   %rwstate = getelementptr inbounds i8, ptr %s, i64 96
   store i32 1, ptr %rwstate, align 8
-  tail call void @ERR_new() #23
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 2534, ptr noundef nonnull @__func__.ssl_write_internal) #23
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 207, ptr noundef null) #23
+  tail call void @ERR_new() #24
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 2534, ptr noundef nonnull @__func__.ssl_write_internal) #24
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 207, ptr noundef null) #24
   br label %return
 
 if.end24:                                         ; preds = %if.end22
@@ -6307,13 +6307,13 @@ if.end24:                                         ; preds = %if.end22
   ]
 
 if.then32:                                        ; preds = %if.end24, %if.end24, %if.end24
-  tail call void @ERR_new() #23
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 2541, ptr noundef nonnull @__func__.ssl_write_internal) #23
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 786689, ptr noundef null) #23
+  tail call void @ERR_new() #24
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 2541, ptr noundef nonnull @__func__.ssl_write_internal) #24
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 786689, ptr noundef null) #24
   br label %return
 
 if.end33:                                         ; preds = %if.end24
-  tail call void @ossl_statem_check_finish_init(ptr noundef nonnull %s, i32 noundef 1) #23
+  tail call void @ossl_statem_check_finish_init(ptr noundef nonnull %s, i32 noundef 1) #24
   %mode = getelementptr inbounds i8, ptr %s, i64 2360
   %6 = load i32, ptr %mode, align 8
   %and34 = and i32 %6, 256
@@ -6321,7 +6321,7 @@ if.end33:                                         ; preds = %if.end24
   br i1 %tobool35.not, label %if.else, label %land.lhs.true36
 
 land.lhs.true36:                                  ; preds = %if.end33
-  %call37 = tail call ptr @ASYNC_get_current_job() #23
+  %call37 = tail call ptr @ASYNC_get_current_job() #24
   %cmp38 = icmp eq ptr %call37, null
   br i1 %cmp38, label %if.then39, label %if.else
 
@@ -6350,7 +6350,7 @@ if.else:                                          ; preds = %land.lhs.true36, %i
   %10 = load ptr, ptr %method47, align 8
   %ssl_write48 = getelementptr inbounds i8, ptr %10, i64 96
   %11 = load ptr, ptr %ssl_write48, align 8
-  %call49 = tail call i32 %11(ptr noundef nonnull %s, ptr noundef %buf, i64 noundef %num, ptr noundef %written) #23
+  %call49 = tail call i32 %11(ptr noundef nonnull %s, ptr noundef %buf, i64 noundef %num, ptr noundef %written) #24
   br label %return
 
 return:                                           ; preds = %land.lhs.true, %entry, %if.else, %if.then39, %if.then32, %if.then23, %if.then21, %if.then
@@ -6390,9 +6390,9 @@ if.then10:                                        ; preds = %if.end9
 return.sink.split:                                ; preds = %if.end9, %if.end, %if.then10
   %.sink8 = phi i32 [ 2580, %if.then10 ], [ 2574, %if.end ], [ 2585, %if.end9 ]
   %.sink = phi i32 [ 207, %if.then10 ], [ 276, %if.end ], [ 276, %if.end9 ]
-  tail call void @ERR_new() #23
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink8, ptr noundef nonnull @__func__.SSL_sendfile) #23
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef %.sink, ptr noundef null) #23
+  tail call void @ERR_new() #24
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink8, ptr noundef nonnull @__func__.SSL_sendfile) #24
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef %.sink, ptr noundef null) #24
   br label %return
 
 return:                                           ; preds = %return.sink.split, %entry, %cond.false
@@ -6408,9 +6408,9 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  tail call void @ERR_new() #23
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 2639, ptr noundef nonnull @__func__.SSL_write) #23
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 271, ptr noundef null) #23
+  tail call void @ERR_new() #24
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 2639, ptr noundef nonnull @__func__.SSL_write) #24
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 271, ptr noundef null) #24
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -6470,7 +6470,7 @@ sw.bb:                                            ; preds = %if.end
   br i1 %tobool.not, label %lor.lhs.false, label %if.then15
 
 lor.lhs.false:                                    ; preds = %sw.bb
-  %call = tail call i32 @SSL_in_before(ptr noundef nonnull %s) #23
+  %call = tail call i32 @SSL_in_before(ptr noundef nonnull %s) #24
   %tobool8.not = icmp eq i32 %call, 0
   br i1 %tobool8.not, label %if.then15, label %lor.lhs.false9
 
@@ -6493,9 +6493,9 @@ land.lhs.true:                                    ; preds = %lor.lhs.false11, %l
   br i1 %cmp14, label %if.then15, label %cond.false.i
 
 if.then15:                                        ; preds = %land.lhs.true, %lor.lhs.false, %sw.bb
-  tail call void @ERR_new() #23
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 2681, ptr noundef nonnull @__func__.SSL_write_early_data) #23
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 786689, ptr noundef null) #23
+  tail call void @ERR_new() #24
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 2681, ptr noundef nonnull @__func__.SSL_write_early_data) #24
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 786689, ptr noundef null) #24
   br label %return
 
 cond.false.i:                                     ; preds = %land.lhs.true, %lor.lhs.false11
@@ -6516,7 +6516,7 @@ if.then.i:                                        ; preds = %land.lhs.true.i, %c
   %6 = load ptr, ptr %method.i, align 8
   %ssl_connect.i = getelementptr inbounds i8, ptr %6, i64 72
   %7 = load ptr, ptr %ssl_connect.i, align 8
-  %call.i = tail call i32 %7(ptr noundef nonnull %s) #23
+  %call.i = tail call i32 %7(ptr noundef nonnull %s) #24
   br label %SSL_connect.exit
 
 if.end19.i:                                       ; preds = %cond.false.i.thread, %cond.false.i
@@ -6565,7 +6565,7 @@ if.end33:                                         ; preds = %sw.bb24
   br label %sw.bb35
 
 sw.bb35:                                          ; preds = %if.end33, %if.end
-  %call36 = call i32 @statem_flush(ptr noundef nonnull %s) #23
+  %call36 = call i32 @statem_flush(ptr noundef nonnull %s) #24
   %cmp37.not = icmp eq i32 %call36, 1
   br i1 %cmp37.not, label %if.end39, label %return
 
@@ -6584,7 +6584,7 @@ sw.bb41:                                          ; preds = %if.end, %if.end
 if.then46:                                        ; preds = %sw.bb41
   %wbio = getelementptr inbounds i8, ptr %s, i64 80
   %11 = load ptr, ptr %wbio, align 8
-  %call47 = tail call i64 @BIO_ctrl(ptr noundef %11, i32 noundef 11, i64 noundef 0, ptr noundef null) #23
+  %call47 = tail call i64 @BIO_ctrl(ptr noundef %11, i32 noundef 11, i64 noundef 0, ptr noundef null) #24
   br label %if.end48
 
 if.end48:                                         ; preds = %if.then46, %sw.bb41
@@ -6592,9 +6592,9 @@ if.end48:                                         ; preds = %if.then46, %sw.bb41
   br label %return
 
 sw.default:                                       ; preds = %if.end
-  tail call void @ERR_new() #23
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 2735, ptr noundef nonnull @__func__.SSL_write_early_data) #23
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 786689, ptr noundef null) #23
+  tail call void @ERR_new() #24
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 2735, ptr noundef nonnull @__func__.SSL_write_early_data) #24
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 786689, ptr noundef null) #24
   br label %return
 
 return:                                           ; preds = %entry, %cond.false, %sw.bb35, %sw.default, %if.end48, %if.end39, %if.then31, %if.then21, %if.then15
@@ -6624,7 +6624,7 @@ land.lhs.true:                                    ; preds = %cond.false
   br i1 %switch, label %if.then, label %return
 
 if.then:                                          ; preds = %cond.false, %land.lhs.true
-  %call = tail call i32 @ossl_quic_conn_shutdown(ptr noundef nonnull %s, i64 noundef 0, ptr noundef null, i64 noundef 0) #23
+  %call = tail call i32 @ossl_quic_conn_shutdown(ptr noundef nonnull %s, i64 noundef 0, ptr noundef null, i64 noundef 0) #24
   br label %return
 
 if.end19:                                         ; preds = %cond.false
@@ -6634,13 +6634,13 @@ if.end19:                                         ; preds = %cond.false
   br i1 %cmp20, label %if.then21, label %if.end22
 
 if.then21:                                        ; preds = %if.end19
-  tail call void @ERR_new() #23
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 2759, ptr noundef nonnull @__func__.SSL_shutdown) #23
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 276, ptr noundef null) #23
+  tail call void @ERR_new() #24
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 2759, ptr noundef nonnull @__func__.SSL_shutdown) #24
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 276, ptr noundef null) #24
   br label %return
 
 if.end22:                                         ; preds = %if.end19
-  %call23 = tail call i32 @SSL_in_init(ptr noundef nonnull %s) #23
+  %call23 = tail call i32 @SSL_in_init(ptr noundef nonnull %s) #24
   %tobool.not = icmp eq i32 %call23, 0
   br i1 %tobool.not, label %if.then24, label %if.else36
 
@@ -6652,7 +6652,7 @@ if.then24:                                        ; preds = %if.end22
   br i1 %tobool25.not, label %if.else, label %land.lhs.true26
 
 land.lhs.true26:                                  ; preds = %if.then24
-  %call27 = tail call ptr @ASYNC_get_current_job() #23
+  %call27 = tail call ptr @ASYNC_get_current_job() #24
   %cmp28 = icmp eq ptr %call27, null
   br i1 %cmp28, label %if.then29, label %if.else
 
@@ -6676,13 +6676,13 @@ if.else:                                          ; preds = %land.lhs.true26, %i
   %6 = load ptr, ptr %method33, align 8
   %ssl_shutdown34 = getelementptr inbounds i8, ptr %6, i64 104
   %7 = load ptr, ptr %ssl_shutdown34, align 8
-  %call35 = tail call i32 %7(ptr noundef nonnull %s) #23
+  %call35 = tail call i32 %7(ptr noundef nonnull %s) #24
   br label %return
 
 if.else36:                                        ; preds = %if.end22
-  tail call void @ERR_new() #23
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 2777, ptr noundef nonnull @__func__.SSL_shutdown) #23
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 407, ptr noundef null) #23
+  tail call void @ERR_new() #24
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 2777, ptr noundef nonnull @__func__.SSL_shutdown) #24
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 407, ptr noundef null) #24
   br label %return
 
 return:                                           ; preds = %land.lhs.true, %entry, %if.else36, %if.else, %if.then29, %if.then21, %if.then
@@ -6713,7 +6713,7 @@ land.lhs.true:                                    ; preds = %cond.false
   br i1 %switch, label %if.then, label %return
 
 if.then:                                          ; preds = %cond.false, %land.lhs.true
-  %call = tail call i32 @ossl_quic_key_update(ptr noundef nonnull %s, i32 noundef %updatetype) #23
+  %call = tail call i32 @ossl_quic_key_update(ptr noundef nonnull %s, i32 noundef %updatetype) #24
   br label %return
 
 if.end19:                                         ; preds = %cond.false
@@ -6735,9 +6735,9 @@ land.lhs.true20:                                  ; preds = %if.end19
   br i1 %or.cond21, label %if.then29, label %if.end30
 
 if.then29:                                        ; preds = %land.lhs.true20, %if.end19
-  tail call void @ERR_new() #23
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 2795, ptr noundef nonnull @__func__.SSL_key_update) #23
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 266, ptr noundef null) #23
+  tail call void @ERR_new() #24
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 2795, ptr noundef nonnull @__func__.SSL_key_update) #24
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 266, ptr noundef null) #24
   br label %return
 
 if.end30:                                         ; preds = %land.lhs.true20
@@ -6745,36 +6745,36 @@ if.end30:                                         ; preds = %land.lhs.true20
   br i1 %or.cond, label %if.then34, label %if.end35
 
 if.then34:                                        ; preds = %if.end30
-  tail call void @ERR_new() #23
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 2801, ptr noundef nonnull @__func__.SSL_key_update) #23
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 120, ptr noundef null) #23
+  tail call void @ERR_new() #24
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 2801, ptr noundef nonnull @__func__.SSL_key_update) #24
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 120, ptr noundef null) #24
   br label %return
 
 if.end35:                                         ; preds = %if.end30
-  %call36 = tail call i32 @SSL_is_init_finished(ptr noundef nonnull %s) #23
+  %call36 = tail call i32 @SSL_is_init_finished(ptr noundef nonnull %s) #24
   %tobool37.not = icmp eq i32 %call36, 0
   br i1 %tobool37.not, label %if.then38, label %if.end39
 
 if.then38:                                        ; preds = %if.end35
-  tail call void @ERR_new() #23
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 2806, ptr noundef nonnull @__func__.SSL_key_update) #23
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 121, ptr noundef null) #23
+  tail call void @ERR_new() #24
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 2806, ptr noundef nonnull @__func__.SSL_key_update) #24
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 121, ptr noundef null) #24
   br label %return
 
 if.end39:                                         ; preds = %if.end35
   %rlayer = getelementptr inbounds i8, ptr %s, i64 3000
-  %call40 = tail call i32 @RECORD_LAYER_write_pending(ptr noundef nonnull %rlayer) #23
+  %call40 = tail call i32 @RECORD_LAYER_write_pending(ptr noundef nonnull %rlayer) #24
   %tobool41.not = icmp eq i32 %call40, 0
   br i1 %tobool41.not, label %if.end43, label %if.then42
 
 if.then42:                                        ; preds = %if.end39
-  tail call void @ERR_new() #23
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 2811, ptr noundef nonnull @__func__.SSL_key_update) #23
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 127, ptr noundef null) #23
+  tail call void @ERR_new() #24
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 2811, ptr noundef nonnull @__func__.SSL_key_update) #24
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 127, ptr noundef null) #24
   br label %return
 
 if.end43:                                         ; preds = %if.end39
-  tail call void @ossl_statem_set_in_init(ptr noundef nonnull %s, i32 noundef 1) #23
+  tail call void @ossl_statem_set_in_init(ptr noundef nonnull %s, i32 noundef 1) #24
   %key_update = getelementptr inbounds i8, ptr %s, i64 2820
   store i32 %updatetype, ptr %key_update, align 4
   br label %return
@@ -6811,7 +6811,7 @@ land.lhs.true:                                    ; preds = %cond.false
   br i1 %switch, label %if.then, label %return
 
 if.then:                                          ; preds = %cond.false, %land.lhs.true
-  %call = tail call i32 @ossl_quic_get_key_update_type(ptr noundef nonnull %s) #23
+  %call = tail call i32 @ossl_quic_get_key_update_type(ptr noundef nonnull %s) #24
   br label %return
 
 if.end19:                                         ; preds = %cond.false
@@ -6865,9 +6865,9 @@ if.end.i:                                         ; preds = %land.lhs.true.i, %i
 can_renegotiate.exit.thread:                      ; preds = %land.lhs.true.i, %if.end.i
   %.sink4.i = phi i32 [ 2842, %land.lhs.true.i ], [ 2847, %if.end.i ]
   %.sink.i = phi i32 [ 266, %land.lhs.true.i ], [ 339, %if.end.i ]
-  tail call void @ERR_new() #23
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink4.i, ptr noundef nonnull @__func__.can_renegotiate) #23
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef %.sink.i, ptr noundef null) #23
+  tail call void @ERR_new() #24
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink4.i, ptr noundef nonnull @__func__.can_renegotiate) #24
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef %.sink.i, ptr noundef null) #24
   br label %return
 
 if.end8:                                          ; preds = %if.end.i
@@ -6877,7 +6877,7 @@ if.end8:                                          ; preds = %if.end.i
   store i32 1, ptr %new_session, align 4
   %ssl_renegotiate = getelementptr inbounds i8, ptr %1, i64 112
   %6 = load ptr, ptr %ssl_renegotiate, align 8
-  %call9 = tail call i32 %6(ptr noundef nonnull %s) #23
+  %call9 = tail call i32 %6(ptr noundef nonnull %s) #24
   br label %return
 
 return:                                           ; preds = %entry, %cond.false, %can_renegotiate.exit.thread, %if.end8
@@ -6924,9 +6924,9 @@ if.end.i:                                         ; preds = %land.lhs.true.i, %i
 can_renegotiate.exit.thread:                      ; preds = %land.lhs.true.i, %if.end.i
   %.sink4.i = phi i32 [ 2842, %land.lhs.true.i ], [ 2847, %if.end.i ]
   %.sink.i = phi i32 [ 266, %land.lhs.true.i ], [ 339, %if.end.i ]
-  tail call void @ERR_new() #23
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink4.i, ptr noundef nonnull @__func__.can_renegotiate) #23
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef %.sink.i, ptr noundef null) #23
+  tail call void @ERR_new() #24
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink4.i, ptr noundef nonnull @__func__.can_renegotiate) #24
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef %.sink.i, ptr noundef null) #24
   br label %return
 
 if.end8:                                          ; preds = %if.end.i
@@ -6936,7 +6936,7 @@ if.end8:                                          ; preds = %if.end.i
   store i32 0, ptr %new_session, align 4
   %ssl_renegotiate = getelementptr inbounds i8, ptr %1, i64 112
   %6 = load ptr, ptr %ssl_renegotiate, align 8
-  %call9 = tail call i32 %6(ptr noundef nonnull %s) #23
+  %call9 = tail call i32 %6(ptr noundef nonnull %s) #24
   br label %return
 
 return:                                           ; preds = %entry, %cond.false, %can_renegotiate.exit.thread, %if.end8
@@ -6988,7 +6988,7 @@ cond.end10:                                       ; preds = %cond.false
 
 if.end:                                           ; preds = %cond.false, %cond.end10
   %cond1123 = phi ptr [ %1, %cond.end10 ], [ %s, %cond.false ]
-  %call = tail call i32 @SSL_in_init(ptr noundef nonnull %s) #23
+  %call = tail call i32 @SSL_in_init(ptr noundef nonnull %s) #24
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %lor.lhs.false, label %land.lhs.true
 
@@ -7040,17 +7040,17 @@ if.end33:                                         ; preds = %land.lhs.true23
   %inc = add nsw i32 %10, 1
   store i32 %inc, ptr %extra_tickets_expected35, align 4
   %rlayer = getelementptr inbounds i8, ptr %cond1123, i64 3000
-  %call36 = tail call i32 @RECORD_LAYER_write_pending(ptr noundef nonnull %rlayer) #23
+  %call36 = tail call i32 @RECORD_LAYER_write_pending(ptr noundef nonnull %rlayer) #24
   %tobool37.not = icmp eq i32 %call36, 0
   br i1 %tobool37.not, label %land.lhs.true38, label %return
 
 land.lhs.true38:                                  ; preds = %if.end33
-  %call39 = tail call i32 @SSL_in_init(ptr noundef nonnull %s) #23
+  %call39 = tail call i32 @SSL_in_init(ptr noundef nonnull %s) #24
   %tobool40.not = icmp eq i32 %call39, 0
   br i1 %tobool40.not, label %if.then41, label %return
 
 if.then41:                                        ; preds = %land.lhs.true38
-  tail call void @ossl_statem_set_in_init(ptr noundef nonnull %cond1123, i32 noundef 1) #23
+  tail call void @ossl_statem_set_in_init(ptr noundef nonnull %cond1123, i32 noundef 1) #24
   br label %return
 
 return:                                           ; preds = %cond.false, %entry, %if.end33, %land.lhs.true38, %if.then41, %land.lhs.true, %lor.lhs.false, %lor.lhs.false15, %lor.lhs.false19, %lor.lhs.false21, %land.lhs.true23, %cond.end10
@@ -7098,7 +7098,7 @@ if.then19:                                        ; preds = %if.end
   %3 = load ptr, ptr %method, align 8
   %ssl_ctrl = getelementptr inbounds i8, ptr %3, i64 152
   %4 = load ptr, ptr %ssl_ctrl, align 8
-  %call = tail call i64 %4(ptr noundef nonnull %s.tr, i32 noundef %cmd, i64 noundef %larg, ptr noundef %parg) #23
+  %call = tail call i64 %4(ptr noundef nonnull %s.tr, i32 noundef %cmd, i64 noundef %larg, ptr noundef %parg) #24
   br label %return
 
 if.end20:                                         ; preds = %if.end
@@ -7145,9 +7145,9 @@ sw.bb28:                                          ; preds = %if.end20
   %conv30 = or i32 %7, %8
   store i32 %conv30, ptr %mode, align 8
   %incdec.ptr = getelementptr inbounds i8, ptr %options, i64 40
-  call void @OSSL_PARAM_construct_uint32(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp, ptr noundef nonnull @.str.2, ptr noundef nonnull %mode) #23
+  call void @OSSL_PARAM_construct_uint32(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp, ptr noundef nonnull @.str.2, ptr noundef nonnull %mode) #24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %options, ptr noundef nonnull align 8 dereferenceable(40) %tmp, i64 40, i1 false)
-  call void @OSSL_PARAM_construct_end(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp32) #23
+  call void @OSSL_PARAM_construct_end(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp32) #24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %incdec.ptr, ptr noundef nonnull align 8 dereferenceable(40) %tmp32, i64 40, i1 false)
   %rrlmethod = getelementptr inbounds i8, ptr %cond11134, i64 3024
   %9 = load ptr, ptr %rrlmethod, align 8
@@ -7155,7 +7155,7 @@ sw.bb28:                                          ; preds = %if.end20
   %10 = load ptr, ptr %set_options, align 8
   %rrl = getelementptr inbounds i8, ptr %cond11134, i64 3040
   %11 = load ptr, ptr %rrl, align 8
-  %call36 = call i32 %10(ptr noundef %11, ptr noundef nonnull %options) #23
+  %call36 = call i32 %10(ptr noundef %11, ptr noundef nonnull %options) #24
   %12 = load i32, ptr %mode, align 8
   %conv38 = zext i32 %12 to i64
   br label %return
@@ -7209,7 +7209,7 @@ if.end66:                                         ; preds = %if.then63, %if.end5
   %21 = load ptr, ptr %set_max_frag_len, align 8
   %wrl = getelementptr inbounds i8, ptr %cond11134, i64 3048
   %22 = load ptr, ptr %wrl, align 8
-  tail call void %21(ptr noundef %22, i64 noundef %larg) #23
+  tail call void %21(ptr noundef %22, i64 noundef %larg) #24
   br label %return
 
 sw.bb69:                                          ; preds = %if.end20
@@ -7242,7 +7242,7 @@ if.end86:                                         ; preds = %sw.bb79
 if.then91:                                        ; preds = %if.end86
   %rrl96 = getelementptr inbounds i8, ptr %cond11134, i64 3040
   %28 = load ptr, ptr %rrl96, align 8
-  tail call void %27(ptr noundef %28, i64 noundef %larg) #23
+  tail call void %27(ptr noundef %28, i64 noundef %larg) #24
   br label %return
 
 sw.bb98:                                          ; preds = %if.end20
@@ -7304,12 +7304,12 @@ sw.bb130:                                         ; preds = %if.end20
   br i1 %tobool131.not, label %return, label %lor.lhs.false132
 
 lor.lhs.false132:                                 ; preds = %sw.bb130
-  %call133 = tail call i32 @SSL_in_init(ptr noundef nonnull %s) #23
+  %call133 = tail call i32 @SSL_in_init(ptr noundef nonnull %s) #24
   %tobool134.not = icmp eq i32 %call133, 0
   br i1 %tobool134.not, label %lor.lhs.false135, label %return
 
 lor.lhs.false135:                                 ; preds = %lor.lhs.false132
-  %call136 = tail call i32 @ossl_statem_get_in_handshake(ptr noundef nonnull %cond11134) #23
+  %call136 = tail call i32 @ossl_statem_get_in_handshake(ptr noundef nonnull %cond11134) #24
   %tobool137.not = icmp eq i32 %call136, 0
   br i1 %tobool137.not, label %if.end139, label %return
 
@@ -7364,7 +7364,7 @@ land.rhs:                                         ; preds = %if.else.i, %if.end1
   %45 = load ptr, ptr %defltmeth, align 8
   %46 = load i32, ptr %45, align 8
   %min_proto_version = getelementptr inbounds i8, ptr %cond11134, i64 2364
-  %call150 = tail call i32 @ssl_set_version_bound(i32 noundef %46, i32 noundef %conv146, ptr noundef nonnull %min_proto_version) #23
+  %call150 = tail call i32 @ssl_set_version_bound(i32 noundef %46, i32 noundef %conv146, ptr noundef nonnull %min_proto_version) #24
   %tobool151 = icmp ne i32 %call150, 0
   %47 = zext i1 %tobool151 to i64
   br label %return
@@ -7418,7 +7418,7 @@ land.rhs161:                                      ; preds = %if.else.i120, %if.e
   %52 = load ptr, ptr %defltmeth162, align 8
   %53 = load i32, ptr %52, align 8
   %max_proto_version165 = getelementptr inbounds i8, ptr %cond11134, i64 2368
-  %call166 = tail call i32 @ssl_set_version_bound(i32 noundef %53, i32 noundef %conv158, ptr noundef nonnull %max_proto_version165) #23
+  %call166 = tail call i32 @ssl_set_version_bound(i32 noundef %53, i32 noundef %conv158, ptr noundef nonnull %max_proto_version165) #24
   %tobool167 = icmp ne i32 %call166, 0
   %54 = zext i1 %tobool167 to i64
   br label %return
@@ -7439,7 +7439,7 @@ if.else186:                                       ; preds = %land.lhs.true176
   %56 = load ptr, ptr %method187, align 8
   %ssl_ctrl188 = getelementptr inbounds i8, ptr %56, i64 152
   %57 = load ptr, ptr %ssl_ctrl188, align 8
-  %call189 = tail call i64 %57(ptr noundef nonnull %s.tr, i32 noundef %cmd, i64 noundef %larg, ptr noundef %parg) #23
+  %call189 = tail call i64 %57(ptr noundef nonnull %s.tr, i32 noundef %cmd, i64 noundef %larg, ptr noundef %parg) #24
   br label %return
 
 return:                                           ; preds = %cond.false, %tailrecurse, %cond.end10, %if.else.i120, %sw.bb156, %lor.lhs.false11.i114, %if.else.i, %sw.bb145, %lor.lhs.false11.i, %land.rhs161, %land.rhs, %if.end139, %sw.bb130, %lor.lhs.false132, %lor.lhs.false135, %sw.bb114, %if.then116, %if.end86, %if.then91, %sw.bb79, %sw.bb69, %sw.bb52, %sw.bb45, %if.else186, %sw.bb171, %sw.bb153, %if.end122, %sw.bb106, %sw.bb101, %sw.bb100, %sw.bb98, %if.end77, %if.end66, %if.end49, %sw.bb44, %sw.bb39, %sw.bb28, %sw.bb21, %sw.bb, %if.then19
@@ -7505,7 +7505,7 @@ entry:
   %0 = load ptr, ptr %method, align 8
   %ssl_callback_ctrl = getelementptr inbounds i8, ptr %0, i64 232
   %1 = load ptr, ptr %ssl_callback_ctrl, align 8
-  %call = tail call i64 %1(ptr noundef %s, i32 noundef %cmd, ptr noundef %fp) #23
+  %call = tail call i64 %1(ptr noundef %s, i32 noundef %cmd, ptr noundef %fp) #24
   ret i64 %call
 }
 
@@ -7531,12 +7531,12 @@ if.then:                                          ; preds = %entry
   ]
 
 sw.bb:                                            ; preds = %if.then
-  %call = tail call i32 @tls1_set_groups_list(ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef %parg) #23
+  %call = tail call i32 @tls1_set_groups_list(ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef %parg) #24
   %conv = sext i32 %call to i64
   br label %return
 
 sw.bb1:                                           ; preds = %if.then, %if.then
-  %call2 = tail call i32 @tls1_set_sigalgs_list(ptr noundef null, ptr noundef %parg, i32 noundef 0) #23
+  %call2 = tail call i32 @tls1_set_sigalgs_list(ptr noundef null, ptr noundef %parg, i32 noundef 0) #24
   %conv3 = sext i32 %call2 to i64
   br label %return
 
@@ -7642,7 +7642,7 @@ sw.bb32:                                          ; preds = %if.end
 sw.bb35:                                          ; preds = %if.end
   %sessions = getelementptr inbounds i8, ptr %ctx, i64 48
   %8 = load ptr, ptr %sessions, align 8
-  %call.i = tail call i64 @OPENSSL_LH_num_items(ptr noundef %8) #23
+  %call.i = tail call i64 @OPENSSL_LH_num_items(ptr noundef %8) #24
   br label %return
 
 sw.bb37:                                          ; preds = %if.end
@@ -7805,7 +7805,7 @@ land.rhs:                                         ; preds = %sw.bb134
   %38 = load ptr, ptr %method, align 8
   %39 = load i32, ptr %38, align 8
   %min_proto_version = getelementptr inbounds i8, ptr %ctx, i64 324
-  %call138 = tail call i32 @ssl_set_version_bound(i32 noundef %39, i32 noundef %conv135, ptr noundef nonnull %min_proto_version) #23
+  %call138 = tail call i32 @ssl_set_version_bound(i32 noundef %39, i32 noundef %conv135, ptr noundef nonnull %min_proto_version) #24
   %tobool139 = icmp ne i32 %call138, 0
   %40 = zext i1 %tobool139 to i64
   br label %return
@@ -7829,7 +7829,7 @@ land.rhs149:                                      ; preds = %sw.bb144
   %43 = load ptr, ptr %method150, align 8
   %44 = load i32, ptr %43, align 8
   %max_proto_version153 = getelementptr inbounds i8, ptr %ctx, i64 328
-  %call154 = tail call i32 @ssl_set_version_bound(i32 noundef %44, i32 noundef %conv146, ptr noundef nonnull %max_proto_version153) #23
+  %call154 = tail call i32 @ssl_set_version_bound(i32 noundef %44, i32 noundef %conv146, ptr noundef nonnull %max_proto_version153) #24
   %tobool155 = icmp ne i32 %call154, 0
   %45 = zext i1 %tobool155 to i64
   br label %return
@@ -7845,7 +7845,7 @@ sw.default162:                                    ; preds = %if.end
   %47 = load ptr, ptr %method163, align 8
   %ssl_ctx_ctrl = getelementptr inbounds i8, ptr %47, i64 160
   %48 = load ptr, ptr %ssl_ctx_ctrl, align 8
-  %call164 = tail call i64 %48(ptr noundef nonnull %ctx, i32 noundef %cmd, i64 noundef %larg, ptr noundef %parg) #23
+  %call164 = tail call i64 %48(ptr noundef nonnull %ctx, i32 noundef %cmd, i64 noundef %larg, ptr noundef %parg) #24
   br label %return
 
 return:                                           ; preds = %sw.bb144, %land.rhs149, %sw.bb134, %land.rhs, %sw.bb113, %sw.bb103, %if.end95, %if.then99, %sw.bb89, %sw.bb20, %sw.bb13, %if.then, %sw.default162, %sw.bb159, %sw.bb141, %sw.bb126, %sw.bb121, %if.end120, %if.end111, %sw.bb84, %sw.bb80, %sw.bb76, %sw.bb72, %sw.bb68, %sw.bb64, %sw.bb60, %sw.bb56, %sw.bb52, %sw.bb48, %sw.bb44, %sw.bb40, %sw.bb37, %sw.bb35, %sw.bb32, %sw.bb28, %sw.bb26, %if.end24, %if.end17, %sw.bb12, %sw.bb11, %sw.bb6, %sw.bb4, %sw.bb1, %sw.bb
@@ -7873,7 +7873,7 @@ sw.default:                                       ; preds = %entry
   %0 = load ptr, ptr %method, align 8
   %ssl_ctx_callback_ctrl = getelementptr inbounds i8, ptr %0, i64 240
   %1 = load ptr, ptr %ssl_ctx_callback_ctrl, align 8
-  %call = tail call i64 %1(ptr noundef %ctx, i32 noundef %cmd, ptr noundef %fp) #23
+  %call = tail call i64 %1(ptr noundef %ctx, i32 noundef %cmd, ptr noundef %fp) #24
   br label %return
 
 return:                                           ; preds = %sw.default, %sw.bb
@@ -8033,20 +8033,20 @@ land.lhs.true.i:                                  ; preds = %if.else.i
 
 if.end14:                                         ; preds = %land.lhs.true.i, %if.then.i
   %retval.0.i = phi ptr [ %2, %if.then.i ], [ %4, %land.lhs.true.i ]
-  %call15 = tail call i32 @ssl_set_client_disabled(ptr noundef nonnull %cond112225) #23
+  %call15 = tail call i32 @ssl_set_client_disabled(ptr noundef nonnull %cond112225) #24
   %tobool16.not = icmp eq i32 %call15, 0
   br i1 %tobool16.not, label %return, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %if.end14
-  %call2033 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %retval.0.i) #23
+  %call2033 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %retval.0.i) #24
   %cmp2134 = icmp sgt i32 %call2033, 0
   br i1 %cmp2134, label %for.body, label %return
 
 for.body:                                         ; preds = %for.cond.preheader, %for.inc
   %sk.036 = phi ptr [ %sk.2, %for.inc ], [ null, %for.cond.preheader ]
   %i.035 = phi i32 [ %inc, %for.inc ], [ 0, %for.cond.preheader ]
-  %call23 = tail call ptr @OPENSSL_sk_value(ptr noundef nonnull %retval.0.i, i32 noundef %i.035) #23
-  %call24 = tail call i32 @ssl_cipher_disabled(ptr noundef nonnull %cond112225, ptr noundef %call23, i32 noundef 65537, i32 noundef 0) #23
+  %call23 = tail call ptr @OPENSSL_sk_value(ptr noundef nonnull %retval.0.i, i32 noundef %i.035) #24
+  %call24 = tail call i32 @ssl_cipher_disabled(ptr noundef nonnull %cond112225, ptr noundef %call23, i32 noundef 65537, i32 noundef 0) #24
   %tobool25.not = icmp eq i32 %call24, 0
   br i1 %tobool25.not, label %if.then26, label %for.inc
 
@@ -8055,24 +8055,24 @@ if.then26:                                        ; preds = %for.body
   br i1 %tobool27.not, label %if.end30, label %if.end33
 
 if.end30:                                         ; preds = %if.then26
-  %call29 = tail call ptr @OPENSSL_sk_new_null() #23
+  %call29 = tail call ptr @OPENSSL_sk_new_null() #24
   %tobool31.not = icmp eq ptr %call29, null
   br i1 %tobool31.not, label %return, label %if.end33
 
 if.end33:                                         ; preds = %if.then26, %if.end30
   %sk.132 = phi ptr [ %call29, %if.end30 ], [ %sk.036, %if.then26 ]
-  %call36 = tail call i32 @OPENSSL_sk_push(ptr noundef nonnull %sk.132, ptr noundef %call23) #23
+  %call36 = tail call i32 @OPENSSL_sk_push(ptr noundef nonnull %sk.132, ptr noundef %call23) #24
   %tobool37.not = icmp eq i32 %call36, 0
   br i1 %tobool37.not, label %if.then38, label %for.inc
 
 if.then38:                                        ; preds = %if.end33
-  tail call void @OPENSSL_sk_free(ptr noundef nonnull %sk.132) #23
+  tail call void @OPENSSL_sk_free(ptr noundef nonnull %sk.132) #24
   br label %return
 
 for.inc:                                          ; preds = %for.body, %if.end33
   %sk.2 = phi ptr [ %sk.036, %for.body ], [ %sk.132, %if.end33 ]
   %inc = add nuw nsw i32 %i.035, 1
-  %call20 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %retval.0.i) #23
+  %call20 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %retval.0.i) #24
   %cmp21 = icmp slt i32 %inc, %call20
   br i1 %cmp21, label %for.body, label %return, !llvm.loop !14
 
@@ -8163,12 +8163,12 @@ land.lhs.true.i:                                  ; preds = %if.else.i
 
 lor.lhs.false:                                    ; preds = %if.then.i, %land.lhs.true.i
   %retval.0.i.ph = phi ptr [ %4, %land.lhs.true.i ], [ %2, %if.then.i ]
-  %call3 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %retval.0.i.ph) #23
+  %call3 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %retval.0.i.ph) #24
   %cmp4.not = icmp sgt i32 %call3, %n
   br i1 %cmp4.not, label %if.end6, label %return
 
 if.end6:                                          ; preds = %lor.lhs.false
-  %call8 = tail call ptr @OPENSSL_sk_value(ptr noundef nonnull %retval.0.i.ph, i32 noundef %n) #23
+  %call8 = tail call ptr @OPENSSL_sk_value(ptr noundef nonnull %retval.0.i.ph, i32 noundef %n) #24
   %cmp9 = icmp eq ptr %call8, null
   br i1 %cmp9, label %return, label %if.end11
 
@@ -8207,26 +8207,26 @@ entry:
   %cipher_list_by_id = getelementptr inbounds i8, ptr %ctx, i64 24
   %cert = getelementptr inbounds i8, ptr %ctx, i64 344
   %1 = load ptr, ptr %cert, align 8
-  %call = tail call ptr @ssl_create_cipher_list(ptr noundef %ctx, ptr noundef %0, ptr noundef nonnull %cipher_list, ptr noundef nonnull %cipher_list_by_id, ptr noundef %str, ptr noundef %1) #23
+  %call = tail call ptr @ssl_create_cipher_list(ptr noundef %ctx, ptr noundef %0, ptr noundef nonnull %cipher_list, ptr noundef nonnull %cipher_list_by_id, ptr noundef %str, ptr noundef %1) #24
   %cmp = icmp eq ptr %call, null
   br i1 %cmp, label %return, label %if.else
 
 if.else:                                          ; preds = %entry
-  %call16.i = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %call) #23
+  %call16.i = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %call) #24
   %cmp27.i = icmp sgt i32 %call16.i, 0
   br i1 %cmp27.i, label %for.body.i, label %if.then3
 
 for.body.i:                                       ; preds = %if.else, %for.body.i
   %num.09.i = phi i32 [ %spec.select.i, %for.body.i ], [ 0, %if.else ]
   %i.08.i = phi i32 [ %inc8.i, %for.body.i ], [ 0, %if.else ]
-  %call4.i = tail call ptr @OPENSSL_sk_value(ptr noundef nonnull %call, i32 noundef %i.08.i) #23
+  %call4.i = tail call ptr @OPENSSL_sk_value(ptr noundef nonnull %call, i32 noundef %i.08.i) #24
   %min_tls.i = getelementptr inbounds i8, ptr %call4.i, i64 44
   %2 = load i32, ptr %min_tls.i, align 4
   %cmp5.i = icmp slt i32 %2, 772
   %inc.i = zext i1 %cmp5.i to i32
   %spec.select.i = add nuw nsw i32 %num.09.i, %inc.i
   %inc8.i = add nuw nsw i32 %i.08.i, 1
-  %call1.i = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %call) #23
+  %call1.i = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %call) #24
   %cmp2.i = icmp slt i32 %inc8.i, %call1.i
   br i1 %cmp2.i, label %for.body.i, label %cipher_list_tls12_num.exit, !llvm.loop !15
 
@@ -8235,9 +8235,9 @@ cipher_list_tls12_num.exit:                       ; preds = %for.body.i
   br i1 %cmp2, label %if.then3, label %return
 
 if.then3:                                         ; preds = %if.else, %cipher_list_tls12_num.exit
-  tail call void @ERR_new() #23
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 3358, ptr noundef nonnull @__func__.SSL_CTX_set_cipher_list) #23
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 185, ptr noundef null) #23
+  tail call void @ERR_new() #24
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 3358, ptr noundef nonnull @__func__.SSL_CTX_set_cipher_list) #24
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 185, ptr noundef null) #24
   br label %return
 
 return:                                           ; preds = %cipher_list_tls12_num.exit, %entry, %if.then3
@@ -8274,26 +8274,26 @@ if.end:                                           ; preds = %cond.false, %cond.e
   %cipher_list_by_id = getelementptr inbounds i8, ptr %cond1116, i64 1256
   %cert = getelementptr inbounds i8, ptr %cond1116, i64 2048
   %4 = load ptr, ptr %cert, align 8
-  %call = tail call ptr @ssl_create_cipher_list(ptr noundef %2, ptr noundef %3, ptr noundef nonnull %cipher_list, ptr noundef nonnull %cipher_list_by_id, ptr noundef %str, ptr noundef %4) #23
+  %call = tail call ptr @ssl_create_cipher_list(ptr noundef %2, ptr noundef %3, ptr noundef nonnull %cipher_list, ptr noundef nonnull %cipher_list_by_id, ptr noundef %str, ptr noundef %4) #24
   %cmp13 = icmp eq ptr %call, null
   br i1 %cmp13, label %return, label %if.else
 
 if.else:                                          ; preds = %if.end
-  %call16.i = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %call) #23
+  %call16.i = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %call) #24
   %cmp27.i = icmp sgt i32 %call16.i, 0
   br i1 %cmp27.i, label %for.body.i, label %if.then17
 
 for.body.i:                                       ; preds = %if.else, %for.body.i
   %num.09.i = phi i32 [ %spec.select.i, %for.body.i ], [ 0, %if.else ]
   %i.08.i = phi i32 [ %inc8.i, %for.body.i ], [ 0, %if.else ]
-  %call4.i = tail call ptr @OPENSSL_sk_value(ptr noundef nonnull %call, i32 noundef %i.08.i) #23
+  %call4.i = tail call ptr @OPENSSL_sk_value(ptr noundef nonnull %call, i32 noundef %i.08.i) #24
   %min_tls.i = getelementptr inbounds i8, ptr %call4.i, i64 44
   %5 = load i32, ptr %min_tls.i, align 4
   %cmp5.i = icmp slt i32 %5, 772
   %inc.i = zext i1 %cmp5.i to i32
   %spec.select.i = add nuw nsw i32 %num.09.i, %inc.i
   %inc8.i = add nuw nsw i32 %i.08.i, 1
-  %call1.i = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %call) #23
+  %call1.i = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %call) #24
   %cmp2.i = icmp slt i32 %inc8.i, %call1.i
   br i1 %cmp2.i, label %for.body.i, label %cipher_list_tls12_num.exit, !llvm.loop !15
 
@@ -8302,9 +8302,9 @@ cipher_list_tls12_num.exit:                       ; preds = %for.body.i
   br i1 %cmp16, label %if.then17, label %return
 
 if.then17:                                        ; preds = %if.else, %cipher_list_tls12_num.exit
-  tail call void @ERR_new() #23
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 3380, ptr noundef nonnull @__func__.SSL_set_cipher_list) #23
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 185, ptr noundef null) #23
+  tail call void @ERR_new() #24
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 3380, ptr noundef nonnull @__func__.SSL_set_cipher_list) #24
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 185, ptr noundef null) #24
   br label %return
 
 return:                                           ; preds = %cond.false, %entry, %cipher_list_tls12_num.exit, %if.end, %cond.end10, %if.then17
@@ -8379,17 +8379,17 @@ land.lhs.true.i:                                  ; preds = %if.else.i
 
 if.end23:                                         ; preds = %if.then.i, %land.lhs.true.i
   %retval.0.i.ph = phi ptr [ %7, %land.lhs.true.i ], [ %5, %if.then.i ]
-  %call25 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %3) #23
+  %call25 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %3) #24
   %cmp26 = icmp eq i32 %call25, 0
   br i1 %cmp26, label %return, label %lor.lhs.false27
 
 lor.lhs.false27:                                  ; preds = %if.end23
-  %call29 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %retval.0.i.ph) #23
+  %call29 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %retval.0.i.ph) #24
   %cmp30 = icmp eq i32 %call29, 0
   br i1 %cmp30, label %return, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %lor.lhs.false27
-  %call3445 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %3) #23
+  %call3445 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %3) #24
   %cmp3546 = icmp sgt i32 %call3445, 0
   br i1 %cmp3546, label %for.body, label %for.end
 
@@ -8397,8 +8397,8 @@ for.body:                                         ; preds = %for.cond.preheader,
   %size.addr.049 = phi i32 [ %size.addr.1, %for.inc ], [ %size, %for.cond.preheader ]
   %i.048 = phi i32 [ %inc, %for.inc ], [ 0, %for.cond.preheader ]
   %p.047 = phi ptr [ %p.2, %for.inc ], [ %buf, %for.cond.preheader ]
-  %call37 = tail call ptr @OPENSSL_sk_value(ptr noundef %3, i32 noundef %i.048) #23
-  %call40 = tail call i32 @OPENSSL_sk_find(ptr noundef nonnull %retval.0.i.ph, ptr noundef %call37) #23
+  %call37 = tail call ptr @OPENSSL_sk_value(ptr noundef %3, i32 noundef %i.048) #24
+  %call40 = tail call i32 @OPENSSL_sk_find(ptr noundef nonnull %retval.0.i.ph, ptr noundef %call37) #24
   %cmp41 = icmp slt i32 %call40, 0
   br i1 %cmp41, label %for.inc, label %if.end43
 
@@ -8406,7 +8406,7 @@ if.end43:                                         ; preds = %for.body
   %name = getelementptr inbounds i8, ptr %call37, i64 8
   %8 = load ptr, ptr %name, align 8
   %conv = sext i32 %size.addr.049 to i64
-  %call44 = tail call i64 @OPENSSL_strnlen(ptr noundef %8, i64 noundef %conv) #23
+  %call44 = tail call i64 @OPENSSL_strnlen(ptr noundef %8, i64 noundef %conv) #24
   %conv45 = trunc i64 %call44 to i32
   %cmp46.not = icmp sgt i32 %size.addr.049, %conv45
   br i1 %cmp46.not, label %if.end53, label %if.then48
@@ -8433,7 +8433,7 @@ for.inc:                                          ; preds = %for.body, %if.end53
   %p.2 = phi ptr [ %p.047, %for.body ], [ %incdec.ptr56, %if.end53 ]
   %size.addr.1 = phi i32 [ %size.addr.049, %for.body ], [ %sub, %if.end53 ]
   %inc = add nuw nsw i32 %i.048, 1
-  %call34 = tail call i32 @OPENSSL_sk_num(ptr noundef %3) #23
+  %call34 = tail call i32 @OPENSSL_sk_num(ptr noundef %3) #24
   %cmp35 = icmp slt i32 %inc, %call34
   br i1 %cmp35, label %for.body, label %for.end, !llvm.loop !16
 
@@ -8526,7 +8526,7 @@ if.then35:                                        ; preds = %land.lhs.true26, %l
   br label %return.sink.split
 
 if.else:                                          ; preds = %cond.end18.thread, %if.end22
-  %call = tail call i32 @SSL_in_before(ptr noundef nonnull %s) #23
+  %call = tail call i32 @SSL_in_before(ptr noundef nonnull %s) #24
   %tobool37.not = icmp eq i32 %call, 0
   br i1 %tobool37.not, label %if.else53, label %if.then38
 
@@ -8718,13 +8718,13 @@ define void @SSL_CTX_set_next_protos_advertised_cb(ptr nocapture noundef %ctx, p
 entry:
   %method = getelementptr inbounds i8, ptr %ctx, i64 8
   %0 = load ptr, ptr %method, align 8
-  %call = tail call ptr @OSSL_QUIC_client_method() #23
+  %call = tail call ptr @OSSL_QUIC_client_method() #24
   %cmp = icmp eq ptr %0, %call
   br i1 %cmp, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
   %1 = load ptr, ptr %method, align 8
-  %call2 = tail call ptr @OSSL_QUIC_client_thread_method() #23
+  %call2 = tail call ptr @OSSL_QUIC_client_thread_method() #24
   %cmp3 = icmp eq ptr %1, %call2
   br i1 %cmp3, label %return, label %if.end
 
@@ -8744,13 +8744,13 @@ define void @SSL_CTX_set_next_proto_select_cb(ptr nocapture noundef %ctx, ptr no
 entry:
   %method = getelementptr inbounds i8, ptr %ctx, i64 8
   %0 = load ptr, ptr %method, align 8
-  %call = tail call ptr @OSSL_QUIC_client_method() #23
+  %call = tail call ptr @OSSL_QUIC_client_method() #24
   %cmp = icmp eq ptr %0, %call
   br i1 %cmp, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
   %1 = load ptr, ptr %method, align 8
-  %call2 = tail call ptr @OSSL_QUIC_client_thread_method() #23
+  %call2 = tail call ptr @OSSL_QUIC_client_thread_method() #24
   %cmp3 = icmp eq ptr %1, %call2
   br i1 %cmp3, label %return, label %if.end
 
@@ -8776,7 +8776,7 @@ entry:
 if.then:                                          ; preds = %entry
   %alpn2 = getelementptr inbounds i8, ptr %ctx, i64 688
   %0 = load ptr, ptr %alpn2, align 8
-  tail call void @CRYPTO_free(ptr noundef %0, ptr noundef nonnull @.str, i32 noundef 3681) #23
+  tail call void @CRYPTO_free(ptr noundef %0, ptr noundef nonnull @.str, i32 noundef 3681) #24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %alpn2, i8 0, i64 16, i1 false)
   br label %return
 
@@ -8805,14 +8805,14 @@ alpn_value_ok.exit:                               ; preds = %for.inc.i
 
 if.end7:                                          ; preds = %alpn_value_ok.exit
   %conv = zext i32 %protos_len to i64
-  %call8 = tail call noalias ptr @CRYPTO_memdup(ptr noundef nonnull %protos, i64 noundef %conv, ptr noundef nonnull @.str, i32 noundef 3690) #23
+  %call8 = tail call noalias ptr @CRYPTO_memdup(ptr noundef nonnull %protos, i64 noundef %conv, ptr noundef nonnull @.str, i32 noundef 3690) #24
   %cmp9 = icmp eq ptr %call8, null
   br i1 %cmp9, label %return, label %if.end12
 
 if.end12:                                         ; preds = %if.end7
   %alpn14 = getelementptr inbounds i8, ptr %ctx, i64 688
   %2 = load ptr, ptr %alpn14, align 8
-  tail call void @CRYPTO_free(ptr noundef %2, ptr noundef nonnull @.str, i32 noundef 3693) #23
+  tail call void @CRYPTO_free(ptr noundef %2, ptr noundef nonnull @.str, i32 noundef 3693) #24
   store ptr %call8, ptr %alpn14, align 8
   %alpn_len19 = getelementptr inbounds i8, ptr %ctx, i64 696
   store i64 %conv, ptr %alpn_len19, align 8
@@ -8852,7 +8852,7 @@ if.end:                                           ; preds = %cond.false, %cond.e
 if.then15:                                        ; preds = %if.end
   %alpn16 = getelementptr inbounds i8, ptr %cond1122, i64 2640
   %2 = load ptr, ptr %alpn16, align 8
-  tail call void @CRYPTO_free(ptr noundef %2, ptr noundef nonnull @.str, i32 noundef 3715) #23
+  tail call void @CRYPTO_free(ptr noundef %2, ptr noundef nonnull @.str, i32 noundef 3715) #24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %alpn16, i8 0, i64 16, i1 false)
   br label %return
 
@@ -8881,14 +8881,14 @@ alpn_value_ok.exit:                               ; preds = %for.inc.i
 
 if.end22:                                         ; preds = %alpn_value_ok.exit
   %conv = zext i32 %protos_len to i64
-  %call23 = tail call noalias ptr @CRYPTO_memdup(ptr noundef nonnull %protos, i64 noundef %conv, ptr noundef nonnull @.str, i32 noundef 3724) #23
+  %call23 = tail call noalias ptr @CRYPTO_memdup(ptr noundef nonnull %protos, i64 noundef %conv, ptr noundef nonnull @.str, i32 noundef 3724) #24
   %cmp24 = icmp eq ptr %call23, null
   br i1 %cmp24, label %return, label %if.end27
 
 if.end27:                                         ; preds = %if.end22
   %alpn29 = getelementptr inbounds i8, ptr %cond1122, i64 2640
   %4 = load ptr, ptr %alpn29, align 8
-  tail call void @CRYPTO_free(ptr noundef %4, ptr noundef nonnull @.str, i32 noundef 3727) #23
+  tail call void @CRYPTO_free(ptr noundef %4, ptr noundef nonnull @.str, i32 noundef 3727) #24
   store ptr %call23, ptr %alpn29, align 8
   %alpn_len34 = getelementptr inbounds i8, ptr %cond1122, i64 2648
   store i64 %conv, ptr %alpn_len34, align 8
@@ -8993,7 +8993,7 @@ if.end18:                                         ; preds = %lor.lhs.false
   %5 = load ptr, ptr %ssl3_enc, align 8
   %export_keying_material = getelementptr inbounds i8, ptr %5, i64 72
   %6 = load ptr, ptr %export_keying_material, align 8
-  %call = tail call i32 %6(ptr noundef nonnull %cond1116, ptr noundef %out, i64 noundef %olen, ptr noundef %label, i64 noundef %llen, ptr noundef %context, i64 noundef %contextlen, i32 noundef %use_context) #23
+  %call = tail call i32 %6(ptr noundef nonnull %cond1116, ptr noundef %out, i64 noundef %olen, ptr noundef %label, i64 noundef %llen, ptr noundef %context, i64 noundef %contextlen, i32 noundef %use_context) #24
   br label %return
 
 return:                                           ; preds = %cond.false, %entry, %if.end, %lor.lhs.false, %cond.end10, %if.end18
@@ -9028,7 +9028,7 @@ if.end:                                           ; preds = %cond.false, %cond.e
   br i1 %cmp13.not, label %if.end15, label %return
 
 if.end15:                                         ; preds = %if.end
-  %call = tail call i32 @tls13_export_keying_material_early(ptr noundef nonnull %cond1112, ptr noundef %out, i64 noundef %olen, ptr noundef %label, i64 noundef %llen, ptr noundef %context, i64 noundef %contextlen) #23
+  %call = tail call i32 @tls13_export_keying_material_early(ptr noundef nonnull %cond1112, ptr noundef %out, i64 noundef %olen, ptr noundef %label, i64 noundef %llen, ptr noundef %context, i64 noundef %contextlen) #24
   br label %return
 
 return:                                           ; preds = %cond.false, %entry, %if.end, %cond.end10, %if.end15
@@ -9045,30 +9045,30 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  tail call void @ERR_new() #23
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 3860, ptr noundef nonnull @__func__.SSL_CTX_new_ex) #23
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 196, ptr noundef null) #23
+  tail call void @ERR_new() #24
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 3860, ptr noundef nonnull @__func__.SSL_CTX_new_ex) #24
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 196, ptr noundef null) #24
   br label %return
 
 if.end:                                           ; preds = %entry
-  %call = tail call i32 @OPENSSL_init_ssl(i64 noundef 2097152, ptr noundef null) #23
+  %call = tail call i32 @OPENSSL_init_ssl(i64 noundef 2097152, ptr noundef null) #24
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %if.end2
 
 if.end2:                                          ; preds = %if.end
-  %call3 = tail call i32 @SSL_get_ex_data_X509_STORE_CTX_idx() #23
+  %call3 = tail call i32 @SSL_get_ex_data_X509_STORE_CTX_idx() #24
   %cmp4 = icmp slt i32 %call3, 0
   br i1 %cmp4, label %err.sink.split, label %if.end6
 
 if.end6:                                          ; preds = %if.end2
-  %call7 = tail call noalias ptr @CRYPTO_zalloc(i64 noundef 1696, ptr noundef nonnull @.str, i32 noundef 3873) #23
+  %call7 = tail call noalias ptr @CRYPTO_zalloc(i64 noundef 1696, ptr noundef nonnull @.str, i32 noundef 3873) #24
   %cmp8 = icmp eq ptr %call7, null
   br i1 %cmp8, label %return, label %if.end10
 
 if.end10:                                         ; preds = %if.end6
   %references = getelementptr inbounds i8, ptr %call7, i64 164
   store atomic i32 1, ptr %references seq_cst, align 4
-  %call15 = tail call ptr @CRYPTO_THREAD_lock_new() #23
+  %call15 = tail call ptr @CRYPTO_THREAD_lock_new() #24
   %lock = getelementptr inbounds i8, ptr %call7, i64 976
   store ptr %call15, ptr %lock, align 8
   %cmp17 = icmp eq ptr %call15, null
@@ -9080,7 +9080,7 @@ if.end19:                                         ; preds = %if.end10
   br i1 %cmp21.not, label %if.end29, label %if.then22
 
 if.then22:                                        ; preds = %if.end19
-  %call23 = tail call noalias ptr @CRYPTO_strdup(ptr noundef nonnull %propq, ptr noundef nonnull @.str, i32 noundef 3899) #23
+  %call23 = tail call noalias ptr @CRYPTO_strdup(ptr noundef nonnull %propq, ptr noundef nonnull @.str, i32 noundef 3899) #24
   %propq24 = getelementptr inbounds i8, ptr %call7, i64 1096
   store ptr %call23, ptr %propq24, align 8
   %cmp26 = icmp eq ptr %call23, null
@@ -9102,55 +9102,55 @@ if.end29:                                         ; preds = %if.then22, %if.end1
   %session_timeout = getelementptr inbounds i8, ptr %call7, i64 88
   %get_timeout = getelementptr inbounds i8, ptr %meth, i64 208
   %0 = load ptr, ptr %get_timeout, align 8
-  %call30 = tail call i64 %0() #23
+  %call30 = tail call i64 %0() #24
   store i64 %call30, ptr %session_timeout, align 8
   %max_cert_list = getelementptr inbounds i8, ptr %call7, i64 336
   store i64 102400, ptr %max_cert_list, align 8
   %verify_mode = getelementptr inbounds i8, ptr %call7, i64 384
   store i32 0, ptr %verify_mode, align 8
-  %call.i = tail call ptr @OPENSSL_LH_new(ptr noundef nonnull @ssl_session_hash, ptr noundef nonnull @ssl_session_cmp) #23
+  %call.i = tail call ptr @OPENSSL_LH_new(ptr noundef nonnull @ssl_session_hash, ptr noundef nonnull @ssl_session_cmp) #24
   %sessions = getelementptr inbounds i8, ptr %call7, i64 48
   store ptr %call.i, ptr %sessions, align 8
   %cmp33 = icmp eq ptr %call.i, null
   br i1 %cmp33, label %err.sink.split, label %if.end35
 
 if.end35:                                         ; preds = %if.end29
-  %call36 = tail call ptr @X509_STORE_new() #23
+  %call36 = tail call ptr @X509_STORE_new() #24
   %cert_store = getelementptr inbounds i8, ptr %call7, i64 40
   store ptr %call36, ptr %cert_store, align 8
   %cmp38 = icmp eq ptr %call36, null
   br i1 %cmp38, label %err.sink.split, label %if.end40
 
 if.end40:                                         ; preds = %if.end35
-  %call41 = tail call ptr @CTLOG_STORE_new_ex(ptr noundef %libctx, ptr noundef %propq) #23
+  %call41 = tail call ptr @CTLOG_STORE_new_ex(ptr noundef %libctx, ptr noundef %propq) #24
   %ctlog_store = getelementptr inbounds i8, ptr %call7, i64 464
   store ptr %call41, ptr %ctlog_store, align 8
   %cmp43 = icmp eq ptr %call41, null
   br i1 %cmp43, label %err.sink.split, label %if.end45
 
 if.end45:                                         ; preds = %if.end40
-  %call46 = tail call i32 @ssl_load_ciphers(ptr noundef nonnull %call7) #23
+  %call46 = tail call i32 @ssl_load_ciphers(ptr noundef nonnull %call7) #24
   %tobool47.not = icmp eq i32 %call46, 0
   br i1 %tobool47.not, label %err.sink.split, label %if.end49
 
 if.end49:                                         ; preds = %if.end45
-  %call50 = tail call i32 @ssl_load_groups(ptr noundef nonnull %call7) #23
+  %call50 = tail call i32 @ssl_load_groups(ptr noundef nonnull %call7) #24
   %tobool51.not = icmp eq i32 %call50, 0
   br i1 %tobool51.not, label %err.sink.split, label %if.end53
 
 if.end53:                                         ; preds = %if.end49
-  %call54 = tail call i32 @ssl_load_sigalgs(ptr noundef nonnull %call7) #23
+  %call54 = tail call i32 @ssl_load_sigalgs(ptr noundef nonnull %call7) #24
   %tobool55.not = icmp eq i32 %call54, 0
   br i1 %tobool55.not, label %err.sink.split, label %if.end57
 
 if.end57:                                         ; preds = %if.end53
-  %call58 = tail call i32 @ssl_setup_sigalgs(ptr noundef nonnull %call7) #23
+  %call58 = tail call i32 @ssl_setup_sigalgs(ptr noundef nonnull %call7) #24
   %tobool59.not = icmp eq i32 %call58, 0
   br i1 %tobool59.not, label %err.sink.split, label %if.end61
 
 if.end61:                                         ; preds = %if.end57
-  %call62 = tail call ptr @OSSL_default_ciphersuites() #23
-  %call63 = tail call i32 @SSL_CTX_set_ciphersuites(ptr noundef nonnull %call7, ptr noundef %call62) #23
+  %call62 = tail call ptr @OSSL_default_ciphersuites() #24
+  %call63 = tail call i32 @SSL_CTX_set_ciphersuites(ptr noundef nonnull %call7, ptr noundef %call62) #24
   %tobool64.not = icmp eq i32 %call63, 0
   br i1 %tobool64.not, label %err.sink.split, label %if.end66
 
@@ -9158,7 +9158,7 @@ if.end66:                                         ; preds = %if.end61
   %sigalg_list_len = getelementptr inbounds i8, ptr %call7, i64 1632
   %1 = load i64, ptr %sigalg_list_len, align 8
   %add = add i64 %1, 9
-  %call67 = tail call ptr @ssl_cert_new(i64 noundef %add) #23
+  %call67 = tail call ptr @ssl_cert_new(i64 noundef %add) #24
   %cert = getelementptr inbounds i8, ptr %call7, i64 344
   store ptr %call67, ptr %cert, align 8
   %cmp68 = icmp eq ptr %call67, null
@@ -9169,20 +9169,20 @@ if.end70:                                         ; preds = %if.end66
   %2 = load ptr, ptr %tls13_ciphersuites, align 8
   %cipher_list = getelementptr inbounds i8, ptr %call7, i64 16
   %cipher_list_by_id = getelementptr inbounds i8, ptr %call7, i64 24
-  %call71 = tail call ptr @OSSL_default_cipher_list() #23
+  %call71 = tail call ptr @OSSL_default_cipher_list() #24
   %3 = load ptr, ptr %cert, align 8
-  %call73 = tail call ptr @ssl_create_cipher_list(ptr noundef nonnull %call7, ptr noundef %2, ptr noundef nonnull %cipher_list, ptr noundef nonnull %cipher_list_by_id, ptr noundef %call71, ptr noundef %3) #23
+  %call73 = tail call ptr @ssl_create_cipher_list(ptr noundef nonnull %call7, ptr noundef %2, ptr noundef nonnull %cipher_list, ptr noundef nonnull %cipher_list_by_id, ptr noundef %call71, ptr noundef %3) #24
   %tobool74.not = icmp eq ptr %call73, null
   br i1 %tobool74.not, label %err.sink.split, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end70
   %4 = load ptr, ptr %cipher_list, align 8
-  %call77 = tail call i32 @OPENSSL_sk_num(ptr noundef %4) #23
+  %call77 = tail call i32 @OPENSSL_sk_num(ptr noundef %4) #24
   %cmp78 = icmp slt i32 %call77, 1
   br i1 %cmp78, label %err.sink.split, label %if.end80
 
 if.end80:                                         ; preds = %lor.lhs.false
-  %call81 = tail call ptr @X509_VERIFY_PARAM_new() #23
+  %call81 = tail call ptr @X509_VERIFY_PARAM_new() #24
   %param = getelementptr inbounds i8, ptr %call7, i64 448
   store ptr %call81, ptr %param, align 8
   %cmp83 = icmp eq ptr %call81, null
@@ -9195,14 +9195,14 @@ if.end85:                                         ; preds = %if.end80
   %call87 = tail call ptr @ssl_evp_md_fetch(ptr noundef %libctx, i32 noundef 64, ptr noundef %propq)
   %sha1 = getelementptr inbounds i8, ptr %call7, i64 264
   store ptr %call87, ptr %sha1, align 8
-  %call88 = tail call ptr @OPENSSL_sk_new_null() #23
+  %call88 = tail call ptr @OPENSSL_sk_new_null() #24
   %ca_names = getelementptr inbounds i8, ptr %call7, i64 296
   store ptr %call88, ptr %ca_names, align 8
   %cmp89 = icmp eq ptr %call88, null
   br i1 %cmp89, label %err.sink.split, label %if.end91
 
 if.end91:                                         ; preds = %if.end85
-  %call92 = tail call ptr @OPENSSL_sk_new_null() #23
+  %call92 = tail call ptr @OPENSSL_sk_new_null() #24
   %client_ca_names = getelementptr inbounds i8, ptr %call7, i64 304
   store ptr %call92, ptr %client_ca_names, align 8
   %cmp93 = icmp eq ptr %call92, null
@@ -9210,12 +9210,12 @@ if.end91:                                         ; preds = %if.end85
 
 if.end95:                                         ; preds = %if.end91
   %ex_data = getelementptr inbounds i8, ptr %call7, i64 240
-  %call96 = tail call i32 @CRYPTO_new_ex_data(i32 noundef 1, ptr noundef nonnull %call7, ptr noundef nonnull %ex_data) #23
+  %call96 = tail call i32 @CRYPTO_new_ex_data(i32 noundef 1, ptr noundef nonnull %call7, ptr noundef nonnull %ex_data) #24
   %tobool97.not = icmp eq i32 %call96, 0
   br i1 %tobool97.not, label %err.sink.split, label %if.end99
 
 if.end99:                                         ; preds = %if.end95
-  %call100 = tail call noalias ptr @CRYPTO_secure_zalloc(i64 noundef 64, ptr noundef nonnull @.str, i32 noundef 4003) #23
+  %call100 = tail call noalias ptr @CRYPTO_secure_zalloc(i64 noundef 64, ptr noundef nonnull @.str, i32 noundef 4003) #24
   %secure = getelementptr inbounds i8, ptr %call7, i64 576
   store ptr %call100, ptr %secure, align 8
   %cmp101 = icmp eq ptr %call100, null
@@ -9231,7 +9231,7 @@ if.end103:                                        ; preds = %if.end99
   br i1 %tobool104.not, label %if.then105, label %if.end107
 
 if.then105:                                       ; preds = %if.end103
-  %call106 = tail call ptr @SSL_COMP_get_compression_methods() #23
+  %call106 = tail call ptr @SSL_COMP_get_compression_methods() #24
   %comp_methods = getelementptr inbounds i8, ptr %call7, i64 280
   store ptr %call106, ptr %comp_methods, align 8
   br label %if.end107
@@ -9242,20 +9242,20 @@ if.end107:                                        ; preds = %if.then105, %if.end
   %split_send_fragment = getelementptr inbounds i8, ptr %call7, i64 488
   store i64 16384, ptr %split_send_fragment, align 8
   %tick_key_name = getelementptr inbounds i8, ptr %call7, i64 560
-  %call109 = tail call i32 @RAND_bytes_ex(ptr noundef %libctx, ptr noundef nonnull %tick_key_name, i64 noundef 16, i32 noundef 0) #23
+  %call109 = tail call i32 @RAND_bytes_ex(ptr noundef %libctx, ptr noundef nonnull %tick_key_name, i64 noundef 16, i32 noundef 0) #24
   %cmp110 = icmp slt i32 %call109, 1
   br i1 %cmp110, label %if.then123, label %lor.lhs.false111
 
 lor.lhs.false111:                                 ; preds = %if.end107
   %7 = load ptr, ptr %secure, align 8
-  %call115 = tail call i32 @RAND_priv_bytes_ex(ptr noundef %libctx, ptr noundef %7, i64 noundef 32, i32 noundef 0) #23
+  %call115 = tail call i32 @RAND_priv_bytes_ex(ptr noundef %libctx, ptr noundef %7, i64 noundef 32, i32 noundef 0) #24
   %cmp116 = icmp slt i32 %call115, 1
   br i1 %cmp116, label %if.then123, label %lor.lhs.false117
 
 lor.lhs.false117:                                 ; preds = %lor.lhs.false111
   %8 = load ptr, ptr %secure, align 8
   %tick_aes_key = getelementptr inbounds i8, ptr %8, i64 32
-  %call121 = tail call i32 @RAND_priv_bytes_ex(ptr noundef %libctx, ptr noundef nonnull %tick_aes_key, i64 noundef 32, i32 noundef 0) #23
+  %call121 = tail call i32 @RAND_priv_bytes_ex(ptr noundef %libctx, ptr noundef nonnull %tick_aes_key, i64 noundef 32, i32 noundef 0) #24
   %cmp122 = icmp slt i32 %call121, 1
   br i1 %cmp122, label %if.then123, label %if.end124
 
@@ -9268,12 +9268,12 @@ if.then123:                                       ; preds = %lor.lhs.false117, %
 
 if.end124:                                        ; preds = %if.then123, %lor.lhs.false117
   %cookie_hmac_key = getelementptr inbounds i8, ptr %call7, i64 736
-  %call127 = tail call i32 @RAND_priv_bytes_ex(ptr noundef %libctx, ptr noundef nonnull %cookie_hmac_key, i64 noundef 32, i32 noundef 0) #23
+  %call127 = tail call i32 @RAND_priv_bytes_ex(ptr noundef %libctx, ptr noundef nonnull %cookie_hmac_key, i64 noundef 32, i32 noundef 0) #24
   %cmp128 = icmp slt i32 %call127, 1
   br i1 %cmp128, label %err.sink.split, label %if.end130
 
 if.end130:                                        ; preds = %if.end124
-  %call131 = tail call i32 @ssl_ctx_srp_ctx_init_intern(ptr noundef nonnull %call7) #23
+  %call131 = tail call i32 @ssl_ctx_srp_ctx_init_intern(ptr noundef nonnull %call7) #24
   %tobool132.not = icmp eq i32 %call131, 0
   br i1 %tobool132.not, label %err.sink.split, label %if.end134
 
@@ -9290,16 +9290,16 @@ if.end134:                                        ; preds = %if.end130
   store i32 16384, ptr %recv_max_early_data, align 4
   %num_tickets = getelementptr inbounds i8, ptr %call7, i64 1048
   store i64 2, ptr %num_tickets, align 8
-  tail call void @ssl_ctx_system_config(ptr noundef nonnull %call7) #23
+  tail call void @ssl_ctx_system_config(ptr noundef nonnull %call7) #24
   br label %return
 
 err.sink.split:                                   ; preds = %if.end130, %if.end124, %if.end95, %if.end91, %if.end85, %if.end80, %if.end70, %lor.lhs.false, %if.end66, %if.end61, %if.end57, %if.end53, %if.end49, %if.end45, %if.end40, %if.end35, %if.end29, %if.end10, %if.end2
   %.sink76 = phi i32 [ 3869, %if.end2 ], [ 3885, %if.end10 ], [ 3917, %if.end29 ], [ 3922, %if.end35 ], [ 3928, %if.end40 ], [ 3935, %if.end45 ], [ 3940, %if.end49 ], [ 3946, %if.end53 ], [ 3952, %if.end57 ], [ 3957, %if.end61 ], [ 3962, %if.end66 ], [ 3971, %lor.lhs.false ], [ 3971, %if.end70 ], [ 3977, %if.end80 ], [ 3989, %if.end85 ], [ 3994, %if.end91 ], [ 3999, %if.end95 ], [ 4024, %if.end124 ], [ 4030, %if.end130 ]
   %.sink = phi i32 [ 269, %if.end2 ], [ 524303, %if.end10 ], [ 524303, %if.end29 ], [ 524299, %if.end35 ], [ 524338, %if.end40 ], [ 524308, %if.end45 ], [ 524308, %if.end49 ], [ 524308, %if.end53 ], [ 524308, %if.end57 ], [ 524308, %if.end61 ], [ 524308, %if.end66 ], [ 161, %lor.lhs.false ], [ 161, %if.end70 ], [ 524299, %if.end80 ], [ 524303, %if.end85 ], [ 524303, %if.end91 ], [ 524303, %if.end95 ], [ 524324, %if.end124 ], [ 524308, %if.end130 ]
   %ret.0.ph = phi ptr [ null, %if.end2 ], [ %call7, %if.end10 ], [ %call7, %if.end29 ], [ %call7, %if.end35 ], [ %call7, %if.end40 ], [ %call7, %if.end45 ], [ %call7, %if.end49 ], [ %call7, %if.end53 ], [ %call7, %if.end57 ], [ %call7, %if.end61 ], [ %call7, %if.end66 ], [ %call7, %lor.lhs.false ], [ %call7, %if.end70 ], [ %call7, %if.end80 ], [ %call7, %if.end85 ], [ %call7, %if.end91 ], [ %call7, %if.end95 ], [ %call7, %if.end124 ], [ %call7, %if.end130 ]
-  tail call void @ERR_new() #23
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink76, ptr noundef nonnull @__func__.SSL_CTX_new_ex) #23
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef %.sink, ptr noundef null) #23
+  tail call void @ERR_new() #24
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink76, ptr noundef nonnull @__func__.SSL_CTX_new_ex) #24
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef %.sink, ptr noundef null) #24
   br label %err
 
 err:                                              ; preds = %err.sink.split, %if.end99, %if.then22
@@ -9359,7 +9359,7 @@ if.end:                                           ; preds = %entry
 if.end5:                                          ; preds = %if.end
   %session_id = getelementptr inbounds i8, ptr %a, i64 600
   %session_id6 = getelementptr inbounds i8, ptr %b, i64 600
-  %call = tail call i32 @memcmp(ptr noundef nonnull %session_id, ptr noundef nonnull %session_id6, i64 noundef %2) #24
+  %call = tail call i32 @memcmp(ptr noundef nonnull %session_id, ptr noundef nonnull %session_id6, i64 noundef %2) #25
   br label %return
 
 return:                                           ; preds = %if.end, %entry, %if.end5
@@ -9384,15 +9384,15 @@ declare ptr @ssl_cert_new(i64 noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define ptr @ssl_evp_md_fetch(ptr noundef %libctx, i32 noundef %nid, ptr noundef %properties) local_unnamed_addr #0 {
 entry:
-  %call = tail call ptr @tls_get_digest_from_engine(i32 noundef %nid) #23
+  %call = tail call ptr @tls_get_digest_from_engine(i32 noundef %nid) #24
   %cmp.not = icmp eq ptr %call, null
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %call1 = tail call i32 @ERR_set_mark() #23
-  %call2 = tail call ptr @OBJ_nid2sn(i32 noundef %nid) #23
-  %call3 = tail call ptr @EVP_MD_fetch(ptr noundef %libctx, ptr noundef %call2, ptr noundef %properties) #23
-  %call4 = tail call i32 @ERR_pop_to_mark() #23
+  %call1 = tail call i32 @ERR_set_mark() #24
+  %call2 = tail call ptr @OBJ_nid2sn(i32 noundef %nid) #24
+  %call3 = tail call ptr @EVP_MD_fetch(ptr noundef %libctx, ptr noundef %call2, ptr noundef %properties) #24
+  %call4 = tail call i32 @ERR_pop_to_mark() #24
   br label %return
 
 return:                                           ; preds = %entry, %if.end
@@ -9438,12 +9438,12 @@ entry:
   br i1 %cmp, label %if.end3, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call = tail call ptr @EVP_MD_get0_provider(ptr noundef nonnull %md) #23
+  %call = tail call ptr @EVP_MD_get0_provider(ptr noundef nonnull %md) #24
   %cmp1.not = icmp eq ptr %call, null
   br i1 %cmp1.not, label %if.end3, label %if.then2
 
 if.then2:                                         ; preds = %if.end
-  tail call void @EVP_MD_free(ptr noundef nonnull %md) #23
+  tail call void @EVP_MD_free(ptr noundef nonnull %md) #24
   br label %if.end3
 
 if.end3:                                          ; preds = %entry, %if.then2, %if.end
@@ -9457,12 +9457,12 @@ entry:
   br i1 %cmp, label %if.end3, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call = tail call ptr @EVP_CIPHER_get0_provider(ptr noundef nonnull %cipher) #23
+  %call = tail call ptr @EVP_CIPHER_get0_provider(ptr noundef nonnull %cipher) #24
   %cmp1.not = icmp eq ptr %call, null
   br i1 %cmp1.not, label %if.end3, label %if.then2
 
 if.then2:                                         ; preds = %if.end
-  tail call void @EVP_CIPHER_free(ptr noundef nonnull %cipher) #23
+  tail call void @EVP_CIPHER_free(ptr noundef nonnull %cipher) #24
   br label %if.end3
 
 if.end3:                                          ; preds = %entry, %if.then2, %if.end
@@ -9644,7 +9644,7 @@ define void @SSL_CTX_set_verify_depth(ptr nocapture noundef readonly %ctx, i32 n
 entry:
   %param = getelementptr inbounds i8, ptr %ctx, i64 448
   %0 = load ptr, ptr %param, align 8
-  tail call void @X509_VERIFY_PARAM_set_depth(ptr noundef %0, i32 noundef %depth) #23
+  tail call void @X509_VERIFY_PARAM_set_depth(ptr noundef %0, i32 noundef %depth) #24
   ret void
 }
 
@@ -9653,7 +9653,7 @@ define void @SSL_CTX_set_cert_cb(ptr nocapture noundef readonly %c, ptr noundef 
 entry:
   %cert = getelementptr inbounds i8, ptr %c, i64 344
   %0 = load ptr, ptr %cert, align 8
-  tail call void @ssl_cert_set_cert_cb(ptr noundef %0, ptr noundef %cb, ptr noundef %arg) #23
+  tail call void @ssl_cert_set_cert_cb(ptr noundef %0, ptr noundef %cb, ptr noundef %arg) #24
   ret void
 }
 
@@ -9682,7 +9682,7 @@ if.end:                                           ; preds = %cond.false, %cond.e
   %cond1111 = phi ptr [ %1, %cond.end10 ], [ %s, %cond.false ]
   %cert = getelementptr inbounds i8, ptr %cond1111, i64 2048
   %2 = load ptr, ptr %cert, align 8
-  tail call void @ssl_cert_set_cert_cb(ptr noundef %2, ptr noundef %cb, ptr noundef %arg) #23
+  tail call void @ssl_cert_set_cert_cb(ptr noundef %2, ptr noundef %cb, ptr noundef %arg) #24
   br label %return
 
 return:                                           ; preds = %cond.false, %entry, %cond.end10, %if.end
@@ -9746,7 +9746,7 @@ ssl_has_cert_type.exit.i:                         ; preds = %if.end.i
   %len.0.in.v.i.i = select i1 %tobool.not.i.i, i64 5376, i64 5392
   %len.0.in.i.i = getelementptr inbounds i8, ptr %s, i64 %len.0.in.v.i.i
   %len.0.i.i = load i64, ptr %len.0.in.i.i, align 8
-  %call.i.i = tail call ptr @memchr(ptr noundef nonnull %ptr.0.i.i, i32 noundef 2, i64 noundef %len.0.i.i) #24
+  %call.i.i = tail call ptr @memchr(ptr noundef nonnull %ptr.0.i.i, i32 noundef 2, i64 noundef %len.0.i.i) #25
   %cmp3.i.not.i = icmp eq ptr %call.i.i, null
   br i1 %cmp3.i.not.i, label %if.end6.i, label %if.then3.i
 
@@ -9802,7 +9802,7 @@ ssl_has_cert_type.exit.i84:                       ; preds = %if.end.i77
   %len.0.in.v.i.i85 = select i1 %tobool.not.i.i79, i64 5376, i64 5392
   %len.0.in.i.i86 = getelementptr inbounds i8, ptr %s, i64 %len.0.in.v.i.i85
   %len.0.i.i87 = load i64, ptr %len.0.in.i.i86, align 8
-  %call.i.i88 = tail call ptr @memchr(ptr noundef nonnull %ptr.0.i.i82, i32 noundef 2, i64 noundef %len.0.i.i87) #24
+  %call.i.i88 = tail call ptr @memchr(ptr noundef nonnull %ptr.0.i.i82, i32 noundef 2, i64 noundef %len.0.i.i87) #25
   %cmp3.i.not.i89 = icmp eq ptr %call.i.i88, null
   br i1 %cmp3.i.not.i89, label %if.end6.i97, label %if.then3.i90
 
@@ -9858,7 +9858,7 @@ ssl_has_cert_type.exit.i116:                      ; preds = %if.end.i109
   %len.0.in.v.i.i117 = select i1 %tobool.not.i.i111, i64 5376, i64 5392
   %len.0.in.i.i118 = getelementptr inbounds i8, ptr %s, i64 %len.0.in.v.i.i117
   %len.0.i.i119 = load i64, ptr %len.0.in.i.i118, align 8
-  %call.i.i120 = tail call ptr @memchr(ptr noundef nonnull %ptr.0.i.i114, i32 noundef 2, i64 noundef %len.0.i.i119) #24
+  %call.i.i120 = tail call ptr @memchr(ptr noundef nonnull %ptr.0.i.i114, i32 noundef 2, i64 noundef %len.0.i.i119) #25
   %cmp3.i.not.i121 = icmp eq ptr %call.i.i120, null
   br i1 %cmp3.i.not.i121, label %if.end6.i129, label %if.then3.i122
 
@@ -9917,7 +9917,7 @@ ssl_has_cert_type.exit.i148:                      ; preds = %if.end.i141
   %len.0.in.v.i.i149 = select i1 %tobool.not.i.i143, i64 5376, i64 5392
   %len.0.in.i.i150 = getelementptr inbounds i8, ptr %s, i64 %len.0.in.v.i.i149
   %len.0.i.i151 = load i64, ptr %len.0.in.i.i150, align 8
-  %call.i.i152 = tail call ptr @memchr(ptr noundef nonnull %ptr.0.i.i146, i32 noundef 2, i64 noundef %len.0.i.i151) #24
+  %call.i.i152 = tail call ptr @memchr(ptr noundef nonnull %ptr.0.i.i146, i32 noundef 2, i64 noundef %len.0.i.i151) #25
   %cmp3.i.not.i153 = icmp eq ptr %call.i.i152, null
   br i1 %cmp3.i.not.i153, label %if.end6.i161, label %if.then3.i154
 
@@ -10038,7 +10038,7 @@ if.then100:                                       ; preds = %if.end98
   %49 = load ptr, ptr %pkeys, align 8
   %arrayidx101 = getelementptr inbounds i8, ptr %49, i64 120
   %50 = load ptr, ptr %arrayidx101, align 8
-  %call102 = tail call i32 @X509_get_key_usage(ptr noundef %50) #23
+  %call102 = tail call i32 @X509_get_key_usage(ptr noundef %50) #24
   %and103 = and i32 %call102, 128
   %51 = load i32, ptr %arrayidx8, align 4
   %and105 = and i32 %51, 2
@@ -10079,7 +10079,7 @@ ssl_has_cert_type.exit.i207:                      ; preds = %if.end.i200
   %len.0.in.v.i.i208 = select i1 %tobool.not.i.i202, i64 5376, i64 5392
   %len.0.in.i.i209 = getelementptr inbounds i8, ptr %s, i64 %len.0.in.v.i.i208
   %len.0.i.i210 = load i64, ptr %len.0.in.i.i209, align 8
-  %call.i.i211 = tail call ptr @memchr(ptr noundef nonnull %ptr.0.i.i205, i32 noundef 2, i64 noundef %len.0.i.i210) #24
+  %call.i.i211 = tail call ptr @memchr(ptr noundef nonnull %ptr.0.i.i205, i32 noundef 2, i64 noundef %len.0.i.i210) #25
   %cmp3.i.not.i212 = icmp eq ptr %call.i.i211, null
   %.pre370 = load ptr, ptr %cert, align 8
   br i1 %cmp3.i.not.i212, label %if.end6.i220, label %if.then3.i213
@@ -10163,7 +10163,7 @@ ssl_has_cert_type.exit.i257:                      ; preds = %if.end.i250
   %len.0.in.v.i.i258 = select i1 %tobool.not.i.i252, i64 5376, i64 5392
   %len.0.in.i.i259 = getelementptr inbounds i8, ptr %s, i64 %len.0.in.v.i.i258
   %len.0.i.i260 = load i64, ptr %len.0.in.i.i259, align 8
-  %call.i.i261 = tail call ptr @memchr(ptr noundef nonnull %ptr.0.i.i255, i32 noundef 2, i64 noundef %len.0.i.i260) #24
+  %call.i.i261 = tail call ptr @memchr(ptr noundef nonnull %ptr.0.i.i255, i32 noundef 2, i64 noundef %len.0.i.i260) #25
   %cmp3.i.not.i262 = icmp eq ptr %call.i.i261, null
   %.pre372 = load ptr, ptr %cert, align 8
   br i1 %cmp3.i.not.i262, label %if.end6.i270, label %if.then3.i263
@@ -10279,15 +10279,15 @@ entry:
   br i1 %tobool.not, label %return, label %if.then
 
 if.then:                                          ; preds = %entry
-  %call = tail call i32 @X509_get_key_usage(ptr noundef %x) #23
+  %call = tail call i32 @X509_get_key_usage(ptr noundef %x) #24
   %and1 = and i32 %call, 128
   %tobool2.not = icmp eq i32 %and1, 0
   br i1 %tobool2.not, label %if.then3, label %return
 
 if.then3:                                         ; preds = %if.then
-  tail call void @ERR_new() #23
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 4460, ptr noundef nonnull @__func__.ssl_check_srvr_ecc_cert_and_alg) #23
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 318, ptr noundef null) #23
+  tail call void @ERR_new() #24
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 4460, ptr noundef nonnull @__func__.ssl_check_srvr_ecc_cert_and_alg) #24
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 318, ptr noundef null) #24
   br label %return
 
 return:                                           ; preds = %entry, %if.then, %if.then3
@@ -10435,7 +10435,7 @@ lor.lhs.false53:                                  ; preds = %lor.lhs.false50
   br i1 %cmp56.not, label %if.end60, label %if.then57
 
 if.then57:                                        ; preds = %land.lhs.true32, %lor.lhs.false53, %lor.lhs.false50, %land.lhs.true47, %land.lhs.true25
-  %call = tail call i32 @SSL_CTX_add_session(ptr noundef nonnull %5, ptr noundef nonnull %0) #23
+  %call = tail call i32 @SSL_CTX_add_session(ptr noundef nonnull %5, ptr noundef nonnull %0) #24
   %.pre = load ptr, ptr %session_ctx, align 8
   br label %if.end60
 
@@ -10448,18 +10448,18 @@ if.end60:                                         ; preds = %if.then57, %lor.lhs
 
 if.then63:                                        ; preds = %if.end60
   %22 = load ptr, ptr %session, align 8
-  %call65 = tail call i32 @SSL_SESSION_up_ref(ptr noundef %22) #23
+  %call65 = tail call i32 @SSL_SESSION_up_ref(ptr noundef %22) #24
   %23 = load ptr, ptr %session_ctx, align 8
   %new_session_cb67 = getelementptr inbounds i8, ptr %23, i64 96
   %24 = load ptr, ptr %new_session_cb67, align 8
   %25 = load ptr, ptr %session, align 8
-  %call70 = tail call i32 %24(ptr noundef nonnull %s, ptr noundef %25) #23
+  %call70 = tail call i32 %24(ptr noundef nonnull %s, ptr noundef %25) #24
   %tobool71.not = icmp eq i32 %call70, 0
   br i1 %tobool71.not, label %if.then72, label %if.end76
 
 if.then72:                                        ; preds = %if.then63
   %26 = load ptr, ptr %session, align 8
-  tail call void @SSL_SESSION_free(ptr noundef %26) #23
+  tail call void @SSL_SESSION_free(ptr noundef %26) #24
   br label %if.end76
 
 if.end76:                                         ; preds = %if.end60, %if.then72, %if.then63, %land.lhs.true13, %lor.lhs.false, %if.end6
@@ -10481,8 +10481,8 @@ if.then82:                                        ; preds = %if.end76
   br i1 %cmp93, label %if.then94, label %if.end98
 
 if.then94:                                        ; preds = %if.then82
-  %call96 = tail call i64 @time(ptr noundef null) #23
-  tail call void @SSL_CTX_flush_sessions(ptr noundef %27, i64 noundef %call96) #23
+  %call96 = tail call i64 @time(ptr noundef null) #24
+  tail call void @SSL_CTX_flush_sessions(ptr noundef %27, i64 noundef %call96) #24
   br label %if.end98
 
 if.end98:                                         ; preds = %if.then82, %if.then94, %land.lhs.true3, %entry, %if.end76
@@ -10539,12 +10539,12 @@ land.lhs.true:                                    ; preds = %cond.end10
   br label %return
 
 land.lhs.true19:                                  ; preds = %cond.false
-  %call = tail call ptr @OSSL_QUIC_client_method() #23
+  %call = tail call ptr @OSSL_QUIC_client_method() #24
   %cmp20 = icmp eq ptr %call, %meth
   br i1 %cmp20, label %return, label %lor.lhs.false21
 
 lor.lhs.false21:                                  ; preds = %land.lhs.true19
-  %call22 = tail call ptr @OSSL_QUIC_client_thread_method() #23
+  %call22 = tail call ptr @OSSL_QUIC_client_thread_method() #24
   %cmp23 = icmp eq ptr %call22, %meth
   br i1 %cmp23, label %return, label %if.end
 
@@ -10570,11 +10570,11 @@ if.then30:                                        ; preds = %if.then26
 if.else:                                          ; preds = %if.then26
   %ssl_deinit = getelementptr inbounds i8, ptr %.pre, i64 56
   %6 = load ptr, ptr %ssl_deinit, align 8
-  tail call void %6(ptr noundef nonnull %s) #23
+  tail call void %6(ptr noundef nonnull %s) #24
   store ptr %meth, ptr %method24, align 8
   %ssl_init = getelementptr inbounds i8, ptr %meth, i64 40
   %7 = load ptr, ptr %ssl_init, align 8
-  %call34 = tail call i32 %7(ptr noundef nonnull %s) #23
+  %call34 = tail call i32 %7(ptr noundef nonnull %s) #24
   br label %if.end35
 
 if.end35:                                         ; preds = %if.else, %if.then30
@@ -10646,7 +10646,7 @@ land.lhs.true:                                    ; preds = %cond.end10
   br i1 %switch, label %if.then18, label %if.end22
 
 if.then18:                                        ; preds = %land.lhs.true
-  %call = tail call i32 @ossl_quic_get_error(ptr noundef nonnull %s, i32 noundef %i) #23
+  %call = tail call i32 @ossl_quic_get_error(ptr noundef nonnull %s, i32 noundef %i) #24
   %cmp19.not = icmp eq i32 %call, 0
   br i1 %cmp19.not, label %if.end22, label %return
 
@@ -10659,7 +10659,7 @@ if.end25:                                         ; preds = %if.end22
   br i1 %tobool.not, label %land.lhs.true35, label %land.lhs.true26
 
 land.lhs.true26:                                  ; preds = %if.end25
-  %call27 = tail call i64 @ERR_peek_error() #23
+  %call27 = tail call i64 @ERR_peek_error() #24
   %cmp28.not = icmp eq i64 %call27, 0
   br i1 %cmp28.not, label %land.lhs.true35, label %if.then29
 
@@ -10691,17 +10691,17 @@ if.end19.i:                                       ; preds = %cond.false.i
 SSL_get_rbio.exit:                                ; preds = %if.end19.i
   %rbio.i = getelementptr inbounds i8, ptr %s, i64 72
   %4 = load ptr, ptr %rbio.i, align 8
-  %call46 = tail call i32 @BIO_test_flags(ptr noundef %4, i32 noundef 1) #23
+  %call46 = tail call i32 @BIO_test_flags(ptr noundef %4, i32 noundef 1) #24
   %tobool47.not = icmp eq i32 %call46, 0
   br i1 %tobool47.not, label %if.else49, label %return
 
 if.else49:                                        ; preds = %SSL_get_rbio.exit
-  %call50 = tail call i32 @BIO_test_flags(ptr noundef %4, i32 noundef 2) #23
+  %call50 = tail call i32 @BIO_test_flags(ptr noundef %4, i32 noundef 2) #24
   %tobool51.not = icmp eq i32 %call50, 0
   br i1 %tobool51.not, label %if.else53, label %return
 
 if.else53:                                        ; preds = %if.else49
-  %call54 = tail call i32 @BIO_test_flags(ptr noundef %4, i32 noundef 4) #23
+  %call54 = tail call i32 @BIO_test_flags(ptr noundef %4, i32 noundef 4) #24
   %tobool55.not = icmp eq i32 %call54, 0
   br i1 %tobool55.not, label %if.else53.if.end67.thread_crit_edge, label %if.then56
 
@@ -10710,7 +10710,7 @@ if.else53.if.end67.thread_crit_edge:              ; preds = %if.else53
   br label %cond.false.i60
 
 if.then56:                                        ; preds = %if.else53
-  %call57 = tail call i32 @BIO_get_retry_reason(ptr noundef %4) #23
+  %call57 = tail call i32 @BIO_get_retry_reason(ptr noundef %4) #24
   %switch.selectcmp = icmp eq i32 %call57, 3
   %switch.select = select i1 %switch.selectcmp, i32 8, i32 5
   %switch.selectcmp42 = icmp eq i32 %call57, 2
@@ -10730,7 +10730,7 @@ land.lhs.true.i66:                                ; preds = %cond.false.i60
   br i1 %switch.i68, label %if.then.i61, label %cond.false.i71thread-pre-split
 
 if.then.i61:                                      ; preds = %land.lhs.true.i66, %cond.false.i60
-  %call.i62 = tail call i32 @ossl_quic_want(ptr noundef nonnull %s) #23
+  %call.i62 = tail call i32 @ossl_quic_want(ptr noundef nonnull %s) #24
   br label %SSL_want.exit69
 
 if.end19.i64:                                     ; preds = %if.end19.i, %cond.false.i60
@@ -10746,22 +10746,22 @@ SSL_want.exit69:                                  ; preds = %if.then.i61, %if.en
 if.then70:                                        ; preds = %SSL_want.exit69
   %wbio = getelementptr inbounds i8, ptr %cond11, i64 80
   %7 = load ptr, ptr %wbio, align 8
-  %call71 = tail call i32 @BIO_test_flags(ptr noundef %7, i32 noundef 2) #23
+  %call71 = tail call i32 @BIO_test_flags(ptr noundef %7, i32 noundef 2) #24
   %tobool72.not = icmp eq i32 %call71, 0
   br i1 %tobool72.not, label %if.else74, label %return
 
 if.else74:                                        ; preds = %if.then70
-  %call75 = tail call i32 @BIO_test_flags(ptr noundef %7, i32 noundef 1) #23
+  %call75 = tail call i32 @BIO_test_flags(ptr noundef %7, i32 noundef 1) #24
   %tobool76.not = icmp eq i32 %call75, 0
   br i1 %tobool76.not, label %if.else78, label %return
 
 if.else78:                                        ; preds = %if.else74
-  %call79 = tail call i32 @BIO_test_flags(ptr noundef %7, i32 noundef 4) #23
+  %call79 = tail call i32 @BIO_test_flags(ptr noundef %7, i32 noundef 4) #24
   %tobool80.not = icmp eq i32 %call79, 0
   br i1 %tobool80.not, label %cond.false.i71thread-pre-split, label %if.then81
 
 if.then81:                                        ; preds = %if.else78
-  %call82 = tail call i32 @BIO_get_retry_reason(ptr noundef %7) #23
+  %call82 = tail call i32 @BIO_get_retry_reason(ptr noundef %7) #24
   %switch.selectcmp44 = icmp eq i32 %call82, 3
   %switch.select45 = select i1 %switch.selectcmp44, i32 8, i32 5
   %switch.selectcmp46 = icmp eq i32 %call82, 2
@@ -10785,7 +10785,7 @@ land.lhs.true.i77:                                ; preds = %cond.false.i71
   br i1 %switch.i79, label %if.then.i72, label %cond.false.i82
 
 if.then.i72:                                      ; preds = %land.lhs.true.i77, %cond.false.i71
-  %call.i73 = tail call i32 @ossl_quic_want(ptr noundef nonnull %s) #23
+  %call.i73 = tail call i32 @ossl_quic_want(ptr noundef nonnull %s) #24
   br label %SSL_want.exit80
 
 if.end19.i75:                                     ; preds = %cond.false.i71
@@ -10815,7 +10815,7 @@ land.lhs.true.i88:                                ; preds = %cond.false.i82
   br i1 %switch.i90, label %if.then.i83, label %if.end101
 
 if.then.i83:                                      ; preds = %land.lhs.true.i88, %cond.false.i82
-  %call.i84 = tail call i32 @ossl_quic_want(ptr noundef nonnull %s) #23
+  %call.i84 = tail call i32 @ossl_quic_want(ptr noundef nonnull %s) #24
   br label %SSL_want.exit91
 
 if.end19.i86:                                     ; preds = %cond.false.i82
@@ -10887,7 +10887,7 @@ land.lhs.true:                                    ; preds = %cond.false
   br i1 %switch, label %if.then, label %return
 
 if.then:                                          ; preds = %cond.false, %land.lhs.true
-  %call = tail call i32 @ossl_quic_want(ptr noundef nonnull %s) #23
+  %call = tail call i32 @ossl_quic_want(ptr noundef nonnull %s) #24
   br label %return
 
 if.end19:                                         ; preds = %cond.false
@@ -10930,7 +10930,7 @@ if.end:                                           ; preds = %cond.false, %cond.e
   %cond1213 = phi ptr [ %2, %cond.end11 ], [ %0, %cond.false ]
   %handshake_func = getelementptr inbounds i8, ptr %cond1213, i64 104
   %3 = load ptr, ptr %handshake_func, align 8
-  %call = tail call i32 %3(ptr noundef nonnull %0) #23
+  %call = tail call i32 %3(ptr noundef nonnull %0) #24
   br label %return
 
 return:                                           ; preds = %cond.false, %entry, %cond.end11, %if.end
@@ -10945,9 +10945,9 @@ declare void @ossl_quic_set_connect_state(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define noundef i32 @ssl_undefined_void_function() local_unnamed_addr #0 {
 entry:
-  tail call void @ERR_new() #23
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 4798, ptr noundef nonnull @__func__.ssl_undefined_void_function) #23
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 786689, ptr noundef null) #23
+  tail call void @ERR_new() #24
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 4798, ptr noundef nonnull @__func__.ssl_undefined_void_function) #24
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 786689, ptr noundef null) #24
   ret i32 0
 }
 
@@ -10960,9 +10960,9 @@ entry:
 ; Function Attrs: nounwind uwtable
 define noalias noundef ptr @ssl_bad_method(i32 noundef %ver) local_unnamed_addr #0 {
 entry:
-  tail call void @ERR_new() #23
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 4809, ptr noundef nonnull @__func__.ssl_bad_method) #23
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 786689, ptr noundef null) #23
+  tail call void @ERR_new() #24
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 4809, ptr noundef nonnull @__func__.ssl_bad_method) #24
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 786689, ptr noundef null) #24
   ret ptr null
 }
 
@@ -11129,12 +11129,12 @@ cond.false:                                       ; preds = %entry
   br i1 %cmp1, label %if.end, label %return
 
 if.end:                                           ; preds = %cond.false
-  %call = tail call i32 @SSL_in_init(ptr noundef nonnull %s) #23
+  %call = tail call i32 @SSL_in_init(ptr noundef nonnull %s) #24
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %if.then9, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end
-  %call7 = tail call i32 @SSL_in_before(ptr noundef nonnull %s) #23
+  %call7 = tail call i32 @SSL_in_before(ptr noundef nonnull %s) #24
   %tobool8.not = icmp eq i32 %call7, 0
   br i1 %tobool8.not, label %if.then9, label %if.end11
 
@@ -11150,9 +11150,9 @@ if.end11:                                         ; preds = %lor.lhs.false
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %if.end11
-  tail call void @ERR_new() #23
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 715, ptr noundef nonnull @__func__.SSL_new) #23
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 195, ptr noundef null) #23
+  tail call void @ERR_new() #24
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 715, ptr noundef nonnull @__func__.SSL_new) #24
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 195, ptr noundef null) #24
   br label %return
 
 if.end.i:                                         ; preds = %if.end11
@@ -11162,15 +11162,15 @@ if.end.i:                                         ; preds = %if.end11
   br i1 %cmp1.i, label %if.then2.i, label %SSL_new.exit
 
 if.then2.i:                                       ; preds = %if.end.i
-  tail call void @ERR_new() #23
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 719, ptr noundef nonnull @__func__.SSL_new) #23
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 228, ptr noundef null) #23
+  tail call void @ERR_new() #24
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 719, ptr noundef nonnull @__func__.SSL_new) #24
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 228, ptr noundef null) #24
   br label %return
 
 SSL_new.exit:                                     ; preds = %if.end.i
   %ssl_new.i = getelementptr inbounds i8, ptr %3, i64 16
   %4 = load ptr, ptr %ssl_new.i, align 8
-  %call.i = tail call ptr %4(ptr noundef nonnull %2) #23
+  %call.i = tail call ptr %4(ptr noundef nonnull %2) #24
   %cmp14 = icmp eq ptr %call.i, null
   br i1 %cmp14, label %return, label %cond.false19
 
@@ -11193,12 +11193,12 @@ if.then32:                                        ; preds = %if.end30
 cond.false.i:                                     ; preds = %if.end30
   %method = getelementptr inbounds i8, ptr %s, i64 24
   %7 = load ptr, ptr %method, align 8
-  %call.i85 = tail call ptr @OSSL_QUIC_client_method() #23
+  %call.i85 = tail call ptr @OSSL_QUIC_client_method() #24
   %cmp20.i = icmp eq ptr %call.i85, %7
   br i1 %cmp20.i, label %if.end.i160, label %lor.lhs.false21.i
 
 lor.lhs.false21.i:                                ; preds = %cond.false.i
-  %call22.i = tail call ptr @OSSL_QUIC_client_thread_method() #23
+  %call22.i = tail call ptr @OSSL_QUIC_client_thread_method() #24
   %cmp23.i = icmp eq ptr %call22.i, %7
   br i1 %cmp23.i, label %if.end.i160, label %if.end.i86
 
@@ -11223,11 +11223,11 @@ if.then30.i:                                      ; preds = %if.then26.i
 if.else.i:                                        ; preds = %if.then26.i
   %ssl_deinit.i = getelementptr inbounds i8, ptr %.pre.i, i64 56
   %11 = load ptr, ptr %ssl_deinit.i, align 8
-  tail call void %11(ptr noundef nonnull %call.i) #23
+  tail call void %11(ptr noundef nonnull %call.i) #24
   store ptr %7, ptr %method24.phi.trans.insert.i, align 8
   %ssl_init.i = getelementptr inbounds i8, ptr %7, i64 40
   %12 = load ptr, ptr %ssl_init.i, align 8
-  %call34.i = tail call i32 %12(ptr noundef nonnull %call.i) #23
+  %call34.i = tail call i32 %12(ptr noundef nonnull %call.i) #24
   br label %if.end35.i
 
 if.end35.i:                                       ; preds = %if.else.i, %if.then30.i
@@ -11263,9 +11263,9 @@ if.end40:                                         ; preds = %if.end.i86, %SSL_se
 if.then42:                                        ; preds = %if.end40
   %cert43 = getelementptr inbounds i8, ptr %call.i, i64 2048
   %17 = load ptr, ptr %cert43, align 8
-  tail call void @ssl_cert_free(ptr noundef %17) #23
+  tail call void @ssl_cert_free(ptr noundef %17) #24
   %18 = load ptr, ptr %cert, align 8
-  %call45 = tail call ptr @ssl_cert_dup(ptr noundef %18) #23
+  %call45 = tail call ptr @ssl_cert_dup(ptr noundef %18) #24
   store ptr %call45, ptr %cert43, align 8
   %cmp48 = icmp eq ptr %call45, null
   br i1 %cmp48, label %if.end.i160, label %if.end51
@@ -11282,25 +11282,25 @@ if.end51:                                         ; preds = %if.then42, %if.end4
 if.end56:                                         ; preds = %if.end51, %if.then32
   %trecs.i = getelementptr inbounds i8, ptr %s, i64 1184
   %20 = load ptr, ptr %trecs.i, align 8
-  %call.i.i = tail call i32 @OPENSSL_sk_num(ptr noundef %20) #23
+  %call.i.i = tail call i32 @OPENSSL_sk_num(ptr noundef %20) #24
   %cmp2.i = icmp sgt i32 %call.i.i, 0
   br i1 %cmp2.i, label %if.end.i88, label %cond.false.i168
 
 if.end.i88:                                       ; preds = %if.end56
   %21 = load ptr, ptr %trecs.i, align 8
-  %call.i18.i = tail call i32 @OPENSSL_sk_num(ptr noundef %21) #23
+  %call.i18.i = tail call i32 @OPENSSL_sk_num(ptr noundef %21) #24
   %dane6.i = getelementptr inbounds i8, ptr %call.i, i64 1176
   %trecs.i.i = getelementptr inbounds i8, ptr %call.i, i64 1184
   %22 = load ptr, ptr %trecs.i.i, align 8
-  tail call void @OPENSSL_sk_pop_free(ptr noundef %22, ptr noundef nonnull @tlsa_free) #23
+  tail call void @OPENSSL_sk_pop_free(ptr noundef %22, ptr noundef nonnull @tlsa_free) #24
   store ptr null, ptr %trecs.i.i, align 8
   %certs.i.i = getelementptr inbounds i8, ptr %call.i, i64 1192
   %23 = load ptr, ptr %certs.i.i, align 8
-  tail call void @OSSL_STACK_OF_X509_free(ptr noundef %23) #23
+  tail call void @OSSL_STACK_OF_X509_free(ptr noundef %23) #24
   store ptr null, ptr %certs.i.i, align 8
   %mcert.i.i = getelementptr inbounds i8, ptr %call.i, i64 1208
   %24 = load ptr, ptr %mcert.i.i, align 8
-  tail call void @X509_free(ptr noundef %24) #23
+  tail call void @X509_free(ptr noundef %24) #24
   %mtlsa.i.i = getelementptr inbounds i8, ptr %call.i, i64 1200
   %mdpth.i.i = getelementptr inbounds i8, ptr %call.i, i64 1220
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mtlsa.i.i, i8 0, i64 16, i1 false)
@@ -11315,7 +11315,7 @@ if.end.i88:                                       ; preds = %if.end56
   %26 = load ptr, ptr %ctx.i89, align 8
   %dane10.i = getelementptr inbounds i8, ptr %26, i64 928
   store ptr %dane10.i, ptr %dane6.i, align 8
-  %call.i19.i = tail call ptr @OPENSSL_sk_new_reserve(ptr noundef null, i32 noundef %call.i18.i) #23
+  %call.i19.i = tail call ptr @OPENSSL_sk_new_reserve(ptr noundef null, i32 noundef %call.i18.i) #24
   store ptr %call.i19.i, ptr %trecs.i.i, align 8
   %cmp17.i = icmp eq ptr %call.i19.i, null
   br i1 %cmp17.i, label %if.then18.i, label %for.cond.preheader.i
@@ -11325,9 +11325,9 @@ for.cond.preheader.i:                             ; preds = %if.end.i88
   br i1 %cmp2021.i, label %for.body.i, label %cond.false.i168
 
 if.then18.i:                                      ; preds = %if.end.i88
-  tail call void @ERR_new() #23
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 196, ptr noundef nonnull @__func__.ssl_dane_dup) #23
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 524303, ptr noundef null) #23
+  tail call void @ERR_new() #24
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 196, ptr noundef nonnull @__func__.ssl_dane_dup) #24
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 524303, ptr noundef null) #24
   br label %if.end.i160
 
 for.cond.i:                                       ; preds = %for.body.i
@@ -11338,7 +11338,7 @@ for.cond.i:                                       ; preds = %for.body.i
 for.body.i:                                       ; preds = %for.cond.preheader.i, %for.cond.i
   %i.022.i = phi i32 [ %inc.i, %for.cond.i ], [ 0, %for.cond.preheader.i ]
   %27 = load ptr, ptr %trecs.i, align 8
-  %call.i20.i = tail call ptr @OPENSSL_sk_value(ptr noundef %27, i32 noundef %i.022.i) #23
+  %call.i20.i = tail call ptr @OPENSSL_sk_value(ptr noundef %27, i32 noundef %i.022.i) #24
   %28 = load i8, ptr %call.i20.i, align 8
   %selector.i = getelementptr inbounds i8, ptr %call.i20.i, i64 1
   %29 = load i8, ptr %selector.i, align 1
@@ -11389,7 +11389,7 @@ if.then19.i:                                      ; preds = %cond.end10.i169
   %40 = load ptr, ptr %method.i174, align 8
   %ssl_ctrl.i = getelementptr inbounds i8, ptr %40, i64 152
   %41 = load ptr, ptr %ssl_ctrl.i, align 8
-  %call.i175 = tail call i64 %41(ptr noundef nonnull %s, i32 noundef 50, i64 noundef 0, ptr noundef null) #23
+  %call.i175 = tail call i64 %41(ptr noundef nonnull %s, i32 noundef 50, i64 noundef 0, ptr noundef null) #24
   br label %cond.false.i179
 
 if.end20.i:                                       ; preds = %cond.false.i168
@@ -11415,7 +11415,7 @@ if.then19.i189:                                   ; preds = %cond.end10.i180
   %45 = load ptr, ptr %method.i190, align 8
   %ssl_ctrl.i191 = getelementptr inbounds i8, ptr %45, i64 152
   %46 = load ptr, ptr %ssl_ctrl.i191, align 8
-  %call.i192 = tail call i64 %46(ptr noundef nonnull %call.i, i32 noundef 51, i64 noundef %retval.0.i173, ptr noundef null) #23
+  %call.i192 = tail call i64 %46(ptr noundef nonnull %call.i, i32 noundef 51, i64 noundef %retval.0.i173, ptr noundef null) #24
   br label %cond.false.i93
 
 if.end20.i187:                                    ; preds = %cond.false.i179
@@ -11450,9 +11450,9 @@ if.end.i100:                                      ; preds = %cond.false.i98
   %read_ahead.i101 = getelementptr inbounds i8, ptr %call.i, i64 3072
   store i32 %retval.0.i95, ptr %read_ahead.i101, align 8
   %incdec.ptr.i = getelementptr inbounds i8, ptr %options.i, i64 40
-  call void @OSSL_PARAM_construct_int(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp.i, ptr noundef nonnull @.str.1, ptr noundef nonnull %read_ahead.i101) #23
+  call void @OSSL_PARAM_construct_int(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp.i, ptr noundef nonnull @.str.1, ptr noundef nonnull %read_ahead.i101) #24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %options.i, ptr noundef nonnull align 8 dereferenceable(40) %tmp.i, i64 40, i1 false)
-  call void @OSSL_PARAM_construct_end(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp9.i) #23
+  call void @OSSL_PARAM_construct_end(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp9.i) #24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %incdec.ptr.i, ptr noundef nonnull align 8 dereferenceable(40) %tmp9.i, i64 40, i1 false)
   %rrlmethod.i = getelementptr inbounds i8, ptr %call.i, i64 3024
   %50 = load ptr, ptr %rrlmethod.i, align 8
@@ -11460,7 +11460,7 @@ if.end.i100:                                      ; preds = %cond.false.i98
   %51 = load ptr, ptr %set_options.i, align 8
   %rrl.i = getelementptr inbounds i8, ptr %call.i, i64 3040
   %52 = load ptr, ptr %rrl.i, align 8
-  %call.i102 = call i32 %51(ptr noundef %52, ptr noundef nonnull %options.i) #23
+  %call.i102 = call i32 %51(ptr noundef %52, ptr noundef nonnull %options.i) #24
   br label %cond.false.i104
 
 cond.false.i104:                                  ; preds = %if.end.i100, %cond.false.i98
@@ -11552,7 +11552,7 @@ if.end.i131:                                      ; preds = %cond.end10.i128, %c
   %cond1111.i132 = phi ptr [ %62, %cond.end10.i128 ], [ %s, %cond.false.i127 ]
   %param.i = getelementptr inbounds i8, ptr %cond1111.i132, i64 1168
   %63 = load ptr, ptr %param.i, align 8
-  %call.i133 = call i32 @X509_VERIFY_PARAM_get_depth(ptr noundef %63) #23
+  %call.i133 = call i32 @X509_VERIFY_PARAM_get_depth(ptr noundef %63) #24
   br label %cond.false.i136
 
 cond.false.i136:                                  ; preds = %if.end.i131, %cond.end10.i128, %cond.false.i127
@@ -11572,7 +11572,7 @@ if.end.i140:                                      ; preds = %cond.end10.i137, %c
   %cond1111.i141 = phi ptr [ %65, %cond.end10.i137 ], [ %call.i, %cond.false.i136 ]
   %param.i142 = getelementptr inbounds i8, ptr %cond1111.i141, i64 1168
   %66 = load ptr, ptr %param.i142, align 8
-  call void @X509_VERIFY_PARAM_set_depth(ptr noundef %66, i32 noundef %retval.0.i134) #23
+  call void @X509_VERIFY_PARAM_set_depth(ptr noundef %66, i32 noundef %retval.0.i134) #24
   br label %cond.false.i144
 
 cond.false.i144:                                  ; preds = %if.end.i140, %cond.end10.i137, %cond.false.i136
@@ -11619,7 +11619,7 @@ if.end.i156:                                      ; preds = %cond.end10.i153, %c
 SSL_set_info_callback.exit:                       ; preds = %cond.false.i152, %cond.end10.i153, %if.end.i156
   %ex_data = getelementptr inbounds i8, ptr %call.i, i64 48
   %ex_data76 = getelementptr inbounds i8, ptr %s, i64 48
-  %call77 = call i32 @CRYPTO_dup_ex_data(i32 noundef 0, ptr noundef nonnull %ex_data, ptr noundef nonnull %ex_data76) #23
+  %call77 = call i32 @CRYPTO_dup_ex_data(i32 noundef 0, ptr noundef nonnull %ex_data, ptr noundef nonnull %ex_data76) #24
   %tobool78.not = icmp eq i32 %call77, 0
   br i1 %tobool78.not, label %if.end.i160, label %if.end80
 
@@ -11666,14 +11666,14 @@ if.end89:                                         ; preds = %if.then86, %if.else
   %79 = load ptr, ptr %param, align 8
   %param94 = getelementptr inbounds i8, ptr %s, i64 1168
   %80 = load ptr, ptr %param94, align 8
-  %call95 = call i32 @X509_VERIFY_PARAM_inherit(ptr noundef %79, ptr noundef %80) #23
+  %call95 = call i32 @X509_VERIFY_PARAM_inherit(ptr noundef %79, ptr noundef %80) #24
   %cipher_list = getelementptr inbounds i8, ptr %s, i64 1248
   %81 = load ptr, ptr %cipher_list, align 8
   %cmp96.not = icmp eq ptr %81, null
   br i1 %cmp96.not, label %if.end107, label %if.then98
 
 if.then98:                                        ; preds = %if.end89
-  %call101 = call ptr @OPENSSL_sk_dup(ptr noundef nonnull %81) #23
+  %call101 = call ptr @OPENSSL_sk_dup(ptr noundef nonnull %81) #24
   %cipher_list102 = getelementptr inbounds i8, ptr %call.i, i64 1248
   store ptr %call101, ptr %cipher_list102, align 8
   %cmp103 = icmp eq ptr %call101, null
@@ -11686,7 +11686,7 @@ if.end107:                                        ; preds = %if.then98, %if.end8
   br i1 %cmp108.not, label %if.end119, label %if.then110
 
 if.then110:                                       ; preds = %if.end107
-  %call113 = call ptr @OPENSSL_sk_dup(ptr noundef nonnull %82) #23
+  %call113 = call ptr @OPENSSL_sk_dup(ptr noundef nonnull %82) #24
   %cipher_list_by_id114 = getelementptr inbounds i8, ptr %call.i, i64 1256
   store ptr %call113, ptr %cipher_list_by_id114, align 8
   %cmp115 = icmp eq ptr %call113, null
@@ -11724,7 +11724,7 @@ CRYPTO_DOWN_REF.exit.i:                           ; preds = %if.end.i160
 
 if.end3.i162:                                     ; preds = %CRYPTO_DOWN_REF.exit.i, %CRYPTO_DOWN_REF.exit.thread.i
   %ex_data.i = getelementptr inbounds i8, ptr %call.i, i64 48
-  call void @CRYPTO_free_ex_data(i32 noundef 0, ptr noundef nonnull %call.i, ptr noundef nonnull %ex_data.i) #23
+  call void @CRYPTO_free_ex_data(i32 noundef 0, ptr noundef nonnull %call.i, ptr noundef nonnull %ex_data.i) #24
   %method.i163 = getelementptr inbounds i8, ptr %call.i, i64 24
   %86 = load ptr, ptr %method.i163, align 8
   %cmp4.not.i = icmp eq ptr %86, null
@@ -11733,7 +11733,7 @@ if.end3.i162:                                     ; preds = %CRYPTO_DOWN_REF.exi
 if.then5.i:                                       ; preds = %if.end3.i162
   %ssl_free.i = getelementptr inbounds i8, ptr %86, i64 24
   %87 = load ptr, ptr %ssl_free.i, align 8
-  call void %87(ptr noundef nonnull %call.i) #23
+  call void %87(ptr noundef nonnull %call.i) #24
   br label %if.end7.i
 
 if.end7.i:                                        ; preds = %if.then5.i, %if.end3.i162
@@ -11742,8 +11742,8 @@ if.end7.i:                                        ; preds = %if.then5.i, %if.end
   call void @SSL_CTX_free(ptr noundef %88)
   %lock.i = getelementptr inbounds i8, ptr %call.i, i64 40
   %89 = load ptr, ptr %lock.i, align 8
-  call void @CRYPTO_THREAD_lock_free(ptr noundef %89) #23
-  call void @CRYPTO_free(ptr noundef nonnull %call.i, ptr noundef nonnull @.str, i32 noundef 1423) #23
+  call void @CRYPTO_THREAD_lock_free(ptr noundef %89) #24
+  call void @CRYPTO_free(ptr noundef nonnull %call.i, ptr noundef nonnull @.str, i32 noundef 1423) #24
   br label %return
 
 return:                                           ; preds = %if.then2.i, %if.then.i, %entry, %cond.false, %if.end7.i, %CRYPTO_DOWN_REF.exit.i, %lor.lhs.false123, %SSL_new.exit, %if.then9
@@ -11831,40 +11831,40 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %call = tail call ptr @OPENSSL_sk_new_null() #23
+  %call = tail call ptr @OPENSSL_sk_new_null() #24
   %cmp1 = icmp eq ptr %call, null
   br i1 %cmp1, label %return, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %if.end
-  %call513 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %src) #23
+  %call513 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %src) #24
   %cmp614 = icmp sgt i32 %call513, 0
   br i1 %cmp614, label %for.body, label %for.end
 
 for.cond:                                         ; preds = %if.end14
   %inc = add nuw nsw i32 %i.015, 1
-  %call5 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %src) #23
+  %call5 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %src) #24
   %cmp6 = icmp slt i32 %inc, %call5
   br i1 %cmp6, label %for.body, label %for.end, !llvm.loop !21
 
 for.body:                                         ; preds = %for.cond.preheader, %for.cond
   %i.015 = phi i32 [ %inc, %for.cond ], [ 0, %for.cond.preheader ]
-  %call8 = tail call ptr @OPENSSL_sk_value(ptr noundef nonnull %src, i32 noundef %i.015) #23
-  %call9 = tail call ptr @X509_NAME_dup(ptr noundef %call8) #23
+  %call8 = tail call ptr @OPENSSL_sk_value(ptr noundef nonnull %src, i32 noundef %i.015) #24
+  %call9 = tail call ptr @X509_NAME_dup(ptr noundef %call8) #24
   %cmp10 = icmp eq ptr %call9, null
   br i1 %cmp10, label %if.then11, label %if.end14
 
 if.then11:                                        ; preds = %for.body
-  tail call void @OPENSSL_sk_pop_free(ptr noundef nonnull %call, ptr noundef nonnull @X509_NAME_free) #23
+  tail call void @OPENSSL_sk_pop_free(ptr noundef nonnull %call, ptr noundef nonnull @X509_NAME_free) #24
   br label %return
 
 if.end14:                                         ; preds = %for.body
-  %call17 = tail call i32 @OPENSSL_sk_insert(ptr noundef nonnull %call, ptr noundef nonnull %call9, i32 noundef %i.015) #23
+  %call17 = tail call i32 @OPENSSL_sk_insert(ptr noundef nonnull %call, ptr noundef nonnull %call9, i32 noundef %i.015) #24
   %cmp18 = icmp eq i32 %call17, 0
   br i1 %cmp18, label %if.then19, label %for.cond
 
 if.then19:                                        ; preds = %if.end14
-  tail call void @X509_NAME_free(ptr noundef nonnull %call9) #23
-  tail call void @OPENSSL_sk_pop_free(ptr noundef nonnull %call, ptr noundef nonnull @X509_NAME_free) #23
+  tail call void @X509_NAME_free(ptr noundef nonnull %call9) #24
+  tail call void @OPENSSL_sk_pop_free(ptr noundef nonnull %call, ptr noundef nonnull @X509_NAME_free) #24
   br label %return
 
 for.end:                                          ; preds = %for.cond, %for.cond.preheader
@@ -12074,7 +12074,7 @@ if.end:                                           ; preds = %cond.false
   %2 = load ptr, ptr %get_compression, align 8
   %wrl = getelementptr inbounds i8, ptr %s, i64 3048
   %3 = load ptr, ptr %wrl, align 8
-  %call = tail call ptr %2(ptr noundef %3) #23
+  %call = tail call ptr %2(ptr noundef %3) #24
   br label %return
 
 return:                                           ; preds = %entry, %cond.false, %if.end
@@ -12100,7 +12100,7 @@ if.end:                                           ; preds = %cond.false
   %2 = load ptr, ptr %get_compression, align 8
   %rrl = getelementptr inbounds i8, ptr %s, i64 3040
   %3 = load ptr, ptr %rrl, align 8
-  %call = tail call ptr %2(ptr noundef %3) #23
+  %call = tail call ptr %2(ptr noundef %3) #24
   br label %return
 
 return:                                           ; preds = %entry, %cond.false, %if.end
@@ -12117,28 +12117,28 @@ entry:
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %call = tail call ptr @BIO_f_buffer() #23
-  %call2 = tail call ptr @BIO_new(ptr noundef %call) #23
+  %call = tail call ptr @BIO_f_buffer() #24
+  %call2 = tail call ptr @BIO_new(ptr noundef %call) #24
   %cmp3 = icmp eq ptr %call2, null
   br i1 %cmp3, label %if.then6, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end
-  %call4 = tail call i64 @BIO_int_ctrl(ptr noundef nonnull %call2, i32 noundef 117, i64 noundef 1, i32 noundef 0) #23
+  %call4 = tail call i64 @BIO_int_ctrl(ptr noundef nonnull %call2, i32 noundef 117, i64 noundef 1, i32 noundef 0) #24
   %cmp5 = icmp slt i64 %call4, 1
   br i1 %cmp5, label %if.then6, label %if.end8
 
 if.then6:                                         ; preds = %lor.lhs.false, %if.end
-  %call7 = tail call i32 @BIO_free(ptr noundef %call2) #23
-  tail call void @ERR_new() #23
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 5123, ptr noundef nonnull @__func__.ssl_init_wbio_buffer) #23
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 524295, ptr noundef null) #23
+  %call7 = tail call i32 @BIO_free(ptr noundef %call2) #24
+  tail call void @ERR_new() #24
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 5123, ptr noundef nonnull @__func__.ssl_init_wbio_buffer) #24
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 524295, ptr noundef null) #24
   br label %return
 
 if.end8:                                          ; preds = %lor.lhs.false
   store ptr %call2, ptr %bbio1, align 8
   %wbio = getelementptr inbounds i8, ptr %s, i64 80
   %1 = load ptr, ptr %wbio, align 8
-  %call10 = tail call ptr @BIO_push(ptr noundef nonnull %call2, ptr noundef %1) #23
+  %call10 = tail call ptr @BIO_push(ptr noundef nonnull %call2, ptr noundef %1) #24
   store ptr %call10, ptr %wbio, align 8
   %wrlmethod = getelementptr inbounds i8, ptr %s, i64 3032
   %2 = load ptr, ptr %wrlmethod, align 8
@@ -12146,7 +12146,7 @@ if.end8:                                          ; preds = %lor.lhs.false
   %3 = load ptr, ptr %set1_bio, align 8
   %wrl = getelementptr inbounds i8, ptr %s, i64 3048
   %4 = load ptr, ptr %wrl, align 8
-  %call14 = tail call i32 %3(ptr noundef %4, ptr noundef %call10) #23
+  %call14 = tail call i32 %3(ptr noundef %4, ptr noundef %call10) #24
   br label %return
 
 return:                                           ; preds = %entry, %if.end8, %if.then6
@@ -12248,7 +12248,7 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %switch, label %if.then, label %if.end
 
 if.then:                                          ; preds = %land.lhs.true
-  %call = tail call i32 @ossl_quic_get_shutdown(ptr noundef nonnull %s) #23
+  %call = tail call i32 @ossl_quic_get_shutdown(ptr noundef nonnull %s) #24
   br label %return
 
 if.end:                                           ; preds = %land.lhs.true
@@ -12322,7 +12322,7 @@ if.end14:                                         ; preds = %if.then13, %if.end1
   %ctx.addr.0 = phi ptr [ %2, %if.then13 ], [ %ctx, %if.end11 ]
   %cert = getelementptr inbounds i8, ptr %ctx.addr.0, i64 344
   %3 = load ptr, ptr %cert, align 8
-  %call = tail call ptr @ssl_cert_dup(ptr noundef %3) #23
+  %call = tail call ptr @ssl_cert_dup(ptr noundef %3) #24
   %cmp15 = icmp eq ptr %call, null
   br i1 %cmp15, label %return, label %if.end17
 
@@ -12331,17 +12331,17 @@ if.end17:                                         ; preds = %if.end14
   %cert18 = getelementptr inbounds i8, ptr %ssl, i64 2048
   %4 = load ptr, ptr %cert18, align 8
   %custext19 = getelementptr inbounds i8, ptr %4, i64 128
-  %call20 = tail call i32 @custom_exts_copy_flags(ptr noundef nonnull %custext, ptr noundef nonnull %custext19) #23
+  %call20 = tail call i32 @custom_exts_copy_flags(ptr noundef nonnull %custext, ptr noundef nonnull %custext19) #24
   %tobool.not = icmp eq i32 %call20, 0
   br i1 %tobool.not, label %if.then21, label %if.end22
 
 if.then21:                                        ; preds = %if.end17
-  tail call void @ssl_cert_free(ptr noundef nonnull %call) #23
+  tail call void @ssl_cert_free(ptr noundef nonnull %call) #24
   br label %return
 
 if.end22:                                         ; preds = %if.end17
   %5 = load ptr, ptr %cert18, align 8
-  tail call void @ssl_cert_free(ptr noundef %5) #23
+  tail call void @ssl_cert_free(ptr noundef %5) #24
   store ptr %call, ptr %cert18, align 8
   %sid_ctx_length = getelementptr inbounds i8, ptr %ssl, i64 2136
   %6 = load i64, ptr %sid_ctx_length, align 8
@@ -12397,7 +12397,7 @@ entry:
   %1 = load ptr, ptr %ctx, align 8
   %propq = getelementptr inbounds i8, ptr %ctx, i64 1096
   %2 = load ptr, ptr %propq, align 8
-  %call = tail call i32 @X509_STORE_set_default_paths_ex(ptr noundef %0, ptr noundef %1, ptr noundef %2) #23
+  %call = tail call i32 @X509_STORE_set_default_paths_ex(ptr noundef %0, ptr noundef %1, ptr noundef %2) #24
   ret i32 %call
 }
 
@@ -12408,15 +12408,15 @@ define noundef i32 @SSL_CTX_set_default_verify_dir(ptr nocapture noundef readonl
 entry:
   %cert_store = getelementptr inbounds i8, ptr %ctx, i64 40
   %0 = load ptr, ptr %cert_store, align 8
-  %call = tail call ptr @X509_LOOKUP_hash_dir() #23
-  %call1 = tail call ptr @X509_STORE_add_lookup(ptr noundef %0, ptr noundef %call) #23
+  %call = tail call ptr @X509_LOOKUP_hash_dir() #24
+  %call1 = tail call ptr @X509_STORE_add_lookup(ptr noundef %0, ptr noundef %call) #24
   %cmp = icmp eq ptr %call1, null
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call2 = tail call i32 @ERR_set_mark() #23
-  %call3 = tail call i32 @X509_LOOKUP_ctrl(ptr noundef nonnull %call1, i32 noundef 2, ptr noundef null, i64 noundef 3, ptr noundef null) #23
-  %call4 = tail call i32 @ERR_pop_to_mark() #23
+  %call2 = tail call i32 @ERR_set_mark() #24
+  %call3 = tail call i32 @X509_LOOKUP_ctrl(ptr noundef nonnull %call1, i32 noundef 2, ptr noundef null, i64 noundef 3, ptr noundef null) #24
+  %call4 = tail call i32 @ERR_pop_to_mark() #24
   br label %return
 
 return:                                           ; preds = %entry, %if.end
@@ -12439,18 +12439,18 @@ define noundef i32 @SSL_CTX_set_default_verify_file(ptr nocapture noundef readon
 entry:
   %cert_store = getelementptr inbounds i8, ptr %ctx, i64 40
   %0 = load ptr, ptr %cert_store, align 8
-  %call = tail call ptr @X509_LOOKUP_file() #23
-  %call1 = tail call ptr @X509_STORE_add_lookup(ptr noundef %0, ptr noundef %call) #23
+  %call = tail call ptr @X509_LOOKUP_file() #24
+  %call1 = tail call ptr @X509_STORE_add_lookup(ptr noundef %0, ptr noundef %call) #24
   %cmp = icmp eq ptr %call1, null
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call2 = tail call i32 @ERR_set_mark() #23
+  %call2 = tail call i32 @ERR_set_mark() #24
   %1 = load ptr, ptr %ctx, align 8
   %propq = getelementptr inbounds i8, ptr %ctx, i64 1096
   %2 = load ptr, ptr %propq, align 8
-  %call3 = tail call i32 @X509_LOOKUP_ctrl_ex(ptr noundef nonnull %call1, i32 noundef 1, ptr noundef null, i64 noundef 3, ptr noundef null, ptr noundef %1, ptr noundef %2) #23
-  %call4 = tail call i32 @ERR_pop_to_mark() #23
+  %call3 = tail call i32 @X509_LOOKUP_ctrl_ex(ptr noundef nonnull %call1, i32 noundef 1, ptr noundef null, i64 noundef 3, ptr noundef null, ptr noundef %1, ptr noundef %2) #24
+  %call4 = tail call i32 @ERR_pop_to_mark() #24
   br label %return
 
 return:                                           ; preds = %entry, %if.end
@@ -12467,18 +12467,18 @@ define noundef i32 @SSL_CTX_set_default_verify_store(ptr nocapture noundef reado
 entry:
   %cert_store = getelementptr inbounds i8, ptr %ctx, i64 40
   %0 = load ptr, ptr %cert_store, align 8
-  %call = tail call ptr @X509_LOOKUP_store() #23
-  %call1 = tail call ptr @X509_STORE_add_lookup(ptr noundef %0, ptr noundef %call) #23
+  %call = tail call ptr @X509_LOOKUP_store() #24
+  %call1 = tail call ptr @X509_STORE_add_lookup(ptr noundef %0, ptr noundef %call) #24
   %cmp = icmp eq ptr %call1, null
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call2 = tail call i32 @ERR_set_mark() #23
+  %call2 = tail call i32 @ERR_set_mark() #24
   %1 = load ptr, ptr %ctx, align 8
   %propq = getelementptr inbounds i8, ptr %ctx, i64 1096
   %2 = load ptr, ptr %propq, align 8
-  %call3 = tail call i32 @X509_LOOKUP_ctrl_ex(ptr noundef nonnull %call1, i32 noundef 3, ptr noundef null, i64 noundef 0, ptr noundef null, ptr noundef %1, ptr noundef %2) #23
-  %call4 = tail call i32 @ERR_pop_to_mark() #23
+  %call3 = tail call i32 @X509_LOOKUP_ctrl_ex(ptr noundef nonnull %call1, i32 noundef 3, ptr noundef null, i64 noundef 0, ptr noundef null, ptr noundef %1, ptr noundef %2) #24
+  %call4 = tail call i32 @ERR_pop_to_mark() #24
   br label %return
 
 return:                                           ; preds = %entry, %if.end
@@ -12496,7 +12496,7 @@ entry:
   %1 = load ptr, ptr %ctx, align 8
   %propq = getelementptr inbounds i8, ptr %ctx, i64 1096
   %2 = load ptr, ptr %propq, align 8
-  %call = tail call i32 @X509_STORE_load_file_ex(ptr noundef %0, ptr noundef %CAfile, ptr noundef %1, ptr noundef %2) #23
+  %call = tail call i32 @X509_STORE_load_file_ex(ptr noundef %0, ptr noundef %CAfile, ptr noundef %1, ptr noundef %2) #24
   ret i32 %call
 }
 
@@ -12507,7 +12507,7 @@ define i32 @SSL_CTX_load_verify_dir(ptr nocapture noundef readonly %ctx, ptr nou
 entry:
   %cert_store = getelementptr inbounds i8, ptr %ctx, i64 40
   %0 = load ptr, ptr %cert_store, align 8
-  %call = tail call i32 @X509_STORE_load_path(ptr noundef %0, ptr noundef %CApath) #23
+  %call = tail call i32 @X509_STORE_load_path(ptr noundef %0, ptr noundef %CApath) #24
   ret i32 %call
 }
 
@@ -12521,7 +12521,7 @@ entry:
   %1 = load ptr, ptr %ctx, align 8
   %propq = getelementptr inbounds i8, ptr %ctx, i64 1096
   %2 = load ptr, ptr %propq, align 8
-  %call = tail call i32 @X509_STORE_load_store_ex(ptr noundef %0, ptr noundef %CAstore, ptr noundef %1, ptr noundef %2) #23
+  %call = tail call i32 @X509_STORE_load_store_ex(ptr noundef %0, ptr noundef %CAstore, ptr noundef %1, ptr noundef %2) #24
   ret i32 %call
 }
 
@@ -12544,7 +12544,7 @@ land.lhs.true3:                                   ; preds = %if.end
   %1 = load ptr, ptr %ctx, align 8
   %propq.i = getelementptr inbounds i8, ptr %ctx, i64 1096
   %2 = load ptr, ptr %propq.i, align 8
-  %call.i = tail call i32 @X509_STORE_load_file_ex(ptr noundef %0, ptr noundef nonnull %CAfile, ptr noundef %1, ptr noundef %2) #23
+  %call.i = tail call i32 @X509_STORE_load_file_ex(ptr noundef %0, ptr noundef nonnull %CAfile, ptr noundef %1, ptr noundef %2) #24
   %tobool.not = icmp eq i32 %call.i, 0
   br i1 %tobool.not, label %return, label %if.end5
 
@@ -12554,7 +12554,7 @@ if.end5:                                          ; preds = %land.lhs.true3, %if
 land.lhs.true7:                                   ; preds = %if.end5
   %cert_store.i6 = getelementptr inbounds i8, ptr %ctx, i64 40
   %3 = load ptr, ptr %cert_store.i6, align 8
-  %call.i7 = tail call i32 @X509_STORE_load_path(ptr noundef %3, ptr noundef nonnull %CApath) #23
+  %call.i7 = tail call i32 @X509_STORE_load_path(ptr noundef %3, ptr noundef nonnull %CApath) #24
   %tobool9.not = icmp eq i32 %call.i7, 0
   br i1 %tobool9.not, label %return, label %if.end11
 
@@ -12736,7 +12736,7 @@ return:                                           ; preds = %entry, %if.end
 define i32 @SSL_set_ex_data(ptr noundef %s, i32 noundef %idx, ptr noundef %arg) local_unnamed_addr #0 {
 entry:
   %ex_data = getelementptr inbounds i8, ptr %s, i64 48
-  %call = tail call i32 @CRYPTO_set_ex_data(ptr noundef nonnull %ex_data, i32 noundef %idx, ptr noundef %arg) #23
+  %call = tail call i32 @CRYPTO_set_ex_data(ptr noundef nonnull %ex_data, i32 noundef %idx, ptr noundef %arg) #24
   ret i32 %call
 }
 
@@ -12746,7 +12746,7 @@ declare i32 @CRYPTO_set_ex_data(ptr noundef, i32 noundef, ptr noundef) local_unn
 define ptr @SSL_get_ex_data(ptr noundef %s, i32 noundef %idx) local_unnamed_addr #0 {
 entry:
   %ex_data = getelementptr inbounds i8, ptr %s, i64 48
-  %call = tail call ptr @CRYPTO_get_ex_data(ptr noundef nonnull %ex_data, i32 noundef %idx) #23
+  %call = tail call ptr @CRYPTO_get_ex_data(ptr noundef nonnull %ex_data, i32 noundef %idx) #24
   ret ptr %call
 }
 
@@ -12756,7 +12756,7 @@ declare ptr @CRYPTO_get_ex_data(ptr noundef, i32 noundef) local_unnamed_addr #1
 define i32 @SSL_CTX_set_ex_data(ptr noundef %s, i32 noundef %idx, ptr noundef %arg) local_unnamed_addr #0 {
 entry:
   %ex_data = getelementptr inbounds i8, ptr %s, i64 240
-  %call = tail call i32 @CRYPTO_set_ex_data(ptr noundef nonnull %ex_data, i32 noundef %idx, ptr noundef %arg) #23
+  %call = tail call i32 @CRYPTO_set_ex_data(ptr noundef nonnull %ex_data, i32 noundef %idx, ptr noundef %arg) #24
   ret i32 %call
 }
 
@@ -12764,7 +12764,7 @@ entry:
 define ptr @SSL_CTX_get_ex_data(ptr noundef %s, i32 noundef %idx) local_unnamed_addr #0 {
 entry:
   %ex_data = getelementptr inbounds i8, ptr %s, i64 240
-  %call = tail call ptr @CRYPTO_get_ex_data(ptr noundef nonnull %ex_data, i32 noundef %idx) #23
+  %call = tail call ptr @CRYPTO_get_ex_data(ptr noundef nonnull %ex_data, i32 noundef %idx) #24
   ret ptr %call
 }
 
@@ -12781,7 +12781,7 @@ define void @SSL_CTX_set_cert_store(ptr nocapture noundef %ctx, ptr noundef %sto
 entry:
   %cert_store = getelementptr inbounds i8, ptr %ctx, i64 40
   %0 = load ptr, ptr %cert_store, align 8
-  tail call void @X509_STORE_free(ptr noundef %0) #23
+  tail call void @X509_STORE_free(ptr noundef %0) #24
   store ptr %store, ptr %cert_store, align 8
   ret void
 }
@@ -12795,15 +12795,15 @@ entry:
 entry.split:                                      ; preds = %entry
   %cert_store.i = getelementptr inbounds i8, ptr %ctx, i64 40
   %0 = load ptr, ptr %cert_store.i, align 8
-  tail call void @X509_STORE_free(ptr noundef %0) #23
+  tail call void @X509_STORE_free(ptr noundef %0) #24
   store ptr null, ptr %cert_store.i, align 8
   br label %if.end
 
 if.then:                                          ; preds = %entry
-  %call = tail call i32 @X509_STORE_up_ref(ptr noundef nonnull %store) #23
+  %call = tail call i32 @X509_STORE_up_ref(ptr noundef nonnull %store) #24
   %cert_store.i3 = getelementptr inbounds i8, ptr %ctx, i64 40
   %1 = load ptr, ptr %cert_store.i3, align 8
-  tail call void @X509_STORE_free(ptr noundef %1) #23
+  tail call void @X509_STORE_free(ptr noundef %1) #24
   store ptr %store, ptr %cert_store.i3, align 8
   br label %if.end
 
@@ -12822,14 +12822,14 @@ entry:
   br i1 %cmp.not, label %if.else, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %identity_hint) #24
+  %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %identity_hint) #25
   %cmp1 = icmp ugt i64 %call, 256
   br i1 %cmp1, label %if.then, label %if.then3
 
 if.then:                                          ; preds = %land.lhs.true
-  tail call void @ERR_new() #23
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 5542, ptr noundef nonnull @__func__.SSL_CTX_use_psk_identity_hint) #23
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 146, ptr noundef null) #23
+  tail call void @ERR_new() #24
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 5542, ptr noundef nonnull @__func__.SSL_CTX_use_psk_identity_hint) #24
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 146, ptr noundef null) #24
   br label %return
 
 if.then3:                                         ; preds = %land.lhs.true
@@ -12837,8 +12837,8 @@ if.then3:                                         ; preds = %land.lhs.true
   %0 = load ptr, ptr %cert, align 8
   %psk_identity_hint = getelementptr inbounds i8, ptr %0, i64 168
   %1 = load ptr, ptr %psk_identity_hint, align 8
-  tail call void @CRYPTO_free(ptr noundef %1, ptr noundef nonnull @.str, i32 noundef 5545) #23
-  %call4 = tail call noalias ptr @CRYPTO_strdup(ptr noundef nonnull %identity_hint, ptr noundef nonnull @.str, i32 noundef 5547) #23
+  tail call void @CRYPTO_free(ptr noundef %1, ptr noundef nonnull @.str, i32 noundef 5545) #24
+  %call4 = tail call noalias ptr @CRYPTO_strdup(ptr noundef nonnull %identity_hint, ptr noundef nonnull @.str, i32 noundef 5547) #24
   %2 = load ptr, ptr %cert, align 8
   %psk_identity_hint6 = getelementptr inbounds i8, ptr %2, i64 168
   store ptr %call4, ptr %psk_identity_hint6, align 8
@@ -12853,7 +12853,7 @@ if.else:                                          ; preds = %entry
   %5 = load ptr, ptr %cert7, align 8
   %psk_identity_hint9 = getelementptr inbounds i8, ptr %5, i64 168
   %6 = load ptr, ptr %psk_identity_hint9, align 8
-  tail call void @CRYPTO_free(ptr noundef %6, ptr noundef nonnull @.str, i32 noundef 5545) #23
+  tail call void @CRYPTO_free(ptr noundef %6, ptr noundef nonnull @.str, i32 noundef 5545) #24
   %7 = load ptr, ptr %cert7, align 8
   %psk_identity_hint13 = getelementptr inbounds i8, ptr %7, i64 168
   store ptr null, ptr %psk_identity_hint13, align 8
@@ -12895,14 +12895,14 @@ if.end:                                           ; preds = %cond.false, %cond.e
   br i1 %cmp13.not, label %if.else, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end
-  %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %identity_hint) #24
+  %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %identity_hint) #25
   %cmp14 = icmp ugt i64 %call, 256
   br i1 %cmp14, label %if.then15, label %if.then18
 
 if.then15:                                        ; preds = %land.lhs.true
-  tail call void @ERR_new() #23
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 5563, ptr noundef nonnull @__func__.SSL_use_psk_identity_hint) #23
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 146, ptr noundef null) #23
+  tail call void @ERR_new() #24
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 5563, ptr noundef nonnull @__func__.SSL_use_psk_identity_hint) #24
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 146, ptr noundef null) #24
   br label %return
 
 if.then18:                                        ; preds = %land.lhs.true
@@ -12910,8 +12910,8 @@ if.then18:                                        ; preds = %land.lhs.true
   %2 = load ptr, ptr %cert, align 8
   %psk_identity_hint = getelementptr inbounds i8, ptr %2, i64 168
   %3 = load ptr, ptr %psk_identity_hint, align 8
-  tail call void @CRYPTO_free(ptr noundef %3, ptr noundef nonnull @.str, i32 noundef 5566) #23
-  %call19 = tail call noalias ptr @CRYPTO_strdup(ptr noundef nonnull %identity_hint, ptr noundef nonnull @.str, i32 noundef 5568) #23
+  tail call void @CRYPTO_free(ptr noundef %3, ptr noundef nonnull @.str, i32 noundef 5566) #24
+  %call19 = tail call noalias ptr @CRYPTO_strdup(ptr noundef nonnull %identity_hint, ptr noundef nonnull @.str, i32 noundef 5568) #24
   %4 = load ptr, ptr %cert, align 8
   %psk_identity_hint21 = getelementptr inbounds i8, ptr %4, i64 168
   store ptr %call19, ptr %psk_identity_hint21, align 8
@@ -12926,7 +12926,7 @@ if.else:                                          ; preds = %if.end
   %7 = load ptr, ptr %cert18, align 8
   %psk_identity_hint19 = getelementptr inbounds i8, ptr %7, i64 168
   %8 = load ptr, ptr %psk_identity_hint19, align 8
-  tail call void @CRYPTO_free(ptr noundef %8, ptr noundef nonnull @.str, i32 noundef 5566) #23
+  tail call void @CRYPTO_free(ptr noundef %8, ptr noundef nonnull @.str, i32 noundef 5566) #24
   %9 = load ptr, ptr %cert18, align 8
   %psk_identity_hint28 = getelementptr inbounds i8, ptr %9, i64 168
   store ptr null, ptr %psk_identity_hint28, align 8
@@ -13175,7 +13175,7 @@ entry:
   %0 = load ptr, ptr %method.i, align 8
   %ssl_callback_ctrl.i = getelementptr inbounds i8, ptr %0, i64 232
   %1 = load ptr, ptr %ssl_callback_ctrl.i, align 8
-  %call.i = tail call i64 %1(ptr noundef %ssl, i32 noundef 15, ptr noundef %cb) #23
+  %call.i = tail call i64 %1(ptr noundef %ssl, i32 noundef 15, ptr noundef %cb) #24
   ret void
 }
 
@@ -13186,7 +13186,7 @@ entry:
   %0 = load ptr, ptr %method.i, align 8
   %ssl_ctx_callback_ctrl.i = getelementptr inbounds i8, ptr %0, i64 240
   %1 = load ptr, ptr %ssl_ctx_callback_ctrl.i, align 8
-  %call.i = tail call i64 %1(ptr noundef %ctx, i32 noundef 79, ptr noundef %cb) #23
+  %call.i = tail call i64 %1(ptr noundef %ctx, i32 noundef 79, ptr noundef %cb) #24
   ret void
 }
 
@@ -13197,7 +13197,7 @@ entry:
   %0 = load ptr, ptr %method.i, align 8
   %ssl_callback_ctrl.i = getelementptr inbounds i8, ptr %0, i64 232
   %1 = load ptr, ptr %ssl_callback_ctrl.i, align 8
-  %call.i = tail call i64 %1(ptr noundef %ssl, i32 noundef 79, ptr noundef %cb) #23
+  %call.i = tail call i64 %1(ptr noundef %ssl, i32 noundef 79, ptr noundef %cb) #24
   ret void
 }
 
@@ -13230,13 +13230,13 @@ define noundef i32 @SSL_CTX_set_block_padding(ptr nocapture noundef %ctx, i64 no
 entry:
   %method = getelementptr inbounds i8, ptr %ctx, i64 8
   %0 = load ptr, ptr %method, align 8
-  %call = tail call ptr @OSSL_QUIC_client_method() #23
+  %call = tail call ptr @OSSL_QUIC_client_method() #24
   %cmp = icmp eq ptr %0, %call
   br i1 %cmp, label %land.lhs.true, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
   %1 = load ptr, ptr %method, align 8
-  %call2 = tail call ptr @OSSL_QUIC_client_thread_method() #23
+  %call2 = tail call ptr @OSSL_QUIC_client_thread_method() #24
   %cmp3 = icmp eq ptr %1, %call2
   %cmp4 = icmp ugt i64 %block_size, 1
   %or.cond = and i1 %cmp4, %cmp3
@@ -13283,7 +13283,7 @@ if.end19.i:                                       ; preds = %cond.false
   br i1 %cmp20.not.i, label %SSL_get_wbio.exit, label %if.then21.i
 
 if.then21.i:                                      ; preds = %if.end19.i
-  %call23.i = tail call ptr @BIO_next(ptr noundef nonnull %1) #23
+  %call23.i = tail call ptr @BIO_next(ptr noundef nonnull %1) #24
   br label %SSL_get_wbio.exit
 
 SSL_get_wbio.exit:                                ; preds = %if.end19.i, %if.then21.i
@@ -13477,8 +13477,8 @@ define noundef i32 @ssl_handshake_hash(ptr noundef %s, ptr noundef %out, i64 nou
 entry:
   %handshake_dgst = getelementptr inbounds i8, ptr %s, i64 360
   %0 = load ptr, ptr %handshake_dgst, align 8
-  %call = tail call ptr @EVP_MD_CTX_get0_md(ptr noundef %0) #23
-  %call1 = tail call i32 @EVP_MD_get_size(ptr noundef %call) #23
+  %call = tail call ptr @EVP_MD_CTX_get0_md(ptr noundef %0) #24
+  %call1 = tail call i32 @EVP_MD_get_size(ptr noundef %call) #24
   %cmp = icmp slt i32 %call1, 0
   br i1 %cmp, label %if.then, label %lor.lhs.false
 
@@ -13488,36 +13488,36 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %cmp2, label %if.then, label %if.end
 
 if.then:                                          ; preds = %lor.lhs.false, %entry
-  tail call void @ERR_new() #23
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 5824, ptr noundef nonnull @__func__.ssl_handshake_hash) #23
-  tail call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef nonnull %s, i32 noundef 80, i32 noundef 786691, ptr noundef null) #23
+  tail call void @ERR_new() #24
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 5824, ptr noundef nonnull @__func__.ssl_handshake_hash) #24
+  tail call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef nonnull %s, i32 noundef 80, i32 noundef 786691, ptr noundef null) #24
   br label %err
 
 if.end:                                           ; preds = %lor.lhs.false
-  %call4 = tail call ptr @EVP_MD_CTX_new() #23
+  %call4 = tail call ptr @EVP_MD_CTX_new() #24
   %cmp5 = icmp eq ptr %call4, null
   br i1 %cmp5, label %if.then7, label %if.end8
 
 if.then7:                                         ; preds = %if.end
-  tail call void @ERR_new() #23
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 5830, ptr noundef nonnull @__func__.ssl_handshake_hash) #23
-  tail call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef nonnull %s, i32 noundef 80, i32 noundef 786691, ptr noundef null) #23
+  tail call void @ERR_new() #24
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 5830, ptr noundef nonnull @__func__.ssl_handshake_hash) #24
+  tail call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef nonnull %s, i32 noundef 80, i32 noundef 786691, ptr noundef null) #24
   br label %err
 
 if.end8:                                          ; preds = %if.end
-  %call9 = tail call i32 @EVP_MD_CTX_copy_ex(ptr noundef nonnull %call4, ptr noundef %0) #23
+  %call9 = tail call i32 @EVP_MD_CTX_copy_ex(ptr noundef nonnull %call4, ptr noundef %0) #24
   %tobool.not = icmp eq i32 %call9, 0
   br i1 %tobool.not, label %if.then14, label %lor.lhs.false10
 
 lor.lhs.false10:                                  ; preds = %if.end8
-  %call11 = tail call i32 @EVP_DigestFinal_ex(ptr noundef nonnull %call4, ptr noundef %out, ptr noundef null) #23
+  %call11 = tail call i32 @EVP_DigestFinal_ex(ptr noundef nonnull %call4, ptr noundef %out, ptr noundef null) #24
   %cmp12 = icmp slt i32 %call11, 1
   br i1 %cmp12, label %if.then14, label %if.end15
 
 if.then14:                                        ; preds = %lor.lhs.false10, %if.end8
-  tail call void @ERR_new() #23
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 5836, ptr noundef nonnull @__func__.ssl_handshake_hash) #23
-  tail call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef nonnull %s, i32 noundef 80, i32 noundef 786691, ptr noundef null) #23
+  tail call void @ERR_new() #24
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 5836, ptr noundef nonnull @__func__.ssl_handshake_hash) #24
+  tail call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef nonnull %s, i32 noundef 80, i32 noundef 786691, ptr noundef null) #24
   br label %err
 
 if.end15:                                         ; preds = %lor.lhs.false10
@@ -13527,7 +13527,7 @@ if.end15:                                         ; preds = %lor.lhs.false10
 err:                                              ; preds = %if.end15, %if.then14, %if.then7, %if.then
   %ctx.0 = phi ptr [ null, %if.then ], [ null, %if.then7 ], [ %call4, %if.then14 ], [ %call4, %if.end15 ]
   %ret.0 = phi i32 [ 0, %if.then ], [ 0, %if.then7 ], [ 0, %if.then14 ], [ 1, %if.end15 ]
-  tail call void @EVP_MD_CTX_free(ptr noundef %ctx.0) #23
+  tail call void @EVP_MD_CTX_free(ptr noundef %ctx.0) #24
   ret i32 %ret.0
 }
 
@@ -13885,7 +13885,7 @@ land.lhs.true:                                    ; preds = %cond.false
   br i1 %switch, label %if.then, label %return
 
 if.then:                                          ; preds = %cond.false, %land.lhs.true
-  %call = tail call i64 @ossl_quic_get_options(ptr noundef nonnull %s) #23
+  %call = tail call i64 @ossl_quic_get_options(ptr noundef nonnull %s) #24
   br label %return
 
 if.end19:                                         ; preds = %cond.false
@@ -13926,7 +13926,7 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %switch, label %if.then, label %cond.false
 
 if.then:                                          ; preds = %land.lhs.true
-  %call = tail call i64 @ossl_quic_set_options(ptr noundef nonnull %s, i64 noundef %op) #23
+  %call = tail call i64 @ossl_quic_set_options(ptr noundef nonnull %s, i64 noundef %op) #24
   br label %return
 
 cond.false:                                       ; preds = %land.lhs.true
@@ -13939,9 +13939,9 @@ if.end19:                                         ; preds = %cond.false
   %or = or i64 %1, %op
   store i64 %or, ptr %options20, align 8
   %incdec.ptr = getelementptr inbounds i8, ptr %options, i64 40
-  call void @OSSL_PARAM_construct_uint64(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp, ptr noundef nonnull @.str.13, ptr noundef nonnull %options20) #23
+  call void @OSSL_PARAM_construct_uint64(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp, ptr noundef nonnull @.str.13, ptr noundef nonnull %options20) #24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %options, ptr noundef nonnull align 8 dereferenceable(40) %tmp, i64 40, i1 false)
-  call void @OSSL_PARAM_construct_end(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp22) #23
+  call void @OSSL_PARAM_construct_end(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp22) #24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %incdec.ptr, ptr noundef nonnull align 8 dereferenceable(40) %tmp22, i64 40, i1 false)
   %rrlmethod = getelementptr inbounds i8, ptr %s, i64 3024
   %2 = load ptr, ptr %rrlmethod, align 8
@@ -13949,7 +13949,7 @@ if.end19:                                         ; preds = %cond.false
   %3 = load ptr, ptr %set_options, align 8
   %rrl = getelementptr inbounds i8, ptr %s, i64 3040
   %4 = load ptr, ptr %rrl, align 8
-  %call25 = call i32 %3(ptr noundef %4, ptr noundef nonnull %options) #23
+  %call25 = call i32 %3(ptr noundef %4, ptr noundef nonnull %options) #24
   %5 = load i64, ptr %options20, align 8
   br label %return
 
@@ -13992,7 +13992,7 @@ land.lhs.true:                                    ; preds = %cond.false
   br i1 %switch, label %if.then, label %return
 
 if.then:                                          ; preds = %cond.false, %land.lhs.true
-  %call = tail call i64 @ossl_quic_clear_options(ptr noundef nonnull %s, i64 noundef %op) #23
+  %call = tail call i64 @ossl_quic_clear_options(ptr noundef nonnull %s, i64 noundef %op) #24
   br label %return
 
 if.end19:                                         ; preds = %cond.false
@@ -14043,7 +14043,7 @@ return:                                           ; preds = %cond.false, %entry,
 ; Function Attrs: nounwind uwtable
 define ptr @OBJ_bsearch_ssl_cipher_id(ptr noundef %key, ptr noundef %base, i32 noundef %num) local_unnamed_addr #0 {
 entry:
-  %call = tail call ptr @OBJ_bsearch_(ptr noundef %key, ptr noundef %base, i32 noundef %num, i32 noundef 80, ptr noundef nonnull @ssl_cipher_id_cmp_BSEARCH_CMP_FN) #23
+  %call = tail call ptr @OBJ_bsearch_(ptr noundef %key, ptr noundef %base, i32 noundef %num, i32 noundef 80, ptr noundef nonnull @ssl_cipher_id_cmp_BSEARCH_CMP_FN) #24
   ret ptr %call
 }
 
@@ -14107,10 +14107,10 @@ ct_extract_tls_extension_scts.exit:               ; preds = %if.then13
   %scts_len.i = getelementptr inbounds i8, ptr %cond1123, i64 2488
   %4 = load i16, ptr %scts_len.i, align 8
   %conv.i = zext i16 %4 to i64
-  %call.i = call ptr @o2i_SCT_LIST(ptr noundef null, ptr noundef nonnull %p.i, i64 noundef %conv.i) #23
+  %call.i = call ptr @o2i_SCT_LIST(ptr noundef null, ptr noundef nonnull %p.i, i64 noundef %conv.i) #24
   %scts5.i = getelementptr inbounds i8, ptr %cond1123, i64 2776
   %call6.i = call fastcc i32 @ct_move_scts(ptr noundef nonnull %scts5.i, ptr noundef %call.i, i32 noundef 1)
-  call void @SCT_LIST_free(ptr noundef %call.i) #23
+  call void @SCT_LIST_free(ptr noundef %call.i) #24
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %p.i)
   %cmp14 = icmp slt i32 %call6.i, 0
   br i1 %cmp14, label %return, label %lor.lhs.false
@@ -14132,17 +14132,17 @@ if.end.i:                                         ; preds = %lor.lhs.false.i
   store ptr %5, ptr %p.i11, align 8
   %sext.i = shl i64 %6, 32
   %conv10.i = ashr exact i64 %sext.i, 32
-  %call.i12 = call ptr @d2i_OCSP_RESPONSE(ptr noundef null, ptr noundef nonnull %p.i11, i64 noundef %conv10.i) #23
+  %call.i12 = call ptr @d2i_OCSP_RESPONSE(ptr noundef null, ptr noundef nonnull %p.i11, i64 noundef %conv10.i) #24
   %cmp11.i = icmp eq ptr %call.i12, null
   br i1 %cmp11.i, label %lor.lhs.false17.critedge, label %if.end14.i
 
 if.end14.i:                                       ; preds = %if.end.i
-  %call15.i = call ptr @OCSP_response_get1_basic(ptr noundef nonnull %call.i12) #23
+  %call15.i = call ptr @OCSP_response_get1_basic(ptr noundef nonnull %call.i12) #24
   %cmp16.i = icmp eq ptr %call15.i, null
   br i1 %cmp16.i, label %lor.lhs.false17.critedge, label %for.cond.preheader.i
 
 for.cond.preheader.i:                             ; preds = %if.end14.i
-  %call2015.i = call i32 @OCSP_resp_count(ptr noundef nonnull %call15.i) #23
+  %call2015.i = call i32 @OCSP_resp_count(ptr noundef nonnull %call15.i) #24
   %cmp2116.i = icmp sgt i32 %call2015.i, 0
   br i1 %cmp2116.i, label %for.body.lr.ph.i, label %lor.lhs.false17.critedge
 
@@ -14154,12 +14154,12 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
   %scts_extracted.019.i = phi i32 [ 0, %for.body.lr.ph.i ], [ %scts_extracted.1.i, %for.inc.i ]
   %i.018.i = phi i32 [ 0, %for.body.lr.ph.i ], [ %inc.i, %for.inc.i ]
   %scts.017.i = phi ptr [ null, %for.body.lr.ph.i ], [ %scts.1.i, %for.inc.i ]
-  %call23.i = call ptr @OCSP_resp_get0(ptr noundef nonnull %call15.i, i32 noundef %i.018.i) #23
+  %call23.i = call ptr @OCSP_resp_get0(ptr noundef nonnull %call15.i, i32 noundef %i.018.i) #24
   %cmp24.i = icmp eq ptr %call23.i, null
   br i1 %cmp24.i, label %for.inc.i, label %if.end27.i
 
 if.end27.i:                                       ; preds = %for.body.i
-  %call28.i = call ptr @OCSP_SINGLERESP_get1_ext_d2i(ptr noundef nonnull %call23.i, i32 noundef 954, ptr noundef null, ptr noundef null) #23
+  %call28.i = call ptr @OCSP_SINGLERESP_get1_ext_d2i(ptr noundef nonnull %call23.i, i32 noundef 954, ptr noundef null, ptr noundef null) #24
   %call30.i = call fastcc i32 @ct_move_scts(ptr noundef nonnull %scts29.i, ptr noundef %call28.i, i32 noundef 3)
   %cmp31.i = icmp slt i32 %call30.i, 0
   br i1 %cmp31.i, label %ct_extract_ocsp_response_scts.exit.loopexit, label %for.inc.i
@@ -14168,7 +14168,7 @@ for.inc.i:                                        ; preds = %if.end27.i, %for.bo
   %scts.1.i = phi ptr [ %scts.017.i, %for.body.i ], [ %call28.i, %if.end27.i ]
   %scts_extracted.1.i = phi i32 [ %scts_extracted.019.i, %for.body.i ], [ %call30.i, %if.end27.i ]
   %inc.i = add nuw nsw i32 %i.018.i, 1
-  %call20.i = call i32 @OCSP_resp_count(ptr noundef nonnull %call15.i) #23
+  %call20.i = call i32 @OCSP_resp_count(ptr noundef nonnull %call15.i) #24
   %cmp21.i = icmp slt i32 %inc.i, %call20.i
   br i1 %cmp21.i, label %for.body.i, label %ct_extract_ocsp_response_scts.exit.loopexit, !llvm.loop !22
 
@@ -14176,18 +14176,18 @@ ct_extract_ocsp_response_scts.exit.loopexit:      ; preds = %for.inc.i, %if.end2
   %scts.2.i.ph = phi ptr [ %call28.i, %if.end27.i ], [ %scts.1.i, %for.inc.i ]
   %scts_extracted.2.i.ph = phi i32 [ %call30.i, %if.end27.i ], [ %scts_extracted.1.i, %for.inc.i ]
   %7 = icmp slt i32 %scts_extracted.2.i.ph, 0
-  call void @SCT_LIST_free(ptr noundef %scts.2.i.ph) #23
-  call void @OCSP_BASICRESP_free(ptr noundef nonnull %call15.i) #23
-  call void @OCSP_RESPONSE_free(ptr noundef nonnull %call.i12) #23
+  call void @SCT_LIST_free(ptr noundef %scts.2.i.ph) #24
+  call void @OCSP_BASICRESP_free(ptr noundef nonnull %call15.i) #24
+  call void @OCSP_RESPONSE_free(ptr noundef nonnull %call.i12) #24
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %p.i11)
   br i1 %7, label %return, label %lor.lhs.false17
 
 lor.lhs.false17.critedge:                         ; preds = %for.cond.preheader.i, %if.end14.i, %if.end.i, %lor.lhs.false.i, %lor.lhs.false
   %br.0.i.ph = phi ptr [ %call15.i, %for.cond.preheader.i ], [ null, %if.end14.i ], [ null, %if.end.i ], [ null, %lor.lhs.false.i ], [ null, %lor.lhs.false ]
   %rsp.0.i.ph = phi ptr [ %call.i12, %for.cond.preheader.i ], [ %call.i12, %if.end14.i ], [ null, %if.end.i ], [ null, %lor.lhs.false.i ], [ null, %lor.lhs.false ]
-  call void @SCT_LIST_free(ptr noundef null) #23
-  call void @OCSP_BASICRESP_free(ptr noundef %br.0.i.ph) #23
-  call void @OCSP_RESPONSE_free(ptr noundef %rsp.0.i.ph) #23
+  call void @SCT_LIST_free(ptr noundef null) #24
+  call void @OCSP_BASICRESP_free(ptr noundef %br.0.i.ph) #24
+  call void @OCSP_RESPONSE_free(ptr noundef %rsp.0.i.ph) #24
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %p.i11)
   br label %lor.lhs.false17
 
@@ -14204,10 +14204,10 @@ cond.end.i:                                       ; preds = %lor.lhs.false17
   br i1 %cmp2.not.i, label %if.end21, label %ct_extract_x509v3_extension_scts.exit
 
 ct_extract_x509v3_extension_scts.exit:            ; preds = %cond.end.i
-  %call.i15 = call ptr @X509_get_ext_d2i(ptr noundef nonnull %9, i32 noundef 951, ptr noundef null, ptr noundef null) #23
+  %call.i15 = call ptr @X509_get_ext_d2i(ptr noundef nonnull %9, i32 noundef 951, ptr noundef null, ptr noundef null) #24
   %scts3.i = getelementptr inbounds i8, ptr %cond1123, i64 2776
   %call4.i = call fastcc i32 @ct_move_scts(ptr noundef nonnull %scts3.i, ptr noundef %call.i15, i32 noundef 2)
-  call void @SCT_LIST_free(ptr noundef %call.i15) #23
+  call void @SCT_LIST_free(ptr noundef %call.i15) #24
   %cmp19 = icmp slt i32 %call4.i, 0
   br i1 %cmp19, label %return, label %if.end21
 
@@ -14234,14 +14234,14 @@ entry:
   br i1 %cmp.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %call = tail call i32 @SSL_CTX_has_client_custom_ext(ptr noundef %ctx, i32 noundef 18) #23
+  %call = tail call i32 @SSL_CTX_has_client_custom_ext(ptr noundef %ctx, i32 noundef 18) #24
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %land.lhs.true
-  tail call void @ERR_new() #23
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 6290, ptr noundef nonnull @__func__.SSL_CTX_set_ct_validation_callback) #23
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 206, ptr noundef null) #23
+  tail call void @ERR_new() #24
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 6290, ptr noundef nonnull @__func__.SSL_CTX_set_ct_validation_callback) #24
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 206, ptr noundef null) #24
   br label %return
 
 if.end:                                           ; preds = %land.lhs.true, %entry
@@ -14329,14 +14329,14 @@ lor.lhs.false7:                                   ; preds = %lor.lhs.false5
   br i1 %cmp8, label %return, label %lor.lhs.false9
 
 lor.lhs.false9:                                   ; preds = %lor.lhs.false7
-  %call11 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %4) #23
+  %call11 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %4) #24
   %cmp12 = icmp slt i32 %call11, 2
   br i1 %cmp12, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %lor.lhs.false9
   %trecs = getelementptr inbounds i8, ptr %s, i64 1184
   %5 = load ptr, ptr %trecs, align 8
-  %call.i = tail call i32 @OPENSSL_sk_num(ptr noundef %5) #23
+  %call.i = tail call i32 @OPENSSL_sk_num(ptr noundef %5) #24
   %cmp15 = icmp sgt i32 %call.i, 0
   br i1 %cmp15, label %land.lhs.true16, label %if.end20
 
@@ -14358,61 +14358,61 @@ if.end20:                                         ; preds = %if.then18, %land.lh
   %10 = load ptr, ptr %9, align 8
   %propq = getelementptr inbounds i8, ptr %9, i64 1096
   %11 = load ptr, ptr %propq, align 8
-  %call24 = tail call ptr @CT_POLICY_EVAL_CTX_new_ex(ptr noundef %10, ptr noundef %11) #23
+  %call24 = tail call ptr @CT_POLICY_EVAL_CTX_new_ex(ptr noundef %10, ptr noundef %11) #24
   %cmp25 = icmp eq ptr %call24, null
   br i1 %cmp25, label %if.then27, label %if.end28
 
 if.then27:                                        ; preds = %if.end20
-  tail call void @ERR_new() #23
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 6354, ptr noundef nonnull @__func__.ssl_validate_ct) #23
-  tail call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef nonnull %s, i32 noundef 80, i32 noundef 524338, ptr noundef null) #23
+  tail call void @ERR_new() #24
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 6354, ptr noundef nonnull @__func__.ssl_validate_ct) #24
+  tail call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef nonnull %s, i32 noundef 80, i32 noundef 524338, ptr noundef null) #24
   br label %end.thread
 
 if.end28:                                         ; preds = %if.end20
   %12 = load ptr, ptr %verified_chain, align 8
-  %call31 = tail call ptr @OPENSSL_sk_value(ptr noundef %12, i32 noundef 1) #23
-  %call32 = tail call i32 @CT_POLICY_EVAL_CTX_set1_cert(ptr noundef nonnull %call24, ptr noundef nonnull %1) #23
-  %call33 = tail call i32 @CT_POLICY_EVAL_CTX_set1_issuer(ptr noundef nonnull %call24, ptr noundef %call31) #23
+  %call31 = tail call ptr @OPENSSL_sk_value(ptr noundef %12, i32 noundef 1) #24
+  %call32 = tail call i32 @CT_POLICY_EVAL_CTX_set1_cert(ptr noundef nonnull %call24, ptr noundef nonnull %1) #24
+  %call33 = tail call i32 @CT_POLICY_EVAL_CTX_set1_issuer(ptr noundef nonnull %call24, ptr noundef %call31) #24
   %13 = load ptr, ptr %ctx21, align 8
   %ctlog_store = getelementptr inbounds i8, ptr %13, i64 464
   %14 = load ptr, ptr %ctlog_store, align 8
-  tail call void @CT_POLICY_EVAL_CTX_set_shared_CTLOG_STORE(ptr noundef nonnull %call24, ptr noundef %14) #23
+  tail call void @CT_POLICY_EVAL_CTX_set_shared_CTLOG_STORE(ptr noundef nonnull %call24, ptr noundef %14) #24
   %15 = load ptr, ptr %session, align 8
-  %call37 = tail call i64 @SSL_SESSION_get_time(ptr noundef %15) #23
+  %call37 = tail call i64 @SSL_SESSION_get_time(ptr noundef %15) #24
   %mul = mul i64 %call37, 1000
-  tail call void @CT_POLICY_EVAL_CTX_set_time(ptr noundef nonnull %call24, i64 noundef %mul) #23
+  tail call void @CT_POLICY_EVAL_CTX_set_time(ptr noundef nonnull %call24, i64 noundef %mul) #24
   %call39 = tail call ptr @SSL_get0_peer_scts(ptr noundef nonnull %s)
-  %call40 = tail call i32 @SCT_LIST_validate(ptr noundef %call39, ptr noundef nonnull %call24) #23
+  %call40 = tail call i32 @SCT_LIST_validate(ptr noundef %call39, ptr noundef nonnull %call24) #24
   %cmp41 = icmp slt i32 %call40, 0
   br i1 %cmp41, label %if.then43, label %if.end44
 
 if.then43:                                        ; preds = %if.end28
-  tail call void @ERR_new() #23
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 6383, ptr noundef nonnull @__func__.ssl_validate_ct) #23
-  tail call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef nonnull %s, i32 noundef 40, i32 noundef 208, ptr noundef null) #23
+  tail call void @ERR_new() #24
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 6383, ptr noundef nonnull @__func__.ssl_validate_ct) #24
+  tail call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef nonnull %s, i32 noundef 40, i32 noundef 208, ptr noundef null) #24
   br label %end.thread
 
 if.end44:                                         ; preds = %if.end28
   %16 = load ptr, ptr %ct_validation_callback, align 8
   %ct_validation_callback_arg = getelementptr inbounds i8, ptr %s, i64 2768
   %17 = load ptr, ptr %ct_validation_callback_arg, align 8
-  %call46 = tail call i32 %16(ptr noundef nonnull %call24, ptr noundef %call39, ptr noundef %17) #23
+  %call46 = tail call i32 %16(ptr noundef nonnull %call24, ptr noundef %call39, ptr noundef %17) #24
   %tobool.not = icmp slt i32 %call46, 1
   br i1 %tobool.not, label %if.then51, label %end
 
 if.then51:                                        ; preds = %if.end44
-  tail call void @ERR_new() #23
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 6391, ptr noundef nonnull @__func__.ssl_validate_ct) #23
-  tail call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef nonnull %s, i32 noundef 40, i32 noundef 234, ptr noundef null) #23
+  tail call void @ERR_new() #24
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 6391, ptr noundef nonnull @__func__.ssl_validate_ct) #24
+  tail call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef nonnull %s, i32 noundef 40, i32 noundef 234, ptr noundef null) #24
   br label %end.thread
 
 end.thread:                                       ; preds = %if.then27, %if.then43, %if.then51
-  tail call void @CT_POLICY_EVAL_CTX_free(ptr noundef %call24) #23
+  tail call void @CT_POLICY_EVAL_CTX_free(ptr noundef %call24) #24
   store i64 71, ptr %verify_result, align 8
   br label %return
 
 end:                                              ; preds = %if.end44
-  tail call void @CT_POLICY_EVAL_CTX_free(ptr noundef nonnull %call24) #23
+  tail call void @CT_POLICY_EVAL_CTX_free(ptr noundef nonnull %call24) #24
   br label %return
 
 return:                                           ; preds = %end, %entry, %end.thread, %if.then18, %cond.end, %lor.lhs.false5, %lor.lhs.false7, %lor.lhs.false9
@@ -14445,20 +14445,20 @@ entry:
   ]
 
 sw.default:                                       ; preds = %entry
-  tail call void @ERR_new() #23
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 6419, ptr noundef nonnull @__func__.SSL_CTX_enable_ct) #23
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 212, ptr noundef null) #23
+  tail call void @ERR_new() #24
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 6419, ptr noundef nonnull @__func__.SSL_CTX_enable_ct) #24
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 212, ptr noundef null) #24
   br label %return
 
 sw.bb:                                            ; preds = %entry
-  %call.i = tail call i32 @SSL_CTX_has_client_custom_ext(ptr noundef %ctx, i32 noundef 18) #23
+  %call.i = tail call i32 @SSL_CTX_has_client_custom_ext(ptr noundef %ctx, i32 noundef 18) #24
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %sw.bb
-  tail call void @ERR_new() #23
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 6290, ptr noundef nonnull @__func__.SSL_CTX_set_ct_validation_callback) #23
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 206, ptr noundef null) #23
+  tail call void @ERR_new() #24
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 6290, ptr noundef nonnull @__func__.SSL_CTX_set_ct_validation_callback) #24
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 206, ptr noundef null) #24
   br label %return
 
 if.end.i:                                         ; preds = %sw.bb
@@ -14469,14 +14469,14 @@ if.end.i:                                         ; preds = %sw.bb
   br label %return
 
 sw.bb1:                                           ; preds = %entry
-  %call.i2 = tail call i32 @SSL_CTX_has_client_custom_ext(ptr noundef %ctx, i32 noundef 18) #23
+  %call.i2 = tail call i32 @SSL_CTX_has_client_custom_ext(ptr noundef %ctx, i32 noundef 18) #24
   %tobool.not.i3 = icmp eq i32 %call.i2, 0
   br i1 %tobool.not.i3, label %if.end.i6, label %if.then.i4
 
 if.then.i4:                                       ; preds = %sw.bb1
-  tail call void @ERR_new() #23
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 6290, ptr noundef nonnull @__func__.SSL_CTX_set_ct_validation_callback) #23
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 206, ptr noundef null) #23
+  tail call void @ERR_new() #24
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 6290, ptr noundef nonnull @__func__.SSL_CTX_set_ct_validation_callback) #24
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 206, ptr noundef null) #24
   br label %return
 
 if.end.i6:                                        ; preds = %sw.bb1
@@ -14504,7 +14504,7 @@ entry:
   br i1 %cmp.not, label %for.end, label %cond.end
 
 cond.end:                                         ; preds = %entry
-  %call1 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %scts) #23
+  %call1 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %scts) #24
   %cmp25 = icmp sgt i32 %call1, 0
   br i1 %cmp25, label %for.body, label %for.end
 
@@ -14515,15 +14515,15 @@ for.cond:                                         ; preds = %for.body
 
 for.body:                                         ; preds = %cond.end, %for.cond
   %i.06 = phi i32 [ %inc, %for.cond ], [ 0, %cond.end ]
-  %call4 = tail call ptr @OPENSSL_sk_value(ptr noundef nonnull %scts, i32 noundef %i.06) #23
-  %call5 = tail call i32 @SCT_get_validation_status(ptr noundef %call4) #23
+  %call4 = tail call ptr @OPENSSL_sk_value(ptr noundef nonnull %scts, i32 noundef %i.06) #24
+  %call5 = tail call i32 @SCT_get_validation_status(ptr noundef %call4) #24
   %cmp6 = icmp eq i32 %call5, 2
   br i1 %cmp6, label %return, label %for.cond
 
 for.end:                                          ; preds = %for.cond, %entry, %cond.end
-  tail call void @ERR_new() #23
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 6243, ptr noundef nonnull @__func__.ct_strict) #23
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 216, ptr noundef null) #23
+  tail call void @ERR_new() #24
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 6243, ptr noundef nonnull @__func__.ct_strict) #24
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 216, ptr noundef null) #24
   br label %return
 
 return:                                           ; preds = %for.body, %for.end
@@ -14540,9 +14540,9 @@ entry:
   ]
 
 sw.default:                                       ; preds = %entry
-  tail call void @ERR_new() #23
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 6432, ptr noundef nonnull @__func__.SSL_enable_ct) #23
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 212, ptr noundef null) #23
+  tail call void @ERR_new() #24
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 6432, ptr noundef nonnull @__func__.SSL_enable_ct) #24
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 212, ptr noundef null) #24
   br label %return
 
 sw.bb:                                            ; preds = %entry
@@ -14563,7 +14563,7 @@ define i32 @SSL_CTX_set_default_ctlog_list_file(ptr nocapture noundef readonly %
 entry:
   %ctlog_store = getelementptr inbounds i8, ptr %ctx, i64 464
   %0 = load ptr, ptr %ctlog_store, align 8
-  %call = tail call i32 @CTLOG_STORE_load_default_file(ptr noundef %0) #23
+  %call = tail call i32 @CTLOG_STORE_load_default_file(ptr noundef %0) #24
   ret i32 %call
 }
 
@@ -14574,7 +14574,7 @@ define i32 @SSL_CTX_set_ctlog_list_file(ptr nocapture noundef readonly %ctx, ptr
 entry:
   %ctlog_store = getelementptr inbounds i8, ptr %ctx, i64 464
   %0 = load ptr, ptr %ctlog_store, align 8
-  %call = tail call i32 @CTLOG_STORE_load_file(ptr noundef %0, ptr noundef %path) #23
+  %call = tail call i32 @CTLOG_STORE_load_file(ptr noundef %0, ptr noundef %path) #24
   ret i32 %call
 }
 
@@ -14585,7 +14585,7 @@ define void @SSL_CTX_set0_ctlog_store(ptr nocapture noundef %ctx, ptr noundef %l
 entry:
   %ctlog_store = getelementptr inbounds i8, ptr %ctx, i64 464
   %0 = load ptr, ptr %ctlog_store, align 8
-  tail call void @CTLOG_STORE_free(ptr noundef %0) #23
+  tail call void @CTLOG_STORE_free(ptr noundef %0) #24
   store ptr %logs, ptr %ctlog_store, align 8
   ret void
 }
@@ -14925,7 +14925,7 @@ if.then27:                                        ; preds = %for.cond.preheader,
 
 if.end28:                                         ; preds = %for.end
   %mul = shl i64 %spec.select, 2
-  %call = tail call noalias ptr @CRYPTO_malloc(i64 noundef %mul, ptr noundef nonnull @.str, i32 noundef 6573) #23
+  %call = tail call noalias ptr @CRYPTO_malloc(i64 noundef %mul, ptr noundef nonnull @.str, i32 noundef 6573) #24
   %cmp29 = icmp eq ptr %call, null
   br i1 %cmp29, label %return, label %for.cond32.preheader
 
@@ -14973,7 +14973,7 @@ for.end51:                                        ; preds = %for.inc49, %for.con
   br label %return
 
 err:                                              ; preds = %if.then42
-  tail call void @CRYPTO_free(ptr noundef nonnull %call, ptr noundef nonnull @.str, i32 noundef 6587) #23
+  tail call void @CRYPTO_free(ptr noundef nonnull %call, ptr noundef nonnull @.str, i32 noundef 6587) #24
   br label %return
 
 return:                                           ; preds = %cond.false, %entry, %if.end28, %if.end, %cond.end10, %err, %for.end51, %if.then27
@@ -15187,7 +15187,7 @@ if.end:                                           ; preds = %cond.false
   %2 = load ptr, ptr %free_buffers, align 8
   %rrl = getelementptr inbounds i8, ptr %ssl, i64 3040
   %3 = load ptr, ptr %rrl, align 8
-  %call = tail call i32 %2(ptr noundef %3) #23
+  %call = tail call i32 %2(ptr noundef %3) #24
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %land.rhs
 
@@ -15198,7 +15198,7 @@ land.rhs:                                         ; preds = %if.end
   %5 = load ptr, ptr %free_buffers7, align 8
   %wrl = getelementptr inbounds i8, ptr %ssl, i64 3048
   %6 = load ptr, ptr %wrl, align 8
-  %call8 = tail call i32 %5(ptr noundef %6) #23
+  %call8 = tail call i32 %5(ptr noundef %6) #24
   %tobool9 = icmp ne i32 %call8, 0
   %7 = zext i1 %tobool9 to i32
   br label %return
@@ -15234,7 +15234,7 @@ if.end19:                                         ; preds = %cond.false
   %3 = load ptr, ptr %alloc_buffers, align 8
   %rrl = getelementptr inbounds i8, ptr %ssl, i64 3040
   %4 = load ptr, ptr %rrl, align 8
-  %call = tail call i32 %3(ptr noundef %4) #23
+  %call = tail call i32 %3(ptr noundef %4) #24
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %land.rhs
 
@@ -15245,7 +15245,7 @@ land.rhs:                                         ; preds = %if.end19
   %6 = load ptr, ptr %alloc_buffers20, align 8
   %wrl = getelementptr inbounds i8, ptr %ssl, i64 3048
   %7 = load ptr, ptr %wrl, align 8
-  %call21 = tail call i32 %6(ptr noundef %7) #23
+  %call21 = tail call i32 %6(ptr noundef %7) #24
   %tobool22 = icmp ne i32 %call21, 0
   br label %return
 
@@ -15278,9 +15278,9 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  tail call void @ERR_new() #23
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 6755, ptr noundef nonnull @__func__.ssl_log_rsa_client_key_exchange) #23
-  tail call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef %sc, i32 noundef 80, i32 noundef 786691, ptr noundef null) #23
+  tail call void @ERR_new() #24
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 6755, ptr noundef nonnull @__func__.ssl_log_rsa_client_key_exchange) #24
+  tail call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef %sc, i32 noundef 80, i32 noundef 786691, ptr noundef null) #24
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -15303,17 +15303,17 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %prefix) #24
+  %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %prefix) #25
   %reass.add = add i64 %parameter_2_len, %parameter_1_len
   %reass.mul = shl i64 %reass.add, 1
   %add2 = add i64 %reass.mul, 3
   %add3 = add i64 %add2, %call
-  %call4 = tail call noalias ptr @CRYPTO_malloc(i64 noundef %add3, ptr noundef nonnull @.str, i32 noundef 6723) #23
+  %call4 = tail call noalias ptr @CRYPTO_malloc(i64 noundef %add3, ptr noundef nonnull @.str, i32 noundef 6723) #24
   %cmp5 = icmp eq ptr %call4, null
   br i1 %cmp5, label %return, label %if.end7
 
 if.end7:                                          ; preds = %if.end
-  %call8 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %call4, ptr noundef nonnull dereferenceable(1) %prefix) #23
+  %call8 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %call4, ptr noundef nonnull dereferenceable(1) %prefix) #24
   %add.ptr = getelementptr inbounds i8, ptr %call4, i64 %call
   %incdec.ptr = getelementptr inbounds i8, ptr %add.ptr, i64 1
   store i8 32, ptr %add.ptr, align 1
@@ -15326,7 +15326,7 @@ for.body:                                         ; preds = %if.end7, %for.body
   %arrayidx = getelementptr inbounds i8, ptr %parameter_1, i64 %i.024
   %2 = load i8, ptr %arrayidx, align 1
   %conv = zext i8 %2 to i32
-  %call10 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %cursor.023, ptr noundef nonnull dereferenceable(1) @.str.15, i32 noundef %conv) #23
+  %call10 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %cursor.023, ptr noundef nonnull dereferenceable(1) @.str.15, i32 noundef %conv) #24
   %add.ptr11 = getelementptr inbounds i8, ptr %cursor.023, i64 2
   %inc = add nuw i64 %i.024, 1
   %exitcond.not = icmp eq i64 %inc, %parameter_1_len
@@ -15345,7 +15345,7 @@ for.body16:                                       ; preds = %for.end, %for.body1
   %arrayidx17 = getelementptr inbounds i8, ptr %parameter_2, i64 %i.127
   %3 = load i8, ptr %arrayidx17, align 1
   %conv18 = zext i8 %3 to i32
-  %call19 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %cursor.126, ptr noundef nonnull dereferenceable(1) @.str.15, i32 noundef %conv18) #23
+  %call19 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %cursor.126, ptr noundef nonnull dereferenceable(1) @.str.15, i32 noundef %conv18) #24
   %add.ptr20 = getelementptr inbounds i8, ptr %cursor.126, i64 2
   %inc22 = add nuw i64 %i.127, 1
   %exitcond29.not = icmp eq i64 %inc22, %parameter_2_len
@@ -15355,8 +15355,8 @@ for.end23:                                        ; preds = %for.body16, %for.en
   %cursor.1.lcssa = phi ptr [ %incdec.ptr12, %for.end ], [ %add.ptr20, %for.body16 ]
   store i8 0, ptr %cursor.1.lcssa, align 1
   %4 = load ptr, ptr %keylog_callback, align 8
-  tail call void %4(ptr noundef %sc, ptr noundef nonnull %call4) #23
-  tail call void @CRYPTO_clear_free(ptr noundef nonnull %call4, i64 noundef %add3, ptr noundef nonnull @.str, i32 noundef 6743) #23
+  tail call void %4(ptr noundef %sc, ptr noundef nonnull %call4) #24
+  tail call void @CRYPTO_clear_free(ptr noundef nonnull %call4, i64 noundef %add3, ptr noundef nonnull @.str, i32 noundef 6743) #24
   br label %return
 
 return:                                           ; preds = %if.end, %entry, %for.end23
@@ -15382,9 +15382,9 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  tail call void @ERR_new() #23
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 6790, ptr noundef nonnull @__func__.ssl_cache_cipherlist) #23
-  tail call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef %s, i32 noundef 47, i32 noundef 183, ptr noundef null) #23
+  tail call void @ERR_new() #24
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 6790, ptr noundef nonnull @__func__.ssl_cache_cipherlist) #24
+  tail call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef %s, i32 noundef 47, i32 noundef 183, ptr noundef null) #24
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -15394,15 +15394,15 @@ if.end:                                           ; preds = %entry
   br i1 %cmp2.not, label %if.end5, label %if.then4
 
 if.then4:                                         ; preds = %if.end
-  tail call void @ERR_new() #23
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 6795, ptr noundef nonnull @__func__.ssl_cache_cipherlist) #23
-  tail call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef %s, i32 noundef 50, i32 noundef 151, ptr noundef null) #23
+  tail call void @ERR_new() #24
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 6795, ptr noundef nonnull @__func__.ssl_cache_cipherlist) #24
+  tail call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef %s, i32 noundef 50, i32 noundef 151, ptr noundef null) #24
   br label %return
 
 if.end5:                                          ; preds = %if.end
   %ciphers_raw = getelementptr inbounds i8, ptr %s, i64 808
   %1 = load ptr, ptr %ciphers_raw, align 8
-  tail call void @CRYPTO_free(ptr noundef %1, ptr noundef nonnull @.str, i32 noundef 6799) #23
+  tail call void @CRYPTO_free(ptr noundef %1, ptr noundef nonnull @.str, i32 noundef 6799) #24
   %ciphers_rawlen = getelementptr inbounds i8, ptr %s, i64 816
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ciphers_raw, i8 0, i64 16, i1 false)
   br i1 %tobool.not, label %if.else, label %if.then12
@@ -15412,15 +15412,15 @@ if.then12:                                        ; preds = %if.end5
   %div = udiv i64 %cipher_suites.val, 3
   %sslv2ciphers.sroa.0.0.copyload = load ptr, ptr %cipher_suites, align 8
   %mul = shl nuw i64 %div, 1
-  %call15 = tail call noalias ptr @CRYPTO_malloc(i64 noundef %mul, ptr noundef nonnull @.str, i32 noundef 6816) #23
+  %call15 = tail call noalias ptr @CRYPTO_malloc(i64 noundef %mul, ptr noundef nonnull @.str, i32 noundef 6816) #24
   store ptr %call15, ptr %ciphers_raw, align 8
   %cmp19 = icmp eq ptr %call15, null
   br i1 %cmp19, label %if.then21, label %if.end22
 
 if.then21:                                        ; preds = %if.then12
-  tail call void @ERR_new() #23
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 6819, ptr noundef nonnull @__func__.ssl_cache_cipherlist) #23
-  tail call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef nonnull %s, i32 noundef 80, i32 noundef 524303, ptr noundef null) #23
+  tail call void @ERR_new() #24
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 6819, ptr noundef nonnull @__func__.ssl_cache_cipherlist) #24
+  tail call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef nonnull %s, i32 noundef 80, i32 noundef 524303, ptr noundef null) #24
   br label %return
 
 if.end22:                                         ; preds = %if.then12
@@ -15446,11 +15446,11 @@ land.lhs.true38:                                  ; preds = %lor.lhs.false
   br i1 %cmp.i.i, label %if.then41, label %for.inc
 
 if.then41:                                        ; preds = %land.lhs.true38, %land.lhs.true
-  tail call void @ERR_new() #23
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 6831, ptr noundef nonnull @__func__.ssl_cache_cipherlist) #23
-  tail call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef %s, i32 noundef 50, i32 noundef 240, ptr noundef null) #23
+  tail call void @ERR_new() #24
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 6831, ptr noundef nonnull @__func__.ssl_cache_cipherlist) #24
+  tail call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef %s, i32 noundef 50, i32 noundef 240, ptr noundef null) #24
   %4 = load ptr, ptr %ciphers_raw, align 8
-  tail call void @CRYPTO_free(ptr noundef %4, ptr noundef nonnull @.str, i32 noundef 6832) #23
+  tail call void @CRYPTO_free(ptr noundef %4, ptr noundef nonnull @.str, i32 noundef 6832) #24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ciphers_raw, i8 0, i64 16, i1 false)
   br label %return
 
@@ -15470,7 +15470,7 @@ for.inc:                                          ; preds = %land.lhs.true38, %i
   br i1 %cmp27.not, label %return, label %lor.lhs.false, !llvm.loop !31
 
 if.else:                                          ; preds = %if.end5
-  tail call void @CRYPTO_free(ptr noundef null, ptr noundef nonnull @.str.16, i32 noundef 454) #23
+  tail call void @CRYPTO_free(ptr noundef null, ptr noundef nonnull @.str.16, i32 noundef 454) #24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ciphers_raw, i8 0, i64 16, i1 false)
   %pkt.val.i36 = load i64, ptr %0, align 8
   %cmp.i37 = icmp eq i64 %pkt.val.i36, 0
@@ -15478,7 +15478,7 @@ if.else:                                          ; preds = %if.end5
 
 if.end.i38:                                       ; preds = %if.else
   %7 = load ptr, ptr %cipher_suites, align 8
-  %call1.i = tail call noalias ptr @CRYPTO_memdup(ptr noundef %7, i64 noundef %pkt.val.i36, ptr noundef nonnull @.str.16, i32 noundef 463) #23
+  %call1.i = tail call noalias ptr @CRYPTO_memdup(ptr noundef %7, i64 noundef %pkt.val.i36, ptr noundef nonnull @.str.16, i32 noundef 463) #24
   store ptr %call1.i, ptr %ciphers_raw, align 8
   %cmp2.i = icmp eq ptr %call1.i, null
   br i1 %cmp2.i, label %if.then67, label %if.end4.i
@@ -15488,9 +15488,9 @@ if.end4.i:                                        ; preds = %if.end.i38
   br label %return
 
 if.then67:                                        ; preds = %if.end.i38
-  tail call void @ERR_new() #23
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 6842, ptr noundef nonnull @__func__.ssl_cache_cipherlist) #23
-  tail call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef nonnull %s, i32 noundef 80, i32 noundef 786691, ptr noundef null) #23
+  tail call void @ERR_new() #24
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 6842, ptr noundef nonnull @__func__.ssl_cache_cipherlist) #24
+  tail call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef nonnull %s, i32 noundef 80, i32 noundef 786691, ptr noundef null) #24
   br label %return
 
 return:                                           ; preds = %for.inc, %if.end22, %if.else, %if.end4.i, %if.then67, %if.then41, %if.then21, %if.then4, %if.then
@@ -15547,17 +15547,17 @@ entry:
 
 if.then:                                          ; preds = %entry
   %tobool1.not = icmp eq i32 %fatal, 0
-  tail call void @ERR_new() #23
+  tail call void @ERR_new() #24
   br i1 %tobool1.not, label %if.else, label %if.then2
 
 if.then2:                                         ; preds = %if.then
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 6879, ptr noundef nonnull @__func__.ossl_bytes_to_cipher_list) #23
-  tail call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef %s, i32 noundef 47, i32 noundef 183, ptr noundef null) #23
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 6879, ptr noundef nonnull @__func__.ossl_bytes_to_cipher_list) #24
+  tail call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef %s, i32 noundef 47, i32 noundef 183, ptr noundef null) #24
   br label %return
 
 if.else:                                          ; preds = %if.then
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 6881, ptr noundef nonnull @__func__.ossl_bytes_to_cipher_list) #23
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 183, ptr noundef null) #23
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 6881, ptr noundef nonnull @__func__.ossl_bytes_to_cipher_list) #24
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 183, ptr noundef null) #24
   br label %return
 
 if.end3:                                          ; preds = %entry
@@ -15568,22 +15568,22 @@ if.end3:                                          ; preds = %entry
 
 if.then7:                                         ; preds = %if.end3
   %tobool8.not = icmp eq i32 %fatal, 0
-  tail call void @ERR_new() #23
+  tail call void @ERR_new() #24
   br i1 %tobool8.not, label %if.else10, label %if.then9
 
 if.then9:                                         ; preds = %if.then7
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 6888, ptr noundef nonnull @__func__.ossl_bytes_to_cipher_list) #23
-  tail call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef %s, i32 noundef 50, i32 noundef 151, ptr noundef null) #23
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 6888, ptr noundef nonnull @__func__.ossl_bytes_to_cipher_list) #24
+  tail call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef %s, i32 noundef 50, i32 noundef 151, ptr noundef null) #24
   br label %return
 
 if.else10:                                        ; preds = %if.then7
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 6890, ptr noundef nonnull @__func__.ossl_bytes_to_cipher_list) #23
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 151, ptr noundef null) #23
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 6890, ptr noundef nonnull @__func__.ossl_bytes_to_cipher_list) #24
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 151, ptr noundef null) #24
   br label %return
 
 if.end12:                                         ; preds = %if.end3
-  %call13 = tail call ptr @OPENSSL_sk_new_null() #23
-  %call14 = tail call ptr @OPENSSL_sk_new_null() #23
+  %call13 = tail call ptr @OPENSSL_sk_new_null() #24
+  %call14 = tail call ptr @OPENSSL_sk_new_null() #24
   %cmp15 = icmp eq ptr %call13, null
   %cmp17 = icmp eq ptr %call14, null
   %or.cond = select i1 %cmp15, i1 true, i1 %cmp17
@@ -15607,7 +15607,7 @@ while.body.us:                                    ; preds = %while.body.lr.ph, %
   store ptr %add.ptr.i.i.us, ptr %cipher_suites, align 8
   %sub.i.i.us = sub i64 %pkt.val.i.i38.us, %cond
   store i64 %sub.i.i.us, ptr %0, align 8
-  %call38.us = call ptr @ssl_get_cipher_by_char(ptr noundef %s, ptr noundef nonnull %cond37, i32 noundef 1) #23
+  %call38.us = call ptr @ssl_get_cipher_by_char(ptr noundef %s, ptr noundef nonnull %cond37, i32 noundef 1) #24
   %cmp39.not.us = icmp eq ptr %call38.us, null
   br i1 %cmp39.not.us, label %if.end62.us, label %if.then41.us
 
@@ -15617,7 +15617,7 @@ if.then41.us:                                     ; preds = %while.body.us
   br i1 %tobool42.not.us, label %land.lhs.true51.us, label %land.lhs.true43.us
 
 land.lhs.true43.us:                               ; preds = %if.then41.us
-  %call46.us = call i32 @OPENSSL_sk_push(ptr noundef %call13, ptr noundef nonnull %call38.us) #23
+  %call46.us = call i32 @OPENSSL_sk_push(ptr noundef %call13, ptr noundef nonnull %call38.us) #24
   %tobool47.not.us = icmp eq i32 %call46.us, 0
   br i1 %tobool47.not.us, label %if.then56, label %lor.lhs.false48.us
 
@@ -15627,7 +15627,7 @@ lor.lhs.false48.us:                               ; preds = %land.lhs.true43.us
   br i1 %tobool50.not.us, label %land.lhs.true51.us, label %if.end62.us
 
 land.lhs.true51.us:                               ; preds = %lor.lhs.false48.us, %if.then41.us
-  %call54.us = call i32 @OPENSSL_sk_push(ptr noundef %call14, ptr noundef nonnull %call38.us) #23
+  %call54.us = call i32 @OPENSSL_sk_push(ptr noundef %call14, ptr noundef nonnull %call38.us) #24
   %tobool55.not.us = icmp eq i32 %call54.us, 0
   br i1 %tobool55.not.us, label %if.then56, label %if.end62.us
 
@@ -15638,17 +15638,17 @@ if.end62.us:                                      ; preds = %land.lhs.true51.us,
 
 if.then19:                                        ; preds = %if.end12
   %tobool20.not = icmp eq i32 %fatal, 0
-  tail call void @ERR_new() #23
+  tail call void @ERR_new() #24
   br i1 %tobool20.not, label %if.else22, label %if.then21
 
 if.then21:                                        ; preds = %if.then19
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 6898, ptr noundef nonnull @__func__.ossl_bytes_to_cipher_list) #23
-  tail call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef %s, i32 noundef 80, i32 noundef 524303, ptr noundef null) #23
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 6898, ptr noundef nonnull @__func__.ossl_bytes_to_cipher_list) #24
+  tail call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef %s, i32 noundef 80, i32 noundef 524303, ptr noundef null) #24
   br label %err
 
 if.else22:                                        ; preds = %if.then19
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 6900, ptr noundef nonnull @__func__.ossl_bytes_to_cipher_list) #23
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 524303, ptr noundef null) #23
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 6900, ptr noundef nonnull @__func__.ossl_bytes_to_cipher_list) #24
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 524303, ptr noundef null) #24
   br label %err
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.cond.backedge
@@ -15664,7 +15664,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   br i1 %cmp30.not, label %if.end33, label %while.cond.backedge
 
 if.end33:                                         ; preds = %while.body
-  %call38 = call ptr @ssl_get_cipher_by_char(ptr noundef %s, ptr noundef nonnull %cond37, i32 noundef 1) #23
+  %call38 = call ptr @ssl_get_cipher_by_char(ptr noundef %s, ptr noundef nonnull %cond37, i32 noundef 1) #24
   %cmp39.not = icmp eq ptr %call38, null
   br i1 %cmp39.not, label %while.cond.backedge, label %if.then41
 
@@ -15674,7 +15674,7 @@ if.then41:                                        ; preds = %if.end33
   br i1 %tobool42.not, label %land.lhs.true51, label %land.lhs.true43
 
 land.lhs.true43:                                  ; preds = %if.then41
-  %call46 = call i32 @OPENSSL_sk_push(ptr noundef %call13, ptr noundef nonnull %call38) #23
+  %call46 = call i32 @OPENSSL_sk_push(ptr noundef %call13, ptr noundef nonnull %call38) #24
   %tobool47.not = icmp eq i32 %call46, 0
   br i1 %tobool47.not, label %if.then56, label %lor.lhs.false48
 
@@ -15684,23 +15684,23 @@ lor.lhs.false48:                                  ; preds = %land.lhs.true43
   br i1 %tobool50.not, label %land.lhs.true51, label %while.cond.backedge
 
 land.lhs.true51:                                  ; preds = %if.then41, %lor.lhs.false48
-  %call54 = call i32 @OPENSSL_sk_push(ptr noundef %call14, ptr noundef nonnull %call38) #23
+  %call54 = call i32 @OPENSSL_sk_push(ptr noundef %call14, ptr noundef nonnull %call38) #24
   %tobool55.not = icmp eq i32 %call54, 0
   br i1 %tobool55.not, label %if.then56, label %while.cond.backedge
 
 if.then56:                                        ; preds = %land.lhs.true43.us, %land.lhs.true51.us, %land.lhs.true43, %land.lhs.true51
   %tobool57.not = icmp eq i32 %fatal, 0
-  call void @ERR_new() #23
+  call void @ERR_new() #24
   br i1 %tobool57.not, label %if.else59, label %if.then58
 
 if.then58:                                        ; preds = %if.then56
-  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 6919, ptr noundef nonnull @__func__.ossl_bytes_to_cipher_list) #23
-  call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef %s, i32 noundef 80, i32 noundef 524303, ptr noundef null) #23
+  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 6919, ptr noundef nonnull @__func__.ossl_bytes_to_cipher_list) #24
+  call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef %s, i32 noundef 80, i32 noundef 524303, ptr noundef null) #24
   br label %err
 
 if.else59:                                        ; preds = %if.then56
-  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 6921, ptr noundef nonnull @__func__.ossl_bytes_to_cipher_list) #23
-  call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 524303, ptr noundef null) #23
+  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 6921, ptr noundef nonnull @__func__.ossl_bytes_to_cipher_list) #24
+  call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 524303, ptr noundef null) #24
   br label %err
 
 while.cond.backedge:                              ; preds = %if.end33, %land.lhs.true51, %lor.lhs.false48, %while.body
@@ -15715,17 +15715,17 @@ while.end:                                        ; preds = %if.end62.us, %while
 
 if.then66:                                        ; preds = %while.end
   %tobool67.not = icmp eq i32 %fatal, 0
-  call void @ERR_new() #23
+  call void @ERR_new() #24
   br i1 %tobool67.not, label %if.else69, label %if.then68
 
 if.then68:                                        ; preds = %if.then66
-  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 6928, ptr noundef nonnull @__func__.ossl_bytes_to_cipher_list) #23
-  call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef %s, i32 noundef 50, i32 noundef 271, ptr noundef null) #23
+  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 6928, ptr noundef nonnull @__func__.ossl_bytes_to_cipher_list) #24
+  call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef %s, i32 noundef 50, i32 noundef 271, ptr noundef null) #24
   br label %err
 
 if.else69:                                        ; preds = %if.then66
-  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 6930, ptr noundef nonnull @__func__.ossl_bytes_to_cipher_list) #23
-  call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 271, ptr noundef null) #23
+  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 6930, ptr noundef nonnull @__func__.ossl_bytes_to_cipher_list) #24
+  call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 271, ptr noundef null) #24
   br label %err
 
 if.end71:                                         ; preds = %while.end
@@ -15737,7 +15737,7 @@ if.then74:                                        ; preds = %if.end71
   br label %if.end77
 
 if.else75:                                        ; preds = %if.end71
-  call void @OPENSSL_sk_free(ptr noundef %call13) #23
+  call void @OPENSSL_sk_free(ptr noundef %call13) #24
   br label %if.end77
 
 if.end77:                                         ; preds = %if.else75, %if.then74
@@ -15749,12 +15749,12 @@ if.then80:                                        ; preds = %if.end77
   br label %return
 
 if.else81:                                        ; preds = %if.end77
-  call void @OPENSSL_sk_free(ptr noundef %call14) #23
+  call void @OPENSSL_sk_free(ptr noundef %call14) #24
   br label %return
 
 err:                                              ; preds = %if.then68, %if.else69, %if.then58, %if.else59, %if.then21, %if.else22
-  call void @OPENSSL_sk_free(ptr noundef %call13) #23
-  call void @OPENSSL_sk_free(ptr noundef %call14) #23
+  call void @OPENSSL_sk_free(ptr noundef %call13) #24
+  call void @OPENSSL_sk_free(ptr noundef %call14) #24
   br label %return
 
 return:                                           ; preds = %if.then80, %if.else81, %if.then9, %if.else10, %if.then2, %if.else, %err
@@ -15992,20 +15992,20 @@ if.end:                                           ; preds = %cond.false
   br i1 %cmp.i, label %SSL_clear.exit.thread, label %SSL_clear.exit
 
 SSL_clear.exit.thread:                            ; preds = %if.end
-  tail call void @ERR_new() #23
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 590, ptr noundef nonnull @__func__.SSL_clear) #23
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 188, ptr noundef null) #23
+  tail call void @ERR_new() #24
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 590, ptr noundef nonnull @__func__.SSL_clear) #24
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 188, ptr noundef null) #24
   br label %return
 
 SSL_clear.exit:                                   ; preds = %if.end
   %ssl_reset.i = getelementptr inbounds i8, ptr %1, i64 32
   %2 = load ptr, ptr %ssl_reset.i, align 8
-  %call.i = tail call i32 %2(ptr noundef nonnull %s) #23
+  %call.i = tail call i32 %2(ptr noundef nonnull %s) #24
   %tobool.not = icmp eq i32 %call.i, 0
   br i1 %tobool.not, label %return, label %cond.false.i
 
 cond.false.i:                                     ; preds = %SSL_clear.exit
-  tail call void @ERR_clear_error() #23
+  tail call void @ERR_clear_error() #24
   %s3 = getelementptr inbounds i8, ptr %s, i64 280
   %3 = load i64, ptr %s3, align 8
   %or = or i64 %3, 2048
@@ -16030,7 +16030,7 @@ if.then.i11:                                      ; preds = %land.lhs.true.i, %c
   %5 = load ptr, ptr %method.i, align 8
   %ssl_accept.i = getelementptr inbounds i8, ptr %5, i64 64
   %6 = load ptr, ptr %ssl_accept.i, align 8
-  %call.i13 = tail call i32 %6(ptr noundef nonnull %s) #23
+  %call.i13 = tail call i32 %6(ptr noundef nonnull %s) #24
   br label %SSL_accept.exit
 
 if.end19.i:                                       ; preds = %cond.false.i
@@ -16068,7 +16068,7 @@ if.end15:                                         ; preds = %SSL_accept.exit.thr
   br i1 %cmp16, label %land.lhs.true17, label %if.end21
 
 land.lhs.true17:                                  ; preds = %if.end15
-  %call18 = tail call i32 @ossl_statem_in_error(ptr noundef nonnull %s) #23
+  %call18 = tail call i32 @ossl_statem_in_error(ptr noundef nonnull %s) #24
   %tobool19.not = icmp eq i32 %call18, 0
   br i1 %tobool19.not, label %return, label %if.end21
 
@@ -16131,9 +16131,9 @@ land.lhs.true:                                    ; preds = %cond.false
   br i1 %switch, label %if.then, label %return
 
 if.then:                                          ; preds = %cond.false, %land.lhs.true
-  tail call void @ERR_new() #23
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 7090, ptr noundef nonnull @__func__.SSL_verify_client_post_handshake) #23
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 266, ptr noundef null) #23
+  tail call void @ERR_new() #24
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 7090, ptr noundef nonnull @__func__.SSL_verify_client_post_handshake) #24
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 266, ptr noundef null) #24
   br label %return
 
 if.end19:                                         ; preds = %cond.false
@@ -16155,9 +16155,9 @@ land.lhs.true21:                                  ; preds = %if.end19
   br i1 %or.cond, label %if.then30, label %if.end31
 
 if.then30:                                        ; preds = %land.lhs.true21, %if.end19
-  tail call void @ERR_new() #23
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 7099, ptr noundef nonnull @__func__.SSL_verify_client_post_handshake) #23
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 266, ptr noundef null) #23
+  tail call void @ERR_new() #24
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 7099, ptr noundef nonnull @__func__.SSL_verify_client_post_handshake) #24
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 266, ptr noundef null) #24
   br label %return
 
 if.end31:                                         ; preds = %land.lhs.true21
@@ -16167,20 +16167,20 @@ if.end31:                                         ; preds = %land.lhs.true21
   br i1 %tobool32.not, label %if.then33, label %if.end34
 
 if.then33:                                        ; preds = %if.end31
-  tail call void @ERR_new() #23
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 7103, ptr noundef nonnull @__func__.SSL_verify_client_post_handshake) #23
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 284, ptr noundef null) #23
+  tail call void @ERR_new() #24
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 7103, ptr noundef nonnull @__func__.SSL_verify_client_post_handshake) #24
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 284, ptr noundef null) #24
   br label %return
 
 if.end34:                                         ; preds = %if.end31
-  %call = tail call i32 @SSL_is_init_finished(ptr noundef nonnull %ssl) #23
+  %call = tail call i32 @SSL_is_init_finished(ptr noundef nonnull %ssl) #24
   %tobool35.not = icmp eq i32 %call, 0
   br i1 %tobool35.not, label %if.then36, label %if.end37
 
 if.then36:                                        ; preds = %if.end34
-  tail call void @ERR_new() #23
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 7108, ptr noundef nonnull @__func__.SSL_verify_client_post_handshake) #23
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 121, ptr noundef null) #23
+  tail call void @ERR_new() #24
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 7108, ptr noundef nonnull @__func__.SSL_verify_client_post_handshake) #24
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 121, ptr noundef null) #24
   br label %return
 
 if.end37:                                         ; preds = %if.end34
@@ -16194,44 +16194,44 @@ if.end37:                                         ; preds = %if.end34
   ]
 
 sw.bb:                                            ; preds = %if.end37
-  tail call void @ERR_new() #23
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 7114, ptr noundef nonnull @__func__.SSL_verify_client_post_handshake) #23
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 279, ptr noundef null) #23
+  tail call void @ERR_new() #24
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 7114, ptr noundef nonnull @__func__.SSL_verify_client_post_handshake) #24
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 279, ptr noundef null) #24
   br label %return
 
 sw.bb38:                                          ; preds = %if.end37
-  tail call void @ERR_new() #23
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 7118, ptr noundef nonnull @__func__.SSL_verify_client_post_handshake) #23
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 786691, ptr noundef null) #23
+  tail call void @ERR_new() #24
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 7118, ptr noundef nonnull @__func__.SSL_verify_client_post_handshake) #24
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 786691, ptr noundef null) #24
   br label %return
 
 sw.bb40:                                          ; preds = %if.end37
-  tail call void @ERR_new() #23
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 7123, ptr noundef nonnull @__func__.SSL_verify_client_post_handshake) #23
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 285, ptr noundef null) #23
+  tail call void @ERR_new() #24
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 7123, ptr noundef nonnull @__func__.SSL_verify_client_post_handshake) #24
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 285, ptr noundef null) #24
   br label %return
 
 sw.bb41:                                          ; preds = %if.end37
-  tail call void @ERR_new() #23
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 7126, ptr noundef nonnull @__func__.SSL_verify_client_post_handshake) #23
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 286, ptr noundef null) #23
+  tail call void @ERR_new() #24
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 7126, ptr noundef nonnull @__func__.SSL_verify_client_post_handshake) #24
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 286, ptr noundef null) #24
   br label %return
 
 sw.epilog:                                        ; preds = %if.end37
   store i32 3, ptr %post_handshake_auth, align 8
-  %call43 = tail call i32 @send_certificate_request(ptr noundef nonnull %ssl) #23
+  %call43 = tail call i32 @send_certificate_request(ptr noundef nonnull %ssl) #24
   %tobool44.not = icmp eq i32 %call43, 0
   br i1 %tobool44.not, label %if.then45, label %if.end47
 
 if.then45:                                        ; preds = %sw.epilog
   store i32 2, ptr %post_handshake_auth, align 8
-  tail call void @ERR_new() #23
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 7135, ptr noundef nonnull @__func__.SSL_verify_client_post_handshake) #23
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 283, ptr noundef null) #23
+  tail call void @ERR_new() #24
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 7135, ptr noundef nonnull @__func__.SSL_verify_client_post_handshake) #24
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 283, ptr noundef null) #24
   br label %return
 
 if.end47:                                         ; preds = %sw.epilog
-  tail call void @ossl_statem_set_in_init(ptr noundef nonnull %ssl, i32 noundef 1) #23
+  tail call void @ossl_statem_set_in_init(ptr noundef nonnull %ssl, i32 noundef 1) #24
   br label %return
 
 return:                                           ; preds = %land.lhs.true, %entry, %if.end47, %if.then45, %sw.bb41, %sw.bb40, %sw.bb38, %sw.bb, %if.then36, %if.then33, %if.then30, %if.then
@@ -16288,15 +16288,15 @@ return:                                           ; preds = %entry, %cond.false,
 ; Function Attrs: nounwind uwtable
 define ptr @ssl_evp_cipher_fetch(ptr noundef %libctx, i32 noundef %nid, ptr noundef %properties) local_unnamed_addr #0 {
 entry:
-  %call = tail call ptr @tls_get_cipher_from_engine(i32 noundef %nid) #23
+  %call = tail call ptr @tls_get_cipher_from_engine(i32 noundef %nid) #24
   %cmp.not = icmp eq ptr %call, null
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %call1 = tail call i32 @ERR_set_mark() #23
-  %call2 = tail call ptr @OBJ_nid2sn(i32 noundef %nid) #23
-  %call3 = tail call ptr @EVP_CIPHER_fetch(ptr noundef %libctx, ptr noundef %call2, ptr noundef %properties) #23
-  %call4 = tail call i32 @ERR_pop_to_mark() #23
+  %call1 = tail call i32 @ERR_set_mark() #24
+  %call2 = tail call ptr @OBJ_nid2sn(i32 noundef %nid) #24
+  %call3 = tail call ptr @EVP_CIPHER_fetch(ptr noundef %libctx, ptr noundef %call2, ptr noundef %properties) #24
+  %call4 = tail call i32 @ERR_pop_to_mark() #24
   br label %return
 
 return:                                           ; preds = %entry, %if.end
@@ -16313,12 +16313,12 @@ declare ptr @OBJ_nid2sn(i32 noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define i32 @ssl_evp_cipher_up_ref(ptr noundef %cipher) local_unnamed_addr #0 {
 entry:
-  %call = tail call ptr @EVP_CIPHER_get0_provider(ptr noundef %cipher) #23
+  %call = tail call ptr @EVP_CIPHER_get0_provider(ptr noundef %cipher) #24
   %cmp = icmp eq ptr %call, null
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call1 = tail call i32 @EVP_CIPHER_up_ref(ptr noundef %cipher) #23
+  %call1 = tail call i32 @EVP_CIPHER_up_ref(ptr noundef %cipher) #24
   br label %return
 
 return:                                           ; preds = %entry, %if.end
@@ -16339,12 +16339,12 @@ declare ptr @EVP_MD_fetch(ptr noundef, ptr noundef, ptr noundef) local_unnamed_a
 ; Function Attrs: nounwind uwtable
 define i32 @ssl_evp_md_up_ref(ptr noundef %md) local_unnamed_addr #0 {
 entry:
-  %call = tail call ptr @EVP_MD_get0_provider(ptr noundef %md) #23
+  %call = tail call ptr @EVP_MD_get0_provider(ptr noundef %md) #24
   %cmp = icmp eq ptr %call, null
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call1 = tail call i32 @EVP_MD_up_ref(ptr noundef %md) #23
+  %call1 = tail call i32 @EVP_MD_up_ref(ptr noundef %md) #24
   br label %return
 
 return:                                           ; preds = %entry, %if.end
@@ -16379,15 +16379,15 @@ cond.end10:                                       ; preds = %cond.false
 
 if.end:                                           ; preds = %cond.false, %cond.end10
   %cond1115 = phi ptr [ %1, %cond.end10 ], [ %s, %cond.false ]
-  %call = tail call i32 @EVP_PKEY_get_security_bits(ptr noundef %dhpkey) #23
-  %call13 = tail call i32 @ssl_security(ptr noundef nonnull %cond1115, i32 noundef 262151, i32 noundef %call, i32 noundef 0, ptr noundef %dhpkey) #23
+  %call = tail call i32 @EVP_PKEY_get_security_bits(ptr noundef %dhpkey) #24
+  %call13 = tail call i32 @ssl_security(ptr noundef nonnull %cond1115, i32 noundef 262151, i32 noundef %call, i32 noundef 0, ptr noundef %dhpkey) #24
   %tobool.not = icmp eq i32 %call13, 0
   br i1 %tobool.not, label %if.then14, label %if.end15
 
 if.then14:                                        ; preds = %if.end
-  tail call void @ERR_new() #23
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 7276, ptr noundef nonnull @__func__.SSL_set0_tmp_dh_pkey) #23
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 394, ptr noundef null) #23
+  tail call void @ERR_new() #24
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 7276, ptr noundef nonnull @__func__.SSL_set0_tmp_dh_pkey) #24
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 394, ptr noundef null) #24
   br label %return
 
 if.end15:                                         ; preds = %if.end
@@ -16395,7 +16395,7 @@ if.end15:                                         ; preds = %if.end
   %2 = load ptr, ptr %cert, align 8
   %dh_tmp = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load ptr, ptr %dh_tmp, align 8
-  tail call void @EVP_PKEY_free(ptr noundef %3) #23
+  tail call void @EVP_PKEY_free(ptr noundef %3) #24
   %4 = load ptr, ptr %cert, align 8
   %dh_tmp17 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %dhpkey, ptr %dh_tmp17, align 8
@@ -16415,15 +16415,15 @@ declare void @EVP_PKEY_free(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define noundef i32 @SSL_CTX_set0_tmp_dh_pkey(ptr noundef %ctx, ptr noundef %dhpkey) local_unnamed_addr #0 {
 entry:
-  %call = tail call i32 @EVP_PKEY_get_security_bits(ptr noundef %dhpkey) #23
-  %call1 = tail call i32 @ssl_ctx_security(ptr noundef %ctx, i32 noundef 262151, i32 noundef %call, i32 noundef 0, ptr noundef %dhpkey) #23
+  %call = tail call i32 @EVP_PKEY_get_security_bits(ptr noundef %dhpkey) #24
+  %call1 = tail call i32 @ssl_ctx_security(ptr noundef %ctx, i32 noundef 262151, i32 noundef %call, i32 noundef 0, ptr noundef %dhpkey) #24
   %tobool.not = icmp eq i32 %call1, 0
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  tail call void @ERR_new() #23
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 7288, ptr noundef nonnull @__func__.SSL_CTX_set0_tmp_dh_pkey) #23
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 394, ptr noundef null) #23
+  tail call void @ERR_new() #24
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 7288, ptr noundef nonnull @__func__.SSL_CTX_set0_tmp_dh_pkey) #24
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 394, ptr noundef null) #24
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -16431,7 +16431,7 @@ if.end:                                           ; preds = %entry
   %0 = load ptr, ptr %cert, align 8
   %dh_tmp = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %dh_tmp, align 8
-  tail call void @EVP_PKEY_free(ptr noundef %1) #23
+  tail call void @EVP_PKEY_free(ptr noundef %1) #24
   %2 = load ptr, ptr %cert, align 8
   %dh_tmp3 = getelementptr inbounds i8, ptr %2, i64 8
   store ptr %dhpkey, ptr %dh_tmp3, align 8
@@ -16457,7 +16457,7 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %switch, label %if.then, label %cond.false
 
 if.then:                                          ; preds = %land.lhs.true
-  %call = tail call i32 @ossl_quic_handle_events(ptr noundef nonnull %s) #23
+  %call = tail call i32 @ossl_quic_handle_events(ptr noundef nonnull %s) #24
   br label %return
 
 cond.false:                                       ; preds = %land.lhs.true
@@ -16478,7 +16478,7 @@ land.lhs.true12:                                  ; preds = %cond.false
 ossl_ctrl_internal.exit:                          ; preds = %land.lhs.true12
   %ssl_ctrl188.i = getelementptr inbounds i8, ptr %1, i64 152
   %4 = load ptr, ptr %ssl_ctrl188.i, align 8
-  %call189.i = tail call i64 %4(ptr noundef nonnull %s, i32 noundef 74, i64 noundef 0, ptr noundef null) #23
+  %call189.i = tail call i64 %4(ptr noundef nonnull %s, i32 noundef 74, i64 noundef 0, ptr noundef null) #24
   %cmp15 = icmp sgt i64 %call189.i, -1
   %conv = zext i1 %cmp15 to i32
   br label %return
@@ -16503,7 +16503,7 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %switch, label %if.then, label %cond.false
 
 if.then:                                          ; preds = %land.lhs.true
-  %call = tail call i32 @ossl_quic_get_event_timeout(ptr noundef nonnull %s, ptr noundef %tv, ptr noundef %is_infinite) #23
+  %call = tail call i32 @ossl_quic_get_event_timeout(ptr noundef nonnull %s, ptr noundef %tv, ptr noundef %is_infinite) #24
   br label %return
 
 cond.false:                                       ; preds = %land.lhs.true
@@ -16524,7 +16524,7 @@ land.lhs.true12:                                  ; preds = %cond.false
 ossl_ctrl_internal.exit:                          ; preds = %land.lhs.true12
   %ssl_ctrl188.i = getelementptr inbounds i8, ptr %1, i64 152
   %4 = load ptr, ptr %ssl_ctrl188.i, align 8
-  %call189.i = tail call i64 %4(ptr noundef nonnull %s, i32 noundef 73, i64 noundef 0, ptr noundef %tv) #23
+  %call189.i = tail call i64 %4(ptr noundef nonnull %s, i32 noundef 73, i64 noundef 0, ptr noundef %tv) #24
   %tobool15.not = icmp eq i64 %call189.i, 0
   br i1 %tobool15.not, label %if.end17, label %if.then16
 
@@ -16565,7 +16565,7 @@ land.lhs.true:                                    ; preds = %cond.false
   br i1 %switch, label %if.then, label %return
 
 if.then:                                          ; preds = %cond.false, %land.lhs.true
-  %call = tail call i32 @ossl_quic_get_rpoll_descriptor(ptr noundef nonnull %s, ptr noundef %desc) #23
+  %call = tail call i32 @ossl_quic_get_rpoll_descriptor(ptr noundef nonnull %s, ptr noundef %desc) #24
   br label %return
 
 lor.lhs.false18:                                  ; preds = %cond.false
@@ -16575,7 +16575,7 @@ lor.lhs.false18:                                  ; preds = %cond.false
   br i1 %cmp19, label %return, label %if.end21
 
 if.end21:                                         ; preds = %lor.lhs.false18
-  %call23 = tail call i32 @BIO_get_rpoll_descriptor(ptr noundef nonnull %1, ptr noundef %desc) #23
+  %call23 = tail call i32 @BIO_get_rpoll_descriptor(ptr noundef nonnull %1, ptr noundef %desc) #24
   br label %return
 
 return:                                           ; preds = %land.lhs.true, %entry, %lor.lhs.false18, %if.end21, %if.then
@@ -16606,7 +16606,7 @@ land.lhs.true:                                    ; preds = %cond.false
   br i1 %switch, label %if.then, label %return
 
 if.then:                                          ; preds = %cond.false, %land.lhs.true
-  %call = tail call i32 @ossl_quic_get_wpoll_descriptor(ptr noundef nonnull %s, ptr noundef %desc) #23
+  %call = tail call i32 @ossl_quic_get_wpoll_descriptor(ptr noundef nonnull %s, ptr noundef %desc) #24
   br label %return
 
 lor.lhs.false18:                                  ; preds = %cond.false
@@ -16616,7 +16616,7 @@ lor.lhs.false18:                                  ; preds = %cond.false
   br i1 %cmp19, label %return, label %if.end21
 
 if.end21:                                         ; preds = %lor.lhs.false18
-  %call23 = tail call i32 @BIO_get_wpoll_descriptor(ptr noundef nonnull %1, ptr noundef %desc) #23
+  %call23 = tail call i32 @BIO_get_wpoll_descriptor(ptr noundef nonnull %1, ptr noundef %desc) #24
   br label %return
 
 return:                                           ; preds = %land.lhs.true, %entry, %lor.lhs.false18, %if.end21, %if.then
@@ -16652,7 +16652,7 @@ if.end19.i:                                       ; preds = %cond.false.i
   br label %return
 
 if.end:                                           ; preds = %land.lhs.true
-  %call5 = tail call i32 @ossl_quic_get_net_read_desired(ptr noundef nonnull %s) #23
+  %call5 = tail call i32 @ossl_quic_get_net_read_desired(ptr noundef nonnull %s) #24
   br label %return
 
 return:                                           ; preds = %entry, %if.end19.i, %cond.false.i, %if.end
@@ -16686,7 +16686,7 @@ if.end19.i:                                       ; preds = %cond.false.i
   br label %return
 
 if.end:                                           ; preds = %land.lhs.true
-  %call5 = tail call i32 @ossl_quic_get_net_write_desired(ptr noundef nonnull %s) #23
+  %call5 = tail call i32 @ossl_quic_get_net_write_desired(ptr noundef nonnull %s) #24
   br label %return
 
 return:                                           ; preds = %entry, %if.end19.i, %cond.false.i, %if.end
@@ -16709,7 +16709,7 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %switch, label %if.end, label %return
 
 if.end:                                           ; preds = %land.lhs.true
-  %call = tail call i32 @ossl_quic_conn_set_blocking_mode(ptr noundef nonnull %s, i32 noundef %blocking) #23
+  %call = tail call i32 @ossl_quic_conn_set_blocking_mode(ptr noundef nonnull %s, i32 noundef %blocking) #24
   br label %return
 
 return:                                           ; preds = %land.lhs.true, %entry, %if.end
@@ -16732,7 +16732,7 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %switch, label %if.end, label %return
 
 if.end:                                           ; preds = %land.lhs.true
-  %call = tail call i32 @ossl_quic_conn_get_blocking_mode(ptr noundef nonnull %s) #23
+  %call = tail call i32 @ossl_quic_conn_get_blocking_mode(ptr noundef nonnull %s) #24
   br label %return
 
 return:                                           ; preds = %land.lhs.true, %entry, %if.end
@@ -16755,7 +16755,7 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %switch, label %if.end, label %return
 
 if.end:                                           ; preds = %land.lhs.true
-  %call = tail call i32 @ossl_quic_conn_set_initial_peer_addr(ptr noundef nonnull %s, ptr noundef %peer_addr) #23
+  %call = tail call i32 @ossl_quic_conn_set_initial_peer_addr(ptr noundef nonnull %s, ptr noundef %peer_addr) #24
   br label %return
 
 return:                                           ; preds = %land.lhs.true, %entry, %if.end
@@ -16782,7 +16782,7 @@ lor.lhs.false.split:                              ; preds = %land.lhs.true
   br label %return
 
 if.end:                                           ; preds = %land.lhs.true
-  %call4 = tail call i32 @ossl_quic_conn_shutdown(ptr noundef nonnull %ssl, i64 noundef %flags, ptr noundef %args, i64 noundef %args_len) #23
+  %call4 = tail call i32 @ossl_quic_conn_shutdown(ptr noundef nonnull %ssl, i64 noundef %flags, ptr noundef %args, i64 noundef %args_len) #24
   br label %return
 
 return:                                           ; preds = %entry, %lor.lhs.false.split, %if.end
@@ -16803,7 +16803,7 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %switch, label %if.end, label %return
 
 if.end:                                           ; preds = %land.lhs.true
-  %call = tail call i32 @ossl_quic_conn_stream_conclude(ptr noundef nonnull %ssl) #23
+  %call = tail call i32 @ossl_quic_conn_stream_conclude(ptr noundef nonnull %ssl) #24
   br label %return
 
 return:                                           ; preds = %land.lhs.true, %entry, %if.end
@@ -16826,7 +16826,7 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %switch, label %if.end, label %return
 
 if.end:                                           ; preds = %land.lhs.true
-  %call = tail call ptr @ossl_quic_conn_stream_new(ptr noundef nonnull %s, i64 noundef %flags) #23
+  %call = tail call ptr @ossl_quic_conn_stream_new(ptr noundef nonnull %s, i64 noundef %flags) #24
   br label %return
 
 return:                                           ; preds = %land.lhs.true, %entry, %if.end
@@ -16849,7 +16849,7 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %switch, label %if.end, label %return
 
 if.end:                                           ; preds = %land.lhs.true
-  %call = tail call ptr @ossl_quic_get0_connection(ptr noundef nonnull %s) #23
+  %call = tail call ptr @ossl_quic_get0_connection(ptr noundef nonnull %s) #24
   br label %return
 
 return:                                           ; preds = %land.lhs.true, %entry, %if.end
@@ -16872,7 +16872,7 @@ land.lhs.true.i:                                  ; preds = %entry
   br i1 %switch.i, label %if.end.i, label %SSL_get0_connection.exit
 
 if.end.i:                                         ; preds = %land.lhs.true.i
-  %call.i = tail call ptr @ossl_quic_get0_connection(ptr noundef nonnull %s) #23
+  %call.i = tail call ptr @ossl_quic_get0_connection(ptr noundef nonnull %s) #24
   br label %SSL_get0_connection.exit
 
 SSL_get0_connection.exit:                         ; preds = %entry, %land.lhs.true.i, %if.end.i
@@ -16895,7 +16895,7 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %switch, label %if.end, label %return
 
 if.end:                                           ; preds = %land.lhs.true
-  %call = tail call i32 @ossl_quic_get_stream_type(ptr noundef nonnull %s) #23
+  %call = tail call i32 @ossl_quic_get_stream_type(ptr noundef nonnull %s) #24
   br label %return
 
 return:                                           ; preds = %land.lhs.true, %entry, %if.end
@@ -16918,7 +16918,7 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %switch, label %if.end, label %return
 
 if.end:                                           ; preds = %land.lhs.true
-  %call = tail call i64 @ossl_quic_get_stream_id(ptr noundef nonnull %s) #23
+  %call = tail call i64 @ossl_quic_get_stream_id(ptr noundef nonnull %s) #24
   br label %return
 
 return:                                           ; preds = %land.lhs.true, %entry, %if.end
@@ -16941,7 +16941,7 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %switch, label %if.end, label %return
 
 if.end:                                           ; preds = %land.lhs.true
-  %call = tail call i32 @ossl_quic_is_stream_local(ptr noundef nonnull %s) #23
+  %call = tail call i32 @ossl_quic_is_stream_local(ptr noundef nonnull %s) #24
   br label %return
 
 return:                                           ; preds = %land.lhs.true, %entry, %if.end
@@ -16964,7 +16964,7 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %switch, label %if.end, label %return
 
 if.end:                                           ; preds = %land.lhs.true
-  %call = tail call i32 @ossl_quic_set_default_stream_mode(ptr noundef nonnull %s, i32 noundef %mode) #23
+  %call = tail call i32 @ossl_quic_set_default_stream_mode(ptr noundef nonnull %s, i32 noundef %mode) #24
   br label %return
 
 return:                                           ; preds = %land.lhs.true, %entry, %if.end
@@ -16987,7 +16987,7 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %switch, label %if.end, label %return
 
 if.end:                                           ; preds = %land.lhs.true
-  %call = tail call i32 @ossl_quic_set_incoming_stream_policy(ptr noundef nonnull %s, i32 noundef %policy, i64 noundef %aec) #23
+  %call = tail call i32 @ossl_quic_set_incoming_stream_policy(ptr noundef nonnull %s, i32 noundef %policy, i64 noundef %aec) #24
   br label %return
 
 return:                                           ; preds = %land.lhs.true, %entry, %if.end
@@ -17010,7 +17010,7 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %switch, label %if.end, label %return
 
 if.end:                                           ; preds = %land.lhs.true
-  %call = tail call ptr @ossl_quic_accept_stream(ptr noundef nonnull %s, i64 noundef %flags) #23
+  %call = tail call ptr @ossl_quic_accept_stream(ptr noundef nonnull %s, i64 noundef %flags) #24
   br label %return
 
 return:                                           ; preds = %land.lhs.true, %entry, %if.end
@@ -17033,7 +17033,7 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %switch, label %if.end, label %return
 
 if.end:                                           ; preds = %land.lhs.true
-  %call = tail call i64 @ossl_quic_get_accept_stream_queue_len(ptr noundef nonnull %s) #23
+  %call = tail call i64 @ossl_quic_get_accept_stream_queue_len(ptr noundef nonnull %s) #24
   br label %return
 
 return:                                           ; preds = %land.lhs.true, %entry, %if.end
@@ -17056,7 +17056,7 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %switch, label %if.end, label %return
 
 if.end:                                           ; preds = %land.lhs.true
-  %call = tail call i32 @ossl_quic_stream_reset(ptr noundef nonnull %s, ptr noundef %args, i64 noundef %args_len) #23
+  %call = tail call i32 @ossl_quic_stream_reset(ptr noundef nonnull %s, ptr noundef %args, i64 noundef %args_len) #24
   br label %return
 
 return:                                           ; preds = %land.lhs.true, %entry, %if.end
@@ -17079,7 +17079,7 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %switch, label %if.end, label %return
 
 if.end:                                           ; preds = %land.lhs.true
-  %call = tail call i32 @ossl_quic_get_stream_read_state(ptr noundef nonnull %s) #23
+  %call = tail call i32 @ossl_quic_get_stream_read_state(ptr noundef nonnull %s) #24
   br label %return
 
 return:                                           ; preds = %land.lhs.true, %entry, %if.end
@@ -17102,7 +17102,7 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %switch, label %if.end, label %return
 
 if.end:                                           ; preds = %land.lhs.true
-  %call = tail call i32 @ossl_quic_get_stream_write_state(ptr noundef nonnull %s) #23
+  %call = tail call i32 @ossl_quic_get_stream_write_state(ptr noundef nonnull %s) #24
   br label %return
 
 return:                                           ; preds = %land.lhs.true, %entry, %if.end
@@ -17125,7 +17125,7 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %switch, label %if.end, label %return
 
 if.end:                                           ; preds = %land.lhs.true
-  %call = tail call i32 @ossl_quic_get_stream_read_error_code(ptr noundef nonnull %s, ptr noundef %app_error_code) #23
+  %call = tail call i32 @ossl_quic_get_stream_read_error_code(ptr noundef nonnull %s, ptr noundef %app_error_code) #24
   br label %return
 
 return:                                           ; preds = %land.lhs.true, %entry, %if.end
@@ -17148,7 +17148,7 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %switch, label %if.end, label %return
 
 if.end:                                           ; preds = %land.lhs.true
-  %call = tail call i32 @ossl_quic_get_stream_write_error_code(ptr noundef nonnull %s, ptr noundef %app_error_code) #23
+  %call = tail call i32 @ossl_quic_get_stream_write_error_code(ptr noundef nonnull %s, ptr noundef %app_error_code) #24
   br label %return
 
 return:                                           ; preds = %land.lhs.true, %entry, %if.end
@@ -17171,7 +17171,7 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %switch, label %if.end, label %return
 
 if.end:                                           ; preds = %land.lhs.true
-  %call = tail call i32 @ossl_quic_get_conn_close_info(ptr noundef nonnull %s, ptr noundef %info, i64 noundef %info_len) #23
+  %call = tail call i32 @ossl_quic_get_conn_close_info(ptr noundef nonnull %s, ptr noundef %info, i64 noundef %info_len) #24
   br label %return
 
 return:                                           ; preds = %land.lhs.true, %entry, %if.end
@@ -17210,7 +17210,7 @@ lor.lhs.false:                                    ; preds = %cond.false.i, %SSL_
   br i1 %cmp1, label %return, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false
-  %call2 = call i32 @i2d_PUBKEY(ptr noundef %rpk, ptr noundef nonnull %data) #23
+  %call2 = call i32 @i2d_PUBKEY(ptr noundef %rpk, ptr noundef nonnull %data) #24
   %cmp3 = icmp slt i32 %call2, 1
   br i1 %cmp3, label %return, label %if.end5
 
@@ -17221,7 +17221,7 @@ if.end5:                                          ; preds = %if.end
   %cmp7 = icmp sgt i32 %call6, 0
   %conv8 = zext i1 %cmp7 to i32
   %4 = load ptr, ptr %data, align 8
-  call void @CRYPTO_free(ptr noundef %4, ptr noundef nonnull @.str, i32 noundef 7662) #23
+  call void @CRYPTO_free(ptr noundef %4, ptr noundef nonnull @.str, i32 noundef 7662) #24
   br label %return
 
 return:                                           ; preds = %cond.false.i, %entry, %if.end, %SSL_get0_dane.exit, %lor.lhs.false, %if.end5
@@ -17332,26 +17332,19 @@ return:                                           ; preds = %cond.false, %entry,
 ; Function Attrs: nounwind uwtable
 define noundef i32 @SSL_set1_client_cert_type(ptr noundef %s, ptr noundef %val, i64 noundef %len) local_unnamed_addr #0 {
 entry:
-  %cmp = icmp eq ptr %s, null
-  br i1 %cmp, label %cond.end10, label %cond.false
-
-cond.false:                                       ; preds = %entry
+  %cmp = icmp ne ptr %s, null
+  tail call void @llvm.assume(i1 %cmp)
   %0 = load i32, ptr %s, align 8
-  switch i32 %0, label %cond.end10.fold.split [
-    i32 0, label %cond.end10
-    i32 1, label %cond.true6
-  ]
+  %switch = icmp eq i32 %0, 0
+  br i1 %switch, label %cond.end10, label %cond.true6
 
-cond.true6:                                       ; preds = %cond.false
+cond.true6:                                       ; preds = %entry
   %tls = getelementptr inbounds i8, ptr %s, i64 64
   %1 = load ptr, ptr %tls, align 8
   br label %cond.end10
 
-cond.end10.fold.split:                            ; preds = %cond.false
-  br label %cond.end10
-
-cond.end10:                                       ; preds = %cond.false, %cond.end10.fold.split, %cond.true6, %entry
-  %cond11 = phi ptr [ null, %entry ], [ %1, %cond.true6 ], [ %s, %cond.false ], [ null, %cond.end10.fold.split ]
+cond.end10:                                       ; preds = %entry, %cond.true6
+  %cond11 = phi ptr [ %1, %cond.true6 ], [ %s, %entry ]
   %client_cert_type = getelementptr inbounds i8, ptr %cond11, i64 5368
   %client_cert_type_len = getelementptr inbounds i8, ptr %cond11, i64 5376
   %cmp.i.i = icmp eq ptr %val, null
@@ -17390,14 +17383,14 @@ for.inc.i.i:                                      ; preds = %sw.bb9.i.i, %sw.bb.
   br i1 %exitcond.not.i.i, label %land.lhs.true.i, label %for.body.i.i, !llvm.loop !33
 
 land.lhs.true.i:                                  ; preds = %for.inc.i.i
-  %call1.i = tail call noalias ptr @CRYPTO_memdup(ptr noundef nonnull %val, i64 noundef %len, ptr noundef nonnull @.str, i32 noundef 7738) #23
+  %call1.i = tail call noalias ptr @CRYPTO_memdup(ptr noundef nonnull %val, i64 noundef %len, ptr noundef nonnull @.str, i32 noundef 7738) #24
   %cmp2.i = icmp eq ptr %call1.i, null
   br i1 %cmp2.i, label %set_cert_type.exit, label %if.end4.i
 
 if.end4.i:                                        ; preds = %land.lhs.true.i, %cond.end10
   %tmp.0.i = phi ptr [ %call1.i, %land.lhs.true.i ], [ null, %cond.end10 ]
   %3 = load ptr, ptr %client_cert_type, align 8
-  tail call void @CRYPTO_free(ptr noundef %3, ptr noundef nonnull @.str, i32 noundef 7741) #23
+  tail call void @CRYPTO_free(ptr noundef %3, ptr noundef nonnull @.str, i32 noundef 7741) #24
   store ptr %tmp.0.i, ptr %client_cert_type, align 8
   store i64 %len, ptr %client_cert_type_len, align 8
   br label %set_cert_type.exit
@@ -17410,26 +17403,19 @@ set_cert_type.exit:                               ; preds = %for.body.i.i, %sw.b
 ; Function Attrs: nounwind uwtable
 define noundef i32 @SSL_set1_server_cert_type(ptr noundef %s, ptr noundef %val, i64 noundef %len) local_unnamed_addr #0 {
 entry:
-  %cmp = icmp eq ptr %s, null
-  br i1 %cmp, label %cond.end10, label %cond.false
-
-cond.false:                                       ; preds = %entry
+  %cmp = icmp ne ptr %s, null
+  tail call void @llvm.assume(i1 %cmp)
   %0 = load i32, ptr %s, align 8
-  switch i32 %0, label %cond.end10.fold.split [
-    i32 0, label %cond.end10
-    i32 1, label %cond.true6
-  ]
+  %switch = icmp eq i32 %0, 0
+  br i1 %switch, label %cond.end10, label %cond.true6
 
-cond.true6:                                       ; preds = %cond.false
+cond.true6:                                       ; preds = %entry
   %tls = getelementptr inbounds i8, ptr %s, i64 64
   %1 = load ptr, ptr %tls, align 8
   br label %cond.end10
 
-cond.end10.fold.split:                            ; preds = %cond.false
-  br label %cond.end10
-
-cond.end10:                                       ; preds = %cond.false, %cond.end10.fold.split, %cond.true6, %entry
-  %cond11 = phi ptr [ null, %entry ], [ %1, %cond.true6 ], [ %s, %cond.false ], [ null, %cond.end10.fold.split ]
+cond.end10:                                       ; preds = %entry, %cond.true6
+  %cond11 = phi ptr [ %1, %cond.true6 ], [ %s, %entry ]
   %server_cert_type = getelementptr inbounds i8, ptr %cond11, i64 5384
   %server_cert_type_len = getelementptr inbounds i8, ptr %cond11, i64 5392
   %cmp.i.i = icmp eq ptr %val, null
@@ -17468,14 +17454,14 @@ for.inc.i.i:                                      ; preds = %sw.bb9.i.i, %sw.bb.
   br i1 %exitcond.not.i.i, label %land.lhs.true.i, label %for.body.i.i, !llvm.loop !33
 
 land.lhs.true.i:                                  ; preds = %for.inc.i.i
-  %call1.i = tail call noalias ptr @CRYPTO_memdup(ptr noundef nonnull %val, i64 noundef %len, ptr noundef nonnull @.str, i32 noundef 7738) #23
+  %call1.i = tail call noalias ptr @CRYPTO_memdup(ptr noundef nonnull %val, i64 noundef %len, ptr noundef nonnull @.str, i32 noundef 7738) #24
   %cmp2.i = icmp eq ptr %call1.i, null
   br i1 %cmp2.i, label %set_cert_type.exit, label %if.end4.i
 
 if.end4.i:                                        ; preds = %land.lhs.true.i, %cond.end10
   %tmp.0.i = phi ptr [ %call1.i, %land.lhs.true.i ], [ null, %cond.end10 ]
   %3 = load ptr, ptr %server_cert_type, align 8
-  tail call void @CRYPTO_free(ptr noundef %3, ptr noundef nonnull @.str, i32 noundef 7741) #23
+  tail call void @CRYPTO_free(ptr noundef %3, ptr noundef nonnull @.str, i32 noundef 7741) #24
   store ptr %tmp.0.i, ptr %server_cert_type, align 8
   store i64 %len, ptr %server_cert_type_len, align 8
   br label %set_cert_type.exit
@@ -17526,14 +17512,14 @@ for.inc.i.i:                                      ; preds = %sw.bb9.i.i, %sw.bb.
   br i1 %exitcond.not.i.i, label %land.lhs.true.i, label %for.body.i.i, !llvm.loop !33
 
 land.lhs.true.i:                                  ; preds = %for.inc.i.i
-  %call1.i = tail call noalias ptr @CRYPTO_memdup(ptr noundef nonnull %val, i64 noundef %len, ptr noundef nonnull @.str, i32 noundef 7738) #23
+  %call1.i = tail call noalias ptr @CRYPTO_memdup(ptr noundef nonnull %val, i64 noundef %len, ptr noundef nonnull @.str, i32 noundef 7738) #24
   %cmp2.i = icmp eq ptr %call1.i, null
   br i1 %cmp2.i, label %set_cert_type.exit, label %if.end4.i
 
 if.end4.i:                                        ; preds = %land.lhs.true.i, %entry
   %tmp.0.i = phi ptr [ %call1.i, %land.lhs.true.i ], [ null, %entry ]
   %1 = load ptr, ptr %client_cert_type, align 8
-  tail call void @CRYPTO_free(ptr noundef %1, ptr noundef nonnull @.str, i32 noundef 7741) #23
+  tail call void @CRYPTO_free(ptr noundef %1, ptr noundef nonnull @.str, i32 noundef 7741) #24
   store ptr %tmp.0.i, ptr %client_cert_type, align 8
   store i64 %len, ptr %client_cert_type_len, align 8
   br label %set_cert_type.exit
@@ -17584,14 +17570,14 @@ for.inc.i.i:                                      ; preds = %sw.bb9.i.i, %sw.bb.
   br i1 %exitcond.not.i.i, label %land.lhs.true.i, label %for.body.i.i, !llvm.loop !33
 
 land.lhs.true.i:                                  ; preds = %for.inc.i.i
-  %call1.i = tail call noalias ptr @CRYPTO_memdup(ptr noundef nonnull %val, i64 noundef %len, ptr noundef nonnull @.str, i32 noundef 7738) #23
+  %call1.i = tail call noalias ptr @CRYPTO_memdup(ptr noundef nonnull %val, i64 noundef %len, ptr noundef nonnull @.str, i32 noundef 7738) #24
   %cmp2.i = icmp eq ptr %call1.i, null
   br i1 %cmp2.i, label %set_cert_type.exit, label %if.end4.i
 
 if.end4.i:                                        ; preds = %land.lhs.true.i, %entry
   %tmp.0.i = phi ptr [ %call1.i, %land.lhs.true.i ], [ null, %entry ]
   %1 = load ptr, ptr %server_cert_type, align 8
-  tail call void @CRYPTO_free(ptr noundef %1, ptr noundef nonnull @.str, i32 noundef 7741) #23
+  tail call void @CRYPTO_free(ptr noundef %1, ptr noundef nonnull @.str, i32 noundef 7741) #24
   store ptr %tmp.0.i, ptr %server_cert_type, align 8
   store i64 %len, ptr %server_cert_type_len, align 8
   br label %set_cert_type.exit
@@ -17744,11 +17730,11 @@ entry:
 if.end:                                           ; preds = %entry
   %data = getelementptr inbounds i8, ptr %t, i64 8
   %0 = load ptr, ptr %data, align 8
-  tail call void @CRYPTO_free(ptr noundef %0, ptr noundef nonnull @.str, i32 noundef 158) #23
+  tail call void @CRYPTO_free(ptr noundef %0, ptr noundef nonnull @.str, i32 noundef 158) #24
   %spki = getelementptr inbounds i8, ptr %t, i64 24
   %1 = load ptr, ptr %spki, align 8
-  tail call void @EVP_PKEY_free(ptr noundef %1) #23
-  tail call void @CRYPTO_free(ptr noundef nonnull %t, ptr noundef nonnull @.str, i32 noundef 160) #23
+  tail call void @EVP_PKEY_free(ptr noundef %1) #24
+  tail call void @CRYPTO_free(ptr noundef nonnull %t, ptr noundef nonnull @.str, i32 noundef 160) #24
   br label %return
 
 return:                                           ; preds = %entry, %if.end
@@ -17798,7 +17784,7 @@ if.end:                                           ; preds = %cond.false, %cond.e
   %2 = load ptr, ptr %async_cb, align 8
   %async_cb_arg = getelementptr inbounds i8, ptr %cond1113, i64 5344
   %3 = load ptr, ptr %async_cb_arg, align 8
-  %call = tail call i32 %2(ptr noundef nonnull %arg, ptr noundef %3) #23
+  %call = tail call i32 %2(ptr noundef nonnull %arg, ptr noundef %3) #24
   br label %return
 
 return:                                           ; preds = %cond.false, %entry, %cond.end10, %if.end
@@ -17831,44 +17817,44 @@ entry:
   br i1 %cmp, label %if.then, label %if.end3
 
 if.then:                                          ; preds = %entry
-  %call = tail call ptr @OPENSSL_sk_new_null() #23
+  %call = tail call ptr @OPENSSL_sk_new_null() #24
   store ptr %call, ptr %dst, align 8
   %cmp1 = icmp eq ptr %call, null
   br i1 %cmp1, label %if.then2, label %if.end3
 
 if.then2:                                         ; preds = %if.then
-  tail call void @ERR_new() #23
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 6082, ptr noundef nonnull @__func__.ct_move_scts) #23
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 524303, ptr noundef null) #23
+  tail call void @ERR_new() #24
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 6082, ptr noundef nonnull @__func__.ct_move_scts) #24
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 524303, ptr noundef null) #24
   br label %err
 
 if.end3:                                          ; preds = %if.then, %entry
-  %call59 = tail call ptr @OPENSSL_sk_pop(ptr noundef %src) #23
+  %call59 = tail call ptr @OPENSSL_sk_pop(ptr noundef %src) #24
   %cmp6.not10 = icmp eq ptr %call59, null
   br i1 %cmp6.not10, label %return, label %while.body
 
 while.body:                                       ; preds = %if.end3, %if.end15
   %call512 = phi ptr [ %call5, %if.end15 ], [ %call59, %if.end3 ]
   %scts_moved.011 = phi i32 [ %add, %if.end15 ], [ 0, %if.end3 ]
-  %call7 = tail call i32 @SCT_set_source(ptr noundef nonnull %call512, i32 noundef %origin) #23
+  %call7 = tail call i32 @SCT_set_source(ptr noundef nonnull %call512, i32 noundef %origin) #24
   %cmp8.not = icmp eq i32 %call7, 1
   br i1 %cmp8.not, label %if.end10, label %err
 
 if.end10:                                         ; preds = %while.body
   %1 = load ptr, ptr %dst, align 8
-  %call13 = tail call i32 @OPENSSL_sk_push(ptr noundef %1, ptr noundef nonnull %call512) #23
+  %call13 = tail call i32 @OPENSSL_sk_push(ptr noundef %1, ptr noundef nonnull %call512) #24
   %tobool.not = icmp eq i32 %call13, 0
   br i1 %tobool.not, label %err, label %if.end15
 
 if.end15:                                         ; preds = %if.end10
   %add = add nuw nsw i32 %scts_moved.011, 1
-  %call5 = tail call ptr @OPENSSL_sk_pop(ptr noundef %src) #23
+  %call5 = tail call ptr @OPENSSL_sk_pop(ptr noundef %src) #24
   %cmp6.not = icmp eq ptr %call5, null
   br i1 %cmp6.not, label %return, label %while.body, !llvm.loop !34
 
 err:                                              ; preds = %if.end10, %while.body, %if.then2
   %sct.0 = phi ptr [ null, %if.then2 ], [ %call512, %while.body ], [ %call512, %if.end10 ]
-  tail call void @SCT_free(ptr noundef %sct.0) #23
+  tail call void @SCT_free(ptr noundef %sct.0) #24
   br label %return
 
 return:                                           ; preds = %if.end15, %if.end3, %err
@@ -17917,11 +17903,14 @@ declare i32 @llvm.smax.i32(i32, i32) #20
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #21
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #22
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
+declare void @llvm.assume(i1 noundef) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #22
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #23
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.usub.sat.i64(i64, i64) #20
@@ -17948,9 +17937,10 @@ attributes #18 = { mustprogress nofree nounwind willreturn memory(argmem: readwr
 attributes #19 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #20 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #21 = { nofree nounwind willreturn memory(argmem: read) }
-attributes #22 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #23 = { nounwind }
-attributes #24 = { nounwind willreturn memory(read) }
+attributes #22 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #23 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #24 = { nounwind }
+attributes #25 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

@@ -84,7 +84,7 @@ invoke.cont:                                      ; preds = %call3.i.i.i.noexc, 
 lpad:                                             ; preds = %call.i.i.i.noexc, %if.then9.i.i, %call.i.i.noexc, %entry
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #6
+  tail call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #7
   resume { ptr, i32 } %5
 }
 
@@ -215,19 +215,19 @@ delete.notnull:                                   ; preds = %entry
   %vtable = load ptr, ptr %0, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
   %1 = load ptr, ptr %vfn, align 8
-  tail call void %1(ptr noundef nonnull align 8 dereferenceable(64) %0) #6
+  tail call void %1(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %entry
-  tail call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #6
+  tail call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #7
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6icu_7518UnicodeSetIteratorD0Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #4 align 2 {
 entry:
-  tail call void @_ZN6icu_7518UnicodeSetIteratorD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) #6
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %this) #6
+  tail call void @_ZN6icu_7518UnicodeSetIteratorD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) #7
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %this) #7
   ret void
 }
 
@@ -421,17 +421,15 @@ entry:
 land.lhs.true:                                    ; preds = %entry
   %codepoint = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load i32, ptr %codepoint, align 8
-  %cmp2.not = icmp eq i32 %1, -1
-  br i1 %cmp2.not, label %if.end15, label %if.then
-
-if.then:                                          ; preds = %land.lhs.true
+  %cmp2.not = icmp ne i32 %1, -1
+  tail call void @llvm.assume(i1 %cmp2.not)
   %cpString = getelementptr inbounds i8, ptr %this, i64 56
   %2 = load ptr, ptr %cpString, align 8
   %cmp3 = icmp eq ptr %2, null
   br i1 %cmp3, label %if.then4, label %if.then8
 
-if.then4:                                         ; preds = %if.then
-  %call = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 64) #6
+if.then4:                                         ; preds = %land.lhs.true
+  %call = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 64) #7
   %new.isnull = icmp eq ptr %call, null
   br i1 %new.isnull, label %if.end.thread2, label %if.end
 
@@ -447,9 +445,9 @@ if.end:                                           ; preds = %if.then4
   %.pre = load i32, ptr %codepoint, align 8
   br label %if.then8
 
-if.then8:                                         ; preds = %if.then, %if.end
-  %3 = phi i32 [ %.pre, %if.end ], [ %1, %if.then ]
-  %4 = phi ptr [ %call, %if.end ], [ %2, %if.then ]
+if.then8:                                         ; preds = %land.lhs.true, %if.end
+  %3 = phi i32 [ %.pre, %if.end ], [ %1, %land.lhs.true ]
+  %4 = phi ptr [ %call, %if.end ], [ %2, %land.lhs.true ]
   tail call void @_ZN6icu_7513UnicodeString7unBogusEv(ptr noundef nonnull align 8 dereferenceable(64) %4)
   %fUnion.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
   %5 = load i16, ptr %fUnion.i.i.i, align 8
@@ -468,8 +466,8 @@ if.end12:                                         ; preds = %if.end.thread2, %if
   store ptr %8, ptr %string, align 8
   br label %if.end15
 
-if.end15:                                         ; preds = %if.end12, %land.lhs.true, %entry
-  %9 = phi ptr [ %8, %if.end12 ], [ null, %land.lhs.true ], [ %0, %entry ]
+if.end15:                                         ; preds = %if.end12, %entry
+  %9 = phi ptr [ %8, %if.end12 ], [ %0, %entry ]
   ret ptr %9
 }
 
@@ -480,13 +478,17 @@ declare void @_ZN6icu_7513UnicodeString7unBogusEv(ptr noundef nonnull align 8 de
 
 declare noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString7replaceEiii(ptr noundef nonnull align 8 dereferenceable(64), i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #5
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
+declare void @llvm.assume(i1 noundef) #6
+
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nounwind }
+attributes #6 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #7 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

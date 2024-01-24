@@ -104,26 +104,17 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %entry
   %or.i.i.i.i = or i64 %shr.i.i.i.i, 128
   %add.i.i.i.i = add nsw i64 %0, %conv.i.i.i.i.i.i.i
   invoke void @_ZN5folly3f146detail8F14TableINS1_21VectorContainerPolicyIN8facebook5velox5cache10TrackingIdENS6_12TrackingDataEvvvSt17integral_constantIbLb1EEEEE19tryEmplaceValueImplIS7_JRKSt21piecewise_construct_tSt5tupleIJRKS7_EESH_IJEEEEESt4pairINS1_11F14ItemIterIPNS1_8F14ChunkIjEEEEbESM_ImmERKT_DpOT0_(ptr nonnull sret(%"struct.std::pair.9") align 8 %rv.i.i, ptr noundef nonnull align 8 dereferenceable(24) %data_, i64 %add.i.i.i.i, i64 %or.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %id, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2.i.i)
-          to label %.noexc unwind label %lpad
+          to label %invoke.cont unwind label %lpad
 
-.noexc:                                           ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit
-  %1 = load ptr, ptr %rv.i.i, align 8, !noalias !7
-  %cmp.i.i.i.i = icmp eq ptr %1, null
-  br i1 %cmp.i.i.i.i, label %invoke.cont, label %if.else.i.i.i
-
-if.else.i.i.i:                                    ; preds = %.noexc
+invoke.cont:                                      ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit
+  %1 = load ptr, ptr %rv.i.i, align 8, !noalias !7, !nonnull !10, !noundef !10
   %2 = load ptr, ptr %data_, align 8, !noalias !7, !nonnull !10, !noundef !10
   %3 = load i32, ptr %1, align 4, !noalias !7
   %idx.ext8.i.i.i = zext i32 %3 to i64
-  %add.ptr9.i.i.i = getelementptr inbounds %"struct.std::pair", ptr %2, i64 %idx.ext8.i.i.i
-  br label %invoke.cont
-
-invoke.cont:                                      ; preds = %if.else.i.i.i, %.noexc
-  %retval.sroa.0.0.i.i.i = phi ptr [ %add.ptr9.i.i.i, %if.else.i.i.i ], [ null, %.noexc ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %rv.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp2.i.i)
-  %second.i = getelementptr inbounds i8, ptr %retval.sroa.0.0.i.i.i, i64 8
+  %second.i = getelementptr inbounds %"struct.std::pair", ptr %2, i64 %idx.ext8.i.i.i, i32 1
   %loadQuantum_ = getelementptr inbounds i8, ptr %this, i64 152
   %4 = load i32, ptr %loadQuantum_, align 8
   %5 = load i64, ptr %second.i, align 8
@@ -133,7 +124,7 @@ invoke.cont:                                      ; preds = %if.else.i.i.i, %.no
   br i1 %tobool.not.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %invoke.cont
-  %numReferences.i = getelementptr inbounds i8, ptr %retval.sroa.0.0.i.i.i, i64 24
+  %numReferences.i = getelementptr inbounds i8, ptr %second.i, i64 16
   %6 = load i32, ptr %numReferences.i, align 8
   %inc.i = add nsw i32 %6, 1
   store i32 %inc.i, ptr %numReferences.i, align 8
@@ -145,7 +136,7 @@ if.else.i:                                        ; preds = %invoke.cont
   %add.i.i = add i64 %conv.i.i, %bytes
   %conv1.i.i = sext i32 %4 to i64
   %div.i = udiv i64 %add.i.i, %conv1.i.i
-  %numReferences2.i = getelementptr inbounds i8, ptr %retval.sroa.0.0.i.i.i, i64 24
+  %numReferences2.i = getelementptr inbounds i8, ptr %second.i, i64 16
   %7 = load i32, ptr %numReferences2.i, align 8
   %8 = trunc i64 %div.i to i32
   %conv5.i = add i32 %7, %8
@@ -225,9 +216,9 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %entry
   %or.i.i.i.i = or i64 %shr.i.i.i.i, 128
   %add.i.i.i.i = add nsw i64 %0, %conv.i.i.i.i.i.i.i
   invoke void @_ZN5folly3f146detail8F14TableINS1_21VectorContainerPolicyIN8facebook5velox5cache10TrackingIdENS6_12TrackingDataEvvvSt17integral_constantIbLb1EEEEE19tryEmplaceValueImplIS7_JRKSt21piecewise_construct_tSt5tupleIJRKS7_EESH_IJEEEEESt4pairINS1_11F14ItemIterIPNS1_8F14ChunkIjEEEEbESM_ImmERKT_DpOT0_(ptr nonnull sret(%"struct.std::pair.9") align 8 %rv.i.i, ptr noundef nonnull align 8 dereferenceable(24) %data_, i64 %add.i.i.i.i, i64 %or.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %id, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2.i.i)
-          to label %.noexc unwind label %lpad
+          to label %invoke.cont unwind label %lpad
 
-.noexc:                                           ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit
+invoke.cont:                                      ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit
   %1 = load ptr, ptr %rv.i.i, align 8, !noalias !14, !nonnull !10, !noundef !10
   %2 = load ptr, ptr %data_, align 8, !noalias !14, !nonnull !10, !noundef !10
   %3 = load i32, ptr %1, align 4, !noalias !14

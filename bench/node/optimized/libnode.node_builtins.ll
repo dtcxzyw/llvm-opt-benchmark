@@ -3821,15 +3821,11 @@ entry:
   %arrayidx.i.i = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load ptr, ptr %arrayidx.i.i, align 8
   %call1.i = tail call ptr @_ZN2v87Isolate17GetCurrentContextEv(ptr noundef nonnull align 1 dereferenceable(1) %1) #23
-  %cmp.i.i.i.i = icmp eq ptr %call1.i, null
-  br i1 %cmp.i.i.i.i, label %_ZN4node11Environment10GetCurrentIN2v85ValueEEEPS0_RKNS2_20PropertyCallbackInfoIT_EE.exit, label %if.end.i.i.i
-
-if.end.i.i.i:                                     ; preds = %entry
+  %cmp.i.i.i.i = icmp ne ptr %call1.i, null
+  tail call void @llvm.assume(i1 %cmp.i.i.i.i)
   %call5.i.i.i = tail call noundef i32 @_ZN2v87Context29GetNumberOfEmbedderDataFieldsEv(ptr noundef nonnull align 1 dereferenceable(1) %call1.i) #23
-  %cmp.i.i.i = icmp ult i32 %call5.i.i.i, 40
-  br i1 %cmp.i.i.i, label %_ZN4node11Environment10GetCurrentIN2v85ValueEEEPS0_RKNS2_20PropertyCallbackInfoIT_EE.exit, label %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i
-
-_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i: ; preds = %if.end.i.i.i
+  %cmp.i.i.i = icmp ugt i32 %call5.i.i.i, 39
+  tail call void @llvm.assume(i1 %cmp.i.i.i)
   %2 = load i64, ptr %call1.i, align 8
   %sub.i37.i.i.i = add i64 %2, 47
   %3 = inttoptr i64 %sub.i37.i.i.i to ptr
@@ -3840,20 +3836,14 @@ _ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i:
   %7 = inttoptr i64 %6 to ptr
   %8 = load ptr, ptr @_ZN4node18ContextEmbedderTag18kNodeContextTagPtrE, align 8
   %cmp12.not.i.i.i = icmp eq ptr %8, %7
-  br i1 %cmp12.not.i.i.i, label %if.end.i.i, label %_ZN4node11Environment10GetCurrentIN2v85ValueEEEPS0_RKNS2_20PropertyCallbackInfoIT_EE.exit
-
-if.end.i.i:                                       ; preds = %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i
+  tail call void @llvm.assume(i1 %cmp12.not.i.i.i)
   %sub.i.i.i = add i64 %4, 271
   %9 = inttoptr i64 %sub.i.i.i to ptr
   %10 = load i64, ptr %9, align 8
   %11 = inttoptr i64 %10 to ptr
-  br label %_ZN4node11Environment10GetCurrentIN2v85ValueEEEPS0_RKNS2_20PropertyCallbackInfoIT_EE.exit
-
-_ZN4node11Environment10GetCurrentIN2v85ValueEEEPS0_RKNS2_20PropertyCallbackInfoIT_EE.exit: ; preds = %entry, %if.end.i.i.i, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i, %if.end.i.i
-  %retval.0.i.i = phi ptr [ %11, %if.end.i.i ], [ null, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i ], [ null, %entry ], [ null, %if.end.i.i.i ]
-  %isolate_.i = getelementptr inbounds i8, ptr %retval.0.i.i, i64 88
+  %isolate_.i = getelementptr inbounds i8, ptr %11, i64 88
   %12 = load ptr, ptr %isolate_.i, align 8
-  %builtin_loader_.i = getelementptr inbounds i8, ptr %retval.0.i.i, i64 2736
+  %builtin_loader_.i = getelementptr inbounds i8, ptr %11, i64 2736
   call void @_ZNK4node8builtins13BuiltinLoader13GetBuiltinIdsEv(ptr nonnull sret(%"class.std::vector.265") align 8 %ids, ptr noundef nonnull align 8 dereferenceable(48) %builtin_loader_.i)
   %13 = load ptr, ptr %info, align 8
   %call9 = call ptr @_ZN2v87Isolate17GetCurrentContextEv(ptr noundef nonnull align 1 dereferenceable(1) %12) #23
@@ -3861,7 +3851,7 @@ _ZN4node11Environment10GetCurrentIN2v85ValueEEEPS0_RKNS2_20PropertyCallbackInfoI
   %cmp.i.i = icmp eq ptr %call16, null
   br i1 %cmp.i.i, label %if.then.i34, label %_ZN2v811ReturnValueINS_5ValueEE3SetIS1_EEvNS_5LocalIT_EE.exit
 
-if.then.i34:                                      ; preds = %_ZN4node11Environment10GetCurrentIN2v85ValueEEEPS0_RKNS2_20PropertyCallbackInfoIT_EE.exit
+if.then.i34:                                      ; preds = %entry
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #23
   %arrayidx.i47 = getelementptr inbounds i8, ptr %13, i64 16
   %14 = load ptr, ptr %arrayidx.i47, align 8
@@ -3870,8 +3860,8 @@ if.then.i34:                                      ; preds = %_ZN4node11Environme
   %16 = inttoptr i64 %add1.i.i to ptr
   br label %_ZN2v811ReturnValueINS_5ValueEE3SetIS1_EEvNS_5LocalIT_EE.exit
 
-_ZN2v811ReturnValueINS_5ValueEE3SetIS1_EEvNS_5LocalIT_EE.exit: ; preds = %_ZN4node11Environment10GetCurrentIN2v85ValueEEEPS0_RKNS2_20PropertyCallbackInfoIT_EE.exit, %if.then.i34
-  %storemerge.in = phi ptr [ %16, %if.then.i34 ], [ %call16, %_ZN4node11Environment10GetCurrentIN2v85ValueEEEPS0_RKNS2_20PropertyCallbackInfoIT_EE.exit ]
+_ZN2v811ReturnValueINS_5ValueEE3SetIS1_EEvNS_5LocalIT_EE.exit: ; preds = %entry, %if.then.i34
+  %storemerge.in = phi ptr [ %16, %if.then.i34 ], [ %call16, %entry ]
   %arrayidx.i = getelementptr inbounds i8, ptr %13, i64 32
   %storemerge = load i64, ptr %storemerge.in, align 8
   store i64 %storemerge, ptr %arrayidx.i, align 8
@@ -4082,15 +4072,11 @@ entry:
   %arrayidx.i.i = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load ptr, ptr %arrayidx.i.i, align 8
   %call1.i = tail call ptr @_ZN2v87Isolate17GetCurrentContextEv(ptr noundef nonnull align 1 dereferenceable(1) %1) #23
-  %cmp.i.i.i.i = icmp eq ptr %call1.i, null
-  br i1 %cmp.i.i.i.i, label %_ZN4node11Environment10GetCurrentIN2v85ValueEEEPS0_RKNS2_20PropertyCallbackInfoIT_EE.exit, label %if.end.i.i.i
-
-if.end.i.i.i:                                     ; preds = %entry
+  %cmp.i.i.i.i = icmp ne ptr %call1.i, null
+  tail call void @llvm.assume(i1 %cmp.i.i.i.i)
   %call5.i.i.i = tail call noundef i32 @_ZN2v87Context29GetNumberOfEmbedderDataFieldsEv(ptr noundef nonnull align 1 dereferenceable(1) %call1.i) #23
-  %cmp.i.i.i = icmp ult i32 %call5.i.i.i, 40
-  br i1 %cmp.i.i.i, label %_ZN4node11Environment10GetCurrentIN2v85ValueEEEPS0_RKNS2_20PropertyCallbackInfoIT_EE.exit, label %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i
-
-_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i: ; preds = %if.end.i.i.i
+  %cmp.i.i.i = icmp ugt i32 %call5.i.i.i, 39
+  tail call void @llvm.assume(i1 %cmp.i.i.i)
   %2 = load i64, ptr %call1.i, align 8
   %sub.i37.i.i.i = add i64 %2, 47
   %3 = inttoptr i64 %sub.i37.i.i.i to ptr
@@ -4101,34 +4087,28 @@ _ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i:
   %7 = inttoptr i64 %6 to ptr
   %8 = load ptr, ptr @_ZN4node18ContextEmbedderTag18kNodeContextTagPtrE, align 8
   %cmp12.not.i.i.i = icmp eq ptr %8, %7
-  br i1 %cmp12.not.i.i.i, label %if.end.i.i, label %_ZN4node11Environment10GetCurrentIN2v85ValueEEEPS0_RKNS2_20PropertyCallbackInfoIT_EE.exit
-
-if.end.i.i:                                       ; preds = %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i
+  tail call void @llvm.assume(i1 %cmp12.not.i.i.i)
   %sub.i.i.i = add i64 %4, 271
   %9 = inttoptr i64 %sub.i.i.i to ptr
   %10 = load i64, ptr %9, align 8
   %11 = inttoptr i64 %10 to ptr
-  br label %_ZN4node11Environment10GetCurrentIN2v85ValueEEEPS0_RKNS2_20PropertyCallbackInfoIT_EE.exit
-
-_ZN4node11Environment10GetCurrentIN2v85ValueEEEPS0_RKNS2_20PropertyCallbackInfoIT_EE.exit: ; preds = %entry, %if.end.i.i.i, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i, %if.end.i.i
-  %retval.0.i.i = phi ptr [ %11, %if.end.i.i ], [ null, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i ], [ null, %entry ], [ null, %if.end.i.i.i ]
   %12 = load ptr, ptr %info, align 8
   %arrayidx.i17 = getelementptr inbounds i8, ptr %12, i64 16
   %13 = load ptr, ptr %arrayidx.i17, align 8
-  %config_.i = getelementptr inbounds i8, ptr %retval.0.i.i, i64 2752
+  %config_.i = getelementptr inbounds i8, ptr %11, i64 2752
   %call.i = tail call ptr @_ZNK4node10UnionBytes15ToStringCheckedEPN2v87IsolateE(ptr noundef nonnull align 8 dereferenceable(16) %config_.i, ptr noundef %13) #23
   %cmp.i = icmp eq ptr %call.i, null
   br i1 %cmp.i, label %if.then.i, label %_ZN2v811ReturnValueINS_5ValueEE3SetINS_6StringEEEvNS_5LocalIT_EE.exit
 
-if.then.i:                                        ; preds = %_ZN4node11Environment10GetCurrentIN2v85ValueEEEPS0_RKNS2_20PropertyCallbackInfoIT_EE.exit
+if.then.i:                                        ; preds = %entry
   %14 = load ptr, ptr %arrayidx.i17, align 8
   %15 = ptrtoint ptr %14 to i64
   %add1.i.i = add i64 %15, 616
   %16 = inttoptr i64 %add1.i.i to ptr
   br label %_ZN2v811ReturnValueINS_5ValueEE3SetINS_6StringEEEvNS_5LocalIT_EE.exit
 
-_ZN2v811ReturnValueINS_5ValueEE3SetINS_6StringEEEvNS_5LocalIT_EE.exit: ; preds = %_ZN4node11Environment10GetCurrentIN2v85ValueEEEPS0_RKNS2_20PropertyCallbackInfoIT_EE.exit, %if.then.i
-  %storemerge.in = phi ptr [ %16, %if.then.i ], [ %call.i, %_ZN4node11Environment10GetCurrentIN2v85ValueEEEPS0_RKNS2_20PropertyCallbackInfoIT_EE.exit ]
+_ZN2v811ReturnValueINS_5ValueEE3SetINS_6StringEEEvNS_5LocalIT_EE.exit: ; preds = %entry, %if.then.i
+  %storemerge.in = phi ptr [ %16, %if.then.i ], [ %call.i, %entry ]
   %arrayidx.i = getelementptr inbounds i8, ptr %12, i64 32
   %storemerge = load i64, ptr %storemerge.in, align 8
   store i64 %storemerge, ptr %arrayidx.i, align 8

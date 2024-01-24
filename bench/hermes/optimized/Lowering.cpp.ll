@@ -1936,14 +1936,17 @@ _ZN4llvh11SmallVectorISt4pairIPN6hermes7LiteralES4_ELj4EEC2ERKS6_.exit: ; preds 
   %call.i68 = call noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(132) %allocInst, i32 noundef 0) #13
   %value.i.i.i = getelementptr inbounds i8, ptr %call.i68, i64 48
   %36 = load double, ptr %value.i.i.i, align 8
-  %cmp.i.i.i = fcmp ogt double %36, 0x41EFFFFFFFE00000
-  %cmp5.i.i.i = fcmp olt double %36, 0.000000e+00
-  %or.cond.i.i.i = or i1 %cmp.i.i.i, %cmp5.i.i.i
-  %37 = fcmp uno double %36, 0.000000e+00
-  %or.cond4.i.i.i = or i1 %37, %or.cond.i.i.i
+  %cmp.i.i.i = fcmp ule double %36, 0x41EFFFFFFFE00000
+  %cmp5.i.i.i = fcmp uge double %36, 0.000000e+00
+  %37 = fcmp ord double %36, 0.000000e+00
+  call void @llvm.assume(i1 %37)
+  call void @llvm.assume(i1 %cmp.i.i.i)
+  call void @llvm.assume(i1 %cmp5.i.i.i)
   %conv11.i.i.i = fptoui double %36 to i32
-  %spec.select.i.i = select i1 %or.cond4.i.i.i, i32 undef, i32 %conv11.i.i.i
-  %call49 = call noundef ptr @_ZN6hermes9IRBuilder34createHBCAllocObjectFromBufferInstEN4llvh11SmallVectorISt4pairIPNS_7LiteralES5_ELj4EEEj(ptr noundef nonnull align 8 dereferenceable(40) %builder, ptr noundef nonnull %agg.tmp47, i32 noundef %spec.select.i.i) #13
+  %conv12.i.i.i = uitofp i32 %conv11.i.i.i to double
+  %cmp14.i.i.i = fcmp oeq double %36, %conv12.i.i.i
+  call void @llvm.assume(i1 %cmp14.i.i.i)
+  %call49 = call noundef ptr @_ZN6hermes9IRBuilder34createHBCAllocObjectFromBufferInstEN4llvh11SmallVectorISt4pairIPNS_7LiteralES5_ELj4EEEj(ptr noundef nonnull align 8 dereferenceable(40) %builder, ptr noundef nonnull %agg.tmp47, i32 noundef %conv11.i.i.i) #13
   %38 = load ptr, ptr %agg.tmp47, align 8
   %cmp.i.i.i70 = icmp eq ptr %38, %add.ptr.i.i.i.i.i63
   br i1 %cmp.i.i.i70, label %_ZN4llvh11SmallVectorISt4pairIPN6hermes7LiteralES4_ELj4EED2Ev.exit, label %if.then.i.i71

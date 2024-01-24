@@ -4662,7 +4662,7 @@ lpad:                                             ; preds = %if.else.i, %if.then
 declare void @_ZN10arith_utilC1ER11ast_manager(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(976)) unnamed_addr #0
 
 ; Function Attrs: mustprogress noreturn uwtable
-define hidden noalias noundef nonnull ptr @_ZN17array_decl_plugin15mk_set_has_sizeEjPKP4sort(ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %this, i32 noundef %arity, ptr nocapture noundef readnone %domain) local_unnamed_addr #7 align 2 {
+define hidden noalias noundef nonnull ptr @_ZN17array_decl_plugin15mk_set_has_sizeEjPKP4sort(ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %this, i32 noundef %arity, ptr nocapture readnone %domain) local_unnamed_addr #7 align 2 {
 entry:
   %cmp.not = icmp eq i32 %arity, 2
   %m_manager2 = getelementptr inbounds i8, ptr %this, i64 8
@@ -5123,17 +5123,7 @@ sw.bb56:                                          ; preds = %entry
   br label %return
 
 sw.bb58:                                          ; preds = %entry
-  %cmp.not.i = icmp eq i32 %arity, 2
-  %m_manager2.i = getelementptr inbounds i8, ptr %this, i64 8
-  %7 = load ptr, ptr %m_manager2.i, align 8
-  br i1 %cmp.not.i, label %if.end.i, label %if.then.i
-
-if.then.i:                                        ; preds = %sw.bb58
-  tail call void @_ZN11ast_manager15raise_exceptionEPKc(ptr noundef nonnull align 8 dereferenceable(976) %7, ptr noundef nonnull @.str.63) #18
-  unreachable
-
-if.end.i:                                         ; preds = %sw.bb58
-  tail call void @_ZN11ast_manager15raise_exceptionEPKc(ptr noundef nonnull align 8 dereferenceable(976) %7, ptr noundef nonnull @.str.64) #18
+  %call59 = tail call noundef ptr @_ZN17array_decl_plugin15mk_set_has_sizeEjPKP4sort(ptr noundef nonnull align 8 dereferenceable(136) %this, i32 noundef %arity, ptr poison)
   unreachable
 
 sw.bb60:                                          ; preds = %entry
@@ -5146,32 +5136,32 @@ sw.bb62:                                          ; preds = %entry
 
 lor.lhs.false64:                                  ; preds = %sw.bb62
   %_M_index.i.i.i65 = getelementptr inbounds i8, ptr %parameters, i64 8
-  %8 = load i8, ptr %_M_index.i.i.i65, align 8
-  %cmp.i66 = icmp eq i8 %8, 1
+  %7 = load i8, ptr %_M_index.i.i.i65, align 8
+  %cmp.i66 = icmp eq i8 %7, 1
   br i1 %cmp.i66, label %_ZNK9parameter7get_astEv.exit72, label %if.then77
 
 _ZNK9parameter7get_astEv.exit72:                  ; preds = %lor.lhs.false64
-  %9 = load ptr, ptr %parameters, align 8
-  %m_kind.i.i73 = getelementptr inbounds i8, ptr %9, i64 4
+  %8 = load ptr, ptr %parameters, align 8
+  %m_kind.i.i73 = getelementptr inbounds i8, ptr %8, i64 4
   %bf.load.i.i74 = load i32, ptr %m_kind.i.i73, align 4
   %bf.clear.i.i75 = and i32 %bf.load.i.i74, 65535
   %cmp.i76 = icmp eq i32 %bf.clear.i.i75, 4
   br i1 %cmp.i76, label %_ZNK9parameter7get_astEv.exit82, label %if.then77
 
 _ZNK9parameter7get_astEv.exit82:                  ; preds = %_ZNK9parameter7get_astEv.exit72
-  %m_arity.i = getelementptr inbounds i8, ptr %9, i64 32
-  %10 = load i32, ptr %m_arity.i, align 8
-  %cmp76 = icmp eq i32 %10, 0
+  %m_arity.i = getelementptr inbounds i8, ptr %8, i64 32
+  %9 = load i32, ptr %m_arity.i, align 8
+  %cmp76 = icmp eq i32 %9, 0
   br i1 %cmp76, label %if.then77, label %_ZNK9parameter7get_astEv.exit88
 
 if.then77:                                        ; preds = %_ZNK9parameter7get_astEv.exit82, %_ZNK9parameter7get_astEv.exit72, %lor.lhs.false64, %sw.bb62
   %m_manager78 = getelementptr inbounds i8, ptr %this, i64 8
-  %11 = load ptr, ptr %m_manager78, align 8
-  tail call void @_ZN11ast_manager15raise_exceptionEPKc(ptr noundef nonnull align 8 dereferenceable(976) %11, ptr noundef nonnull @.str.69) #18
+  %10 = load ptr, ptr %m_manager78, align 8
+  tail call void @_ZN11ast_manager15raise_exceptionEPKc(ptr noundef nonnull align 8 dereferenceable(976) %10, ptr noundef nonnull @.str.69) #18
   unreachable
 
 _ZNK9parameter7get_astEv.exit88:                  ; preds = %_ZNK9parameter7get_astEv.exit82
-  %call84 = tail call noundef ptr @_ZN17array_decl_plugin11mk_as_arrayEP9func_decl(ptr noundef nonnull align 8 dereferenceable(136) %this, ptr noundef nonnull %9)
+  %call84 = tail call noundef ptr @_ZN17array_decl_plugin11mk_as_arrayEP9func_decl(ptr noundef nonnull align 8 dereferenceable(136) %this, ptr noundef nonnull %8)
   br label %return
 
 return:                                           ; preds = %entry, %_ZNK9parameter7get_astEv.exit88, %sw.bb60, %sw.bb56, %sw.bb54, %sw.bb52, %sw.bb50, %sw.bb48, %sw.bb46, %_ZNK9parameter7get_intEv.exit, %if.then34, %_ZNK9parameter7get_astEv.exit57, %if.then15, %if.then, %sw.bb2, %sw.bb
